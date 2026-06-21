@@ -3116,12 +3116,9 @@ input, select, textarea {
 	}
 
 	#header {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
 		display: flex;
-		background-color: #2a2f4a;
-		box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.15);
+    	background-color: #FFFDF5; /* Matches your light background */
+    	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 		cursor: default;
 		font-weight: 600;
 		height: 3.25em;
