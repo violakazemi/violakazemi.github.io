@@ -169,7 +169,7 @@ input, select, textarea {
 		}
 
 		a:active {
-			color: #53e3fb !important;
+			color: #000000 !important;
 		}
 
 	strong, b {
@@ -2413,7 +2413,7 @@ input, select, textarea {
 					}
 
 					ul.pagination li > .page.active:active {
-						background-color: #53e3fb;
+						background-color: #000000;
 					}
 
 			ul.pagination li:first-child {
@@ -2557,8 +2557,8 @@ input, select, textarea {
 		button:active,
 		.button:active {
 			background-color: rgba(155, 241, 255, 0.1);
-			box-shadow: inset 0 0 0 2px #53e3fb;
-			color: #53e3fb;
+			box-shadow: inset 0 0 0 2px #000000;
+			color: #000000;
 		}
 
 		input[type="submit"].icon:before,
@@ -2700,7 +2700,7 @@ input, select, textarea {
 			input[type="button"].primary:active,
 			button.primary:active,
 			.button.primary:active {
-				background-color: #53e3fb;
+				background-color: #000000;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -3160,7 +3160,7 @@ input, select, textarea {
 			}
 
 			#header .logo:active strong {
-				background-color: #53e3fb;
+				background-color: #000000;
 			}
 
 		#header nav {
