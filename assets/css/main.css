@@ -3950,3 +3950,29 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+body {
+    background-color: #F9F7F3 !important; /* Off-White background */
+    color: #000000 !important;           /* Black text */
+}
+
+/* 2. Standardize Borders */
+* {
+    border-color: #000000 !important;
+}
+
+/* 3. Your 4 Colorful Grid Tiles */
+#one article:nth-child(1) .image { background-color: #7DB9FF !important; } /* Sky Blue */
+#one article:nth-child(2) .image { background-color: #FFD43B !important; } /* Bold Yellow */
+#one article:nth-child(3) .image { background-color: #98D8A1 !important; } /* Soft Green */
+#one article:nth-child(4) .image { background-color: #FF7F7F !important; } /* Coral Pink */
+
+/* 4. Ensure Typography within Tiles stays Black */
+#one article header h3, 
+#one article header p {
+    color: #000000 !important;
+}
+
+#one article header {
+    border-bottom: 2px solid #000000 !important;
+}
