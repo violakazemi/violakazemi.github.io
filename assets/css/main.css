@@ -2837,7 +2837,7 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #333333;
+				background-color: #8f8b8b;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
