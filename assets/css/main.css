@@ -27,7 +27,7 @@ section, summary, time, mark, audio, video {
 :root {
     --bg-color: #FFFDF5;
     --text-color: #333333; /* Dark gray is easier to read on light backgrounds */
-    --accent-color: #6fc3df; /* Use your blue accent */
+    --accent-color: #000000; /* Use your blue accent */
 }
 
 article, aside, details, figcaption, figure,
@@ -2157,7 +2157,7 @@ input, select, textarea {
 	}
 
 	a.icon.alt:hover:before {
-		background-color: #6fc3df;
+		background-color: #000000;
 	}
 
 	a.icon.alt:active:before {
@@ -2837,7 +2837,7 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #6fc3df;
+				background-color: #000000;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
@@ -3262,7 +3262,7 @@ input, select, textarea {
 		}
 
 			#header.alt.style1 .logo strong {
-				color: #6fc3df;
+				color: #000000;
 			}
 
 			#header.alt.style2 .logo strong {
@@ -3494,7 +3494,7 @@ input, select, textarea {
 			}
 
 		#banner.style1:after {
-			background-color: #6fc3df;
+			background-color: #000000;
 		}
 
 		#banner.style2:after {
