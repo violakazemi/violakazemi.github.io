@@ -2161,7 +2161,7 @@ input, select, textarea {
 	}
 
 	a.icon.alt:active:before {
-		background-color: #37a6cb;
+		background-color: #333333;
 	}
 
 /* Image */
