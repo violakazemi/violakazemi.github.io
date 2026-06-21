@@ -27,7 +27,7 @@ section, summary, time, mark, audio, video {
 :root {
     --bg-color: #FFFDF5;
     --text-color: #333333; /* Dark gray is easier to read on light backgrounds */
-    --accent-color: #000000; /* Use your blue accent */
+    --accent-color: #000000; 
 }
 
 article, aside, details, figcaption, figure,
@@ -165,7 +165,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #000000 !important;
+			color: #333333 !important;
 		}
 
 		a:active {
@@ -3157,6 +3157,7 @@ input, select, textarea {
 
 			#header .logo:hover strong {
 				background-color: #000000;
+    			color: #ffffff;
 			}
 
 			#header .logo:active strong {
