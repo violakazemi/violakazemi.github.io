@@ -4002,3 +4002,16 @@ body {
 #footer .icons a {
     color: #ffffff !important;
 }
+
+#footer {
+    background-color: #000000 !important;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#footer .inner {
+    max-width: 100% !important; /* Forces the inner content container to fill the width */
+    margin: 0 auto;
+    padding: 0 2em; /* Keeps content from touching the very edge of the screen */
+}
