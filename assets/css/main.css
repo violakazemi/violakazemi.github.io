@@ -3719,7 +3719,7 @@ input, select, textarea {
 
 		#footer .copyright li {
 			border-left: 0;
-			color: rgba(0, 0, 0, 0.5);
+			color: rgba(0, 0, 0, 1);
 			display: inline-block;
 			line-height: 1;
 			margin-left: 1em;
