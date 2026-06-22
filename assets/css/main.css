@@ -4015,3 +4015,8 @@ body {
     margin: 0 auto;
     padding: 0 2em; /* Keeps content from touching the very edge of the screen */
 }
+
+#footer .icons {
+    text-align: center; /* Centers your social icons */
+    margin-top: 2em;
+}
