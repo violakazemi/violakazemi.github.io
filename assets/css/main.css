@@ -3980,3 +3980,16 @@ body {
 #one article header {
     border-bottom: 2px solid #000000 !important;
 }
+#footer .inner {
+    border-top: none !important;
+}
+
+/* Remove decorative lines on headings inside the footer */
+#footer h2, #footer h3, #footer h4 {
+    border-bottom: none !important;
+}
+
+/* Remove the specific list item borders */
+#footer .copyright li {
+    border-left: none !important;
+}
