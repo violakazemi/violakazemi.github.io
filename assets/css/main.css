@@ -4048,3 +4048,8 @@ header.major h3:after {
     display: none !important;
     content: none !important;
 }
+
+header.major::after, 
+header.major > :first-child::after {
+    display: none !important;
+}
