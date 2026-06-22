@@ -4054,6 +4054,10 @@ header.major > :first-child::after {
     display: none !important;
 }
 
+header.major {
+    border-bottom: none !important;
+}
+
 header.major > :first-child::after {
     display: none !important;
     content: none !important;
