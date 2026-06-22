@@ -1791,7 +1791,7 @@ input, select, textarea {
 			header.major > :first-child:after {
 				content: '';
 				background-color: #111111;
-				display: block;
+				display: none;
 				height: 2px;
 				margin: 0.325em 0 0.5em 0;
 				width: 100%;
