@@ -4020,3 +4020,18 @@ body {
     text-align: center; /* Centers your social icons */
     margin-top: 2em;
 }
+
+#footer {
+    background-color: #000000 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 4em 0 2em 0 !important; /* Adjust padding as you prefer */
+}
+
+/* 2. Force the inner container to behave and remove any internal borders */
+#footer .inner {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 2em !important;
+    border-top: none !important;
+}
