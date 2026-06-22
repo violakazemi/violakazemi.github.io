@@ -1792,7 +1792,7 @@ input, select, textarea {
 				content: '';
     			background-color: #111111;
     			display: none !important; /* Adding !important ensures it overrides other rules */
-    			height: 2px;
+    			height: 0;
     			margin: 0.325em 0 0.5em 0;
     			width: 100%;
 			}
@@ -4053,6 +4053,7 @@ header.major::after,
 header.major > :first-child::after {
     display: none !important;
 }
+
 header.major {
     border-bottom: none !important;
 }
