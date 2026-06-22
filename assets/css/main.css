@@ -3993,3 +3993,12 @@ body {
 #footer .copyright li {
     border-left: none !important;
 }
+
+#footer {
+    background-color: #000000 !important; /* Sets your footer background to black */
+    color: #ffffff; /* Sets the text color to white for contrast */
+}
+
+#footer .icons a {
+    color: #ffffff !important;
+}
