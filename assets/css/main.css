@@ -4035,3 +4035,8 @@ body {
     padding: 0 2em !important;
     border-top: none !important;
 }
+
+section, .wrapper, #main > * {
+    border-top: none !important;
+    border-bottom: none !important;
+}
