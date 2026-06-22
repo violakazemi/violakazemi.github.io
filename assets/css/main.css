@@ -4063,3 +4063,7 @@ header.major > :first-child::after {
     content: none !important;
     background: none !important;
 }
+
+article header.major {
+	border-bottom: 0 !important;
+}
