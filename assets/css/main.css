@@ -4040,3 +4040,11 @@ section, .wrapper, #main > * {
     border-top: none !important;
     border-bottom: none !important;
 }
+
+header.major > :first-child:after, 
+header.major h1:after, 
+header.major h2:after, 
+header.major h3:after {
+    display: none !important;
+    content: none !important;
+}
