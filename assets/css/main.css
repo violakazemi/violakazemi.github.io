@@ -4232,6 +4232,22 @@ article header.major {
     transform: translate(4px, 4px);
 }
 
+#footer .icons a,
+#footer .icons .icon {
+    background-color: #ffffff !important;
+}
+
+/* 2. Force the actual icon graphic (the envelope, LinkedIn text, camera) to be black */
+#footer .icons a::before,
+#footer .icons .icon::before,
+#footer .icons a span::before,
+#footer .icons a svg {
+    color: #000000 !important; 
+    
+    /* Ensure no stray backgrounds are bleeding through the graphic */
+    background-color: transparent !important; 
+}
+
 /* Mobile Adjustments */
 @media screen and (max-width: 480px) {
     #footer .copyright li {
