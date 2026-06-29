@@ -3740,6 +3740,32 @@ input, select, textarea {
 		background-color: #ffffff; /* Or one of your bold, saturated colors */
 	}
 
+#footer input,
+	#footer textarea,
+	#footer .button {
+		border: 4px solid #000000;
+		box-shadow: 4px 4px 0px 0px #000000;
+		border-radius: 0; /* Forces sharp, graphic corners */
+		transition: transform 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	#footer input:focus,
+	#footer textarea:focus {
+		outline: none;
+		border-color: #000000; /* Keeps the border stark black when typing */
+	}
+
+	/* Neubrutalism Button Hover/Click States */
+	#footer .button:hover {
+		box-shadow: 2px 2px 0px 0px #000000;
+		transform: translate(2px, 2px);
+	}
+	
+	#footer .button:active {
+		box-shadow: 0px 0px 0px 0px #000000;
+		transform: translate(4px, 4px);
+	}
+
 	@media screen and (max-width: 480px) {
 
 		#footer .copyright li {
