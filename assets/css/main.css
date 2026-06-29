@@ -4109,8 +4109,24 @@ article header.major {
     font-weight: 400; /* Ensures all titles have the same weight */
 }
 
+
+.button.primary {
+    background-color: #ffffff !important;
+    box-shadow: inset 0 0 0 2px #000000 !important;
+    color: #000000 !important;
+    display: inline-block !important;
+    height: 3.5em !important;
+    line-height: 3.5em !important;
+    padding: 0 1.75em !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
 .button.primary:hover, 
 .button.primary:active {
     background-color: #000000 !important;
-    color: #ffffff !important; /* Changed from #242943 to white */
+    color: #ffffff !important;
+    box-shadow: inset 0 0 0 2px #000000 !important;
+    height: 3.5em !important;
+    line-height: 3.5em !important;
 }
