@@ -4112,27 +4112,29 @@ article header.major {
 .button.primary {
     background-color: #ffffff !important;
     color: #000000 !important;
-    /* We keep the hard shadow style here, but define it as a solid shadow */
-    box-shadow: 4px 4px 0px 0px #000000 !important; 
+    border: 2px solid #000000 !important; /* Forces a solid border */
+    box-shadow: 4px 4px 0px 0px #000000 !important; /* Force your hard shadow */
     display: inline-block !important;
     height: 3.5em !important;
     line-height: 3.5em !important;
     padding: 0 1.75em !important;
     white-space: nowrap !important;
     vertical-align: middle !important;
-    border: 2px solid #000000 !important; /* Explicit border */
 }
 
-/* 2. Primary Hover/Active State */
+/* HOVER: Ensures colors stay distinct */
 .button.primary:hover {
     background-color: #000000 !important;
-    color: #ffffff !important;
-    box-shadow: 6px 6px 0px 0px #000000 !important; /* Maintains your "pop" effect */
+    color: #ffffff !important; /* Text becomes white, background black */
+    box-shadow: 6px 6px 0px 0px #000000 !important; 
+    border: 2px solid #000000 !important;
 }
 
+/* ACTIVE: Ensures the click state remains visible */
 .button.primary:active {
     background-color: #000000 !important;
     color: #ffffff !important;
-    transform: translate(2px, 2px) !important; /* Maintains the click movement */
-    box-shadow: 2px 2px 0px 0px #000000 !important; /* Maintains the shrink effect */
+    transform: translate(2px, 2px) !important;
+    box-shadow: 2px 2px 0px 0px #000000 !important;
+    border: 2px solid #000000 !important;
 }
