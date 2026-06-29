@@ -2907,21 +2907,21 @@ input, select, textarea {
 
 		}
 .tiles article {
-    /* ... keep your existing properties ... */
-    border: 2px solid #000000;
-    box-shadow: 4px 4px 0px 0px #000000;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    /* Existing properties kept for brevity */
+    position: relative;
+    /* ... keep your existing height, padding, etc ... */
+    
+    /* ADD THESE LINES FOR NEUBRUTALISM */
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0px 0px #000000;
+    /* Optional: If you want a slight hover effect to match buttons */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Hover state: shadow "pops" more */
+/* Optional Hover Effect for interactivity */
 .tiles article:hover {
-    box-shadow: 6px 6px 0px 0px #000000;
-}
-
-/* Active/Click state: tile moves and shadow shrinks */
-.tiles article:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px #000000;
+    box-shadow: 5px 5px 0px 0px #000000;
+    transform: translate(5px, 5px);
 }
 
 /* Contact Method */
