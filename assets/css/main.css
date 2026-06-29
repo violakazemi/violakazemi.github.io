@@ -4096,11 +4096,11 @@ article header.major {
     transition: transform 0.1s ease; /* Adds a nice feel when clicked */
 }
 
-.button:hover {
-    box-shadow: 6px 6px 0px 0px #000000; /* Optional: Makes shadow "pop" more on hover */
-}
-
 .button:active {
     transform: translate(2px, 2px); /* Moves button down when clicked */
     box-shadow: 2px 2px 0px 0px #000000; /* Shrinks shadow when pressed */
+}
+
+.experience-list .title {
+    font-weight: 400; /* Ensures all titles have the same weight */
 }
