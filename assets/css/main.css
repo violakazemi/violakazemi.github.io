@@ -4143,3 +4143,85 @@ article header.major {
     font-weight: 400; /* Ensures all titles have the same weight */
 }
 
+#footer {
+    padding: 4em 0 2em 0 !important;
+    
+    /* NEUBRUTALISM STYLES */
+    border: 4px solid #000000 !important;
+    box-shadow: 6px 6px 0px 0px #000000 !important;
+    margin: 0 2em 2em 2em !important;
+    
+    /* Background must be light/bright for the black shadow to show */
+    background-color: #ffffff !important; 
+    color: #000000 !important; /* Text changed to black for readability */
+    width: auto !important; 
+}
+
+#footer .inner {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 2em !important;
+    border-top: none !important;
+}
+
+/* Remove decorative lines on headings inside the footer */
+#footer h2, 
+#footer h3, 
+#footer h4 {
+    border-bottom: none !important;
+    color: #000000 !important;
+}
+
+/* Icons */
+#footer .icons {
+    text-align: center;
+    margin-top: 2em;
+}
+
+#footer .icons a {
+    color: #000000 !important; /* Keeps icons visible on light background */
+}
+
+/* Remove the specific list item borders */
+#footer .copyright li {
+    border-left: none !important;
+}
+
+/* Neubrutalism Form Elements */
+#footer input,
+#footer textarea,
+#footer .button {
+    border: 4px solid #000000;
+    box-shadow: 4px 4px 0px 0px #000000;
+    border-radius: 0; /* Forces sharp, graphic corners */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#footer input:focus,
+#footer textarea:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+/* Neubrutalism Button Hover/Click States */
+#footer .button:hover {
+    box-shadow: 2px 2px 0px 0px #000000;
+    transform: translate(2px, 2px);
+}
+
+#footer .button:active {
+    box-shadow: 0px 0px 0px 0px #000000;
+    transform: translate(4px, 4px);
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 480px) {
+    #footer .copyright li {
+        display: block;
+        border-left: 0;
+        margin-left: 0;
+        padding-left: 0;
+        line-height: inherit;
+    }
+}
+
