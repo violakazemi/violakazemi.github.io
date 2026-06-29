@@ -2140,7 +2140,7 @@ input, select, textarea {
 
 		.icon.alt:before {
 			background-color: #111111;
-			border-radius: 100%;
+			border-radius: 0;
 			color: #ffffff;
 			display: inline-block;
 			height: 2em;
