@@ -4212,6 +4212,7 @@ article header.major {
     box-shadow: 4px 4px 0px 0px #000000;
     border-radius: 0; /* Forces sharp, graphic corners */
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+	background: #ffffff;
 }
 
 #footer input:focus,
