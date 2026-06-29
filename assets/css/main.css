@@ -2677,7 +2677,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ffffff;
+			background-color: #B39DDB;
 			box-shadow: none;
 			color: #FFFDF5;
 		}
@@ -3737,7 +3737,7 @@ input, select, textarea {
 		
 		/* Adds space around the footer so the shadow is visible */
 		margin: 0 2em 2em 2em; 
-		background-color: #ffffff; /* Or one of your bold, saturated colors */
+		background-color: #B39DDB; /* Or one of your bold, saturated colors */
 	}
 
 #footer input,
@@ -4128,6 +4128,7 @@ article header.major {
     border: 2px solid #000000; /* Maintains the solid border */
     box-shadow: 4px 4px 0px 0px #000000; /* This creates the hard shadow effect */
     transition: transform 0.1s ease; /* Adds a nice feel when clicked */
+	background-color: #ffffff
 }
 
 .button:hover {
