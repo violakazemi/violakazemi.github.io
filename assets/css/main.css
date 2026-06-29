@@ -2906,6 +2906,23 @@ input, select, textarea {
 				}
 
 		}
+.tiles article {
+    /* Existing properties kept for brevity */
+    position: relative;
+    /* ... keep your existing height, padding, etc ... */
+    
+    /* ADD THESE LINES FOR NEUBRUTALISM */
+    border: 5px solid #000000;
+    box-shadow: 8px 8px 0px 0px #000000;
+    /* Optional: If you want a slight hover effect to match buttons */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Optional Hover Effect for interactivity */
+.tiles article:hover {
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(4px, 4px);
+}
 
 /* Contact Method */
 
