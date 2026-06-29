@@ -3737,7 +3737,7 @@ input, select, textarea {
 		
 		/* Adds space around the footer so the shadow is visible */
 		margin: 0 2em 2em 2em; 
-		background-color: #B39DDB; /* Or one of your bold, saturated colors */
+		background-color: #B8A9FA; /* Or one of your bold, saturated colors */
 	}
 
 #footer input,
@@ -4153,7 +4153,7 @@ article header.major {
     margin: 0 2em 2em 2em !important;
     
     /* Background must be light/bright for the black shadow to show */
-    background-color: #ffffff !important; 
+    background-color: #B8A9FA !important; 
     color: #000000 !important; /* Text changed to black for readability */
     width: auto !important; 
 }
