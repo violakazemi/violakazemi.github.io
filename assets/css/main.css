@@ -4108,3 +4108,9 @@ article header.major {
 .experience-list .title {
     font-weight: 400; /* Ensures all titles have the same weight */
 }
+
+.button.primary:hover, 
+.button.primary:active {
+    background-color: #000000 !important;
+    color: #ffffff !important; /* Changed from #242943 to white */
+}
