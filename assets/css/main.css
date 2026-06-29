@@ -4088,3 +4088,19 @@ article header.major {
     font-size: 1.1em;
     font-weight: 500;      /* Slightly bolder for the title */
 }
+
+.button {
+    /* Existing styles here */
+    border: 2px solid #000000; /* Maintains the solid border */
+    box-shadow: 4px 4px 0px 0px #000000; /* This creates the hard shadow effect */
+    transition: transform 0.1s ease; /* Adds a nice feel when clicked */
+}
+
+.button:hover {
+    box-shadow: 6px 6px 0px 0px #000000; /* Optional: Makes shadow "pop" more on hover */
+}
+
+.button:active {
+    transform: translate(2px, 2px); /* Moves button down when clicked */
+    box-shadow: 2px 2px 0px 0px #000000; /* Shrinks shadow when pressed */
+}
