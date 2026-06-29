@@ -4075,3 +4075,16 @@ header.major > :first-child::after {
 article header.major {
 	border-bottom: 0 !important;
 }
+
+.year {
+    font-weight: 300;       /* Lighter weight */
+    color: #666666;        /* Subtle gray instead of black */
+    font-size: 0.9em;      /* Slightly smaller */
+    margin-right: 10px;    /* Adds space between the year and the title */
+}
+
+.job {
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+    font-weight: 500;      /* Slightly bolder for the title */
+}
