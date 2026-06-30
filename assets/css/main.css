@@ -4,7 +4,7 @@
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
+code, del, dfn, em, img, ins, kbd, q, s, samp,F
 small, strike, strong, sub, sup, tt, var, b,
 u, i, center, dl, dt, dd, ol, ul, li, fieldset,
 form, label, legend, table, caption, tbody,
@@ -4317,6 +4317,20 @@ article header.major {
 #seg-ideate.active    { background-color: #7DB9FF; } /* Sky Blue */
 #seg-prototype.active { background-color: #9BD3A0; } /* Soft Green */
 #seg-test.active      { background-color: #AB9BF2; } /* Lavender */
+
+#seg-empathize { background-color: #FFD147; } /* Yellow */
+#seg-define    { background-color: #FF7F7F; } /* Coral Pink */
+#seg-ideate    { background-color: #7FBFFF; } /* Sky Blue */
+#seg-prototype { background-color: #9BD3A0; } /* Lime Green */
+#seg-test      { background-color: #AB9BF2; } /* Off-white */
+
+/* Remove the active background override to keep the row color consistent */
+.museum-page .nav-segment.active {
+    background-color: #000 !important; 
+    color: #FFF !important;
+    box-shadow: inset 4px 4px 0px rgba(0,0,0,0.5);
+    transform: translateY(2px);
+}
 
 .museum-page #main {
     margin-left: 290px; /* 250px nav width + 20px left placement + 20px buffer */
