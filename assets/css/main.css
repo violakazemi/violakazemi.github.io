@@ -77,6 +77,15 @@ input, select, textarea {
 	appearance: none;
 }
 
+body {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.nav-segment {
+    font-family: 'Syne', sans-serif; /* Use Syne for the nav buttons */
+    /* ... rest of your existing CSS ... */
+}
+
 /* Basic */
 
 	@-ms-viewport {
