@@ -16,12 +16,12 @@
 <body class="is-preload museum-page">
 
     <nav class="nav-container" id="nav-container">
-  <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">Empathize</a>
-  <a href="#define" class="nav-segment" id="seg-define" title="Define">Define</a>
-  <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">Ideate</a>
-  <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">Prototype</a>
-  <a href="#test" class="nav-segment" id="seg-test" title="Test">Test</a>
-</nav>
+        <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
+        <a href="#define" class="nav-segment" id="seg-define" title="Define">2. Define</a>
+        <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
+        <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
+        <a href="#test" class="nav-segment" id="seg-test" title="Test">5. Test</a>
+    </nav>
     
     <div id="wrapper">
 
@@ -75,38 +75,4 @@
                         <h2>Self-Review & Reflection</h2>
                         <p>I have evaluated my digital wireframes against the following criteria to ensure clarity, usability, and completeness:</p>
                         <ul>
-                            <li><strong>Complete User Flow:</strong> The design provides a seamless journey from dashboard selection to the final downloadable output, ensuring a user can successfully complete their task.</li>
-                            <li><strong>UI Consistency:</strong> All screens maintain consistent navigation, button styles, and card-based hierarchy, reflecting the information architecture required for mobile usability.</li>
-                            <li><strong>Hierarchy & Critical Thinking:</strong> I have prioritized the information Tara needs most—such as ratio validation and accessibility paths—placing them at the top of the hierarchy to reduce cognitive load.</li>
-                            <li><strong>From Paper to Digital:</strong> The transition from paper wireframes to high-fidelity digital frames in Figma was focused on refining spatial relationships and ensuring that UI elements were clearly defined for mobile constraints.</li>
-                        </ul>
-                    </section>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <script>
-    window.addEventListener('scroll', () => {
-        const sections = ['empathize', 'define', 'ideate', 'prototype', 'test'];
-        const navSegments = document.querySelectorAll('.nav-segment');
-        
-        let current = '';
-        
-        sections.forEach(section => {
-            const element = document.getElementById(section);
-            if (element && window.pageYOffset >= element.offsetTop - 150) {
-                current = section;
-            }
-        });
-
-        navSegments.forEach(segment => {
-            segment.classList.remove('active');
-            if (segment.getAttribute('href') === `#${current}`) {
-                segment.classList.add('active');
-            }
-        });
-    });
-    </script>
-</body>
-</html>
+                            <li><strong>Complete User Flow:</strong> The design provides
