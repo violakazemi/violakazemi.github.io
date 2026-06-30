@@ -3148,13 +3148,12 @@ body {
 		letter-spacing: 0.25em;
 		line-height: 3.25em;
 		margin: 0;
+		align-items: center;
 		
 		text-transform: uppercase;
 		
 		
 		z-index: 10000;
-
-		//
 		
     justify-content: space-between; /* Pushes items to opposite ends */
     align-items: center;            /* Vertically centers them */
@@ -3416,24 +3415,7 @@ body {
 
 		}
 
-/* 2. Style the 'Back to Home' button to match your sidebar buttons */
-#header nav a {
-    border: 3px solid #000000 !important;
-    background-color: #ffffff;
-    padding: 4px 4px !important;
-    font-weight: 600 !important;
-    text-transform: uppercase;
-    box-shadow: 3px 3px 0px 0px #000000; /* Add a shadow to make it pop */
-    transition: all 0.2s ease;
-}
 
-/* 3. Add a 'pressed' hover effect to the Home link */
-#header nav a:hover {
-    background-color: #000000;
-    color: #ffffff;
-    box-shadow: 2px 2px 0px 0px #000000; /* Shadow shrinks on hover */
-    transform: translate(2px, 2px);      /* Moves down and right */
-}
 
 /* Banner */
 
