@@ -4380,3 +4380,11 @@ article header.major {
     margin-top: 20px;        /* Adds a little space above the button */
 	margin-bottom: 40px;
 }
+
+.nav-container {
+    z-index: 10000; /* Ensure this is always the highest number on the page */
+}
+
+body {
+    padding-top: 80px; /* Adjust this to match the height of your top header */
+}
