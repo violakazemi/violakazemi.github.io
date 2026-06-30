@@ -4313,11 +4313,11 @@ article header.major {
 }
 
 /* 3. Base Colors */
-#seg-empathize { background-color: #F8E74E; } 
-#seg-define    { background-color: #F196B4; } 
-#seg-ideate    { background-color: #55B4F1; } 
-#seg-prototype { background-color: #4CAF50; } 
-#seg-test      { background-color: #FFFDF5; } 
+#seg-empathize { background-color: #FFD23F; } 
+#seg-define    { background-color: #FF6B6B; } 
+#seg-ideate    { background-color: #74B9FF; } 
+#seg-prototype { background-color: #88D498; } 
+#seg-test      { background-color: #B8A9FA; } 
 
 /* 4. The "Pressed" State (Scroll active) */
 .museum-page .nav-segment.active {
