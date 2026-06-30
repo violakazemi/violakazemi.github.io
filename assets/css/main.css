@@ -4286,6 +4286,7 @@ article header.major {
 
 /* 2. The Segments (Colored blocks) */
 .museum-page .nav-segment {
+	
     display: flex;
     justify-content: center;
     align-items: center;
@@ -4305,6 +4306,12 @@ article header.major {
     
     /* Smooth transition for the push effect */
     transition: all 0.15s ease-in-out;
+
+	////
+	
+   
+    
+    
 }
 
 .museum-page .nav-segment:last-child {
@@ -4320,11 +4327,15 @@ article header.major {
 
 /* 4. The "Pushed Button" Active State */
 .museum-page .nav-segment.active {
-    /* Mimics the depth of the scale() effect without breaking the stack */
-    box-shadow: inset 8px 8px 0px rgba(0,0,0,0.3), inset 0px 0px 15px rgba(0,0,0,0.4);
-    filter: brightness(0.80); /* Dims it as it goes 'deeper' */
+  
+	transform: translateY(4px) translateX(4px);
     
-    /* Physically pushes the text down and right to complete the physical illusion */
-    padding-top: 6px;
-    padding-left: 6px;
+    /* Stronger inner shadow for the 'pressed' look */
+    box-shadow: inset 6px 6px 0px rgba(0,0,0,0.4);
+    
+    /* Slightly darken the background so it looks like it's in shadow */
+    filter: brightness(0.85);
+    
+    /* This ensures it stays on top while being clicked */
+    z-index: 10;
 }
