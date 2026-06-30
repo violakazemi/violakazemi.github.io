@@ -4339,3 +4339,10 @@ article header.major {
     /* 4. Ensure the dividers look consistent (Black) */
     border-bottom: 4px solid #000000;
 }
+
+.prototype-link-container {
+    display: flex;
+    justify-content: center; /* This centers the contents horizontally */
+    width: 100%;             /* Ensures the container spans the full width to allow centering */
+    margin-top: 20px;        /* Adds a little space above the button */
+}
