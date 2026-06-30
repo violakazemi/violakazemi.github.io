@@ -4304,3 +4304,17 @@ article header.major {
 #seg-prototype.active { background-color: #9BD3A0; } /* Soft Green */
 #seg-test.active      { background-color: #AB9BF2; } /* Lavender */
 
+.museum-page #main {
+    margin-left: 90px;
+    padding-right: 50px;
+}
+
+/* Ensure the nav is only visible on the museum page */
+.nav-container {
+    display: none;
+}
+
+.museum-page .nav-container {
+    display: flex;
+}
+
