@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     
-    <!-- Updated Fonts: Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
@@ -14,21 +13,18 @@
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
+<body class="is-preload museum-page">
 
-    <!-- FIXED: Added closing nav tag -->
-    <body class="is-preload museum-page">
     <nav class="nav-container" id="nav-container">
-  <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">1</a>
-  <a href="#define" class="nav-segment" id="seg-define" title="Define">2</a>
-  <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3</a>
-  <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4</a>
-  <a href="#test" class="nav-segment" id="seg-test" title="Test">5</a>
-</nav>
+        <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">1</a>
+        <a href="#define" class="nav-segment" id="seg-define" title="Define">2</a>
+        <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3</a>
+        <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4</a>
+        <a href="#test" class="nav-segment" id="seg-test" title="Test">5</a>
+    </nav>
     
-    <!-- Wrapper -->
     <div id="wrapper">
 
-        <!-- Header -->
         <header id="header">
             <a href="index.html" class="logo"><strong>Viola Kazemi</strong> <span>Portfolio</span></a>
             <nav>
@@ -36,7 +32,6 @@
             </nav>
         </header>
 
-        <!-- Main -->
         <div id="main" class="alt">
             <section id="one">
                 <div class="inner">
@@ -52,15 +47,6 @@
                     <section id="define">
                         <h2>The Problem</h2>
                         <p>Tara, an elementary school teacher managing groups of 20+ students, struggles to maintain group safety and cohesion because she lacks a centralized tool to calculate required chaperone-to-student ratios and obtain a clear, accessibility-aware guide for movement, dining, and seating within the museum.</p>
-                    </section>
-
-                    <section id="goal">
-                        <h2>The Goal</h2>
-                        <p>Our Museum Planning Companion app empowers educators by automating chaperone calculations and delivering a comprehensive, downloadable "Visit Guide" that integrates accessible routes, seating areas, and dining zones. Success is measured by a significant reduction in administrative planning time and an increase in teacher readiness for group management.</p>
-                        
-                        <h2>Booking User Flow</h2>
-                        <p>The flow prioritizes efficiency and teacher agency. By inputting group size and needs, Tara receives an automated chaperone plan and a final, downloadable "Visit Guide," ensuring she is fully prepared for her visit without the need for manual approval or fragmented coordination.</p>
-                        <span class="image main"><img src="images/User Flow.png" alt="Tara Wong's Group Booking Experience User Flow" /></span>
                     </section>
 
                     <section id="ideate">
@@ -80,7 +66,6 @@
                         <p>This prototype demonstrates the "Universal Design with Dynamic Defaults" approach. By remembering Tara's accessibility needs from the calculator step, the system dynamically adapts the floor plan to highlight necessary routes, dining, and seating areas automatically.</p>
                         <span class="image main"><img src="images/Prototype.png" alt="Low-Fi Prototype" /></span>
 
-                        <!-- FIXED: Removed inline styles. Add a utility class in your CSS for this container -->
                         <div class="prototype-link-container">
                             <a href="https://www.figma.com/proto/SlGRK37qhBlTdAbJGGZqaK/Museum-Comp?node-id=1685-25&p=f&t=hLdZA1IeQ5J6q7bM-1&scaling=scale-down&content-scaling=fixed&page-id=1591%3A2&starting-point-node-id=1685%3A25" target="_blank" class="button figma-button">View Interactive Prototype</a>
                         </div>
@@ -96,34 +81,32 @@
                             <li><strong>From Paper to Digital:</strong> The transition from paper wireframes to high-fidelity digital frames in Figma was focused on refining spatial relationships and ensuring that UI elements were clearly defined for mobile constraints.</li>
                         </ul>
                     </section>
-                </div> <!-- End of inner -->
-            </section> <!-- End of section id="one" -->
-        </div> <!-- End of main -->
-    </div> <!-- End of wrapper -->
+                </div>
+            </section>
+        </div>
+    </div>
 
-    <!-- FIXED: Updated JavaScript array to match the DOM sections so active state doesn't break -->
     <script>
-window.addEventListener('scroll', () => {
-    const sections = ['empathize', 'define', 'ideate', 'prototype', 'test'];
-    const navSegments = document.querySelectorAll('.nav-segment');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const element = document.getElementById(section);
-        // Checks scroll position against current section
-        if (element && window.pageYOffset >= element.offsetTop - 150) {
-            current = section;
-        }
-    });
+    window.addEventListener('scroll', () => {
+        const sections = ['empathize', 'define', 'ideate', 'prototype', 'test'];
+        const navSegments = document.querySelectorAll('.nav-segment');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const element = document.getElementById(section);
+            if (element && window.pageYOffset >= element.offsetTop - 150) {
+                current = section;
+            }
+        });
 
-    navSegments.forEach(segment => {
-        segment.classList.remove('active');
-        if (segment.getAttribute('href') === `#${current}`) {
-            segment.classList.add('active');
-        }
+        navSegments.forEach(segment => {
+            segment.classList.remove('active');
+            if (segment.getAttribute('href') === `#${current}`) {
+                segment.classList.add('active');
+            }
+        });
     });
-});
-</script>
+    </script>
 </body>
 </html>
