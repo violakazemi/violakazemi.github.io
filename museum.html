@@ -103,26 +103,27 @@
 
     <!-- FIXED: Updated JavaScript array to match the DOM sections so active state doesn't break -->
     <script>
-    window.addEventListener('scroll', () => {
-        const sections = ['empathize', 'define', 'goal', 'ideate', 'prototype', 'test'];
-        const navSegments = document.querySelectorAll('.nav-segment');
-        
-        let current = '';
-        
-        sections.forEach(section => {
-            const element = document.getElementById(section);
-            if (element && window.pageYOffset >= element.offsetTop - 150) {
-                current = section;
-            }
-        });
-
-        navSegments.forEach(segment => {
-            segment.classList.remove('active');
-            if (segment.getAttribute('href') === `#${current}`) {
-                segment.classList.add('active');
-            }
-        });
+window.addEventListener('scroll', () => {
+    const sections = ['empathize', 'define', 'ideate', 'prototype', 'test'];
+    const navSegments = document.querySelectorAll('.nav-segment');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const element = document.getElementById(section);
+        // Checks scroll position against current section
+        if (element && window.pageYOffset >= element.offsetTop - 150) {
+            current = section;
+        }
     });
-    </script>
+
+    navSegments.forEach(segment => {
+        segment.classList.remove('active');
+        if (segment.getAttribute('href') === `#${current}`) {
+            segment.classList.add('active');
+        }
+    });
+});
+</script>
 </body>
 </html>
