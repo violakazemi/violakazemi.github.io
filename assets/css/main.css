@@ -4323,15 +4323,12 @@ article header.major {
 /* 4. The "Pushed Button" Active State */
 .museum-page .nav-segment.active {
   
-	
-
-	//
 	background-color: #000000 !important; 
     color: #FFFFFF !important;
     
     /* 2. Inset shadow on top/left to match the 'sinking' effect */
     /* This makes it look like it's being pushed into the board */
-    box-shadow: inset 6px 6px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 6px 6px 0px rgba(0, 0, 0, 1);
     
     /* 3. Keep it flush */
     transform: none; 
