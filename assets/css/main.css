@@ -4270,25 +4270,25 @@ article header.major {
 
 /* Specific layout for the Museum page */
 .museum-page .nav-container {
-    position: fixed;
-    top: 50%;
-    left: 20px; /* Tighter to the edge */
-    transform: translateY(-50%);
-    width: 200px; /* Slightly wider to accommodate icons */
     display: flex;
-    flex-direction: column;
-    border: 3px solid #000;
-    box-shadow: 6px 6px 0px 0px #000;
-    background-color: #FFFDF5;
-    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    height: 60px;       /* Slightly taller */
+    width: 140px;       /* Fixed width wide enough for 'Prototype' */
+    border-bottom: 3px solid #000;
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;  /* Ensure text fits */
+    padding: 0 10px;
 }
 
 .museum-page .nav-segment {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 140px;
     border-bottom: 3px solid #000;
     text-decoration: none;
     color: #000;
