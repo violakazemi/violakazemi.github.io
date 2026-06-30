@@ -19,8 +19,8 @@
       <a href="#ideate" class="nav-segment" id="seg-ideate">3. IDEATE</a>
       <a href="#prototype" class="nav-segment" id="seg-prototype">4. PROTOTYPE</a>
       <a href="#test" class="nav-segment" id="seg-test">5. TEST</a>
-    </nav>
-<body class="is-preload">
+    
+
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -42,12 +42,12 @@
                     </header>
 
                     <!-- Project Overview, Problem, Goal -->
-                    <section id="overview">
+                    <section id="empathize">
                         <h2>Project Overview</h2>
                         <p>The Museum Planning Companion is a digital tool designed to bridge the gap between educational goals and logistical reality. By providing a centralized planning space, it transforms the field trip experience for educators, allowing them to focus on learning rather than logistics.</p>
                     </section>
 
-                    <section id="problem">
+                    <section id="define">
                         <h2>The Problem</h2>
                         <p>Tara, an elementary school teacher managing groups of 20+ students, struggles to maintain group safety and cohesion because she lacks a centralized tool to calculate required chaperone-to-student ratios and obtain a clear, accessibility-aware guide for movement, dining, and seating within the museum.</p>
                     </section>
@@ -65,7 +65,7 @@
                     </section>
 
                     <!-- Storyboards -->
-                    <section id="storyboards">
+                    <section id="ideate">
                         <h2>Big Picture Storyboard</h2>
                         <p>The following storyboard illustrates Tara’s journey from the frustration of manual, disorganized coordination to the confidence of a prepared, data-driven visit. It visualizes how the app acts as a bridge, allowing her to focus less on administration and more on the learning experience.</p>
                         <span class="image main"><img src="images/BigPictureStoryboard.png" alt="Big picture storyboard showing Tara planning a museum trip" /></span>
@@ -94,7 +94,7 @@
                 </div>
                 </section>
 
-                <section id="review">
+                <section id="test">
                     <h2>Self-Review & Reflection</h2>
                     <p>I have evaluated my digital wireframes against the following criteria to ensure clarity, usability, and completeness:</p>
                     <ul>
@@ -108,3 +108,28 @@
         </section> <!-- End of section id="one" -->
     </div> <!-- End of main -->
 </div> <!-- End of wrapper -->
+
+    <script>
+    window.addEventListener('scroll', () => {
+        const sections = ['empathize', 'define', 'ideate', 'prototype', 'test'];
+        const navSegments = document.querySelectorAll('.nav-segment');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const element = document.getElementById(section);
+            if (element && window.pageYOffset >= element.offsetTop - 150) {
+                current = section;
+            }
+        });
+
+        navSegments.forEach(segment => {
+            segment.classList.remove('active');
+            if (segment.getAttribute('href') === `#${current}`) {
+                segment.classList.add('active');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
