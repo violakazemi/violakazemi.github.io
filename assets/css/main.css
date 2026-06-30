@@ -4293,6 +4293,7 @@ article header.major {
     height: 60px;
     width: 100%;
     box-sizing: border-box;
+	transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
     
     /* Internal dividers only, so they don't double up with the outer border */
     border: none;
@@ -4304,12 +4305,6 @@ article header.major {
     font-size: 1rem;
     text-transform: uppercase;
     
-    /* Smooth transition for the push effect */
-    transition: all 0.15s ease-in-out;
-
-	////
-	
-   
     
     
 }
