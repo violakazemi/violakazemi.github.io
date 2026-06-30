@@ -4305,7 +4305,7 @@ article header.major {
 #seg-test.active      { background-color: #AB9BF2; } /* Lavender */
 
 .museum-page #main {
-    margin-left: 90px;
+    margin-left: 290px; /* 250px nav width + 20px left placement + 20px buffer */
     padding-right: 50px;
 }
 
