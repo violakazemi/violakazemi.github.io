@@ -4309,3 +4309,7 @@ article header.major {
 #seg-prototype.active { background-color: #9BD3A0; } /* Soft Green */
 #seg-test.active      { background-color: #AB9BF2; } /* Lavender */
 
+#main {
+    margin-left: 300px; /* Provides space for the 250px wide sidebar + gap */
+    padding-right: 50px;
+}
