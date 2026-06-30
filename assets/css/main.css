@@ -4367,5 +4367,5 @@ article header.major {
     justify-content: center; /* This centers the contents horizontally */
     width: 100%;             /* Ensures the container spans the full width to allow centering */
     margin-top: 20px;        /* Adds a little space above the button */
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
