@@ -4344,5 +4344,54 @@ article header.major {
 
 .museum-page .nav-container {
     display: flex;
+    flex-direction: column;      /* Stacks the buttons vertically */
+    position: fixed;             /* Locks it to the side of the screen */
+    top: 50%;                    /* Pushes it down halfway */
+    transform: translateY(-50%); /* Perfectly centers it vertically */
+    left: 40px;                  /* Spaces it from the left edge */
+    width: 140px;
+    z-index: 9999;               /* Keeps it above your page content */
+    
+    /* Neubrutalism container styling to match your tiles/buttons */
+    background-color: #FFFDF5;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.museum-page .nav-segment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;                  /* Fills the container */
+    border-bottom: 4px solid #000;/* Internal dividers */
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.museum-page .nav-segment:last-child {
+    border-bottom: none;          /* Removes the divider from the bottom link */
+}
+
+/* Color Map for Base States */
+#seg-empathize { background-color: #FFD147; } /* Yellow */
+#seg-define    { background-color: #FF7F7F; } /* Coral Pink */
+#seg-ideate    { background-color: #7FBFFF; } /* Sky Blue */
+#seg-prototype { background-color: #9BD3A0; } /* Lime Green */
+#seg-test      { background-color: #AB9BF2; } /* Lavender */
+
+/* Active/Pressed State */
+.museum-page .nav-segment.active {
+    background-color: #000 !important; 
+    color: #FFF !important;
+    box-shadow: inset 4px 4px 0px rgba(0,0,0,0.5);
+}
+
+/* Offset the main wrapper so your content doesn't sit under the sidebar */
+.museum-page #wrapper {
+    margin-left: 220px; 
 }
 
