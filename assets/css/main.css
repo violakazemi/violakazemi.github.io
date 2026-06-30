@@ -4127,17 +4127,18 @@ article header.major {
     /* Existing styles here */
     border: 2px solid #000000; /* Maintains the solid border */
     box-shadow: 4px 4px 0px 0px #000000; /* This creates the hard shadow effect */
-    transition: transform 0.1s ease; /* Adds a nice feel when clicked */
+    transition: transform 0.1s ease, box-shadow 0.1s ease !important;
 	background-color: #FFA552
 }
 
 .button:hover {
-    box-shadow: 6px 6px 0px 0px #000000; /* Optional: Makes shadow "pop" more on hover */
+    box-shadow: 2px 2px 0px 0px #000000 !important;
+    transform: translate(2px, 2px) !important;
 }
 
 .button:active {
-    transform: translate(2px, 2px); /* Moves button down when clicked */
-    box-shadow: 2px 2px 0px 0px #000000; /* Shrinks shadow when pressed */
+    box-shadow: 0px 0px 0px 0px #000000 !important;
+    transform: translate(4px, 4px) !important;
 }
 
 .experience-list .title {
