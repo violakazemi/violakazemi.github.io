@@ -4304,10 +4304,11 @@ article header.major {
     border-bottom: none;
 }
 
-.nav-segment.active {
-    box-shadow: 0px 0px 0px 0px #000; /* Removes the shadow to look "pressed" */
-    transform: translateY(6px);      /* Moves the button down */
-    border-bottom: 4px solid #000;   /* Keeps the bottom border consistent */
+.museum-page .nav-segment.active {
+    background-color: #000 !important; /* Invert colors to show activity */
+    color: #FFF !important;
+    box-shadow: inset 4px 4px 0px rgba(0,0,0,0.5); /* The "pressed" effect */
+    transform: translateY(2px); /* Slight movement for physical feel */
 }
 
 /* Color Map for Active States */
