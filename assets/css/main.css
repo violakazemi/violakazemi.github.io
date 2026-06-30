@@ -4265,26 +4265,39 @@ article header.major {
 }
 
 .nav-container {
-    position: fixed; /* Keeps it in place while you scroll */
-    top: 50px;       /* Distance from the top */
-    left: 20px;      /* Distance from the left edge */
-    width: 250px;    /* Sets the width for a vertical look */
+    display: none;
+}
+
+/* Specific layout for the Museum page */
+.museum-page .nav-container {
     display: flex;
-    flex-direction: column; /* Stacks segments vertically */
-    border: 4px solid #000;
-    box-shadow: 10px 10px 0px 0px #000; /* Deep offset shadow for that "mounted" feel */
-    background-color: #FAFAFA;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    width: 50px;
+    flex-direction: column;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px 0px #000;
+    background-color: #FFFDF5;
     z-index: 1000;
 }
 
-.nav-segment {
-    padding: 25px;
-    border-bottom: 4px solid #000; /* Horizontal dividers */
-    border-right: none;
+.museum-page .nav-segment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-bottom: 3px solid #000;
     text-decoration: none;
     color: #000;
-    font-family: 'Syne', sans-serif;
-    transition: all 0.2s ease;
+    font-weight: 700;
+}
+
+/* Offset the main content so it doesn't overlap the sidebar */
+.museum-page #wrapper {
+    margin-left: 90px;
 }
 
 .nav-segment:last-child {
