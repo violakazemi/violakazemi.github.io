@@ -2680,12 +2680,7 @@ body {
 		input[type="submit"].primary,
 		input[type="reset"].primary,
 		input[type="button"].primary,
-		button.primary,
-		.button.primary {
-			
-			box-shadow: none;
-			color: #FFA552;
-		}
+		
 
 			input[type="submit"].primary:hover, input[type="submit"].primary:active,
 			input[type="reset"].primary:hover,
