@@ -4391,6 +4391,11 @@ body {
     text-decoration: none;
     color: #000;
     font-weight: 700;
+
+	//
+	padding: 10px 20px !important;
+    height: auto !important;
+    transform: none !important;
 }
 
 /* The 'Suppressed' / Pressed Effect */
@@ -4398,5 +4403,5 @@ body {
     background-color: #000000 !important;
     color: #ffffff !important;
     box-shadow: inset 4px 4px 0px rgba(0,0,0,0.5);
-    transform: translate(2px, 2px); /* Physical movement */
+    transform: translate(2px, 2px); /* Physical movement */;
 }
