@@ -4371,6 +4371,8 @@ article header.major {
     
     /* 4. Ensure the dividers look consistent (Black) */
     border-bottom: 4px solid #000000;
+
+	
 }
 
 .prototype-link-container {
