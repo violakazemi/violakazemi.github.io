@@ -76,3 +76,38 @@
                         <p>I have evaluated my digital wireframes against the following criteria to ensure clarity, usability, and completeness:</p>
                         <ul>
                             <li><strong>Complete User Flow:</strong> The design provides
+
+                                <script>
+document.addEventListener("DOMContentLoaded", () => {
+    // This watches the sections as they hit the middle of the viewport
+    const observerOptions = {
+        root: null,
+        rootMargin: "-40% 0px -40% 0px", 
+        threshold: 0 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 1. Remove 'active' from all
+                document.querySelectorAll('.nav-segment').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // 2. Add 'active' only to the one currently in view
+                const activeId = entry.target.id;
+                const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Watch all your sections
+    ['empathize', 'define', 'ideate', 'prototype', 'test'].forEach(id => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+    });
+});
+</script>
