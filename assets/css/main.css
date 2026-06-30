@@ -4323,14 +4323,19 @@ article header.major {
 /* 4. The "Pushed Button" Active State */
 .museum-page .nav-segment.active {
   
-	transform: translateY(4px) translateX(4px);
+	
+
+	//
+	background-color: #000000 !important; 
+    color: #FFFFFF !important;
     
-    /* Stronger inner shadow for the 'pressed' look */
-    box-shadow: inset 6px 6px 0px rgba(0,0,0,0.4);
+    /* 2. Inset shadow on top/left to match the 'sinking' effect */
+    /* This makes it look like it's being pushed into the board */
+    box-shadow: inset 6px 6px 0px rgba(0, 0, 0, 0.5);
     
-    /* Slightly darken the background so it looks like it's in shadow */
-    filter: brightness(0.85);
+    /* 3. Keep it flush */
+    transform: none; 
     
-    /* This ensures it stays on top while being clicked */
-    z-index: 10;
+    /* 4. Ensure the dividers look consistent (Black) */
+    border-bottom: 4px solid #000000;
 }
