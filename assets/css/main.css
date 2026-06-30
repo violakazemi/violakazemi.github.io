@@ -4270,15 +4270,15 @@ article header.major {
 
 /* Specific layout for the Museum page */
 .museum-page .nav-container {
-    display: flex;
     position: fixed;
     top: 50%;
+    left: 10px; /* Tighter to the edge */
     transform: translateY(-50%);
-    left: 20px;
-    width: 50px;
+    width: 60px; /* Slightly wider to accommodate icons */
+    display: flex;
     flex-direction: column;
     border: 3px solid #000;
-    box-shadow: 4px 4px 0px 0px #000;
+    box-shadow: 6px 6px 0px 0px #000;
     background-color: #FFFDF5;
     z-index: 1000;
 }
