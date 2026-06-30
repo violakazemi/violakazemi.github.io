@@ -4274,7 +4274,7 @@ article header.major {
     top: 50%;
     left: 10px; /* Tighter to the edge */
     transform: translateY(-50%);
-    width: 60px; /* Slightly wider to accommodate icons */
+    width: 200px; /* Slightly wider to accommodate icons */
     display: flex;
     flex-direction: column;
     border: 3px solid #000;
