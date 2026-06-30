@@ -122,6 +122,17 @@ body {
 			transition: none !important;
 		}
 
+#main {
+    padding-top: 100px !important; /* Forces the text below the header */
+}
+
+/* Ensure the wrapper doesn't get squeezed by the side elements */
+#wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px; /* Ensures text doesn't hit the left/right edges */
+}
+
 /* Type */
 
 	body, input, select, textarea {
