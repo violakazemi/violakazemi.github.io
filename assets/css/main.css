@@ -4280,8 +4280,8 @@ article header.major {
     
     /* Cohesive style: Transparent background, hard borders */
     background-color: transparent;
-    border: 4px solid #000000;
-    box-shadow: 10px 10px 0px 0px #000000; /* Thick drop shadow */
+    border: 2px solid #000000;
+    box-shadow: 5px 5px 0px 0px #000000; /* Thick drop shadow */
 }
 
 /* 2. The Segments (Colored blocks) */
@@ -4299,8 +4299,8 @@ article header.major {
     
     text-decoration: none;
     color: #000000;
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-weight: 600;
+    font-size: 1rem;
     text-transform: uppercase;
     
     /* Smooth transition for the push effect */
