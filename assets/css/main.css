@@ -4300,10 +4300,10 @@ article header.major {
     border-right: none;
 }
 
-/* The "Pressed" State: When a user scrolls to this section */
 .nav-segment.active {
-    box-shadow: 0px 0px 0px 0px #000;
-    transform: translateY(6px);
+    box-shadow: 0px 0px 0px 0px #000; /* Removes the shadow to look "pressed" */
+    transform: translateY(6px);      /* Moves the button down */
+    border-bottom: 4px solid #000;   /* Keeps the bottom border consistent */
 }
 
 /* Color Map for Active States */
