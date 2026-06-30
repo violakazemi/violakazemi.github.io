@@ -4272,7 +4272,7 @@ article header.major {
 .museum-page .nav-container {
     position: fixed;
     top: 50%;
-    left: 10px; /* Tighter to the edge */
+    left: 20px; /* Tighter to the edge */
     transform: translateY(-50%);
     width: 200px; /* Slightly wider to accommodate icons */
     display: flex;
