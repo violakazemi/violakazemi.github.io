@@ -75,15 +75,18 @@ body {
 
 	html {
 		box-sizing: border-box;
+    background-color: var(--bg-color, #FFFDF5);
 	}
 
 	*, *:before, *:after {
 		box-sizing: inherit;
+		background-color: var(--bg-color, #FFFDF5);
 	}
 
-	body {
-		background: #FFFDF5;
-	}
+	
+body {
+    background: var(--bg-color, #FFFDF5);
+}
 
 
 
@@ -3576,6 +3579,7 @@ body {
 	#wrapper {
 		
 		padding-top: 3.25em;
+		background-color: var(--bg-color, #FFFDF5);
 	}
 
 		#wrapper.is-transitioning {
