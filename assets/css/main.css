@@ -4079,6 +4079,29 @@ article header.major {
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .museum-page #wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .museum-page .nav-container {
+        position: sticky;
+        top: 6em;
+        left: auto;
+        transform: none;
+        margin-left: 40px;
+        margin-top: 4em;
+        flex-shrink: 0;
+    }
+    
+    .museum-page #main {
+        flex-grow: 1;
+        min-width: 0;
+    }
+}
+
 .museum-page .nav-segment:last-child {
     border-bottom: none; /* Prevents a double border at the very bottom */
 }
