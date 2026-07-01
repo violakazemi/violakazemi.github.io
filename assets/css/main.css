@@ -4098,23 +4098,30 @@ body {
 }
 
 .header-button {
-    /* Change display to flex to enable perfect text centering */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: 35px;           /* Sets a specific, controlled height */
+    width: auto;            /* Allows it to fit the text content */
     
-    /* Reduced vertical padding to decrease height */
-    padding: 4px 4px !important; 
+    /* Padding: More balanced for a button */
+    padding: 0 15px !important; 
     
+    /* Typography: Explicit size ensures consistency */
+    font-size: 13px;        
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333333;
+    
+    /* Neubrutalist Styling */
     border: 2px solid #000000 !important;
     background-color: #FFFDF5;
     box-shadow: 3px 3px 0px 0px #000000;
     transition: all 0.2s ease;
     
-    /* Ensure the line-height doesn't add extra invisible height */
-    line-height: 1; 
-    text-decoration: none;
-    color: #333333;
+    /* Line-height for strict centering */
+    line-height: 1 !important;
 }
 
 .header-button:hover {
