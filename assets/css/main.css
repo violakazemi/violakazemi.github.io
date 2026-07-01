@@ -4286,3 +4286,15 @@ body {
     justify-content: center !important;
     line-height: normal !important; /* Overrides template line-height inherited from the header */
 }
+
+@media screen and (max-width: 767px) {
+    /* If it's a class name */
+    .museum-page .museum-tag {
+        display: none;
+    }
+    
+    /* OR if it's the first link/child inside your header nav */
+    .museum-page header nav a:first-child {
+        display: none;
+    }
+}
