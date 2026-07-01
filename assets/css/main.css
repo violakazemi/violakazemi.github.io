@@ -75,18 +75,15 @@ body {
 
 	html {
 		box-sizing: border-box;
-    background-color: var(--bg-color, #FFFDF5);
 	}
 
 	*, *:before, *:after {
 		box-sizing: inherit;
-		background-color: var(--bg-color, #FFFDF5);
 	}
 
-	
-body {
-    background: var(--bg-color, #FFFDF5);
-}
+	body {
+		background: #FFFDF5;
+	}
 
 
 
@@ -2029,7 +2026,7 @@ body {
 		.icon.alt:before {
 			background-color: #111111;
 			border-radius: 0;
-			color: #FFFDF5;
+			color: #ffffff;
 			display: inline-block;
 			height: 2em;
 			line-height: 2em;
@@ -2800,8 +2797,9 @@ body {
 		.spotlights > section {
 			
 			display: flex;
-    flex-direction: row;
-    background-color: var(--bg-color, #FFFDF5);
+			
+			flex-direction: row;
+			background-color: #ffffff;
 		}
 
 			.spotlights > section > .image {
@@ -2968,7 +2966,7 @@ body {
 
 			#header .logo:hover strong {
 				background-color: #000000;
-    			color: #FFFDF5;
+    			color: #ffffff;
 			}
 
 			#header .logo:active strong {
@@ -3578,7 +3576,6 @@ body {
 	#wrapper {
 		
 		padding-top: 3.25em;
-		background-color: var(--bg-color, #FFFDF5);
 	}
 
 		#wrapper.is-transitioning {
@@ -3728,7 +3725,7 @@ body {
 			}
 
 			#menu .close:before {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23FFFDF5%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
 			}
 
 			#menu .close:after {
@@ -3809,11 +3806,11 @@ body {
 
 #footer {
     background-color: #000000 !important; /* Sets your footer background to black */
-    color: #FFFDF5; /* Sets the text color to white for contrast */
+    color: #ffffff; /* Sets the text color to white for contrast */
 }
 
 #footer .icons a {
-    color: #FFFDF5 !important;
+    color: #ffffff !important;
 }
 
 #footer {
@@ -3948,7 +3945,7 @@ article header.major {
 /* Icons */
 #footer .icons a {
 		border-radius: 0 !important; /* Removes the circle to make it square */
-		background-color: #FFFDF5 !important; /* White button background */
+		background-color: #ffffff !important; /* White button background */
 		color: #000000 !important; /* Black icon inside */
 		border: 2px solid #000000 !important; /* Sharp black border */
 		box-shadow: 4px 4px 0px 0px #000000 !important; /* Heavy drop shadow */
@@ -3984,7 +3981,7 @@ article header.major {
     box-shadow: 4px 4px 0px 0px #000000;
     border-radius: 0; /* Forces sharp, graphic corners */
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-	background: #FFFDF5;
+	background: #ffffff;
 }
 
 #footer input:focus,
@@ -4006,7 +4003,7 @@ article header.major {
 
 #footer .icons a,
 #footer .icons .icon {
-    background-color: #FFFDF5 !important;
+    background-color: #ffffff !important;
 }
 
 /* 2. Force the actual icon graphic (the envelope, LinkedIn text, camera) to be black */
@@ -4091,7 +4088,7 @@ article header.major {
 .museum-page .nav-segment.active {
   
 	background-color: #000000 !important; 
-    color: #FFFDF5 !important;
+    color: #FFFFFF !important;
     
     /* 2. Inset shadow on top/left to match the 'sinking' effect */
     /* This makes it look like it's being pushed into the board */
