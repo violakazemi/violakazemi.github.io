@@ -3190,7 +3190,11 @@ body {
 		
 		display: flex;
 		padding: 6em 0 2em 0 ;
-		background-attachment: fixed;
+		#banner {
+    /* Replace fixed with scroll to stop the repaint lag */
+    background-attachment: scroll; 
+    
+}
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
