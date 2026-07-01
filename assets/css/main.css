@@ -4301,26 +4301,25 @@ body {
 
 @media screen and (max-width: 767px) {
     
-    /* 1. Hide the redundant museum tag on mobile */
+    /* 1. Hide the redundant museum tag ONLY when on the museum page */
     .museum-page .museum-tag, 
     .museum-page header nav a:first-child {
         display: none !important;
     }
 
-    /* 2. Increase the header height ONLY on mobile screens */
-    .museum-page header {
+    /* 2. Increase the header height globally across ALL pages (Main & Museum) */
+    header {
         display: flex !important;
-        align-items: center !important;       /* Vertically centers the button */
-        justify-content: flex-end !important; /* Pushes the button to the right */
-        height: 75px !important;              /* Generous, spacious mobile height */
-        padding: 0 20px !important;           /* Keeps your neubrutalist shadow from clipping */
+        align-items: center !important;       /* Vertically centers elements */
+        justify-content: flex-end !important; /* Adjusts alignment dynamically */
+        height: 75px !important;              /* Matches your spacious 75px height */
+        padding: 0 20px !important;           /* Safe zone for neubrutalist shadows */
         box-sizing: border-box !important;
     }
 
-    /* 3. Ensure the button stays perfectly proportioned inside the taller header */
-    .museum-page header nav a[href*="home"],
-    .museum-page header .back-to-home-btn {
-        height: auto !important;              /* Prevents the button from stretching top-to-bottom */
-        padding: 10px 18px !important;        /* Crispy, intentional padding for the button itself */
+    /* 3. Ensure the text logo/buttons stay beautifully proportioned inside the taller header */
+    header nav a {
+        height: auto !important;              /* Prevents items from stretching top-to-bottom */
+        padding: 10px 18px !important;        /* Crisp, intentional padding for clickable elements */
     }
 }
