@@ -4073,6 +4073,12 @@ article header.major {
     
 }
 
+@media screen and (max-width: 1023px) {
+    .museum-page .nav-container {
+        display: none;
+    }
+}
+
 .museum-page .nav-segment:last-child {
     border-bottom: none; /* Prevents a double border at the very bottom */
 }
