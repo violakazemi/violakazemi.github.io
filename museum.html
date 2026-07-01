@@ -75,41 +75,58 @@
                         <h2>Self-Review & Reflection</h2>
                         <p>I have evaluated my digital wireframes against the following criteria to ensure clarity, usability, and completeness:</p>
                         <ul>
-                            <li><strong>Complete User Flow:</strong> The design provides
+                            <li><strong>Complete User Flow:</strong> The design provides a complete flow for planning a museum visit and viewing the interactive prototype.</li>
+                        </ul>
+                    </section>
 
-                                <script>
-document.addEventListener("DOMContentLoaded", () => {
-    // This watches the sections as they hit the middle of the viewport
-    const observerOptions = {
-        root: null,
-        rootMargin: "-40% 0px -40% 0px", 
-        threshold: 0 
-    };
+                </div>
+            </section>
+        </div>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // 1. Remove 'active' from all
-                document.querySelectorAll('.nav-segment').forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                // 2. Add 'active' only to the one currently in view
-                const activeId = entry.target.id;
-                const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // This watches the sections as they hit the middle of the viewport
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px", 
+            threshold: 0 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 1. Remove 'active' from all
+                    document.querySelectorAll('.nav-segment').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // 2. Add 'active' only to the one currently in view
+                    const activeId = entry.target.id;
+                    const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
                 }
-            }
+            });
+        }, observerOptions);
+
+        // Watch all your sections
+        ['empathize', 'define', 'ideate', 'prototype', 'test'].forEach(id => {
+            const section = document.getElementById(id);
+            if (section) observer.observe(section);
         });
-    }, observerOptions);
-
-    // Watch all your sections
-    ['empathize', 'define', 'ideate', 'prototype', 'test'].forEach(id => {
-        const section = document.getElementById(id);
-        if (section) observer.observe(section);
     });
-});
-</script>
-
-                                
+    </script>
+</body>
+</html>
