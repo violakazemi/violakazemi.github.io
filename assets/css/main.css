@@ -4301,25 +4301,39 @@ body {
 
 @media screen and (max-width: 767px) {
     
-    /* 1. Hide the redundant museum tag ONLY when on the museum page */
+    /* 1. The Header Container: Perfect vertical alignment & spacing */
+    header, #header {
+        display: flex !important;
+        align-items: center !important;            /* Forces perfect vertical centering */
+        justify-content: space-between !important; /* Logo anchored Left, Button anchored Right */
+        height: 75px !important;              
+        padding: 0 20px !important;           
+        box-sizing: border-box !important;
+    }
+
+    /* 2. The Text Titles (Viola Kazemi / Museum): Kills the hidden margins pushing them up */
+    header .logo,
+    header h1,
+    header .title,
+    #header .logo {
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;         /* Stops tall text boxes from throwing off alignment */
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* 3. Hide the redundant museum tag ONLY when on the museum page */
     .museum-page .museum-tag, 
     .museum-page header nav a:first-child {
         display: none !important;
     }
 
-    /* 2. Increase the header height globally across ALL pages (Main & Museum) */
-    header {
-        display: flex !important;
-        align-items: center !important;       /* Vertically centers elements */
-        justify-content: flex-end !important; /* Adjusts alignment dynamically */
-        height: 75px !important;              /* Matches your spacious 75px height */
-        padding: 0 20px !important;           /* Safe zone for neubrutalist shadows */
-        box-sizing: border-box !important;
-    }
-
-    /* 3. Ensure the text logo/buttons stay beautifully proportioned inside the taller header */
-    header nav a {
-        height: auto !important;              /* Prevents items from stretching top-to-bottom */
-        padding: 10px 18px !important;        /* Crisp, intentional padding for clickable elements */
+    /* 4. The Action Buttons: Leaves them completely untouched and perfectly sized */
+    header nav a,
+    header .header-button {
+        height: auto !important;              
+        margin: 0 !important;                 /* Protects the button from rogue spacing */
+        padding: 10px 18px !important;        
     }
 }
