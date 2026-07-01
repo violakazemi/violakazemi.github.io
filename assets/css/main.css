@@ -2029,7 +2029,7 @@ body {
 		.icon.alt:before {
 			background-color: #111111;
 			border-radius: 0;
-			color: #ffffff;
+			color: #FFFDF5;
 			display: inline-block;
 			height: 2em;
 			line-height: 2em;
@@ -2968,7 +2968,7 @@ body {
 
 			#header .logo:hover strong {
 				background-color: #000000;
-    			color: #ffffff;
+    			color: #FFFDF5;
 			}
 
 			#header .logo:active strong {
@@ -3728,7 +3728,7 @@ body {
 			}
 
 			#menu .close:before {
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23FFFDF5%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
 			}
 
 			#menu .close:after {
@@ -3809,11 +3809,11 @@ body {
 
 #footer {
     background-color: #000000 !important; /* Sets your footer background to black */
-    color: #ffffff; /* Sets the text color to white for contrast */
+    color: #FFFDF5; /* Sets the text color to white for contrast */
 }
 
 #footer .icons a {
-    color: #ffffff !important;
+    color: #FFFDF5 !important;
 }
 
 #footer {
@@ -3948,7 +3948,7 @@ article header.major {
 /* Icons */
 #footer .icons a {
 		border-radius: 0 !important; /* Removes the circle to make it square */
-		background-color: #ffffff !important; /* White button background */
+		background-color: #FFFDF5 !important; /* White button background */
 		color: #000000 !important; /* Black icon inside */
 		border: 2px solid #000000 !important; /* Sharp black border */
 		box-shadow: 4px 4px 0px 0px #000000 !important; /* Heavy drop shadow */
@@ -3984,7 +3984,7 @@ article header.major {
     box-shadow: 4px 4px 0px 0px #000000;
     border-radius: 0; /* Forces sharp, graphic corners */
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-	background: #ffffff;
+	background: #FFFDF5;
 }
 
 #footer input:focus,
@@ -4006,7 +4006,7 @@ article header.major {
 
 #footer .icons a,
 #footer .icons .icon {
-    background-color: #ffffff !important;
+    background-color: #FFFDF5 !important;
 }
 
 /* 2. Force the actual icon graphic (the envelope, LinkedIn text, camera) to be black */
@@ -4091,7 +4091,7 @@ article header.major {
 .museum-page .nav-segment.active {
   
 	background-color: #000000 !important; 
-    color: #FFFFFF !important;
+    color: #FFFDF5 !important;
     
     /* 2. Inset shadow on top/left to match the 'sinking' effect */
     /* This makes it look like it's being pushed into the board */
