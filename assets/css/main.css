@@ -3216,6 +3216,39 @@ body {
 			z-index: 1;
 		}
 
+#banner.inner-banner {
+    padding: 0 !important; /* Strips structural padding causing off-center alignments */
+    top: 0 !important;     /* Eliminates offset pull-ups */
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;          /* Cleaner scale context for inner navigation elements */
+}
+
+/* Centers inner layout area */
+#banner.inner-banner > .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Smoothly hides left titles/metadata sections without affecting actions */
+#banner.inner-banner header,
+#banner.inner-banner .content p {
+    display: none !important;
+}
+
+/* Forces absolute vertical/horizontal centering on remaining buttons */
+#banner.inner-banner .content {
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 		#banner h1 {
 			font-size: 3.25em;
 		}
