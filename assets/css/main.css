@@ -4265,3 +4265,18 @@ body {
     transform: translate(4px, 4px);
     box-shadow: none !important;
 }
+
+.museum-page #header nav {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+/* 2. Resets internal spacing for ONLY this specific button to force vertical centering */
+.museum-page #header nav .button {
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: normal !important; /* Overrides template line-height inherited from the header */
+}
