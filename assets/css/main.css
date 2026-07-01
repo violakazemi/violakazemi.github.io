@@ -4179,3 +4179,34 @@ body {
     transform: translate(3px, 3px);
     box-shadow: 3px 3px 0px 0px #000000;
 }
+
+.header-button {
+    /* Layout: Force a strict height */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;          /* Set a fixed height */
+    padding: 0 16px;       /* Compact horizontal padding */
+    
+    /* Design: Consistent Neubrutalist look */
+    border: 3px solid #000000;
+    background-color: #FFFDF5;
+    box-shadow: 4px 4px 0px 0px #000000;
+    
+    /* Typography: Compact and centered */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333333;
+    
+    /* Performance: Smooth interaction */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    cursor: pointer;
+}
+
+/* The Pressed Effect */
+.header-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none !important;
+}
