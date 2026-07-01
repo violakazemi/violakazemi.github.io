@@ -2800,9 +2800,8 @@ body {
 		.spotlights > section {
 			
 			display: flex;
-			
-			flex-direction: row;
-			background-color: #ffffff;
+    flex-direction: row;
+    background-color: var(--bg-color, #FFFDF5);
 		}
 
 			.spotlights > section > .image {
