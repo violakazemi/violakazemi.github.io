@@ -1784,13 +1784,9 @@ body {
 			text-transform: uppercase;
 		}
 
-		body.is-ie header.major > :first-child:after {
-			display: none !important;
-		}
+		
 
-		body.is-ie header.major > h1:after {
-			max-width: 100% !important;
-		}
+		
 
 	@media screen and (max-width: 736px) {
 
@@ -3728,9 +3724,7 @@ body {
 				opacity: 1;
 			}
 
-	body.is-ie #menu {
-		background: rgba(42, 47, 74, 0.975);
-	}
+	
 
 	body.is-menu-visible #wrapper {
 		
