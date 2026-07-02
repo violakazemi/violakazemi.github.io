@@ -4577,10 +4577,11 @@ html {
 /* Align museum page images perfectly with text margins */
 .museum-page .image.main,
 .museum-page .image.main img {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-right: auto !important;
     padding: 0 !important;
     box-sizing: border-box !important;
 }
