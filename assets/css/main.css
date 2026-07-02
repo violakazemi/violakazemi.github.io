@@ -4073,7 +4073,46 @@ article header.major {
 
 @media screen and (max-width: 1023px) {
     .museum-page .nav-container {
-        display: none;
+        display: flex;
+        flex-direction: row;
+        position: sticky;
+        top: 4em; /* Positioned right below header */
+        left: 0;
+        width: 100%;
+        transform: none;
+        margin: 0;
+        z-index: 999;
+        background-color: #FFFDF5;
+        border: none;
+        border-bottom: 3px solid #000000;
+        box-shadow: none;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+    }
+    .museum-page .nav-container::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Safari/Chrome */
+    }
+    .museum-page .nav-segment {
+        flex: 1 0 auto;
+        height: 45px;
+        font-size: 0.85rem;
+        padding: 0 15px;
+        border: none;
+        border-right: 3px solid #000000;
+        white-space: nowrap;
+    }
+    .museum-page .nav-segment:last-child {
+        border-right: none;
+    }
+    .museum-page .nav-segment.active {
+        border-bottom: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .museum-page .nav-container {
+        top: 75px; /* Mobile header is 75px */
     }
 }
 
@@ -4400,14 +4439,22 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-    /* Target your main text container - adjust the class name if yours differs */
-    #main, .inner, .content {
+    /* Target only the inner container to avoid nested padding compounding */
+    #main > * > .inner {
         padding-left: 20px !important;
         padding-right: 20px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         width: 100% !important;
-        box-sizing: border-box !important; /* This is the secret to perfect alignment */
+        box-sizing: border-box !important;
     }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.museum-page section[id] {
+    scroll-margin-top: 135px;
 }
 

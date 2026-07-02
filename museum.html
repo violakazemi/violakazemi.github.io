@@ -116,6 +116,8 @@
                     const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
+                        // Keep active link visible in horizontal scroll container
+                        activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                     }
                 }
             });
