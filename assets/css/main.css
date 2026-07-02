@@ -4492,6 +4492,27 @@ body {
     body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, section {
         text-align: left !important;
     }
+
+    /* Tile alignments and typography for mobile */
+    .tiles article {
+        padding: 2.5em 20px 2.5em 20px !important;
+        height: 14em !important; /* Compact height for mobile grid */
+    }
+
+    .tiles article h3 {
+        font-size: 1.25em !important;
+        margin-bottom: 0.25em !important;
+        font-weight: 700 !important;
+    }
+
+    .tiles article p {
+        font-size: 0.85em !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.15em !important;
+        margin: 0 !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+    }
 }
 
 html {
