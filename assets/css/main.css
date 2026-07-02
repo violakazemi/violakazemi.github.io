@@ -4481,11 +4481,25 @@ body {
     #footer {
         margin: 0 20px 20px 20px !important;
         padding: 3em 20px 2em 20px !important;
-        text-align: left !important;
+        text-align: center !important;
     }
     
     #footer .inner {
         padding: 0 !important;
+    }
+
+    #footer ul.icons {
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #footer ul.icons li {
+        display: inline-block !important;
+        vertical-align: middle !important;
+        padding: 0 0.5em !important;
     }
 
     /* Force all layout texts to align left horizontally on mobile */
