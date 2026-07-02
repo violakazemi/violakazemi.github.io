@@ -4472,8 +4472,7 @@ body {
     /* Ensure home page banner text aligns with the 20px mobile grid */
     #banner > .inner {
         width: 100% !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding: 3em 20px 1em 20px !important;
         margin: 0 !important;
     }
 
@@ -4627,19 +4626,19 @@ html {
 
 #banner {
     padding: 6em 0 4em 0 !important;
-    background-color: #FFFDF5 !important;
+    background-color: #F9F7F3 !important; /* Matches body background color */
     background-image: none !important;
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    color: #111111 !important;
+    color: #000000 !important; /* Matches body text color */
 }
 
 #banner > .inner {
     width: calc(100% - 6em) !important;
     max-width: 65em !important;
     margin: 0 auto !important;
-    padding: 0 !important;
+    padding: 4em 0 2em 0 !important; /* Matches case study sections inner padding */
     background: none !important;
 }
 
@@ -4648,7 +4647,7 @@ html {
     font-size: 1.75em !important; /* Matches museum page h2 size on desktop */
     font-weight: 700 !important;
     line-height: 1.4 !important;
-    color: #111111 !important;
+    color: #000000 !important; /* Matches case study heading color */
     margin-bottom: 1em !important;
     text-transform: none !important;
     letter-spacing: normal !important;
@@ -4658,7 +4657,7 @@ html {
     font-family: 'Inter', sans-serif !important;
     font-size: 17px !important; /* Matches museum page p size on desktop */
     line-height: 1.65 !important;
-    color: #111111 !important;
+    color: #000000 !important; /* Matches case study paragraph color */
     text-transform: none !important;
     letter-spacing: normal !important;
     font-weight: 400 !important;
