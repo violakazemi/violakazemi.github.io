@@ -4498,9 +4498,17 @@ body {
     header.major > :first-child,
     #banner > .inner .content,
     .experience-list,
-    .experience-list .job {
+    .experience-list .job,
+    #banner > .inner > *,
+    #main > * > .inner > *,
+    #banner > .inner .content > *,
+    #main > * > .inner .experience-list > * {
         margin-left: 0 !important;
         padding-left: 0 !important;
+    }
+
+    #banner > .inner .content {
+        display: block !important;
     }
 
     /* Tile alignments and typography for mobile */
