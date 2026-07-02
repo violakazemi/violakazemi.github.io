@@ -4468,6 +4468,30 @@ body {
         max-width: 100% !important;
         white-space: normal !important;
     }
+
+    /* Ensure home page banner text aligns with the 20px mobile grid */
+    #banner > .inner {
+        width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        margin: 0 !important;
+    }
+
+    /* Ensure footer aligns with the 20px mobile grid */
+    #footer {
+        margin: 0 20px 20px 20px !important;
+        padding: 3em 20px 2em 20px !important;
+        text-align: left !important;
+    }
+    
+    #footer .inner {
+        padding: 0 !important;
+    }
+
+    /* Force all layout texts to align left horizontally on mobile */
+    body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, section {
+        text-align: left !important;
+    }
 }
 
 html {
