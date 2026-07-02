@@ -4529,14 +4529,41 @@ body {
         display: none !important;
     }
 
+    #banner:after,
+    #banner:before {
+        display: none !important;
+        content: none !important;
+    }
+
+    #banner {
+        padding: 3em 0 1.5em 0 !important;
+        background-color: #FFFDF5 !important;
+        background-image: none !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    #banner h1 {
+        font-family: 'Space Grotesk', sans-serif !important;
+        font-size: 1.4em !important; /* Matches museum page h2 size on mobile */
+        font-weight: 700 !important;
+        line-height: 1.4 !important;
+        color: #111111 !important;
+        margin-bottom: 0.5em !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+    }
+
     #banner .mobile-only-text {
         display: block !important;
-        font-size: 16px !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 16px !important; /* Matches museum page p size on mobile */
         line-height: 1.6 !important;
+        color: #111111 !important;
         text-transform: none !important;
         letter-spacing: normal !important;
         font-weight: 400 !important;
-        margin: 1em 0 0 0 !important;
+        margin: 0 !important;
     }
 
     /* Reset padding on action lists to align buttons perfectly */
