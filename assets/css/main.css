@@ -4401,3 +4401,15 @@ body {
     overflow-x: hidden;
 }
 
+@media screen and (max-width: 767px) {
+    /* Target your main text container - adjust the class name if yours differs */
+    #main, .inner, .content {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important; /* This is the secret to perfect alignment */
+    }
+}
+
