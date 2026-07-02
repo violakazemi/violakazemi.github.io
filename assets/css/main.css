@@ -4536,8 +4536,17 @@ body {
 
     /* Tile alignments and typography for mobile */
     .tiles article {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
         padding: 2.5em 20px 2.5em 20px !important;
         height: 14em !important; /* Compact height for mobile grid */
+    }
+
+    .tiles article header.major {
+        margin-bottom: 0 !important;
+        width: 100% !important;
     }
 
     .tiles article h3 {
