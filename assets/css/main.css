@@ -4574,3 +4574,14 @@ html {
 }
 /* Trigger fresh GitHub Pages deployment build */
 
+/* Align museum page images perfectly with text margins */
+.museum-page .image.main,
+.museum-page .image.main img {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
