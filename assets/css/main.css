@@ -4711,3 +4711,43 @@ html {
     color: #ffffff !important;
 }
 
+/* Mobile & Tablet Header Layout Breakpoint (980px and below) */
+@media screen and (max-width: 980px) {
+    header, #header {
+        display: flex !important;
+        align-items: center !important;            /* Forces perfect vertical centering */
+        justify-content: space-between !important; /* Logo anchored Left, Button anchored Right */
+        height: 75px !important;              
+        padding: 0 20px !important;           
+        box-sizing: border-box !important;
+    }
+    
+    #header .logo {
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    #header .logo .logo-text-desktop,
+    #header .logo .logo-sub-desktop {
+        display: none !important;
+    }
+    #header .logo .logo-text-mobile {
+        display: inline-block !important;
+        background-color: transparent !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-weight: 700 !important;
+    }
+    
+    header nav a,
+    header .header-button {
+        height: auto !important;              
+        margin: 0 !important;
+        padding: 10px 18px !important;        
+    }
+}
+
