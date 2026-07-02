@@ -4460,6 +4460,14 @@ body {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+
+    /* Prevent long title headers from overflowing the screen on mobile */
+    header.major,
+    header.major > :first-child {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+    }
 }
 
 html {
