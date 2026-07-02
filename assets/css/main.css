@@ -3046,8 +3046,6 @@ body {
 		}
 
 		#header.alt {
-    transition: opacity 0.3s ease;
-    transition-delay: 0.75s;
     animation: none;
     background-color: var(--bg-color, #FFFDF5) !important; /* Keeps background solid on scroll/load */
     box-shadow: none;
@@ -3078,9 +3076,9 @@ body {
 				color: #87c5a4;
 			}
 
-		body.is-preload #header.alt {
+		/* body.is-preload #header.alt {
 			opacity: 0;
-		}
+		} */
 
 		@media screen and (max-width: 1680px) {
 

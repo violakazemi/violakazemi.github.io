@@ -130,8 +130,6 @@
 		}
 
 		&.alt {
-			@include vendor('transition', 'opacity #{_duration(banner)} ease');
-			@include vendor('transition-delay', '0.75s');
 			@include vendor('animation', 'none');
 			background-color: transparent;
 			box-shadow: none;
@@ -145,11 +143,11 @@
 			&.style6 { .logo { strong { color: _palette(accent6); } } }
 		}
 
-		body.is-preload & {
+		/* body.is-preload & {
 			&.alt {
 				opacity: 0;
 			}
-		}
+		} */
 
 		@include breakpoint('<=xlarge') {
 			nav {
