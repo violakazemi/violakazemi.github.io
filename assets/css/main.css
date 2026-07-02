@@ -4677,9 +4677,9 @@ html {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     background-color: #333333 !important;
     color: #FFFDF5 !important;
-    display: inline-block !important;
+    display: inline-block !important; /* Forces it to remain visible on mobile */
     line-height: 1.65em !important;
-    padding: 0 0.5em 0 0.5em !important; /* Slightly wider padding for the box style */
+    padding: 0 0.5em 0 0.5em !important;
     margin-left: 0.325em !important;
     font-weight: 400 !important;
 }
@@ -4692,5 +4692,11 @@ html {
 #header .logo:hover span {
     background-color: #000000 !important;
     color: #ffffff !important;
+}
+
+@media screen and (max-width: 480px) {
+    #header .logo {
+        font-size: 0.7em !important; /* Prevent text wrapping on very narrow mobile screens */
+    }
 }
 
