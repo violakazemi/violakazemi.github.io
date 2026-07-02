@@ -4563,6 +4563,13 @@ body {
         font-weight: 600 !important;
         line-height: 1.2 !important;
     }
+
+    /* Align prototype button left on mobile */
+    .museum-page .prototype-link-container {
+        justify-content: flex-start !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
 }
 
 html {
