@@ -4664,3 +4664,33 @@ html {
     margin: 0 0 2em 0 !important;
 }
 
+/* Swap logo styles: plain text for strong, black box for span */
+#header .logo strong {
+    background-color: transparent !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin-right: 0.325em !important;
+    font-weight: 700 !important;
+}
+
+#header .logo span {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #333333 !important;
+    color: #FFFDF5 !important;
+    display: inline-block !important;
+    line-height: 1.65em !important;
+    padding: 0 0.5em 0 0.5em !important; /* Slightly wider padding for the box style */
+    margin-left: 0.325em !important;
+    font-weight: 400 !important;
+}
+
+#header .logo:hover strong {
+    background-color: transparent !important;
+    color: #000000 !important;
+}
+
+#header .logo:hover span {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
