@@ -4521,49 +4521,19 @@ body {
         padding-left: 0 !important;
     }
 
-    #banner > .inner .content {
-        display: block !important;
-    }
-
-    #banner .desktop-only-text {
-        display: none !important;
-    }
-
-    #banner:after,
-    #banner:before {
-        display: none !important;
-        content: none !important;
-    }
-
     #banner {
         padding: 3em 0 1.5em 0 !important;
-        background-color: #FFFDF5 !important;
-        background-image: none !important;
-        height: auto !important;
-        min-height: 0 !important;
     }
 
     #banner h1 {
-        font-family: 'Space Grotesk', sans-serif !important;
         font-size: 1.4em !important; /* Matches museum page h2 size on mobile */
-        font-weight: 700 !important;
-        line-height: 1.4 !important;
-        color: #111111 !important;
         margin-bottom: 0.5em !important;
-        text-transform: none !important;
-        letter-spacing: normal !important;
     }
 
-    #banner .mobile-only-text {
-        display: block !important;
-        font-family: 'Inter', sans-serif !important;
+    #banner p {
         font-size: 16px !important; /* Matches museum page p size on mobile */
         line-height: 1.6 !important;
-        color: #111111 !important;
-        text-transform: none !important;
-        letter-spacing: normal !important;
-        font-weight: 400 !important;
-        margin: 0 !important;
+        margin-bottom: 1em !important;
     }
 
     /* Reset padding on action lists to align buttons perfectly */
@@ -4648,8 +4618,50 @@ html {
     box-sizing: border-box !important;
 }
 
-/* Hide mobile-only text on desktop */
-#banner .mobile-only-text {
-    display: none;
+/* Homepage banner styling to match case study sections layout and typography */
+#banner:after,
+#banner:before {
+    display: none !important;
+    content: none !important;
+}
+
+#banner {
+    padding: 6em 0 4em 0 !important;
+    background-color: #FFFDF5 !important;
+    background-image: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    color: #111111 !important;
+}
+
+#banner > .inner {
+    width: calc(100% - 6em) !important;
+    max-width: 65em !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: none !important;
+}
+
+#banner h1 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.75em !important; /* Matches museum page h2 size on desktop */
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    color: #111111 !important;
+    margin-bottom: 1em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+#banner p {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 17px !important; /* Matches museum page p size on desktop */
+    line-height: 1.65 !important;
+    color: #111111 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-weight: 400 !important;
+    margin: 0 0 2em 0 !important;
 }
 
