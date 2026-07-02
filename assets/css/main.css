@@ -4344,14 +4344,14 @@ body {
     box-shadow: none !important;
 }
 
-.museum-page #header nav {
+#header nav {
     display: flex !important;
     align-items: center !important;
     height: 100% !important;
 }
 
 /* 2. Resets internal spacing for ONLY this specific button to force vertical centering */
-.museum-page #header nav .button {
+#header nav .button {
     margin: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
