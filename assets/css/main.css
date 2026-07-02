@@ -4522,7 +4522,7 @@ body {
     }
 
     #banner > .inner .content {
-        display: block !important;
+        display: none !important;
     }
 
     /* Reset padding on action lists to align buttons perfectly */
