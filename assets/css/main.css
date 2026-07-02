@@ -3894,7 +3894,7 @@ article header.major {
     border: 2px solid #000000; /* Maintains the solid border */
     box-shadow: 4px 4px 0px 0px #000000; /* This creates the hard shadow effect */
     transition: transform 0.1s ease, box-shadow 0.1s ease !important;
-	background-color: #FFA552
+	background-color: #FFA552;
 }
 
 .button:hover {
@@ -3909,6 +3909,18 @@ article header.major {
 
 .experience-list .title {
     font-weight: 400; /* Ensures all titles have the same weight */
+}
+
+@media screen and (max-width: 480px) {
+    .job {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.25em;
+    }
+    .year {
+        margin-bottom: 0.25em;
+        font-size: 0.85em;
+    }
 }
 
 #footer {
@@ -4418,7 +4430,7 @@ body {
 
 @media screen and (max-width: 736px) {
     /* Shrinks the general body text */
-    body, p, a {
+    body, p {
         font-size: 16px !important; 
     }
     
