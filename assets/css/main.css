@@ -4379,3 +4379,25 @@ body {
     }
 }
 
+@media screen and (max-width: 736px) {
+    /* Shrinks the general body text */
+    body, p, a {
+        font-size: 16px !important; 
+    }
+    
+    /* Shrinks your main headings */
+    h1 {
+        font-size: 1.8em !important;
+        line-height: 1.2;
+    }
+    
+    /* Shrinks subheadings */
+    h2, h3 {
+        font-size: 1.4em !important;
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
