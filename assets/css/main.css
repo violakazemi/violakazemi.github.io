@@ -4493,6 +4493,16 @@ body {
         text-align: left !important;
     }
 
+    /* Force headers and adjacent text blocks to align to the same left margin */
+    header.major,
+    header.major > :first-child,
+    #banner > .inner .content,
+    .experience-list,
+    .experience-list .job {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
     /* Tile alignments and typography for mobile */
     .tiles article {
         padding: 2.5em 20px 2.5em 20px !important;
