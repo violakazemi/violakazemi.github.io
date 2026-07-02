@@ -4581,9 +4581,18 @@ body {
         padding-left: 0 !important;
     }
 
-    /* Hide the logo span (boxed text) on mobile screens, leaving only the primary unboxed text */
-    #header .logo span {
+    /* Mobile Header Logo Rules (display only the mobile-specific unboxed text) */
+    #header .logo .logo-text-desktop,
+    #header .logo .logo-sub-desktop {
         display: none !important;
+    }
+    #header .logo .logo-text-mobile {
+        display: inline-block !important;
+        background-color: transparent !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-weight: 700 !important;
     }
 }
 
@@ -4669,16 +4678,21 @@ html {
     margin: 0 0 2em 0 !important;
 }
 
-/* Swap logo styles: plain text for strong, black box for span */
-#header .logo strong {
+/* Custom Header Logo Formatting */
+#header .logo .logo-text-mobile {
+    display: none !important;
+}
+
+#header .logo .logo-text-desktop {
     background-color: transparent !important;
     color: #000000 !important;
     padding: 0 !important;
     margin-right: 0.325em !important;
     font-weight: 700 !important;
+    display: inline-block !important;
 }
 
-#header .logo span {
+#header .logo .logo-sub-desktop {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     background-color: #333333 !important;
     color: #FFFDF5 !important;
@@ -4689,12 +4703,12 @@ html {
     font-weight: 400 !important;
 }
 
-#header .logo:hover strong {
+#header .logo:hover .logo-text-desktop {
     background-color: transparent !important;
     color: #000000 !important;
 }
 
-#header .logo:hover span {
+#header .logo:hover .logo-sub-desktop {
     background-color: #000000 !important;
     color: #ffffff !important;
 }
