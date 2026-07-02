@@ -4522,7 +4522,21 @@ body {
     }
 
     #banner > .inner .content {
+        display: block !important;
+    }
+
+    #banner .desktop-only-text {
         display: none !important;
+    }
+
+    #banner .mobile-only-text {
+        display: block !important;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        font-weight: 400 !important;
+        margin: 1em 0 0 0 !important;
     }
 
     /* Reset padding on action lists to align buttons perfectly */
@@ -4605,5 +4619,10 @@ html {
     margin-right: auto !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+}
+
+/* Hide mobile-only text on desktop */
+#banner .mobile-only-text {
+    display: none;
 }
 
