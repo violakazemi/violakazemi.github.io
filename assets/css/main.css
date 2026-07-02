@@ -4511,6 +4511,15 @@ body {
         display: block !important;
     }
 
+    /* Reset padding on action lists to align buttons perfectly */
+    ul.actions {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    ul.actions li {
+        padding-left: 0 !important;
+    }
+
     /* Tile alignments and typography for mobile */
     .tiles article {
         padding: 2.5em 20px 2.5em 20px !important;
