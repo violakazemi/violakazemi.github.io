@@ -4575,6 +4575,20 @@ html {
 /* Trigger fresh GitHub Pages deployment build */
 
 /* Align museum page images perfectly with text margins */
+.museum-page section#ideate,
+.museum-page section#prototype,
+.museum-page section#ideate p,
+.museum-page section#ideate h2,
+.museum-page section#ideate h3,
+.museum-page section#ideate .image.main,
+.museum-page section#prototype p,
+.museum-page section#prototype h2,
+.museum-page section#prototype .image.main {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
+
 .museum-page .image.main,
 .museum-page .image.main img {
     display: block !important;
