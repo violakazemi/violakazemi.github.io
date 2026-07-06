@@ -4197,10 +4197,12 @@ article header.major {
 
 .prototype-link-container {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center; /* This centers the contents horizontally */
     width: 100%;             /* Ensures the container spans the full width to allow centering */
     margin-top: 20px;        /* Adds a little space above the button */
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 body {
