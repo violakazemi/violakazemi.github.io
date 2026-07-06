@@ -4171,22 +4171,23 @@ article header.major {
 #seg-test      { background-color: #B8A9FA; } 
 
 /* 4. The "Pushed Button" Active State */
-.museum-page .nav-segment.active {
-  
-	background-color: #000000 !important; 
-    color: #FFFFFF !important;
-    
-    /* 2. Inset shadow on top/left to match the 'sinking' effect */
-    /* This makes it look like it's being pushed into the board */
-    box-shadow: inset 6px 6px 0px rgba(0, 0, 0, 0.5);
-    
-    /* 3. Keep it flush */
-    transform: none; 
-    
-    /* 4. Ensure the dividers look consistent (Black) */
-    border-bottom: 4px solid #000000;
+@media screen and (min-width: 768px) {
+    .museum-page .nav-segment.active {
+        background-color: #000000 !important; 
+        color: #FFFFFF !important;
+        box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.8), 
+                    inset -2px -2px 4px rgba(255, 255, 255, 0.2) !important;
+        transform: translate(2px, 2px) !important;
+        border-bottom: 3px solid #000000 !important;
+    }
+}
 
-	
+@media screen and (max-width: 767px) {
+    .museum-page .nav-segment.active {
+        background-color: #000000 !important; 
+        color: #FFFFFF !important;
+        border-bottom: none !important;
+    }
 }
 
 .prototype-link-container {
