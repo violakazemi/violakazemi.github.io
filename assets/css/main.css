@@ -4552,14 +4552,14 @@ body {
         flex-direction: column !important;
         justify-content: space-between !important;
         align-items: flex-start !important;
-        padding: 2em 20px 2em 20px !important;
+        padding: 0 20px 0 20px !important;
         height: 12em !important; /* Sleek, accessible height */
     }
 
     .tiles article header.major {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: space-between !important;
+        justify-content: space-evenly !important;
         align-items: flex-start !important;
         text-align: left !important;
         height: 100% !important;
