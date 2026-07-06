@@ -4550,21 +4550,27 @@ body {
     .tiles article {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
+        justify-content: space-between !important;
         align-items: flex-start !important;
-        padding: 2.5em 20px 2.5em 20px !important;
-        height: 14em !important; /* Compact height for mobile grid */
+        padding: 2em 20px 2em 20px !important;
+        height: 12em !important; /* Sleek, accessible height */
     }
 
     .tiles article header.major {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
         margin-bottom: 0 !important;
         width: 100% !important;
     }
 
     .tiles article h3 {
         font-size: 1.25em !important;
-        margin-bottom: 0.25em !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
         font-weight: 700 !important;
+        line-height: 1.3 !important;
     }
 
     .tiles article p {
@@ -4573,7 +4579,7 @@ body {
         letter-spacing: 0.15em !important;
         margin: 0 !important;
         font-weight: 600 !important;
-        line-height: 1.2 !important;
+        line-height: 1.4 !important;
     }
 
     /* Align prototype button left on mobile */
