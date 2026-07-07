@@ -5356,13 +5356,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Case Study Page Specifics */
 .museum-page #wrapper {
     background-color: var(--apple-bg-light) !important;
+    display: block !important; /* Stack nav-container and main vertically */
 }
 
 .museum-page #main {
     background-color: var(--apple-bg-light) !important;
-    padding: 80px 24px !important;
+    padding: 120px 24px 80px 24px !important; /* Give padding top to prevent overlap by header & sub-nav */
     max-width: 1000px !important;
     margin: 0 auto !important;
+    width: 100% !important;
 }
 
 .museum-page #main section {
@@ -5373,33 +5375,56 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 !important;
 }
 
-/* Side Navigation Refactoring: API Documentation style */
+/* Apple-style Horizontal Product Sub-Navigation */
 .museum-page .nav-container {
-    background-color: transparent !important;
-    border: none !important;
+    position: fixed !important;
+    top: 48px !important; /* Direct sub-header under the main fixed header */
+    left: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important; /* Centered horizontal links */
+    align-items: center !important;
+    gap: 32px !important;
+    padding: 0 24px !important;
     box-shadow: none !important;
-    width: 220px !important;
-    padding-left: 20px !important;
-    border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-left: none !important;
     border-radius: 0 !important;
+    transform: none !important;
+    margin: 0 !important;
+    overflow-x: auto !important; /* Allow swipe scrolling on mobile */
+    scrollbar-width: none !important; /* Firefox hide scrollbar */
+}
+
+.museum-page .nav-container::-webkit-scrollbar {
+    display: none !important; /* Chrome/Safari hide scrollbar */
 }
 
 .museum-page .nav-segment {
-    height: auto !important;
-    padding: 12px 0 !important;
-    justify-content: flex-start !important;
+    height: 48px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
     align-items: center !important;
     background-color: transparent !important;
     border: none !important;
+    border-bottom: 2px solid transparent !important; /* Border for active line */
     color: var(--apple-text-secondary) !important;
-    font-size: 0.95rem !important;
+    font-size: 12px !important; /* Clean small local nav text */
     font-weight: 500 !important;
     text-transform: none !important;
     transition: color 0.2s ease, border-color 0.2s ease !important;
     position: relative !important;
-    margin-left: -21px !important;
-    padding-left: 20px !important;
-    border-left: 2px solid transparent !important;
+    margin: 0 !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
 }
 
 .museum-page .nav-segment:hover {
@@ -5407,14 +5432,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent !important;
 }
 
-/* Active indicator line on the left side - Apple Blue theme */
+/* Active indicator line - Apple active sub-nav item */
 .museum-page .nav-segment.active {
     background-color: transparent !important;
-    color: var(--apple-blue) !important;
+    color: var(--apple-text-primary) !important;
     box-shadow: none !important;
-    border-left: 2px solid var(--apple-blue) !important;
+    border-bottom: 2px solid var(--apple-text-primary) !important; /* High contrast active bottom line */
     font-weight: 600 !important;
     transform: none !important;
+    border-left: none !important;
 }
 
 /* Segment colors overridden to transparent */
@@ -5531,6 +5557,9 @@ h1, h2, h3, h4, h5, h6 {
     #systems .iteration-grid {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
+    }
+    .museum-page #main {
+        padding-top: 100px !important;
     }
 }
 
