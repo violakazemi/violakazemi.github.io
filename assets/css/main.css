@@ -4787,3 +4787,101 @@ html {
     }
 }
 
+/* Systems Iteration Grid & Cards */
+.iteration-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+    margin-top: 2.5em !important;
+    margin-bottom: 2.5em !important;
+}
+
+.iteration-card {
+    background-color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 4px 4px 0px 0px #000000 !important;
+    padding: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.iteration-card:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px 0px #000000 !important;
+}
+
+.iteration-card h4 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.15em !important;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    color: #000000 !important;
+}
+
+.iteration-card .badge {
+    display: inline-block !important;
+    padding: 6px 12px !important;
+    font-size: 0.7em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border: 2px solid #000000 !important;
+    margin-bottom: 16px !important;
+    width: fit-content !important;
+    border-radius: 4px !important;
+    line-height: 1.2 !important;
+}
+
+.iteration-card.phase-0 .badge {
+    background-color: #FF6B6B !important;
+    color: #ffffff !important;
+}
+
+.iteration-card.phase-1 .badge {
+    background-color: #FFD23F !important;
+    color: #000000 !important;
+}
+
+.iteration-card.phase-2 .badge {
+    background-color: #88D498 !important;
+    color: #000000 !important;
+}
+
+.iteration-card ul {
+    margin: 0 !important;
+    padding-left: 18px !important;
+    font-size: 0.9em !important;
+    line-height: 1.65 !important;
+    list-style-type: disc !important;
+}
+
+.iteration-card ul li {
+    margin-bottom: 8px !important;
+    color: #000000 !important;
+    background: none !important;
+    padding-left: 0 !important;
+}
+
+.iteration-card ul li strong {
+    color: #000000 !important;
+}
+
+.iteration-card ul li:last-child {
+    margin-bottom: 0 !important;
+}
+
+#seg-systems {
+    background-color: #FF8C42 !important;
+}
+
+@media screen and (max-width: 980px) {
+    .iteration-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+
