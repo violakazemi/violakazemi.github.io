@@ -4903,10 +4903,11 @@ h1, h2, h3, h4, h5, h6 {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 24px !important;
-    padding: 60px 24px !important;
-    background-color: var(--apple-bg-light) !important; /* Pure white container background */
-    max-width: 1200px !important;
+    padding: 60px max(24px, calc((100% - 1200px) / 2 + 24px)) !important; /* Auto-calculate side padding to bound content at 1200px, while background color extends 100% full-width! */
+    background-color: var(--apple-bg-gray) !important; /* Soft gray background behind cards */
+    max-width: 100% !important;
     margin: 0 auto !important;
+    width: 100% !important;
 }
 
 .tiles article {
@@ -5388,7 +5389,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
         padding: 30px 16px !important;
-        background-color: var(--apple-bg-light) !important;
+        background-color: var(--apple-bg-gray) !important; /* Soft gray background on mobile */
     }
     .tiles article:first-child {
         grid-column: span 1 !important;
