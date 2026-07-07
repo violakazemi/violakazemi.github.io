@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=4.3" />
+    <link rel="stylesheet" href="assets/css/main.css?v=4.4" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -34,7 +34,6 @@
             <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
             <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
             <a href="#systems" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
-            <a href="#test" class="nav-segment" id="seg-test" title="Test">6. Test</a>
         </nav>
 
         <div id="main" class="alt">
@@ -117,13 +116,7 @@
                         </div>
                     </section>
 
-                    <section id="test">
-                        <h2>Self-Review & Reflection</h2>
-                        <p>I have evaluated my digital wireframes against the following criteria to ensure clarity, usability, and completeness:</p>
-                        <ul>
-                            <li><strong>Complete User Flow:</strong> The design provides a complete flow for planning a museum visit and viewing the interactive prototype.</li>
-                        </ul>
-                    </section>
+
 
                 </div>
             </section>
@@ -170,7 +163,7 @@
         }, observerOptions);
 
         // Watch all your sections
-        ['empathize', 'define', 'ideate', 'prototype', 'systems', 'test'].forEach(id => {
+        ['empathize', 'define', 'ideate', 'prototype', 'systems'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
