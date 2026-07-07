@@ -4779,6 +4779,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #wrapper {
     background-color: var(--apple-bg-gray) !important;
+    padding-top: 48px !important; /* Sync wrapper padding-top with Apple header height to eliminate gap/grey bar */
 }
 
 /* Header Overrides */
@@ -4790,7 +4791,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid var(--apple-border) !important; /* Subtle Apple border instead of dark/black line */
     box-shadow: none !important;
     height: 48px !important; /* Apple standard 48px height */
     line-height: 48px !important;
