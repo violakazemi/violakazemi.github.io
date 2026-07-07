@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=7.3" />
+    <link rel="stylesheet" href="assets/css/main.css?v=7.4" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -89,33 +89,56 @@
                         <h2>Systems Optimization & Defensive Design</h2>
                         <p>As a product designer with a Computer Engineering background, I don't design for static canvases—I design for dynamic, unpredictable backend data. Reviewing Iteration 0 revealed critical production vulnerabilities that required programmatic and structural layout overhauls.</p>
 
-                        <div class="iteration-grid">
-                            <div class="iteration-card phase-0">
-                                <div class="badge">Phase 0: The Baseline MVP</div>
-                                <h4>The Truncation Risk</h4>
-                                <ul>
-                                    <li><strong>The Layout:</strong> A 2x2 grid layout for upcoming schedules.</li>
-                                    <li><strong>The Failure:</strong> Forcing a linear sequence into a grid increased cognitive load. More importantly, it failed defensive design parameters: variable server strings like "Museum of Civilization" were truncated into "Museum of Civilizat...", breaking data integrity.</li>
-                                </ul>
-                            </div>
+                        <div class="apple-bento-grid">
 
-                            <div class="iteration-card phase-1">
-                                <div class="badge">Phase 1: The Heuristic Redesign</div>
-                                <h4>Data Density Overhaul</h4>
-                                <ul>
-                                    <li><strong>The Layout:</strong> Transformed the grid into a linear vertical timeline. Added rich operational metrics tracking consent slips ("21/28") and color-coded status pills.</li>
-                                    <li><strong>The Critique:</strong> While it solved text truncation and provided high-utility metrics, a deep architectural review exposed <em>information redundancy</em>—the active upcoming trip was duplicated in the pipeline list below, cluttering screen space.</li>
-                                </ul>
+                          <!-- Tile 1: Phase 0 -->
+                          <div class="apple-tile">
+                            <div class="tile-image-wrapper">
+                              <img src="images/dashboard_phase0.png" alt="Phase 0: 2x2 Grid Layout with Truncation Bug" />
                             </div>
+                            <div class="tile-text-content">
+                              <span class="phase-pill">Phase 0 • MVP</span>
+                              <h4 class="tile-title">The Truncation Defect</h4>
+                              <p class="tile-desc">Dynamic server strings break strict box layouts, resulting in data truncation and lost user context.</p>
+                            </div>
+                          </div>
 
-                            <div class="iteration-card phase-2">
-                                <div class="badge">Phase 2: The Production-Ready State</div>
-                                <h4>Logic-Filtered UI</h4>
-                                <ul>
-                                    <li><strong>The Layout:</strong> Implemented backend query logic rules directly into the interface architecture.</li>
-                                    <li><strong>The Solution:</strong> The primary header card retains the absolute next active trip requiring immediate action. The 'Upcoming Trips' list dynamically filters out the active ID, displaying only the subsequent pipeline. This eliminated redundant components, optimized white space, and preserved dynamic data flexibility.</li>
-                                </ul>
+                          <!-- Tile 2: Phase 1 -->
+                          <div class="apple-tile">
+                            <div class="tile-image-wrapper">
+                              <img src="images/dashboard_phase1.png" alt="Phase 1: Wrapped Header Text Layout" />
                             </div>
+                            <div class="tile-text-content">
+                              <span class="phase-pill">Phase 1 • Typographic Patch</span>
+                              <h4 class="tile-title">The Text-Wrap Fix</h4>
+                              <p class="tile-desc">Refactored the canvas layout engines to support dynamic line-wrapping and preserve primary string integrity.</p>
+                            </div>
+                          </div>
+
+                          <!-- Tile 3: Phase 2 -->
+                          <div class="apple-tile">
+                            <div class="tile-image-wrapper">
+                              <img src="images/dashboard_phase2.png" alt="Phase 2: Vertical Dense List View" />
+                            </div>
+                            <div class="tile-text-content">
+                              <span class="phase-pill">Phase 2 • Layout Evolution</span>
+                              <h4 class="tile-title">The Linear Timeline</h4>
+                              <p class="tile-desc">Transitioned from a grid to a full-width list to accommodate unrestricted data lengths and scale context density.</p>
+                            </div>
+                          </div>
+
+                          <!-- Tile 4: Phase 3 -->
+                          <div class="apple-tile">
+                            <div class="tile-image-wrapper">
+                              <img src="images/dashboard_phase3.png" alt="Phase 3: Logic Filtered Interface" />
+                            </div>
+                            <div class="tile-text-content">
+                              <span class="phase-pill">Phase 3 • Optimized System</span>
+                              <h4 class="tile-title">Logic-Filtered Data</h4>
+                              <p class="tile-desc">Implemented database query rules directly into the UI state to eliminate duplicate trip IDs and clear whitespace.</p>
+                            </div>
+                          </div>
+
                         </div>
                     </section>
 

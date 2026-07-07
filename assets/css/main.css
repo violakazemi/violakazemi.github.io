@@ -5487,3 +5487,113 @@ h1, h2, h3, h4, h5, h6 {
     height: auto !important;
 }
 
+/* Systems Optimization Apple Bento Grid */
+.apple-bento-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+
+.apple-tile {
+    background: #FFFFFF !important;
+    border-radius: 18px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: 100% !important;
+    border: 1px solid var(--apple-border) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.apple-tile:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.tile-image-wrapper {
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+    background-color: var(--apple-bg-gray) !important; /* Float on a subtle gray background */
+    margin-bottom: 20px !important;
+    padding: 8px !important;
+}
+
+.tile-image-wrapper img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.tile-text-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.phase-pill {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #BF4800 !important; /* Apple Orange-Red Accent */
+    text-transform: uppercase !important;
+    margin-bottom: 6px !important;
+    letter-spacing: 0.05em !important;
+    display: inline-block !important;
+}
+
+.tile-title {
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    color: #1D1D1F !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.tile-desc {
+    font-size: 14px !important;
+    color: #86868B !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+/* Horizontal Scroll Behavior on Mobile and Tablet Viewports */
+@media screen and (max-width: 1024px) {
+    .apple-bento-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 20px !important;
+        gap: 16px !important;
+        width: calc(100% + 48px) !important; /* Bleed slightly over padding edges */
+        margin-left: -24px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        scrollbar-width: none !important; /* Hide scrollbars for a clean iOS aesthetic */
+    }
+    
+    .apple-bento-grid::-webkit-scrollbar {
+        display: none !important; /* Hide scrollbars on WebKit */
+    }
+
+    .apple-tile {
+        flex: 0 0 280px !important; /* Fixed width cards for horizontal scrolling */
+        scroll-snap-align: start !important;
+        height: auto !important;
+    }
+}
+
