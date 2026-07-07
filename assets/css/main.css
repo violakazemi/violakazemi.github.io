@@ -4995,6 +4995,15 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 !important;
 }
 
+.tiles article .button {
+    margin-top: 16px !important; /* Spacing between button and description to match Apple layout guidelines */
+}
+
+.tiles article .button:hover,
+.tiles article .button:active {
+    text-decoration: underline !important; /* Underline visible on hover and active (pressed) states */
+}
+
 /* Experience List Overrides */
 #two {
     background-color: var(--apple-bg-light) !important;
