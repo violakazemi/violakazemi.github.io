@@ -4057,6 +4057,7 @@ article header.major {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center; /* This centers the contents horizontally */
+    align-items: center !important; /* Center contents vertically */
     width: 100%;             /* Ensures the container spans the full width to allow centering */
     margin-top: 20px;        /* Adds a little space above the button */
     margin-bottom: 40px;
@@ -4453,7 +4454,7 @@ body {
 
     /* Align prototype button left on mobile */
     .museum-page .prototype-link-container {
-        justify-content: flex-start !important;
+        justify-content: center !important; /* Center prototype buttons on mobile */
         margin-left: 0 !important;
         padding-left: 0 !important;
     }
