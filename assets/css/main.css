@@ -5183,12 +5183,64 @@ h1, h2, h3, h4, h5, h6 {
     gap: 4px !important;
     text-transform: none !important;
     letter-spacing: normal !important;
+    transform: none !important;
+    outline: none !important;
 }
 
-.button:hover {
-    color: var(--apple-blue-hover) !important;
+/* Ensure all pseudo-states and button classes have zero borders, shadows, backgrounds, and transforms */
+.button:hover, 
+.button:active, 
+.button:focus, 
+.button:visited, 
+.button.primary, 
+.button.primary:hover,
+.button.primary:active,
+.button.primary:focus,
+#header a.button,
+#header a.button:hover,
+#header a.button:active,
+#header a.button:focus,
+#footer .button,
+#footer .button:hover,
+#footer .button:active,
+#footer .button:focus {
     background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important; /* Strips any brutalist press translation shift offset */
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    outline: none !important;
+    opacity: 1 !important;
+}
+
+.button, 
+.button:focus, 
+.button:visited, 
+.button.primary, 
+#header a.button, 
+#footer .button {
+    color: var(--apple-blue) !important;
+}
+
+.button:hover, 
+.button:active, 
+.button.primary:hover,
+.button.primary:active,
+#header a.button:hover, 
+#header a.button:active, 
+#footer .button:hover,
+#footer .button:active {
+    color: var(--apple-blue-hover) !important;
     text-decoration: underline !important;
+}
+
+/* Disable original theme arrow offsets for next buttons */
+.button.next {
+    padding-right: 0 !important;
+}
+.button.next::before {
+    display: none !important;
 }
 
 /* Apple Link Chevron Animation */
