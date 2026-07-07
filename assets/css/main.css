@@ -4972,7 +4972,8 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent !important;
     font-size: 12px !important;
     font-weight: 500 !important;
-    padding: 0 !important;
+    padding: 0 14px 0 0 !important; /* Reserve space for absolute positioned chevron */
+    position: relative !important;
     border-radius: 0 !important;
     line-height: inherit !important;
     display: inline-flex !important;
