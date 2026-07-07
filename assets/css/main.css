@@ -4936,8 +4936,8 @@ h1, h2, h3, h4, h5, h6 {
     aspect-ratio: 21 / 9 !important; /* Wide landscape hero card */
 }
 
-.tiles article::before {
-    display: none !important; /* Strip original dark gradient overlay */
+.tiles article::before, .tiles article::after {
+    display: none !important; /* Strip original dark gradient and color overlays */
 }
 
 /* Hover Zoom & Elevation */
