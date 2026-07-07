@@ -4898,15 +4898,23 @@ html {
     --apple-badge-bg: #E8E8ED;
 }
 
+/* Global Apple System Font Stack Overrides */
+body, input, select, textarea, button, h1, h2, h3, h4, h5, h6, .button, .nav-segment, p, span, li, a {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Ensure Font Awesome classes retain icon rendering fonts */
+.icon::before, .icon::after, .fas, .fab, .far, .fal, .fad, [class^="fa-"], [class*=" fa-"] {
+    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands' !important;
+}
+
 body, input, select, textarea {
     background-color: var(--apple-bg-gray) !important;
     color: var(--apple-text-secondary) !important;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--apple-text-primary) !important;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif !important;
     letter-spacing: -0.02em !important;
     text-transform: none !important;
     border-bottom: none !important;
