@@ -5000,8 +5000,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tiles article .button:hover,
-.tiles article .button:active {
-    text-decoration: underline !important; /* Underline visible on hover and active (pressed) states */
+.tiles article .button:active,
+.tiles article:hover .button,
+.tiles article:active .button {
+    text-decoration: underline !important; /* Underline visible when hovering button or parent tile */
+}
+
+.tiles article:hover .button::after {
+    transform: translateY(-50%) translateX(3px) !important; /* Slide chevron when parent tile is hovered */
 }
 
 /* Experience List Overrides */
