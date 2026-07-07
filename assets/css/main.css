@@ -4885,15 +4885,27 @@ html {
     }
 }
 
-/* Global Style Overrides - Apple & Material 3 Inspired Corporate Tech Aesthetic */
+/* Definitive Apple.com Color Palette overrides */
+:root {
+    --apple-bg-light: #FFFFFF;
+    --apple-bg-gray: #F5F5F7;
+    --apple-text-primary: #1D1D1F;
+    --apple-text-secondary: #6E6E73;
+    --apple-text-muted: #86868B;
+    --apple-blue: #0071E3;
+    --apple-blue-hover: #0077ED;
+    --apple-border: #D2D2D7;
+    --apple-badge-bg: #E8E8ED;
+}
+
 body, input, select, textarea {
-    background-color: #FFFFFF !important;
-    color: #86868B !important;
+    background-color: var(--apple-bg-gray) !important;
+    color: var(--apple-text-secondary) !important;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif !important;
     letter-spacing: -0.02em !important;
     text-transform: none !important;
@@ -4901,7 +4913,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #wrapper {
-    background-color: #FFFFFF !important;
+    background-color: var(--apple-bg-gray) !important;
 }
 
 /* Header Overrides */
@@ -4922,7 +4934,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header a {
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     border: none !important;
     font-size: 12px !important; /* Crisp small text */
     font-weight: 400 !important;
@@ -4937,19 +4949,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo-text-desktop, #header .logo-text-mobile {
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     font-weight: 700 !important;
 }
 
 #header .logo-sub-desktop {
-    color: #86868B !important;
+    color: var(--apple-text-muted) !important;
     margin-left: 6px !important;
 }
 
-/* Ensure button text in header is white */
+/* Ensure button text in header is white, but background is Apple Blue */
 #header a.button, #header .button {
-    color: #FFFFFF !important;
-    background-color: #1D1D1F !important;
+    color: var(--apple-bg-light) !important;
+    background-color: var(--apple-blue) !important;
     font-size: 11px !important;
     font-weight: 600 !important;
     padding: 6px 16px !important;
@@ -4962,14 +4974,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header a.button:hover, #header .button:hover {
-    background-color: #3A3A3C !important;
+    background-color: var(--apple-blue-hover) !important;
 }
 
 /* Hero Banner Overrides (Apple Marketing Hero Section) */
 #banner {
-    background-color: #FFFFFF !important;
+    background-color: var(--apple-bg-light) !important;
     background-image: none !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     padding: 10em 24px 6em 24px !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     text-align: center !important;
@@ -4985,14 +4997,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 56px !important; /* Apple scale h1 */
     font-weight: 700 !important;
     letter-spacing: -0.005em !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     margin-bottom: 8px !important;
 }
 
 #banner h2 {
     font-size: 28px !important; /* Apple scale h2 */
     font-weight: 600 !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     margin-top: 8px !important;
     margin-bottom: 16px !important;
     text-transform: none !important;
@@ -5003,7 +5015,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 19px !important; /* Apple scale tagline */
     font-weight: 400 !important;
     line-height: 1.42 !important;
-    color: #86868B !important;
+    color: var(--apple-text-secondary) !important;
     max-width: 600px !important;
     margin: 16px auto !important;
 }
@@ -5014,13 +5026,13 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 24px !important;
     padding: 60px 24px !important;
-    background-color: #F5F5F7 !important; /* Soft premium off-white grid background */
+    background-color: var(--apple-bg-gray) !important; /* Soft premium off-white grid background */
     max-width: 1200px !important;
     margin: 0 auto !important;
 }
 
 .tiles article {
-    background-color: #FFFFFF !important;
+    background-color: var(--apple-bg-light) !important;
     border-radius: 24px !important; /* Apple-proportioned smooth corners */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important; /* Ultra-low contrast shadow */
     border: none !important;
@@ -5067,41 +5079,42 @@ h1, h2, h3, h4, h5, h6 {
 /* Metadata pill tracking above project title */
 .tiles article .metadata-pill {
     display: inline-block !important;
-    padding: 0 !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    background-color: transparent !important;
-    color: #86868B !important;
-    margin-bottom: 8px !important;
+    padding: 4px 10px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    background-color: var(--apple-badge-bg) !important;
+    color: var(--apple-text-primary) !important;
+    margin-bottom: 12px !important;
     border: none !important;
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
+    border-radius: 4px !important;
 }
 
 .tiles article h3 {
     font-size: 24px !important; /* Bold prominent titles */
     font-weight: 600 !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     margin-bottom: 8px !important;
     margin-top: 0 !important;
     letter-spacing: -0.015em !important;
 }
 
 .tiles article h3 a {
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     text-decoration: none !important;
 }
 
 .tiles article p {
     font-size: 14px !important;
     line-height: 1.4 !important;
-    color: #86868B !important;
+    color: var(--apple-text-secondary) !important;
     margin: 0 !important;
 }
 
 /* Experience List Overrides */
 #two {
-    background-color: #FFFFFF !important;
+    background-color: var(--apple-bg-light) !important;
     padding: 80px 24px !important;
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
@@ -5119,7 +5132,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .experience-list .job {
-    background-color: #F5F5F7 !important; /* Standard Apple off-white background */
+    background-color: var(--apple-bg-gray) !important; /* Standard Apple off-white background */
     padding: 24px 32px !important;
     border-radius: 16px !important;
     border: none !important;
@@ -5129,12 +5142,12 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center !important;
     gap: 24px !important;
     font-size: 15px !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
 }
 
 .experience-list .job .year {
     font-weight: 600 !important;
-    color: #86868B !important;
+    color: var(--apple-text-muted) !important;
     min-width: 140px !important;
     flex-shrink: 0 !important;
     font-size: 14px !important;
@@ -5142,13 +5155,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .experience-list .job .title {
     font-weight: 500 !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
 }
 
-/* Button Overrides */
+/* Button Overrides - Apple signature blue buttons */
 .button, input[type="submit"], input[type="reset"], input[type="button"] {
-    background-color: #1D1D1F !important;
-    color: #FFFFFF !important;
+    background-color: var(--apple-blue) !important;
+    color: var(--apple-bg-light) !important;
     border-radius: 100px !important;
     border: none !important;
     box-shadow: none !important;
@@ -5161,16 +5174,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button:hover {
-    background-color: #3A3A3C !important;
-    color: #FFFFFF !important;
+    background-color: var(--apple-blue-hover) !important;
+    color: var(--apple-bg-light) !important;
 }
 
 /* Multi-Column Apple Site Directory Footer */
 #footer {
-    background-color: #F5F5F7 !important; /* Soft gray directory background */
+    background-color: var(--apple-bg-gray) !important; /* Soft gray directory background */
     padding: 60px 24px 40px 24px !important;
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
-    color: #86868B !important;
+    color: var(--apple-text-secondary) !important;
 }
 
 #footer .inner {
@@ -5191,7 +5204,7 @@ h1, h2, h3, h4, h5, h6 {
 .directory-column h3 {
     font-size: 12px !important;
     font-weight: 600 !important;
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     margin-bottom: 16px !important;
@@ -5211,20 +5224,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .directory-column ul li a {
     font-size: 12px !important;
-    color: #86868B !important;
+    color: var(--apple-text-secondary) !important;
     text-decoration: none !important;
     border-bottom: none !important;
     transition: color 0.2s ease !important;
 }
 
 .directory-column ul li a:hover {
-    color: #1D1D1F !important;
+    color: var(--apple-blue) !important;
 }
 
 .directory-column p {
     font-size: 12px !important;
     line-height: 1.6 !important;
-    color: #86868B !important;
+    color: var(--apple-text-secondary) !important;
     margin: 0 !important;
 }
 
@@ -5236,17 +5249,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-bottom .copyright {
     font-size: 12px !important;
-    color: #86868B !important;
+    color: var(--apple-text-muted) !important;
     margin: 0 !important;
 }
 
 /* Case Study Page Specifics */
 .museum-page #wrapper {
-    background-color: #FFFFFF !important;
+    background-color: var(--apple-bg-light) !important;
 }
 
 .museum-page #main {
-    background-color: #FFFFFF !important;
+    background-color: var(--apple-bg-light) !important;
     padding: 80px 24px !important;
     max-width: 1000px !important;
     margin: 0 auto !important;
@@ -5278,7 +5291,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center !important;
     background-color: transparent !important;
     border: none !important;
-    color: #86868B !important;
+    color: var(--apple-text-secondary) !important;
     font-size: 0.95rem !important;
     font-weight: 500 !important;
     text-transform: none !important;
@@ -5290,16 +5303,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .museum-page .nav-segment:hover {
-    color: #1D1D1F !important;
+    color: var(--apple-text-primary) !important;
     background-color: transparent !important;
 }
 
-/* Active indicator line on the left side */
+/* Active indicator line on the left side - Apple Blue theme */
 .museum-page .nav-segment.active {
     background-color: transparent !important;
-    color: #1D1D1F !important;
+    color: var(--apple-blue) !important;
     box-shadow: none !important;
-    border-left: 2px solid #1D1D1F !important;
+    border-left: 2px solid var(--apple-blue) !important;
     font-weight: 600 !important;
     transform: none !important;
 }
@@ -5318,8 +5331,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #systems .iteration-card {
-    background-color: #FFFFFF !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background-color: var(--apple-bg-light) !important;
+    border: 1px solid var(--apple-border) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
     border-radius: 16px !important;
     padding: 32px !important;
@@ -5332,13 +5345,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #systems .iteration-card .badge {
-    background-color: #F5F5F7 !important;
-    color: #1D1D1F !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    font-size: 0.75rem !important;
-    font-weight: 600 !important;
-    border-radius: 100px !important;
-    padding: 4px 12px !important;
+    background-color: var(--apple-badge-bg) !important;
+    color: var(--apple-text-primary) !important;
+    border: none !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 4px !important;
+    padding: 4px 10px !important;
     margin-bottom: 16px !important;
 }
 
@@ -5368,7 +5383,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     .museum-page .nav-segment.active {
         border-left: none !important;
-        border-bottom: 2px solid #1D1D1F !important;
+        border-bottom: 2px solid var(--apple-blue) !important;
     }
 }
 
