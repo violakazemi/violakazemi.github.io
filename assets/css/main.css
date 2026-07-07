@@ -5382,10 +5382,8 @@ h1, h2, h3, h4, h5, h6 {
     left: 0 !important;
     width: 100% !important;
     height: 48px !important;
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background-color: var(--apple-bg-light) !important; /* Solid white sub-nav background */
+    border-bottom: 1px solid var(--apple-border) !important; /* Subtle Apple border instead of black */
     z-index: 9998 !important;
     display: flex !important;
     flex-direction: row !important;
@@ -5435,9 +5433,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Active indicator line - Apple active sub-nav item */
 .museum-page .nav-segment.active {
     background-color: transparent !important;
-    color: var(--apple-text-primary) !important;
+    color: var(--apple-blue) !important; /* Apple blue color instead of black */
     box-shadow: none !important;
-    border-bottom: 2px solid var(--apple-text-primary) !important; /* High contrast active bottom line */
+    border-bottom: 2px solid var(--apple-blue) !important; /* Apple blue active underline line instead of black */
     font-weight: 600 !important;
     transform: none !important;
     border-left: none !important;
@@ -5493,10 +5491,8 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width: 1023px) {
     .museum-page .nav-container {
         border-left: none !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid var(--apple-border) !important;
+        background-color: var(--apple-bg-light) !important;
         height: 48px !important;
     }
     .museum-page .nav-segment {
