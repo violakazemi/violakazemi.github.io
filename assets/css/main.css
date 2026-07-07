@@ -4958,24 +4958,28 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 6px !important;
 }
 
-/* Ensure button text in header is white, but background is Apple Blue */
+/* Header button matches standard Apple link style */
 #header a.button, #header .button {
-    color: var(--apple-bg-light) !important;
-    background-color: var(--apple-blue) !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    padding: 6px 16px !important;
-    border-radius: 100px !important;
-    line-height: 1.2 !important;
+    color: var(--apple-blue) !important;
+    background-color: transparent !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    line-height: inherit !important;
     display: inline-flex !important;
     align-items: center !important;
     height: auto !important;
-    margin-top: 10px !important;
+    margin-top: 0 !important;
 }
 
 #header a.button:hover, #header .button:hover {
-    background-color: var(--apple-blue-hover) !important;
+    color: var(--apple-blue-hover) !important;
+    background-color: transparent !important;
+    text-decoration: underline !important;
 }
+
+
 
 /* Hero Banner Overrides (Apple Marketing Hero Section) */
 #banner {
@@ -5162,24 +5166,47 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--apple-text-primary) !important;
 }
 
-/* Button Overrides - Apple signature blue buttons */
+/* Button Overrides - Apple signature blue text links with chevron */
 .button, input[type="submit"], input[type="reset"], input[type="button"] {
-    background-color: var(--apple-blue) !important;
-    color: var(--apple-bg-light) !important;
-    border-radius: 100px !important;
+    background-color: transparent !important;
+    color: var(--apple-blue) !important;
     border: none !important;
     box-shadow: none !important;
     font-weight: 500 !important;
-    padding: 10px 24px !important;
-    font-size: 14px !important;
-    transition: background-color 0.2s ease, transform 0.2s ease !important;
+    padding: 0 !important;
+    font-size: 17px !important; /* Premium readable link font size */
+    transition: color 0.2s ease !important;
     height: auto !important;
     line-height: inherit !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
 }
 
 .button:hover {
-    background-color: var(--apple-blue-hover) !important;
-    color: var(--apple-bg-light) !important;
+    color: var(--apple-blue-hover) !important;
+    background-color: transparent !important;
+    text-decoration: underline !important;
+}
+
+/* Apple Link Chevron Animation */
+.button::after {
+    content: " \203A" !important; /* Unicode single right angle chevron › */
+    font-size: 1.2em !important;
+    line-height: 1 !important;
+    transition: transform 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.button:hover::after {
+    transform: translateX(4px) !important;
+}
+
+/* Horizontal spacing between side-by-side buttons */
+.button + .button {
+    margin-left: 24px !important;
 }
 
 /* Multi-Column Apple Site Directory Footer */
