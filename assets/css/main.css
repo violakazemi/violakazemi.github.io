@@ -4887,7 +4887,7 @@ html {
 
 /* Global Style Overrides - Apple & Material 3 Inspired Corporate Tech Aesthetic */
 body, input, select, textarea {
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
     color: #86868B !important;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif !important;
 }
@@ -4902,7 +4902,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #wrapper {
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
 }
 
 /* Header Overrides */
@@ -4921,6 +4921,11 @@ h1, h2, h3, h4, h5, h6 {
     border: none !important;
     font-size: 0.9rem !important;
     font-weight: 600 !important;
+}
+
+/* Ensure button text in header is white */
+#header a.button, #header .button {
+    color: #FFFFFF !important;
 }
 
 #header .logo-text-desktop, #header .logo-text-mobile {
@@ -4974,7 +4979,7 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 40px !important;
     padding: 80px 40px !important;
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
     max-width: 1400px !important;
     margin: 0 auto !important;
 }
@@ -4983,7 +4988,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #FFFFFF !important;
     border-radius: 20px !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04) !important;
-    border: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
     padding: 48px !important;
     height: auto !important;
     min-height: 280px !important;
@@ -5041,7 +5046,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 6px 12px !important;
     font-size: 0.75rem !important;
     font-weight: 600 !important;
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
     color: #1D1D1F !important;
     border-radius: 100px !important;
     margin-bottom: 24px !important;
@@ -5070,10 +5075,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .experience-list .job {
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
     padding: 24px !important;
     border-radius: 12px !important;
-    border: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
     box-shadow: none !important;
     display: flex !important;
     justify-content: flex-start !important;
@@ -5118,7 +5123,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer Overrides */
 #footer {
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
     padding: 60px 40px !important;
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
@@ -5224,7 +5229,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #systems .iteration-card .badge {
-    background-color: #F5F5F7 !important;
+    background-color: #FFFFFF !important;
     color: #1D1D1F !important;
     border: 1px solid rgba(0, 0, 0, 0.05) !important;
     font-size: 0.75rem !important;
