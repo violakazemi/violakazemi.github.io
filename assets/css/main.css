@@ -5181,7 +5181,8 @@ h1, h2, h3, h4, h5, h6 {
     border: none !important;
     box-shadow: none !important;
     font-weight: 500 !important;
-    padding: 0 !important;
+    padding: 0 14px 0 0 !important; /* Reserve space for absolutely positioned chevron */
+    position: relative !important;
     font-size: 17px !important; /* Premium readable link font size */
     transition: color 0.2s ease !important;
     height: auto !important;
@@ -5253,7 +5254,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Apple Link Chevron Animation */
 .button::after {
-    content: " \203A" !important; /* Unicode single right angle chevron › */
+    content: "\203A" !important; /* Unicode single right angle chevron › */
+    position: absolute !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    text-decoration: none !important; /* Remove underline from chevron */
     font-size: 1.2em !important;
     line-height: 1 !important;
     transition: transform 0.2s ease !important;
@@ -5261,7 +5267,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button:hover::after {
-    transform: translateX(4px) !important;
+    transform: translateY(-50%) translateX(3px) !important;
 }
 
 /* Horizontal spacing between side-by-side buttons */
