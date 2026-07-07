@@ -5026,7 +5026,7 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 24px !important;
     padding: 60px 24px !important;
-    background-color: var(--apple-bg-gray) !important; /* Soft premium off-white grid background */
+    background-color: var(--apple-bg-light) !important; /* Pure white container background */
     max-width: 1200px !important;
     margin: 0 auto !important;
 }
@@ -5035,9 +5035,13 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--apple-bg-light) !important;
     border-radius: 24px !important; /* Apple-proportioned smooth corners */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important; /* Ultra-low contrast shadow */
-    border: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important; /* Clean subtle border to define card on white background */
     padding: 48px !important;
     height: auto !important;
+    width: 100% !important; /* Override legacy widths to align correctly inside CSS grid columns */
+    max-width: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
     aspect-ratio: 4 / 3 !important; /* Bento box square-ish aspect ratio */
     display: flex !important;
     flex-direction: column !important;
@@ -5403,6 +5407,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
         padding: 30px 16px !important;
+        background-color: var(--apple-bg-light) !important;
     }
     .tiles article:first-child {
         grid-column: span 1 !important;
@@ -5411,6 +5416,10 @@ h1, h2, h3, h4, h5, h6 {
     .tiles article {
         aspect-ratio: 4 / 3 !important;
         padding: 32px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 0 !important;
+        max-height: none !important;
     }
     .experience-list .job {
         flex-direction: column !important;
