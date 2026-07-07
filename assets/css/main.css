@@ -4375,11 +4375,9 @@ body {
     header.major > :first-child,
     #banner > .inner .content,
     .experience-list,
-    .experience-list .job,
     #banner > .inner > *,
     #main > * > .inner > *,
-    #banner > .inner .content > *,
-    #main > * > .inner .experience-list > * {
+    #banner > .inner .content > * {
         margin-left: 0 !important;
         padding-left: 0 !important;
     }
