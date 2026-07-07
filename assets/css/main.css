@@ -4963,16 +4963,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Metadata pill tracking above project title */
 .tiles article .metadata-pill {
     display: inline-block !important;
-    padding: 4px 10px !important;
+    padding: 0 !important;
     font-size: 10px !important;
-    font-weight: 700 !important;
-    background-color: var(--apple-badge-bg) !important;
-    color: var(--apple-text-primary) !important;
+    font-weight: 600 !important;
+    background-color: transparent !important;
+    color: var(--apple-text-secondary) !important;
     margin-bottom: 12px !important;
     border: none !important;
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
-    border-radius: 4px !important;
 }
 
 .tiles article h3 {
