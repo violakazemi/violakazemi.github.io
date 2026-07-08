@@ -5536,6 +5536,11 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: contain !important;
     border-radius: 8px !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth zoom transition */
+}
+
+.apple-tile:hover .tile-image-wrapper img {
+    transform: scale(1.06) !important; /* Elegant hover zoom effect */
 }
 
 
