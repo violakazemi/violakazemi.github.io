@@ -5653,7 +5653,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .apple-tile:hover .tile-image-wrapper img {
-        transform: scale(1.05) !important;
+        transform: scale(1) !important; /* Disable hover zoom magnification on mobile viewports */
     }
 
     .tile-text-content {
