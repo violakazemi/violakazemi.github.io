@@ -4934,6 +4934,7 @@ h1, h2, h3, h4, h5, h6 {
 .tiles article:first-child {
     grid-column: span 2 !important;
     aspect-ratio: 21 / 9 !important; /* Wide landscape hero card */
+    background: url('../../images/Projectcover.png') no-repeat right center / cover #FFFFFF !important; /* Set desktop cover image */
 }
 
 .tiles article::before, .tiles article::after {
@@ -5407,6 +5408,7 @@ h1, h2, h3, h4, h5, h6 {
     .tiles article:first-child {
         grid-column: span 1 !important;
         aspect-ratio: 4 / 3 !important;
+        background: #FFFFFF !important; /* Remove background image for mobile version */
     }
     .tiles article {
         aspect-ratio: 4 / 3 !important;
