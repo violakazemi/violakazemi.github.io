@@ -5496,31 +5496,32 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px !important;
     margin-bottom: 40px !important;
 }.apple-tile {
-    background: transparent !important; /* Remove white background behind the image */
-    border-radius: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important; /* Remove card shadow */
+    background: #FFFFFF !important; /* Restore white card background */
+    border-radius: 18px !important; /* Restore rounded borders */
+    padding: 20px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important; /* Restore card shadow */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
-    height: 400px !important; /* Fixed height for clean grid layout alignment */
-    border: none !important; /* Remove grey card border */
+    height: 420px !important; /* Standard fixed height */
+    border: 1px solid var(--apple-border) !important; /* Restore card grey border */
     position: relative !important; /* Establish local coordinate system */
     overflow: hidden !important;
-    transition: transform 0.2s ease !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .apple-tile:hover {
     transform: translateY(-4px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
 }
 
 .tile-image-wrapper {
-    width: 100% !important;
+    width: auto !important;
     height: 250px !important; /* Restricts the image container to the top portion of the tile */
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    top: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -5534,8 +5535,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .apple-tile:hover .tile-image-wrapper {
-    height: 100% !important; /* Expand wrapper fully on hover */
-    border-radius: 12px !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 100% !important; /* Expand wrapper fully to card borders on hover */
+    border-radius: 18px !important;
 }
 
 .tile-image-wrapper img {
@@ -5543,13 +5547,13 @@ h1, h2, h3, h4, h5, h6 {
     height: 100% !important;
     object-fit: contain !important;
     border-radius: 8px !important;
-    box-shadow: none !important; /* Remove shadow to let it float clean */
+    box-shadow: none !important; /* Remove grey drop shadow from the screenshots */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth zoom transition */
 }
 
 /* Expand to fill entire card boundaries on hover */
 .apple-tile:hover .tile-image-wrapper img {
-    border-radius: 12px !important;
+    border-radius: 18px !important;
     transform: scale(1.05) !important; /* Clean zoom scale */
 }
 
@@ -5559,9 +5563,9 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start !important;
     text-align: left !important;
     position: absolute !important;
-    top: 290px !important; /* Image container 250px + 40px spacing = 290px */
-    left: 0 !important;
-    right: 0 !important;
+    top: 310px !important; /* Image wrapper bottom is at 270px + 40px spacing = 310px */
+    left: 20px !important;
+    right: 20px !important;
     bottom: auto !important;
     height: auto !important; /* Let content determine height to prevent truncation */
     justify-content: flex-start !important;
@@ -5622,15 +5626,23 @@ h1, h2, h3, h4, h5, h6 {
     .apple-tile {
         flex: 0 0 280px !important; /* Fixed width cards for horizontal scrolling */
         scroll-snap-align: start !important;
-        height: 340px !important;
+        height: 380px !important;
     }
 
     .tile-image-wrapper {
-        height: 200px !important; /* Reduced slightly on mobile */
+        width: auto !important;
+        height: 210px !important; /* Restricts wrapper on mobile */
+        position: absolute !important;
+        top: 16px !important;
+        left: 16px !important;
+        right: 16px !important;
         padding: 0 !important;
     }
 
     .apple-tile:hover .tile-image-wrapper {
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
         height: 100% !important;
     }
 
@@ -5645,9 +5657,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .tile-text-content {
-        top: 240px !important; /* Image container 200px + 40px spacing = 240px */
-        left: 0 !important;
-        right: 0 !important;
+        top: 266px !important; /* Mobile wrapper bottom is at 226px + 40px spacing = 266px */
+        left: 16px !important;
+        right: 16px !important;
         bottom: auto !important;
         height: auto !important;
     }
