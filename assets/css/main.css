@@ -5500,12 +5500,12 @@ h1, h2, h3, h4, h5, h6 {
 .apple-tile {
     background: #FFFFFF !important;
     border-radius: 18px !important;
-    padding: 24px !important;
+    padding: 20px !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
-    height: 100% !important;
+    height: 420px !important; /* Fixed height for clean, consistent proportions */
     border: 1px solid var(--apple-border) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
@@ -5517,23 +5517,59 @@ h1, h2, h3, h4, h5, h6 {
 
 .tile-image-wrapper {
     width: 100% !important;
-    aspect-ratio: 4 / 3 !important;
+    height: 280px !important; /* Dominates exactly 66.6% of the card height */
+    position: relative !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     overflow: hidden !important;
     border-radius: 12px !important;
-    background-color: var(--apple-bg-gray) !important; /* Float on a subtle gray background */
-    margin-bottom: 20px !important;
+    background-color: var(--apple-bg-gray) !important; /* Floating card on a subtle gray background */
+    margin-bottom: 0 !important;
     padding: 8px !important;
+    flex-shrink: 0 !important;
 }
 
 .tile-image-wrapper img {
-    max-width: 100% !important;
-    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: contain !important;
     border-radius: 8px !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hover Overlay Styles */
+.tile-hover-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(29, 29, 31, 0.95) !important; /* Premium dark gray translucent background */
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+    opacity: 0 !important;
+    transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    pointer-events: none !important;
+    text-align: left !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+}
+
+.tile-hover-overlay p {
+    margin: 0 !important;
+    color: #FFFFFF !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+}
+
+.apple-tile:hover .tile-hover-overlay {
+    opacity: 1 !important;
 }
 
 .tile-text-content {
@@ -5554,19 +5590,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tile-title {
-    font-size: 19px !important;
+    font-size: 17px !important; /* Slightly adjusted to guarantee single-line fit */
     font-weight: 600 !important;
     color: #1D1D1F !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 !important;
     line-height: 1.25 !important;
     letter-spacing: -0.01em !important;
-}
-
-.tile-desc {
-    font-size: 14px !important;
-    color: #86868B !important;
-    line-height: 1.4 !important;
-    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
 }
 
 /* Horizontal Scroll Behavior on Mobile and Tablet Viewports */
@@ -5593,7 +5626,11 @@ h1, h2, h3, h4, h5, h6 {
     .apple-tile {
         flex: 0 0 280px !important; /* Fixed width cards for horizontal scrolling */
         scroll-snap-align: start !important;
-        height: auto !important;
+        height: 380px !important;
+    }
+
+    .apple-tile .tile-image-wrapper {
+        height: 240px !important;
     }
 }
 

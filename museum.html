@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=7.4" />
+    <link rel="stylesheet" href="assets/css/main.css?v=7.5" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -91,51 +91,59 @@
 
                         <div class="apple-bento-grid">
 
-                          <!-- Tile 1: Phase 0 -->
+                          <!-- Tile 1 -->
                           <div class="apple-tile">
-                            <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase0.png" alt="Phase 0: 2x2 Grid Layout with Truncation Bug" />
+                            <div class="tile-image-wrapper" style="position: relative;">
+                              <img src="images/dashboard_phase0.png" alt="Phase 0: The Truncation Defect" />
+                              <div class="tile-hover-overlay">
+                                <p>Testing against variable production data exposed a major defensive layout flaw: long database strings break container boundaries, forcing abrupt truncation and total loss of user context.</p>
+                              </div>
                             </div>
-                            <div class="tile-text-content">
+                            <div class="tile-text-content" style="padding-top: 16px;">
                               <span class="phase-pill">Phase 0 • MVP</span>
                               <h4 class="tile-title">The Truncation Defect</h4>
-                              <p class="tile-desc">Dynamic server strings break strict box layouts, resulting in data truncation and lost user context.</p>
                             </div>
                           </div>
 
-                          <!-- Tile 2: Phase 1 -->
+                          <!-- Tile 2 -->
                           <div class="apple-tile">
-                            <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase1.png" alt="Phase 1: Wrapped Header Text Layout" />
+                            <div class="tile-image-wrapper" style="position: relative;">
+                              <img src="images/dashboard_phase1.png" alt="Phase 1: The Text-Wrap Fix" />
+                              <div class="tile-hover-overlay">
+                                <p>Refactored the typographic container rules to support multi-line wrapping. While this preserved header string integrity, it exposed layout limitations in the supporting elements below.</p>
+                              </div>
                             </div>
-                            <div class="tile-text-content">
-                              <span class="phase-pill">Phase 1 • Typographic Patch</span>
+                            <div class="tile-text-content" style="padding-top: 16px;">
+                              <span class="phase-pill">Phase 1 • Patch</span>
                               <h4 class="tile-title">The Text-Wrap Fix</h4>
-                              <p class="tile-desc">Refactored the canvas layout engines to support dynamic line-wrapping and preserve primary string integrity.</p>
                             </div>
                           </div>
 
-                          <!-- Tile 3: Phase 2 -->
+                          <!-- Tile 3 -->
                           <div class="apple-tile">
-                            <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase2.png" alt="Phase 2: Vertical Dense List View" />
+                            <div class="tile-image-wrapper" style="position: relative;">
+                              <img src="images/dashboard_phase2.png" alt="Phase 2: The Linear Timeline" />
+                              <div class="tile-hover-overlay">
+                                <p>Transitioned from a strict 2x2 grid to a flexible linear timeline layout. This allowed the canvas to accommodate unrestricted string variables and introduced high-density user metrics.</p>
+                              </div>
                             </div>
-                            <div class="tile-text-content">
-                              <span class="phase-pill">Phase 2 • Layout Evolution</span>
+                            <div class="tile-text-content" style="padding-top: 16px;">
+                              <span class="phase-pill">Phase 2 • Layout</span>
                               <h4 class="tile-title">The Linear Timeline</h4>
-                              <p class="tile-desc">Transitioned from a grid to a full-width list to accommodate unrestricted data lengths and scale context density.</p>
                             </div>
                           </div>
 
-                          <!-- Tile 4: Phase 3 -->
+                          <!-- Tile 4 -->
                           <div class="apple-tile">
-                            <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase3.png" alt="Phase 3: Logic Filtered Interface" />
+                            <div class="tile-image-wrapper" style="position: relative;">
+                              <img src="images/dashboard_phase3.png" alt="Phase 3: Logic-Filtered Data" />
+                              <div class="tile-hover-overlay">
+                                <p>Programmed database conditional logic rules directly into the interface states. The application dynamically filters out the active trip ID from the upcoming list, eliminating data redundancy.</p>
+                              </div>
                             </div>
-                            <div class="tile-text-content">
-                              <span class="phase-pill">Phase 3 • Optimized System</span>
+                            <div class="tile-text-content" style="padding-top: 16px;">
+                              <span class="phase-pill">Phase 3 • System</span>
                               <h4 class="tile-title">Logic-Filtered Data</h4>
-                              <p class="tile-desc">Implemented database query rules directly into the UI state to eliminate duplicate trip IDs and clear whitespace.</p>
                             </div>
                           </div>
 
