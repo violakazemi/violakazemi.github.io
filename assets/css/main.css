@@ -5562,7 +5562,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start !important;
     text-align: left !important;
     position: absolute !important;
-    bottom: 20px !important;
+    bottom: 32px !important; /* Shifted slightly higher to prevent truncation and improve spacing */
     left: 20px !important;
     right: 20px !important;
     height: auto !important; /* Let content determine height to prevent truncation */
@@ -5645,6 +5645,13 @@ h1, h2, h3, h4, h5, h6 {
 
     .apple-tile:hover .tile-image-wrapper img {
         transform: scale(1.04) !important;
+    }
+
+    .tile-text-content {
+        bottom: 26px !important; /* Moved slightly up on mobile */
+        left: 20px !important;
+        right: 20px !important;
+        height: auto !important;
     }
 }
 
