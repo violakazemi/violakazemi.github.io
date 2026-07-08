@@ -5536,8 +5536,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .tile-image-wrapper img {
     width: calc(100% - 40px) !important;
-    height: 280px !important; /* Positioned at the top in default state */
-    margin-top: 20px !important;
+    height: 255px !important; /* Adjusted from 280px to leave plenty of breathing room for text in normal state */
+    margin-top: 12px !important; /* Moved image higher in the tile */
     object-fit: contain !important;
     border-radius: 8px !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
@@ -5550,7 +5550,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100% !important;
     margin-top: 0 !important;
     border-radius: 18px !important;
-    transform: scale(1.08) !important;
+    transform: scale(1) !important; /* Ensure image is fully shown and not cropped/covered */
 }
 
 .tile-text-content {
@@ -5626,8 +5626,8 @@ h1, h2, h3, h4, h5, h6 {
 
     .tile-image-wrapper img {
         width: calc(100% - 32px) !important;
-        height: 240px !important;
-        margin-top: 16px !important;
+        height: 215px !important; /* Adjusted to prevent covering text on mobile */
+        margin-top: 12px !important; /* Moved higher up on mobile */
     }
 
     .tile-text-content {
