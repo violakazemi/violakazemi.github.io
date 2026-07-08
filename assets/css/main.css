@@ -5496,28 +5496,27 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px !important;
     margin-bottom: 40px !important;
 }.apple-tile {
-    background: #FFFFFF !important;
-    border-radius: 18px !important;
-    padding: 20px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    background: transparent !important; /* Remove white background behind the image */
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important; /* Remove card shadow */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
-    height: 420px !important; /* Fixed height for clean, consistent proportions */
-    border: 1px solid var(--apple-border) !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    height: 400px !important; /* Fixed height for clean grid layout alignment */
+    border: none !important; /* Remove grey card border */
     position: relative !important; /* Establish local coordinate system */
     overflow: hidden !important;
+    transition: transform 0.2s ease !important;
 }
 
 .apple-tile:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
 }
 
 .tile-image-wrapper {
     width: 100% !important;
-    height: 240px !important; /* Restricts the image container to the top portion of the tile, reduced to prevent overlap */
+    height: 250px !important; /* Restricts the image container to the top portion of the tile */
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -5526,19 +5525,17 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center !important;
     align-items: center !important;
     overflow: hidden !important;
-    border-radius: 18px 18px 0 0 !important; /* Round top corners only in normal state */
+    border-radius: 12px !important;
     background-color: transparent !important; /* Remove the grey background block/border */
     margin: 0 !important;
-    padding: 20px 20px 0 20px !important; /* Premium top padding to keep the image centered and spaced from edges */
-    box-sizing: border-box !important;
+    padding: 0 !important;
     z-index: 1 !important;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 .apple-tile:hover .tile-image-wrapper {
     height: 100% !important; /* Expand wrapper fully on hover */
-    border-radius: 18px !important;
-    padding: 0 !important; /* Remove padding to expand to all borders */
+    border-radius: 12px !important;
 }
 
 .tile-image-wrapper img {
@@ -5546,14 +5543,14 @@ h1, h2, h3, h4, h5, h6 {
     height: 100% !important;
     object-fit: contain !important;
     border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: none !important; /* Remove shadow to let it float clean */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth zoom transition */
 }
 
 /* Expand to fill entire card boundaries on hover */
 .apple-tile:hover .tile-image-wrapper img {
-    border-radius: 18px !important;
-    transform: scale(1.04) !important; /* Clean zoom scale as padding clears */
+    border-radius: 12px !important;
+    transform: scale(1.05) !important; /* Clean zoom scale */
 }
 
 .tile-text-content {
@@ -5562,11 +5559,12 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start !important;
     text-align: left !important;
     position: absolute !important;
-    bottom: 48px !important; /* Shifted exactly one line higher to prevent any truncation issues */
-    left: 20px !important;
-    right: 20px !important;
+    top: 290px !important; /* Image container 250px + 40px spacing = 290px */
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
     height: auto !important; /* Let content determine height to prevent truncation */
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
     z-index: 2 !important;
     opacity: 1 !important;
@@ -5624,17 +5622,16 @@ h1, h2, h3, h4, h5, h6 {
     .apple-tile {
         flex: 0 0 280px !important; /* Fixed width cards for horizontal scrolling */
         scroll-snap-align: start !important;
-        height: 380px !important;
+        height: 340px !important;
     }
 
     .tile-image-wrapper {
         height: 200px !important; /* Reduced slightly on mobile */
-        padding: 16px 16px 0 16px !important;
+        padding: 0 !important;
     }
 
     .apple-tile:hover .tile-image-wrapper {
         height: 100% !important;
-        padding: 0 !important;
     }
 
     .tile-image-wrapper img {
@@ -5644,13 +5641,14 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .apple-tile:hover .tile-image-wrapper img {
-        transform: scale(1.04) !important;
+        transform: scale(1.05) !important;
     }
 
     .tile-text-content {
-        bottom: 38px !important; /* Moved one line higher on mobile */
-        left: 20px !important;
-        right: 20px !important;
+        top: 240px !important; /* Image container 200px + 40px spacing = 240px */
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
         height: auto !important;
     }
 }
