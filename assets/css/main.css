@@ -5594,9 +5594,9 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 !important;
     line-height: 1.25 !important;
     letter-spacing: -0.01em !important;
-    white-space: normal !important; /* Allow normal line wrapping */
-    overflow: visible !important;
-    text-overflow: clip !important;
+    white-space: nowrap !important; /* Single line constraint */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
     width: 100% !important;
 }
 
