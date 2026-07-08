@@ -5665,3 +5665,63 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Usability Testing Insights Grid styles */
+.test-insights-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+}
+
+.insight-card {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--apple-border) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.insight-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.insight-card h4 {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: #1D1D1F !important;
+    margin-bottom: 12px !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+.insight-card p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #515154 !important;
+    margin-bottom: 12px !important;
+}
+
+.insight-card p:last-child {
+    margin-bottom: 0 !important;
+}
+
+.insight-card strong {
+    color: #1D1D1F !important;
+    font-weight: 600 !important;
+}
+
+/* Responsive adjustment for Usability Insights */
+@media screen and (max-width: 768px) {
+    .test-insights-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+}
+
