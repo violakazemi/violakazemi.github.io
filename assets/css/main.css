@@ -5495,9 +5495,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100% !important;
     margin-top: 40px !important;
     margin-bottom: 40px !important;
-}
-
-.apple-tile {
+}.apple-tile {
     background: #FFFFFF !important;
     border-radius: 18px !important;
     padding: 20px !important;
@@ -5518,44 +5516,41 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tile-image-wrapper {
-    width: auto !important;
-    height: 280px !important; /* Dominates exactly 66.6% of the card height */
+    width: 100% !important;
+    height: 100% !important; /* Always cover full tile area */
     position: absolute !important;
-    top: 20px !important;
-    left: 20px !important;
-    right: 20px !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     overflow: hidden !important;
-    border-radius: 12px !important;
-    background-color: var(--apple-bg-gray) !important; /* Floating card on a subtle gray background */
-    margin-bottom: 0 !important;
-    padding: 8px !important;
-    flex-shrink: 0 !important;
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth expansion animation */
+    border-radius: 18px !important;
+    background-color: transparent !important; /* Remove the grey background block/border */
+    margin: 0 !important;
+    padding: 0 !important;
     z-index: 1 !important;
 }
 
-.apple-tile:hover .tile-image-wrapper {
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 100% !important;
-    border-radius: 18px !important; /* Match parent container edges */
-}
-
 .tile-image-wrapper img {
-    width: 100% !important;
-    height: 100% !important;
+    width: calc(100% - 40px) !important;
+    height: 280px !important; /* Positioned at the top in default state */
+    margin-top: 20px !important;
     object-fit: contain !important;
     border-radius: 8px !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth zoom transition */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth transition for zoom and size */
 }
 
+/* Expand to fill entire card boundaries on hover */
 .apple-tile:hover .tile-image-wrapper img {
-    transform: scale(1.08) !important; /* Zoom in when parent card is hovered */
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 0 !important;
+    border-radius: 18px !important;
+    transform: scale(1.08) !important;
 }
 
 .tile-text-content {
@@ -5567,7 +5562,7 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 20px !important;
     left: 20px !important;
     right: 20px !important;
-    height: 80px !important;
+    height: auto !important; /* Let content determine height to prevent truncation */
     justify-content: flex-end !important;
     transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
     z-index: 2 !important;
@@ -5590,15 +5585,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tile-title {
-    font-size: 17px !important; /* Slightly adjusted to guarantee single-line fit */
+    font-size: 17px !important;
     font-weight: 600 !important;
     color: #1D1D1F !important;
     margin: 0 !important;
     line-height: 1.25 !important;
     letter-spacing: -0.01em !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important; /* Allow normal line wrapping */
+    overflow: visible !important;
+    text-overflow: clip !important;
     width: 100% !important;
 }
 
@@ -5629,25 +5624,23 @@ h1, h2, h3, h4, h5, h6 {
         height: 380px !important;
     }
 
-    .tile-image-wrapper {
-        top: 16px !important;
-        left: 16px !important;
-        right: 16px !important;
+    .tile-image-wrapper img {
+        width: calc(100% - 32px) !important;
         height: 240px !important;
+        margin-top: 16px !important;
     }
 
     .tile-text-content {
         bottom: 16px !important;
         left: 16px !important;
         right: 16px !important;
-        height: 80px !important;
+        height: auto !important;
     }
 
-    .apple-tile:hover .tile-image-wrapper {
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
+    .apple-tile:hover .tile-image-wrapper img {
+        width: 100% !important;
         height: 100% !important;
+        margin-top: 0 !important;
     }
 }
 
