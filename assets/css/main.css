@@ -4941,6 +4941,73 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important; /* Hide scrollbar Chrome/Safari */
 }
 
+/* Carousel wrapper and navigation buttons */
+.carousel-container {
+    position: relative !important;
+    width: 100% !important;
+    background-color: var(--apple-bg-gray) !important;
+    overflow: hidden !important;
+}
+
+.carousel-nav-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background-color: rgba(230, 230, 235, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    transition: background-color 0.2s ease, opacity 0.25s ease, transform 0.2s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.carousel-nav-btn:hover {
+    background-color: rgba(210, 210, 215, 0.95) !important;
+    transform: translateY(-50%) scale(1.04) !important;
+}
+
+.carousel-nav-btn:active {
+    transform: translateY(-50%) scale(0.96) !important;
+}
+
+.carousel-nav-btn.next-btn {
+    right: 24px !important; /* Floats over the peeking 3rd tile */
+}
+
+.carousel-nav-btn.prev-btn {
+    left: 24px !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carousel-nav-btn::after {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #1d1d1f !important;
+    line-height: 1 !important;
+}
+
+.carousel-nav-btn.next-btn::after {
+    content: "\203A" !important; /* Single right angle chevron › */
+}
+
+.carousel-nav-btn.prev-btn::after {
+    content: "\2039" !important; /* Single left angle chevron ‹ */
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-nav-btn {
+        display: none !important; /* Hide arrows on mobile */
+    }
+}
+
 /* Carousel pagination indicators */
 .carousel-indicators {
     display: flex !important;
@@ -5003,30 +5070,33 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--apple-bg-light) !important; /* Override cover image to standard background */
 }
 
-/* Centered Mockup Style taking up 60% of the tile height */
+/* Centered Mockup Style stretching 100% edge-to-edge */
 .tiles article .tile-mockup {
-    height: 60% !important;
-    width: 100% !important;
+    width: calc(100% + 64px) !important; /* Stretch past side padding */
+    margin-left: -32px !important; /* Pull edge-to-edge */
+    margin-right: -32px !important; /* Pull edge-to-edge */
+    height: 280px !important; /* Fixed height for mockup container to align cards perfectly */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden !important;
-    margin: 16px auto !important; /* Centered horizontally */
+    margin: 24px auto !important; /* Balanced margins spacing it from top/bottom */
+    background-color: #f5f5f7 !important; /* Premium light grey container canvas */
+    border-top: 1px solid var(--apple-border) !important;
+    border-bottom: 1px solid var(--apple-border) !important;
 }
 
 .tiles article .tile-mockup img {
-    max-height: 100% !important;
-    max-width: 100% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Image fills mockup area completely */
     display: block !important;
     margin: 0 auto !important;
     transition: transform 0.3s ease !important;
 }
 
 .tiles article:hover .tile-mockup img {
-    transform: scale(1.04) !important; /* Floating effect hover scale */
+    transform: scale(1.03) !important; /* Subtle floating lift */
 }
 
 .tiles article::before, .tiles article::after {
@@ -5559,6 +5629,13 @@ h1, h2, h3, h4, h5, h6 {
         justify-content: flex-start !important;
         align-items: flex-start !important; /* Left-aligned Category and Title */
         text-align: left !important;
+    }
+    .tiles article .tile-mockup {
+        width: calc(100% + 32px) !important; /* Stretch past mobile side padding (16px) */
+        margin-left: -16px !important;
+        margin-right: -16px !important;
+        height: 200px !important; /* Compact mockup height for mobile screen feed */
+        margin: 16px auto !important;
     }
     .carousel-indicators {
         display: none !important; /* Hide carousel dots on mobile */

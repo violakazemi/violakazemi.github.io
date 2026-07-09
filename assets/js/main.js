@@ -335,21 +335,53 @@
 		// Carousel dot pagination scroll sync and click navigation
 		var $tilesContainer = $('.tiles');
 		var $dots = $('.carousel-indicators .dot');
+		var $prevBtn = $('.carousel-nav-btn.prev-btn');
+		var $nextBtn = $('.carousel-nav-btn.next-btn');
 
-		if ($tilesContainer.length > 0 && $dots.length > 0) {
+		if ($tilesContainer.length > 0) {
 			$tilesContainer.on('scroll', function() {
 				var scrollLeft = $tilesContainer.scrollLeft();
 				var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
-				var index = scrollLeft > (maxScrollLeft / 2) ? 1 : 0;
-				$dots.removeClass('active');
-				$dots.eq(index).addClass('active');
+				
+				// Sync dots
+				if ($dots.length > 0) {
+					var index = scrollLeft > (maxScrollLeft / 2) ? 1 : 0;
+					$dots.removeClass('active');
+					$dots.eq(index).addClass('active');
+				}
+
+				// Toggle prev button visibility
+				if (scrollLeft > 15) {
+					$prevBtn.css({ 'opacity': '1', 'pointer-events': 'auto' });
+				} else {
+					$prevBtn.css({ 'opacity': '0', 'pointer-events': 'none' });
+				}
+
+				// Toggle next button visibility
+				if (scrollLeft < maxScrollLeft - 15) {
+					$nextBtn.css({ 'opacity': '1', 'pointer-events': 'auto' });
+				} else {
+					$nextBtn.css({ 'opacity': '0', 'pointer-events': 'none' });
+				}
 			});
 
-			$dots.on('click', function() {
-				var index = $(this).data('slide');
-				var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
-				var scrollToVal = index === 1 ? maxScrollLeft : 0;
-				$tilesContainer.animate({ scrollLeft: scrollToVal }, 300);
+			if ($dots.length > 0) {
+				$dots.on('click', function() {
+					var index = $(this).data('slide');
+					var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
+					var scrollToVal = index === 1 ? maxScrollLeft : 0;
+					$tilesContainer.animate({ scrollLeft: scrollToVal }, 300);
+				});
+			}
+
+			$nextBtn.on('click', function() {
+				var scrollAmount = $tilesContainer.width() * 0.75;
+				$tilesContainer.animate({ scrollLeft: $tilesContainer.scrollLeft() + scrollAmount }, 300);
+			});
+
+			$prevBtn.on('click', function() {
+				var scrollAmount = $tilesContainer.width() * 0.75;
+				$tilesContainer.animate({ scrollLeft: $tilesContainer.scrollLeft() - scrollAmount }, 300);
 			});
 		}
 
