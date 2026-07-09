@@ -4918,6 +4918,16 @@ h1, h2, h3, h4, h5, h6 {
         text-transform: none !important;
         line-height: 1.1 !important;
     }
+    #two h2 {
+        font-size: 48px !important;
+        font-weight: 700 !important;
+        color: #1d1d1f !important;
+        letter-spacing: -0.03em !important;
+        margin: 0 !important;
+        border: none !important;
+        text-transform: none !important;
+        line-height: 1.1 !important;
+    }
 }
 
 /* Bento Grid Canvas Architecture (Apple Bento Layout - Desktop Carousel) */
