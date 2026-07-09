@@ -5176,6 +5176,8 @@ h1, h2, h3, h4, h5, h6 {
     position: relative !important;
     margin-top: auto !important; /* Pinned to the bottom-left */
     align-self: flex-start !important; /* Left-aligned bottom CTA */
+    height: auto !important; /* Content-based layout height */
+    line-height: 1.2 !important; /* Natural line-height to remove browser height hitboxes */
 }
 
 .tiles article .button:hover,
