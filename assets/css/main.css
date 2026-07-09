@@ -5071,26 +5071,27 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--apple-bg-light) !important; /* Override cover image to standard background */
 }
 
-/* Centered Mockup Style stretching 100% edge-to-edge */
+/* Centered Mockup Style - Clean Contain style */
 .tiles article .tile-mockup {
-    width: calc(100% + 64px) !important; /* Stretch past side padding */
-    margin-left: -32px !important; /* Pull edge-to-edge */
-    margin-right: -32px !important; /* Pull edge-to-edge */
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     height: 280px !important; /* Fixed height for mockup container to align cards perfectly */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden !important;
-    margin: 24px auto !important; /* Balanced margins spacing it from top/bottom */
-    background-color: #f5f5f7 !important; /* Premium light grey container canvas */
-    border-top: 1px solid var(--apple-border) !important;
-    border-bottom: 1px solid var(--apple-border) !important;
+    margin: 20px auto !important; /* Balanced margins spacing it from top/bottom */
+    background: transparent !important;
+    border: none !important;
 }
 
 .tiles article .tile-mockup img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* Image fills mockup area completely */
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important; /* Contain layout to prevent cropping/distortion */
     display: block !important;
     margin: 0 auto !important;
     transition: transform 0.3s ease !important;
@@ -5632,11 +5633,13 @@ h1, h2, h3, h4, h5, h6 {
         text-align: left !important;
     }
     .tiles article .tile-mockup {
-        width: calc(100% + 32px) !important; /* Stretch past mobile side padding (16px) */
-        margin-left: -16px !important;
-        margin-right: -16px !important;
-        height: 200px !important; /* Compact mockup height for mobile screen feed */
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 220px !important; /* Fixed height for clean mobile contain scaling */
         margin: 16px auto !important;
+        background: transparent !important;
+        border: none !important;
     }
     .carousel-indicators {
         display: none !important; /* Hide carousel dots on mobile */
