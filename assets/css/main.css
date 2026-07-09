@@ -4946,16 +4946,16 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important; /* Matches museum iteration cards */
     border: 1px solid var(--apple-border) !important; /* Matches museum iteration cards */
     padding: 32px !important; /* Matches museum iteration cards */
-    height: auto !important;
+    height: 450px !important; /* Fixed height for bento cards */
     width: 100% !important; /* Override legacy widths to align correctly inside CSS grid columns */
     max-width: 100% !important;
-    min-height: 0 !important;
+    min-height: 450px !important; /* Increase minimum height of the tiles to 450px */
     max-height: none !important;
-    aspect-ratio: 4 / 3 !important; /* Bento box square-ish aspect ratio */
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    align-items: flex-start !important;
+    align-items: center !important; /* Centered architecture */
+    text-align: center !important; /* Centered architecture */
     position: relative !important;
     overflow: hidden !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important; /* Matches museum iteration cards */
@@ -4963,7 +4963,33 @@ h1, h2, h3, h4, h5, h6 {
 
 /* First card styles */
 .tiles article:first-child {
-    background: url('../../images/Projectcover.png') no-repeat right center / cover #FFFFFF !important; /* Set desktop cover image */
+    background: var(--apple-bg-light) !important; /* Override cover image to standard background */
+}
+
+/* Centered Mockup Style taking up 60% of the tile height */
+.tiles article .tile-mockup {
+    height: 60% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    margin: 16px 0 !important;
+}
+
+.tiles article .tile-mockup img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+    transition: transform 0.3s ease !important;
+}
+
+.tiles article:hover .tile-mockup img {
+    transform: scale(1.04) !important; /* Floating effect hover scale */
 }
 
 .tiles article::before, .tiles article::after {
@@ -5472,16 +5498,24 @@ h1, h2, h3, h4, h5, h6 {
     }
     .tiles article:first-child {
         grid-column: span 1 !important;
-        aspect-ratio: 4 / 3 !important;
+        aspect-ratio: auto !important;
+        min-height: 400px !important;
+        height: 400px !important;
         background: #FFFFFF !important; /* Remove background image for mobile version */
     }
     .tiles article {
-        aspect-ratio: 4 / 3 !important;
+        aspect-ratio: auto !important;
+        min-height: 400px !important;
+        height: 400px !important;
         padding: 16px !important; /* Reduce inner padding to 16px */
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 0 !important;
         max-height: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: center !important;
     }
     .tiles article h3 {
         font-size: 22px !important; /* Scale down titles to 22px */
