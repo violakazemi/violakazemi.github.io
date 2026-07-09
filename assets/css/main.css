@@ -4752,6 +4752,7 @@ html {
     --apple-blue-hover: #0077ED;
     --apple-border: #D2D2D7;
     --apple-badge-bg: #E8E8ED;
+    --apple-grid-padding-left: max(12px, calc((100% - 1200px) / 2 + 12px));
 }
 
 /* Global Apple System Font Stack Overrides */
@@ -4900,7 +4901,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Desktop Breakpoint: Header size */
 @media screen and (min-width: 769px) {
     .grid-section-header {
-        padding: 40px max(12px, calc((100% - 1200px) / 2 + 12px)) 0 max(12px, calc((100% - 1200px) / 2 + 12px)) !important;
+        padding: 40px var(--apple-grid-padding-left) 0 var(--apple-grid-padding-left) !important;
         background-color: var(--apple-bg-gray) !important;
         max-width: 100% !important;
         margin: 0 !important; /* Force margin 0 to align exactly */
@@ -4929,7 +4930,7 @@ h1, h2, h3, h4, h5, h6 {
     scrollbar-width: none !important; /* Hide scrollbar Firefox */
     -ms-overflow-style: none !important;  /* Hide scrollbar IE/Edge */
     gap: 32px !important; /* Set grid-gap between project tiles to a consistent 32px */
-    padding: 30px max(12px, calc((100% - 1200px) / 2 + 12px)) 30px max(12px, calc((100% - 1200px) / 2 + 12px)) !important; /* Explicit left/right padding */
+    padding: 30px var(--apple-grid-padding-left) 30px var(--apple-grid-padding-left) !important; /* Explicit left/right padding */
     background-color: var(--apple-bg-gray) !important; /* Soft gray background behind cards */
     max-width: 100% !important;
     margin: 0 !important; /* Force margin 0 to align exactly */
