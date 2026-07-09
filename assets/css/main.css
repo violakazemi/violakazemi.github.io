@@ -5043,10 +5043,10 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important; /* Matches museum iteration cards */
     border: 1px solid var(--apple-border) !important; /* Matches museum iteration cards */
     padding: 32px !important; /* Matches museum iteration cards */
-    height: 520px !important; /* Vertical rectangle layout */
+    height: 560px !important; /* Vertical rectangle layout */
     width: 100% !important;
     max-width: 100% !important;
-    min-height: 520px !important;
+    min-height: 560px !important;
     max-height: none !important;
     display: flex !important;
     flex-direction: column !important;
@@ -5076,11 +5076,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    height: 280px !important; /* Fixed height for mockup container to align cards perfectly */
+    height: 320px !important; /* Increased height for larger mockup presence */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    overflow: hidden !important;
+    overflow: visible !important; /* Allow scaled image to overlap without clipping */
     margin: 20px auto !important; /* Balanced margins spacing it from top/bottom */
     background: transparent !important;
     border: none !important;
@@ -5094,11 +5094,12 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: contain !important; /* Contain layout to prevent cropping/distortion */
     display: block !important;
     margin: 0 auto !important;
+    transform: scale(1.5) !important; /* Double the visual size */
     transition: transform 0.3s ease !important;
 }
 
 .tiles article:hover .tile-mockup img {
-    transform: scale(1.03) !important; /* Subtle floating lift */
+    transform: scale(1.55) !important; /* Interactive hover hover lift */
 }
 
 .tiles article::before, .tiles article::after {
@@ -5640,6 +5641,15 @@ h1, h2, h3, h4, h5, h6 {
         margin: 16px auto !important;
         background: transparent !important;
         border: none !important;
+        overflow: visible !important; /* Prevent clipping mobile scaled mockup */
+    }
+    .tiles article .tile-mockup img {
+        max-height: 100% !important;
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        transform: scale(1.4) !important; /* Scaled up on mobile */
     }
     .carousel-indicators {
         display: none !important; /* Hide carousel dots on mobile */
