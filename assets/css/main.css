@@ -4901,8 +4901,8 @@ h1, h2, h3, h4, h5, h6 {
 .tiles {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 24px !important;
-    padding: 60px max(24px, calc((100% - 1200px) / 2 + 24px)) !important; /* Auto-calculate side padding to bound content at 1200px, while background color extends 100% full-width! */
+    gap: 32px !important; /* Set grid-gap between project tiles to a consistent 32px */
+    padding: 30px max(12px, calc((100% - 1200px) / 2 + 12px)) !important; /* Reduce outer padding by 50% */
     background-color: var(--apple-bg-gray) !important; /* Soft gray background behind cards */
     max-width: 100% !important;
     margin: 0 auto !important;
@@ -4930,10 +4930,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.2s ease, box-shadow 0.2s ease !important; /* Matches museum iteration cards */
 }
 
-/* First card spans full width with wide aspect ratio */
+/* First card styles */
 .tiles article:first-child {
-    grid-column: span 2 !important;
-    aspect-ratio: 21 / 9 !important; /* Wide landscape hero card */
     background: url('../../images/Projectcover.png') no-repeat right center / cover #FFFFFF !important; /* Set desktop cover image */
 }
 
@@ -4963,18 +4961,18 @@ h1, h2, h3, h4, h5, h6 {
 .tiles article .metadata-pill {
     display: inline-block !important;
     padding: 0 !important;
-    font-size: 10px !important;
+    font-size: 12px !important; /* Scale to 12px */
     font-weight: 600 !important;
     background-color: transparent !important;
     color: var(--apple-text-secondary) !important;
     margin-bottom: 12px !important;
     border: none !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
+    letter-spacing: 0.05em !important; /* Tracking 0.05em */
 }
 
 .tiles article h3 {
-    font-size: 24px !important; /* Bold prominent titles */
+    font-size: 28px !important; /* Dominant visual anchor size (28px) */
     font-weight: 600 !important;
     color: var(--apple-text-primary) !important;
     margin-bottom: 8px !important;
@@ -4995,14 +4993,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tiles article .button {
-    margin-top: 16px !important; /* Spacing between button and description to match Apple layout guidelines */
+    font-size: 16px !important; /* 16px Semi-Bold link */
+    font-weight: 600 !important;
+    color: #0071e3 !important; /* High-contrast CTA link color matching Apple Buy button */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 14px 0 0 !important; /* Reserve space for absolute positioned chevron */
+    margin: 0 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    display: inline-block !important;
+    transform: none !important;
+    cursor: pointer !important;
+    position: relative !important;
+    margin-top: 16px !important; /* Spacing between button and description */
 }
 
 .tiles article .button:hover,
 .tiles article .button:active,
 .tiles article:hover .button,
 .tiles article:active .button {
+    color: var(--apple-blue-hover) !important;
     text-decoration: underline !important; /* Underline visible when hovering button or parent tile */
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
 .tiles article:hover .button::after {
