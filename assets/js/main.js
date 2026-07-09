@@ -332,4 +332,25 @@
 
 			});
 
+		// Carousel dot pagination scroll sync and click navigation
+		var $tilesContainer = $('.tiles');
+		var $dots = $('.carousel-indicators .dot');
+
+		if ($tilesContainer.length > 0 && $dots.length > 0) {
+			$tilesContainer.on('scroll', function() {
+				var scrollLeft = $tilesContainer.scrollLeft();
+				var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
+				var index = scrollLeft > (maxScrollLeft / 2) ? 1 : 0;
+				$dots.removeClass('active');
+				$dots.eq(index).addClass('active');
+			});
+
+			$dots.on('click', function() {
+				var index = $(this).data('slide');
+				var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
+				var scrollToVal = index === 1 ? maxScrollLeft : 0;
+				$tilesContainer.animate({ scrollLeft: scrollToVal }, 300);
+			});
+		}
+
 })(jQuery);
