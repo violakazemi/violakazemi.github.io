@@ -4897,6 +4897,37 @@ h1, h2, h3, h4, h5, h6 {
     margin: 16px auto !important;
 }
 
+/* Desktop Breakpoint: Header size and pinned layout offsets */
+@media screen and (min-width: 769px) {
+    .grid-section-header {
+        padding: 40px max(12px, calc((100% - 1200px) / 2 + 12px)) 0 max(12px, calc((100% - 1200px) / 2 + 12px)) !important;
+        background-color: var(--apple-bg-gray) !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .grid-section-header h2 {
+        font-size: 48px !important;
+        font-weight: 700 !important;
+        color: #1d1d1f !important;
+        letter-spacing: -0.03em !important;
+        margin: 0 !important;
+        border: none !important;
+        text-transform: none !important;
+        line-height: 1.1 !important;
+    }
+    .tiles article {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+    }
+    .tiles article .button {
+        margin-top: auto !important; /* Vertically pins CTA to the bottom of the card container */
+    }
+}
+
 /* Bento Grid Canvas Architecture (Apple Bento Layout) */
 .tiles {
     display: grid !important;
@@ -5406,6 +5437,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 768px) {
+    .grid-section-header {
+        padding: 24px 16px 0 16px !important;
+        background-color: var(--apple-bg-gray) !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .grid-section-header h2 {
+        font-size: 32px !important; /* Fit comfortably on mobile */
+        font-weight: 700 !important;
+        color: #1d1d1f !important;
+        letter-spacing: -0.02em !important;
+        margin: 0 !important;
+        border: none !important;
+        text-transform: none !important;
+        line-height: 1.2 !important;
+    }
     #banner h1 {
         font-size: 40px !important;
     }
@@ -5428,11 +5477,21 @@ h1, h2, h3, h4, h5, h6 {
     }
     .tiles article {
         aspect-ratio: 4 / 3 !important;
-        padding: 32px !important;
+        padding: 16px !important; /* Reduce inner padding to 16px */
         width: 100% !important;
         max-width: 100% !important;
         min-height: 0 !important;
         max-height: none !important;
+    }
+    .tiles article h3 {
+        font-size: 22px !important; /* Scale down titles to 22px */
+    }
+    .tiles article img {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
     }
     #two {
         padding: 48px 16px !important; /* Balanced container padding on mobile */
