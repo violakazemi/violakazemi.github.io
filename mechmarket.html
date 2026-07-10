@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=14.0" />
+    <link rel="stylesheet" href="assets/css/main.css?v=14.1" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -47,6 +47,7 @@
             <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">16. Architecture</a>
             <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">17. Interface</a>
             <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">18. Accessibility</a>
+            <a href="#takeaways" class="nav-segment" id="seg-takeaways" title="Takeaways">19. Takeaways</a>
         </nav>
 
         <div id="main" class="alt">
@@ -879,6 +880,25 @@
                     <p>To support all hobbyists, I prioritized screen-reader compatibility and large touch targets for switch customization controls, ensuring physical accessibility and WCAG AA contrast compliance across the entire e-commerce flow.</p>
                 </div>
             </section>
+            
+            <!-- Takeaways Section -->
+            <section id="takeaways">
+                <div class="inner">
+                    <h2>Takeaways</h2>
+                    <p>As a mechanical keyboard enthusiast, Mechmarket is a project that is incredibly near and dear to my heart. I wanted to communicate the importance of expressing oneself through different creative outlets. This project marked my first time fully utilizing a goal-directed design process, and I can clearly see its immense value for future work.</p>
+                    <p>Honing in on persona hypothesis creation to balance the goals of both the user and the business is a step I had previously taken for granted. Ultimately, I learned that designing exclusively for business metrics without prioritizing user needs leads to failure—a reality that is especially true for modern e-commerce applications.</p>
+                    
+                    <div class="takeaways-footer-container">
+                        <div class="takeaways-button-wrapper">
+                            <a href="#" class="takeaways-pill-btn">PROCESS DECK</a>
+                        </div>
+                        <div class="takeaways-credits">
+                            <p>Special thanks to Ted Davis for creating the slick motion comps.</p>
+                            <p>Be sure to check out the full design journey for Mechmarket below!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
     </div>
@@ -917,7 +937,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'research', 'architecture', 'interface', 'accessibility', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
