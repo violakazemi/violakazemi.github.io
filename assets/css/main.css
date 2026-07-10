@@ -6284,4 +6284,63 @@ body.mechmarket-page,
     }
 }
 
+/* Responsive Two Column Split Layout */
+.split-columns-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 64px !important;
+    width: 100% !important;
+}
+
+.split-columns-grid .left-column,
+.split-columns-grid .right-column {
+    flex: 1 !important;
+    width: 50% !important;
+}
+
+.split-columns-grid h2 {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    color: var(--apple-text-primary) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: -0.015em !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.split-columns-grid p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--apple-text-secondary) !important;
+    margin: 0 !important;
+}
+
+.challenge-list {
+    margin: 0 0 0 20px !important;
+    padding: 0 !important;
+    list-style: decimal !important;
+}
+
+.challenge-list li {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--apple-text-secondary) !important;
+    margin-bottom: 12px !important;
+    padding-left: 4px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .split-columns-grid {
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+    .split-columns-grid .left-column,
+    .split-columns-grid .right-column {
+        width: 100% !important;
+    }
+}
+
+
 
