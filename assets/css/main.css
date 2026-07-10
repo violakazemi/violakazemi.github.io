@@ -5208,13 +5208,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Experience List Overrides */
 #two {
     background-color: var(--apple-bg-light) !important;
-    padding: 80px 24px !important;
+    padding: 80px 0 !important; /* Set side padding to 0, handled by .inner */
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
 }
 
 #two .inner {
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: var(--apple-grid-padding-left) !important;
+    padding-right: var(--apple-grid-padding-left) !important;
+    box-sizing: border-box !important;
 }
 
 .experience-list {
