@@ -6411,6 +6411,65 @@ body.mechmarket-page,
     }
 }
 
+/* Kickoff Questions Grid Layout */
+.questions-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+    margin-top: 40px !important;
+    width: 100% !important;
+}
+
+.question-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    background-color: #f5f5f7 !important; /* Nested card grey */
+    border-radius: 12px !important;
+    padding: 24px 28px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    min-height: 100px !important;
+    box-sizing: border-box !important;
+}
+
+.question-card .accent-bar {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 6px !important;
+    background-color: #E6B8D1 !important; /* Muted Blush/Soft Pink */
+}
+
+.question-card p {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    color: #202020 !important;
+    margin: 0 0 0 12px !important; /* Push text away from left absolute bar */
+    font-weight: 500 !important;
+    text-align: left !important;
+}
+
+@media screen and (max-width: 980px) {
+    .questions-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .questions-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    .question-card {
+        padding: 20px 24px !important;
+        min-height: auto !important;
+    }
+}
+
+
 
 
 

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=12.7" />
+    <link rel="stylesheet" href="assets/css/main.css?v=12.8" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -31,11 +31,12 @@
         <nav class="nav-container" id="nav-container">
             <a href="#hero-section" class="nav-segment" id="seg-hero" title="Hero">1. Intro</a>
             <a href="#vision" class="nav-segment" id="seg-vision" title="Vision">2. Vision & Challenges</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">3. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">4. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">5. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">6. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
+            <a href="#kickoff" class="nav-segment" id="seg-kickoff" title="Kickoff">3. Kickoff</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">4. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">5. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">6. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">7. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">8. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -90,6 +91,41 @@
                                 <li>Create a minimalistic UI while keeping products as the focus</li>
                                 <li>Provide a seamless & linear purchasing experience</li>
                             </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kickoff Section -->
+            <section id="kickoff">
+                <div class="inner">
+                    <h2>Kickoff</h2>
+                    <p class="kickoff-intro">In this project, we took a goal-directed design approach that proved to be quite effective in our design efforts. We found qualitative research methods to be the most useful, consisting of a kickoff meeting, literature review, competitive analysis, stakeholder interviews, and most important our persona hypothesis construction. We started out by asking ourselves some initial key questions.</p>
+                    
+                    <div class="questions-grid">
+                        <div class="question-card">
+                            <div class="accent-bar"></div>
+                            <p>What is the product and who is it for?</p>
+                        </div>
+                        <div class="question-card">
+                            <div class="accent-bar"></div>
+                            <p>What do our primary users need most?</p>
+                        </div>
+                        <div class="question-card">
+                            <div class="accent-bar"></div>
+                            <p>Which users are the most important to the business?</p>
+                        </div>
+                        <div class="question-card">
+                            <div class="accent-bar"></div>
+                            <p>What challenges could we face moving forward?</p>
+                        </div>
+                        <div class="question-card">
+                            <div class="accent-bar"></div>
+                            <p>Who do we see as our biggest competitors?</p>
+                        </div>
+                        <div class="question-card">
+                            <div class="accent-bar"></div>
+                            <p>What literature should we review to familiarize ourselves?</p>
                         </div>
                     </div>
                 </div>
@@ -169,7 +205,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
