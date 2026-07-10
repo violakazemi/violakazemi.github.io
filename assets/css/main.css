@@ -5460,13 +5460,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Case Study Page Specifics */
+body.museum-page,
 .museum-page #wrapper {
-    background-color: var(--apple-bg-light) !important;
+    background-color: var(--apple-bg-gray) !important;
     display: block !important; /* Stack nav-container and main vertically */
 }
 
 .museum-page #main {
-    background-color: var(--apple-bg-light) !important;
+    background-color: var(--apple-bg-gray) !important;
     padding: 120px 24px 80px 24px !important; /* Give padding top to prevent overlap by header & sub-nav */
     max-width: 1000px !important;
     margin: 0 auto !important;
