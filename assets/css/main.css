@@ -5074,6 +5074,7 @@ h1, h2, h3, h4, h5, h6 {
     flex: 0 0 calc((100% - 32px) / 2) !important; /* Exactly 2 tiles visible at once on desktop */
     scroll-snap-align: start !important;
     background-color: var(--apple-bg-light) !important;
+    border-radius: 18px !important; /* Consistent Apple 18px corner radius */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
     border: none !important; /* Remove card border */
     padding: 32px !important; /* Matches museum iteration cards */
@@ -5257,7 +5258,7 @@ h1, h2, h3, h4, h5, h6 {
 .experience-list .job {
     background-color: var(--apple-bg-gray) !important; /* Standard Apple off-white background */
     padding: 24px 32px !important;
-    border-radius: 16px !important;
+    border-radius: 18px !important;
     border: none !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Use Apple shadow system */
     display: flex !important;
@@ -5565,7 +5566,7 @@ body.museum-page,
     background-color: var(--apple-bg-light) !important;
     border: none !important; /* Remove card border */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
-    border-radius: 16px !important;
+    border-radius: 18px !important;
     padding: 32px !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
@@ -5669,7 +5670,7 @@ body.museum-page,
         width: 100% !important;
         max-width: 100% !important;
         max-height: none !important;
-        border-radius: 16px !important;
+        border-radius: 18px !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
@@ -5757,7 +5758,7 @@ body.museum-page,
     background-color: var(--apple-bg-light) !important;
     border: none !important; /* Remove card border */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
-    border-radius: 16px !important;
+    border-radius: 18px !important;
     padding: 24px !important; /* Premium card frame padding */
     margin-bottom: 2em !important;
     display: block !important;
@@ -5968,7 +5969,7 @@ body.museum-page,
 
 .insight-card {
     background: #FFFFFF !important;
-    border-radius: 16px !important;
+    border-radius: 18px !important;
     padding: 24px !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
     border: none !important; /* Remove card border */
