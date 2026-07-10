@@ -5074,9 +5074,8 @@ h1, h2, h3, h4, h5, h6 {
     flex: 0 0 calc((100% - 32px) / 2) !important; /* Exactly 2 tiles visible at once on desktop */
     scroll-snap-align: start !important;
     background-color: var(--apple-bg-light) !important;
-    border-radius: 24px !important; /* Consistent border-radius of 24px */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important; /* Matches museum iteration cards */
-    border: 1px solid var(--apple-border) !important; /* Matches museum iteration cards */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    border: none !important; /* Remove card border */
     padding: 32px !important; /* Matches museum iteration cards */
     height: 560px !important; /* Vertical rectangle layout */
     width: 100% !important;
@@ -5144,7 +5143,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hover Zoom & Elevation */
 .tiles article:hover {
     transform: translateY(-4px) !important; /* Matches museum iteration cards translation */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important; /* Matches museum iteration cards elevation */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important; /* Premium hover shadow elevation */
 }
 
 .tiles article header.major {
@@ -5260,7 +5259,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 24px 32px !important;
     border-radius: 16px !important;
     border: none !important;
-    box-shadow: none !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Use Apple shadow system */
     display: flex !important;
     justify-content: flex-start !important;
     align-items: center !important;
@@ -5563,8 +5562,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #systems .iteration-card {
     background-color: var(--apple-bg-light) !important;
-    border: 1px solid var(--apple-border) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    border: none !important; /* Remove card border */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
     border-radius: 16px !important;
     padding: 32px !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -5572,7 +5571,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #systems .iteration-card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
 }
 
 #systems .iteration-card .badge {
@@ -5755,8 +5754,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Museum Page Image Cards Overrides */
 .museum-page #main .image.main {
     background-color: var(--apple-bg-light) !important;
-    border: 1px solid var(--apple-border) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    border: none !important; /* Remove card border */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
     border-radius: 16px !important;
     padding: 24px !important; /* Premium card frame padding */
     margin-bottom: 2em !important;
@@ -5768,7 +5767,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .museum-page #main .image.main:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
 }
 
 .museum-page #main .image.main img {
@@ -5790,12 +5789,12 @@ h1, h2, h3, h4, h5, h6 {
     background: #FFFFFF !important; /* Restore white card background */
     border-radius: 18px !important; /* Restore rounded borders */
     padding: 20px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important; /* Restore card shadow */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     height: 420px !important; /* Standard fixed height */
-    border: 1px solid var(--apple-border) !important; /* Restore card grey border */
+    border: none !important; /* Remove card border */
     position: relative !important; /* Establish local coordinate system */
     overflow: hidden !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -5803,7 +5802,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .apple-tile:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
 }
 
 .tile-image-wrapper {
@@ -5970,8 +5969,8 @@ h1, h2, h3, h4, h5, h6 {
     background: #FFFFFF !important;
     border-radius: 16px !important;
     padding: 24px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-    border: 1px solid var(--apple-border) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    border: none !important; /* Remove card border */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -5980,7 +5979,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .insight-card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
 }
 
 .insight-badge {
@@ -6062,9 +6061,9 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden !important;
     padding: 0 !important;
     border-radius: 12px !important;
-    border: 1px solid var(--apple-border) !important;
+    border: none !important;
     background-color: #f5f5f7 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
     margin-left: 24px !important;
     transition: transform 0.2s ease !important;
 }
