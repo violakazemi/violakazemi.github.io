@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=13.4" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.5" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -39,11 +39,12 @@
             <a href="#wireflow" class="nav-segment" id="seg-wireflow" title="Wireflow">8. Wireflow</a>
             <a href="#iteration" class="nav-segment" id="seg-iteration" title="Iteration">9. Iteration</a>
             <a href="#polish" class="nav-segment" id="seg-polish" title="Polish">10. HF Polish</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">11. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">12. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">13. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">14. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">15. Accessibility</a>
+            <a href="#challenges" class="nav-segment" id="seg-challenges" title="Challenges">11. UX Challenges</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">12. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">13. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">14. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">15. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">16. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -715,6 +716,57 @@
                 </div>
             </section>
 
+            <!-- Design Challenges & Solutions Section -->
+            <section id="challenges">
+                <div class="inner">
+                    <h2>Design Challenges & Solutions</h2>
+                    
+                    <!-- Module 1: Eliminating Barriers -->
+                    <div class="challenge-row">
+                        <div class="challenge-text-col">
+                            <h3>Challenge 1: Eliminating Barriers</h3>
+                            <p>A key factor when trying to gain a userbase is to create a splash screen void of conflict. If the user wishes to browse the items within the app before creating an account, they might be more inclined to create one later on. Along with the login and register options, the 'continue as guest' option allows users to browse the app without an account.</p>
+                        </div>
+                        <div class="challenge-visual-col">
+                            <img src="images/mechmarketlanding.png" alt="Splash Screen Mockup" class="challenge-mockup-img" />
+                        </div>
+                    </div>
+                    
+                    <!-- Module 2: A Familiar Experience -->
+                    <div class="challenge-row reverse-row">
+                        <div class="challenge-text-col">
+                            <h3>Challenge 2: A Familiar Experience</h3>
+                            <p>While Mechmarket’s primary audience consists of keyboard enthusiasts, the app must remain accessible to users outside this arena. By utilizing recognizable iconography, intuitive gestures, and a linear purchase process, we ensured that Mechmarket offers an intuitive experience for every user.</p>
+                        </div>
+                        <div class="challenge-visual-col">
+                            <img src="images/mechmarkethero.png" alt="'Trending' Home Screen Mockup" class="challenge-mockup-img" />
+                        </div>
+                    </div>
+                    
+                    <!-- Module 3: Staying Focused -->
+                    <div class="challenge-row">
+                        <div class="challenge-text-col">
+                            <h3>Challenge 3: Staying Focused</h3>
+                            <p>The UI utilizes a neutral, two-toned black and white color scheme, with green accents used exclusively for key signifiers. By using color sparingly, the interface remains calm, ensuring the product imagery remains the clear focus during user engagement.</p>
+                        </div>
+                        <div class="challenge-visual-col">
+                            <img src="images/mechmarketthumbnail.png" alt="Product Detail Page Mockup" class="challenge-mockup-img" />
+                        </div>
+                    </div>
+                    
+                    <!-- Module 4: Quick, Simple, & Secure -->
+                    <div class="challenge-row reverse-row">
+                        <div class="challenge-text-col">
+                            <h3>Challenge 4: Quick, Simple, & Secure</h3>
+                            <p>By consolidating payment and shipping details into a single screen, we eliminated user doubt during the final purchase stage. This design choice minimizes screen count and facilitates a faster, more secure checkout experience.</p>
+                        </div>
+                        <div class="challenge-visual-col">
+                            <img src="images/mechmarketcheckout.png" alt="Payment/Checkout Mockup" class="challenge-mockup-img" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -789,7 +841,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });

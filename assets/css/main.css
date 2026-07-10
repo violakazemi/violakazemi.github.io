@@ -7533,6 +7533,75 @@ body.mechmarket-page,
     }
 }
 
+/* Design Challenges & Solutions Styles */
+.challenge-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 64px !important;
+    margin-top: 64px !important;
+    width: 100% !important;
+}
+
+.challenge-row.reverse-row {
+    flex-direction: row-reverse !important;
+}
+
+.challenge-text-col {
+    flex: 1.2 !important;
+    text-align: left !important;
+}
+
+.challenge-text-col h3 {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: #202020 !important;
+    margin-bottom: 16px !important;
+}
+
+.challenge-text-col p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: #202020 !important;
+    margin: 0 !important;
+}
+
+.challenge-visual-col {
+    flex: 0.8 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.challenge-mockup-img {
+    max-width: 100% !important;
+    max-height: 480px !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06) !important;
+    object-fit: contain !important;
+    background-color: transparent !important;
+}
+
+@media screen and (max-width: 980px) {
+    .challenge-row,
+    .challenge-row.reverse-row {
+        flex-direction: column !important;
+        gap: 32px !important;
+        margin-top: 48px !important;
+    }
+    .challenge-text-col {
+        width: 100% !important;
+    }
+    .challenge-visual-col {
+        width: 100% !important;
+    }
+    .challenge-mockup-img {
+        max-height: 380px !important;
+    }
+}
+
 
 
 
