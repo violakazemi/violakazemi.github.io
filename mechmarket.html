@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=12.9" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.0" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -33,11 +33,12 @@
             <a href="#vision" class="nav-segment" id="seg-vision" title="Vision">2. Vision & Challenges</a>
             <a href="#kickoff" class="nav-segment" id="seg-kickoff" title="Kickoff">3. Kickoff</a>
             <a href="#affinity" class="nav-segment" id="seg-affinity" title="Affinity">4. Synthesis</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">5. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">6. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">7. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">8. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">9. Accessibility</a>
+            <a href="#personas" class="nav-segment" id="seg-personas" title="Personas">5. Meet the Users</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">6. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">7. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">8. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">9. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">10. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -214,6 +215,63 @@
                 </div>
             </section>
 
+            <!-- Meet the Users Section -->
+            <section id="personas">
+                <div class="inner">
+                    <h2>Meet the Users</h2>
+                    
+                    <div class="personas-grid-3col">
+                        <!-- Leo -->
+                        <div class="persona-card-col">
+                            <div class="persona-header">
+                                <span class="persona-type-label">PRIMARY</span>
+                                <div class="persona-avatar-wrapper">
+                                    <img src="images/avatar_leo.png" alt="Leo Avatar" />
+                                </div>
+                                <h3 class="persona-name">Leo</h3>
+                                <div class="persona-meta">Age: 23 &nbsp;|&nbsp; Tech Support</div>
+                            </div>
+                            <div class="persona-bio-block">
+                                <div class="accent-line-vertical"></div>
+                                <p class="persona-bio-text">Leo loves when customers ask about his keyboard because he gets to share his unique build. Mechmarket allows him to express his creativity through the app, share with other enthusiasts, and find niche parts and exclusive deals.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Sofia -->
+                        <div class="persona-card-col">
+                            <div class="persona-header">
+                                <span class="persona-type-label">SECONDARY</span>
+                                <div class="persona-avatar-wrapper">
+                                    <img src="images/avatar_sofia.png" alt="Sofia Avatar" />
+                                </div>
+                                <h3 class="persona-name">Sofia</h3>
+                                <div class="persona-meta">Age: 19 &nbsp;|&nbsp; IAD Student</div>
+                            </div>
+                            <div class="persona-bio-block">
+                                <div class="accent-line-vertical"></div>
+                                <p class="persona-bio-text">Sofia is a university student who enjoys solving complex problems through design. She wants her workstation to reflect her aesthetic values, providing functionality that won't distract her from her intensive school work.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Marcus -->
+                        <div class="persona-card-col">
+                            <div class="persona-header">
+                                <span class="persona-type-label">SUPPLEMENTARY</span>
+                                <div class="persona-avatar-wrapper">
+                                    <img src="images/avatar_marcus.png" alt="Marcus Avatar" />
+                                </div>
+                                <h3 class="persona-name">Marcus</h3>
+                                <div class="persona-meta">Age: 37 &nbsp;|&nbsp; Architect</div>
+                            </div>
+                            <div class="persona-bio-block">
+                                <div class="accent-line-vertical"></div>
+                                <p class="persona-bio-text">When Marcus isn't at work, he is first a family man. He loves spending time with his children and needs a seamless way to purchase keyboard parts they have been wanting without getting lost in an overly complex purchasing flow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -288,7 +346,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
