@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=13.0" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.1" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -34,11 +34,12 @@
             <a href="#kickoff" class="nav-segment" id="seg-kickoff" title="Kickoff">3. Kickoff</a>
             <a href="#affinity" class="nav-segment" id="seg-affinity" title="Affinity">4. Synthesis</a>
             <a href="#personas" class="nav-segment" id="seg-personas" title="Personas">5. Meet the Users</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">6. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">7. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">8. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">9. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">10. Accessibility</a>
+            <a href="#competition" class="nav-segment" id="seg-competition" title="Competition">6. Competition</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">7. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">8. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">9. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">10. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">11. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -272,6 +273,30 @@
                 </div>
             </section>
 
+            <!-- Competitive Analysis Section -->
+            <section id="competition">
+                <div class="inner">
+                    <h2>Competitive Analysis</h2>
+                    <p>We evaluated several potential competitors. While none compete directly with Mechmarket, they influence market revenue and popularity. Mechmarket has the opportunity to capitalize on these gaps by curating a one-stop shop without oversaturating the user's selection.</p>
+                    
+                    <p style="margin-top: 32px !important; font-weight: 600 !important;">The majority of features across competitors were similar; however, we identified the following key differentiators:</p>
+                    <ul class="differentiators-list">
+                        <li>Easily Accessible vs. Hardly Accessible</li>
+                        <li>Too Many Screens vs. Simplified Interaction</li>
+                        <li>Bright/Distracting Interface vs. Minimalistic Interface</li>
+                        <li>Specialization of Products</li>
+                    </ul>
+                    
+                    <div class="competitor-logo-row">
+                        <div class="logo-plate">Drop</div>
+                        <div class="logo-plate">Etsy</div>
+                        <div class="logo-plate">WASD</div>
+                        <div class="logo-plate">Reddit</div>
+                        <div class="logo-plate">Jellykey</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -346,7 +371,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
