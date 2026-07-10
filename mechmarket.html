@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=13.7" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.8" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -41,11 +41,12 @@
             <a href="#polish" class="nav-segment" id="seg-polish" title="Polish">10. HF Polish</a>
             <a href="#challenges" class="nav-segment" id="seg-challenges" title="Challenges">11. UX Challenges</a>
             <a href="#designsystem" class="nav-segment" id="seg-designsystem" title="Design System">12. Design System</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">13. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">14. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">15. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">16. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">17. Accessibility</a>
+            <a href="#showcase" class="nav-segment" id="seg-showcase" title="Showcase">13. Showcase</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">14. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">15. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">16. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">17. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">18. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -780,6 +781,68 @@
                 </div>
             </section>
 
+            <!-- Marketing Showcase Section -->
+            <section id="showcase">
+                <div class="inner">
+                    <h2>Marketing & App Showcase</h2>
+                    <p>Explore the Mechmarket mobile application experience through our curated, high-fidelity 3D marketing mockups. This carousel demonstrates the end-to-end user experience, from brand introduction to checkout flows.</p>
+                    
+                    <!-- Carousel Container -->
+                    <div class="marketing-carousel">
+                        <input type="radio" name="carousel-control" id="slide-1" checked>
+                        <input type="radio" name="carousel-control" id="slide-2">
+                        <input type="radio" name="carousel-control" id="slide-3">
+                        <input type="radio" name="carousel-control" id="slide-4">
+                        
+                        <div class="carousel-slides">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide">
+                                <img src="images/carousel_slide1.png" alt="Slide 1: The Brand Splash landing screen" />
+                                <div class="slide-caption">
+                                    <h4>Slide 1: The Brand Splash</h4>
+                                    <p>Our landing screen emphasizes guest entry, providing an immediate path to explore end-game options.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide">
+                                <img src="images/carousel_slide2.png" alt="Slide 2: The Marketplace Grid" />
+                                <div class="slide-caption">
+                                    <h4>Slide 2: The Marketplace Grid</h4>
+                                    <p>Pill-shaped category tags and card grids keep product discovery readable and intuitive.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 3 -->
+                            <div class="carousel-slide">
+                                <img src="images/carousel_slide3.png" alt="Slide 3: The E-commerce Flow" />
+                                <div class="slide-caption">
+                                    <h4>Slide 3: The E-commerce Flow</h4>
+                                    <p>Consolidated PDPs and secure checkout pages minimize steps and decrease transaction friction.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 4 -->
+                            <div class="carousel-slide">
+                                <img src="images/mechmarkethero.png" alt="Slide 4: The System Overview" />
+                                <div class="slide-caption">
+                                    <h4>Slide 4: The System Overview</h4>
+                                    <p>A multi-device ecosystem view demonstrating design alignment across the entire Mechmarket platform.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Indicators -->
+                        <div class="carousel-nav-dots">
+                            <label for="slide-1" class="nav-dot"></label>
+                            <label for="slide-2" class="nav-dot"></label>
+                            <label for="slide-3" class="nav-dot"></label>
+                            <label for="slide-4" class="nav-dot"></label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -854,7 +917,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
