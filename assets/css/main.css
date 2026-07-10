@@ -6105,3 +6105,183 @@ body.museum-page,
     }
 }
 
+/* Mechmarket Case Study Hero Section Styling */
+body.mechmarket-page,
+.mechmarket-page #wrapper,
+.mechmarket-page #main {
+    background-color: var(--apple-bg-gray) !important;
+}
+
+.mechmarket-hero {
+    background-color: #FF8A8A !important; /* Solid vibrant coral-pink background */
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 80px 0 !important;
+    box-sizing: border-box !important;
+    color: #FFFFFF !important;
+}
+
+.mechmarket-hero .hero-inner {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 48px !important;
+}
+
+.mechmarket-hero .hero-text-block {
+    flex: 1 !important;
+    max-width: 50% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+}
+
+.mechmarket-hero .logo-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 8px !important;
+}
+
+.mechmarket-hero .logo-icon-m {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #FFFFFF !important;
+    color: #FF8A8A !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    line-height: 1 !important;
+    text-transform: lowercase !important;
+}
+
+.mechmarket-hero .hero-title {
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+    text-transform: lowercase !important;
+}
+
+.mechmarket-hero .hero-subtitle {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    margin-bottom: 32px !important;
+    line-height: 1.2 !important;
+}
+
+.mechmarket-hero .metadata-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-bottom: 40px !important;
+    width: 100% !important;
+}
+
+.mechmarket-hero .metadata-item {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    font-family: 'Inter', sans-serif !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+}
+
+.mechmarket-hero .metadata-item .label {
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.mechmarket-hero .metadata-item .value {
+    color: #FFFFFF !important;
+    font-weight: 400 !important;
+}
+
+.mechmarket-hero .hero-cta-wrapper {
+    display: block !important;
+}
+
+.mechmarket-hero .hero-button {
+    background-color: #FFFFFF !important;
+    color: #FF8A8A !important;
+    font-weight: 600 !important;
+    border-radius: 30px !important;
+    padding: 0 28px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 14px !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.mechmarket-hero .hero-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    background-color: #FFFFFF !important;
+    color: #FF8A8A !important;
+}
+
+.mechmarket-hero .hero-visual-block {
+    flex: 1 !important;
+    max-width: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.mechmarket-hero .hero-visual-block img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12)) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .mechmarket-hero {
+        padding: 60px 0 !important;
+    }
+    .mechmarket-hero .hero-inner {
+        flex-direction: column !important;
+        gap: 32px !important;
+        padding: 0 16px !important;
+    }
+    .mechmarket-hero .hero-text-block {
+        max-width: 100% !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .mechmarket-hero .hero-title {
+        font-size: 40px !important;
+    }
+    .mechmarket-hero .hero-subtitle {
+        font-size: 18px !important;
+        margin-bottom: 24px !important;
+    }
+    .mechmarket-hero .metadata-item {
+        justify-content: center !important;
+    }
+    .mechmarket-hero .hero-visual-block {
+        max-width: 100% !important;
+    }
+}
+
+

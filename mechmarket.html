@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Mechmarket Case Study - Viola</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/main.css?v=12.4" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+
+<body class="is-preload mechmarket-page">
+    
+    <div id="wrapper">
+
+        <header id="header">
+            <a href="index.html" class="logo">
+                <strong class="logo-text-desktop">Mechmarket</strong>
+                <span class="logo-sub-desktop">Case Study</span>
+                <strong class="logo-text-mobile">Mechmarket</strong>
+            </a>
+            <nav>
+                <a href="index.html" class="button">Back to Home</a>
+            </nav>
+        </header>
+
+        <nav class="nav-container" id="nav-container">
+            <a href="#hero-section" class="nav-segment" id="seg-hero" title="Hero">1. Intro</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">2. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">3. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">4. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">5. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">6. Accessibility</a>
+        </nav>
+
+        <div id="main" class="alt">
+            <!-- Hero Section -->
+            <section id="hero-section" class="mechmarket-hero">
+                <div class="hero-inner">
+                    <div class="hero-text-block">
+                        <div class="logo-wrapper">
+                            <span class="logo-icon-m">m</span>
+                            <h1 class="hero-title">mechmarket</h1>
+                        </div>
+                        <p class="hero-subtitle">What's your end-game?</p>
+                        
+                        <div class="metadata-grid">
+                            <div class="metadata-item">
+                                <span class="label">Project:</span>
+                                <span class="value">Mechmarket</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Role:</span>
+                                <span class="value">Team Lead, Visuals, Interaction</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Duration:</span>
+                                <span class="value">June 2018 (3 weeks)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-cta-wrapper">
+                            <a href="#" class="button primary hero-button">PROCESS DECK</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual-block">
+                        <img src="images/mechmarkethero.png" alt="MechMarket 3D UI Mockup Showcase" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Case Study Sections -->
+            <section id="overview">
+                <div class="inner">
+                    <h2>Project Overview</h2>
+                    <p>MechMarket is a premium community marketplace dedicated to mechanical keyboard enthusiasts. Designed to simplify keyboard building, discovery, and secure trading, it bridges the gap between fragmented Reddit/Discord communities and a unified mobile commerce platform.</p>
+                </div>
+            </section>
+            
+            <section id="research">
+                <div class="inner">
+                    <h2>User Research & Empathize</h2>
+                    <p>By conducting contextual inquiries and user interviews in mechanical keyboard community groups, I identified that users struggle to find compatible parts (e.g. keycaps, switches, PCBs) and verify seller authenticity due to disjointed catalog systems and scattered review listings.</p>
+                </div>
+            </section>
+            
+            <section id="architecture">
+                <div class="inner">
+                    <h2>Information Architecture & User Flow</h2>
+                    <p>I structured the app to allow builders to customize keyboard layouts digitally before ordering. The logic-driven catalog dynamically filters switches and keycaps based on selected keyboard sizes (e.g. 60%, 75%, Full-size), preventing administrative compatibility errors.</p>
+                </div>
+            </section>
+            
+            <section id="interface">
+                <div class="inner">
+                    <h2>High-Fidelity UI Design</h2>
+                    <p>The interface uses a clean, high-contrast visual style with large typography and borderless cards to let keyboard graphics be the hero. By stripping away visual clutter, users can discover, trade, and build with absolute clarity.</p>
+                </div>
+            </section>
+            
+            <section id="accessibility">
+                <div class="inner">
+                    <h2>Inclusive Design & Accessibility</h2>
+                    <p>To support all hobbyists, I prioritized screen-reader compatibility and large touch targets for switch customization controls, ensuring physical accessibility and WCAG AA contrast compliance across the entire e-commerce flow.</p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px", 
+            threshold: 0 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-segment').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    const activeId = entry.target.id;
+                    const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        ['hero-section', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+            const section = document.getElementById(id);
+            if (section) observer.observe(section);
+        });
+    });
+    </script>
+</body>
+</html>
