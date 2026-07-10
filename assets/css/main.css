@@ -6733,6 +6733,186 @@ body.mechmarket-page,
     }
 }
 
+/* User Flow Diagram Styling */
+.user-flow-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 32px !important;
+    margin-top: 40px !important;
+    width: 100% !important;
+}
+
+.flow-main {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.flow-group {
+    background-color: #f5f5f7 !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    border: 1px solid rgba(32, 32, 32, 0.04) !important;
+}
+
+.flow-group-title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: rgba(32, 32, 32, 0.5) !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+}
+
+.flow-nodes-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+}
+
+.flow-node {
+    flex: 1 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    padding: 12px 14px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.flow-node.nav-step {
+    background-color: #FFFFFF !important;
+    color: #202020 !important;
+    border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
+}
+
+.flow-node.primary-goal {
+    background-color: #FADBD8 !important; /* Soft red/coral */
+    color: #C0392B !important;
+    border: 1.5px solid #F1948A !important;
+}
+
+.flow-node.secondary-goal {
+    background-color: #EAECEE !important; /* Soft grey */
+    color: #5D6D7E !important;
+    border: 1.5px solid #BDC3C7 !important;
+}
+
+.arrow-right {
+    font-size: 18px !important;
+    color: rgba(32, 32, 32, 0.3) !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+}
+
+.arrow-down-bridge {
+    font-size: 24px !important;
+    color: rgba(32, 32, 32, 0.3) !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin: -10px 0 !important;
+}
+
+/* Legend Styling */
+.flow-legend {
+    width: 220px !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    border: 1px solid rgba(32, 32, 32, 0.04) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    flex-shrink: 0 !important;
+}
+
+.legend-title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: rgba(32, 32, 32, 0.5) !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+}
+
+.legend-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.legend-color-box {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+}
+
+.legend-color-box.red-box {
+    background-color: #FADBD8 !important;
+    border: 1.5px solid #F1948A !important;
+}
+
+.legend-color-box.grey-box {
+    background-color: #EAECEE !important;
+    border: 1.5px solid #BDC3C7 !important;
+}
+
+.legend-color-box.white-box {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
+}
+
+.legend-item span {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #202020 !important;
+}
+
+@media screen and (max-width: 980px) {
+    .user-flow-container {
+        flex-direction: column !important;
+    }
+    .flow-legend {
+        width: 100% !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        gap: 16px !important;
+    }
+    .legend-title {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flow-nodes-row {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    .arrow-right {
+        transform: rotate(90deg) !important;
+        margin: 4px 0 !important;
+    }
+    .flow-node {
+        width: 100% !important;
+    }
+    .flow-legend {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
+
 
 
 

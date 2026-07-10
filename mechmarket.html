@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=13.1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.2" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -35,11 +35,12 @@
             <a href="#affinity" class="nav-segment" id="seg-affinity" title="Affinity">4. Synthesis</a>
             <a href="#personas" class="nav-segment" id="seg-personas" title="Personas">5. Meet the Users</a>
             <a href="#competition" class="nav-segment" id="seg-competition" title="Competition">6. Competition</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">7. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">8. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">9. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">10. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">11. Accessibility</a>
+            <a href="#journey" class="nav-segment" id="seg-journey" title="Journey">7. User Journey</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">8. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">9. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">10. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">11. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">12. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -297,6 +298,66 @@
                 </div>
             </section>
 
+            <!-- Preparing the Journey Section -->
+            <section id="journey">
+                <div class="inner">
+                    <h2>Preparing the Journey</h2>
+                    <p>We constructed a user flow of what a basic start to finish journey looks like while purchasing an item. This helps us in understanding ways users can interact with the product, as well as allowing us to see navigation through user goals.</p>
+                    
+                    <div class="user-flow-container">
+                        <!-- Left Flow Area -->
+                        <div class="flow-main">
+                            <!-- Group 1: Pre-Purchase Navigation -->
+                            <div class="flow-group">
+                                <div class="flow-group-title">PRE-PURCHASE NAVIGATION</div>
+                                <div class="flow-nodes-row">
+                                    <div class="flow-node nav-step">Login / Register</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="flow-node nav-step">Home / Search</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="flow-node nav-step">Explore Products</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="flow-node nav-step">Select a Product</div>
+                                </div>
+                            </div>
+                            
+                            <div class="arrow-down-bridge">↓</div>
+                            
+                            <!-- Group 2: Purchase Experience -->
+                            <div class="flow-group">
+                                <div class="flow-group-title">PURCHASE EXPERIENCE</div>
+                                <div class="flow-nodes-row">
+                                    <div class="flow-node nav-step">Selects Design / Qty</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="flow-node nav-step">Payment / Shipping</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="flow-node primary-goal">Completes Purchase</div>
+                                    <div class="arrow-right">→</div>
+                                    <div class="flow-node secondary-goal">Shares Item / Build</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Legend Area -->
+                        <div class="flow-legend">
+                            <div class="legend-title">LEGEND</div>
+                            <div class="legend-item">
+                                <div class="legend-color-box red-box"></div>
+                                <span>Primary Goal</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color-box grey-box"></div>
+                                <span>Secondary Goal</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color-box white-box"></div>
+                                <span>Navigation Step</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -371,7 +432,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
