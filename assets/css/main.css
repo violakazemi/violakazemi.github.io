@@ -4898,13 +4898,30 @@ h1, h2, h3, h4, h5, h6 {
     margin: 16px auto !important;
 }
 
+/* Shared Alignment Wrapper for Featured Projects Section */
+.featured-projects-section {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important; /* Inset left/right padding centering content */
+    box-sizing: border-box !important;
+    background-color: var(--apple-bg-gray) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .featured-projects-section {
+        max-width: 100% !important;
+        padding: 0 16px !important;
+    }
+}
+
 /* Desktop Breakpoint: Header size */
 @media screen and (min-width: 769px) {
     .grid-section-header {
-        padding: 40px var(--apple-grid-padding-left) 0 var(--apple-grid-padding-left) !important;
-        background-color: var(--apple-bg-gray) !important;
+        padding: 40px 0 0 0 !important; /* Spacing from top only, sides aligned by wrapper */
+        background-color: transparent !important;
         max-width: 100% !important;
-        margin: 0 !important; /* Force margin 0 to align exactly */
+        margin: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -4940,10 +4957,10 @@ h1, h2, h3, h4, h5, h6 {
     scrollbar-width: none !important; /* Hide scrollbar Firefox */
     -ms-overflow-style: none !important;  /* Hide scrollbar IE/Edge */
     gap: 32px !important; /* Set grid-gap between project tiles to a consistent 32px */
-    padding: 30px var(--apple-grid-padding-left) 30px var(--apple-grid-padding-left) !important; /* Explicit left/right padding */
-    background-color: var(--apple-bg-gray) !important; /* Soft gray background behind cards */
+    padding: 30px 0 !important; /* No side padding inside wrapper to keep first card perfectly flush */
+    background-color: transparent !important;
     max-width: 100% !important;
-    margin: 0 !important; /* Force margin 0 to align exactly */
+    margin: 0 !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
@@ -5208,20 +5225,18 @@ h1, h2, h3, h4, h5, h6 {
 /* Experience List Overrides */
 #two {
     background-color: var(--apple-bg-light) !important;
-    padding: 80px 0 !important; /* Set side padding to 0, handled by .inner */
+    padding: 80px 0 !important; /* Top/bottom padding only */
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
     box-sizing: border-box !important;
 }
 
 #two .inner {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding-left: 40px !important; /* Matches featured projects section padding */
+    padding-right: 40px !important;
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding-left: var(--apple-grid-padding-left) !important;
-    padding-right: var(--apple-grid-padding-left) !important;
     box-sizing: border-box !important;
 }
 
