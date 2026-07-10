@@ -35,6 +35,7 @@
             <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
             <a href="#systems" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
             <a href="#validation" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -78,7 +79,7 @@
                         <hr />
 
                         <h2>Iteration 0: The Functional MVP Blueprint</h2>
-                        <p>The initial launch layout established the core user flow from logistics calculation to floor plan generation, prioritizing quick task completion for educators.</p>
+                        <p>Established core user flows for logistics calculation and floor plan generation to prioritize rapid task completion for educators.</p>
                         <div class="image main"><img src="images/hifi01.png" alt="Iteration 01: High-Fidelity MVP Blueprint" /></div>
 
                         <div class="prototype-link-container">
@@ -88,7 +89,7 @@
 
                     <section id="systems">
                         <h2>Systems Optimization & Defensive Design</h2>
-                        <p>As a product designer with a Computer Engineering background, I don't design for static canvases—I design for dynamic, unpredictable backend data. Reviewing Iteration 0 revealed critical production vulnerabilities that required programmatic and structural layout overhauls.</p>
+                        <p>Leveraging my Computer Engineering background, I designed for dynamic backend data rather than static screens. Reviewing the initial iteration revealed production vulnerabilities that necessitated structural layout overhauls.</p>
 
                         <div class="apple-bento-grid">
 
@@ -145,7 +146,7 @@
 
                     <section id="validation">
                         <h2>System Validation & Usability Testing</h2>
-                        <p>To validate the interface architecture, I conducted a targeted usability study focusing on task execution velocity and cognitive load reduction for educators managing high-stakes logistics.</p>
+                        <p>Validated interface architecture through targeted usability studies, focusing on task execution velocity and cognitive load reduction for high-stakes logistics management.</p>
 
                         <div class="usability-breakdown">
                           <h3>The Testing Methodology</h3>
@@ -214,6 +215,13 @@
                          </div>
                     </section>
 
+                    <section id="accessibility">
+                        <h2>Inclusive Design & Accessibility</h2>
+                        <p>To ensure Museum Companion supports all educators, I integrated accessibility considerations at both the functional and visual levels:</p>
+                        <p><strong>Functional Accessibility:</strong> I prioritized the inclusion of physical accessibility features directly into the navigation flow. The Map Controls feature a toggle for "Accessibility Route," and the Logistics Calculator includes an "Accessibility Accommodations" toggle, ensuring special requirements are captured as a core part of the trip planning process.</p>
+                        <p><strong>Visual & Cognitive Hierarchy:</strong> I utilized a high-contrast color palette—pairing deep green text against light, neutral backgrounds—to meet WCAG guidelines. Furthermore, the structured, card-based layout creates a clear visual hierarchy that minimizes cognitive load, allowing educators to scan information and complete tasks efficiently without feeling overwhelmed by data.</p>
+                    </section>
+
                 </div>
             </section>
         </div>
@@ -259,7 +267,7 @@
         }, observerOptions);
 
         // Watch all your sections
-        ['empathize', 'define', 'ideate', 'prototype', 'systems', 'validation'].forEach(id => {
+        ['empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
