@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=13.3" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.4" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -37,11 +37,12 @@
             <a href="#competition" class="nav-segment" id="seg-competition" title="Competition">6. Competition</a>
             <a href="#journey" class="nav-segment" id="seg-journey" title="Journey">7. User Journey</a>
             <a href="#wireflow" class="nav-segment" id="seg-wireflow" title="Wireflow">8. Wireflow</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">9. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">10. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">11. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">12. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">13. Accessibility</a>
+            <a href="#iteration" class="nav-segment" id="seg-iteration" title="Iteration">9. Iteration</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">10. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">11. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">12. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">13. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">14. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -537,6 +538,72 @@
                 </div>
             </section>
 
+            <!-- Iteration Section -->
+            <section id="iteration">
+                <div class="inner">
+                    <h2>Iteration</h2>
+                    <p>After developing our initial prototype, we conducted usability testing with 16 participants via a structured 16-question survey. This qualitative feedback provided the necessary insights to refine our core interactions and address critical UX friction points.</p>
+                    
+                    <div class="findings-grid-2x2">
+                        <!-- Finding 1 -->
+                        <div class="finding-card">
+                            <div class="finding-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#E6B8D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <div class="finding-content">
+                                <h3>Trust Indicators</h3>
+                                <p>Users expressed security concerns when purchasing high-value items. We identified a need for visible 'certified seller' badges to build user trust.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Finding 2 -->
+                        <div class="finding-card">
+                            <div class="finding-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#E6B8D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+                                    <path d="M13 13l6 6"></path>
+                                </svg>
+                            </div>
+                            <div class="finding-content">
+                                <h3>Checkout Friction</h3>
+                                <p>The 'add to cart' and 'checkout' flows required excessive taps. We streamlined these actions to reduce interaction friction.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Finding 3 -->
+                        <div class="finding-card">
+                            <div class="finding-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#E6B8D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                                </svg>
+                            </div>
+                            <div class="finding-content">
+                                <h3>Navigational Ambiguity</h3>
+                                <p>The visual similarity between the 'Home' and 'Trending' screens caused user confusion. We redesigned the layouts to ensure clear screen differentiation.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Finding 4 -->
+                        <div class="finding-card">
+                            <div class="finding-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#E6B8D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="5" y="2" width="14" height="20" rx="7"></rect>
+                                    <path d="M12 6v4"></path>
+                                </svg>
+                            </div>
+                            <div class="finding-content">
+                                <h3>Interaction Design</h3>
+                                <p>We moved away from standard dropdown menus, opting for more efficient, modern interaction patterns to keep the buying process quick and simple.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -611,7 +678,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
