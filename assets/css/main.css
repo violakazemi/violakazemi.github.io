@@ -4900,18 +4900,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Shared Alignment Wrapper for Featured Projects Section */
 .featured-projects-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    background-color: var(--apple-bg-gray) !important; /* Full-width grey background band */
+}
+
+.featured-projects-inner {
     max-width: 1200px !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 40px !important; /* Inset left/right padding centering content */
+    padding: 0 40px !important; /* Centered inset left/right padding */
     box-sizing: border-box !important;
-    background-color: var(--apple-bg-gray) !important;
+    background-color: transparent !important;
 }
 
 @media screen and (max-width: 768px) {
-    .featured-projects-section {
-        max-width: 100% !important;
-        padding: 0 16px !important;
+    .featured-projects-inner {
+        padding: 0 16px !important; /* Mobile padding */
     }
 }
 
@@ -5043,7 +5051,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center !important;
     gap: 8px !important;
     padding: 16px 0 24px 0 !important;
-    background-color: var(--apple-bg-gray) !important;
+    background-color: transparent !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
