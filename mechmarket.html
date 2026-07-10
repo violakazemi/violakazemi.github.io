@@ -40,11 +40,12 @@
             <a href="#iteration" class="nav-segment" id="seg-iteration" title="Iteration">9. Iteration</a>
             <a href="#polish" class="nav-segment" id="seg-polish" title="Polish">10. HF Polish</a>
             <a href="#challenges" class="nav-segment" id="seg-challenges" title="Challenges">11. UX Challenges</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">12. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">13. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">14. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">15. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">16. Accessibility</a>
+            <a href="#designsystem" class="nav-segment" id="seg-designsystem" title="Design System">12. Design System</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">13. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">14. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">15. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">16. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">17. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -767,6 +768,18 @@
                 </div>
             </section>
 
+            <!-- Design System Section -->
+            <section id="designsystem">
+                <div class="inner">
+                    <h2>Design System</h2>
+                    <p>To maintain visual consistency and support a unified brand experience, we developed a comprehensive Design System. This sticker sheet establishes our core color palette, typography hierarchy, primary and secondary buttons (including pressed states with a 7px corner radius), and brand logo variations.</p>
+                    
+                    <div style="text-align: center !important; margin-top: 40px !important;">
+                        <img src="images/design_system_stickers.png" alt="Mechmarket Design System Sticker Sheet" style="max-width: 100% !important; border-radius: 12px !important; box-shadow: 0 12px 32px rgba(0,0,0,0.06) !important;" />
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -841,7 +854,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
