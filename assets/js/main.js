@@ -344,8 +344,8 @@
 				var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
 				
 				// Sync dots
-				if ($dots.length > 0) {
-					var index = scrollLeft > (maxScrollLeft / 2) ? 1 : 0;
+				if ($dots.length > 0 && maxScrollLeft > 0) {
+					var index = Math.round((scrollLeft / maxScrollLeft) * ($dots.length - 1));
 					$dots.removeClass('active');
 					$dots.eq(index).addClass('active');
 				}
@@ -369,7 +369,7 @@
 				$dots.on('click', function() {
 					var index = $(this).data('slide');
 					var maxScrollLeft = $tilesContainer[0].scrollWidth - $tilesContainer.width();
-					var scrollToVal = index === 1 ? maxScrollLeft : 0;
+					var scrollToVal = $dots.length > 1 ? (index / ($dots.length - 1)) * maxScrollLeft : 0;
 					$tilesContainer.animate({ scrollLeft: scrollToVal }, 300);
 				});
 			}
