@@ -7727,11 +7727,11 @@ body.mechmarket-page,
 }
 
 .tiles article.mechmarket-tile .tile-mockup img {
-    transform: scale(0.6) !important;
+    transform: scale(0.8) !important;
 }
 
 .tiles article.mechmarket-tile:hover .tile-mockup img {
-    transform: scale(0.63) !important;
+    transform: scale(0.83) !important;
 }
 
 /* Takeaways Footer Styles */
