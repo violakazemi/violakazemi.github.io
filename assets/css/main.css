@@ -6105,20 +6105,20 @@ body.museum-page,
     }
 }
 
-/* Mechmarket Case Study Hero Section Styling */
+/* Mechmarket Case Study Lavender Overhaul Styling */
 body.mechmarket-page,
 .mechmarket-page #wrapper,
 .mechmarket-page #main {
-    background-color: var(--apple-bg-gray) !important;
+    background-color: #F2DCE5 !important; /* Soft Pastel Lavender/Pink Background */
 }
 
 .mechmarket-hero {
-    background-color: #FF8A8A !important; /* Solid vibrant coral-pink background */
+    background-color: #F2DCE5 !important; /* Soft Pastel Lavender/Pink Background */
     width: 100% !important;
     max-width: 100% !important;
     padding: 80px 0 !important;
     box-sizing: border-box !important;
-    color: #FFFFFF !important;
+    color: #202020 !important; /* Deep Charcoal primary text */
 }
 
 .mechmarket-hero .hero-inner {
@@ -6155,8 +6155,8 @@ body.mechmarket-page,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: #FFFFFF !important;
-    color: #FF8A8A !important;
+    background-color: #202020 !important; /* Deep Charcoal logo icon background */
+    color: #F2DCE5 !important; /* Soft Lavender logo text */
     width: 48px !important;
     height: 48px !important;
     border-radius: 50% !important;
@@ -6170,7 +6170,7 @@ body.mechmarket-page,
 .mechmarket-hero .hero-title {
     font-size: 56px !important;
     font-weight: 700 !important;
-    color: #FFFFFF !important;
+    color: #202020 !important; /* Deep Charcoal title */
     font-family: 'Space Grotesk', sans-serif !important;
     margin: 0 !important;
     line-height: 1.1 !important;
@@ -6180,7 +6180,7 @@ body.mechmarket-page,
 .mechmarket-hero .hero-subtitle {
     font-size: 24px !important;
     font-weight: 500 !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: rgba(32, 32, 32, 0.8) !important; /* Charcoal subtitle */
     margin-bottom: 32px !important;
     line-height: 1.2 !important;
 }
@@ -6204,11 +6204,11 @@ body.mechmarket-page,
 
 .mechmarket-hero .metadata-item .label {
     font-weight: 600 !important;
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: rgba(32, 32, 32, 0.6) !important;
 }
 
 .mechmarket-hero .metadata-item .value {
-    color: #FFFFFF !important;
+    color: #202020 !important;
     font-weight: 400 !important;
 }
 
@@ -6217,8 +6217,8 @@ body.mechmarket-page,
 }
 
 .mechmarket-hero .hero-button {
-    background-color: #FFFFFF !important;
-    color: #FF8A8A !important;
+    background-color: #202020 !important; /* Deep Charcoal button background */
+    color: #FFFFFF !important;
     font-weight: 600 !important;
     border-radius: 30px !important;
     padding: 0 28px !important;
@@ -6228,16 +6228,16 @@ body.mechmarket-page,
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
     border: none !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
     display: inline-block !important;
 }
 
 .mechmarket-hero .hero-button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-    background-color: #FFFFFF !important;
-    color: #FF8A8A !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+    background-color: #E6B8D1 !important; /* Accent soft pink hover color */
+    color: #202020 !important;
 }
 
 .mechmarket-hero .hero-visual-block {
@@ -6252,7 +6252,71 @@ body.mechmarket-page,
     max-width: 100% !important;
     height: auto !important;
     display: block !important;
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12)) !important;
+    filter: drop-shadow(0 15px 30px rgba(32, 32, 32, 0.1)) !important;
+}
+
+/* Floating White Bento-style Cards Over Lavender */
+.mechmarket-page #main section {
+    background-color: #FFFFFF !important; /* Pure White Surfaces */
+    border-radius: 18px !important; /* Soft corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+    padding: 48px !important;
+    margin: 48px auto !important; /* Luxury whitespace padding */
+    max-width: 1000px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: none !important;
+}
+
+.mechmarket-page #main section .inner {
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* General Typography inside lavender page */
+.mechmarket-page h2,
+.mechmarket-page h3,
+.mechmarket-page p,
+.mechmarket-page li {
+    color: #202020 !important; /* Deep Charcoal for legibility */
+}
+
+.mechmarket-page h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 24px !important;
+}
+
+.mechmarket-page p,
+.mechmarket-page li {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Sub-Navigation styling for MechMarket */
+.mechmarket-page .nav-container {
+    background-color: #FFFFFF !important; /* White sub-nav */
+    border-bottom: 1px solid rgba(32, 32, 32, 0.08) !important;
+}
+
+.mechmarket-page .nav-container .nav-segment {
+    color: rgba(32, 32, 32, 0.6) !important;
+    border-bottom: 2px solid transparent !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+.mechmarket-page .nav-container .nav-segment:hover {
+    color: #202020 !important;
+}
+
+.mechmarket-page .nav-container .nav-segment.active {
+    color: #E6B8D1 !important; /* Accent blush/pink */
+    border-bottom: 2px solid #E6B8D1 !important;
+    font-weight: 600 !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -6282,6 +6346,11 @@ body.mechmarket-page,
     .mechmarket-hero .hero-visual-block {
         max-width: 100% !important;
     }
+    .mechmarket-page #main section {
+        padding: 32px 20px !important;
+        margin: 24px auto !important;
+        border-radius: 14px !important;
+    }
 }
 
 /* Responsive Two Column Split Layout */
@@ -6303,7 +6372,7 @@ body.mechmarket-page,
 .split-columns-grid h2 {
     font-size: 28px !important;
     font-weight: 600 !important;
-    color: var(--apple-text-primary) !important;
+    color: #202020 !important;
     margin-bottom: 20px !important;
     letter-spacing: -0.015em !important;
     border-bottom: none !important;
@@ -6313,7 +6382,7 @@ body.mechmarket-page,
 .split-columns-grid p {
     font-size: 15px !important;
     line-height: 1.6 !important;
-    color: var(--apple-text-secondary) !important;
+    color: #202020 !important;
     margin: 0 !important;
 }
 
@@ -6326,7 +6395,7 @@ body.mechmarket-page,
 .challenge-list li {
     font-size: 15px !important;
     line-height: 1.6 !important;
-    color: var(--apple-text-secondary) !important;
+    color: #202020 !important;
     margin-bottom: 12px !important;
     padding-left: 4px !important;
 }
@@ -6341,6 +6410,7 @@ body.mechmarket-page,
         width: 100% !important;
     }
 }
+
 
 
 
