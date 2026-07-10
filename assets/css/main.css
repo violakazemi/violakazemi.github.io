@@ -6469,6 +6469,112 @@ body.mechmarket-page,
     }
 }
 
+/* Affinity Mapping Styles */
+.affinity-map-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 16px !important;
+    margin-top: 32px !important;
+    width: 100% !important;
+}
+
+.affinity-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.column-header {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #202020 !important;
+    text-align: center !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.column-header.blue-header {
+    background-color: #D2E8F6 !important; /* Soft Pastel Blue */
+}
+
+.affinity-notes {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.sticky-note {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    color: #202020 !important;
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    border: none !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+    transition: transform 0.2s ease !important;
+}
+
+.sticky-note:hover {
+    transform: translateY(-2px) !important;
+}
+
+.sticky-note.pink-note {
+    background-color: #FDE8E8 !important; /* Soft Pastel Pink */
+}
+
+.sticky-note.yellow-note {
+    background-color: #FFF9E6 !important; /* Soft Pastel Cream/Yellow */
+}
+
+/* Solutions 4x4 Grid */
+.solutions-grid-4x4 {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    margin-top: 32px !important;
+    width: 100% !important;
+}
+
+.section-divider {
+    border-top: 1px solid rgba(32, 32, 32, 0.08) !important;
+    margin: 48px 0 !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+@media screen and (max-width: 980px) {
+    .affinity-map-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 16px !important;
+    }
+    .solutions-grid-4x4 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .affinity-map-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .solutions-grid-4x4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .affinity-map-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .solutions-grid-4x4 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 
 
 
