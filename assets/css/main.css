@@ -7726,6 +7726,14 @@ body.mechmarket-page,
     background-color: #e9cce0 !important;
 }
 
+.tiles article.mechmarket-tile .tile-mockup img {
+    transform: scale(0.6) !important;
+}
+
+.tiles article.mechmarket-tile:hover .tile-mockup img {
+    transform: scale(0.63) !important;
+}
+
 /* Takeaways Footer Styles */
 #takeaways {
     padding-top: 80px !important;
