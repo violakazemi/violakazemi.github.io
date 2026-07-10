@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=13.2" />
+    <link rel="stylesheet" href="assets/css/main.css?v=13.3" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -36,11 +36,12 @@
             <a href="#personas" class="nav-segment" id="seg-personas" title="Personas">5. Meet the Users</a>
             <a href="#competition" class="nav-segment" id="seg-competition" title="Competition">6. Competition</a>
             <a href="#journey" class="nav-segment" id="seg-journey" title="Journey">7. User Journey</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">8. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">9. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">10. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">11. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">12. Accessibility</a>
+            <a href="#wireflow" class="nav-segment" id="seg-wireflow" title="Wireflow">8. Wireflow</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">9. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">10. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">11. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">12. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">13. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -358,6 +359,184 @@
                 </div>
             </section>
 
+            <!-- Wireflow Section -->
+            <section id="wireflow">
+                <div class="inner">
+                    <h2>Wireflow</h2>
+                    <p>After sketching out some pen & paper wireframes and thinking through the preliminary flow, we reviewed what was necessary, unnecessary, and what areas needed improvement. We poured a lot of our time into this step to make sure we had the finishing touches on the underlying UX before moving onto the visuals.</p>
+                    
+                    <div class="wireflow-container">
+                        <!-- Branch 1: Discover & Posts -->
+                        <div class="wireflow-branch-container">
+                            <div class="branch-label">BRANCH 1: COMMUNITY & DISCOVERY</div>
+                            <div class="wireflow-row">
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-splash">
+                                        <div class="mockup-body">
+                                            <div class="mockup-logo">m</div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Splash</span>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-login">
+                                        <div class="mockup-body">
+                                            <div class="mockup-input"></div>
+                                            <div class="mockup-input"></div>
+                                            <div class="mockup-button"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Register / Login</span>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <div class="wireflow-card highlight-card">
+                                    <div class="wireframe-mockup mini-discover">
+                                        <div class="mockup-body">
+                                            <div class="mockup-grid-item"></div>
+                                            <div class="mockup-grid-item"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Discover</span>
+                                    <p class="wireflow-annotation">"The discover page is a way for users to find cool builds that other users have posted."</p>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-post">
+                                        <div class="mockup-body">
+                                            <div class="mockup-image-box"></div>
+                                            <div class="mockup-text-line"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">User Post</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Branch 2: Shopping Path & Filters -->
+                        <div class="wireflow-branch-container" style="margin-top: 40px !important;">
+                            <div class="branch-label">BRANCH 2: THE SHOPPING PATH</div>
+                            <div class="wireflow-row" style="flex-wrap: wrap !important; gap: 16px !important;">
+                                <!-- Search -->
+                                <div class="wireflow-card highlight-card">
+                                    <div class="wireframe-mockup mini-search">
+                                        <div class="mockup-body">
+                                            <div class="mockup-search-bar"></div>
+                                            <div class="mockup-list-item"></div>
+                                            <div class="mockup-list-item"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Search</span>
+                                    <p class="wireflow-annotation">"The search screen allows users to find items without the hassle of filtering through the home screen."</p>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">↔</div>
+                                
+                                <!-- Home -->
+                                <div class="wireflow-card relative-parent">
+                                    <div class="wireframe-mockup mini-home">
+                                        <div class="mockup-body">
+                                            <div class="mockup-header-tabs"></div>
+                                            <div class="mockup-grid-item"></div>
+                                            <div class="mockup-grid-item"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Home</span>
+                                    
+                                    <!-- Sub-flow Branch pointing to Filter Screen -->
+                                    <div class="sub-flow-arrow blue-arrow">↓</div>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">↔</div>
+                                
+                                <!-- Item -->
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-item">
+                                        <div class="mockup-body">
+                                            <div class="mockup-hero-img"></div>
+                                            <div class="mockup-button"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Item</span>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <!-- Checkout -->
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-checkout">
+                                        <div class="mockup-body">
+                                            <div class="mockup-list-item"></div>
+                                            <div class="mockup-total-price"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Checkout</span>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <!-- Shipping -->
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-shipping">
+                                        <div class="mockup-body">
+                                            <div class="mockup-input"></div>
+                                            <div class="mockup-input"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Shipping</span>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <!-- Payment -->
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-payment">
+                                        <div class="mockup-body">
+                                            <div class="mockup-card-slot"></div>
+                                            <div class="mockup-button"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Payment</span>
+                                </div>
+                                
+                                <div class="flow-arrow blue-arrow">→</div>
+                                
+                                <!-- Receipt -->
+                                <div class="wireflow-card">
+                                    <div class="wireframe-mockup mini-receipt">
+                                        <div class="mockup-body">
+                                            <div class="mockup-check">✓</div>
+                                            <div class="mockup-button"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Receipt</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Filter Screen (Sub-flow positioned below Home) -->
+                            <div class="filter-sub-flow-row">
+                                <div class="wireflow-card highlight-card filter-card">
+                                    <div class="wireframe-mockup mini-filter">
+                                        <div class="mockup-body">
+                                            <div class="mockup-filter-option"></div>
+                                            <div class="mockup-filter-option"></div>
+                                        </div>
+                                    </div>
+                                    <span class="card-title">Filter Screen</span>
+                                    <p class="wireflow-annotation">"The filter screen allows for users who desire a more specific selection to narrow down the results."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -432,7 +611,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });

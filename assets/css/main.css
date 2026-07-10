@@ -6913,6 +6913,271 @@ body.mechmarket-page,
     }
 }
 
+/* Wireflow Section Layout */
+.wireflow-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+    margin-top: 40px !important;
+    width: 100% !important;
+}
+
+.wireflow-branch-container {
+    background-color: #f5f5f7 !important;
+    border-radius: 16px !important;
+    padding: 32px 24px !important;
+    border: 1px solid rgba(32, 32, 32, 0.04) !important;
+}
+
+.branch-label {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: rgba(32, 32, 32, 0.5) !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 24px !important;
+    text-transform: uppercase !important;
+}
+
+.wireflow-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    width: 100% !important;
+}
+
+.wireflow-card {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-width: 120px !important;
+    max-width: 160px !important;
+    flex: 1 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    position: relative !important;
+    transition: transform 0.2s ease, border-color 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+.wireflow-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: #0066cc !important;
+}
+
+.wireflow-card.highlight-card {
+    border-color: rgba(0, 102, 204, 0.3) !important;
+}
+
+.wireflow-card.relative-parent {
+    position: relative !important;
+}
+
+.wireframe-mockup {
+    width: 80px !important;
+    height: 120px !important;
+    background-color: #f5f5f7 !important;
+    border: 1.5px solid #d2d2d7 !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    overflow: hidden !important;
+}
+
+/* Mockup inner details - crisp gray/charcoal elements */
+.mockup-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    height: 100% !important;
+    justify-content: center !important;
+}
+
+.mockup-logo {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #aeaeb2 !important;
+    text-align: center !important;
+    line-height: 1 !important;
+}
+
+.mockup-input {
+    height: 10px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 2px !important;
+    width: 100% !important;
+}
+
+.mockup-button {
+    height: 12px !important;
+    background-color: #aeaeb2 !important;
+    border-radius: 3px !important;
+    width: 100% !important;
+}
+
+.mockup-grid-item {
+    height: 24px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+.mockup-image-box {
+    height: 40px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+.mockup-text-line {
+    height: 8px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 2px !important;
+    width: 70% !important;
+}
+
+.mockup-search-bar {
+    height: 12px !important;
+    border: 1.5px solid #d2d2d7 !important;
+    background-color: #FFFFFF !important;
+    border-radius: 3px !important;
+    width: 100% !important;
+}
+
+.mockup-list-item {
+    height: 12px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 2px !important;
+    width: 100% !important;
+}
+
+.mockup-header-tabs {
+    height: 10px !important;
+    background-color: #aeaeb2 !important;
+    border-radius: 2px !important;
+    width: 100% !important;
+}
+
+.mockup-hero-img {
+    height: 50px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+.mockup-total-price {
+    height: 14px !important;
+    background-color: #d2d2d7 !important;
+    border-radius: 2px !important;
+    width: 50% !important;
+    align-self: flex-end !important;
+}
+
+.mockup-card-slot {
+    height: 30px !important;
+    border: 1.5px dashed #aeaeb2 !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+.mockup-check {
+    font-size: 20px !important;
+    color: #34c759 !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+.mockup-filter-option {
+    height: 16px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 3px !important;
+    width: 100% !important;
+}
+
+/* Titles and Annotations */
+.card-title {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #202020 !important;
+    text-align: center !important;
+}
+
+.wireflow-annotation {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    color: #666666 !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding-top: 8px !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+/* Arrows */
+.flow-arrow.blue-arrow {
+    font-size: 20px !important;
+    color: #0066cc !important; /* Vibrant Blue for connector lines */
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+    user-select: none !important;
+}
+
+.sub-flow-arrow.blue-arrow {
+    position: absolute !important;
+    bottom: -32px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 20px !important;
+    color: #0066cc !important;
+    font-weight: 700 !important;
+    z-index: 10 !important;
+}
+
+/* Sub-flow placement (Filter Screen) */
+.filter-sub-flow-row {
+    margin-top: 40px !important;
+    padding-left: 156px !important; /* Horizontally aligned exactly under the Home card */
+    display: flex !important;
+}
+
+.filter-card {
+    border-color: rgba(0, 102, 204, 0.3) !important;
+}
+
+@media screen and (max-width: 980px) {
+    .wireflow-row {
+        flex-wrap: wrap !important;
+        gap: 16px !important;
+    }
+    .flow-arrow.blue-arrow {
+        transform: rotate(90deg) !important;
+        margin: 8px 0 !important;
+        align-self: center !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .sub-flow-arrow.blue-arrow {
+        display: none !important;
+    }
+    .filter-sub-flow-row {
+        padding-left: 0 !important;
+        justify-content: center !important;
+        margin-top: 24px !important;
+    }
+}
+
 
 
 
