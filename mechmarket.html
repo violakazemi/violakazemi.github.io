@@ -38,11 +38,12 @@
             <a href="#journey" class="nav-segment" id="seg-journey" title="Journey">7. User Journey</a>
             <a href="#wireflow" class="nav-segment" id="seg-wireflow" title="Wireflow">8. Wireflow</a>
             <a href="#iteration" class="nav-segment" id="seg-iteration" title="Iteration">9. Iteration</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">10. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">11. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">12. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">13. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">14. Accessibility</a>
+            <a href="#polish" class="nav-segment" id="seg-polish" title="Polish">10. HF Polish</a>
+            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">11. Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research">12. Research</a>
+            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">13. Architecture</a>
+            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">14. Interface</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">15. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -604,6 +605,116 @@
                 </div>
             </section>
 
+            <!-- High-Fidelity Polish Section -->
+            <section id="polish">
+                <div class="inner">
+                    <h2>High-Fidelity Polish</h2>
+                    <p>Based on our usability insights, we iterated on the core shopping and product views to reduce navigational ambiguity and enhance purchase confidence.</p>
+                    
+                    <!-- Module A: Home Screen Navigation -->
+                    <div class="polish-module">
+                        <div class="polish-header-row">
+                            <h3>Module A: Home Screen Navigation</h3>
+                            <p class="polish-desc">We replaced the search-dominant header with a clear 'New vs. Trending' tab system. This eliminated the navigational ambiguity that caused users to lose their place on the screen.</p>
+                        </div>
+                        
+                        <div class="comparison-grid">
+                            <!-- Before -->
+                            <div class="comparison-column before-col">
+                                <div class="comparison-badge before-badge">BEFORE</div>
+                                <div class="phone-frame">
+                                    <div class="phone-header">
+                                        <div class="phone-search-input">🔍 Search Keyboards...</div>
+                                    </div>
+                                    <div class="phone-content">
+                                        <div class="mini-product-card-flat"></div>
+                                        <div class="mini-product-card-flat"></div>
+                                        <div class="mini-product-card-flat"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- After -->
+                            <div class="comparison-column after-col">
+                                <div class="comparison-badge after-badge">AFTER</div>
+                                <div class="phone-frame">
+                                    <div class="phone-header flex-column-header">
+                                        <div class="phone-search-input-small">🔍 Search...</div>
+                                        <div class="phone-tabs-segmented">
+                                            <div class="tab-item active">New</div>
+                                            <div class="tab-item">Trending</div>
+                                        </div>
+                                    </div>
+                                    <div class="phone-content grid-content">
+                                        <div class="mini-product-card-grid">
+                                            <div class="card-img"></div>
+                                            <div class="card-line"></div>
+                                        </div>
+                                        <div class="mini-product-card-grid">
+                                            <div class="card-img"></div>
+                                            <div class="card-line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Module B: Product Detail Page (PDP) -->
+                    <div class="polish-module" style="margin-top: 48px !important;">
+                        <div class="polish-header-row">
+                            <h3>Module B: Product Detail Page (PDP)</h3>
+                            <p class="polish-desc">We added a product image gallery and a 'Sold by' verification badge to build user trust. We also redesigned the purchase footer, consolidating 'Buy New' and 'Buy Used' into a single, high-contrast action bar to streamline the purchasing flow.</p>
+                        </div>
+                        
+                        <div class="comparison-grid">
+                            <!-- Before -->
+                            <div class="comparison-column before-col">
+                                <div class="comparison-badge before-badge">BEFORE</div>
+                                <div class="phone-frame">
+                                    <div class="phone-content pdp-content">
+                                        <div class="pdp-main-img-flat"></div>
+                                        <div class="pdp-title-block"></div>
+                                        <div class="pdp-body-block"></div>
+                                        <div class="pdp-buttons-split">
+                                            <div class="pdp-btn grey-btn">Buy New</div>
+                                            <div class="pdp-btn grey-btn">Buy Used</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- After -->
+                            <div class="comparison-column after-col">
+                                <div class="comparison-badge after-badge">AFTER</div>
+                                <div class="phone-frame">
+                                    <div class="phone-content pdp-content">
+                                        <div class="pdp-main-img-gallery">
+                                            <div class="gallery-dots">
+                                                <span class="dot active"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="pdp-badge-row">
+                                            <span class="certified-badge">✓ Certified Seller</span>
+                                        </div>
+                                        
+                                        <div class="pdp-title-block"></div>
+                                        <div class="pdp-body-block"></div>
+                                        
+                                        <div class="pdp-button-consolidated">
+                                            <div class="pdp-btn pink-pill-btn">Add to Cart &bull; $249.99</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Case Study Sections -->
             <section id="overview">
                 <div class="inner">
@@ -678,7 +789,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'overview', 'research', 'architecture', 'interface', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });

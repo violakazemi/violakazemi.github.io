@@ -7250,6 +7250,289 @@ body.mechmarket-page,
     }
 }
 
+/* High Fidelity Polish Comparison Layout */
+.polish-module {
+    background-color: #f5f5f7 !important;
+    border-radius: 16px !important;
+    padding: 32px 24px !important;
+    border: 1px solid rgba(32, 32, 32, 0.04) !important;
+}
+
+.polish-header-row {
+    margin-bottom: 24px !important;
+    text-align: left !important;
+}
+
+.polish-header-row h3 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #202020 !important;
+    margin-bottom: 8px !important;
+}
+
+.polish-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #666666 !important;
+    margin: 0 !important;
+}
+
+.comparison-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+    width: 100% !important;
+}
+
+.comparison-column {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+}
+
+.comparison-badge {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    margin-bottom: 16px !important;
+    text-transform: uppercase !important;
+}
+
+.comparison-badge.before-badge {
+    background-color: #e5e5ea !important;
+    color: #86868b !important;
+}
+
+.comparison-badge.after-badge {
+    background-color: #E6B8D1 !important; /* Soft Pink */
+    color: #202020 !important;
+}
+
+.phone-frame {
+    width: 220px !important;
+    height: 380px !important;
+    background-color: #FFFFFF !important;
+    border: 6px solid #202020 !important;
+    border-radius: 32px !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+}
+
+.phone-header {
+    background-color: #f5f5f7 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    padding: 14px 12px !important;
+    box-sizing: border-box !important;
+}
+
+.phone-header.flex-column-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.phone-search-input {
+    background-color: #FFFFFF !important;
+    border: 1px solid #d2d2d7 !important;
+    border-radius: 8px !important;
+    font-size: 10px !important;
+    color: #86868b !important;
+    padding: 6px 8px !important;
+    text-align: left !important;
+}
+
+.phone-search-input-small {
+    background-color: #FFFFFF !important;
+    border: 1px solid #d2d2d7 !important;
+    border-radius: 8px !important;
+    font-size: 9px !important;
+    color: #86868b !important;
+    padding: 4px 8px !important;
+    text-align: left !important;
+}
+
+.phone-tabs-segmented {
+    display: flex !important;
+    background-color: #e5e5ea !important;
+    border-radius: 6px !important;
+    padding: 2px !important;
+}
+
+.phone-tabs-segmented .tab-item {
+    flex: 1 !important;
+    font-size: 9px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    padding: 4px 0 !important;
+    color: #86868b !important;
+    border-radius: 4px !important;
+    cursor: default !important;
+}
+
+.phone-tabs-segmented .tab-item.active {
+    background-color: #FFFFFF !important;
+    color: #202020 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+.phone-content {
+    flex: 1 !important;
+    padding: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.phone-content.grid-content {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+}
+
+.mini-product-card-flat {
+    height: 56px !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 8px !important;
+}
+
+.mini-product-card-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+}
+
+.mini-product-card-grid .card-img {
+    height: 70px !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 8px !important;
+}
+
+.mini-product-card-grid .card-line {
+    height: 6px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 2px !important;
+    width: 60% !important;
+}
+
+/* PDP details */
+.phone-content.pdp-content {
+    padding: 12px !important;
+}
+
+.pdp-main-img-flat {
+    height: 120px !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 12px !important;
+}
+
+.pdp-main-img-gallery {
+    height: 120px !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 12px !important;
+    position: relative !important;
+}
+
+.gallery-dots {
+    position: absolute !important;
+    bottom: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    gap: 4px !important;
+}
+
+.gallery-dots .dot {
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 50% !important;
+    background-color: rgba(32, 32, 32, 0.2) !important;
+}
+
+.gallery-dots .dot.active {
+    background-color: #202020 !important;
+}
+
+.pdp-badge-row {
+    display: flex !important;
+    margin-top: 4px !important;
+}
+
+.certified-badge {
+    font-size: 8px !important;
+    font-weight: 700 !important;
+    color: #0066cc !important;
+    background-color: #E8F0FE !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+}
+
+.pdp-title-block {
+    height: 12px !important;
+    background-color: #e5e5ea !important;
+    border-radius: 2px !important;
+    width: 80% !important;
+}
+
+.pdp-body-block {
+    height: 24px !important;
+    background-color: #f5f5f7 !important;
+    border-radius: 4px !important;
+    width: 100% !important;
+}
+
+.pdp-buttons-split {
+    display: flex !important;
+    gap: 8px !important;
+    margin-top: auto !important;
+    padding-bottom: 8px !important;
+}
+
+.pdp-btn {
+    flex: 1 !important;
+    font-size: 9px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    padding: 8px 0 !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.pdp-btn.grey-btn {
+    background-color: #e5e5ea !important;
+    color: #202020 !important;
+}
+
+.pdp-button-consolidated {
+    margin-top: auto !important;
+    padding-bottom: 8px !important;
+}
+
+.pdp-btn.pink-pill-btn {
+    background-color: #E6B8D1 !important;
+    color: #202020 !important;
+    border-radius: 20px !important;
+    font-weight: 700 !important;
+    font-size: 9px !important;
+}
+
+@media screen and (max-width: 640px) {
+    .comparison-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+}
+
 
 
 
