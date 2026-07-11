@@ -7638,7 +7638,7 @@ body.mechmarket-page,
 
 .slide-caption {
     width: 100% !important;
-    padding: 24px 32px !important;
+    padding: 24px 32px 48px 32px !important;
     background-color: #FFFFFF !important;
     text-align: left !important;
     box-sizing: border-box !important;
@@ -7684,7 +7684,7 @@ body.mechmarket-page,
 /* Navigation dots */
 .carousel-nav-dots {
     position: absolute !important;
-    bottom: 120px !important; /* Float above caption */
+    bottom: 16px !important; /* Positioned at the bottom of the white caption */
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex !important;
@@ -7715,10 +7715,10 @@ body.mechmarket-page,
 
 @media screen and (max-width: 640px) {
     .slide-caption {
-        padding: 16px 20px !important;
+        padding: 16px 20px 36px 20px !important;
     }
     .carousel-nav-dots {
-        bottom: 110px !important;
+        bottom: 12px !important;
     }
 }
 
