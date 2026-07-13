@@ -6359,6 +6359,14 @@ body.mechmarket-page,
         margin-left: auto !important;
         margin-right: auto !important;
     }
+    .differentiators-list {
+        margin: 20px 0 0 0 !important;
+        padding-left: 24px !important;
+    }
+    .challenge-list {
+        margin: 0 0 0 0 !important;
+        padding-left: 24px !important;
+    }
 }
 
 /* Responsive Two Column Split Layout */
