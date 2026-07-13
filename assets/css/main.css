@@ -4317,8 +4317,8 @@ body {
 @media screen and (max-width: 767px) {
     /* Target only the inner container to avoid nested padding compounding */
     #main > * > .inner {
-        padding-left: 8% !important;
-        padding-right: 8% !important;
+        padding-left: max(24px, 8%) !important;
+        padding-right: max(24px, 8%) !important;
         margin-left: auto !important;
         margin-right: auto !important;
         width: 100% !important;
@@ -4336,14 +4336,14 @@ body {
     /* Ensure home page banner text aligns with the mobile grid */
     #banner > .inner {
         width: 100% !important;
-        padding: 1.5em 8% 1.5em 8% !important;
+        padding: 1.5em max(24px, 8%) 1.5em max(24px, 8%) !important;
         margin: 0 !important;
     }
 
     /* Ensure footer aligns with the mobile grid */
     #footer {
-        margin: 0 8% 20px 8% !important;
-        padding: 3em 8% 2em 8% !important;
+        margin: 0 max(24px, 8%) 20px max(24px, 8%) !important;
+        padding: 3em max(24px, 8%) 2em max(24px, 8%) !important;
         text-align: center !important;
     }
     
@@ -6348,24 +6348,31 @@ body.mechmarket-page,
     }
     .mechmarket-page #main section {
         padding: 32px 0 !important;
-        margin: 24px auto !important;
+        margin: 32px auto !important;
         border-radius: 14px !important;
-        width: 90% !important;
-        max-width: 90% !important;
+        width: calc(100% - 48px) !important;
+        max-width: calc(100% - 48px) !important;
     }
     .mechmarket-page #main section .inner {
-        width: 90% !important;
-        max-width: 90% !important;
+        width: calc(100% - 48px) !important;
+        max-width: calc(100% - 48px) !important;
         margin-left: auto !important;
         margin-right: auto !important;
     }
     .differentiators-list {
-        margin: 20px 0 0 0 !important;
+        margin: 32px 0 0 0 !important;
         padding-left: 24px !important;
     }
     .challenge-list {
-        margin: 0 0 0 0 !important;
+        margin: 32px 0 0 0 !important;
         padding-left: 24px !important;
+    }
+    .competitor-logo-row {
+        gap: 16px !important;
+        margin-top: 32px !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 !important;
     }
 }
 
