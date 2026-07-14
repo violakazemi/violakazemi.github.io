@@ -35,7 +35,7 @@
             <a href="#iteration" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
             <a href="#designsystem" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
             <a href="#showcase" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
-            <a href="#overview" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
+            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -68,6 +68,14 @@
                     <div class="hero-visual-block">
                         <img src="images/mechmarkethero.png" alt="MechMarket 3D UI Mockup Showcase" />
                     </div>
+                </div>
+            </section>
+
+            <!-- Project Overview Section -->
+            <section id="overview">
+                <div class="inner">
+                    <h2>Project Overview</h2>
+                    <p>MechMarket is a premium community marketplace dedicated to mechanical keyboard enthusiasts. Designed to simplify keyboard building, discovery, and secure trading, it bridges the gap between fragmented Reddit/Discord communities and a unified mobile commerce platform.</p>
                 </div>
             </section>
 
@@ -577,6 +585,14 @@
                 </div>
             </section>
 
+            <!-- Inclusive Design & Accessibility Section -->
+            <section id="accessibility">
+                <div class="inner">
+                    <h2>Inclusive Design & Accessibility</h2>
+                    <p>To support all hobbyists, I prioritized screen-reader compatibility and large touch targets for switch customization controls, ensuring physical accessibility and WCAG AA contrast compliance across the entire e-commerce flow.</p>
+                </div>
+            </section>
+
             <!-- Marketing Showcase Section -->
             <section id="showcase">
                 <div class="inner">
@@ -640,19 +656,6 @@
             </section>
 
             <!-- Case Study Sections -->
-            <section id="overview">
-                <div class="inner">
-                    <h2>Project Overview</h2>
-                    <p>MechMarket is a premium community marketplace dedicated to mechanical keyboard enthusiasts. Designed to simplify keyboard building, discovery, and secure trading, it bridges the gap between fragmented Reddit/Discord communities and a unified mobile commerce platform.</p>
-                </div>
-            </section>
-            
-            <section id="accessibility">
-                <div class="inner">
-                    <h2>Inclusive Design & Accessibility</h2>
-                    <p>To support all hobbyists, I prioritized screen-reader compatibility and large touch targets for switch customization controls, ensuring physical accessibility and WCAG AA contrast compliance across the entire e-commerce flow.</p>
-                </div>
-            </section>
             
             <!-- Takeaways Section -->
             <section id="takeaways">
@@ -705,6 +708,7 @@
                     // Map sub-sections to their parent phase anchor
                     const phaseMapping = {
                         'hero-section': 'vision',
+                        'overview': 'vision',
                         'kickoff': 'vision',
                         
                         'personas': 'affinity',
@@ -717,8 +721,7 @@
                         
                         'challenges': 'showcase',
                         
-                        'accessibility': 'overview',
-                        'takeaways': 'overview'
+                        'takeaways': 'accessibility'
                     };
                     
                     if (phaseMapping[activeId]) {
@@ -734,7 +737,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'sitemap', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'accessibility', 'takeaways'].forEach(id => {
+        ['hero-section', 'overview', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'sitemap', 'iteration', 'polish', 'challenges', 'designsystem', 'accessibility', 'showcase', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
