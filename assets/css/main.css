@@ -4064,7 +4064,7 @@ article header.major {
 }
 
 body {
-    padding-top: 80px; /* Adjust this to match the height of your top header */
+    padding-top: 0 !important; /* Reset legacy header spacing to ensure flush fit */
 }
 
 .nav-container {
