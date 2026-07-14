@@ -4861,6 +4861,28 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     transform: none !important;
 }
 
+.case-study-nav-btn {
+    color: var(--apple-blue) !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    transition: color 0.2s ease !important;
+}
+
+.case-study-nav-btn:hover {
+    color: var(--apple-blue-hover) !important;
+    text-decoration: underline !important;
+}
+
 
 
 /* Hero Banner Overrides (Apple Marketing Hero Section) */
