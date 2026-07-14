@@ -4803,6 +4803,10 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     background-color: var(--apple-bg-gray) !important;
 }
 
+.museum-page #header {
+    background-color: rgba(233, 242, 220, 0.8) !important; /* Translucent Matcha Green */
+}
+
 #header a {
     color: var(--apple-text-primary) !important;
     border: none !important;
@@ -5494,7 +5498,9 @@ body.museum-page,
     left: 0 !important;
     width: 100% !important;
     height: 48px !important;
-    background-color: var(--apple-bg-light) !important; /* Solid white sub-nav background */
+    background-color: rgba(233, 242, 220, 0.8) !important; /* Translucent Matcha Green */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border-bottom: 1px solid var(--apple-border) !important; /* Subtle Apple border instead of black */
     z-index: 9998 !important;
     display: flex !important;
