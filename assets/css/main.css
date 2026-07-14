@@ -4799,6 +4799,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 24px !important;
 }
 
+body:not(.museum-page):not(.mechmarket-page) #header {
+    background-color: var(--apple-bg-gray) !important;
+}
+
 #header a {
     color: var(--apple-text-primary) !important;
     border: none !important;
