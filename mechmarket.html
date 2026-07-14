@@ -135,6 +135,30 @@
                 </div>
             </section>
 
+            <!-- Competitive Analysis Section -->
+            <section id="competition">
+                <div class="inner">
+                    <h2>Competitive Analysis</h2>
+                    <p>I evaluated several potential competitors. While none compete directly with MechMarket, they influence market revenue and popularity. MechMarket has the opportunity to capitalize on these gaps by curating a one-stop shop without oversaturating the user's selection.</p>
+                    
+                    <p style="margin-top: 32px !important; font-weight: 600 !important;">The majority of features across competitors were similar; however, I identified the following key differentiators:</p>
+                    <ul class="differentiators-list">
+                        <li>Easily Accessible vs. Hardly Accessible</li>
+                        <li>Too Many Screens vs. Simplified Interaction</li>
+                        <li>Bright/Distracting Interface vs. Minimalistic Interface</li>
+                        <li>Specialization of Products</li>
+                    </ul>
+                    
+                    <div class="competitor-logo-row">
+                        <div class="logo-plate">Drop</div>
+                        <div class="logo-plate">Etsy</div>
+                        <div class="logo-plate">WASD</div>
+                        <div class="logo-plate">Reddit</div>
+                        <div class="logo-plate">Jellykey</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Affinity Mapping & Solution Iteration Section -->
             <section id="affinity">
                 <div class="inner">
@@ -274,30 +298,6 @@
                 </div>
             </section>
 
-            <!-- Competitive Analysis Section -->
-            <section id="competition">
-                <div class="inner">
-                    <h2>Competitive Analysis</h2>
-                    <p>I evaluated several potential competitors. While none compete directly with MechMarket, they influence market revenue and popularity. MechMarket has the opportunity to capitalize on these gaps by curating a one-stop shop without oversaturating the user's selection.</p>
-                    
-                    <p style="margin-top: 32px !important; font-weight: 600 !important;">The majority of features across competitors were similar; however, I identified the following key differentiators:</p>
-                    <ul class="differentiators-list">
-                        <li>Easily Accessible vs. Hardly Accessible</li>
-                        <li>Too Many Screens vs. Simplified Interaction</li>
-                        <li>Bright/Distracting Interface vs. Minimalistic Interface</li>
-                        <li>Specialization of Products</li>
-                    </ul>
-                    
-                    <div class="competitor-logo-row">
-                        <div class="logo-plate">Drop</div>
-                        <div class="logo-plate">Etsy</div>
-                        <div class="logo-plate">WASD</div>
-                        <div class="logo-plate">Reddit</div>
-                        <div class="logo-plate">Jellykey</div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Preparing the Journey Section -->
             <section id="journey">
                 <div class="inner">
@@ -310,18 +310,6 @@
                 </div>
             </section>
 
-            <!-- Wireflow Section -->
-            <section id="wireflow">
-                <div class="inner">
-                    <h2>Wireflow</h2>
-                    <p>After sketching out some pen & paper wireframes and thinking through the preliminary flow, I reviewed what was necessary, unnecessary, and what areas needed improvement. I poured a lot of my time into this step to make sure we had the finishing touches on the underlying UX before moving onto the visuals.</p>
-                    
-                    <div style="text-align: center !important; margin-top: 32px !important;">
-                        <img src="images/MechmartWireframe.png" alt="MechMarket Wireflow" style="max-width: 100% !important; border-radius: 12px !important; box-shadow: 0 12px 32px rgba(0,0,0,0.06) !important;" />
-                    </div>
-                </div>
-            </section>
-
             <!-- Sitemap Section -->
             <section id="sitemap">
                 <div class="inner">
@@ -330,6 +318,18 @@
                     
                     <div style="text-align: center !important; margin-top: 32px !important;">
                         <img src="images/MechmarketSitemap.png" alt="MechMarket Sitemap" style="max-width: 100% !important; border-radius: 12px !important; box-shadow: 0 12px 32px rgba(0,0,0,0.06) !important;" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wireflow Section -->
+            <section id="wireflow">
+                <div class="inner">
+                    <h2>Wireflow</h2>
+                    <p>After sketching out some pen & paper wireframes and thinking through the preliminary flow, I reviewed what was necessary, unnecessary, and what areas needed improvement. I poured a lot of my time into this step to make sure we had the finishing touches on the underlying UX before moving onto the visuals.</p>
+                    
+                    <div style="text-align: center !important; margin-top: 32px !important;">
+                        <img src="images/MechmartWireframe.png" alt="MechMarket Wireflow" style="max-width: 100% !important; border-radius: 12px !important; box-shadow: 0 12px 32px rgba(0,0,0,0.06) !important;" />
                     </div>
                 </div>
             </section>
@@ -710,10 +710,10 @@
                         'hero-section': 'vision',
                         'overview': 'vision',
                         'kickoff': 'vision',
+                        'competition': 'vision',
                         
                         'personas': 'affinity',
                         
-                        'competition': 'journey',
                         'wireflow': 'journey',
                         'sitemap': 'journey',
                         
@@ -737,7 +737,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'overview', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'sitemap', 'iteration', 'polish', 'challenges', 'designsystem', 'accessibility', 'showcase', 'takeaways'].forEach(id => {
+        ['hero-section', 'overview', 'vision', 'kickoff', 'competition', 'affinity', 'personas', 'journey', 'sitemap', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'accessibility', 'showcase', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
