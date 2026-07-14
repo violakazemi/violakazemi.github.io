@@ -6115,9 +6115,13 @@ body.museum-page,
 
 /* Mechmarket Case Study Lavender Overhaul Styling */
 body.mechmarket-page,
-.mechmarket-page #wrapper,
-.mechmarket-page #main {
+.mechmarket-page #wrapper {
     background-color: #F2DCE5 !important; /* Soft Pastel Lavender/Pink Background */
+}
+
+.mechmarket-page #main {
+    background-color: #F2DCE5 !important;
+    padding-top: 48px !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
 .mechmarket-hero {
@@ -6306,8 +6310,46 @@ body.mechmarket-page,
 
 /* Sub-Navigation styling for MechMarket */
 .mechmarket-page .nav-container {
-    background-color: #FFFFFF !important; /* White sub-nav */
+    position: fixed !important;
+    top: 48px !important; /* Direct sub-header under the main fixed header */
+    left: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
+    background-color: #FFFFFF !important; /* Solid white sub-nav background */
     border-bottom: 1px solid rgba(32, 32, 32, 0.08) !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important; /* Centered horizontal links */
+    align-items: center !important;
+    gap: 32px !important;
+    padding: 0 24px !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    margin: 0 !important;
+    overflow-x: auto !important; /* Allow swipe scrolling on mobile */
+    scrollbar-width: none !important; /* Firefox hide scrollbar */
+}
+
+.mechmarket-page .nav-container::-webkit-scrollbar {
+    display: none !important; /* Chrome/Safari hide scrollbar */
+}
+
+.mechmarket-page .nav-segment {
+    height: 48px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    border-radius: 0 !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
 }
 
 .mechmarket-page .nav-container .nav-segment {
@@ -6323,6 +6365,7 @@ body.mechmarket-page,
 
 .mechmarket-page .nav-container .nav-segment.active {
     color: #E6B8D1 !important; /* Accent blush/pink */
+    border-bottom: 2px solid #E6B8D1 !important;
     border-bottom: 2px solid #E6B8D1 !important;
     font-weight: 600 !important;
 }
