@@ -5467,12 +5467,12 @@ body:not(.museum-page):not(.mechmarket-page) #header {
 /* Case Study Page Specifics */
 body.museum-page,
 .museum-page #wrapper {
-    background-color: var(--apple-bg-gray) !important;
+    background-color: #E9F2DC !important; /* Very Light Matcha Green Theme background */
     display: block !important; /* Stack nav-container and main vertically */
 }
 
 .museum-page #main {
-    background-color: var(--apple-bg-gray) !important;
+    background-color: #E9F2DC !important;
     padding: 120px 24px 80px 24px !important; /* Give padding top to prevent overlap by header & sub-nav */
     max-width: 1000px !important;
     margin: 0 auto !important;
