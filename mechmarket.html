@@ -647,28 +647,6 @@
                 </div>
             </section>
             
-            <section id="research">
-                <div class="inner">
-                    <h2>User Research & Empathize</h2>
-                    <p>By conducting contextual inquiries and user interviews in mechanical keyboard community groups, I identified that users struggle to find compatible parts (e.g. keycaps, switches, PCBs) and verify seller authenticity due to disjointed catalog systems and scattered review listings.</p>
-                </div>
-            </section>
-            
-            <section id="architecture">
-                <div class="inner">
-                    <h2>Information Architecture & User Flow</h2>
-                    <p>I structured the app to allow builders to customize keyboard layouts digitally before ordering. The logic-driven catalog dynamically filters switches and keycaps based on selected keyboard sizes (e.g. 60%, 75%, Full-size), preventing administrative compatibility errors.</p>
-                </div>
-            </section>
-            
-            <section id="interface">
-                <div class="inner">
-                    <h2>High-Fidelity UI Design</h2>
-                    <p>The interface uses a clean, high-contrast visual style with large typography and borderless cards to let keyboard graphics be the hero. By stripping away visual clutter, users can discover, trade, and build with absolute clarity.</p>
-                    <div class="image main"><img src="images/mechmarketlanding.png" alt="Redesigned MechMarket Landing Screen Mockup" style="max-width: 480px !important; margin: 32px auto !important; display: block !important; border-radius: 16px !important; box-shadow: 0 8px 30px rgba(0,0,0,0.03) !important;" /></div>
-                </div>
-            </section>
-            
             <section id="accessibility">
                 <div class="inner">
                     <h2>Inclusive Design & Accessibility</h2>
@@ -739,9 +717,6 @@
                         
                         'challenges': 'showcase',
                         
-                        'research': 'overview',
-                        'architecture': 'overview',
-                        'interface': 'overview',
                         'accessibility': 'overview',
                         'takeaways': 'overview'
                     };
@@ -759,7 +734,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'sitemap', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'research', 'architecture', 'interface', 'accessibility', 'takeaways'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'sitemap', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'accessibility', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
