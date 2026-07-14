@@ -29,26 +29,13 @@
         </header>
 
         <nav class="nav-container" id="nav-container">
-            <a href="#hero-section" class="nav-segment" id="seg-hero" title="Hero">1. Intro</a>
-            <a href="#vision" class="nav-segment" id="seg-vision" title="Vision">2. Vision & Challenges</a>
-            <a href="#kickoff" class="nav-segment" id="seg-kickoff" title="Kickoff">3. Kickoff</a>
-            <a href="#affinity" class="nav-segment" id="seg-affinity" title="Affinity">4. Synthesis</a>
-            <a href="#personas" class="nav-segment" id="seg-personas" title="Personas">5. Meet the Users</a>
-            <a href="#competition" class="nav-segment" id="seg-competition" title="Competition">6. Competition</a>
-            <a href="#journey" class="nav-segment" id="seg-journey" title="Journey">7. User Journey</a>
-            <a href="#wireflow" class="nav-segment" id="seg-wireflow" title="Wireflow">8. Wireflow</a>
-            <a href="#sitemap" class="nav-segment" id="seg-sitemap" title="Sitemap">9. Sitemap</a>
-            <a href="#iteration" class="nav-segment" id="seg-iteration" title="Iteration">10. Iteration</a>
-            <a href="#polish" class="nav-segment" id="seg-polish" title="Polish">11. HF Polish</a>
-            <a href="#challenges" class="nav-segment" id="seg-challenges" title="Challenges">12. UX Challenges</a>
-            <a href="#designsystem" class="nav-segment" id="seg-designsystem" title="Design System">13. Design System</a>
-            <a href="#showcase" class="nav-segment" id="seg-showcase" title="Showcase">14. Showcase</a>
-            <a href="#overview" class="nav-segment" id="seg-overview" title="Overview">15. Overview</a>
-            <a href="#research" class="nav-segment" id="seg-research" title="Research">16. Research</a>
-            <a href="#architecture" class="nav-segment" id="seg-architecture" title="Architecture">17. Architecture</a>
-            <a href="#interface" class="nav-segment" id="seg-interface" title="Interface">18. Interface</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">19. Accessibility</a>
-            <a href="#takeaways" class="nav-segment" id="seg-takeaways" title="Takeaways">20. Takeaways</a>
+            <a href="#vision" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
+            <a href="#affinity" class="nav-segment" id="seg-define" title="Define">2. Define</a>
+            <a href="#journey" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
+            <a href="#iteration" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
+            <a href="#designsystem" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
+            <a href="#showcase" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
+            <a href="#overview" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -727,7 +714,35 @@
                     });
                     
                     const activeId = entry.target.id;
-                    const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
+                    let targetSelector = activeId;
+                    
+                    // Map sub-sections to their parent phase anchor
+                    const phaseMapping = {
+                        'hero-section': 'vision',
+                        'kickoff': 'vision',
+                        
+                        'personas': 'affinity',
+                        
+                        'competition': 'journey',
+                        'wireflow': 'journey',
+                        'sitemap': 'journey',
+                        
+                        'polish': 'designsystem',
+                        
+                        'challenges': 'showcase',
+                        
+                        'research': 'overview',
+                        'architecture': 'overview',
+                        'interface': 'overview',
+                        'accessibility': 'overview',
+                        'takeaways': 'overview'
+                    };
+                    
+                    if (phaseMapping[activeId]) {
+                        targetSelector = phaseMapping[activeId];
+                    }
+                    
+                    const activeLink = document.querySelector(`.nav-segment[href="#${targetSelector}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
                         activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -736,7 +751,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'research', 'architecture', 'interface', 'accessibility', 'takeaways'].forEach(id => {
+        ['hero-section', 'vision', 'kickoff', 'affinity', 'personas', 'competition', 'journey', 'wireflow', 'sitemap', 'iteration', 'polish', 'challenges', 'designsystem', 'showcase', 'overview', 'research', 'architecture', 'interface', 'accessibility', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
