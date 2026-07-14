@@ -6146,6 +6146,119 @@ body.mechmarket-page,
     padding-top: 48px !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
+.museum-hero {
+    background-color: #E9F2DC !important; /* Soft Matcha Green Background */
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 80px 0 !important;
+    box-sizing: border-box !important;
+    color: #202020 !important;
+}
+
+.museum-hero .hero-inner {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 48px !important;
+}
+
+.museum-hero .hero-text-block {
+    flex: 1 !important;
+    max-width: 50% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+}
+
+.museum-hero .logo-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 8px !important;
+}
+
+.museum-hero .logo-icon-m {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #202020 !important;
+    color: #E9F2DC !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    line-height: 1 !important;
+}
+
+.museum-hero .hero-title {
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    color: #202020 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+}
+
+.museum-hero .hero-subtitle {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: rgba(32, 32, 32, 0.8) !important;
+    margin-bottom: 32px !important;
+    line-height: 1.2 !important;
+}
+
+.museum-hero .metadata-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-bottom: 40px !important;
+    width: 100% !important;
+}
+
+.museum-hero .metadata-item {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    font-family: 'Inter', sans-serif !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+}
+
+.museum-hero .metadata-item .label {
+    font-weight: 600 !important;
+    color: rgba(32, 32, 32, 0.6) !important;
+}
+
+.museum-hero .metadata-item .value {
+    color: #202020 !important;
+    font-weight: 400 !important;
+}
+
+.museum-hero .hero-visual-block {
+    flex: 1 !important;
+    max-width: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.museum-hero .hero-visual-block img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+}
+
 .mechmarket-hero {
     background-color: #F2DCE5 !important; /* Soft Pastel Lavender/Pink Background */
     width: 100% !important;
@@ -6419,6 +6532,33 @@ body.mechmarket-page,
     .mechmarket-hero .hero-visual-block {
         max-width: 100% !important;
     }
+    .museum-hero {
+        padding: 60px 0 !important;
+    }
+    .museum-hero .hero-inner {
+        flex-direction: column !important;
+        gap: 32px !important;
+        padding: 0 8% !important;
+    }
+    .museum-hero .hero-text-block {
+        max-width: 100% !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .museum-hero .hero-title {
+        font-size: 40px !important;
+    }
+    .museum-hero .hero-subtitle {
+        font-size: 18px !important;
+        margin-bottom: 24px !important;
+    }
+    .museum-hero .metadata-item {
+        justify-content: center !important;
+    }
+    .museum-hero .hero-visual-block {
+        max-width: 100% !important;
+    }
+
     .mechmarket-page #main section {
         padding: 32px 0 !important;
         margin: 32px auto !important;

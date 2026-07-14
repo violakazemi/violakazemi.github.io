@@ -39,12 +39,39 @@
         </nav>
 
         <div id="main" class="alt">
+            <!-- Hero Section -->
+            <section id="hero-section" class="museum-hero">
+                <div class="hero-inner">
+                    <div class="hero-text-block">
+                        <div class="logo-wrapper">
+                            <h1 class="hero-title">The Museum Companion</h1>
+                        </div>
+                        <p class="hero-subtitle">Interactive Museum App</p>
+                        
+                        <div class="metadata-grid">
+                            <div class="metadata-item">
+                                <span class="label">Project:</span>
+                                <span class="value">The Museum Companion</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Role:</span>
+                                <span class="value">Product Designer</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Duration:</span>
+                                <span class="value">June 2026 (4 weeks)</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hero-visual-block">
+                        <img src="images/museumthumbnail.png" alt="The Museum Companion App Mockup Showcase" />
+                    </div>
+                </div>
+            </section>
+
             <section id="one">
                 <div class="inner">
-                    <header class="major">
-                        <h1>The Museum Companion</h1>
-                    </header>
-
                     <section id="empathize">
                         <h2>Project Overview</h2>
                         <p>The Museum Planning Companion is a digital tool designed to bridge the gap between educational goals and logistical reality. By providing a centralized planning space, it transforms the field trip experience for educators, allowing them to focus on learning rather than logistics.</p>
@@ -264,7 +291,11 @@
                     
                     // 2. Add 'active' only to the one currently in view
                     const activeId = entry.target.id;
-                    const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
+                    let targetId = activeId;
+                    if (activeId === 'hero-section') {
+                        targetId = 'empathize';
+                    }
+                    const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
                         // Keep active link visible in horizontal scroll container
@@ -275,7 +306,7 @@
         }, observerOptions);
 
         // Watch all your sections
-        ['empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
+        ['hero-section', 'empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
