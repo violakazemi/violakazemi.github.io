@@ -29,12 +29,12 @@
         </header>
 
         <nav class="nav-container" id="nav-container">
-            <a href="#vision" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
+            <a href="#kickoff" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
             <a href="#affinity" class="nav-segment" id="seg-define" title="Define">2. Define</a>
             <a href="#journey" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
-            <a href="#iteration" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
+            <a href="#wireflow" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
             <a href="#designsystem" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
-            <a href="#showcase" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
+            <a href="#iteration" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
             <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
         </nav>
 
@@ -707,20 +707,28 @@
                     
                     // Map sub-sections to their parent phase anchor
                     const phaseMapping = {
-                        'hero-section': 'vision',
-                        'overview': 'vision',
-                        'kickoff': 'vision',
-                        'competition': 'vision',
+                        'hero-section': 'kickoff',
+                        'overview': 'kickoff',
+                        'vision': 'kickoff',
+                        'kickoff': 'kickoff',
+                        'competition': 'kickoff',
                         
+                        'affinity': 'affinity',
                         'personas': 'affinity',
                         
-                        'wireflow': 'journey',
+                        'journey': 'journey',
                         'sitemap': 'journey',
                         
-                        'polish': 'designsystem',
+                        'wireflow': 'wireflow',
                         
-                        'challenges': 'showcase',
+                        'iteration': 'iteration',
+                        'polish': 'iteration',
+                        'challenges': 'iteration',
+                        'showcase': 'iteration',
                         
+                        'designsystem': 'designsystem',
+                        
+                        'accessibility': 'accessibility',
                         'takeaways': 'accessibility'
                     };
                     
