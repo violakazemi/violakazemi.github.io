@@ -8030,6 +8030,19 @@ body.mechmarket-page,
     margin: 0 !important;
 }
 
+/* Museum Persona Card Green Styling Overrides */
+.museum-page .persona-type-label {
+    color: #587C56 !important;
+}
+
+.museum-page .persona-avatar-wrapper {
+    border-color: #587C56 !important;
+}
+
+.museum-page .persona-bio-block .accent-line-vertical {
+    background-color: #587C56 !important;
+}
+
 
 
 
