@@ -6509,13 +6509,12 @@ body.mechmarket-page,
 }
 
 .mechmarket-page .nav-container .nav-segment:hover {
-    color: #202020 !important;
+    color: #0071e3 !important;
 }
 
 .mechmarket-page .nav-container .nav-segment.active {
-    color: #E6B8D1 !important; /* Accent blush/pink */
-    border-bottom: 2px solid #E6B8D1 !important;
-    border-bottom: 2px solid #E6B8D1 !important;
+    color: #0071e3 !important; /* Accent blue */
+    border-bottom: 2px solid #0071e3 !important;
     font-weight: 600 !important;
 }
 
