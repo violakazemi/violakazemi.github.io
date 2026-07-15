@@ -8043,6 +8043,22 @@ body.mechmarket-page,
     background-color: #587C56 !important;
 }
 
+.museum-white-section {
+    background-color: #FFFFFF !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+    padding: 48px !important;
+    margin-bottom: 80px !important;
+    box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 768px) {
+    .museum-white-section {
+        padding: 24px !important;
+        border-radius: 14px !important;
+    }
+}
+
 
 
 
