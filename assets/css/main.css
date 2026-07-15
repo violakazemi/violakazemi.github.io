@@ -5500,17 +5500,28 @@ body.museum-page,
 .museum-page #main {
     background-color: #E9F2DC !important;
     padding: 120px 24px 80px 24px !important; /* Give padding top to prevent overlap by header & sub-nav */
-    max-width: 1000px !important;
-    margin: 0 auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.museum-page #main section[id]:not(#one):not(#bottom-nav) {
+    background-color: #FFFFFF !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+    padding: 48px !important;
+    margin: 48px auto !important;
+    max-width: 1000px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: none !important;
 }
 
 .museum-page #main section {
-    margin-bottom: 80px !important;
+    margin-bottom: 48px !important;
     border: none !important;
-    background: transparent !important;
+    background: transparent;
     box-shadow: none !important;
-    padding: 0 !important;
 }
 
 /* Apple-style Horizontal Product Sub-Navigation */
@@ -6147,19 +6158,22 @@ body.mechmarket-page,
 }
 
 .museum-hero {
-    background-color: #E9F2DC !important; /* Soft Matcha Green Background */
+    background-color: #FFFFFF !important; /* Soft White Background */
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 80px 0 !important;
+    max-width: 1000px !important;
+    margin: 48px auto !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+    padding: 48px !important;
     box-sizing: border-box !important;
     color: #202020 !important;
 }
 
 .museum-hero .hero-inner {
-    max-width: 1200px !important;
+    max-width: 100% !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 40px !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: row !important;
