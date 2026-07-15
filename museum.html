@@ -82,6 +82,22 @@
                         <p>Tara, an elementary school teacher managing groups of 20+ students, struggles to maintain group safety and cohesion because she lacks a centralized tool to calculate required chaperone-to-student ratios and obtain a clear, accessibility-aware guide for movement, dining, and seating within the museum.</p>
                     </section>
 
+                    <section id="competitive-analysis">
+                        <h2>Competitive Analysis</h2>
+                        <p>To understand where existing tools fall short for educators like Tara, I audited two direct competitors — the Royal Ontario Museum (ROM) and the Art Gallery of Ontario (AGO) — alongside one indirect competitor, Tiqets, a mobile-first ticketing platform.</p>
+                        <p>ROM and AGO offer strong institutional content and are trusted cultural authorities, but both rely on legacy booking flows that push group organizers into manual phone or email coordination, and treat accessibility as a static PDF rather than an interactive feature. Tiqets, by contrast, delivers a fast, mobile-optimized checkout experience — but it's built for individual travelers, with no support for group-specific needs like chaperone ratios or curriculum planning.</p>
+                        
+                        <h3 style="margin-top: 32px !important;">Key Differentiators</h3>
+                        <ul class="differentiators-list" style="margin-bottom: 32px !important;">
+                            <li>Institutional authority vs. transactional speed — neither model addresses logistics-heavy group planning</li>
+                            <li>Static, document-based accessibility info vs. no accessibility support at all</li>
+                            <li>Deep cultural content vs. streamlined booking — no competitor offers both</li>
+                        </ul>
+                        
+                        <p>This revealed two clear gaps: a <strong>Logistical Context Gap</strong> — no platform bridges cultural content with real group-logistics needs — and an <strong>Accessibility-as-a-Feature Gap</strong> — accessibility info is currently a downloadable document rather than a living part of the planning experience.</p>
+                        <p>These gaps directly shaped my goal: build a planning companion that pairs curriculum-linked content with real-time, accessibility-aware logistics, measured by reduced time spent on booking tasks and increased educator confidence around accessibility needs.</p>
+                    </section>
+
                     <section id="ideate">
                         <h2>Big Picture Storyboard</h2>
                         <p>The following storyboard illustrates Tara’s journey from the frustration of manual, disorganized coordination to the confidence of a prepared, data-driven visit. It visualizes how the app acts as a bridge, allowing her to focus less on administration and more on the learning experience.</p>
@@ -295,6 +311,9 @@
                     if (activeId === 'hero-section') {
                         targetId = 'empathize';
                     }
+                    if (activeId === 'competitive-analysis') {
+                        targetId = 'define';
+                    }
                     const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
@@ -306,7 +325,7 @@
         }, observerOptions);
 
         // Watch all your sections
-        ['hero-section', 'empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
+        ['hero-section', 'empathize', 'define', 'competitive-analysis', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
