@@ -30,8 +30,8 @@
 
         <nav class="nav-container" id="nav-container">
             <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
-            <a href="#define" class="nav-segment" id="seg-define" title="Define">2. Define</a>
-            <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
+            <a href="#problem" class="nav-segment" id="seg-define" title="Define">2. Define</a>
+            <a href="#storyboards" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
             <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
             <a href="#systems" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
             <a href="#validation" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
@@ -77,7 +77,7 @@
                         <p>The Museum Planning Companion is a digital tool designed to bridge the gap between educational goals and logistical reality. By providing a centralized planning space, it transforms the field trip experience for educators, allowing them to focus on learning rather than logistics.</p>
                     </section>
 
-                    <section id="define">
+                    <section id="problem">
                         <h2>The Problem</h2>
                         <p>Tara, an elementary school teacher managing groups of 20+ students, struggles to maintain group safety and cohesion because she lacks a centralized tool to calculate required chaperone-to-student ratios and obtain a clear, accessibility-aware guide for movement, dining, and seating within the museum.</p>
                     </section>
@@ -98,7 +98,7 @@
                         <p>These gaps directly shaped my goal: build a planning companion that pairs curriculum-linked content with real-time, accessibility-aware logistics, measured by reduced time spent on booking tasks and increased educator confidence around accessibility needs.</p>
                     </section>
 
-                    <section id="ideate">
+                    <section id="storyboards">
                         <h2>Big Picture Storyboard</h2>
                         <p>The following storyboard illustrates Tara’s journey from the frustration of manual, disorganized coordination to the confidence of a prepared, data-driven visit. It visualizes how the app acts as a bridge, allowing her to focus less on administration and more on the learning experience.</p>
                         <div class="image main"><img src="images/BigPictureStoryboard.png" alt="Big picture storyboard showing Tara planning a museum trip" /></div>
@@ -326,7 +326,10 @@
                         targetId = 'empathize';
                     }
                     if (activeId === 'competitive-analysis') {
-                        targetId = 'define';
+                        targetId = 'problem';
+                    }
+                    if (activeId === 'storyboards') {
+                        targetId = 'storyboards';
                     }
                     if (activeId === 'designsystem') {
                         targetId = 'systems';
@@ -345,7 +348,7 @@
         }, observerOptions);
 
         // Watch all your sections
-        ['hero-section', 'empathize', 'define', 'competitive-analysis', 'ideate', 'prototype', 'systems', 'validation', 'designsystem', 'accessibility', 'takeaways'].forEach(id => {
+        ['hero-section', 'empathize', 'problem', 'competitive-analysis', 'storyboards', 'prototype', 'systems', 'validation', 'designsystem', 'accessibility', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
