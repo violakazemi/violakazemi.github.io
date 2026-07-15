@@ -258,11 +258,25 @@
                          </div>
                     </section>
 
+                    <!-- Design System Section -->
+                    <section id="designsystem">
+                        <h2>Design System</h2>
+                        <p>To establish a consistent, accessible, and structured visual identity, I developed a modular Design System for the Museum Companion. The system is built around a calm, nature-inspired matcha green primary color and high-contrast charcoal elements to comply with WCAG AA readability standards. Below is a snapshot of our core colors, typography scaling, and reusable UI components.</p>
+                        <div class="image main"><img src="images/design_system_stickers.png" alt="Museum Companion Design System Sticker Sheet" style="max-width: 100% !important; border-radius: 12px !important; box-shadow: 0 12px 32px rgba(0,0,0,0.06) !important;" /></div>
+                    </section>
+
                     <section id="accessibility">
                         <h2>Inclusive Design & Accessibility</h2>
                         <p>To ensure Museum Companion supports all educators, I integrated accessibility considerations at both the functional and visual levels:</p>
                         <p><strong>Functional Accessibility:</strong> I prioritized the inclusion of physical accessibility features directly into the navigation flow. The Map Controls feature a toggle for "Accessibility Route," and the Logistics Calculator includes an "Accessibility Accommodations" toggle, ensuring special requirements are captured as a core part of the trip planning process.</p>
                         <p><strong>Visual & Cognitive Hierarchy:</strong> I utilized a high-contrast color palette—pairing deep green text against light, neutral backgrounds—to meet WCAG guidelines. Furthermore, the structured, card-based layout creates a clear visual hierarchy that minimizes cognitive load, allowing educators to scan information and complete tasks efficiently without feeling overwhelmed by data.</p>
+                    </section>
+
+                    <!-- Takeaways Section -->
+                    <section id="takeaways">
+                        <h2>Takeaways</h2>
+                        <p>Designing the Museum Companion highlighted the vital importance of defensive, systems-oriented product design. Working under real-world logistical constraints showed me that an elegant interface is only as good as the system logic supporting it. Building error boundaries for field trip calculations and thinking through dynamic text layouts made me a more detail-oriented designer.</p>
+                        <p>If I were to approach this project again, I would dedicate more time to interviewing museum administrators alongside educators. Gaining a clearer view of their backend approval workflows earlier would have helped streamline the trip verification status step even further.</p>
                     </section>
 
                 </div>
@@ -314,6 +328,12 @@
                     if (activeId === 'competitive-analysis') {
                         targetId = 'define';
                     }
+                    if (activeId === 'designsystem') {
+                        targetId = 'systems';
+                    }
+                    if (activeId === 'takeaways') {
+                        targetId = 'accessibility';
+                    }
                     const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
@@ -325,7 +345,7 @@
         }, observerOptions);
 
         // Watch all your sections
-        ['hero-section', 'empathize', 'define', 'competitive-analysis', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
+        ['hero-section', 'empathize', 'define', 'competitive-analysis', 'ideate', 'prototype', 'systems', 'validation', 'designsystem', 'accessibility', 'takeaways'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
