@@ -5085,9 +5085,8 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     }
 }
 
-/* Carousel pagination indicators */
 .carousel-indicators {
-    display: flex !important;
+    display: none !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 8px !important;
@@ -5095,6 +5094,10 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     background-color: transparent !important;
     width: 100% !important;
     box-sizing: border-box !important;
+}
+
+.carousel-container:has(.tiles article:nth-child(3)) ~ .carousel-indicators {
+    display: flex !important;
 }
 
 .carousel-indicators .dot {
@@ -7986,7 +7989,7 @@ body.mechmarket-page,
 }
 
 .tiles article.mechmarket-tile {
-    background-color: #e9cce0 !important;
+    background-color: var(--apple-bg-light) !important;
 }
 
 .tiles article.mechmarket-tile .tile-mockup img {
