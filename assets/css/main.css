@@ -7992,15 +7992,6 @@ body.mechmarket-page,
     background-color: var(--apple-bg-light) !important;
 }
 
-.tiles article.mechmarket-tile .tile-mockup img {
-    transform: scale(0.8) !important;
-    transform-origin: center center !important;
-}
-
-.tiles article.mechmarket-tile:hover .tile-mockup img {
-    transform: scale(0.83) !important;
-    transform-origin: center center !important;
-}
 
 /* Takeaways Footer Styles */
 #takeaways {
