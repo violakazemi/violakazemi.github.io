@@ -6289,25 +6289,28 @@ body.mechmarket-page,
     padding: 0 40px !important;
     box-sizing: border-box !important;
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     align-items: center !important;
-    justify-content: space-between !important;
-    gap: 48px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 40px !important;
 }
 
 .mechmarket-hero .hero-text-block {
     flex: 1 !important;
-    max-width: 50% !important;
+    max-width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    align-items: flex-start !important;
+    align-items: center !important;
+    text-align: center !important;
 }
 
 .mechmarket-hero .logo-wrapper {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 12px !important;
     margin-bottom: 8px !important;
 }
@@ -6342,15 +6345,18 @@ body.mechmarket-page,
     font-size: 24px !important;
     font-weight: 500 !important;
     color: rgba(32, 32, 32, 0.8) !important; /* Charcoal subtitle */
-    margin-bottom: 32px !important;
+    margin-bottom: 24px !important;
     line-height: 1.2 !important;
 }
 
 .mechmarket-hero .metadata-grid {
     display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    margin-bottom: 40px !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 32px !important;
+    margin-top: 16px !important;
+    margin-bottom: 32px !important;
     width: 100% !important;
 }
 
@@ -6403,17 +6409,19 @@ body.mechmarket-page,
 
 .mechmarket-hero .hero-visual-block {
     flex: 1 !important;
-    max-width: 50% !important;
+    max-width: 100% !important;
+    width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
 .mechmarket-hero .hero-visual-block img {
-    max-width: 100% !important;
+    max-width: 700px !important;
+    width: 100% !important;
     height: auto !important;
     display: block !important;
-    filter: drop-shadow(0 15px 30px rgba(32, 32, 32, 0.1)) !important;
+    filter: drop-shadow(0 15px 30px rgba(32, 32, 32, 0.08)) !important;
 }
 
 /* Floating White Bento-style Cards Over Lavender */
