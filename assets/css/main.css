@@ -4515,7 +4515,7 @@ html {
 }
 
 #banner {
-    padding: 3em 0 3em 0 !important;
+    padding: 5.5em 0 5.5em 0 !important;
     background-color: #F9F7F3 !important; /* Matches body background color */
     background-image: none !important;
     height: auto !important;
@@ -4528,8 +4528,19 @@ html {
     width: calc(100% - 6em) !important;
     max-width: 65em !important;
     margin: 0 auto !important;
-    padding: 2em 0 2em 0 !important; /* Tight, symmetric grid layout */
+    padding: 0 !important; /* Let outer padding control space */
     background: none !important;
+}
+
+#banner h2 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.5em !important;
+    font-weight: 500 !important;
+    color: #555555 !important;
+    margin-top: -1em !important;
+    margin-bottom: 0.8em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
 }
 
 #banner h1 {
