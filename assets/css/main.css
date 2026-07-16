@@ -5174,11 +5174,13 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     display: block !important;
     margin: 0 auto !important;
     transform: scale(1.5) !important; /* Double the visual size */
+    transform-origin: center center !important;
     transition: transform 0.3s ease !important;
 }
 
 .tiles article:hover .tile-mockup img {
     transform: scale(1.55) !important; /* Interactive hover hover lift */
+    transform-origin: center center !important;
 }
 
 .tiles article::before, .tiles article::after {
