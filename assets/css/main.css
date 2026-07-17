@@ -8082,6 +8082,31 @@ body.mechmarket-page,
     }
 }
 
+/* Card Container Base */
+.project-card, .apple-tile {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; /* Pushes header to top, image to center, button to bottom */
+    align-items: stretch !important;
+    height: 100% !important; /* Ensure container has fixed or uniform height constraint */
+    padding: 32px !important;
+}
+
+/* Image Visual Block Wrapper */
+.hero-visual-block, .tile-image-wrapper {
+    display: flex !important;
+    justify-content: center !important; /* Horizontally center image */
+    align-items: center !important;     /* Vertically center image */
+    flex-grow: 1 !important;            /* Take up all available center space between header and button */
+    margin: 24px 0 !important;
+}
+
+/* Restored Bottom Button Action Key */
+.card-action-button {
+    align-self: flex-start !important;  /* or stretch depending on your design token layout preference */
+    margin-top: auto !important;        /* Hard boundary anchor to stay fixed to bottom margin */
+}
+
 
 
 
