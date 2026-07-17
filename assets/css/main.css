@@ -5150,17 +5150,16 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     background: var(--apple-bg-light) !important; /* Override cover image to standard background */
 }
 
-/* Centered Mockup Style - Clean Contain style */
 .tiles article .tile-mockup {
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    height: 320px !important; /* Increased height for larger mockup presence */
+    flex-grow: 1 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: visible !important; /* Allow scaled image to overlap without clipping */
-    margin: auto auto !important; /* Vertically center mockup container inside remaining space */
+    margin: 20px 0 !important; /* Visual gap between header and button */
     background: transparent !important;
     border: none !important;
 }
