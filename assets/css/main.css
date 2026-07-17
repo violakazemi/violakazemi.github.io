@@ -7995,7 +7995,8 @@ body.mechmarket-page,
     }
 }
 
-.tiles article.mechmarket-tile {
+.tiles article.mechmarket-tile,
+.tiles article.bearla-tile {
     background-color: var(--apple-bg-light) !important;
 }
 
