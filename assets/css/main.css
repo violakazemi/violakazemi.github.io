@@ -8087,6 +8087,11 @@ body.mechmarket-page,
 }
 
 /* Image Visual Block Wrapper */
+.project-card:hover {
+    transform: none !important; /* Remove any card-level hover translation/shifts */
+}
+
+/* 3. Keep the wrapper perfectly centered */
 .project-card .tile-image-wrapper {
     display: flex !important;
     justify-content: center !important;
@@ -8097,9 +8102,7 @@ body.mechmarket-page,
 
 /* 1. Set the default state to the large, centered size */
 .project-card .tile-image-wrapper img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
+    width: 100% !important; /* Or the specific max-width used in your current hover state */
     max-height: 100% !important;
     object-fit: contain !important;
     transition: none !important; /* Remove the scaling animation completely */
