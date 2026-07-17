@@ -5179,8 +5179,14 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     object-fit: contain !important; /* Contain layout to prevent cropping/distortion */
     display: block !important;
     margin: 0 auto !important;
-    transform: none !important;
-    transition: none !important;
+    transform: scale(1.30) !important; /* Scaled up by 30% */
+    transform-origin: center center !important;
+    transition: transform 0.3s ease !important;
+}
+
+.tiles article:hover .tile-mockup img {
+    transform: scale(1.35) !important; /* Hover zoom */
+    transform-origin: center center !important;
 }
 
 .tiles article::before, .tiles article::after {
