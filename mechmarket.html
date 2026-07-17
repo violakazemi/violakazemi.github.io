@@ -29,13 +29,11 @@
         </header>
 
         <nav class="nav-container" id="nav-container">
-            <a href="#kickoff" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
-            <a href="#affinity" class="nav-segment" id="seg-define" title="Define">2. Define</a>
-            <a href="#journey" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
-            <a href="#wireflow" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
-            <a href="#designsystem" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
-            <a href="#iteration" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
+            <a href="#kickoff" class="nav-segment" id="seg-kickoff" title="Kickoff">1. Kickoff</a>
+            <a href="#affinity" class="nav-segment" id="seg-research" title="User Research">2. User Research</a>
+            <a href="#sitemap" class="nav-segment" id="seg-architecture" title="Architecture">3. Architecture</a>
+            <a href="#iteration" class="nav-segment" id="seg-interaction" title="Interaction Design">4. Interaction Design</a>
+            <a href="#designsystem" class="nav-segment" id="seg-polish" title="System Polish">5. System Polish</a>
         </nav>
 
         <div id="main" class="alt">
@@ -703,10 +701,9 @@
                         'affinity': 'affinity',
                         'personas': 'affinity',
                         
-                        'journey': 'journey',
-                        'sitemap': 'journey',
-                        
-                        'wireflow': 'wireflow',
+                        'journey': 'sitemap',
+                        'sitemap': 'sitemap',
+                        'wireflow': 'sitemap',
                         
                         'iteration': 'iteration',
                         'polish': 'iteration',
@@ -714,9 +711,8 @@
                         'showcase': 'iteration',
                         
                         'designsystem': 'designsystem',
-                        
-                        'accessibility': 'accessibility',
-                        'takeaways': 'accessibility'
+                        'accessibility': 'designsystem',
+                        'takeaways': 'designsystem'
                     };
                     
                     if (phaseMapping[activeId]) {

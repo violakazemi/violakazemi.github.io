@@ -29,13 +29,11 @@
 </header>
 
         <nav class="nav-container" id="nav-container">
-            <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
-            <a href="#problem" class="nav-segment" id="seg-define" title="Define">2. Define</a>
-            <a href="#storyboards" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
-            <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
-            <a href="#systems" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
-            <a href="#validation" class="nav-segment" id="seg-validation" title="Validation">6. Validation</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">7. Accessibility</a>
+            <a href="#empathize" class="nav-segment" id="seg-kickoff" title="Kickoff">1. Kickoff</a>
+            <a href="#personas" class="nav-segment" id="seg-research" title="User Research">2. User Research</a>
+            <a href="#userflow" class="nav-segment" id="seg-architecture" title="Architecture">3. Architecture</a>
+            <a href="#prototype" class="nav-segment" id="seg-interaction" title="Interaction Design">4. Interaction Design</a>
+            <a href="#designsystem" class="nav-segment" id="seg-polish" title="System Polish">5. System Polish</a>
         </nav>
 
         <div id="main" class="alt">
@@ -496,20 +494,29 @@
                     // 2. Add 'active' only to the one currently in view
                     const activeId = entry.target.id;
                     let targetId = activeId;
-                    if (activeId === 'hero-section') {
-                        targetId = 'empathize';
-                    }
-                    if (activeId === 'competitive-analysis' || activeId === 'personas' || activeId === 'journey-analysis') {
-                        targetId = 'problem';
-                    }
-                    if (activeId === 'storyboards' || activeId === 'userflow') {
-                        targetId = 'storyboards';
-                    }
-                    if (activeId === 'designsystem') {
-                        targetId = 'systems';
-                    }
-                    if (activeId === 'takeaways') {
-                        targetId = 'accessibility';
+                    const phaseMapping = {
+                        'hero-section': 'empathize',
+                        'empathize': 'empathize',
+                        'problem': 'empathize',
+                        'competitive-analysis': 'empathize',
+                        
+                        'personas': 'personas',
+                        'journey-analysis': 'personas',
+                        
+                        'storyboards': 'userflow',
+                        'userflow': 'userflow',
+                        
+                        'prototype': 'prototype',
+                        'systems': 'prototype',
+                        'validation': 'prototype',
+                        
+                        'designsystem': 'designsystem',
+                        'accessibility': 'designsystem',
+                        'takeaways': 'designsystem'
+                    };
+                    
+                    if (phaseMapping[activeId]) {
+                        targetId = phaseMapping[activeId];
                     }
                     const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
                     if (activeLink) {
