@@ -5167,8 +5167,8 @@ body:not(.museum-page):not(.mechmarket-page) #header {
 .tiles article .tile-mockup img {
     max-height: 100% !important;
     max-width: 100% !important;
-    width: auto !important;
-    height: auto !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: contain !important; /* Contain layout to prevent cropping/distortion */
     display: block !important;
     margin: 0 auto !important;
@@ -8098,6 +8098,8 @@ body.mechmarket-page,
 /* 1. Set the default state to the large, centered size */
 .project-card .tile-image-wrapper img {
     width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
     max-height: 100% !important;
     object-fit: contain !important;
     transition: none !important; /* Remove the scaling animation completely */
