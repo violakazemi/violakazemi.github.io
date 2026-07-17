@@ -5150,18 +5150,25 @@ body:not(.museum-page):not(.mechmarket-page) #header {
     background: var(--apple-bg-light) !important; /* Override cover image to standard background */
 }
 
+.tiles article {
+    position: relative !important;
+}
+
 .tiles article .tile-mockup {
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    flex-grow: 1 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 80% !important;
+    height: 48% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: visible !important; /* Allow scaled image to overlap without clipping */
-    margin: 20px 0 !important; /* Visual gap between header and button */
+    margin: 0 !important;
     background: transparent !important;
     border: none !important;
+    z-index: 1 !important;
 }
 
 .tiles article .tile-mockup img {
@@ -8076,49 +8083,6 @@ body.mechmarket-page,
     }
 }
 
-/* Card Container Base */
-.project-card, .apple-tile {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important; /* Pushes header to top, image to center, button to bottom */
-    align-items: stretch !important;
-    height: 100% !important; /* Ensure container has fixed or uniform height constraint */
-    padding: 32px !important;
-}
-
-/* Image Visual Block Wrapper */
-.project-card:hover {
-    transform: none !important; /* Remove any card-level hover translation/shifts */
-}
-
-/* 3. Keep the wrapper perfectly centered */
-.project-card .tile-image-wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-grow: 1 !important; /* Fills space between header and View Project link */
-    margin: 32px 0 !important;
-}
-
-/* 1. Set the default state to the large, centered size */
-.project-card .tile-image-wrapper img {
-    width: 100% !important; /* Or the specific max-width used in your current hover state */
-    max-height: 100% !important;
-    object-fit: contain !important;
-    transition: none !important; /* Remove the scaling animation completely */
-    transform: none !important;  /* Remove any baseline scale-down values like scale(0.8) */
-}
-
-/* 2. Strip the hover selector completely */
-.project-card:hover .tile-image-wrapper img {
-    transform: none !important;
-}
-
-/* Restored Bottom Button Action Key */
-.card-action-button {
-    align-self: flex-start !important;  /* or stretch depending on your design token layout preference */
-    margin-top: auto !important;        /* Hard boundary anchor to stay fixed to bottom margin */
-}
 
 
 
