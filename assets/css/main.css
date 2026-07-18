@@ -6170,11 +6170,14 @@ body.museum-page,
 
 /* Mechmarket Case Study Lavender Overhaul Styling */
 body.mechmarket-page,
-.mechmarket-page #wrapper {
+body.bearla-page,
+.mechmarket-page #wrapper,
+.bearla-page #wrapper {
     background-color: #F2DCE5 !important; /* Soft Pastel Lavender/Pink Background */
 }
 
-.mechmarket-page #main {
+.mechmarket-page #main,
+.bearla-page #main {
     background-color: #F2DCE5 !important;
     padding-top: 48px !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
@@ -6445,8 +6448,116 @@ body.mechmarket-page,
     filter: drop-shadow(0 15px 30px rgba(32, 32, 32, 0.08)) !important;
 }
 
+/* Bearla Hero Overrides (matches Mechmarket layout) */
+.bearla-hero {
+    background-color: #F2DCE5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 80px 0 !important;
+    box-sizing: border-box !important;
+    color: #202020 !important;
+}
+
+.bearla-hero .hero-inner {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 40px !important;
+}
+
+.bearla-hero .hero-text-block {
+    flex: 1 !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.bearla-hero .logo-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin-bottom: 8px !important;
+}
+
+.bearla-hero .hero-title {
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    color: #202020 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+}
+
+.bearla-hero .hero-subtitle {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: rgba(32, 32, 32, 0.8) !important;
+    margin-bottom: 24px !important;
+    line-height: 1.2 !important;
+}
+
+.bearla-hero .metadata-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 32px !important;
+    margin-top: 16px !important;
+    margin-bottom: 32px !important;
+    width: 100% !important;
+}
+
+.bearla-hero .metadata-item {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    font-family: 'Inter', sans-serif !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+}
+
+.bearla-hero .metadata-item .label {
+    font-weight: 600 !important;
+    color: rgba(32, 32, 32, 0.6) !important;
+}
+
+.bearla-hero .metadata-item .value {
+    color: #202020 !important;
+    font-weight: 400 !important;
+}
+
+.bearla-hero .hero-visual-block {
+    flex: 1 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.bearla-hero .hero-visual-block img {
+    max-width: 700px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    filter: drop-shadow(0 15px 30px rgba(32, 32, 32, 0.08)) !important;
+}
+
 /* Floating White Bento-style Cards Over Lavender */
-.mechmarket-page #main section {
+.mechmarket-page #main section,
+.bearla-page #main section {
     background-color: #FFFFFF !important; /* Pure White Surfaces */
     border-radius: 18px !important; /* Soft corners */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
@@ -6458,7 +6569,8 @@ body.mechmarket-page,
     border: none !important;
 }
 
-.mechmarket-page #main section .inner {
+.mechmarket-page #main section .inner,
+.bearla-page #main section .inner {
     padding: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -6468,11 +6580,16 @@ body.mechmarket-page,
 .mechmarket-page h2,
 .mechmarket-page h3,
 .mechmarket-page p,
-.mechmarket-page li {
+.mechmarket-page li,
+.bearla-page h2,
+.bearla-page h3,
+.bearla-page p,
+.bearla-page li {
     color: #202020 !important; /* Deep Charcoal for legibility */
 }
 
-.mechmarket-page h2 {
+.mechmarket-page h2,
+.bearla-page h2 {
     font-size: 32px !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em !important;
@@ -6480,14 +6597,17 @@ body.mechmarket-page,
 }
 
 .mechmarket-page p,
-.mechmarket-page li {
+.mechmarket-page li,
+.bearla-page p,
+.bearla-page li {
     font-size: 16px !important;
     line-height: 1.7 !important;
     letter-spacing: -0.01em !important;
 }
 
 /* Sub-Navigation styling for MechMarket */
-.mechmarket-page .nav-container {
+.mechmarket-page .nav-container,
+.bearla-page .nav-container {
     position: fixed !important;
     top: 48px !important; /* Direct sub-header under the main fixed header */
     left: 0 !important;
@@ -6511,11 +6631,13 @@ body.mechmarket-page,
     scrollbar-width: none !important; /* Firefox hide scrollbar */
 }
 
-.mechmarket-page .nav-container::-webkit-scrollbar {
+.mechmarket-page .nav-container::-webkit-scrollbar,
+.bearla-page .nav-container::-webkit-scrollbar {
     display: none !important; /* Chrome/Safari hide scrollbar */
 }
 
-.mechmarket-page .nav-segment {
+.mechmarket-page .nav-segment,
+.bearla-page .nav-segment {
     height: 48px !important;
     padding: 0 !important;
     display: inline-flex !important;
@@ -6530,48 +6652,58 @@ body.mechmarket-page,
     text-decoration: none !important;
 }
 
-.mechmarket-page .nav-container .nav-segment {
+.mechmarket-page .nav-container .nav-segment,
+.bearla-page .nav-container .nav-segment {
     color: rgba(32, 32, 32, 0.6) !important;
     border-bottom: 2px solid transparent !important;
     font-size: 13px !important;
     font-weight: 500 !important;
 }
 
-.mechmarket-page .nav-container .nav-segment:hover {
+.mechmarket-page .nav-container .nav-segment:hover,
+.bearla-page .nav-container .nav-segment:hover {
     color: #0071e3 !important;
 }
 
-.mechmarket-page .nav-container .nav-segment.active {
+.mechmarket-page .nav-container .nav-segment.active,
+.bearla-page .nav-container .nav-segment.active {
     color: #0071e3 !important; /* Accent blue */
     border-bottom: 2px solid #0071e3 !important;
     font-weight: 600 !important;
 }
 
 @media screen and (max-width: 768px) {
-    .mechmarket-hero {
+    .mechmarket-hero,
+    .bearla-hero {
         padding: 60px 0 !important;
     }
-    .mechmarket-hero .hero-inner {
+    .mechmarket-hero .hero-inner,
+    .bearla-hero .hero-inner {
         flex-direction: column !important;
         gap: 32px !important;
         padding: 0 8% !important;
     }
-    .mechmarket-hero .hero-text-block {
+    .mechmarket-hero .hero-text-block,
+    .bearla-hero .hero-text-block {
         max-width: 100% !important;
         align-items: center !important;
         text-align: center !important;
     }
-    .mechmarket-hero .hero-title {
+    .mechmarket-hero .hero-title,
+    .bearla-hero .hero-title {
         font-size: 40px !important;
     }
-    .mechmarket-hero .hero-subtitle {
+    .mechmarket-hero .hero-subtitle,
+    .bearla-hero .hero-subtitle {
         font-size: 18px !important;
         margin-bottom: 24px !important;
     }
-    .mechmarket-hero .metadata-item {
+    .mechmarket-hero .metadata-item,
+    .bearla-hero .metadata-item {
         justify-content: center !important;
     }
-    .mechmarket-hero .hero-visual-block {
+    .mechmarket-hero .hero-visual-block,
+    .bearla-hero .hero-visual-block {
         max-width: 100% !important;
     }
     .museum-hero {
@@ -6601,14 +6733,16 @@ body.mechmarket-page,
         max-width: 100% !important;
     }
 
-    .mechmarket-page #main section {
+    .mechmarket-page #main section,
+    .bearla-page #main section {
         padding: 32px 0 !important;
         margin: 32px auto !important;
         border-radius: 14px !important;
         width: calc(100% - 48px) !important;
         max-width: calc(100% - 48px) !important;
     }
-    .mechmarket-page #main section .inner {
+    .mechmarket-page #main section .inner,
+    .bearla-page #main section .inner {
         width: calc(100% - 48px) !important;
         max-width: calc(100% - 48px) !important;
         margin-left: auto !important;
