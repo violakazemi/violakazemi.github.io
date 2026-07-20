@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.18" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.19" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -75,7 +75,9 @@
             <section id="overview">
                 <div class="inner">
                     <h2>Project Overview</h2>
-                    <p>Define the brand concept, target audience intent, and your specific high-level goals for scaling this unique heirloom customization engine across viewports.</p>
+                    <p>Bearla is a specialized digital commerce experience that transforms raw children's drawings—like a grandchild's first scribble—into handcrafted precious metal keepsakes.</p>
+                    <p><strong>The Problem:</strong> Parents and grandparents want to preserve fleeting childhood memories, but traditional custom jewelry ordering feels rigid, uncertain, and hard to visualize before buying.</p>
+                    <p><strong>The Objective:</strong> Design a high-trust, responsive web application that demystifies the doodle-to-jewelry process, guides users through image uploads seamlessly, and optimizes conversion across mobile and desktop.</p>
                 </div>
             </section>
 
@@ -83,7 +85,10 @@
             <section id="gaps">
                 <div class="inner">
                     <h2>Identifying Marketplace Gaps</h2>
-                    <p>Document the structural competitive analysis. Detail where current custom jewelry ordering processes break down or fallback on manual emails, and how Bearla builds systemic trust upfront.</p>
+                    <ul class="differentiators-list">
+                        <li><strong>1. The Visualization Gap:</strong> Standard custom jewelry sites ask for payments upfront before showing how a 2D line drawing converts into a 3D physical piece. Bearla solves this by introducing a clear "Sketch-to-Gold" preview engine early in the flow.</li>
+                        <li><strong>2. Mobile Upload Friction:</strong> Most users browse on mobile while photos of physical drawings sit on their phones. Standard sites force clunky multi-step desktop forms. Bearla streamlines the file-picker and camera upload UX directly within the primary shop flow.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -91,7 +96,12 @@
             <section id="architecture">
                 <div class="inner">
                     <h2>User Personalization Architecture</h2>
-                    <p>Map out the step-by-step logic framework required for user configuration profiles—from uploading raw children's sketches to validating artisan rendering previews.</p>
+                    <p>We mapped a 3-step continuous task flow designed to reduce drop-off during customization:</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Step 1: Capture & Upload</strong> &mdash; Dual input options (Camera scan or gallery upload) with auto-contrast detection for hand-drawn lines.</li>
+                        <li><strong>Step 2: Material & Accent Selection</strong> &mdash; Real-time rendering selection across solid gold, silver, or resin color fills.</li>
+                        <li><strong>Step 3: Heirloom Proofing</strong> &mdash; Interactive 3D/high-res preview confirmation before cart entry.</li>
+                    </ul>
                     <div class="image main">
                         <img src="images/bearla-sitemap.png" alt="Bearla Multi-Viewport Sitemap & Task Flow Diagram" />
                     </div>
@@ -102,7 +112,11 @@
             <section id="responsive">
                 <div class="inner">
                     <h2>High-Fidelity Responsive Grid Frameworks</h2>
-                    <p>Demonstrate explicit side-by-side execution mapping out how horizontal content configurations on a 1440px desktop viewport fluidly scale down into a tight mobile grid landscape.</p>
+                    <p>To preserve an editorial, high-end visual tone while adapting to mobile screens, we translated the desktop spatial system into touch-first mobile patterns:</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Hero Transformation:</strong> Desktop split-screen (headline + side-by-side transformation preview) converts to a vertically stacked card module on mobile.</li>
+                        <li><strong>Navigation & CTAs:</strong> Desktop horizontal header links move into an accessible drawer; primary action buttons ('Upload Drawing', 'Begin Heirloom') lock to full-width touch targets (&ge; 48px) on mobile viewports.</li>
+                    </ul>
                     <div class="image main">
                         <img src="images/bearla-responsive-grids.png" alt="Desktop vs Mobile Layout Alignment Breakdowns" />
                     </div>
@@ -113,7 +127,11 @@
             <section id="defensive">
                 <div class="inner">
                     <h2>Defensive System Controls & Edge-Case Logic</h2>
-                    <p>Outline the actual UI validation loops and error boundaries designed to handle complex edge cases, such as blurry image asset files or unexpected truncation flaws during upload tasks.</p>
+                    <p>Handling user-generated artwork introduces critical edge cases. We designed specific system prompts and validation flows for:</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Low-Resolution / Blurry Uploads:</strong> Auto-detecting faint pencil lines and prompting users to adjust lighting or trace over the sketch.</li>
+                        <li><strong>Cropping & Line Isolation:</strong> Providing an inline vector-crop tool so users can isolate a single doodle from a full page of scribbles.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -121,7 +139,10 @@
             <section id="accessibility">
                 <div class="inner">
                     <h2>Inclusive Layout Hierarchy & Accessibility Compliance</h2>
-                    <p>Document strict WCAG contrast checks, text readability configurations, minimum touch-target criteria, and systemic layout standards mapped out for screen-reader use.</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Contrast & Legibility:</strong> Maintained strict WCAG AA contrast on warm neutral backgrounds, ensuring legibility for older demographics (e.g., grandparents purchasing gifts).</li>
+                        <li><strong>Screen-Reader Hierarchy:</strong> Structured semantic heading levels (H1, H2, H3) and alt-text descriptions for interactive transformation previews.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -129,7 +150,10 @@
             <section id="takeaways">
                 <div class="inner">
                     <h2>Strategic Product Design Takeaways</h2>
-                    <p>Detail what cross-platform component mapping taught you about scalable design patterns, front-end development constraints, and metrics-driven iteration.</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Trust Precedes Conversion:</strong> For highly custom, emotional products, showing the transformation process before forcing account creation or checkout is essential for driving conversions.</li>
+                        <li><strong>Responsive Cohesion:</strong> Designing modular grid components made it seamless to scale rich brand storytelling from desktop down to mobile viewports without sacrificing performance or clarity.</li>
+                    </ul>
                 </div>
             </section>
 
