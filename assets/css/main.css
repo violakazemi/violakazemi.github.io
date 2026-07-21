@@ -6187,7 +6187,7 @@ body.mechmarket-page,
 
 body.bearla-page,
 .bearla-page #wrapper {
-    background-color: #F5F0EB !important; /* Warm Cotton Beige Background */
+    background-color: #F5F0E8 !important; /* Warm Cotton Beige Background */
 }
 
 .mechmarket-page #main {
@@ -6196,7 +6196,7 @@ body.bearla-page,
 }
 
 .bearla-page #main {
-    background-color: #F5F0EB !important;
+    background-color: #F5F0E8 !important;
     padding-top: 48px !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
@@ -6469,7 +6469,7 @@ body.bearla-page,
 /* Bearla Hero Overrides (matches Mechmarket layout) */
 /* Bearla Hero Overrides (Apple Design System Spacing & Typography) */
 .bearla-hero {
-    background-color: #F5F0EB !important;
+    background-color: #F5F0E8 !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: 96px 0 64px 0 !important;
@@ -6681,15 +6681,23 @@ body.bearla-page,
     font-weight: 500 !important;
 }
 
-.mechmarket-page .nav-container .nav-segment:hover,
-.bearla-page .nav-container .nav-segment:hover {
+.mechmarket-page .nav-container .nav-segment:hover {
     color: #0071e3 !important;
 }
 
-.mechmarket-page .nav-container .nav-segment.active,
-.bearla-page .nav-container .nav-segment.active {
+.bearla-page .nav-container .nav-segment:hover {
+    color: #6B1F2A !important;
+}
+
+.mechmarket-page .nav-container .nav-segment.active {
     color: #0071e3 !important; /* Accent blue */
     border-bottom: 2px solid #0071e3 !important;
+    font-weight: 600 !important;
+}
+
+.bearla-page .nav-container .nav-segment.active {
+    color: #6B1F2A !important; /* Deep Burgundy Accent */
+    border-bottom: 2px solid #6B1F2A !important;
     font-weight: 600 !important;
 }
 
