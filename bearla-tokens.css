@@ -1,0 +1,211 @@
+/* =========================================================
+   BEARLA — Design Tokens
+   Drop this file into your project and import it first.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500&family=Inter:wght@500;600;700&display=swap');
+
+:root{
+  /* ---- Color — sourced from Figma color styles (see palette export) ---- */
+  /* Figma name        Hex        Semantic role */
+  /* Dawn Pink         #F4EEE5    page background */
+  /* Merino            #F9F6F0    nav / lightest surface */
+  /* Parchment         #EEE5D0    alt surface, hairline borders */
+  /* Crown of Thorns   #621D26    primary brand (CTA, headline accent) */
+  /* Coffee Bean       #281712    darkest neutral (footer) */
+  /* Tussock           #B18A3D    metallic gold accent */
+  /* Pizza             #D09727    bright gold fill (live-preview swatch) */
+  /* Korma             #823D19    resin material */
+  /* Antique Brass     #BB7558    rose gold material */
+  /* Silver            #B8B8B8    silver material */
+  /* Coffee            #6F5F4F    body copy / secondary text */
+  /* Dodger Blue       #453AF7    system/focus (not decorative — see note) */
+
+  --color-cream:         #F4EEE5; /* Dawn Pink */
+  --color-cream-light:   #F9F6F0; /* Merino */
+  --color-cream-card:    #FFFFFF;
+  --color-parchment:     #EEE5D0; /* Parchment */
+
+  --color-maroon:        #621D26; /* Crown of Thorns */
+  --color-maroon-deep:   #4E161D; /* Crown of Thorns, darkened for hover */
+  --color-maroon-section:#621D26;
+  --color-maroon-rgb:    98,29,38;
+
+  --color-espresso:      #281712; /* Coffee Bean */
+  --color-gold:          #B18A3D; /* Tussock */
+  --color-gold-bright:   #D09727; /* Pizza */
+  --color-gold-rgb:      177,138,61;
+
+  --color-ink:           #6F5F4F; /* Coffee — body copy */
+  --color-taupe:         #6F5F4F; /* Coffee */
+  --color-taupe-light:   #9C8F86;
+  --color-border:        #EEE5D0; /* Parchment */
+  --color-border-deep:   rgba(255,255,255,0.12);
+  --color-focus:         #453AF7; /* Dodger Blue — focus rings / form states only */
+
+  --color-rose-gold:     #BB7558; /* Antique Brass */
+  --color-silver:        #B8B8B8; /* Silver */
+  --color-resin:         #823D19; /* Korma */
+
+  /* ---- Opacity ramps (extracted stops — use rgba(var(--x-rgb), alpha)) ---- */
+  --cream-rgb:  244,238,229;
+  --black-rgb:  0,0,0;
+  --white-rgb:  255,255,255;
+
+  /* ---- Type — exact families/weights from Figma text styles ---- */
+  /* Cormorant Garamond: headlines AND body copy (Light 300 for display, Regular 400 for body, Italic for emphasis) */
+  /* Jost: nav / eyebrows / buttons only — small, often uppercase-tracked (Regular 400 / Medium 500) */
+  /* Inter: badges / tiny UI tags only, never content — 11px (Medium 500 / SemiBold 600 / Bold 700) */
+  --font-display:     'Cormorant Garamond', Georgia, serif; /* Light 300 */
+  --font-serif-body:  'Cormorant Garamond', Georgia, serif; /* Regular 400 */
+  --font-ui:          'Jost', sans-serif;
+  --font-micro:       'Inter', sans-serif;
+
+  /* Cormorant Garamond scale — size/line-height pairs, weight noted per use */
+  --text-display-xl: 72px;  --lh-display-xl: 75.6px; /* Light, hero */
+  --text-display-l:  60px;  --lh-display-l:  75px;   /* Light, H1 */
+  --text-display-m:  48px;  --lh-display-m:  60px;   /* Light, H2 */
+  --text-display-s:  36px;  --lh-display-s:  45px;   /* Light, H2 alt */
+  --text-h3:         30px;  --lh-h3:         36px;   /* Light */
+  --text-h4:         24px;  --lh-h4:         32px;   /* Light */
+  --text-body-l:     20px;  --lh-body-l:     32.5px; /* Light Italic (pull quotes) */
+  --text-body:       18px;  --lh-body:       29.3px; /* Regular */
+  --text-body-s:     16px;  --lh-body-s:     26px;   /* Regular */
+
+  /* Jost scale — UI chrome */
+  --text-btn:        14px;  --lh-btn:        20px;   /* Medium, uppercase */
+  --text-label:      12px;  --lh-label:      16px;   /* Regular, uppercase */
+  --text-label-sm:   10px;  --lh-label-sm:   15px;   /* Regular, uppercase */
+
+  /* Inter scale — micro UI only */
+  --text-micro:      11px;  --lh-micro:      16px;
+
+  --tracking-label: 0.18em;
+  --tracking-btn: 0.14em;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---- Radius / Shadow ---- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-full: 999px;
+  --shadow-card: 0 8px 24px rgba(44,24,16,0.08);
+}
+
+/* ---- Base element mapping ---- */
+body{
+  font-family: var(--font-serif-body);
+  font-weight: 400;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  line-height: 1.6;
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  color: var(--color-maroon);
+  font-weight: 300; /* Cormorant "Light" */
+  margin: 0;
+}
+h1{ font-size: var(--text-display-l); line-height: var(--lh-display-l); }
+h2{ font-size: var(--text-display-s); line-height: var(--lh-display-s); }
+h3{ font-size: var(--text-h3); line-height: var(--lh-h3); }
+em{ font-style: italic; font-weight: inherit; }
+
+.eyebrow{
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--text-label);
+  line-height: var(--lh-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.badge, .tag{
+  font-family: var(--font-micro);
+  font-weight: 700;
+  font-size: var(--text-micro);
+  line-height: var(--lh-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.btn{
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: var(--text-btn);
+  line-height: var(--lh-btn);
+  letter-spacing: var(--tracking-btn);
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+.btn-primary{
+  background: var(--color-maroon);
+  color: var(--color-cream-light);
+  border: 1px solid var(--color-maroon);
+}
+.btn-primary:hover{ background: var(--color-maroon-deep); }
+
+.btn-secondary{
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-taupe-light);
+}
+.btn-secondary:hover{ border-color: var(--color-ink); }
+
+.card{
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+.card.selected{
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-card);
+}
+
+.section-maroon{
+  background: var(--color-maroon-section);
+  color: var(--color-cream);
+}
+.section-dark{
+  background: var(--color-espresso);
+  color: var(--color-cream);
+}
+
+/* ---- Focus state (accessibility — uses the reserved system blue, never decorative) ---- */
+a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible{
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ---- Opacity utilities (tints/tones extracted from the Figma style list) ---- */
+.tint-maroon-10{ background: rgba(var(--color-maroon-rgb), 0.10); }
+.tint-maroon-20{ background: rgba(var(--color-maroon-rgb), 0.20); }
+.tint-maroon-40{ background: rgba(var(--color-maroon-rgb), 0.40); }
+.tint-maroon-70{ background: rgba(var(--color-maroon-rgb), 0.70); }
+
+.tint-gold-15{ background: rgba(var(--color-gold-rgb), 0.15); }
+.tint-gold-20{ background: rgba(var(--color-gold-rgb), 0.20); }
+.tint-gold-40{ background: rgba(var(--color-gold-rgb), 0.40); }
+
+.overlay-black-10{ background: rgba(var(--black-rgb), 0.10); }
+.overlay-black-50{ background: rgba(var(--black-rgb), 0.50); }
+.overlay-black-90{ background: rgba(var(--black-rgb), 0.90); }
+.overlay-white-hairline{ background: rgba(var(--white-rgb), 0.002); } /* "White 0.2%" — near-invisible scrim on dark surfaces */

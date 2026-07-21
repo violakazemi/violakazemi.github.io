@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BEARLA — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    /* ===== CORE PALETTE — exact values from Figma color-style export ===== */
+    --color-cream:        #F4EEE5; /* Dawn Pink — primary page background */
+    --color-cream-light:  #F9F6F0; /* Merino — nav bar / lightest surface */
+    --color-cream-card:   #FFFFFF; /* card surfaces sit slightly lighter than page */
+    --color-parchment:    #EEE5D0; /* Parchment — alt surface / hairline borders */
+
+    --color-maroon:       #621D26; /* Crown of Thorns — primary brand, CTAs, headline accents */
+    --color-maroon-deep:  #4E161D; /* Crown of Thorns, darkened — hover/active state */
+    --color-maroon-section:#621D26; /* full-bleed maroon section backgrounds (Stories) */
+    --color-maroon-rgb:   98,29,38;
+
+    --color-espresso:     #281712; /* Coffee Bean — footer background, deepest neutral */
+    --color-gold:         #B18A3D; /* Tussock — metallic accent, icons, rings, highlights */
+    --color-gold-bright:  #D09727; /* Pizza — brighter gold fill (live-preview swatch) */
+    --color-gold-rgb:     177,138,61;
+
+    --color-ink:          #6F5F4F; /* Coffee — primary body text on cream */
+    --color-taupe:        #6F5F4F; /* Coffee — secondary text, nav links */
+    --color-taupe-light:  #9C8F86; /* tertiary text, captions, meta */
+    --color-border:       #EEE5D0; /* Parchment — hairline borders on cream */
+    --color-border-deep:  rgba(255,255,255,0.12); /* hairline borders on maroon/espresso */
+    --color-focus:        #453AF7; /* Dodger Blue — reserved for focus rings / form states, not decorative */
+
+    /* material swatch references (secondary palette) */
+    --color-rose-gold:    #BB7558; /* Antique Brass */
+    --color-silver:       #B8B8B8; /* Silver */
+    --color-resin:        #823D19; /* Korma */
+
+    /* ===== TYPE — exact families/weights from Figma text styles ===== */
+    /* Cormorant Garamond carries BOTH headlines and body copy (Light + Regular, plus Italic for emphasis) */
+    /* Jost is reserved for nav / eyebrows / buttons — always small, often uppercase-tracked */
+    /* Inter is reserved for tiny UI chrome — badges, tags — never body or headline text */
+    --font-display: 'Cormorant Garamond', Georgia, serif; /* headlines: Light 300 */
+    --font-serif-body: 'Cormorant Garamond', Georgia, serif; /* body copy: Regular 400 */
+    --font-ui:      'Jost', sans-serif;      /* nav, labels, buttons */
+    --font-micro:   'Inter', sans-serif;     /* badges, tags, tiny numeric UI */
+    --font-body:    'Cormorant Garamond', Georgia, serif; /* kept for backward compatibility with component classes below */
+
+    /* ===== SPACING SCALE (base 4px) ===== */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+    --space-10: 128px;
+
+    /* ===== RADIUS / SHADOW ===== */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-full: 999px;
+    --shadow-card: 0 8px 24px rgba(44,24,16,0.08);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-serif-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: var(--space-9) var(--space-6) var(--space-10); }
+
+  /* ---- doc scaffolding ---- */
+  .doc-header{ text-align:center; margin-bottom: var(--space-9); }
+  .doc-eyebrow{
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--space-3);
+  }
+  .doc-title{
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--color-maroon);
+    margin: 0 0 var(--space-3);
+  }
+  .doc-title em{ font-style: italic; font-weight: 300; }
+  .doc-sub{ color: var(--color-taupe); font-size: 16px; max-width: 520px; margin: 0 auto; }
+
+  section.block{ margin-bottom: var(--space-9); }
+  .block-head{ display:flex; align-items:baseline; gap: var(--space-4); margin-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-4); }
+  .block-num{ font-family: var(--font-display); font-weight:300; font-size: 28px; color: var(--color-gold); }
+  .block-title{ font-family: var(--font-display); font-weight: 300; font-size: 30px; color: var(--color-maroon); margin:0; }
+  .block-desc{ color: var(--color-taupe); font-size: 14px; margin: -var(--space-4) 0 var(--space-6); font-family: var(--font-ui); }
+
+  /* ---- color swatches ---- */
+  .swatch-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: var(--space-5); }
+  .swatch{ border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow:hidden; background: var(--color-cream-card); }
+  .swatch-fill{ height: 90px; }
+  .swatch-meta{ padding: var(--space-3) var(--space-4); }
+  .swatch-name{ font-size: 13px; font-weight: 500; }
+  .swatch-hex{ font-size: 12px; color: var(--color-taupe-light); font-family: monospace; }
+  .swatch-use{ font-size: 11px; color: var(--color-taupe); margin-top: var(--space-1); }
+
+  /* ---- type specimens ---- */
+  .type-row{ display:flex; align-items:baseline; justify-content: space-between; gap: var(--space-5); padding: var(--space-5) 0; border-bottom: 1px dashed var(--color-border); }
+  .type-row:last-child{ border-bottom:none; }
+  .type-sample{ font-family: var(--font-display); color: var(--color-maroon); }
+  .type-meta{ font-size: 12px; color: var(--color-taupe-light); text-align:right; min-width: 190px; font-family: monospace; }
+  .body-sample{ font-family: var(--font-serif-body); font-weight:400; font-size: 20px; line-height:1.45; color: var(--color-ink); max-width: 560px; }
+  .label-sample{ font-family: var(--font-ui); font-weight:500; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-taupe); }
+  .micro-sample{ font-family: var(--font-micro); font-size: 11px; color: var(--color-ink); }
+
+  /* ---- buttons ---- */
+  .btn-row{ display:flex; gap: var(--space-5); flex-wrap: wrap; align-items:center; margin-bottom: var(--space-5); }
+  .btn{
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display:inline-block;
+    text-decoration:none;
+    transition: all .2s ease;
+  }
+  .btn-primary{ background: var(--color-maroon); color: var(--color-cream-light); border: 1px solid var(--color-maroon); }
+  .btn-primary:hover{ background: var(--color-maroon-deep); }
+  .btn-secondary{ background: transparent; color: var(--color-ink); border: 1px solid var(--color-taupe-light); }
+  .btn-secondary:hover{ border-color: var(--color-ink); }
+  .btn-ondark{ background: transparent; color: var(--color-cream); border: 1px solid var(--color-border-deep); }
+
+  /* ---- cards ---- */
+  .card-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: var(--space-5); }
+  .material-card{ border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-5); background: var(--color-cream-card); position:relative; }
+  .material-card.selected{ border-color: var(--color-gold); box-shadow: var(--shadow-card); }
+  .material-ring{ width: 44px; height:44px; border-radius:50%; border: 6px solid var(--color-gold); margin-bottom: var(--space-4); }
+  .material-name{ font-family: var(--font-ui); font-size: 14px; font-weight: 500; margin-bottom: 2px;}
+  .material-desc{ font-family: var(--font-ui); font-size: 12px; color: var(--color-taupe); margin-bottom: var(--space-3); }
+  .material-price{ font-family: var(--font-display); font-weight:400; font-size: 20px; color: var(--color-maroon); }
+  .badge-selected{ position:absolute; top:12px; right:12px; font-family: var(--font-micro); font-weight:700; font-size:9px; letter-spacing:0.1em; background: var(--color-gold); color:#fff; padding: 3px 8px; border-radius: var(--radius-full); }
+
+  .testimonial-card{ background: rgba(0,0,0,0.14); border: 1px solid var(--color-border-deep); border-radius: var(--radius-md); padding: var(--space-5); color: var(--color-cream); }
+  .testimonial-stars{ color: var(--color-gold); font-size: 13px; letter-spacing: 2px; margin-bottom: var(--space-3); }
+  .testimonial-quote{ font-family: var(--font-serif-body); font-size: 17px; font-style: italic; line-height: 1.5; margin-bottom: var(--space-4); }
+  .testimonial-name{ font-family: var(--font-ui); font-size: 12px; font-weight: 500; }
+  .testimonial-meta{ font-family: var(--font-ui); font-size: 11px; color: rgba(245,240,232,0.6); }
+  .maroon-panel{ background: var(--color-maroon-section); padding: var(--space-7); border-radius: var(--radius-md); }
+
+  /* ---- process numbering ---- */
+  .process-row{ display:flex; gap: var(--space-6); align-items:flex-start; margin-bottom: var(--space-5); }
+  .process-num{ font-family: var(--font-display); font-size: 40px; color: var(--color-border); font-weight: 300; min-width: 60px; }
+  .process-label{ font-family: var(--font-ui); font-weight:500; font-size: 11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-gold); margin-bottom: var(--space-2); }
+  .process-title{ font-family: var(--font-display); font-weight:300; font-size: 22px; color: var(--color-maroon); margin: 0 0 var(--space-2); }
+  .process-desc{ font-family: var(--font-serif-body); font-size: 15px; color: var(--color-taupe); max-width: 420px; }
+
+  /* ---- nav / footer strips ---- */
+  .strip{ display:flex; align-items:center; justify-content: space-between; padding: var(--space-4) var(--space-6); border-radius: var(--radius-md); margin-bottom: var(--space-4); }
+  .strip.light{ background: var(--color-cream-light); border: 1px solid var(--color-border); }
+  .strip.dark{ background: var(--color-espresso); color: var(--color-cream); }
+  .strip-logo{ font-family: var(--font-display); font-weight:400; font-size: 18px; letter-spacing: 0.08em; }
+  .strip-links{ display:flex; gap: var(--space-6); font-family: var(--font-ui); font-weight:500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-taupe); }
+
+  /* ---- faq ---- */
+  .faq-item{ display:flex; justify-content: space-between; align-items:center; padding: var(--space-5) 0; border-bottom: 1px solid var(--color-border); font-size: 15px; }
+  .faq-item .q{ font-family: var(--font-display); font-weight:400; color: var(--color-ink); font-size: 18px; }
+  .faq-chev{ color: var(--color-gold); }
+
+  /* usage table */
+  table.usage{ width:100%; border-collapse: collapse; font-size: 13px; }
+  table.usage th, table.usage td{ text-align:left; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); }
+  table.usage th{ color: var(--color-taupe); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; }
+
+  .divider-mark{ text-align:center; color: var(--color-gold); font-size: 14px; margin: var(--space-3) 0 var(--space-6); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="doc-header">
+    <div class="doc-eyebrow">Design System · v1.0</div>
+    <h1 class="doc-title">BEARLA <em>Style Guide</em></h1>
+    <p class="doc-sub">Heirloom keepsakes cast from a child's drawing. A warm, editorial, jewelry-box aesthetic — cream & maroon, serif elegance, restrained gold detail.</p>
+  </div>
+
+  <!-- 01 COLOR -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">01</span><h2 class="block-title">Color</h2></div>
+    <p class="block-desc">Sourced directly from the project's Figma color styles. Warm cream base, one confident maroon accent, a deep espresso anchor. Gold is reserved for metallic/jewelry cues — never a background.</p>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream)"></div><div class="swatch-meta"><div class="swatch-name">Cream <span style="color:var(--color-taupe-light)">— Dawn Pink</span></div><div class="swatch-hex">#F4EEE5</div><div class="swatch-use">Page background</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream-light)"></div><div class="swatch-meta"><div class="swatch-name">Cream Light <span style="color:var(--color-taupe-light)">— Merino</span></div><div class="swatch-hex">#F9F6F0</div><div class="swatch-use">Nav bar, lightest surface</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-parchment)"></div><div class="swatch-meta"><div class="swatch-name">Parchment</div><div class="swatch-hex">#EEE5D0</div><div class="swatch-use">Hairline borders, alt surface</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-maroon)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Maroon <span style="color:rgba(255,255,255,.6)">— Crown of Thorns</span></div><div class="swatch-hex">#621D26</div><div class="swatch-use">Primary CTA, headline accent</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-maroon-deep)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Maroon Deep</div><div class="swatch-hex">#4E161D</div><div class="swatch-use">Hover / active state</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-espresso)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Espresso <span style="color:rgba(255,255,255,.6)">— Coffee Bean</span></div><div class="swatch-hex">#281712</div><div class="swatch-use">Footer background</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-gold)"></div><div class="swatch-meta"><div class="swatch-name">Gold <span style="color:var(--color-taupe-light)">— Tussock</span></div><div class="swatch-hex">#B18A3D</div><div class="swatch-use">Metallic accent, rings, stars</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-gold-bright)"></div><div class="swatch-meta"><div class="swatch-name">Gold Bright <span style="color:var(--color-taupe-light)">— Pizza</span></div><div class="swatch-hex">#D09727</div><div class="swatch-use">Live-preview fill, high-emphasis gold</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-ink)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Ink / Taupe <span style="color:rgba(255,255,255,.6)">— Coffee</span></div><div class="swatch-hex">#6F5F4F</div><div class="swatch-use">Body text, nav links</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-rose-gold)"></div><div class="swatch-meta"><div class="swatch-name">Rose Gold <span style="color:var(--color-taupe-light)">— Antique Brass</span></div><div class="swatch-hex">#BB7558</div><div class="swatch-use">Material swatch — rose gold</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-silver)"></div><div class="swatch-meta"><div class="swatch-name">Silver</div><div class="swatch-hex">#B8B8B8</div><div class="swatch-use">Material swatch — sterling silver</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-resin)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Resin <span style="color:rgba(255,255,255,.6)">— Korma</span></div><div class="swatch-hex">#823D19</div><div class="swatch-use">Material swatch — color resin</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-focus)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Focus <span style="color:rgba(255,255,255,.6)">— Dodger Blue</span></div><div class="swatch-hex">#453AF7</div><div class="swatch-use">System only — focus rings, form validation. Never decorative.</div></div></div>
+    </div>
+
+    <h3 style="font-family:var(--font-display); color:var(--color-maroon); font-size:18px; margin: var(--space-7) 0 var(--space-4);">Opacity ramps</h3>
+    <p class="block-desc" style="margin-top:0;">Your Figma library defines each core hue at several opacity stops (e.g. "Crown of Thorns 40%", "Dawn Pink 70%") for tints, hover states, and dividers — rather than as separate flat hex colors. Reproduce these with <code style="background:var(--color-cream-light); padding:2px 6px; border-radius:2px;">rgba(var(--color-maroon-rgb), alpha)</code> instead of hardcoding new hex values.</p>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.10)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 10%</div><div class="swatch-use">Subtle tint / row hover</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.20)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 20%</div><div class="swatch-use">Selected-state background</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.40)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 40%</div><div class="swatch-use">Disabled fill / muted badge</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.70)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 70%</div><div class="swatch-use">Pressed state</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(177,138,61,0.15)"></div><div class="swatch-meta"><div class="swatch-name">Gold 15%</div><div class="swatch-use">Icon background wash</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(177,138,61,0.40)"></div><div class="swatch-meta"><div class="swatch-name">Gold 40%</div><div class="swatch-use">Active border tint</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(0,0,0,0.10); border:1px solid var(--color-border)"></div><div class="swatch-meta"><div class="swatch-name">Black 10%</div><div class="swatch-use">Hairline dividers on light</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(0,0,0,0.50)"></div><div class="swatch-meta"><div class="swatch-name">Black 50%</div><div class="swatch-use">Scrims / image overlays</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(0,0,0,0.90)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Black 90%</div><div class="swatch-use">Near-black text/UI on light</div></div></div>
+    </div>
+  </section>
+
+  <!-- 02 TYPE -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">02</span><h2 class="block-title">Typography</h2></div>
+    <p class="block-desc">Three typefaces, three strict jobs. <strong>Cormorant Garamond</strong> (Light/Regular, plus Italic) carries both headlines and body copy — this is not a display-only face here, it's doing the reading-heavy work too. <strong>Jost</strong> is reserved for interface chrome: nav, eyebrows, buttons, always small. <strong>Inter</strong> appears only at 11px for the tightest UI chrome — badges and tags — never for anything you'd call content.</p>
+
+    <h3 style="font-family:var(--font-ui); font-weight:500; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-taupe); margin: var(--space-6) 0 var(--space-3);">Cormorant Garamond — display &amp; body</h3>
+    <div class="type-row"><span class="type-sample" style="font-size:72px; font-weight:300;">A Scribble</span><span class="type-meta">Display / Hero<br>Light 300 · 72/75.6</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:60px; font-weight:300;">Cast in Gold</span><span class="type-meta">Display / H1<br>Light 300 · 60/75</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:48px; font-weight:300;">Choose your medium</span><span class="type-meta">H2<br>Light 300 · 48/60</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:36px; font-weight:300;">Three steps from <em>crayon</em></span><span class="type-meta">H2 / Section title<br>Light 300 · 36/45</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:30px; font-weight:300;">Heirloom Proof</span><span class="type-meta">H3<br>Light 300 · 30/36</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:24px; font-weight:300;">Capture &amp; Upload</span><span class="type-meta">H4 / Card title<br>Light 300 · 24/32</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:20px; font-weight:400; font-style:italic; color:var(--color-ink);">"That drawing deserves to outlast everything"</span><span class="type-meta">Body Large / Italic<br>Light Italic · 20/32.5</span></div>
+    <div class="type-row"><span class="body-sample" style="font-size:18px;">We transform your grandchild's first drawing into a handcrafted pendant, charm, or brooch — precious metal, cast from their exact lines.</span><span class="type-meta">Body<br>Regular 400 · 18/29.3</span></div>
+    <div class="type-row"><span class="body-sample" style="font-size:16px;">Receive a high-resolution 3D proof with scale reference. Request any adjustments before we cast.</span><span class="type-meta">Body Small<br>Regular 400 · 16/26</span></div>
+
+    <h3 style="font-family:var(--font-ui); font-weight:500; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-taupe); margin: var(--space-7) 0 var(--space-3);">Jost — interface chrome</h3>
+    <div class="type-row"><span class="label-sample" style="font-size:14px;">Upload a Drawing</span><span class="type-meta">Button label<br>Medium 500, upper · 14/20</span></div>
+    <div class="type-row"><span class="label-sample" style="font-size:12px;">Heirloom Keepsakes · Est. 2019</span><span class="type-meta">Eyebrow / Label<br>Regular 400, upper · 12/16</span></div>
+    <div class="type-row"><span class="label-sample" style="font-size:10px;">Approve Before We Cast a Single Gram</span><span class="type-meta">Small eyebrow<br>Regular 400, upper · 10/15</span></div>
+    <div class="type-row"><span style="font-family:var(--font-ui); font-weight:500; font-size:12px;">Rich warm yellow, lifetime heirloom weight</span><span class="type-meta">UI caption (sentence case)<br>Medium 500 · 12/16</span></div>
+
+    <h3 style="font-family:var(--font-ui); font-weight:500; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-taupe); margin: var(--space-7) 0 var(--space-3);">Inter — micro UI only</h3>
+    <div class="type-row"><span class="micro-sample" style="font-weight:700;">SELECTED</span><span class="type-meta">Badge / tag<br>Bold 700 · 11/16</span></div>
+    <div class="type-row"><span class="micro-sample" style="font-weight:600;">4.97 average</span><span class="type-meta">Micro stat<br>Semi Bold 600 · 11/16</span></div>
+    <div class="type-row"><span class="micro-sample" style="font-weight:500;">1,340 pieces crafted</span><span class="type-meta">Micro stat<br>Medium 500 · 11/16</span></div>
+  </section>
+
+  <!-- 03 SPACING -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">03</span><h2 class="block-title">Spacing</h2></div>
+    <p class="block-desc">4px base unit. Generous section padding (64–96px) gives the layout its calm, editorial pace.</p>
+    <table class="usage">
+      <tr><th>Token</th><th>Value</th><th>Use</th></tr>
+      <tr><td>--space-2</td><td>8px</td><td>Icon-to-label gaps</td></tr>
+      <tr><td>--space-4</td><td>16px</td><td>Card internal padding, tight stacks</td></tr>
+      <tr><td>--space-5</td><td>24px</td><td>Card padding, grid gaps</td></tr>
+      <tr><td>--space-6</td><td>32px</td><td>Component gaps</td></tr>
+      <tr><td>--space-7</td><td>48px</td><td>Sub-section spacing</td></tr>
+      <tr><td>--space-8 / --space-9</td><td>64 / 96px</td><td>Between major sections</td></tr>
+      <tr><td>--space-10</td><td>128px</td><td>Hero top/bottom breathing room</td></tr>
+    </table>
+  </section>
+
+  <!-- 04 BUTTONS -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">04</span><h2 class="block-title">Buttons</h2></div>
+    <p class="block-desc">Sharp corners (2px), uppercase micro-tracked labels, generous horizontal padding. Only one filled/solid style — restraint keeps the maroon meaningful.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary">Upload a Drawing</a>
+      <a class="btn btn-secondary">How It Works</a>
+    </div>
+    <div class="maroon-panel" style="padding:24px;">
+      <div class="btn-row" style="margin-bottom:0;">
+        <a class="btn btn-ondark">Upload a Drawing Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CARDS & COMPONENTS -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">05</span><h2 class="block-title">Cards &amp; Components</h2></div>
+    <p class="block-desc">Material selector cards, process steps, and testimonial cards — the three recurring card patterns.</p>
+
+    <div class="card-grid" style="margin-bottom: var(--space-7);">
+      <div class="material-card selected"><span class="badge-selected">Selected</span><div class="material-ring"></div><div class="material-name">14k Solid Gold</div><div class="material-desc">Rich warm yellow, lifetime heirloom weight</div><div class="material-price">$369</div></div>
+      <div class="material-card"><div class="material-ring" style="border-color:var(--color-rose-gold)"></div><div class="material-name">14k Rose Gold</div><div class="material-desc">Blush warmth, romantic and modern</div><div class="material-price">$349</div></div>
+      <div class="material-card"><div class="material-ring" style="border-color:var(--color-silver)"></div><div class="material-name">Sterling Silver</div><div class="material-desc">Cool bright finish, everyday wearability</div><div class="material-price">$189</div></div>
+      <div class="material-card"><div class="material-ring" style="border-color:var(--color-resin)"></div><div class="material-name">Color Resin</div><div class="material-desc">Vivid inlay preserving the original crayon palette</div><div class="material-price">$129</div></div>
+    </div>
+
+    <div class="process-row">
+      <div class="process-num">01</div>
+      <div><div class="process-label">From Phone to Heirloom in Seconds</div><div class="process-title">Capture &amp; Upload</div><div class="process-desc">Photograph or scan a drawing — our dual-input picker works natively on iOS and Android camera rolls.</div></div>
+    </div>
+
+    <div class="maroon-panel" style="margin-top: var(--space-7);">
+      <div class="card-grid">
+        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">"My granddaughter drew a little horse at age 5. Seeing it cast in 14k gold — I wear it on her graduation. She cries."</div><div class="testimonial-name">Margaret Holloway</div><div class="testimonial-meta">Solid Gold Pendant</div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">"Not sure drawing of our family became a charm bracelet for his grandmother's birthday. The detail they presented was astonishing."</div><div class="testimonial-name">James &amp; Priya Oset</div><div class="testimonial-meta">Rose Gold Charm</div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><div class="testimonial-quote">"I was skeptical about the preview — but what arrived was exactly what I saw. Meticulous craft on custom jewelry."</div><div class="testimonial-name">Camille Fontaine</div><div class="testimonial-meta">Sterling Silver Brooch</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 NAV / FOOTER -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">06</span><h2 class="block-title">Navigation &amp; Footer</h2></div>
+    <div class="strip light">
+      <div class="strip-logo" style="color:var(--color-maroon)">BEARLA</div>
+      <div class="strip-links"><span>Process</span><span>Materials</span><span>Stories</span><span>FAQ</span></div>
+      <a class="btn btn-primary" style="padding:10px 22px;">Begin</a>
+    </div>
+    <div class="strip dark">
+      <div class="strip-logo">BEARLA</div>
+      <div class="strip-links" style="color:rgba(245,240,232,0.6)"><span>Craft</span><span>Studio</span><span>Support</span></div>
+    </div>
+  </section>
+
+  <!-- 07 FAQ -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">07</span><h2 class="block-title">FAQ / Accordion</h2></div>
+    <div class="faq-item"><span class="q">What kind of drawing works best?</span><span class="faq-chev">⌄</span></div>
+    <div class="faq-item"><span class="q">How long does the process take?</span><span class="faq-chev">⌄</span></div>
+    <div class="faq-item"><span class="q">Can I make changes after upload?</span><span class="faq-chev">⌄</span></div>
+  </section>
+
+  <!-- 08 USAGE PRINCIPLES -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">08</span><h2 class="block-title">Usage Principles</h2></div>
+    <table class="usage">
+      <tr><th>Element</th><th>Rule</th></tr>
+      <tr><td>Maroon</td><td>Reserved for one primary CTA per view and headline word-emphasis. Never use as a large background outside the Stories module.</td></tr>
+      <tr><td>Gold</td><td>Metallic/material cues only — icons, rings, stars, section eyebrows. Not used for text links or buttons.</td></tr>
+      <tr><td>Serif italics</td><td>Emphasize one or two words per headline max — the technique loses power if overused.</td></tr>
+      <tr><td>Numbering (01/02/03)</td><td>Reserved for genuine sequences (the 3-step process). Don't apply to non-sequential content.</td></tr>
+      <tr><td>Corners</td><td>Sharp, 2–4px radius throughout — no pill buttons, no heavy rounding. Circles are reserved for material swatches and the hero locket motif.</td></tr>
+      <tr><td>Dividers</td><td>Small centered gold flourish (◆ or hairline + dot) under section eyebrows, used sparingly.</td></tr>
+      <tr><td>Focus blue (Dodger Blue)</td><td>System-reserved only: keyboard focus rings, form validation, checkbox/radio checked states. Never used decoratively — its high saturation exists to stand out from the warm palette on purpose.</td></tr>
+    </table>
+  </section>
+
+</div>
+</body>
+</html>
