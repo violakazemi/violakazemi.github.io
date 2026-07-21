@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.32" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.33" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -199,11 +199,43 @@
                     <h2>3. Ideate & User Flow Architecture</h2>
                     <p>To design a customization experience that feels effortless yet precise, I evaluated three distinct structural paradigms during rapid ideation and Crazy-8s sketching:</p>
                     
-                    <ul class="differentiators-list">
-                        <li><strong>Direction A &mdash; Linear Wizard Survey:</strong> Multi-step questionnaire before any visual preview. <em>Rejected</em> &mdash; high interaction cost and delayed gratification drove extreme drop-off in early concept testing.</li>
-                        <li><strong>Direction B &mdash; Fully Automated AI Vectorization:</strong> Instant camera upload with zero user input. <em>Rejected</em> &mdash; automated line-smoothing frequently misinterpreted intentional artwork nuances as smudges, causing severe intent loss.</li>
-                        <li><strong>Direction C &mdash; Interactive Intent Canvas:</strong> Touch-native canvas pairing instant 3D rendering with contextual intent tagging. <em>Selected</em> &mdash; perfectly balances low interaction friction with total creative intent preservation.</li>
-                    </ul>
+                    <div style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; gap: 16px !important; margin: 24px 0 36px 0 !important;">
+                        <!-- Direction A Card -->
+                        <div style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 14px !important; padding: 22px 20px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;">
+                            <div>
+                                <span style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #55555C !important; background-color: #E2E2E7 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.06em !important;">REJECTED</span>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Direction A &mdash; Wizard Survey</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Multi-step questionnaire requiring users to answer form inputs prior to seeing any visual preview.</p>
+                            </div>
+                            <div style="font-size: 13px !important; font-weight: 600 !important; color: #666 !important; margin-top: 16px !important; padding-top: 10px !important; border-top: 1px solid #E8DFD3 !important;">
+                                <strong>Trade-off:</strong> High interaction cost &amp; delayed gratification drove extreme drop-off.
+                            </div>
+                        </div>
+
+                        <!-- Direction B Card -->
+                        <div style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 14px !important; padding: 22px 20px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;">
+                            <div>
+                                <span style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #55555C !important; background-color: #E2E2E7 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.06em !important;">REJECTED</span>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Direction B &mdash; AI Vectorization</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Fully automated camera upload that immediately processes line vectorization with zero manual user input.</p>
+                            </div>
+                            <div style="font-size: 13px !important; font-weight: 600 !important; color: #666 !important; margin-top: 16px !important; padding-top: 10px !important; border-top: 1px solid #E8DFD3 !important;">
+                                <strong>Trade-off:</strong> Auto line-smoothing frequently misinterpreted intentional details as smudges.
+                            </div>
+                        </div>
+
+                        <!-- Direction C Card -->
+                        <div style="background-color: #FAF5EE !important; border: 2px solid #D8CBB7 !important; border-radius: 14px !important; padding: 22px 20px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;">
+                            <div>
+                                <span style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #0071E3 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.06em !important;">SELECTED</span>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Direction C &mdash; Interactive Intent Canvas</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Touch-native workspace pairing real-time 3D material previews with inline Tap-to-Pin contextual intent tagging.</p>
+                            </div>
+                            <div style="font-size: 13px !important; font-weight: 600 !important; color: #0071E3 !important; margin-top: 16px !important; padding-top: 10px !important; border-top: 1px solid #D8CBB7 !important;">
+                                <strong>Why Chosen:</strong> Balances low interaction friction with total creative intent preservation.
+                            </div>
+                        </div>
+                    </div>
 
                     <h3>Core 4-Step User Task Flow</h3>
                     <p>We engineered a continuous, low-friction task flow that guides the user from raw paper sketch to verified heirloom proof:</p>
