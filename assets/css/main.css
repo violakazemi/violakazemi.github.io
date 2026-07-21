@@ -6181,15 +6181,22 @@ body.museum-page,
 
 /* Mechmarket Case Study Lavender Overhaul Styling */
 body.mechmarket-page,
-body.bearla-page,
-.mechmarket-page #wrapper,
-.bearla-page #wrapper {
+.mechmarket-page #wrapper {
     background-color: #F2DCE5 !important; /* Soft Pastel Lavender/Pink Background */
 }
 
-.mechmarket-page #main,
-.bearla-page #main {
+body.bearla-page,
+.bearla-page #wrapper {
+    background-color: #F5F0EB !important; /* Warm Cotton Beige Background */
+}
+
+.mechmarket-page #main {
     background-color: #F2DCE5 !important;
+    padding-top: 48px !important;
+}
+
+.bearla-page #main {
+    background-color: #F5F0EB !important;
     padding-top: 48px !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
@@ -6462,7 +6469,7 @@ body.bearla-page,
 /* Bearla Hero Overrides (matches Mechmarket layout) */
 /* Bearla Hero Overrides (Apple Design System Spacing & Typography) */
 .bearla-hero {
-    background-color: #F2DCE5 !important;
+    background-color: #F5F0EB !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: 96px 0 64px 0 !important;
