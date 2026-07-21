@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.26" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.27" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -127,23 +127,68 @@
                 </div>
             </section>
 
-            <!-- Section 2: Define -->
+            <!-- Section 2: Define & Competitive Market Gap -->
             <section id="define">
                 <div class="inner">
-                    <h2>2. Define & Marketplace Gaps</h2>
-                    <p><strong>Problem Statement:</strong> Meredith needs a way to see and trust how her grandson's drawing will become a finished piece before she commits to paying, because the emotional and financial stakes of a custom, irreversible purchase make uncertainty a dealbreaker.</p>
+                    <h2>2. Define & Competitive Market Gap</h2>
+                    
+                    <div style="background-color: #f8f8fa !important; border-left: 4px solid #202020 !important; padding: 24px 28px !important; border-radius: 12px !important; margin: 24px 0 36px 0 !important;">
+                        <h3 style="margin-bottom: 8px !important; color: #1d1d1f !important; font-size: 20px !important;">Refined Problem Statement</h3>
+                        <p style="margin: 0 !important; font-size: 16px !important; line-height: 1.5 !important; color: #333 !important;">When ordering custom sentimental keepsakes online, buyers must submit abstract artwork without a clear way to communicate emotional intent or key details. Outside artisans and automated smoothing tools often misinterpret meaningful drawing features as accidental smudges or flaws. Because custom jewelry is non-refundable, this lack of intent capture creates high transaction anxiety, driving cart abandonment.</p>
+                    </div>
 
-                    <h3>Identifying Marketplace Gaps</h3>
-                    <ul class="differentiators-list">
-                        <li><strong>1. The Visualization Gap:</strong> Standard custom jewelry sites ask for payments upfront before showing how a 2D line drawing converts into a 3D physical piece. Bearla solves this by introducing a clear &ldquo;Sketch-to-Gold&rdquo; preview engine early in the flow.</li>
-                        <li><strong>2. Mobile Upload Friction:</strong> Most users browse on mobile while photos of physical drawings sit on their phones. Standard sites force clunky multi-step desktop forms. Bearla streamlines the file-picker and camera upload UX directly within the primary shop flow.</li>
-                    </ul>
+                    <h3>Competitive Analysis Matrix</h3>
+                    <p>To identify why existing custom jewelry platforms lose user trust prior to checkout, I audited three prevailing market models against Bearla's intent-first approach:</p>
 
-                    <h3>How Might We Statements</h3>
+                    <div style="overflow-x: auto !important; margin: 24px 0 40px 0 !important;">
+                        <table style="width: 100% !important; border-collapse: collapse !important; font-size: 15px !important; text-align: left !important;">
+                            <thead>
+                                <tr style="background-color: #202020 !important; color: #ffffff !important;">
+                                    <th style="padding: 14px 16px !important; border-radius: 8px 0 0 0 !important;">Brand / Model</th>
+                                    <th style="padding: 14px 16px !important;">Mobile Upload UX</th>
+                                    <th style="padding: 14px 16px !important;">Pre-Checkout Proofing</th>
+                                    <th style="padding: 14px 16px !important;">Intent Capture Method</th>
+                                    <th style="padding: 14px 16px !important; border-radius: 0 8px 0 0 !important;">Primary UX Friction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e0e0e0 !important; background-color: #ffffff !important;">
+                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #1d1d1f !important;">Caitlyn Minimalist<br><span style="font-size: 13px !important; font-weight: 400 !important; color: #666 !important;">(Mass DTC / Etsy)</span></td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Standard file attachment field; no cropping or camera scan integration.</td>
+                                    <td style="padding: 14px 16px !important; color: #d9534f !important; font-weight: 600 !important;">None (Static upload only)</td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Generic text area ("Notes for Seller").</td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">High blind trust required; zero visual feedback before payment.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e0e0e0 !important; background-color: #fcfcfc !important;">
+                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #1d1d1f !important;">Formia Design<br><span style="font-size: 13px !important; font-weight: 400 !important; color: #666 !important;">(High-End Goldsmith)</span></td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Desktop-first multi-field form; mobile flow requires attachment upload.</td>
+                                    <td style="padding: 14px 16px !important; color: #f0ad4e !important; font-weight: 600 !important;">Manual Email Proof (24-48 hrs post-order)</td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Lengthy consultation form; high initial effort.</td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Multi-day delay between intent and confirmation; high drop-off.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e0e0e0 !important; background-color: #ffffff !important;">
+                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #1d1d1f !important;">Forever Drawn<br><span style="font-size: 13px !important; font-weight: 400 !important; color: #666 !important;">(Specialized DTC)</span></td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Mobile photo selector; lacks inline vector line cleaning.</td>
+                                    <td style="padding: 14px 16px !important; color: #f0ad4e !important; font-weight: 600 !important;">Basic 2D Overlay Preview</td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Single-line caption field; no drawing element tagging.</td>
+                                    <td style="padding: 14px 16px !important; color: #555 !important;">Automated line smoothing often erases subtle childhood details.</td>
+                                </tr>
+                                <tr style="background-color: #f2dce5 !important; border-bottom: 2px solid #e6b8d1 !important;">
+                                    <td style="padding: 14px 16px !important; font-weight: 700 !important; color: #1d1d1f !important;">Bearla<br><span style="font-size: 13px !important; font-weight: 600 !important; color: #202020 !important;">(Our Solution)</span></td>
+                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #202020 !important;">Touch-native dual camera scan + gallery picker with auto-crop.</td>
+                                    <td style="padding: 14px 16px !important; color: #2e7d32 !important; font-weight: 700 !important;">Real-time 3D "Sketch-to-Gold" Engine</td>
+                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #202020 !important;">Interactive Point-and-Tag Intent Capture UI.</td>
+                                    <td style="padding: 14px 16px !important; color: #2e7d32 !important; font-weight: 600 !important;">Frictionless: Immediate visual confirmation before checkout.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>How Might We (HMW) Statements</h3>
                     <ul class="differentiators-list">
-                        <li>How might we let someone preview the transformation before checkout, not after?</li>
-                        <li>How might we make an imperfect phone photo of a drawing feel &ldquo;good enough&rdquo; to submit?</li>
-                        <li>How might we help someone with zero jewelry-buying experience choose material and size confidently?</li>
+                        <li><strong>Intent Capture:</strong> How might we capture emotional intent on abstract artwork without burdening the user with complex forms?</li>
+                        <li><strong>Visual Trust:</strong> How might we establish visual trust upfront so buyers feel 100% confident in the physical output before committing funds?</li>
+                        <li><strong>Responsive Architecture:</strong> How might we build a multi-device responsive system that gives mobile-exclusive users a touch-native experience while scaling cleanly to tablet and desktop?</li>
                     </ul>
                 </div>
             </section>
