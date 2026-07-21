@@ -4814,12 +4814,27 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 24px !important;
 }
 
-body:not(.museum-page):not(.mechmarket-page) #header {
+body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     background-color: var(--apple-bg-gray) !important;
 }
 
 .museum-page #header {
-    background-color: rgba(233, 242, 220, 0.8) !important; /* Translucent Matcha Green */
+    background-color: rgba(233, 242, 220, 0.85) !important; /* Translucent Matcha Green */
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+}
+
+.mechmarket-page #header {
+    background-color: rgba(242, 220, 229, 0.85) !important; /* Translucent Lavender */
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+}
+
+.bearla-page #header {
+    background-color: rgba(245, 240, 232, 0.85) !important; /* Translucent Cotton Beige Glass */
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(107, 31, 42, 0.1) !important;
 }
 
 #header a {
@@ -6577,8 +6592,7 @@ body.bearla-page,
 }
 
 /* Floating White Bento-style Cards Over Lavender */
-.mechmarket-page #main section,
-.bearla-page #main section {
+.mechmarket-page #main section {
     background-color: #FFFFFF !important; /* Pure White Surfaces */
     border-radius: 18px !important; /* Soft corners */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
@@ -6588,6 +6602,41 @@ body.bearla-page,
     width: 100% !important;
     box-sizing: border-box !important;
     border: none !important;
+}
+
+.bearla-page #main section {
+    background-color: #FFFFFF !important; /* Pure White Surface */
+    border-radius: 20px !important; /* Smooth Apple rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(216, 203, 183, 0.35) !important;
+    padding: 48px !important;
+    margin: 48px auto !important; /* Luxury whitespace padding */
+    max-width: 1000px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
+}
+
+.bearla-page #main section:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 48px rgba(107, 31, 42, 0.08), 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(107, 31, 42, 0.2) !important;
+}
+
+/* Bearla Sub-Card Apple Micro-Interactions */
+.bearla-page .persona-card,
+.bearla-page .problem-card,
+.bearla-page .exploration-card,
+.bearla-page .stepper-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.bearla-page .persona-card:hover,
+.bearla-page .problem-card:hover,
+.bearla-page .exploration-card:hover,
+.bearla-page .stepper-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 28px rgba(107, 31, 42, 0.08) !important;
 }
 
 .mechmarket-page #main section .inner,
@@ -6630,16 +6679,43 @@ body.bearla-page,
     letter-spacing: -0.01em !important;
 }
 
-/* Sub-Navigation styling for MechMarket */
-.mechmarket-page .nav-container,
+/* Sub-Navigation styling for MechMarket & Bearla */
+.mechmarket-page .nav-container {
+    position: fixed !important;
+    top: 48px !important; /* Direct sub-header under the main fixed header */
+    left: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
+    background-color: rgba(242, 220, 229, 0.85) !important; /* Translucent Lavender Glass */
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.08) !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important; /* Centered horizontal links */
+    align-items: center !important;
+    gap: 32px !important;
+    padding: 0 24px !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    margin: 0 !important;
+    overflow-x: auto !important; /* Allow swipe scrolling on mobile */
+    scrollbar-width: none !important; /* Firefox hide scrollbar */
+}
+
 .bearla-page .nav-container {
     position: fixed !important;
     top: 48px !important; /* Direct sub-header under the main fixed header */
     left: 0 !important;
     width: 100% !important;
     height: 48px !important;
-    background-color: #FFFFFF !important; /* Solid white sub-nav background */
-    border-bottom: 1px solid rgba(32, 32, 32, 0.08) !important;
+    background-color: rgba(245, 240, 232, 0.85) !important; /* Translucent Cotton Beige Glass */
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(107, 31, 42, 0.1) !important;
     z-index: 9998 !important;
     display: flex !important;
     flex-direction: row !important;
