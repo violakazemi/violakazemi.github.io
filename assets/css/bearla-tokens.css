@@ -1,0 +1,86 @@
+/* =========================================================
+   BEARLA — Design Tokens
+   Exact Figma Color Styles, Typography Scales & Spacing Tokens
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500&family=Inter:wght@500;600;700&display=swap');
+
+:root{
+  /* ---- Color — sourced from Figma color styles ---- */
+  --color-cream:         #F4EEE5; /* Dawn Pink — primary page background */
+  --color-cream-light:   #F9F6F0; /* Merino — nav / lightest surface */
+  --color-cream-card:    #FFFFFF;
+  --color-parchment:     #EEE5D0; /* Parchment — alt surface, hairline borders */
+
+  --color-maroon:        #621D26; /* Crown of Thorns — primary brand CTA */
+  --color-maroon-deep:   #4E161D; /* Crown of Thorns, darkened for hover */
+  --color-maroon-section:#621D26;
+  --color-maroon-rgb:    98,29,38;
+
+  --color-espresso:      #281712; /* Coffee Bean — footer background */
+  --color-gold:          #B18A3D; /* Tussock — metallic gold accent */
+  --color-gold-bright:   #D09727; /* Pizza — bright gold fill */
+  --color-gold-rgb:      177,138,61;
+
+  --color-ink:           #6F5F4F; /* Coffee — body copy */
+  --color-taupe:         #6F5F4F; /* Coffee */
+  --color-taupe-light:   #9C8F86;
+  --color-border:        #EEE5D0; /* Parchment */
+  --color-border-deep:   rgba(255,255,255,0.12);
+  --color-focus:         #453AF7; /* Dodger Blue — focus rings / form states only */
+
+  --color-rose-gold:     #BB7558; /* Antique Brass */
+  --color-silver:        #B8B8B8; /* Silver */
+  --color-resin:         #823D19; /* Korma */
+
+  /* ---- Opacity ramps ---- */
+  --cream-rgb:  244,238,229;
+  --black-rgb:  0,0,0;
+  --white-rgb:  255,255,255;
+
+  /* ---- Type — exact families/weights from Figma text styles ---- */
+  --font-display:     'Cormorant Garamond', Georgia, serif; /* Light 300 */
+  --font-serif-body:  'Cormorant Garamond', Georgia, serif; /* Regular 400 */
+  --font-ui:          'Jost', sans-serif;
+  --font-micro:       'Inter', sans-serif;
+
+  /* Cormorant Garamond scale */
+  --text-display-xl: 72px;  --lh-display-xl: 75.6px;
+  --text-display-l:  60px;  --lh-display-l:  75px;
+  --text-display-m:  48px;  --lh-display-m:  60px;
+  --text-display-s:  36px;  --lh-display-s:  45px;
+  --text-h3:         30px;  --lh-h3:         36px;
+  --text-h4:         24px;  --lh-h4:         32px;
+  --text-body-l:     20px;  --lh-body-l:     32.5px;
+  --text-body:       18px;  --lh-body:       29.3px;
+  --text-body-s:     16px;  --lh-body-s:     26px;
+
+  /* Jost scale */
+  --text-btn:        14px;  --lh-btn:        20px;
+  --text-label:      12px;  --lh-label:      16px;
+  --text-label-sm:   10px;  --lh-label-sm:   15px;
+
+  /* Inter scale */
+  --text-micro:      11px;  --lh-micro:      16px;
+
+  --tracking-label: 0.18em;
+  --tracking-btn: 0.14em;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---- Radius / Shadow ---- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-full: 999px;
+  --shadow-card: 0 8px 24px rgba(44,24,16,0.08);
+}
