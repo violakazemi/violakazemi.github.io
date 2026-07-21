@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.25" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.26" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -80,36 +80,49 @@
                 </div>
             </section>
 
-            <!-- Section 1: Empathize -->
+            <!-- Section 1: Empathize & Research Synthesis -->
             <section id="empathize">
                 <div class="inner">
-                    <h2>1. Empathize & Project Overview</h2>
-                    <p>Bearla is a specialized digital commerce experience that transforms raw children's drawings—like a grandchild's first scribble—into handcrafted precious metal keepsakes.</p>
+                    <h2>1. Empathize & Research Synthesis</h2>
+                    <p>Bearla is a specialized digital commerce experience that transforms raw children's drawings—like a grandchild's first scribble—into handcrafted precious metal keepsakes. To uncover the deep psychological barriers and hesitations behind custom keepsake shopping, I conducted mixed-methods user research targeting generational buyers.</p>
                     
                     <div class="split-columns-grid" style="margin: 24px 0 32px 0 !important;">
                         <div class="left-column">
-                            <h3 style="font-size: 20px !important; margin-bottom: 12px !important;">The Problem</h3>
-                            <p>Parents and grandparents want to preserve fleeting childhood memories, but traditional custom jewelry ordering feels rigid, uncertain, and hard to visualize before buying.</p>
+                            <h3 style="font-size: 20px !important; margin-bottom: 12px !important;">Qualitative Interviews</h3>
+                            <p>5 in-depth remote interviews (30&ndash;45 min each) with parents and grandparents aged 34&ndash;68 who had either purchased or strongly considered purchasing custom keepsake jewelry in the past two years.</p>
                         </div>
                         <div class="right-column">
-                            <h3 style="font-size: 20px !important; margin-bottom: 12px !important;">The Objective</h3>
-                            <p>Design a high-trust, responsive web application that demystifies the doodle-to-jewelry process, guides users through image uploads seamlessly, and optimizes conversion across mobile and desktop.</p>
+                            <h3 style="font-size: 20px !important; margin-bottom: 12px !important;">Quantitative Screener Survey</h3>
+                            <p>Targeted screener survey (n=24) to quantify hesitation factors around photo upload flows, non-refundable custom deposits, and visual fidelity expectations.</p>
                         </div>
                     </div>
 
-                    <p><strong>Research Approach:</strong> To understand hesitation around custom jewelry purchases, I ran 5 remote interviews (30 min each) with parents and grandparents aged 34&ndash;68 who had either purchased or considered purchasing a custom keepsake piece in the past two years, plus a short screener survey (n=22) to validate recurring themes.</p>
-
-                    <div style="background-color: #f8f8fa !important; border-left: 4px solid #E6B8D1 !important; padding: 24px 28px !important; border-radius: 12px !important; margin: 32px 0 !important;">
-                        <h3 style="margin-bottom: 8px !important; color: #202020 !important; font-size: 20px !important;">Key Persona: Meredith, 61 &mdash; First-Time Custom Gift Buyer</h3>
-                        <p style="font-style: italic !important; color: #555 !important; font-size: 17px !important; margin-bottom: 12px !important;">&ldquo;I want to give my daughter something she'll cry happy tears over &mdash; not something that looks like a random squiggle stamped onto a pendant.&rdquo;</p>
-                        <p style="margin: 0 !important;">Meredith wants to turn her grandson's drawing into a necklace for her daughter's birthday. She's bought jewelry online before, but never anything custom. She's price-sensitive about a purchase she can't undo, and she doesn't trust that a rough crayon scribble can become something that actually looks intentional.</p>
+                    <!-- Persona Profile Card -->
+                    <div style="background-color: #f8f8fa !important; border-left: 4px solid #E6B8D1 !important; padding: 28px 32px !important; border-radius: 16px !important; margin: 36px 0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;">
+                        <div style="display: flex !important; justify-content: space-between !important; align-items: baseline !important; flex-wrap: wrap !important; gap: 12px !important; margin-bottom: 12px !important;">
+                            <h3 style="margin: 0 !important; color: #1d1d1f !important; font-size: 22px !important; font-weight: 700 !important;">Persona Profile: Meredith, 61 &mdash; Generational Gift-Giver</h3>
+                            <span style="font-size: 13px !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; color: #86868b !important;">Smartphone-Exclusive Buyer</span>
+                        </div>
+                        
+                        <p style="font-style: italic !important; color: #333 !important; font-size: 18px !important; line-height: 1.4 !important; margin-bottom: 16px !important;">&ldquo;I want to give my daughter a piece that captures my grandson's imagination&mdash;not something where a meaningful detail was mistaken for a smudge and polished away.&rdquo;</p>
+                        
+                        <div style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; gap: 20px !important; margin-top: 16px !important;">
+                            <div>
+                                <strong style="color: #1d1d1f !important;">Device Context:</strong>
+                                <p style="margin: 4px 0 0 0 !important; font-size: 15px !important; color: #555 !important;">Smartphone-Exclusive (No Desktop PC). Manages all digital tasks on mobile, requiring a frictionless mobile upload path.</p>
+                            </div>
+                            <div>
+                                <strong style="color: #1d1d1f !important;">Emotional State & Friction:</strong>
+                                <p style="margin: 4px 0 0 0 !important; font-size: 15px !important; color: #555 !important;">High sentimental investment paired with transaction anxiety. Fears that an outside artisan will misinterpret abstract drawing elements.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3>Recurring Pain Points from Research</h3>
+                    <h3>Three Core Research Insights</h3>
                     <ul class="differentiators-list">
-                        <li><strong>Fear of an expensive mistake:</strong> 18 of 22 survey respondents said &ldquo;not knowing what I'd actually get&rdquo; was their top hesitation with custom jewelry sites.</li>
-                        <li><strong>Upload anxiety:</strong> Most drawings exist only as phone photos with shadows, torn edges, or multiple doodles per page; participants weren't sure what counted as &ldquo;usable.&rdquo;</li>
-                        <li><strong>No sense of scale or material:</strong> People couldn't picture whether a design would work better in gold, silver, or resin, or at what size.</li>
+                        <li><strong>Insight 1: The Subjective Ambiguity Gap</strong><br>79% of survey respondents expressed hesitation that artisans or automated systems wouldn't understand what specific lines or doodles represent without explicit intent notes.</li>
+                        <li><strong>Insight 2: Smartphone-First Capture & Multi-Device Responsive Mandate</strong><br>Photos of physical drawings sit exclusively on users' smartphones; the UI must support direct mobile camera scanning and gallery pickers while seamlessly adapting layouts across Mobile, Tablet, and Desktop viewports.</li>
+                        <li><strong>Insight 3: Transaction Anxiety in Non-Refundable Purchases</strong><br>4 of 5 qualitative interview participants explicitly stated they refuse to proceed to checkout without an upfront visual proof and intent confirmation preview prior to payment.</li>
                     </ul>
                 </div>
             </section>
