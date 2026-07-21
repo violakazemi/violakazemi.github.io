@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.21" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.22" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -75,7 +75,20 @@
             <!-- Section 1: Empathize -->
             <section id="empathize">
                 <div class="inner">
-                    <h2>1. Empathize</h2>
+                    <h2>1. Empathize & Project Overview</h2>
+                    <p>Bearla is a specialized digital commerce experience that transforms raw children's drawings—like a grandchild's first scribble—into handcrafted precious metal keepsakes.</p>
+                    
+                    <div class="split-columns-grid" style="margin: 24px 0 32px 0 !important;">
+                        <div class="left-column">
+                            <h3 style="font-size: 20px !important; margin-bottom: 12px !important;">The Problem</h3>
+                            <p>Parents and grandparents want to preserve fleeting childhood memories, but traditional custom jewelry ordering feels rigid, uncertain, and hard to visualize before buying.</p>
+                        </div>
+                        <div class="right-column">
+                            <h3 style="font-size: 20px !important; margin-bottom: 12px !important;">The Objective</h3>
+                            <p>Design a high-trust, responsive web application that demystifies the doodle-to-jewelry process, guides users through image uploads seamlessly, and optimizes conversion across mobile and desktop.</p>
+                        </div>
+                    </div>
+
                     <p><strong>Research Approach:</strong> To understand hesitation around custom jewelry purchases, I ran 5 remote interviews (30 min each) with parents and grandparents aged 34&ndash;68 who had either purchased or considered purchasing a custom keepsake piece in the past two years, plus a short screener survey (n=22) to validate recurring themes.</p>
 
                     <div style="background-color: #f8f8fa !important; border-left: 4px solid #E6B8D1 !important; padding: 24px 28px !important; border-radius: 12px !important; margin: 32px 0 !important;">
@@ -96,8 +109,14 @@
             <!-- Section 2: Define -->
             <section id="define">
                 <div class="inner">
-                    <h2>2. Define</h2>
+                    <h2>2. Define & Marketplace Gaps</h2>
                     <p><strong>Problem Statement:</strong> Meredith needs a way to see and trust how her grandson's drawing will become a finished piece before she commits to paying, because the emotional and financial stakes of a custom, irreversible purchase make uncertainty a dealbreaker.</p>
+
+                    <h3>Identifying Marketplace Gaps</h3>
+                    <ul class="differentiators-list">
+                        <li><strong>1. The Visualization Gap:</strong> Standard custom jewelry sites ask for payments upfront before showing how a 2D line drawing converts into a 3D physical piece. Bearla solves this by introducing a clear &ldquo;Sketch-to-Gold&rdquo; preview engine early in the flow.</li>
+                        <li><strong>2. Mobile Upload Friction:</strong> Most users browse on mobile while photos of physical drawings sit on their phones. Standard sites force clunky multi-step desktop forms. Bearla streamlines the file-picker and camera upload UX directly within the primary shop flow.</li>
+                    </ul>
 
                     <h3>How Might We Statements</h3>
                     <ul class="differentiators-list">
@@ -111,14 +130,22 @@
             <!-- Section 3: Ideate -->
             <section id="ideate">
                 <div class="inner">
-                    <h2>3. Ideate</h2>
+                    <h2>3. Ideate & User Personalization Architecture</h2>
                     <p>Paper sketches and Crazy-8s explored three directions for the core upload-to-preview flow:</p>
                     <ul class="differentiators-list">
                         <li><strong>Direction A &mdash; Wizard-style form:</strong> Step-by-step questions before any visual feedback. <em>Rejected</em> &mdash; delays the &ldquo;wow&rdquo; moment too long, doesn't address trust gap.</li>
                         <li><strong>Direction B &mdash; Instant AI-style preview:</strong> Show a rough live preview immediately after upload, before material/size selection. <em>Chosen</em> &mdash; front-loads reassurance.</li>
                         <li><strong>Direction C &mdash; Gallery-first browsing:</strong> Show finished examples before asking for an upload. <em>Kept</em> as a supporting element (social proof), not the primary flow.</li>
                     </ul>
-                    <p>Converging on Direction B led to the &ldquo;Sketch-to-Gold&rdquo; preview engine as the spine of the flow &mdash; refined below.</p>
+
+                    <h3>User Personalization Architecture</h3>
+                    <p>We mapped a 3-step continuous task flow designed to reduce drop-off during customization:</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Step 1: Capture & Upload</strong> &mdash; Dual input options (Camera scan or gallery upload) with auto-contrast detection for hand-drawn lines.</li>
+                        <li><strong>Step 2: Material & Accent Selection</strong> &mdash; Real-time rendering selection across solid gold, silver, or resin color fills.</li>
+                        <li><strong>Step 3: Heirloom Proofing</strong> &mdash; Interactive 3D/high-res preview confirmation before cart entry.</li>
+                    </ul>
+
                     <div class="image main">
                         <img src="images/bearla-sitemap.png" alt="Bearla Multi-Viewport Sitemap & Task Flow Diagram" />
                     </div>
@@ -128,11 +155,19 @@
             <!-- Section 4: Prototype -->
             <section id="prototype">
                 <div class="inner">
-                    <h2>4. Prototype</h2>
+                    <h2>4. Prototype & Responsive Grid Frameworks</h2>
                     <p><strong>Lo-fi wireframes:</strong> Grayscale wireframes tested the upload &rarr; preview &rarr; material selection sequence for basic navigability before visual design was applied.</p>
                     <p><strong>Hi-fi prototype:</strong> Built out the full responsive flow in Figma, including the dual camera/gallery upload, live material swap, and heirloom proofing screen.</p>
+                    
+                    <h3>High-Fidelity Responsive Grid Frameworks</h3>
+                    <p>To preserve an editorial, high-end visual tone while adapting to mobile screens, we translated the desktop spatial system into touch-first mobile patterns:</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Hero Transformation:</strong> Desktop split-screen (headline + side-by-side transformation preview) converts to a vertically stacked card module on mobile.</li>
+                        <li><strong>Navigation & CTAs:</strong> Desktop horizontal header links move into an accessible drawer; primary action buttons ('Upload Drawing', 'Begin Heirloom') lock to full-width touch targets (&ge; 48px) on mobile viewports.</li>
+                    </ul>
+
                     <div class="image main">
-                        <img src="images/bearla-responsive-grids.png" alt="Desktop vs Mobile Layout Alignment Comparisons" />
+                        <img src="images/bearla-responsive-grids.png" alt="Desktop vs Mobile Layout Alignment Breakdowns" />
                     </div>
                     <div style="display: flex !important; gap: 16px !important; margin-top: 24px !important; flex-wrap: wrap !important;">
                         <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="button" style="background-color: #202020 !important; color: #fff !important; border-radius: 30px !important;">View Lo-Fi Prototype &rarr;</a>
@@ -144,12 +179,19 @@
             <!-- Section 5: Systems Iteration -->
             <section id="systems">
                 <div class="inner">
-                    <h2>5. Systems Iteration &mdash; From MVP to Refined Flow</h2>
+                    <h2>5. Systems Iteration & Defensive Controls</h2>
                     <ul class="differentiators-list">
                         <li><strong>Phase 0 &mdash; MVP:</strong> Single upload button, no distinction between camera and gallery; users could only see the material preview after entering shipping details.</li>
                         <li><strong>Phase 1 &mdash; The Upload Fix:</strong> Testing showed users didn't understand whether to photograph the drawing right then or find an existing photo. Added dual, clearly labeled entry points (&ldquo;Take a Photo&rdquo; / &ldquo;Choose from Gallery&rdquo;).</li>
                         <li><strong>Phase 2 &mdash; The Preview Move:</strong> Moved the live material/color preview earlier in the flow, ahead of any shipping or payment fields, directly addressing the &ldquo;trust precedes conversion&rdquo; insight.</li>
                         <li><strong>Phase 3 &mdash; The Crop Tool:</strong> Real drawings weren't single clean doodles &mdash; they were full pages with multiple scribbles. Added an inline crop/isolation tool so users could select just the part they wanted turned into jewelry.</li>
+                    </ul>
+
+                    <h3>Defensive System Controls & Edge-Case Logic</h3>
+                    <p>Handling user-generated artwork introduces critical edge cases. We designed specific system prompts and validation flows for:</p>
+                    <ul class="differentiators-list">
+                        <li><strong>Low-Resolution / Blurry Uploads:</strong> Auto-detecting faint pencil lines and prompting users to adjust lighting or trace over the sketch.</li>
+                        <li><strong>Cropping & Line Isolation:</strong> Providing an inline vector-crop tool so users can isolate a single doodle from a full page of scribbles.</li>
                     </ul>
                 </div>
             </section>
@@ -170,20 +212,20 @@
             <!-- Section 7: Accessibility & Takeaways -->
             <section id="accessibility">
                 <div class="inner">
-                    <h2>7. Accessibility & Strategic Takeaways</h2>
+                    <h2>7. Inclusive Layout Hierarchy & Strategic Takeaways</h2>
                     <div class="split-columns-grid">
                         <div class="left-column">
-                            <h3>Accessibility Compliance</h3>
+                            <h3>Inclusive Layout & Accessibility</h3>
                             <ul class="challenge-list">
-                                <li><strong>Contrast & Legibility:</strong> Maintained strict WCAG AA contrast on warm neutral backgrounds, ensuring legibility for older demographics.</li>
-                                <li><strong>Screen-Reader Hierarchy:</strong> Structured semantic heading levels (H1, H2, H3) and alt-text descriptions for interactive previews.</li>
+                                <li><strong>Contrast & Legibility:</strong> Maintained strict WCAG AA contrast on warm neutral backgrounds, ensuring legibility for older demographics (e.g., grandparents purchasing gifts).</li>
+                                <li><strong>Screen-Reader Hierarchy:</strong> Structured semantic heading levels (H1, H2, H3) and alt-text descriptions for interactive transformation previews.</li>
                             </ul>
                         </div>
                         <div class="right-column">
-                            <h3>Product Design Takeaways</h3>
+                            <h3>Strategic Product Takeaways</h3>
                             <ul class="challenge-list">
-                                <li><strong>Trust Precedes Conversion:</strong> Showing the transformation process before forcing account creation or checkout is essential for driving conversions.</li>
-                                <li><strong>Responsive Cohesion:</strong> Designing modular grid components made it seamless to scale rich brand storytelling down to mobile.</li>
+                                <li><strong>Trust Precedes Conversion:</strong> For highly custom, emotional products, showing the transformation process before forcing account creation or checkout is essential for driving conversions.</li>
+                                <li><strong>Responsive Cohesion:</strong> Designing modular grid components made it seamless to scale rich brand storytelling from desktop down to mobile viewports without sacrificing performance or clarity.</li>
                             </ul>
                         </div>
                     </div>
