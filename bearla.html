@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.29" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.30" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -193,24 +193,40 @@
                 </div>
             </section>
 
-            <!-- Section 3: Ideate -->
+            <!-- Section 3: Ideate & User Flow Architecture -->
             <section id="ideate">
                 <div class="inner">
-                    <h2>3. Ideate & User Personalization Architecture</h2>
-                    <p>Paper sketches and Crazy-8s explored three directions for the core upload-to-preview flow:</p>
+                    <h2>3. Ideate & User Flow Architecture</h2>
+                    <p>To design a customization experience that feels effortless yet precise, I evaluated three distinct structural paradigms during rapid ideation and Crazy-8s sketching:</p>
+                    
                     <ul class="differentiators-list">
-                        <li><strong>Direction A &mdash; Wizard-style form:</strong> Step-by-step questions before any visual feedback. <em>Rejected</em> &mdash; delays the &ldquo;wow&rdquo; moment too long, doesn't address trust gap.</li>
-                        <li><strong>Direction B &mdash; Instant AI-style preview:</strong> Show a rough live preview immediately after upload, before material/size selection. <em>Chosen</em> &mdash; front-loads reassurance.</li>
-                        <li><strong>Direction C &mdash; Gallery-first browsing:</strong> Show finished examples before asking for an upload. <em>Kept</em> as a supporting element (social proof), not the primary flow.</li>
+                        <li><strong>Direction A &mdash; Linear Wizard Survey:</strong> Multi-step questionnaire before any visual preview. <em>Rejected</em> &mdash; high interaction cost and delayed gratification drove extreme drop-off in early concept testing.</li>
+                        <li><strong>Direction B &mdash; Fully Automated AI Vectorization:</strong> Instant camera upload with zero user input. <em>Rejected</em> &mdash; automated line-smoothing frequently misinterpreted intentional artwork nuances as smudges, causing severe intent loss.</li>
+                        <li><strong>Direction C &mdash; Interactive Intent Canvas:</strong> Touch-native canvas pairing instant 3D rendering with contextual intent tagging. <em>Selected</em> &mdash; perfectly balances low interaction friction with total creative intent preservation.</li>
                     </ul>
 
-                    <h3>User Personalization Architecture</h3>
-                    <p>We mapped a 3-step continuous task flow designed to reduce drop-off during customization:</p>
+                    <h3>Core 4-Step User Task Flow</h3>
+                    <p>We engineered a continuous, low-friction task flow that guides the user from raw paper sketch to verified heirloom proof:</p>
                     <ul class="differentiators-list">
-                        <li><strong>Step 1: Capture & Upload</strong> &mdash; Dual input options (Camera scan or gallery upload) with auto-contrast detection for hand-drawn lines.</li>
-                        <li><strong>Step 2: Material & Accent Selection</strong> &mdash; Real-time rendering selection across solid gold, silver, or resin color fills.</li>
-                        <li><strong>Step 3: Heirloom Proofing</strong> &mdash; Interactive 3D/high-res preview confirmation before cart entry.</li>
+                        <li><strong>Step 1: Capture & Line Isolation</strong> &mdash; Mobile camera/gallery integration with real-time auto-contrast line thresholding to clean background shadows.</li>
+                        <li><strong>Step 2: Tap-to-Pin Intent Tagging</strong> &mdash; Interactive canvas allowing users to pin specific context notes directly onto abstract drawing elements (e.g., "Keep grandpa's hat shape").</li>
+                        <li><strong>Step 3: Material & Texture Real-Time Swap</strong> &mdash; Instant physical rendering toggles across 14K Gold, Sterling Silver, and Enamel color fills.</li>
+                        <li><strong>Step 4: Interactive Proofing & Cart Lock</strong> &mdash; Side-by-side side-angle proof verification and intent lock-in prior to non-refundable deposit.</li>
                     </ul>
+
+                    <h3>Multi-Viewport Responsive Strategy</h3>
+                    <p>To guarantee feature parity across Meredith's smartphone-exclusive environment and desktop shoppers, the workspace architecture adapts dynamically:</p>
+                    
+                    <div class="split-columns-grid" style="margin: 24px 0 32px 0 !important;">
+                        <div class="left-column">
+                            <h4 style="font-size: 17px !important; margin-bottom: 8px !important; color: #1d1d1f !important;">Mobile &amp; Touch (Native Viewport)</h4>
+                            <p style="font-size: 15px !important; margin: 0 !important;">Full-screen touch canvas with an expandable bottom sheet for intent pins, material pickers, and primary CTA touch targets (&ge; 48px).</p>
+                        </div>
+                        <div class="right-column">
+                            <h4 style="font-size: 17px !important; margin-bottom: 8px !important; color: #1d1d1f !important;">Tablet &amp; Desktop (Workstations)</h4>
+                            <p style="font-size: 15px !important; margin: 0 !important;">50/50 split-screen on Tablet and 60/40 editorial workspace on Desktop, featuring a sticky customization inspector panel on the right.</p>
+                        </div>
+                    </div>
 
                     <div class="image main">
                         <img src="images/bearla-sitemap.png" alt="Bearla Multi-Viewport Sitemap & Task Flow Diagram" />
