@@ -6627,16 +6627,83 @@ body.bearla-page,
 .bearla-page .persona-card,
 .bearla-page .problem-card,
 .bearla-page .exploration-card,
-.bearla-page .stepper-card {
+.bearla-page .stepper-card,
+.bearla-page .split-columns-grid .left-column,
+.bearla-page .split-columns-grid .right-column {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
 }
 
 .bearla-page .persona-card:hover,
 .bearla-page .problem-card:hover,
 .bearla-page .exploration-card:hover,
-.bearla-page .stepper-card:hover {
+.bearla-page .stepper-card:hover,
+.bearla-page .split-columns-grid .left-column:hover,
+.bearla-page .split-columns-grid .right-column:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 14px 30px rgba(107, 31, 42, 0.09) !important;
+    border-color: rgba(107, 31, 42, 0.25) !important;
+}
+
+.bearla-page .split-columns-grid .left-column,
+.bearla-page .split-columns-grid .right-column {
+    background-color: #FAF6F0 !important;
+    border: 1px solid #E8DFD3 !important;
+    border-radius: 16px !important;
+    padding: 24px 26px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02) !important;
+}
+
+.bearla-page ul.differentiators-list,
+.bearla-page ul.challenge-list {
+    padding-left: 0 !important;
+    list-style-type: none !important;
+    margin: 20px 0 !important;
+}
+
+.bearla-page ul.differentiators-list li,
+.bearla-page ul.challenge-list li {
+    background-color: #FAF6F0 !important;
+    border: 1px solid #E8DFD3 !important;
+    border-radius: 14px !important;
+    padding: 18px 22px !important;
+    margin-bottom: 14px !important;
+    list-style-type: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.bearla-page ul.differentiators-list li:hover,
+.bearla-page ul.challenge-list li:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 12px 28px rgba(107, 31, 42, 0.08) !important;
+    border-color: rgba(107, 31, 42, 0.25) !important;
+}
+
+.bearla-page .image.main {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #E8DFD3 !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 28px 0 !important;
+}
+
+.bearla-page .image.main:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 16px 36px rgba(107, 31, 42, 0.1) !important;
+}
+
+.bearla-page table {
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid #E8DFD3 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.bearla-page table:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(107, 31, 42, 0.06) !important;
 }
 
 .mechmarket-page #main section .inner,
