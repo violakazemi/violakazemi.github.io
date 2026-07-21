@@ -6597,6 +6597,10 @@ body.bearla-page,
     width: 100% !important;
 }
 
+.bearla-page table thead th {
+    color: #FFFFFF !important;
+}
+
 /* General Typography inside lavender page */
 .mechmarket-page h2,
 .mechmarket-page h3,
