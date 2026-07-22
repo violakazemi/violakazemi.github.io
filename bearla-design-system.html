@@ -198,12 +198,50 @@
   table.usage th{ color: var(--color-taupe); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; }
 
   .divider-mark{ text-align:center; color: var(--color-gold); font-size: 14px; margin: var(--space-3) 0 var(--space-6); }
+
+  .btn-back {
+    color: var(--color-focus) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-family: var(--font-ui) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    padding: 0 14px 0 0 !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+    height: auto !important;
+    line-height: inherit !important;
+  }
+  .btn-back:hover {
+    color: var(--color-maroon) !important;
+    text-decoration: underline !important;
+  }
+  .btn-back::after {
+    content: "\203A" !important; /* › */
+    position: absolute !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 1.3em !important;
+    line-height: 1 !important;
+    transition: transform 0.2s ease !important;
+    display: inline-block !important;
+  }
+  .btn-back:hover::after {
+    transform: translateY(-50%) translateX(3px) !important;
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   
-  <div style="margin-bottom: 32px;"><a href="bearla.html" class="btn btn-secondary">&larr; Back to Case Study</a></div>
+  <div style="margin-bottom: 32px;"><a href="bearla.html" class="btn-back">Back to Case Study</a></div>
 
   <div class="doc-header">
     <div class="doc-eyebrow">Design System · v1.0</div>
@@ -364,6 +402,8 @@
       <tr><td>Focus blue (Dodger Blue)</td><td>System-reserved only: keyboard focus rings, form validation, checkbox/radio checked states. Never used decoratively — its high saturation exists to stand out from the warm palette on purpose.</td></tr>
     </table>
   </section>
+
+  <div style="margin-top: 48px; text-align: center;"><a href="bearla.html" class="btn-back">Back to Case Study</a></div>
 
 </div>
 </body>
