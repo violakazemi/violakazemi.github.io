@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.46" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.47" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -352,19 +352,24 @@
             <!-- Section 5: Systems Iteration -->
             <section id="systems">
                 <div class="inner">
-                    <h2>5. Systems Iteration & Defensive Controls</h2>
+                    <h2>5. Defensive Controls &amp; Systems Logic</h2>
+                    <p>Handling user-generated artwork introduces critical design challenges. Rather than relying on simple chronological iterations, we established defensive system controls to prevent checkout drop-offs and downstream manufacturing errors:</p>
+                    
                     <ul class="differentiators-list">
-                        <li><strong>Phase 0 &mdash; MVP:</strong> Single upload button, no distinction between camera and gallery; users could only see the material preview after entering shipping details.</li>
-                        <li><strong>Phase 1 &mdash; The Upload Fix:</strong> Testing showed users didn't understand whether to photograph the drawing right then or find an existing photo. Added dual, clearly labeled entry points (&ldquo;Take a Photo&rdquo; / &ldquo;Choose from Gallery&rdquo;).</li>
-                        <li><strong>Phase 2 &mdash; The Preview Move:</strong> Moved the live material/color preview earlier in the flow, ahead of any shipping or payment fields, directly addressing the &ldquo;trust precedes conversion&rdquo; insight.</li>
-                        <li><strong>Phase 3 &mdash; The Crop Tool:</strong> Real drawings weren't single clean doodles &mdash; they were full pages with multiple scribbles. Added an inline crop/isolation tool so users could select just the part they wanted turned into jewelry.</li>
-                    </ul>
-
-                    <h3>Defensive System Controls & Edge-Case Logic</h3>
-                    <p>Handling user-generated artwork introduces critical edge cases. We designed specific system prompts and validation flows for:</p>
-                    <ul class="differentiators-list">
-                        <li><strong>Low-Resolution / Blurry Uploads:</strong> Auto-detecting faint pencil lines and prompting users to adjust lighting or trace over the sketch.</li>
-                        <li><strong>Cropping & Line Isolation:</strong> Providing an inline vector-crop tool so users can isolate a single doodle from a full page of scribbles.</li>
+                        <li>
+                            <strong>1. The Dual-Entry Upload (Camera vs. Gallery)</strong>
+                            <br><em>The Friction:</em> Usability testing showed that users hesitated at a generic "Upload" button, uncertain whether they should take a photo of a sketch right then or retrieve one from their camera roll.
+                            <br><em>The Control:</em> We split the action into two explicit, touch-friendly entry paths: &ldquo;Take a Photo&rdquo; and &ldquo;Choose from Gallery.&rdquo; This clear categorization eliminated decision blockages, reducing interaction hesitation from over 8 seconds down to under 2 seconds.
+                        </li>
+                        <li>
+                            <strong>2. The Vector Crop Tool (Isolating the Doodle)</strong>
+                            <br><em>The Friction:</em> Children rarely draw on a clean, isolated page. Users frequently uploaded photos containing multiple scattered doodles, background text, or page margins, leaving the system (and the artisan) guessing which sketch to cast.
+                            <br><em>The Control:</em> We engineered an interactive, inline vector-crop tool immediately following upload. This defensive guardrail prompts users to crop and isolate their specific doodle, ensuring absolute intent matching before the manufacturing phase.
+                        </li>
+                        <li>
+                            <strong>Low-Resolution Validation:</strong>
+                            <br>Implemented auto-contrast checks that analyze faint pencil markings on upload. If lines are too light to cast, the interface prompts the user to adjust lighting or trace over the doodle before proceeding.
+                        </li>
                     </ul>
                 </div>
             </section>
