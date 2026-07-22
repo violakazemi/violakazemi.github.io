@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.57" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.58" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -35,7 +35,7 @@
             <a href="#define" class="nav-segment" id="seg-define" title="Define">2. Define</a>
             <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
             <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
-            <a href="#systems" class="nav-segment" id="seg-systems" title="Systems Iteration">5. Systems Iteration</a>
+            <a href="#systems" class="nav-segment" id="seg-systems" title="System Logic">5. System Logic</a>
             <a href="#design-system" class="nav-segment" id="seg-design-system" title="Design System">6. Design System</a>
             <a href="#validation" class="nav-segment" id="seg-validation" title="Validation">7. Usability Validation</a>
             <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility & Takeaways">8. Accessibility</a>
@@ -313,23 +313,24 @@
             <!-- Section 5: Defensive Controls & Systems Logic -->
             <section id="systems">
                 <div class="inner">
-                    <h2>5. Defensive Controls &amp; Systems Logic</h2>
-                    <p>Handling user-generated artwork introduces critical design challenges. Rather than relying on simple chronological iterations, we established data-backed defensive system controls to prevent checkout drop-offs and downstream manufacturing errors:</p>
+            <!-- Section 5: System Logic: Powering the Intent Canvas -->
+            <section id="systems">
+                <div class="inner">
+                    <h2>5. System Logic: Powering the Intent Canvas</h2>
+                    <p>Building a mobile-first, high-precision annotation tool required engineering strict system constraints to systematically prevent user input error and ensure downstream manufacturing accuracy:</p>
                     
                     <ul class="differentiators-list">
                         <li>
-                            <strong>1. The Dual-Entry Upload (Camera vs. Gallery)</strong>
-                            <br><em>The Usability Data:</em> 4 of 5 participants hesitated for 8+ seconds at the original single-button upload screen, unsure if they should photograph the page live or search their camera roll.
-                            <br><em>The Control:</em> Split the action into two explicit, touch-friendly entry paths: &ldquo;Take a Photo&rdquo; and &ldquo;Choose from Gallery.&rdquo; On re-test, all 5 participants made a path selection within 2 seconds.
+                            <strong>The Pre-Condition: Vector Cropping</strong>
+                            <br>To ensure the Tap-to-Pin coordinate system functions accurately, the UI forces users to crop and isolate a single doodle from cluttered pages immediately after upload. This prevents pins from being attached to the wrong drawing or background noise.
                         </li>
                         <li>
-                            <strong>2. The Vector Crop Tool (Isolating the Doodle)</strong>
-                            <br><em>The Usability Data:</em> 3 of 5 participants uploaded a photo containing more than one drawing on the page, experiencing anxiety about which sketch the artisan would interpret.
-                            <br><em>The Control:</em> Engineered an interactive, inline vector-crop tool immediately following upload. This defensive mechanism prompts users to isolate their specific doodle, ensuring absolute intent matching and preventing downstream manufacturing errors.
+                            <strong>Mobile Ergonomics: Fat-Finger Pin Placement</strong>
+                            <br>Annotating artwork is effortless with a desktop mouse but highly prone to error on a 390px mobile screen. We enforced a &ge; 48px touch target for all dropped pins and utilized a slide-up bottom sheet for the text-entry drawer. This ensures the native iOS/Android keyboard never occludes the user's view of the artwork while typing.
                         </li>
                         <li>
-                            <strong>Low-Resolution Validation:</strong>
-                            <br>Implemented auto-contrast checks that analyze faint pencil markings on upload. If lines are too light to cast, the interface prompts the user to adjust lighting or trace over the doodle before proceeding.
+                            <strong>State Preservation: The Cart Payload</strong>
+                            <br>To bridge the ambiguity gap, annotations cannot just be UI visual dressing. The system locks each pin's X/Y coordinates directly to the isolated vector file. This data is preserved through the checkout state and injected into the final manufacturing payload, guaranteeing the bench jeweler sees the exact contextual instructions.
                         </li>
                     </ul>
                 </div>
