@@ -74,7 +74,7 @@
     font-weight: 400;
     line-height: 1.6;
   }
-  .wrap{ max-width: 1100px; margin: 0 auto; padding: var(--space-9) var(--space-6) var(--space-10); }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: 140px var(--space-6) var(--space-10); }
 
   /* ---- doc scaffolding ---- */
   .doc-header{ text-align:center; margin-bottom: var(--space-9); }
@@ -236,12 +236,71 @@
   .btn-back:hover::after {
     transform: translateY(-50%) translateX(3px) !important;
   }
+
+  /* Fixed Navigation Header */
+  #header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: rgba(245, 240, 232, 0.85) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(107, 31, 42, 0.1) !important;
+    box-shadow: none !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    z-index: 9999 !important;
+    padding: 0 24px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+  #header a {
+    color: var(--color-maroon) !important;
+    border: none !important;
+    font-family: var(--font-ui) !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    text-decoration: none !important;
+  }
+  #header a.logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    font-weight: 700 !important;
+  }
+  #header .logo-text {
+    color: var(--color-maroon) !important;
+    font-weight: 700 !important;
+  }
+  #header .logo-sub {
+    color: var(--color-taupe-light) !important;
+    margin-left: 6px !important;
+    font-weight: 400 !important;
+  }
+  #header nav {
+    display: flex !important;
+    align-items: center !important;
+  }
 </style>
 </head>
 <body>
+
+  <!-- Core Top Navigation -->
+  <header id="header">
+      <a href="bearla.html" class="logo">
+          <strong class="logo-text">Bearla</strong>
+          <span class="logo-sub">Design System</span>
+      </a>
+      <nav>
+          <a href="bearla.html" class="btn-back">Back to Case Study</a>
+      </nav>
+  </header>
+
 <div class="wrap">
-  
-  <div style="margin-bottom: 32px;"><a href="bearla.html" class="btn-back">Back to Case Study</a></div>
 
   <div class="doc-header">
     <div class="doc-eyebrow">Design System · v1.0</div>
