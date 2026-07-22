@@ -6890,7 +6890,7 @@ body.bearla-page,
     left: 0 !important;
     width: 100% !important;
     height: 48px !important;
-    background-color: rgba(242, 220, 229, 0.85) !important; /* Translucent Lavender Glass */
+    background-color: rgba(255, 255, 255, 0.85) !important; /* Translucent White Glass */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border-bottom: 1px solid rgba(32, 32, 32, 0.08) !important;
@@ -6916,7 +6916,7 @@ body.bearla-page,
     left: 0 !important;
     width: 100% !important;
     height: 48px !important;
-    background-color: rgba(245, 240, 232, 0.85) !important; /* Translucent Cotton Beige Glass */
+    background-color: rgba(255, 255, 255, 0.85) !important; /* Translucent White Glass */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border-bottom: 1px solid rgba(107, 31, 42, 0.1) !important;
