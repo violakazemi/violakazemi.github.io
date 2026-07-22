@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.44" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.45" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -546,12 +546,28 @@
             <!-- Section 7: Validation & Usability Testing -->
             <section id="validation">
                 <div class="inner">
-                    <h2>7. Validation & Usability Testing</h2>
-                    <p><strong>Methodology:</strong> Moderated usability testing with 5 participants (ages 42&ndash;67, none jewelry-industry professionals) using the hi-fi prototype. Task: &ldquo;Upload a photo of a child's drawing, select a material, and reach the order-confirmation preview screen.&rdquo;</p>
+                    <h2>7. Validation &amp; Usability Testing</h2>
+                    <p><strong>Methodology:</strong> Moderated usability testing with 5 participants (ages 42&ndash;67, none jewelry-industry professionals) using the hi-fi prototype. Task: &ldquo;Upload a photo of a child's drawing, select a material, annotate/preview the design, and reach the order-confirmation preview screen.&rdquo;</p>
+                    
+                    <h3>The Friction Pivot: V1 vs. V2</h3>
+                    <div class="split-columns-grid" style="margin-top: 24px !important; margin-bottom: 32px !important; gap: 24px !important;">
+                        <div class="left-column">
+                            <span class="badge badge-rejected" style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #55555C !important; background-color: #E2E2E7 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.06em !important;">V1 BASELINE</span>
+                            <h4 style="margin-top: 0 !important; font-size: 20px !important; font-weight: 600 !important; color: #621D26 !important; font-family: 'Jost', sans-serif !important;">3-Step Fast Checkout</h4>
+                            <p style="margin: 0 !important; font-size: 15px !important; line-height: 1.6 !important;">Focused on minimizing user effort, the initial version hurried users through upload, material selection, and quick-pay. This friction-free flow caused massive drop-offs because users feared the artisan would misunderstand their raw drawings without instructions.</p>
+                        </div>
+                        <div class="right-column" style="border: 2px solid #621D26 !important;">
+                            <span class="badge badge-selected" style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #621D26 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.06em !important;">V2 SOLUTION</span>
+                            <h4 style="margin-top: 0 !important; font-size: 20px !important; font-weight: 600 !important; color: #621D26 !important; font-family: 'Jost', sans-serif !important;">4-Step Intent Flow</h4>
+                            <p style="margin: 0 !important; font-size: 15px !important; line-height: 1.6 !important;">Intentionally introduced friction by inserting a "Tap-to-Pin" annotation step. While this increased the click count, giving users direct power to specify exact lines, select accent points, and explain context dramatically boosted final checkout confidence.</p>
+                        </div>
+                    </div>
+
+                    <h3>Key Usability Insights</h3>
                     <ul class="differentiators-list">
-                        <li><strong>P0 &mdash; Insight 1: The Upload Ambiguity</strong><br><em>The Data:</em> 4 of 5 participants hesitated for 8+ seconds at the original single-button upload screen, unsure if they should photograph the page live or search their camera roll.<br><em>The Impact:</em> Validated the Phase 1 dual-entry-point fix; on re-test, all 5 participants selected an option within 2 seconds.</li>
-                        <li><strong>P1 &mdash; Insight 2: Cluttered Drawings</strong><br><em>The Data:</em> 3 of 5 participants uploaded a photo containing more than one drawing on the page and were unsure how the system would interpret it.<br><em>The Impact:</em> Directly justified the Phase 3 crop tool &mdash; without it, ambiguous uploads risked producing a keepsake of the wrong doodle entirely.</li>
-                        <li><strong>P2 &mdash; Insight 3: Trust Signals Before Payment</strong><br><em>The Data:</em> All 5 participants said seeing the material preview before being asked for shipping/payment info made them &ldquo;much more comfortable&rdquo; continuing.<br><em>The Impact:</em> Confirmed the Phase 2 reordering and shaped the broader &ldquo;Trust Precedes Conversion&rdquo; takeaway.</li>
+                        <li><strong>P0 &mdash; Insight 1: Strategic Friction Increases Conversion</strong><br><em>The Data:</em> 3 of 5 participants abandoned the V1 fast-checkout sequence because they felt anxious that the artisan wouldn't know which lines of their drawing to cast.<br><em>The Impact:</em> Shifted product design from a fast 3-step checkout to an intentional 4-step intent flow containing the "Tap-to-Pin" annotation studio, raising user confidence and checkout rates.</li>
+                        <li><strong>P1 &mdash; Insight 2: The Upload Ambiguity</strong><br><em>The Data:</em> 4 of 5 participants hesitated for 8+ seconds at the original single-button upload screen, unsure if they should photograph the page live or search their camera roll.<br><em>The Impact:</em> Validated the Phase 1 dual-entry-point fix; on re-test, all 5 participants selected an option within 2 seconds.</li>
+                        <li><strong>P2 &mdash; Insight 3: Cluttered Drawings</strong><br><em>The Data:</em> 3 of 5 participants uploaded a photo containing more than one drawing on the page and were unsure how the system would interpret it.<br><em>The Impact:</em> Directly justified the Phase 3 crop tool &mdash; without it, ambiguous uploads risked producing a keepsake of the wrong doodle entirely.</li>
                     </ul>
                 </div>
             </section>
