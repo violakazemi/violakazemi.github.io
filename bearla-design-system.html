@@ -97,7 +97,21 @@
   .doc-title em{ font-style: italic; font-weight: 300; }
   .doc-sub{ color: var(--color-taupe); font-size: 16px; max-width: 520px; margin: 0 auto; }
 
-  section.block{ margin-bottom: var(--space-9); }
+  section.block {
+    background-color: #FFFFFF !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(216, 203, 183, 0.35) !important;
+    padding: var(--space-7) !important;
+    margin: 48px auto !important;
+    width: 100% !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
+  }
+  section.block:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 48px rgba(107, 31, 42, 0.08), 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(107, 31, 42, 0.2) !important;
+  }
   .block-head{ display:flex; align-items:baseline; gap: var(--space-4); margin-bottom: var(--space-6); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-4); }
   .block-num{ font-family: var(--font-display); font-weight:300; font-size: 28px; color: var(--color-gold); }
   .block-title{ font-family: var(--font-display); font-weight: 300; font-size: 30px; color: var(--color-maroon); margin:0; }
@@ -188,6 +202,8 @@
 </head>
 <body>
 <div class="wrap">
+  
+  <div style="margin-bottom: 32px;"><a href="bearla.html" class="btn btn-secondary">&larr; Back to Case Study</a></div>
 
   <div class="doc-header">
     <div class="doc-eyebrow">Design System · v1.0</div>
