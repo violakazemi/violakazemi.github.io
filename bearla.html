@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.66" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.67" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -103,53 +103,20 @@
                         
                         <p style="font-size: 16px !important; line-height: 1.6 !important; color: #1d1d1f !important; margin: 0 !important;">That's the specific design problem the 2026 version (Bearla) is built to solve &mdash; not &ldquo;reduce anxiety&rdquo; in the abstract, but move the intent-setting from the maker's eye to the customer's own hand.</p>
                     </div>
+                    
+                    <h3>Competitive Hand-off Analysis</h3>
+                    <p>I looked directly at how two real competitors handle this same handoff:</p>
+                    
+                    <ul class="differentiators-list" style="margin-bottom: 24px !important;">
+                        <li>
+                            <strong>Caitlyn Minimalist:</strong> Customer picks finish and length, adds to cart, then separately takes a photo of the drawing/handwriting and sends it via a generic &ldquo;Message the seller&rdquo; contact form &mdash; before or after the order is placed.
+                        </li>
+                        <li>
+                            <strong>CoraJewelryCrafts (an Etsy-style seller):</strong> Same shape &mdash; choose finish/size, add to cart, then send a photo via a message thread or a plain email address.
+                        </li>
+                    </ul>
 
-                    <h3>Competitive Analysis Matrix</h3>
-                    <p>To evaluate how existing custom jewelry platforms handle artwork capture across different technical stacks, I audited three prevailing market models against Bearla's intent-first web architecture:</p>
-
-                    <div style="overflow-x: auto !important; margin: 24px 0 40px 0 !important;">
-                        <table style="width: 100% !important; border-collapse: collapse !important; font-size: 15px !important; text-align: left !important;">
-                            <thead>
-                                <tr style="background-color: #6B1F2A !important; color: #FFFFFF !important;">
-                                    <th style="padding: 14px 16px !important; color: #FFFFFF !important; border-radius: 8px 0 0 0 !important;">Brand &amp; Platform Type</th>
-                                    <th style="padding: 14px 16px !important; color: #FFFFFF !important;">Mobile Upload UX</th>
-                                    <th style="padding: 14px 16px !important; color: #FFFFFF !important;">Pre-Checkout Proofing</th>
-                                    <th style="padding: 14px 16px !important; color: #FFFFFF !important;">Intent Capture Method</th>
-                                    <th style="padding: 14px 16px !important; color: #FFFFFF !important; border-radius: 0 8px 0 0 !important;">Primary UX Friction</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid #e0e0e0 !important; background-color: #ffffff !important;">
-                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #1d1d1f !important;">Caitlyn Minimalist<br><span style="font-size: 13px !important; font-weight: 400 !important; color: #666 !important;">(Standalone DTC Storefront)</span></td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Basic web file picker; no live camera scan, contrast tuning, or cropping.</td>
-                                    <td style="padding: 14px 16px !important; color: #d9534f !important; font-weight: 600 !important;">None (Blind upload prior to cart)</td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Plain text notes field ("Notes for Seller").</td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">High blind trust required; zero visual confirmation on proprietary web app.</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #e0e0e0 !important; background-color: #fcfcfc !important;">
-                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #1d1d1f !important;">CoraJewelryCrafts<br><span style="font-size: 13px !important; font-weight: 400 !important; color: #666 !important;">(Etsy Marketplace Seller)</span></td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Post-purchase Etsy message threads; no integrated mobile camera scanner.</td>
-                                    <td style="padding: 14px 16px !important; color: #d9534f !important; font-weight: 600 !important;">Zero Pre-Checkout Proofing</td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Unstructured post-order chat messages.</td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Trapped in Etsy message constraints; high risk of lost context & drop-off.</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #e0e0e0 !important; background-color: #ffffff !important;">
-                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #1d1d1f !important;">Forever Drawn<br><span style="font-size: 13px !important; font-weight: 400 !important; color: #666 !important;">(Automated DTC App)</span></td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Standard mobile photo selector; lacks vector thresholding.</td>
-                                    <td style="padding: 14px 16px !important; color: #f0ad4e !important; font-weight: 600 !important;">Basic 2D Overlay Preview</td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Single-line caption input; no element pin tags.</td>
-                                    <td style="padding: 14px 16px !important; color: #555 !important;">Automated line smoothing often erases subtle childhood details.</td>
-                                </tr>
-                                <tr style="background-color: #FBF7F2 !important; border-bottom: 2px solid #6B1F2A !important;">
-                                    <td style="padding: 14px 16px !important; font-weight: 700 !important; color: #1d1d1f !important;">Bearla<br><span style="font-size: 13px !important; font-weight: 600 !important; color: #6B1F2A !important;">(Our Solution — Custom App Stack)</span></td>
-                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #202020 !important;">Touch-native mobile camera auto-contrast + inline auto-crop.</td>
-                                    <td style="padding: 14px 16px !important; color: #6B1F2A !important; font-weight: 700 !important;">Real-time 3D "Sketch-to-Gold" Material Previews</td>
-                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #202020 !important;">Tap-to-Pin Inline Intent Tagging Canvas Workspace.</td>
-                                    <td style="padding: 14px 16px !important; font-weight: 600 !important; color: #6B1F2A !important;">Frictionless: Integrated workspace eliminates miscommunication & anxiety.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <p>The real, verifiable pattern across both: the drawing is handled as a detached afterthought to the purchase. You buy first, then separately hand over an image through a generic contact channel, with no structured way to point at which part of the drawing actually matters or why. Neither gives the customer any way to say &ldquo;keep this,&rdquo; &ldquo;that part's not important,&rdquo; or &ldquo;this has to stay curly.&rdquo; That absence &mdash; not camera technology &mdash; is the real gap Bearla is designed against.</p>
                 </div>
             </section>
 
