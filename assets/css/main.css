@@ -2310,8 +2310,16 @@ body {
 /* Table */
 
 	.table-wrapper {
-		
-		overflow-x: auto;
+		-webkit-overflow-scrolling: touch !important;
+		overflow-x: auto !important;
+		width: 100% !important;
+		background-color: #f5f5f7 !important; /* Cool grey background */
+		border: 1px solid #e5e5ea !important; /* Soft grey border */
+		border-radius: 14px !important;
+		padding: 18px 22px !important;
+		margin: 24px 0 !important;
+		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+		box-sizing: border-box !important;
 	}
 
 	table {
@@ -6723,6 +6731,18 @@ body.bearla-page,
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03) !important;
     border: 1px solid #E8DFD3 !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.bearla-page .table-wrapper {
+    background-color: #FAF6F0 !important; /* Warm Cotton Beige */
+    border: 1px solid #E8DFD3 !important; /* Soft gold/beige border */
+    box-shadow: inset 0 1px 3px rgba(107, 31, 42, 0.01) !important;
+}
+
+.mechmarket-page .table-wrapper {
+    background-color: #FAF2F5 !important; /* Soft lavender tint */
+    border: 1px solid rgba(162, 117, 137, 0.2) !important; /* Soft lavender border */
+    box-shadow: inset 0 1px 3px rgba(162, 117, 137, 0.02) !important;
 }
 
 .bearla-page table:hover {
