@@ -197,6 +197,13 @@
   table.usage th, table.usage td{ text-align:left; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); }
   table.usage th{ color: var(--color-taupe); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; }
 
+  .table-wrapper {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: var(--space-4) 0 !important;
+  }
+
   .divider-mark{ text-align:center; color: var(--color-gold); font-size: 14px; margin: var(--space-3) 0 var(--space-6); }
 
   .btn-back {
@@ -380,16 +387,18 @@
   <section class="block">
     <div class="block-head"><span class="block-num">03</span><h2 class="block-title">Spacing</h2></div>
     <p class="block-desc">4px base unit. Generous section padding (64–96px) gives the layout its calm, editorial pace.</p>
-    <table class="usage">
-      <tr><th>Token</th><th>Value</th><th>Use</th></tr>
-      <tr><td>--space-2</td><td>8px</td><td>Icon-to-label gaps</td></tr>
-      <tr><td>--space-4</td><td>16px</td><td>Card internal padding, tight stacks</td></tr>
-      <tr><td>--space-5</td><td>24px</td><td>Card padding, grid gaps</td></tr>
-      <tr><td>--space-6</td><td>32px</td><td>Component gaps</td></tr>
-      <tr><td>--space-7</td><td>48px</td><td>Sub-section spacing</td></tr>
-      <tr><td>--space-8 / --space-9</td><td>64 / 96px</td><td>Between major sections</td></tr>
-      <tr><td>--space-10</td><td>128px</td><td>Hero top/bottom breathing room</td></tr>
-    </table>
+    <div class="table-wrapper">
+      <table class="usage">
+        <tr><th>Token</th><th>Value</th><th>Use</th></tr>
+        <tr><td>--space-2</td><td>8px</td><td>Icon-to-label gaps</td></tr>
+        <tr><td>--space-4</td><td>16px</td><td>Card internal padding, tight stacks</td></tr>
+        <tr><td>--space-5</td><td>24px</td><td>Card padding, grid gaps</td></tr>
+        <tr><td>--space-6</td><td>32px</td><td>Component gaps</td></tr>
+        <tr><td>--space-7</td><td>48px</td><td>Sub-section spacing</td></tr>
+        <tr><td>--space-8 / --space-9</td><td>64 / 96px</td><td>Between major sections</td></tr>
+        <tr><td>--space-10</td><td>128px</td><td>Hero top/bottom breathing room</td></tr>
+      </table>
+    </div>
   </section>
 
   <!-- 04 BUTTONS -->
@@ -458,16 +467,18 @@
   <!-- 08 USAGE PRINCIPLES -->
   <section class="block">
     <div class="block-head"><span class="block-num">08</span><h2 class="block-title">Usage Principles</h2></div>
-    <table class="usage">
-      <tr><th>Element</th><th>Rule</th></tr>
-      <tr><td>Maroon</td><td>Reserved for one primary CTA per view and headline word-emphasis. Never use as a large background outside the Stories module.</td></tr>
-      <tr><td>Gold</td><td>Metallic/material cues only — icons, rings, stars, section eyebrows. Not used for text links or buttons.</td></tr>
-      <tr><td>Serif italics</td><td>Emphasize one or two words per headline max — the technique loses power if overused.</td></tr>
-      <tr><td>Numbering (01/02/03)</td><td>Reserved for genuine sequences (the 3-step process). Don't apply to non-sequential content.</td></tr>
-      <tr><td>Corners</td><td>Sharp, 2–4px radius throughout — no pill buttons, no heavy rounding. Circles are reserved for material swatches and the hero locket motif.</td></tr>
-      <tr><td>Dividers</td><td>Small centered gold flourish (◆ or hairline + dot) under section eyebrows, used sparingly.</td></tr>
-      <tr><td>Focus blue (Dodger Blue)</td><td>System-reserved only: keyboard focus rings, form validation, checkbox/radio checked states. Never used decoratively — its high saturation exists to stand out from the warm palette on purpose.</td></tr>
-    </table>
+    <div class="table-wrapper">
+      <table class="usage">
+        <tr><th>Element</th><th>Rule</th></tr>
+        <tr><td>Maroon</td><td>Reserved for one primary CTA per view and headline word-emphasis. Never use as a large background outside the Stories module.</td></tr>
+        <tr><td>Gold</td><td>Metallic/material cues only — icons, rings, stars, section eyebrows. Not used for text links or buttons.</td></tr>
+        <tr><td>Serif italics</td><td>Emphasize one or two words per headline max — the technique loses power if overused.</td></tr>
+        <tr><td>Numbering (01/02/03)</td><td>Reserved for genuine sequences (the 3-step process). Don't apply to non-sequential content.</td></tr>
+        <tr><td>Corners</td><td>Sharp, 2–4px radius throughout — no pill buttons, no heavy rounding. Circles are reserved for material swatches and the hero locket motif.</td></tr>
+        <tr><td>Dividers</td><td>Small centered gold flourish (◆ or hairline + dot) under section eyebrows, used sparingly.</td></tr>
+        <tr><td>Focus blue (Dodger Blue)</td><td>System-reserved only: keyboard focus rings, form validation, checkbox/radio checked states. Never used decoratively — its high saturation exists to stand out from the warm palette on purpose.</td></tr>
+      </table>
+    </div>
   </section>
 
   <div style="margin-top: 48px; text-align: center;"><a href="bearla.html" class="btn-back">Back to Case Study</a></div>
