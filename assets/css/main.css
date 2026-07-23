@@ -6207,12 +6207,12 @@ body.bearla-page,
 
 .mechmarket-page #main {
     background-color: #F2DCE5 !important;
-    padding-top: 48px !important;
+    padding-top: 52px !important;
 }
 
 .bearla-page #main {
     background-color: #F5F0E8 !important;
-    padding-top: 48px !important; /* Give padding top to prevent overlap by header & sub-nav */
+    padding-top: 52px !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
 .museum-hero {
@@ -6889,7 +6889,7 @@ body.bearla-page,
     top: 48px !important; /* Direct sub-header under the main fixed header */
     left: 0 !important;
     width: 100% !important;
-    height: 48px !important;
+    height: 52px !important; /* Fully fits underline indicator & avoids scrollbar clipping */
     background-color: rgba(255, 255, 255, 0.85) !important; /* Translucent White Glass */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
@@ -6907,7 +6907,9 @@ body.bearla-page,
     transform: none !important;
     margin: 0 !important;
     overflow-x: auto !important; /* Allow swipe scrolling on mobile */
+    overflow-y: hidden !important; /* Prevent scrollbar allocation clipping */
     scrollbar-width: none !important; /* Firefox hide scrollbar */
+    -webkit-overflow-scrolling: touch !important; /* Smooth scroll */
 }
 
 .bearla-page .nav-container {
@@ -6915,7 +6917,7 @@ body.bearla-page,
     top: 48px !important; /* Direct sub-header under the main fixed header */
     left: 0 !important;
     width: 100% !important;
-    height: 48px !important;
+    height: 52px !important; /* Fully fits underline indicator & avoids scrollbar clipping */
     background-color: rgba(255, 255, 255, 0.85) !important; /* Translucent White Glass */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
@@ -6933,7 +6935,9 @@ body.bearla-page,
     transform: none !important;
     margin: 0 !important;
     overflow-x: auto !important; /* Allow swipe scrolling on mobile */
+    overflow-y: hidden !important; /* Prevent scrollbar allocation clipping */
     scrollbar-width: none !important; /* Firefox hide scrollbar */
+    -webkit-overflow-scrolling: touch !important; /* Smooth scroll */
 }
 
 .mechmarket-page .nav-container::-webkit-scrollbar,
@@ -6955,6 +6959,8 @@ body.bearla-page,
     border-radius: 0 !important;
     transition: all 0.2s ease !important;
     text-decoration: none !important;
+    white-space: nowrap !important; /* Prevent multi-line wrapping */
+    flex-shrink: 0 !important; /* Prevent shrinking under flexbox layout */
 }
 
 .mechmarket-page .nav-container .nav-segment,
@@ -6983,6 +6989,15 @@ body.bearla-page,
     color: #6B1F2A !important; /* Deep Burgundy Accent */
     border-bottom: 2px solid #6B1F2A !important;
     font-weight: 600 !important;
+}
+
+@media screen and (max-width: 980px) {
+    .mechmarket-page .nav-container,
+    .bearla-page .nav-container {
+        justify-content: flex-start !important; /* Left-align so scrolling operates correctly on small viewports */
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
 }
 
 @media screen and (max-width: 768px) {
