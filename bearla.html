@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.72" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.73" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -89,6 +89,8 @@
                     
                     <p>That's the problem I kept hitting order after order &mdash; including with a neighbor who'd ordered from me before and nearly didn't go through with a piece for her niece's graduation because she had no way of knowing what the final piece would look like before committing, and only moved forward once I asked her directly what mattered most. My real process was always just to ask the customer what they saw and what the story was &mdash; it worked, but only because I did it by hand, one conversation at a time, with nothing recorded that a jeweler could check the piece against later.</p>
                     
+                    <p style="font-size: 15px !important; line-height: 1.6 !important; font-style: italic !important; color: #6F5F4F !important; background-color: #FAF6F0 !important; padding: 16px 20px !important; border-radius: 8px !important; border-left: 3px solid #621D26 !important; margin-bottom: 24px !important;"><strong>Methodology Note:</strong> I didn't run a formal lab study to gather this research. Instead, I recruited participants simply by asking friends, family, and past Golaab Jewelry customers if they would look at early drawings and walk through the order idea with me. Because I didn't offer any incentives or payment, the feedback was informal and the sample size was small (just 6 people), which means it might not represent general e-commerce shoppers, but it helped me spot the immediate emotional barriers to buying custom keepsakes.</p>
+
                     <div class="image main" style="margin-top: 32px !important; margin-bottom: 16px !important;">
                         <img src="images/bearla-story.png" alt="Visual narrative of the Golaab custom drawing jewelry translation story" style="border-radius: 8px !important; border: 1px solid #E8DFD3 !important;" />
                     </div>
@@ -129,16 +131,16 @@
                     
                     <p>The pattern was the same every time: people weren't afraid of the process being slow. They were afraid that something meaningful to them would be lost in translation &mdash; read as a smudge, a mistake, or just decoration &mdash; with no way to say otherwise before it was too late. Tap-to-Pin is the direct answer to that: a way to let someone mark, in their own hand, which parts of a drawing matter and why, instead of leaving that entirely to my read of it.</p>
 
-                    <h3>Core 4-Step User Task Flow</h3>
-                    <p>We engineered a continuous, low-friction task flow that guides the user from raw paper sketch to verified heirloom proof. While we initially hypothesized a standard 3-step e-commerce checkout, usability testing forced us to rethink the architecture into a 4-step intent flow (detailed in Section 7).</p>
+                    <h3>Core 4-Step User Flow</h3>
+                    <p>I structured a simple 4-step flow that leads a customer from uploading a paper drawing to reviewing their final keepsake proof. This guides them through resolving details before making any payment:</p>
                     
                     <div style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important; gap: 16px !important; margin: 24px 0 36px 0 !important;">
                         <!-- Step 01 -->
                         <div class="stepper-card" style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 14px !important; padding: 20px 18px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;">
                             <div>
                                 <span style="display: inline-block !important; font-size: 12px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #6B1F2A !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.05em !important;">STEP 01</span>
-                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Capture &amp; Line Isolation</h4>
-                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Mobile camera/gallery integration with real-time auto-contrast line thresholding to clean background shadows.</p>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Upload &amp; Line Isolation</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Uploading the sketch and automatically adjusting contrast to remove paper background shadows.</p>
                             </div>
                         </div>
 
@@ -146,8 +148,8 @@
                         <div class="stepper-card" style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 14px !important; padding: 20px 18px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;">
                             <div>
                                 <span style="display: inline-block !important; font-size: 12px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #6B1F2A !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.05em !important;">STEP 02</span>
-                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Tap-to-Pin Intent Tagging</h4>
-                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Interactive canvas allowing users to pin specific context notes directly onto abstract drawing elements.</p>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Tap-to-Pin Annotations</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Tapping specific parts of the drawing to attach quick text notes explaining key details.</p>
                             </div>
                         </div>
 
@@ -155,8 +157,8 @@
                         <div class="stepper-card" style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 14px !important; padding: 20px 18px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;">
                             <div>
                                 <span style="display: inline-block !important; font-size: 12px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #6B1F2A !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.05em !important;">STEP 03</span>
-                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Material &amp; Finish Swap</h4>
-                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Instant physical rendering toggles across Solid Gold, Sterling Silver, and Enamel/Resin accents.</p>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Material Selection</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Choosing metal materials (like Gold or Silver) and previewing the finish style.</p>
                             </div>
                         </div>
 
@@ -164,14 +166,14 @@
                         <div class="stepper-card" style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 14px !important; padding: 20px 18px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;">
                             <div>
                                 <span style="display: inline-block !important; font-size: 12px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #6B1F2A !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 12px !important; letter-spacing: 0.05em !important;">STEP 04</span>
-                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Interactive Proofing &amp; Cart Lock</h4>
-                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Side-by-side proof verification and intent lock-in prior to non-refundable deposit.</p>
+                                <h4 style="margin: 0 0 8px 0 !important; font-size: 16px !important; font-weight: 700 !important; color: #1d1d1f !important; line-height: 1.3 !important;">Reviewing the Proof</h4>
+                                <p style="margin: 0 !important; font-size: 14px !important; line-height: 1.45 !important; color: #555 !important;">Reviewing the final proof layout and notes summary before checking out.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h3>Information Architecture (Sitemap)</h3>
-                    <p>The high-level platform architecture prioritizes a 3-click path from landing to the Intent Canvas Studio.</p>
+                    <h3>Sitemap</h3>
+                    <p>The high-level platform layout establishes a direct path from the homepage to the customization workspace.</p>
                     
                     <div class="image main">
                         <img src="images/BearlaSitemap.png" alt="Bearla High-Level Information Architecture Sitemap" />
@@ -183,16 +185,17 @@
             <!-- Section 4: Prototype -->
             <section id="prototype">
                 <div class="inner">
-                    <h2>4. High-Fidelity Interactive Prototype</h2>
-                    <p>We built the interactive prototype in Figma to validate the responsive layout transitions across different viewport sizes:</p>
+                    <h2>4. High-Fidelity Prototype</h2>
+                    <p>I built an interactive prototype in Figma to verify how layout shifts work across mobile and desktop sizes:</p>
                     
                     <ul class="differentiators-list" style="margin-bottom: 24px !important;">
-                        <li><strong>Mobile-First Touch Targets:</strong> Primary interactive triggers and buttons are refactored to full-width touch targets (&ge; 48px) to guarantee accessible interaction on smartphone viewports.</li>
-                        <li><strong>Desktop 60/40 Split Panel:</strong> Adapts the layout dynamically to a side-by-side studio workspace on desktop screens, pairing the live 3D material preview with the intent annotation tools.</li>
+                        <li><strong>Mobile Touch Targets:</strong> All buttons and interactive elements are sized at least 48px to make them easy to tap on smaller screens.</li>
+                        <li><strong>Desktop Split Panel:</strong> On larger screens, the viewport splits to show the preview panel and note workspace side-by-side.</li>
                     </ul>
 
                     <div class="image main">
                         <img src="images/BearlaMockup.png" alt="Bearla High-Fidelity Responsive Prototype Mockups" />
+                        <!-- TODO: add real supporting artifacts: raw sketches, annotated Figma frames, or in-process screenshots -->
                     </div>
                     <div style="display: flex !important; gap: 24px !important; margin-top: 24px !important; flex-wrap: wrap !important;">
                         <a href="https://www.figma.com/proto/T6VbncYAJlXKyV99MUCrye/Bearla?node-id=439-6711&amp;t=O5VDMTfq1CS10Gl3-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=430%3A1391" target="_blank" rel="noopener noreferrer" class="button">View Lo-Fi Prototype</a>
@@ -205,20 +208,20 @@
             <section id="systems">
                 <div class="inner">
                     <h2>5. System Logic: Powering the Intent Canvas</h2>
-                    <p>Building a mobile-first, high-precision annotation tool required engineering strict system constraints to systematically prevent user input error and ensure downstream manufacturing accuracy:</p>
+                    <p>Building a mobile-first annotation tool required clear interface constraints to prevent mistakes and make sure drawings are manufactured accurately:</p>
                     
                     <ul class="differentiators-list">
                         <li>
-                            <strong>The Pre-Condition: Vector Cropping</strong>
-                            <br>To ensure the Tap-to-Pin coordinate system functions accurately, the UI forces users to crop and isolate a single doodle from cluttered pages immediately after upload. This prevents pins from being attached to the wrong drawing or background noise.
+                            <strong>Image Cropping Boundaries</strong>
+                            <br>To make sure coordinates function accurately, the interface forces the user to crop and isolate a single drawing from the page immediately after uploading it. This stops notes from being placed on background shadows or nearby drawings.
                         </li>
                         <li>
-                            <strong>Mobile Ergonomics: Fat-Finger Pin Placement</strong>
-                            <br>Annotating artwork is effortless with a desktop mouse but highly prone to error on a 390px mobile screen. We enforced a &ge; 48px touch target for all dropped pins and utilized a slide-up bottom sheet for the text-entry drawer. This ensures the native iOS/Android keyboard never occludes the user's view of the artwork while typing.
+                            <strong>Mobile Touch Target Sizes</strong>
+                            <br>Annotating a drawing is simple on desktop, but difficult on small screens. I set a minimum 48px touch target size for dropping pins, and used a slide-up panel for text entry so the phone's keyboard doesn't cover the drawing while typing.
                         </li>
                         <li>
-                            <strong>State Preservation: The Cart Payload</strong>
-                            <br>To bridge the ambiguity gap, annotations cannot just be UI visual dressing. The system locks each pin's X/Y coordinates directly to the isolated vector file. This data is preserved through the checkout state and injected into the final manufacturing payload, guaranteeing the bench jeweler sees the exact contextual instructions.
+                            <strong>Linking Notes to Manufacturing Data</strong>
+                            <br>The custom notes aren't just display text; the system saves each pin's coordinates directly with the cropped drawing file. This data is carried through the cart and checkout stages, so the bench jeweler sees exactly where the customer added instructions.
                         </li>
                     </ul>
                 </div>
@@ -250,42 +253,43 @@
 
             <section id="validation">
                 <div class="inner">
-                    <h2>7. Validation &amp; The Strategic Friction Pivot</h2>
+                    <h2>7. Usability Validation &amp; Iteration</h2>
                     <p><strong>Methodology:</strong> I built the initial 3-step version as a live, working site (<a href="https://golaabjewelry.framer.com" target="_blank" style="color: #621D26 !important; text-decoration: underline !important;">golaabjewelry.framer.com</a>) and tested it in person with roughly 10 to 12 real strangers at Carya Market in Calgary &mdash; actual potential customers approached in the real world, not a moderated lab study.</p>
                     
                     <div class="split-columns-grid" style="margin-top: 32px !important; margin-bottom: 32px !important; gap: 48px !important;">
                         <div class="left-column" style="background-color: #FAF6F0 !important; border: 1px solid #E8DFD3 !important; border-radius: 16px !important; padding: 28px !important;">
-                            <span class="badge badge-rejected" style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #55555C !important; background-color: #E2E2E7 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 16px !important; letter-spacing: 0.06em !important;">V1 HYPOTHESIS</span>
-                            <h3 style="margin-top: 0 !important; font-size: 24px !important; font-weight: 300 !important; color: #621D26 !important; font-family: 'Cormorant Garamond', serif !important;">V1 &mdash; 3-Step Fast Checkout</h3>
+                            <h3 style="margin-top: 0 !important; font-size: 24px !important; font-weight: 300 !important; color: #621D26 !important; font-family: 'Cormorant Garamond', serif !important;">V1: The 3-Step Flow</h3>
                             
                             <div class="image-container" style="margin-bottom: 20px !important;">
                                 <img src="images/bearla-v01.gif" alt="Bearla V1 3-Step Fast Checkout flow showing rapid path to payment" style="width: 100% !important; border-radius: 8px !important; border: 1px solid #E8DFD3 !important;" />
-                                <p style="font-size: 13px !important; line-height: 1.4 !important; color: #6F5F4F !important; margin: 8px 0 0 0 !important; font-style: italic !important;">V1 Baseline Flow: Optimized for speed, this initial entry point rushed users past intent gathering and directly into material selection, which ultimately triggered transaction anxiety.</p>
+                                <p style="font-size: 13px !important; line-height: 1.4 !important; color: #6F5F4F !important; margin: 8px 0 0 0 !important; font-style: italic !important;">First try: A simple flow where users upload a photo, choose the metal type, and pay.</p>
                             </div>
 
-                            <p style="font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 16px !important;"><strong>V1 &mdash; 3-Step Fast Checkout:</strong> Upload a photo &rarr; choose material &rarr; check out. The assumption: fewer steps means an easier sale.</p>
+                            <p style="font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 16px !important;">I first tried a fast 3-step checkout: uploading a photo, choosing a material, and checking out. I assumed that fewer steps would mean less friction and a faster path to purchase.</p>
                             
                             <div style="border-top: 1px dashed #E8DFD3 !important; padding-top: 16px !important; margin-top: 16px !important;">
-                                <strong style="color: #621D26 !important; font-size: 14px !important; font-family: 'Jost', sans-serif !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 8px !important;">The Reality Check:</strong>
+                                <strong style="color: #621D26 !important; font-size: 14px !important; font-family: 'Jost', sans-serif !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 8px !important;">What broke:</strong>
                                 <p style="font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 16px !important;">People hesitated right at the photo step. They weren't sure what counted as a good enough photo, and more specifically, they were afraid something that mattered to them would just look like a smudge or a mistake once I had it.</p>
-                                <p style="font-size: 15px !important; line-height: 1.6 !important; margin: 0 !important;">That fear showed up again separately with a neighbor of mine, an existing customer, who wanted a piece made for her niece's graduation. She hesitated and asked a lot of questions &mdash; not about price, but because she had no way of knowing what the final piece would actually look like before committing to a non-refundable order. She only moved forward once I asked her directly what mattered most and what she wanted the piece to convey.</p>
+                                <p style="font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 16px !important;">That fear showed up again separately with a neighbor of mine, an existing customer, who wanted a piece made for her niece's graduation. She hesitated and asked a lot of questions &mdash; not about price, but because she had no way of knowing what the final piece would actually look like before committing to a non-refundable order. She only moved forward once I asked her directly what mattered most and what she wanted the piece to convey.</p>
+                                
+                                <strong style="color: #621D26 !important; font-size: 14px !important; font-family: 'Jost', sans-serif !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 8px !important;">Honest Limitation:</strong>
+                                <p style="font-size: 15px !important; line-height: 1.6 !important; margin: 0 !important;">Testing a checkout flow at a public market with strangers who aren't actually looking to buy custom jewelry at that exact moment made it hard to measure real conversion rates. While they showed hesitation, I couldn't verify if these worries would lead to abandoned checkouts under normal buying conditions.</p>
                             </div>
                         </div>
                         
                         <div class="right-column" style="background-color: #FAF6F0 !important; border: 2px solid #621D26 !important; border-radius: 16px !important; padding: 28px !important; box-shadow: 0 12px 28px rgba(107, 31, 42, 0.06) !important;">
-                            <span class="badge badge-selected" style="display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; color: #FFFFFF !important; background-color: #621D26 !important; padding: 4px 10px !important; border-radius: 980px !important; margin-bottom: 16px !important; letter-spacing: 0.06em !important;">V2 PIVOT</span>
-                            <h3 style="margin-top: 0 !important; font-size: 24px !important; font-weight: 300 !important; color: #621D26 !important; font-family: 'Cormorant Garamond', serif !important;">V2 &mdash; 4-Step Intent Flow</h3>
+                            <h3 style="margin-top: 0 !important; font-size: 24px !important; font-weight: 300 !important; color: #621D26 !important; font-family: 'Cormorant Garamond', serif !important;">V2: The 4-Step Intent Flow</h3>
                             
                             <div class="image-container" style="margin-bottom: 20px !important;">
                                 <img src="images/bearla-v02.gif" alt="Bearla V2 4-Step Intent Flow showing Tap-to-Pin annotation interface" style="width: 100% !important; border-radius: 8px !important; border: 1px solid #E8DFD3 !important;" />
-                                <p style="font-size: 13px !important; line-height: 1.4 !important; color: #6F5F4F !important; margin: 8px 0 0 0 !important; font-style: italic !important;">V2 Pivot Flow: By adding a dedicated annotation screen, users could pin text notes to specific spots on the drawing, resolving ambiguity before checkout.</p>
+                                <p style="font-size: 13px !important; line-height: 1.4 !important; color: #6F5F4F !important; margin: 8px 0 0 0 !important; font-style: italic !important;">Second try: Adding the Tap-to-Pin annotation step to resolve ambiguity before paying.</p>
                             </div>
 
-                            <p style="font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 16px !important;"><strong>V2 &mdash; 4-Step Intent Flow:</strong> That repeated pattern &mdash; people needing a way to say what mattered, not just trusting me to guess &mdash; is what led directly to Tap-to-Pin: a dedicated annotation step where customers pin specific instructions onto their own drawing before moving to checkout. It's the same thing I was already doing by hand on real Golaab orders, turned into an actual step in the flow instead of something that only happened if I remembered to ask.</p>
+                            <p style="font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 16px !important;">Based on what I observed, I changed the design by adding the Tap-to-Pin annotation step. Customers pin specific notes directly onto their drawing, converting a manual conversation into a clear step in the checkout flow. It's the same thing I was already doing by hand on real Golaab orders, turned into an actual step in the flow instead of something that only happened if I remembered to ask.</p>
                             
                             <div style="border-top: 1px dashed #621D26 !important; padding-top: 16px !important; margin-top: 16px !important;">
-                                <strong style="color: #621D26 !important; font-size: 14px !important; font-family: 'Jost', sans-serif !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 8px !important;">The Insight:</strong>
-                                <p style="font-size: 15px !important; line-height: 1.6 !important; margin: 0 !important;">Adding a step here increased interaction cost, but removed the psychological friction that was actually stopping people. Letting customers explain their own drawing, in their own hand, is what got them to trust the process enough to commit.</p>
+                                <strong style="color: #621D26 !important; font-size: 14px !important; font-family: 'Jost', sans-serif !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 8px !important;">What I learned:</strong>
+                                <p style="font-size: 15px !important; line-height: 1.6 !important; margin: 0 !important;">Adding a step increased the interaction effort, but it removed the psychological worry that kept people from ordering. Letting customers explain their sketch in their own words built enough confidence to complete the order.</p>
                             </div>
                         </div>
                     </div>
