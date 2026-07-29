@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>The Museum Companion - Viola</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/main.css?v=4.4" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+
+<body class="is-preload museum-page">
+    
+    <div id="wrapper">
+
+        <header id="header">
+    <a href="index.html" class="logo">
+        <strong class="logo-text-desktop">Museum</strong>
+        <span class="logo-sub-desktop">Case Study</span>
+        <strong class="logo-text-mobile">Museum</strong>
+    </a>
+    <nav>
+        <a href="index.html" class="button">Back to Home</a>
+    </nav>
+</header>
+
+        <nav class="nav-container" id="nav-container">
+            <a href="#empathize" class="nav-segment" id="seg-empathize" title="Empathize">1. Empathize</a>
+            <a href="#define" class="nav-segment" id="seg-define" title="Define">2. Define</a>
+            <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
+            <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
+            <a href="#systems" class="nav-segment" id="seg-systems" title="Systems">5. Systems</a>
+        </nav>
+
+        <div id="main" class="alt">
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h1>The Museum Companion</h1>
+                    </header>
+
+                    <section id="empathize">
+                        <h2>Project Overview</h2>
+                        <p>The Museum Planning Companion is a digital tool designed to bridge the gap between educational goals and logistical reality. By providing a centralized planning space, it transforms the field trip experience for educators, allowing them to focus on learning rather than logistics.</p>
+                    </section>
+
+                    <section id="define">
+                        <h2>The Problem</h2>
+                        <p>Tara, an elementary school teacher managing groups of 20+ students, struggles to maintain group safety and cohesion because she lacks a centralized tool to calculate required chaperone-to-student ratios and obtain a clear, accessibility-aware guide for movement, dining, and seating within the museum.</p>
+                    </section>
+
+                    <section id="ideate">
+                        <h2>Big Picture Storyboard</h2>
+                        <p>The following storyboard illustrates Tara’s journey from the frustration of manual, disorganized coordination to the confidence of a prepared, data-driven visit. It visualizes how the app acts as a bridge, allowing her to focus less on administration and more on the learning experience.</p>
+                        <div class="image main"><img src="images/BigPictureStoryboard.png" alt="Big picture storyboard showing Tara planning a museum trip" /></div>
+
+                        <hr />
+
+                        <h2>Close-Up Storyboard</h2>
+                        <p>The Close-Up storyboard details the specific product interactions Tara uses to achieve her goal. This walkthrough highlights the flow of actions within the museum app.</p>
+                        <div class="image main"><img src="images/CloseUpStoryboard.png" alt="Close-Up storyboard showing product interaction flow" /></div>
+                    </section>
+
+                    <section id="prototype">
+                        <h2>Prototype</h2>
+                        <p>This prototype demonstrates the "Universal Design with Dynamic Defaults" approach. By remembering Tara's accessibility needs from the calculator step, the system dynamically adapts the floor plan to highlight necessary routes, dining, and seating areas automatically.</p>
+                        <div class="image main"><img src="images/Prototype.png" alt="Low-Fi Prototype" /></div>
+ 
+                        <div class="prototype-link-container">
+                            <a href="https://www.figma.com/proto/SlGRK37qhBlTdAbJGGZqaK/Museum-Comp?node-id=1685-25&p=f&t=hLdZA1IeQ5J6q7bM-1&scaling=scale-down&content-scaling=fixed&page-id=1591%3A2&starting-point-node-id=1685%3A25" target="_blank" class="button figma-button">View Lo-Fi Prototype</a>
+                            <a href="https://www.figma.com/proto/SlGRK37qhBlTdAbJGGZqaK/Museum-Comp?node-id=1779-222&p=f&t=B2qsluUPWVdEemwF-0&scaling=scale-down&content-scaling=fixed&page-id=1632%3A2&starting-point-node-id=1779%3A222" target="_blank" class="button figma-button">View Hi-Fi Prototype</a>
+                        </div>
+
+                        <hr />
+
+                        <h2>Iteration 01: The Functional MVP Blueprint</h2>
+                        <p>The initial launch layout established the core user flow from logistics calculation to floor plan generation, prioritizing quick task completion for educators.</p>
+                        <div class="image main"><img src="images/hifi01.png" alt="Iteration 01: High-Fidelity MVP Blueprint" /></div>
+                    </section>
+
+                    <section id="systems">
+                        <h2>Systems Optimization & Defensive Design</h2>
+                        <p>As a product designer with a Computer Engineering background, I don't design for static canvases—I design for dynamic, unpredictable backend data. Reviewing Iteration 0 revealed critical production vulnerabilities that required programmatic and structural layout overhauls.</p>
+
+                        <div class="iteration-grid">
+                            <div class="iteration-card phase-0">
+                                <div class="badge">Phase 0: The Baseline MVP</div>
+                                <h4>The Truncation Risk</h4>
+                                <ul>
+                                    <li><strong>The Layout:</strong> A 2x2 grid layout for upcoming schedules.</li>
+                                    <li><strong>The Failure:</strong> Forcing a linear sequence into a grid increased cognitive load. More importantly, it failed defensive design parameters: variable server strings like "Museum of Civilization" were truncated into "Museum of Civilizat...", breaking data integrity.</li>
+                                </ul>
+                            </div>
+
+                            <div class="iteration-card phase-1">
+                                <div class="badge">Phase 1: The Heuristic Redesign</div>
+                                <h4>Data Density Overhaul</h4>
+                                <ul>
+                                    <li><strong>The Layout:</strong> Transformed the grid into a linear vertical timeline. Added rich operational metrics tracking consent slips ("21/28") and color-coded status pills.</li>
+                                    <li><strong>The Critique:</strong> While it solved text truncation and provided high-utility metrics, a deep architectural review exposed <em>information redundancy</em>—the active upcoming trip was duplicated in the pipeline list below, cluttering screen space.</li>
+                                </ul>
+                            </div>
+
+                            <div class="iteration-card phase-2">
+                                <div class="badge">Phase 2: The Production-Ready State</div>
+                                <h4>Logic-Filtered UI</h4>
+                                <ul>
+                                    <li><strong>The Layout:</strong> Implemented backend query logic rules directly into the interface architecture.</li>
+                                    <li><strong>The Solution:</strong> The primary header card retains the absolute next active trip requiring immediate action. The 'Upcoming Trips' list dynamically filters out the active ID, displaying only the subsequent pipeline. This eliminated redundant components, optimized white space, and preserved dynamic data flexibility.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // This watches the sections as they hit the middle of the viewport
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px", 
+            threshold: 0 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 1. Remove 'active' from all
+                    document.querySelectorAll('.nav-segment').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // 2. Add 'active' only to the one currently in view
+                    const activeId = entry.target.id;
+                    const activeLink = document.querySelector(`.nav-segment[href="#${activeId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        // Keep active link visible in horizontal scroll container
+                        activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Watch all your sections
+        ['empathize', 'define', 'ideate', 'prototype', 'systems'].forEach(id => {
+            const section = document.getElementById(id);
+            if (section) observer.observe(section);
+        });
+    });
+    </script>
+</body>
+</html>
