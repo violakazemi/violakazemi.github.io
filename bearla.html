@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.98" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.99" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -306,14 +306,19 @@
                                 <li><strong>Trust Precedes Conversion:</strong> For highly custom, emotional products, showing the transformation process before forcing account creation or checkout is essential for driving conversions.</li>
                                 <li><strong>Responsive Cohesion:</strong> Designing modular grid components made it seamless to scale rich brand storytelling from desktop down to mobile viewports without sacrificing performance or clarity.</li>
                             </ul>
-
-                            <h3 style="margin-top: 32px !important;">Next Steps</h3>
-                            <ul class="challenge-list">
-                                <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
-                                <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
-                            </ul>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Next Steps -->
+            <section id="next-steps" style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 48px; margin-top: 48px;">
+                <div class="inner">
+                    <h2>Next Steps</h2>
+                    <ul class="challenge-list">
+                        <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
+                        <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -357,6 +362,8 @@
                     
                     if (activeId === 'hero-section') {
                         targetId = 'empathize';
+                    } else if (activeId === 'next-steps') {
+                        targetId = 'accessibility';
                     }
                     
                     const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
@@ -368,7 +375,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility'].forEach(id => {
+        ['hero-section', 'empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility', 'next-steps'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
