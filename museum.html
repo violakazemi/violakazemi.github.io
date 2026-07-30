@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.95" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.96" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -357,32 +357,26 @@
 
                     <section id="validation">
         <div class="inner">
-            <h2>System Validation & Usability Testing</h2>
-                        <p>Validated interface architecture through targeted usability studies, focusing on task execution velocity and cognitive load reduction for high-stakes logistics management.</p>
+            <h2>Usability Testing</h2>
+                        <p>I tested the prototype against a real scenario: log in, check an upcoming trip's approval status, calculate the chaperone ratio for 25 students, and export an accessible route map.</p>
 
                         <div class="usability-breakdown">
-                          <h3>The Testing Methodology</h3>
-                          <p>I benchmarked the interactive prototype against a core user scenario: <em>"As an educator, log in, verify the approval status of your upcoming trip, calculate the mandatory chaperone-to-student ratio for 25 youth, and export an accessible route map."</em></p>
-
                           <div class="test-insights-grid">
                             
                             <div class="insight-card">
-                              <span class="insight-badge">P0 - CRITICAL FRAMEWORK</span>
-                              <h4>Insight 1: Logic-Filtered Clarity</h4>
+                              <h4>Insight 1: Educators could find what they needed, fast</h4>
                               <p><strong>The Data:</strong> 100% of participants successfully identified the status of the immediate upcoming trip within 2.5 seconds of dashboard landing.</p>
                               <p><strong>The Impact:</strong> Our first layout clumped all historical and upcoming field trips together, causing teachers to accidentally click past events. In our final revision, we built an automated sorting filter that pins the current week's trip to the very top of the screen. This small logic adjustment dropped user identification time down to 2.5 seconds.</p>
                             </div>
 
                             <div class="insight-card">
-                              <span class="insight-badge">P1 - USER EXPERIENCE ITERATION</span>
-                              <h4>Insight 2: Operational Data Validation</h4>
+                              <h4>Insight 2: Teachers wanted a faster way to act on the data</h4>
                               <p><strong>The Data:</strong> Educators noted that the "Student Slips" ratio was the most critical administrative metric on the screen.</p>
                               <p><strong>The Impact:</strong> During testing, users requested an immediate action trigger directly from the card state. This behavioral insight justifies a future iteration: introducing a "Send Reminder Ping" micro-action toggle directly inside the pending trip component to close the administrative loop faster.</p>
                             </div>
 
                             <div class="insight-card">
-                              <span class="insight-badge">P0 - SYSTEM COMPLIANCE REGULATION</span>
-                              <h4>Insight 3: Form Input Optimization</h4>
+                              <h4>Insight 3: Pre-filled defaults prevented calculation errors</h4>
                               <p><strong>The Data:</strong> The "Dynamic Defaults" system reduced form calculation errors to 0%.</p>
                               <p><strong>The Impact:</strong> School boards enforce strict legal limits on chaperone-to-student ratios, but teachers often lose time hunting through school PDF handbooks to find the rules. We removed this math burden entirely by building standard board policy constants directly into the input fields as automatic defaults. If a user enters '25 students,' the input engine automatically dictates the exact number of required adult supervisors, entirely preventing compliance submission rejections before finalization.</p>
                             </div>
@@ -390,42 +384,11 @@
                           </div>
                         </div>
 
-                          <div class="compliance-section" style="margin-top: 48px; border-top: 1px solid #d2d2d7; padding-top: 32px;">
-                            <h3 style="font-size: 24px; font-weight: 600; color: #1d1d1f; margin-bottom: 24px;">Design Readiness &amp; Compliance</h3>
-                            <div class="table-wrapper">
-                              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; line-height: 1.5; min-width: 700px;">
-                                <thead>
-                                  <tr style="border-bottom: 1px solid #d2d2d7; color: #86868b; font-weight: 500;">
-                                    <th style="padding: 12px 16px;">Quality Assurance Criteria</th>
-                                    <th style="padding: 12px 16px;">System Resolution</th>
-                                    <th style="padding: 12px 16px; text-align: right;">Status</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr style="border-bottom: 1px solid #e8e8ed;">
-                                    <td style="padding: 16px; font-weight: 600; color: #1d1d1f;">Data Asset Finalization</td>
-                                    <td style="padding: 16px; color: #515154;">All wireframe placeholders, generic icons, and clipped server strings replaced with high-density production assets.</td>
-                                    <td style="padding: 16px; text-align: right; color: #00875a; font-weight: 600;">✓ PASSED</td>
-                                  </tr>
-                                  <tr style="border-bottom: 1px solid #e8e8ed;">
-                                    <td style="padding: 16px; font-weight: 600; color: #1d1d1f;">Platform Design Patterns</td>
-                                    <td style="padding: 16px; color: #515154;">Adheres directly to mobile human interface standards using bottom-anchored thumb-zone action keys and clear navigation hierarchy.</td>
-                                    <td style="padding: 16px; text-align: right; color: #00875a; font-weight: 600;">✓ PASSED</td>
-                                  </tr>
-                                  <tr style="border-bottom: 1px solid #e8e8ed;">
-                                    <td style="padding: 16px; font-weight: 600; color: #1d1d1f;">Defensive Error Boundaries</td>
-                                    <td style="padding: 16px; color: #515154;">Logistics engine runs automatic server-side calculation checks to block compliance progression if legal chaperone ratios fail.</td>
-                                    <td style="padding: 16px; text-align: right; color: #00875a; font-weight: 600;">✓ PASSED</td>
-                                  </tr>
-                                  <tr style="border-bottom: 1px solid #e8e8ed;">
-                                    <td style="padding: 16px; font-weight: 600; color: #1d1d1f;">Inclusive Accessibility</td>
-                                    <td style="padding: 16px; color: #515154;">Features direct dynamic toggle layers to adjust map views for physical mobility accommodations, dining spacing, and low-stress navigation.</td>
-                                    <td style="padding: 16px; text-align: right; color: #00875a; font-weight: 600;">✓ PASSED</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
+                        <div class="compliance-section" style="margin-top: 48px; border-top: 1px solid #d2d2d7; padding-top: 32px;">
+                          <p>By this point, I'd replaced all placeholder content with real production assets, aligned the layout to standard mobile interaction patterns (bottom thumb-zone actions, clear hierarchy), added server-side checks so the logistics calculator can't let a trip proceed with an unsafe chaperone ratio, and built in accessibility toggles for mobility, dining, and low-stress navigation needs.</p>
+                        </div>
+        </div>
+    </section>
         </div>
     </section>
 
