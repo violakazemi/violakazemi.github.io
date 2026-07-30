@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=16.94" />
+    <link rel="stylesheet" href="assets/css/main.css?v=16.95" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -33,7 +33,7 @@
             <a href="#competitive-analysis" class="nav-segment" id="seg-gaps" title="Competitive Gaps">2. Competitive Gaps</a>
             <a href="#journey-analysis" class="nav-segment" id="seg-journey" title="User Journey">3. User Journey</a>
             <a href="#userflow" class="nav-segment" id="seg-framework" title="System Framework">4. System Framework</a>
-            <a href="#systems" class="nav-segment" id="seg-defensive" title="Defensive Iterations">5. Defensive Iterations</a>
+            <a href="#systems" class="nav-segment" id="seg-defensive" title="Refining the Dashboard">5. Refining the Dashboard</a>
         </nav>
 
         <div id="main" class="alt">
@@ -298,52 +298,52 @@
 
                     <section id="systems">
         <div class="inner">
-            <h2>Systems Optimization & Defensive Design</h2>
-                        <p>I designed for dynamic backend data rather than static screens. Reviewing the initial iteration revealed production vulnerabilities that necessitated structural layout overhauls.</p>
+            <h2>Refining the Dashboard</h2>
+                        <p>Once I had a working MVP, I realized I'd designed for a "perfect" screen — not for what real data actually looks like. Testing with longer trip names and more entries broke the layout in a few places, so I went through several rounds of fixes:</p>
 
                         <div class="apple-bento-grid">
 
                           <!-- Tile 1 -->
                           <div class="apple-tile">
                             <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase0.png" alt="Phase 0: The Truncation Defect" />
+                              <img src="images/dashboard_phase0.png" alt="First pass — text was getting cut off with longer trip names" />
                             </div>
                             <div class="tile-text-content">
-                              <span class="phase-pill">Phase 0 • MVP</span>
-                              <h4 class="tile-title">The Truncation Defect</h4>
+                              <span class="phase-pill">First pass</span>
+                              <h4 class="tile-title">Text was getting cut off with longer trip names</h4>
                             </div>
                           </div>
 
                           <!-- Tile 2 -->
                           <div class="apple-tile">
                             <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase1.png" alt="Phase 1: The Text-Wrap Fix" />
+                              <img src="images/dashboard_phase1.png" alt="Fix 1 — let text wrap instead of clipping" />
                             </div>
                             <div class="tile-text-content">
-                              <span class="phase-pill">Phase 1 • Patch</span>
-                              <h4 class="tile-title">The Text-Wrap Fix</h4>
+                              <span class="phase-pill">Fix 1</span>
+                              <h4 class="tile-title">Let text wrap instead of clipping</h4>
                             </div>
                           </div>
 
                           <!-- Tile 3 -->
                           <div class="apple-tile">
                             <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase2.png" alt="Phase 2: The Linear Timeline" />
+                              <img src="images/dashboard_phase2.png" alt="Fix 2 — switched to a clearer linear timeline layout" />
                             </div>
                             <div class="tile-text-content">
-                              <span class="phase-pill">Phase 2 • Layout</span>
-                              <h4 class="tile-title">The Linear Timeline</h4>
+                              <span class="phase-pill">Fix 2</span>
+                              <h4 class="tile-title">Switched to a clearer linear timeline layout</h4>
                             </div>
                           </div>
 
                           <!-- Tile 4 -->
                           <div class="apple-tile">
                             <div class="tile-image-wrapper">
-                              <img src="images/dashboard_phase3.png" alt="Phase 3: Logic-Filtered Data" />
+                              <img src="images/dashboard_phase3.png" alt="Final pass — filtered out duplicate/irrelevant data so the dashboard only shows what's actionable" />
                             </div>
                             <div class="tile-text-content">
-                              <span class="phase-pill">Phase 3 • System</span>
-                              <h4 class="tile-title">Logic-Filtered Data</h4>
+                              <span class="phase-pill">Final pass</span>
+                              <h4 class="tile-title">Filtered out duplicate/irrelevant data so the dashboard only shows what's actionable</h4>
                             </div>
                           </div>
 
