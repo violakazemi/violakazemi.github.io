@@ -8,9 +8,63 @@
 }
 
 :root {
-    --bg-color: #FFFFFF;
-    --text-color: #333333; /* Dark gray is easier to read on light backgrounds */
-    --accent-color: #000000; 
+    /* 1. Typography */
+    --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    
+    /* Type Scale (Desktop -> Tablet -> Mobile via clamp) */
+    --fs-h1: clamp(2.125rem, 5vw + 1rem, 3.5rem);      /* 34px - 56px */
+    --fs-h2: clamp(1.625rem, 3.5vw + 1rem, 2.5rem);    /* 26px - 40px */
+    --fs-h3: clamp(1.25rem, 2vw + 1rem, 1.75rem);      /* 20px - 28px */
+    --fs-body: clamp(1.0625rem, 1vw + 0.9rem, 1.3125rem); /* 17px - 21px */
+    --fs-small: clamp(0.8125rem, 0.5vw + 0.75rem, 0.9375rem); /* 13px - 15px */
+
+    /* Text & Page Colors */
+    --color-text-primary: #1d1d1f;   /* Apple's near-black */
+    --color-text-secondary: #6e6e73; /* muted gray for secondary/supporting text */
+    --color-bg-page: #ffffff;
+    --color-bg-section-alt: #f5f5f7; /* soft off-white for alternating sections */
+
+    /* Apple Palette Aliases (legacy compatibility) */
+    --apple-bg-light: #ffffff;
+    --apple-bg-gray: #f5f5f7;
+    --apple-text-primary: #1d1d1f;
+    --apple-text-secondary: #6e6e73;
+    --apple-text-muted: #86868b;
+    --apple-blue: #0071e3;
+    --apple-blue-hover: #0077ed;
+    --apple-border: #d2d2d7;
+    --apple-badge-bg: #e8e8ed;
+    --apple-grid-padding-left: max(12px, calc((100% - 1200px) / 2 + 12px));
+
+    /* 2. Spacing System (8px base grid) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-7: 96px;
+    --space-8: 120px;
+
+    /* 3. Shadows & Elevation */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.10);
+
+    /* 4. Border Radius */
+    --radius-sm: 8px;     /* small elements, tags, badges */
+    --radius-md: 18px;    /* cards, images, containers */
+    --radius-lg: 28px;    /* hero sections, large feature blocks */
+    --radius-pill: 999px; /* buttons, status badges */
+
+    /* 5. Interactive Elements & Accessibility */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* 6. Breakpoints */
+    --bp-mobile: 734px;
+    --bp-tablet: 1068px;
+    --bp-desktop: 1441px;
 }
 
 article, aside, details, figcaption, figure,
@@ -3898,21 +3952,37 @@ article header.major {
 }
 
 .button {
-    /* Existing styles here */
-    border: 2px solid #000000; /* Maintains the solid border */
-    box-shadow: 4px 4px 0px 0px #000000; /* This creates the hard shadow effect */
-    transition: transform 0.1s ease, box-shadow 0.1s ease !important;
-	background-color: #FFA552;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--apple-blue) !important;
+    color: #FFFFFF !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    padding: 14px 28px !important;
+    height: 48px !important; /* Meets min 44px tap target constraint */
+    min-width: 44px !important;
+    border-radius: var(--radius-pill) !important;
+    border: none !important;
+    box-shadow: none !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: transform var(--transition-fast), background-color var(--transition-fast) !important;
 }
 
 .button:hover {
-    box-shadow: 2px 2px 0px 0px #000000 !important;
-    transform: translate(2px, 2px) !important;
+    background-color: var(--apple-blue-hover) !important;
+    color: #FFFFFF !important;
+    transform: scale(1.02) !important;
+    box-shadow: none !important;
 }
 
 .button:active {
-    box-shadow: 0px 0px 0px 0px #000000 !important;
-    transform: translate(4px, 4px) !important;
+    transform: scale(0.98) !important;
+    box-shadow: none !important;
 }
 
 .experience-list .title {
@@ -4330,18 +4400,23 @@ html, body {
 
 /* Fluid Typography Clamping */
 h1 {
-    font-size: clamp(28px, 5vw, 56px) !important;
-    line-height: 1.15 !important;
+    font-size: var(--fs-h1) !important;
+    line-height: 1.1 !important;
 }
 
 h2 {
-    font-size: clamp(22px, 3.5vw, 36px) !important;
-    line-height: 1.25 !important;
+    font-size: var(--fs-h2) !important;
+    line-height: 1.1 !important;
 }
 
 h3 {
-    font-size: clamp(18px, 2.5vw, 24px) !important;
-    line-height: 1.35 !important;
+    font-size: var(--fs-h3) !important;
+    line-height: 1.2 !important;
+}
+
+p {
+    font-size: var(--fs-body) !important;
+    line-height: 1.55 !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -4788,23 +4863,9 @@ html {
     }
 }
 
-/* Definitive Apple.com Color Palette overrides */
-:root {
-    --apple-bg-light: #FFFFFF;
-    --apple-bg-gray: #F5F5F7;
-    --apple-text-primary: #1D1D1F;
-    --apple-text-secondary: #6E6E73;
-    --apple-text-muted: #86868B;
-    --apple-blue: #0071E3;
-    --apple-blue-hover: #0077ED;
-    --apple-border: #D2D2D7;
-    --apple-badge-bg: #E8E8ED;
-    --apple-grid-padding-left: max(12px, calc((100% - 1200px) / 2 + 12px));
-}
-
 /* Global Apple System Font Stack Overrides */
 body, input, select, textarea, button, h1, h2, h3, h4, h5, h6, .button, .nav-segment, p, span, li, a {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif !important;
+    font-family: var(--font-primary) !important;
 }
 
 /* Ensure Font Awesome classes retain icon rendering fonts */
@@ -4822,6 +4883,62 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em !important;
     text-transform: none !important;
     border-bottom: none !important;
+}
+
+/* Apple-style readability constraint for body text */
+#main section p,
+.hero-text-content p,
+.takeaways p {
+    max-width: 680px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important; /* Keep it left-aligned */
+}
+
+/* Links in body text styling */
+p a, li a {
+    color: var(--apple-blue) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: color var(--transition-fast), border-color var(--transition-fast) !important;
+}
+
+p a:hover, li a:hover {
+    color: var(--apple-blue-hover) !important;
+    border-bottom: 1px solid var(--apple-blue-hover) !important;
+}
+
+/* Tap Target Minimums for Accessibility */
+#footer ul.icons a,
+.nav-container a,
+#header nav a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Visible scrollbar scroll-affordance for tables on mobile */
+.table-wrapper {
+    overflow-x: auto !important;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    height: 8px !important;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03) !important;
+    border-radius: var(--radius-pill) !important;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15) !important;
+    border-radius: var(--radius-pill) !important;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3) !important;
 }
 
 #wrapper {
@@ -5580,10 +5697,10 @@ body.museum-page,
 
 .museum-page #main section[id]:not(#one):not(#bottom-nav) {
     background-color: #FFFFFF !important;
-    border-radius: 18px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
-    padding: 48px !important;
-    margin: 48px auto !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-sm) !important;
+    padding: var(--space-5) !important;
+    margin: var(--space-7) auto !important;
     max-width: 1000px !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -6626,10 +6743,10 @@ body.bearla-page,
 /* Floating White Bento-style Cards Over Lavender */
 .mechmarket-page #main section {
     background-color: #FFFFFF !important; /* Pure White Surfaces */
-    border-radius: 18px !important; /* Soft corners */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
-    padding: 48px !important;
-    margin: 48px auto !important; /* Luxury whitespace padding */
+    border-radius: var(--radius-md) !important; /* Soft corners */
+    box-shadow: var(--shadow-sm) !important;
+    padding: var(--space-5) !important;
+    margin: var(--space-7) auto !important; /* Luxury whitespace padding */
     max-width: 1000px !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -6638,11 +6755,11 @@ body.bearla-page,
 
 .bearla-page #main section {
     background-color: #FFFFFF !important; /* Pure White Surface */
-    border-radius: 20px !important; /* Smooth Apple rounded corners */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    border-radius: var(--radius-md) !important; /* Smooth Apple rounded corners */
+    box-shadow: var(--shadow-sm) !important;
     border: 1px solid rgba(216, 203, 183, 0.35) !important;
-    padding: 48px !important;
-    margin: 48px auto !important; /* Luxury whitespace padding */
+    padding: var(--space-5) !important;
+    margin: var(--space-7) auto !important; /* Luxury whitespace padding */
     max-width: 1000px !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -7114,11 +7231,12 @@ body.bearla-page,
         max-width: 100% !important;
     }
 
+    .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
     .bearla-page #main section {
-        padding: 32px 24px !important;
-        margin: 32px auto !important;
-        border-radius: 14px !important;
+        padding: var(--space-3) !important; /* 24px mobile padding */
+        margin: var(--space-5) auto !important; /* 48px mobile margin */
+        border-radius: var(--radius-md) !important; /* 18px radius */
         width: calc(100% - 32px) !important;
         max-width: calc(100% - 32px) !important;
         box-sizing: border-box !important;
@@ -7175,13 +7293,14 @@ body.bearla-page,
         margin-top: 12px !important;
         margin-bottom: 16px !important;
     }
+    .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
     .bearla-page #main section {
-        width: calc(100% - 32px) !important;
-        max-width: calc(100% - 32px) !important;
-        margin: 24px auto !important;
-        padding: 24px 20px !important;
-        border-radius: 14px !important;
+        width: calc(100% - 24px) !important;
+        max-width: calc(100% - 24px) !important;
+        margin: var(--space-3) auto !important; /* 24px margin */
+        padding: var(--space-3) 20px !important; /* 24px top/bottom, 20px left/right */
+        border-radius: var(--radius-md) !important; /* 18px radius */
     }
     .mechmarket-page #main section .inner,
     .bearla-page #main section .inner {
