@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.05" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.06" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -30,9 +30,9 @@
 
         <nav class="nav-container" id="nav-container">
             <a href="#empathize" class="nav-segment" id="seg-overview" title="Product Overview">1. Product Overview</a>
-            <a href="#competitive-analysis" class="nav-segment" id="seg-gaps" title="Competitive Gaps">2. Competitive Gaps</a>
+            <a href="#competitive-analysis" class="nav-segment" id="seg-gaps" title="Competitive Review">2. Competitive Review</a>
             <a href="#journey-analysis" class="nav-segment" id="seg-journey" title="User Journey">3. User Journey</a>
-            <a href="#userflow" class="nav-segment" id="seg-framework" title="System Framework">4. System Framework</a>
+            <a href="#userflow" class="nav-segment" id="seg-framework" title="User Flow">4. User Flow</a>
             <a href="#systems" class="nav-segment" id="seg-defensive" title="Refining the Dashboard">5. Refining the Dashboard</a>
         </nav>
 
@@ -122,8 +122,8 @@
                             <li>Deep cultural content vs. streamlined booking — no competitor offers both</li>
                         </ul>
                         
-                        <p>This revealed two clear gaps: a <strong>Logistical Context Gap</strong> — no platform bridges cultural content with real group-logistics needs — and an <strong>Accessibility-as-a-Feature Gap</strong> — accessibility info is currently a downloadable document rather than a living part of the planning experience.</p>
-                        <p>These gaps directly shaped my goal: build a planning companion that pairs curriculum-linked content with real-time, accessibility-aware logistics, measured by reduced time spent on booking tasks and increased educator confidence around accessibility needs.</p>
+                        <p>This study revealed two clear opportunities: first, no existing platform connects the museum's educational content with the actual logistics of running a group trip; second, accessibility information is currently buried in static PDFs rather than being built directly into the planning tools.</p>
+                        <p>This shaped my goal: build a planning companion that pairs educational content with real-time, accessibility-focused logistics, making the planning process much faster and more reassuring for educators.</p>
         </div>
     </section>
 
@@ -428,20 +428,17 @@
                             
                             <div class="insight-card">
                               <h4>Insight 1: Educators could find what they needed, fast</h4>
-                              <p><strong>The Data:</strong> 100% of participants successfully identified the status of the immediate upcoming trip within 2.5 seconds of dashboard landing.</p>
-                              <p><strong>The Impact:</strong> Our first layout clumped all historical and upcoming field trips together, causing teachers to accidentally click past events. In our final revision, we built an automated sorting filter that pins the current week's trip to the very top of the screen. This small logic adjustment dropped user identification time down to 2.5 seconds.</p>
+                              <p>During testing, all participants successfully identified the status of their upcoming trip within 2.5 seconds of landing on the dashboard. In my first layout, historical and upcoming field trips were clumped together, causing teachers to click past events by mistake. I fixed this by building an automated sorting filter that pins the current week's trip to the very top of the screen, which dropped user identification time down to a fraction of a second.</p>
                             </div>
 
                             <div class="insight-card">
                               <h4>Insight 2: Teachers wanted a faster way to act on the data</h4>
-                              <p><strong>The Data:</strong> Educators noted that the "Student Slips" ratio was the most critical administrative metric on the screen.</p>
-                              <p><strong>The Impact:</strong> During testing, users requested an immediate action trigger directly from the card state. This behavioral insight justifies a future iteration: introducing a "Send Reminder Ping" micro-action toggle directly inside the pending trip component to close the administrative loop faster.</p>
+                              <p>Educators pointed out that keeping track of returned student slips was the most critical daily task. During testing, they requested a way to act on this data directly from the card state. Based on this, I added a "Send Reminder Ping" micro-action toggle directly inside the pending trip card to help teachers follow up with parents and close the administrative loop faster.</p>
                             </div>
 
                             <div class="insight-card">
                               <h4>Insight 3: Pre-filled defaults prevented calculation errors</h4>
-                              <p><strong>The Data:</strong> The "Dynamic Defaults" system reduced form calculation errors to 0%.</p>
-                              <p><strong>The Impact:</strong> School boards enforce strict legal limits on chaperone-to-student ratios, but teachers often lose time hunting through school PDF handbooks to find the rules. We removed this math burden entirely by building standard board policy constants directly into the input fields as automatic defaults. If a user enters '25 students,' the input engine automatically dictates the exact number of required adult supervisors, entirely preventing compliance submission rejections before finalization.</p>
+                              <p>By building standard school board ratios directly into the form inputs as automatic defaults, the "Dynamic Defaults" system reduced ratio calculation errors to zero. School boards enforce strict legal chaperone-to-student ratios, but teachers often waste time hunting through PDF handbooks to find the rules. Pre-filling these guidelines automatically when a user enters their student count prevents ratio compliance rejections entirely before final submission.</p>
                             </div>
 
                           </div>
