@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@500;700&display=swap');
 @import url(fontawesome-all.min.css);
 
 *, *:before, *:after {
@@ -102,14 +101,7 @@ mark {
 
 
 
-body {
-    font-family: 'Inter', sans-serif;
-}
-
-.nav-segment {
-    font-family: 'Syne', sans-serif; /* Use Syne for the nav buttons */
-    /* ... rest of your existing CSS ... */
-}
+/* Font setup handled globally by var(--font-primary) */
 
 /* Basic */
 
@@ -145,36 +137,12 @@ body {
 
 	body, input, select, textarea {
 	color: var(--text-color); 
-	font-family: 'Inter', Helvetica, sans-serif;
-	font-size: 16pt;
+	font-family: var(--font-primary) !important;
+	font-size: var(--fs-body) !important;
 	font-weight: 400;
 	letter-spacing: 0.01em;
 	line-height: 1.65;
 }
-
-		@media screen and (max-width: 1680px) {
-
-			body, input, select, textarea {
-				font-size: 14pt;
-			}
-
-		}
-
-		@media screen and (max-width: 1280px) {
-
-			body, input, select, textarea {
-				font-size: 12pt;
-			}
-
-		}
-
-		@media screen and (max-width: 360px) {
-
-			body, input, select, textarea {
-				font-size: 11pt;
-			}
-
-		}
 
 	a {
 		
@@ -208,9 +176,9 @@ body {
 
 	h1, h2, h3, h4, h5, h6 {
 	color: #111111;
-	font-family: 'Space Grotesk', sans-serif;
-	font-weight: 700;
-	line-height: 1.4;
+	font-family: var(--font-primary) !important;
+	font-weight: 600;
+	line-height: 1.2;
 	margin: 0 0 1em 0;
 }
 
@@ -220,43 +188,27 @@ body {
 		}
 
 	h1 {
-		font-size: 2.5em;
+		font-size: var(--fs-h1) !important;
 	}
 
 	h2 {
-		font-size: 1.75em;
+		font-size: var(--fs-h2) !important;
 	}
 
 	h3 {
-		font-size: 1.35em;
+		font-size: var(--fs-h3) !important;
 	}
 
 	h4 {
-		font-size: 1.1em;
+		font-size: 1.15em !important;
 	}
 
 	h5 {
-		font-size: 0.9em;
+		font-size: 1.0em !important;
 	}
 
 	h6 {
-		font-size: 0.7em;
-	}
-
-	@media screen and (max-width: 736px) {
-
-		h1 {
-			font-size: 2em;
-		}
-
-		h2 {
-			font-size: 1.5em;
-		}
-
-		h3 {
-			font-size: 1.25em;
-		}
-
+		font-size: 0.9em !important;
 	}
 
 	sub {
@@ -4248,7 +4200,7 @@ body {
     color: #000000;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-primary) !important;
     font-weight: 700;
     padding: 0 2em;
     height: 3.5em;
@@ -4644,8 +4596,8 @@ html {
 }
 
 #banner h2 {
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-size: 1.5em !important;
+    font-family: var(--font-primary) !important;
+    font-size: var(--fs-h2) !important;
     font-weight: 500 !important;
     color: #555555 !important;
     margin-top: -1em !important;
@@ -4655,10 +4607,10 @@ html {
 }
 
 #banner h1 {
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-size: 1.75em !important; /* Matches museum page h2 size on desktop */
+    font-family: var(--font-primary) !important;
+    font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
-    line-height: 1.4 !important;
+    line-height: 1.2 !important;
     color: #000000 !important; /* Matches case study heading color */
     margin-bottom: 0 !important; /* Header wrapper controls bottom margin */
     text-transform: none !important;
@@ -4670,8 +4622,8 @@ html {
 }
 
 #banner p {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 17px !important; /* Matches museum page p size on desktop */
+    font-family: var(--font-primary) !important;
+    font-size: var(--fs-body) !important;
     line-height: 1.65 !important;
     color: #000000 !important; /* Matches case study paragraph color */
     text-transform: none !important;
@@ -4790,7 +4742,7 @@ html {
 }
 
 .iteration-card h4 {
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     font-weight: 700 !important;
     font-size: 1.15em !important;
     margin-top: 0 !important;
@@ -6417,21 +6369,21 @@ body.bearla-page,
     border-radius: 50% !important;
     font-size: 26px !important;
     font-weight: 700 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     line-height: 1 !important;
 }
 
 .museum-hero .hero-title {
-    font-size: 56px !important;
+    font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
     color: #202020 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     margin: 0 !important;
     line-height: 1.1 !important;
 }
 
 .museum-hero .hero-subtitle {
-    font-size: 24px !important;
+    font-size: var(--fs-h3) !important;
     font-weight: 500 !important;
     color: rgba(32, 32, 32, 0.8) !important;
     margin-bottom: 32px !important;
@@ -6447,9 +6399,9 @@ body.bearla-page,
 }
 
 .museum-hero .metadata-item {
-    font-size: 16px !important;
+    font-size: var(--fs-small) !important;
     line-height: 1.4 !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-primary) !important;
     display: flex !important;
     flex-direction: row !important;
     gap: 8px !important;
@@ -6533,22 +6485,22 @@ body.bearla-page,
     border-radius: 50% !important;
     font-size: 26px !important;
     font-weight: 700 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     line-height: 1 !important;
     text-transform: lowercase !important;
 }
 
 .mechmarket-hero .hero-title {
-    font-size: 56px !important;
+    font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
     color: #202020 !important; /* Deep Charcoal title */
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     margin: 0 !important;
     line-height: 1.1 !important;
 }
 
 .mechmarket-hero .hero-subtitle {
-    font-size: 24px !important;
+    font-size: var(--fs-h3) !important;
     font-weight: 500 !important;
     color: rgba(32, 32, 32, 0.8) !important; /* Charcoal subtitle */
     margin-bottom: 24px !important;
@@ -6567,9 +6519,9 @@ body.bearla-page,
 }
 
 .mechmarket-hero .metadata-item {
-    font-size: 16px !important;
+    font-size: var(--fs-small) !important;
     line-height: 1.4 !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-primary) !important;
     display: flex !important;
     flex-direction: row !important;
     gap: 8px !important;
@@ -6666,20 +6618,20 @@ body.bearla-page,
 }
 
 .bearla-hero .hero-title {
-    font-size: 56px !important;
+    font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
     color: #1d1d1f !important;
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     margin: 0 0 20px 0 !important;
     line-height: 1.08 !important;
     letter-spacing: -0.025em !important;
 }
 
 .bearla-hero .hero-subtitle {
-    font-size: 21px !important;
+    font-size: var(--fs-body) !important;
     font-weight: 400 !important;
     color: rgba(29, 29, 31, 0.75) !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-primary) !important;
     max-width: 820px !important;
     margin: 0 auto 36px auto !important;
     line-height: 1.45 !important;
@@ -6698,7 +6650,7 @@ body.bearla-page,
 }
 
 .bearla-hero .metadata-item {
-    font-family: 'Inter', sans-serif !important;
+    font-family: var(--font-primary) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -6886,11 +6838,11 @@ body.bearla-page,
   --color-silver:        #B8B8B8; /* Silver */
   --color-resin:         #823D19; /* Korma */
 
-  --font-display:     'Cormorant Garamond', Georgia, serif; /* Light 300 */
-  --font-serif-body:  'Cormorant Garamond', Georgia, serif; /* Regular 400 */
-  --font-ui:          'Jost', sans-serif;
-  --font-micro:       'Inter', sans-serif;
-  --font-body:        'Cormorant Garamond', Georgia, serif;
+  --font-display:     var(--font-primary);
+  --font-serif-body:  var(--font-primary);
+  --font-ui:          var(--font-primary);
+  --font-micro:       var(--font-primary);
+  --font-body:        var(--font-primary);
 
   --space-1: 4px;
   --space-2: 8px;
@@ -7659,7 +7611,7 @@ body.bearla-page,
 }
 
 .logo-plate {
-    font-family: 'Space Grotesk', sans-serif !important;
+    font-family: var(--font-primary) !important;
     font-size: 18px !important;
     font-weight: 700 !important;
     color: rgba(32, 32, 32, 0.4) !important;
