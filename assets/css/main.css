@@ -8657,18 +8657,19 @@ body.bearla-page,
 
 /* Home Page Banner Card Style */
 .home-page #banner {
-    background: transparent !important;
+    background-color: #FFFFFF !important; /* Outer banner section is pure white */
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
     top: 0 !important;
-    margin: 40px auto 48px auto !important;
-    padding: 0 !important;
-    max-width: 1200px !important;
-    width: calc(100% - 96px) !important;
+    margin: 0 !important; /* Reset margin so it spans full width */
+    padding: 60px 0 !important; /* Beautiful top/bottom padding */
     display: block !important;
     box-shadow: none !important;
     border: none !important;
+    box-sizing: border-box !important;
 }
 
 .home-page #banner::after,
@@ -8676,11 +8677,18 @@ body.bearla-page,
     display: none !important;
 }
 
+.home-page #banner > .inner {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important; /* Matches .featured-projects-inner spacing perfectly */
+    box-sizing: border-box !important;
+}
+
 .home-page .hero-card-layout {
-    background-color: var(--apple-bg-light) !important; /* White background */
+    background-color: #f5f5f7 !important; /* Rectangle is light grey */
     border-radius: 24px !important; /* Premium rounded corner */
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important; /* Apple soft drop shadow */
-    padding: 64px !important;
+    padding: 56px !important; /* Cohesive card padding */
     display: grid !important;
     grid-template-columns: 1.4fr 0.6fr !important;
     gap: 48px !important;
@@ -8703,7 +8711,7 @@ body.bearla-page,
     align-items: center !important;
     gap: 8px !important;
     background-color: rgba(52, 199, 89, 0.1) !important;
-    border: 1px solid rgba(52, 199, 89, 0.2) !important;
+    border: 1px solid rgba(52, 199, 89, 0.15) !important;
     padding: 6px 14px !important;
     border-radius: 100px !important;
     margin-bottom: 24px !important;
@@ -8774,23 +8782,26 @@ body.bearla-page,
 .home-page .hero-avatar-img {
     width: 240px !important;
     height: 240px !important;
-    border-radius: 24px !important;
+    border-radius: 20px !important; /* Soft corners for avatar card */
     object-fit: cover !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
-    background-color: #f5f5f7 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+    background-color: #FFFFFF !important;
 }
 
 /* Mobile responsive styling */
 @media screen and (max-width: 991px) {
     .home-page #banner {
-        width: calc(100% - 48px) !important;
-        margin: 24px auto 32px auto !important;
+        padding: 40px 0 !important;
+    }
+    
+    .home-page #banner > .inner {
+        padding: 0 16px !important; /* Matches mobile padding */
     }
     
     .home-page .hero-card-layout {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
-        padding: 40px !important;
+        padding: 40px 32px !important;
     }
     
     .home-page .hero-image-content {
