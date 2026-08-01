@@ -8706,6 +8706,12 @@ body.bearla-page,
     text-align: left !important;
 }
 
+.home-page .hero-text-content > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+}
+
 .home-page .status-pill {
     display: inline-flex !important;
     align-items: center !important;
