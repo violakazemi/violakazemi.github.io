@@ -3731,13 +3731,8 @@ mark {
 		}
 
 body {
-    background-color: #F9F7F3 !important; /* Off-White background */
-    color: #000000 !important;           /* Black text */
-}
-
-/* 2. Standardize Borders */
-* {
-    border-color: #000000 !important;
+    background-color: #F9F7F3; /* Off-White background */
+    color: #000000;           /* Black text */
 }
 
 /* 3. Your 4 Colorful Grid Tiles */
