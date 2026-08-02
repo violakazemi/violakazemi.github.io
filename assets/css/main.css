@@ -4561,19 +4561,19 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 }
 
 .museum-page #header {
-    background-color: rgba(233, 242, 220, 0.85) !important; /* Translucent Matcha Green */
+    background-color: color-mix(in srgb, var(--accent-museum-bg) 85%, transparent) !important; /* Dynamically matches matcha background exactly but translucent */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
 }
 
 .mechmarket-page #header {
-    background-color: rgba(242, 220, 229, 0.85) !important; /* Translucent Lavender */
+    background-color: color-mix(in srgb, var(--accent-mechmarket-bg) 85%, transparent) !important; /* Dynamically matches lavender background exactly but translucent */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
 }
 
 .bearla-page #header {
-    background-color: rgba(245, 240, 232, 0.85) !important; /* Translucent Cotton Beige Glass */
+    background-color: color-mix(in srgb, var(--accent-bearla-bg) 85%, transparent) !important; /* Dynamically matches bearla background exactly but translucent */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border-bottom: 1px solid rgba(107, 31, 42, 0.1) !important;
