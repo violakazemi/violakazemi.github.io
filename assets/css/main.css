@@ -2770,23 +2770,7 @@ mark {
 				}
 
 		}
-.tiles article {
-    /* Existing properties kept for brevity */
-    position: relative;
-    /* ... keep your existing height, padding, etc ... */
-    
-    /* ADD THESE LINES FOR NEUBRUTALISM */
-    border: 4px solid #000000;
-    box-shadow: 6px 6px 0px 0px #000000;
-    /* Optional: If you want a slight hover effect to match buttons */
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
 
-/* Optional Hover Effect for interactivity */
-.tiles article:hover {
-    box-shadow: 4px 4px 0px 0px #000000;
-    transform: translate(4px, 4px);
-}
 
 /* Contact Method */
 
@@ -3541,43 +3525,7 @@ mark {
 
 /* Footer */
 
-	#footer {
-		padding: 4em 0 2em 0 ;
-		
-		/* ADDED NEUBRUTALISM STYLES */
-		border: 4px solid #000000;
-		box-shadow: 6px 6px 0px 0px #000000;
-		
-		/* Adds space around the footer so the shadow is visible */
-		margin: 0 2em 2em 2em; 
-		background-color: #B8A9FA; /* Or one of your bold, saturated colors */
-	}
 
-#footer input,
-	#footer textarea,
-	#footer .button {
-		border: 4px solid #000000;
-		box-shadow: 4px 4px 0px 0px #000000;
-		border-radius: 0; /* Forces sharp, graphic corners */
-		transition: transform 0.25s ease, box-shadow 0.25s ease;
-	}
-
-	#footer input:focus,
-	#footer textarea:focus {
-		outline: none;
-		border-color: #000000; /* Keeps the border stark black when typing */
-	}
-
-	/* Neubrutalism Button Hover/Click States */
-	#footer .button:hover {
-		box-shadow: 2px 2px 0px 0px #000000;
-		transform: translate(2px, 2px);
-	}
-	
-	#footer .button:active {
-		box-shadow: 0px 0px 0px 0px #000000;
-		transform: translate(4px, 4px);
-	}
 
 	@media screen and (max-width: 480px) {
 
@@ -3969,120 +3917,7 @@ article header.major {
     }
 }
 
-#footer {
-    padding: 4em 0 2em 0 !important;
-    
-    /* NEUBRUTALISM STYLES */
-    border: 4px solid #000000 !important;
-    box-shadow: 6px 6px 0px 0px #000000 !important;
-    margin: 0 2em 2em 2em !important;
-    
-    /* Background must be light/bright for the black shadow to show */
-    background-color: #B8A9FA !important; 
-    color: #000000 !important; /* Text changed to black for readability */
-    width: auto !important; 
-}
 
-#footer .inner {
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 2em !important;
-    border-top: none !important;
-}
-
-/* Remove decorative lines on headings inside the footer */
-#footer h2, 
-#footer h3, 
-#footer h4 {
-    border-bottom: none !important;
-    color: #000000 !important;
-}
-
-/* Icons */
-#footer .icons a {
-		border-radius: 0 !important; /* Removes the circle to make it square */
-		background-color: #ffffff !important; /* White button background */
-		color: #000000 !important; /* Black icon inside */
-		border: 2px solid #000000 !important; /* Sharp black border */
-		box-shadow: 4px 4px 0px 0px #000000 !important; /* Heavy drop shadow */
-		transition: transform 0.1s ease, box-shadow 0.1s ease !important;
-		
-		/* Ensures the icon stays centered in the new square box */
-		display: inline-flex !important; 
-		align-items: center;
-		justify-content: center;
-	}
-
-	/* Neubrutalism Icon Hover/Click States */
-	#footer .icons a:hover {
-		box-shadow: 2px 2px 0px 0px #000000 !important;
-		transform: translate(2px, 2px) !important;
-	}
-	
-	#footer .icons a:active {
-		box-shadow: 0px 0px 0px 0px #000000 !important;
-		transform: translate(4px, 4px) !important;
-	}
-
-/* Remove the specific list item borders */
-#footer .copyright li {
-    border-left: none !important;
-}
-
-/* Neubrutalism Form Elements */
-#footer input,
-#footer textarea,
-#footer .button {
-    border: 4px solid #000000;
-    box-shadow: 4px 4px 0px 0px #000000;
-    border-radius: 0; /* Forces sharp, graphic corners */
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-	background: #ffffff;
-}
-
-#footer input:focus,
-#footer textarea:focus {
-    outline: none;
-    border-color: #000000;
-}
-
-/* Neubrutalism Button Hover/Click States */
-#footer .button:hover {
-    box-shadow: 2px 2px 0px 0px #000000;
-    transform: translate(2px, 2px);
-}
-
-#footer .button:active {
-    box-shadow: 0px 0px 0px 0px #000000;
-    transform: translate(4px, 4px);
-}
-
-#footer .icons a,
-#footer .icons .icon {
-    background-color: #ffffff !important;
-}
-
-/* 2. Force the actual icon graphic (the envelope, LinkedIn text, camera) to be black */
-#footer .icons a::before,
-#footer .icons .icon::before,
-#footer .icons a span::before,
-#footer .icons a svg {
-    color: #000000 !important; 
-    
-    /* Ensure no stray backgrounds are bleeding through the graphic */
-    background-color: transparent !important; 
-}
-
-/* Mobile Adjustments */
-@media screen and (max-width: 480px) {
-    #footer .copyright li {
-        display: block;
-        border-left: 0;
-        margin-left: 0;
-        padding-left: 0;
-        line-height: inherit;
-    }
-}
 
 .nav-container {
     display: none;
@@ -4109,152 +3944,7 @@ body {
     z-index: 10000; /* Ensure this is always the highest number on the page */
 }
 
-.header-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 35px;           /* Sets a specific, controlled height */
-    width: auto;            /* Allows it to fit the text content */
-    
-    /* Padding: More balanced for a button */
-    padding: 0 15px !important; 
-    
-    /* Typography: Explicit size ensures consistency */
-    font-size: 13px;        
-    font-weight: 500;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #333333;
-    
-    /* Neubrutalist Styling */
-    border: 2px solid #000000 !important;
-    background-color: #FFFFFF;
-    box-shadow: 3px 3px 0px 0px #000000;
-    transition: all 0.2s ease;
-    
-    /* Line-height for strict centering */
-    line-height: 1 !important;
-}
 
-.header-button:hover {
-    
-	transform: translate(5px, 5px);
-    box-shadow: 5px 5px 0px 0px #000000;
-    transition: all 0.2s ease;
-    
-}
-
-/* The 'Suppressed' / Pressed Effect */
-.header-button:active {
-    
-	transform: translate(5px, 5px);
-    /* Removes the shadow to make it look "pressed" into the page */
-    box-shadow: none !important;
-}
-
-#header nav a.button {
-    height: 3em;           
-    line-height: 3em;      
-    padding: 0 1.5em;       
-    
-    /* Apply Neubrutalism borders and shadows */
-    border: 2px solid #000000;
-    box-shadow: 4px 4px 0px 0px #000000;
-    border-radius: 0;
-    
-    /* Center it vertically within the taller header if needed */
-    margin-top: 0.25em; 
-}
-
-/* Add matching interaction states */
-#header nav a.button:hover {
-    box-shadow: 2px 2px 0px 0px #000000;
-    transform: translate(2px, 2px);
-}
-
-#header nav a.button:active {
-    box-shadow: 0px 0px 0px 0px #000000;
-    transform: translate(4px, 4px);
-	
-}
-
-.button-base {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 20px;
-    border: 4px solid #000000;
-    background-color: #FFFFFF;
-    box-shadow: 5px 5px 0px 0px #000000;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-    color: #333333;
-    font-weight: 500;
-}
-
-/* The universal press animation */
-.button-base:active {
-    transform: translate(5px, 5px);
-    box-shadow: none !important;
-}
-
-.button, 
-.button-link { /* Assuming you use class="button-link" for your anchor tags */
-    appearance: none;
-    background-color: #FFD23F; 
-    border: 2px solid #000000; 
-    box-shadow: 4px 4px 0px 0px #000000; 
-    color: #000000;
-    cursor: pointer;
-    display: inline-block;
-    font-family: var(--font-primary) !important;
-    font-weight: 700;
-    padding: 0 2em;
-    height: 3.5em;
-    line-height: 3.5em;
-    text-transform: uppercase;
-    text-decoration: none; 
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.button:hover, 
-.button-link:hover {
-    transform: translate(3px, 3px);
-    box-shadow: 3px 3px 0px 0px #000000;
-}
-
-.header-button {
-    /* Layout: Force a strict height */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;          /* Set a fixed height */
-    padding: 0 16px;       /* Compact horizontal padding */
-    
-    /* Design: Consistent Neubrutalist look */
-    border: 3px solid #000000;
-    background-color: #FFFFFF;
-    box-shadow: 4px 4px 0px 0px #000000;
-    
-    /* Typography: Compact and centered */
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #333333;
-    
-    /* Performance: Smooth interaction */
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    cursor: pointer;
-}
-
-/* The Pressed Effect */
-.header-button:active {
-    transform: translate(4px, 4px);
-    box-shadow: none !important;
-}
 
 #header nav {
     display: flex !important;
@@ -4736,8 +4426,8 @@ html {
 
 .iteration-card {
     background-color: #ffffff !important;
-    border: 2px solid #000000 !important;
-    box-shadow: 4px 4px 0px 0px #000000 !important;
+    border: 1px solid var(--apple-border) !important;
+    box-shadow: var(--shadow-sm) !important;
     padding: 24px !important;
     display: flex !important;
     flex-direction: column !important;
@@ -4745,8 +4435,8 @@ html {
 }
 
 .iteration-card:hover {
-    transform: translate(-2px, -2px) !important;
-    box-shadow: 6px 6px 0px 0px #000000 !important;
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
 .iteration-card h4 {
@@ -4757,7 +4447,7 @@ html {
     margin-bottom: 12px !important;
     text-transform: none !important;
     letter-spacing: normal !important;
-    color: #000000 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .iteration-card .badge {
@@ -4767,7 +4457,7 @@ html {
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    border: 2px solid #000000 !important;
+    border: none !important;
     margin-bottom: 16px !important;
     width: fit-content !important;
     border-radius: 4px !important;
@@ -4775,18 +4465,18 @@ html {
 }
 
 .iteration-card.phase-0 .badge {
-    background-color: #FF6B6B !important;
+    background-color: var(--apple-red) !important;
     color: #ffffff !important;
 }
 
 .iteration-card.phase-1 .badge {
-    background-color: #FFD23F !important;
-    color: #000000 !important;
+    background-color: var(--apple-orange) !important;
+    color: #ffffff !important;
 }
 
 .iteration-card.phase-2 .badge {
-    background-color: #88D498 !important;
-    color: #000000 !important;
+    background-color: var(--apple-green) !important;
+    color: #ffffff !important;
 }
 
 .iteration-card ul {
@@ -4799,13 +4489,13 @@ html {
 
 .iteration-card ul li {
     margin-bottom: 8px !important;
-    color: #000000 !important;
+    color: var(--color-text-primary) !important;
     background: none !important;
     padding-left: 0 !important;
 }
 
 .iteration-card ul li strong {
-    color: #000000 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .iteration-card ul li:last-child {
@@ -4813,7 +4503,7 @@ html {
 }
 
 #seg-systems {
-    background-color: #FF8C42 !important;
+    background-color: var(--apple-blue) !important;
 }
 
 @media screen and (max-width: 980px) {
@@ -5170,7 +4860,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     cursor: pointer !important;
     z-index: 10 !important;
     transition: background-color 0.2s ease, opacity 0.25s ease, transform 0.2s ease !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
 .carousel-nav-btn:hover {
@@ -5247,7 +4937,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     scroll-snap-align: start !important;
     background-color: var(--apple-bg-light) !important;
     border-radius: 18px !important; /* Consistent Apple 18px corner radius */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     border: none !important; /* Remove card border */
     padding: 32px !important; /* Matches museum iteration cards */
     height: 560px !important; /* Vertical rectangle layout */
@@ -5324,7 +5014,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 /* Hover Zoom & Elevation */
 .tiles article:hover {
     transform: translateY(-4px) !important; /* Matches museum iteration cards translation */
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important; /* Premium hover shadow elevation */
+    box-shadow: var(--shadow-lg) !important; /* Premium hover shadow elevation */
 }
 
 .tiles article header.major {
@@ -5440,7 +5130,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     padding: 24px 32px !important;
     border-radius: 18px !important;
     border: none !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Use Apple shadow system */
+    box-shadow: var(--shadow-md) !important; /* Use Apple shadow system */
     display: flex !important;
     justify-content: flex-start !important;
     align-items: center !important;
@@ -5756,7 +5446,7 @@ body.museum-page,
 #systems .iteration-card {
     background-color: var(--apple-bg-light) !important;
     border: none !important; /* Remove card border */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     border-radius: 18px !important;
     padding: 32px !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -5764,7 +5454,7 @@ body.museum-page,
 
 #systems .iteration-card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 #systems .iteration-card .badge {
@@ -5950,7 +5640,7 @@ body.museum-page,
 .bearla-page #main .image.main {
     background-color: var(--apple-bg-light) !important;
     border: none !important; /* Remove card border */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     border-radius: 18px !important;
     padding: 24px !important; /* Premium card frame padding */
     margin-bottom: 2em !important;
@@ -5965,7 +5655,7 @@ body.museum-page,
 .mechmarket-page #main .image.main:hover,
 .bearla-page #main .image.main:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .museum-page #main .image.main img,
@@ -5989,7 +5679,7 @@ body.museum-page,
     background: #FFFFFF !important; /* Restore white card background */
     border-radius: 18px !important; /* Restore rounded borders */
     padding: 20px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -6002,7 +5692,7 @@ body.museum-page,
 
 .apple-tile:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .tile-image-wrapper {
@@ -6169,7 +5859,7 @@ body.museum-page,
     background: #FFFFFF !important;
     border-radius: 18px !important;
     padding: 24px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important; /* Apple-style soft shadow */
+    box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     border: none !important; /* Remove card border */
     display: flex !important;
     flex-direction: column !important;
@@ -6179,7 +5869,7 @@ body.museum-page,
 
 .insight-card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .insight-badge {
@@ -6263,7 +5953,7 @@ body.museum-page,
     border-radius: 12px !important;
     border: none !important;
     background-color: #f5f5f7 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    box-shadow: var(--shadow-sm) !important;
     margin-left: 24px !important;
     transition: transform 0.2s ease !important;
 }
@@ -6330,7 +6020,7 @@ body.bearla-page,
     max-width: 1000px !important;
     margin: 48px auto !important;
     border-radius: 18px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+    box-shadow: var(--shadow-md) !important;
     padding: 48px !important;
     box-sizing: border-box !important;
     color: #202020 !important;
@@ -6437,7 +6127,7 @@ body.bearla-page,
     max-width: 100% !important;
     height: auto !important;
     border-radius: 20px !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 .mechmarket-hero {
@@ -6561,14 +6251,14 @@ body.bearla-page,
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
     border: none !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: var(--shadow-md) !important;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
     display: inline-block !important;
 }
 
 .mechmarket-hero .hero-button:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: var(--shadow-lg) !important;
     background-color: var(--accent-mechmarket) !important; /* Accent soft pink hover color */
     color: #202020 !important;
 }
@@ -6697,7 +6387,7 @@ body.bearla-page,
     height: auto !important;
     display: block !important;
     border-radius: 20px !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 /* Floating White Bento-style Cards Over Lavender */
@@ -6759,7 +6449,7 @@ body.bearla-page,
     border: 1px solid var(--apple-border) !important;
     border-radius: 16px !important;
     padding: 24px 26px !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: var(--shadow-sm) !important;
 }
 
 .bearla-page ul.differentiators-list,
@@ -6777,7 +6467,7 @@ body.bearla-page,
     padding: 18px 22px !important;
     margin-bottom: 14px !important;
     list-style-type: none !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: var(--shadow-sm) !important;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
 }
 
@@ -6791,7 +6481,7 @@ body.bearla-page,
 .bearla-page .image.main {
     border-radius: 16px !important;
     overflow: hidden !important;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: var(--shadow-md) !important;
     border: 1px solid var(--apple-border) !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     margin: 28px 0 !important;
@@ -6805,7 +6495,7 @@ body.bearla-page,
 .bearla-page table {
     border-radius: 14px !important;
     overflow: hidden !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03) !important;
+    box-shadow: var(--shadow-md) !important;
     border: 1px solid var(--apple-border) !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
@@ -6864,7 +6554,7 @@ body.bearla-page,
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-full: 999px;
-  --shadow-card: 0 8px 24px rgba(44,24,16,0.08);
+  --shadow-card: var(--shadow-md);
 }
 
 #design-system section.block { margin-bottom: 48px !important; }
@@ -7113,7 +6803,7 @@ body.bearla-page,
         border: 1px solid var(--apple-border) !important; /* Soft grey border */
         border-radius: 14px !important;
         padding: 18px 22px !important;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+        box-shadow: none !important;
     }
     .bearla-page .table-wrapper {
         background-color: var(--color-bg-page) !important;
@@ -7433,7 +7123,7 @@ body.bearla-page,
     color: #202020 !important;
     padding: 14px 16px !important;
     border-radius: 10px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    box-shadow: var(--shadow-sm) !important;
     border: none !important;
     font-weight: 400 !important;
     text-align: left !important;
@@ -7634,7 +7324,7 @@ body.bearla-page,
     min-width: 140px !important;
     text-align: center !important;
     border: 1px solid rgba(32, 32, 32, 0.03) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: var(--shadow-sm) !important;
     transition: color 0.2s ease, background-color 0.2s ease !important;
 }
 
@@ -7704,7 +7394,7 @@ body.bearla-page,
     text-align: center !important;
     padding: 12px 14px !important;
     border-radius: 10px !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: var(--shadow-sm) !important;
     min-height: 48px !important;
     display: flex !important;
     align-items: center !important;
@@ -7880,7 +7570,7 @@ body.bearla-page,
     min-width: 120px !important;
     max-width: 160px !important;
     flex: 1 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: var(--shadow-sm) !important;
     position: relative !important;
     transition: transform 0.2s ease, border-color 0.2s ease !important;
     box-sizing: border-box !important;
@@ -8118,7 +7808,7 @@ body.bearla-page,
     padding: 28px !important;
     box-sizing: border-box !important;
     gap: 24px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: var(--shadow-sm) !important;
     transition: transform 0.2s ease !important;
 }
 
@@ -8239,7 +7929,7 @@ body.bearla-page,
     background-color: #FFFFFF !important;
     border: 6px solid #202020 !important;
     border-radius: 32px !important;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: var(--shadow-lg) !important;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
@@ -8301,7 +7991,7 @@ body.bearla-page,
 .phone-tabs-segmented .tab-item.active {
     background-color: #FFFFFF !important;
     color: #202020 !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    box-shadow: var(--shadow-sm) !important;
 }
 
 .phone-content {
@@ -8501,7 +8191,7 @@ body.bearla-page,
     max-height: 480px !important;
     height: auto !important;
     border-radius: 20px !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: var(--shadow-lg) !important;
     object-fit: contain !important;
     background-color: transparent !important;
 }
@@ -8533,7 +8223,7 @@ body.bearla-page,
     overflow: hidden !important;
     border-radius: 20px !important;
     background-color: #f5f5f7 !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04) !important;
+    box-shadow: var(--shadow-lg) !important;
     border: 1px solid rgba(32, 32, 32, 0.04) !important;
 }
 
@@ -8677,13 +8367,13 @@ body.bearla-page,
     border-radius: 30px !important;
     text-decoration: none !important;
     text-transform: uppercase !important;
-    box-shadow: 0 8px 24px rgba(230, 184, 209, 0.25) !important;
+    box-shadow: var(--shadow-md) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
 }
 
 .takeaways-pill-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 12px 30px rgba(230, 184, 209, 0.4) !important;
+    box-shadow: var(--shadow-lg) !important;
     background-color: #dfaabf !important; /* Slightly darker pink on hover */
 }
 
@@ -8721,7 +8411,7 @@ body.bearla-page,
 .museum-white-section {
     background-color: #FFFFFF !important;
     border-radius: 18px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+    box-shadow: var(--shadow-md) !important;
     padding: 48px !important;
     margin-bottom: 80px !important;
     box-sizing: border-box !important;
@@ -8869,7 +8559,7 @@ body.bearla-page,
     height: 240px !important;
     border-radius: 20px !important; /* Soft corners for avatar card */
     object-fit: cover !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+    box-shadow: var(--shadow-md) !important;
     background-color: #FFFFFF !important;
 }
 
