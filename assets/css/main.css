@@ -77,6 +77,14 @@
     --container-wide: 1200px;
     --container-content: 980px;
     --container-text: 680px;
+
+    /* 8. Semantic UI / Legend States */
+    --status-error-bg: #FADBD8;
+    --status-error-border: #F1948A;
+    --status-error-text: #C0392B;
+    --status-disabled-bg: #EAECEE;
+    --status-disabled-border: #BDC3C7;
+    --status-disabled-text: #5D6D7E;
 }
 
 article, aside, details, figcaption, figure,
@@ -1970,8 +1978,8 @@ mark {
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #111111;
-			border-color: #000000;
+			background: var(--color-text-primary);
+			border-color: var(--color-text-primary);
 			content: '\f00c';
 			color: #FFFFFF;
 		}
@@ -6023,7 +6031,7 @@ body.bearla-page,
     box-shadow: var(--shadow-md) !important;
     padding: var(--space-5) !important;
     box-sizing: border-box !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .museum-hero .hero-inner {
@@ -6060,7 +6068,7 @@ body.bearla-page,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: #202020 !important;
+    background-color: var(--color-text-primary) !important;
     color: var(--accent-museum-bg) !important;
     width: 48px !important;
     height: 48px !important;
@@ -6074,7 +6082,7 @@ body.bearla-page,
 .museum-hero .hero-title {
     font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     font-family: var(--font-primary) !important;
     margin: 0 !important;
     line-height: 1.1 !important;
@@ -6111,7 +6119,7 @@ body.bearla-page,
 }
 
 .museum-hero .metadata-item .value {
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     font-weight: 400 !important;
 }
 
@@ -6136,7 +6144,7 @@ body.bearla-page,
     max-width: 100% !important;
     padding: var(--space-6) 0 !important;
     box-sizing: border-box !important;
-    color: #202020 !important; /* Deep Charcoal primary text */
+    color: var(--color-text-primary) !important; /* Deep Charcoal primary text */
 }
 
 .mechmarket-hero .hero-inner {
@@ -6176,7 +6184,7 @@ body.bearla-page,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: #202020 !important; /* Deep Charcoal logo icon background */
+    background-color: var(--color-text-primary) !important; /* Deep Charcoal logo icon background */
     color: var(--accent-mechmarket-bg) !important; /* Soft Lavender logo text */
     width: 48px !important;
     height: 48px !important;
@@ -6191,7 +6199,7 @@ body.bearla-page,
 .mechmarket-hero .hero-title {
     font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
-    color: #202020 !important; /* Deep Charcoal title */
+    color: var(--color-text-primary) !important; /* Deep Charcoal title */
     font-family: var(--font-primary) !important;
     margin: 0 !important;
     line-height: 1.1 !important;
@@ -6231,7 +6239,7 @@ body.bearla-page,
 }
 
 .mechmarket-hero .metadata-item .value {
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     font-weight: 400 !important;
 }
 
@@ -6240,7 +6248,7 @@ body.bearla-page,
 }
 
 .mechmarket-hero .hero-button {
-    background-color: #202020 !important; /* Deep Charcoal button background */
+    background-color: var(--color-text-primary) !important; /* Deep Charcoal button background */
     color: #FFFFFF !important;
     font-weight: 600 !important;
     border-radius: var(--radius-pill) !important;
@@ -6260,7 +6268,7 @@ body.bearla-page,
     transform: translateY(-2px) !important;
     box-shadow: var(--shadow-lg) !important;
     background-color: var(--accent-mechmarket) !important; /* Accent soft pink hover color */
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .mechmarket-hero .hero-visual-block {
@@ -6288,7 +6296,7 @@ body.bearla-page,
     max-width: 100% !important;
     padding: var(--space-7) 0 var(--space-6) 0 !important;
     box-sizing: border-box !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .bearla-hero .hero-inner {
@@ -6556,34 +6564,34 @@ body.bearla-page,
 
 #design-system section.block { margin-bottom: var(--space-5) !important; }
 #design-system .block-head { display:flex !important; align-items:baseline !important; gap: var(--space-2) !important; margin-bottom: var(--space-3) !important; border-bottom: 1px solid var(--color-border) !important; padding-bottom: var(--space-2) !important; }
-#design-system .block-num { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 28px !important; color: var(--color-gold) !important; }
-#design-system .block-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 30px !important; color: var(--color-maroon) !important; margin: 0 !important; }
-#design-system .block-desc { color: var(--color-taupe) !important; font-size: 14px !important; margin: -var(--space-1) 0 var(--space-3) 0 !important; font-family: var(--font-ui) !important; }
+#design-system .block-num { font-family: var(--font-display) !important; font-weight:300 !important; font-size: var(--fs-h2) !important; color: var(--color-gold) !important; }
+#design-system .block-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: var(--fs-h2) !important; color: var(--color-maroon) !important; margin: 0 !important; }
+#design-system .block-desc { color: var(--color-taupe) !important; font-size: var(--fs-small) !important; margin: -var(--space-1) 0 var(--space-3) 0 !important; font-family: var(--font-ui) !important; }
 
 /* ---- color swatches ---- */
 #design-system .swatch-grid { display:grid !important; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)) !important; gap: var(--space-2) !important; }
 #design-system .swatch { border: 1px solid var(--color-border) !important; border-radius: var(--radius-md) !important; overflow:hidden !important; background: var(--color-cream-card) !important; }
 #design-system .swatch-fill { height: 90px !important; }
 #design-system .swatch-meta { padding: var(--space-1) var(--space-2) !important; }
-#design-system .swatch-name { font-size: 13px !important; font-weight: 500 !important; font-family: var(--font-ui) !important; }
-#design-system .swatch-hex { font-size: 12px !important; color: var(--color-taupe-light) !important; font-family: monospace !important; }
-#design-system .swatch-use { font-size: 11px !important; color: var(--color-taupe) !important; margin-top: var(--space-1) !important; font-family: var(--font-ui) !important; }
+#design-system .swatch-name { font-size: var(--fs-small) !important; font-weight: 500 !important; font-family: var(--font-ui) !important; }
+#design-system .swatch-hex { font-size: var(--fs-small) !important; color: var(--color-taupe-light) !important; font-family: monospace !important; }
+#design-system .swatch-use { font-size: var(--fs-small) !important; color: var(--color-taupe) !important; margin-top: var(--space-1) !important; font-family: var(--font-ui) !important; }
 
 /* ---- type specimens ---- */
 #design-system .type-row { display:flex !important; align-items:baseline !important; justify-content: space-between !important; gap: var(--space-2) !important; padding: var(--space-2) 0 !important; border-bottom: 1px dashed var(--color-border) !important; flex-wrap: wrap !important; }
 #design-system .type-row:last-child { border-bottom:none !important; }
 #design-system .type-sample { font-family: var(--font-display) !important; color: var(--color-maroon) !important; font-weight: 300 !important; }
-#design-system .type-meta { font-size: 12px !important; color: var(--color-taupe-light) !important; text-align:right !important; min-width: 190px !important; font-family: monospace !important; }
-#design-system .body-sample { font-family: var(--font-serif-body) !important; font-weight:400 !important; font-size: 18px !important; line-height:1.45 !important; color: var(--color-ink) !important; max-width: 560px !important; }
-#design-system .label-sample { font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 12px !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: var(--color-taupe) !important; }
-#design-system .micro-sample { font-family: var(--font-micro) !important; font-size: 11px !important; color: var(--color-ink) !important; }
+#design-system .type-meta { font-size: var(--fs-small) !important; color: var(--color-taupe-light) !important; text-align:right !important; min-width: 190px !important; font-family: monospace !important; }
+#design-system .body-sample { font-family: var(--font-serif-body) !important; font-weight:400 !important; font-size: var(--fs-body) !important; line-height:1.45 !important; color: var(--color-ink) !important; max-width: 560px !important; }
+#design-system .label-sample { font-family: var(--font-ui) !important; font-weight:500 !important; font-size: var(--fs-small) !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: var(--color-taupe) !important; }
+#design-system .micro-sample { font-family: var(--font-micro) !important; font-size: var(--fs-small) !important; color: var(--color-ink) !important; }
 
 /* ---- buttons ---- */
 #design-system .btn-row { display:flex !important; gap: var(--space-2) !important; flex-wrap: wrap !important; align-items:center !important; margin-bottom: var(--space-3) !important; }
 #design-system .ds-btn {
     font-family: var(--font-ui) !important;
     font-weight: 500 !important;
-    font-size: 12px !important;
+    font-size: var(--fs-small) !important;
     letter-spacing: 0.14em !important;
     text-transform: uppercase !important;
     padding: var(--space-2) var(--space-4) !important;
@@ -6604,41 +6612,41 @@ body.bearla-page,
 #design-system .material-card { border: 1px solid var(--color-border) !important; border-radius: var(--radius-md) !important; padding: var(--space-3) !important; background: var(--color-cream-card) !important; position:relative !important; }
 #design-system .material-card.selected { border-color: var(--color-gold) !important; box-shadow: var(--shadow-card) !important; }
 #design-system .material-ring { width: 44px !important; height:44px !important; border-radius:50% !important; border: 6px solid var(--color-gold) !important; margin-bottom: var(--space-2) !important; }
-#design-system .material-name { font-family: var(--font-ui) !important; font-size: 14px !important; font-weight: 500 !important; margin-bottom: var(--space-1) !important; }
-#design-system .material-desc { font-family: var(--font-ui) !important; font-size: 12px !important; color: var(--color-taupe) !important; margin-bottom: var(--space-2) !important; }
-#design-system .material-price { font-family: var(--font-display) !important; font-weight:400 !important; font-size: 20px !important; color: var(--color-maroon) !important; }
-#design-system .badge-selected { position:absolute !important; top:12px !important; right:12px !important; font-family: var(--font-micro) !important; font-weight:700 !important; font-size:9px !important; letter-spacing:0.1em !important; background: var(--color-gold) !important; color:#fff !important; padding: var(--space-1) var(--space-1) !important; border-radius: var(--radius-full) !important; }
+#design-system .material-name { font-family: var(--font-ui) !important; font-size: var(--fs-small) !important; font-weight: 500 !important; margin-bottom: var(--space-1) !important; }
+#design-system .material-desc { font-family: var(--font-ui) !important; font-size: var(--fs-small) !important; color: var(--color-taupe) !important; margin-bottom: var(--space-2) !important; }
+#design-system .material-price { font-family: var(--font-display) !important; font-weight:400 !important; font-size: var(--fs-h3) !important; color: var(--color-maroon) !important; }
+#design-system .badge-selected { position:absolute !important; top:12px !important; right:12px !important; font-family: var(--font-micro) !important; font-weight:700 !important; font-size: var(--fs-small) !important; letter-spacing:0.1em !important; background: var(--color-gold) !important; color:#fff !important; padding: var(--space-1) var(--space-1) !important; border-radius: var(--radius-full) !important; }
 
 #design-system .testimonial-card { background: rgba(0,0,0,0.14) !important; border: 1px solid var(--color-border-deep) !important; border-radius: var(--radius-md) !important; padding: var(--space-3) !important; color: var(--color-cream) !important; }
-#design-system .testimonial-stars { color: var(--color-gold) !important; font-size: 13px !important; letter-spacing: 2px !important; margin-bottom: var(--space-1) !important; }
-#design-system .testimonial-quote { font-family: var(--font-serif-body) !important; font-size: 17px !important; font-style: italic !important; line-height: 1.5 !important; margin-bottom: var(--space-2) !important; }
-#design-system .testimonial-name { font-family: var(--font-ui) !important; font-size: 12px !important; font-weight: 500 !important; }
-#design-system .testimonial-meta { font-family: var(--font-ui) !important; font-size: 11px !important; color: rgba(245,240,232,0.6) !important; }
+#design-system .testimonial-stars { color: var(--color-gold) !important; font-size: var(--fs-small) !important; letter-spacing: 2px !important; margin-bottom: var(--space-1) !important; }
+#design-system .testimonial-quote { font-family: var(--font-serif-body) !important; font-size: var(--fs-body) !important; font-style: italic !important; line-height: 1.5 !important; margin-bottom: var(--space-2) !important; }
+#design-system .testimonial-name { font-family: var(--font-ui) !important; font-size: var(--fs-small) !important; font-weight: 500 !important; }
+#design-system .testimonial-meta { font-family: var(--font-ui) !important; font-size: var(--fs-small) !important; color: rgba(245,240,232,0.6) !important; }
 #design-system .maroon-panel { background: var(--color-maroon-section) !important; padding: var(--space-5) !important; border-radius: var(--radius-md) !important; }
 
 /* ---- process numbering ---- */
 #design-system .process-row { display:flex !important; gap: var(--space-4) !important; align-items:flex-start !important; margin-bottom: var(--space-3) !important; }
-#design-system .process-num { font-family: var(--font-display) !important; font-size: 40px !important; color: var(--color-border) !important; font-weight: 300 !important; min-width: 60px !important; }
-#design-system .process-label { font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 11px !important; letter-spacing:0.14em !important; text-transform:uppercase !important; color: var(--color-gold) !important; margin-bottom: var(--space-1) !important; }
-#design-system .process-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 22px !important; color: var(--color-maroon) !important; margin: 0 0 var(--space-1) 0 !important; }
-#design-system .process-desc { font-family: var(--font-serif-body) !important; font-size: 15px !important; color: var(--color-taupe) !important; max-width: 420px !important; }
+#design-system .process-num { font-family: var(--font-display) !important; font-size: var(--fs-h2) !important; color: var(--color-border) !important; font-weight: 300 !important; min-width: 60px !important; }
+#design-system .process-label { font-family: var(--font-ui) !important; font-weight:500 !important; font-size: var(--fs-small) !important; letter-spacing:0.14em !important; text-transform:uppercase !important; color: var(--color-gold) !important; margin-bottom: var(--space-1) !important; }
+#design-system .process-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: var(--fs-h3) !important; color: var(--color-maroon) !important; margin: 0 0 var(--space-1) 0 !important; }
+#design-system .process-desc { font-family: var(--font-serif-body) !important; font-size: var(--fs-body) !important; color: var(--color-taupe) !important; max-width: 420px !important; }
 
 /* ---- nav / footer strips ---- */
 #design-system .strip { display:flex !important; align-items:center !important; justify-content: space-between !important; padding: var(--space-2) var(--space-4) !important; border-radius: var(--radius-md) !important; margin-bottom: var(--space-2) !important; flex-wrap: wrap !important; gap: var(--space-2) !important; }
 #design-system .strip.light { background: var(--color-cream-light) !important; border: 1px solid var(--color-border) !important; }
 #design-system .strip.dark { background: var(--color-espresso) !important; color: var(--color-cream) !important; }
-#design-system .strip-logo { font-family: var(--font-display) !important; font-weight:400 !important; font-size: 18px !important; letter-spacing: 0.08em !important; }
-#design-system .strip-links { display:flex !important; gap: var(--space-4) !important; font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 12px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: var(--color-taupe) !important; }
+#design-system .strip-logo { font-family: var(--font-display) !important; font-weight:400 !important; font-size: var(--fs-body) !important; letter-spacing: 0.08em !important; }
+#design-system .strip-links { display:flex !important; gap: var(--space-4) !important; font-family: var(--font-ui) !important; font-weight:500 !important; font-size: var(--fs-small) !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: var(--color-taupe) !important; }
 
 /* ---- faq ---- */
-#design-system .faq-item { display:flex !important; justify-content: space-between !important; align-items:center !important; padding: var(--space-3) 0 !important; border-bottom: 1px solid var(--color-border) !important; font-size: 15px !important; }
-#design-system .faq-item .q { font-family: var(--font-display) !important; font-weight:400 !important; color: var(--color-ink) !important; font-size: 18px !important; }
+#design-system .faq-item { display:flex !important; justify-content: space-between !important; align-items:center !important; padding: var(--space-3) 0 !important; border-bottom: 1px solid var(--color-border) !important; font-size: var(--fs-body) !important; }
+#design-system .faq-item .q { font-family: var(--font-display) !important; font-weight:400 !important; color: var(--color-ink) !important; font-size: var(--fs-body) !important; }
 #design-system .faq-chev { color: var(--color-gold) !important; }
 
 /* usage table */
-#design-system table.usage { width:100% !important; border-collapse: collapse !important; font-size: 13px !important; margin: var(--space-2) 0 !important; }
+#design-system table.usage { width:100% !important; border-collapse: collapse !important; font-size: var(--fs-small) !important; margin: var(--space-2) 0 !important; }
 #design-system table.usage th, #design-system table.usage td { text-align:left !important; padding: var(--space-1) var(--space-2) !important; border-bottom: 1px solid var(--color-border) !important; }
-#design-system table.usage th { color: var(--color-taupe) !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: 11px !important; letter-spacing: 0.08em !important; background: transparent !important; }
+#design-system table.usage th { color: var(--color-taupe) !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: var(--fs-small) !important; letter-spacing: 0.08em !important; background: transparent !important; }
 
 .mechmarket-page #main section .inner,
 .bearla-page #main section .inner {
@@ -6660,7 +6668,7 @@ body.bearla-page,
 .bearla-page h3,
 .bearla-page p,
 .bearla-page li {
-    color: #202020 !important; /* Deep Charcoal for legibility */
+    color: var(--color-text-primary) !important; /* Deep Charcoal for legibility */
 }
 
 .mechmarket-page h2,
@@ -6981,7 +6989,7 @@ body.bearla-page,
 .split-columns-grid h2 {
     font-size: 28px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin-bottom: var(--space-2) !important;
     letter-spacing: -0.015em !important;
     border-bottom: none !important;
@@ -6991,7 +6999,7 @@ body.bearla-page,
 .split-columns-grid p {
     font-size: 15px !important;
     line-height: 1.6 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 !important;
 }
 
@@ -7004,7 +7012,7 @@ body.bearla-page,
 .challenge-list li {
     font-size: 15px !important;
     line-height: 1.6 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin-bottom: var(--space-1) !important;
     padding-left: var(--space-1) !important;
 }
@@ -7054,7 +7062,7 @@ body.bearla-page,
 .question-card p {
     font-size: 15px !important;
     line-height: 1.5 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 0 0 var(--space-1) !important; /* Push text away from left absolute bar */
     font-weight: 500 !important;
     text-align: left !important;
@@ -7096,7 +7104,7 @@ body.bearla-page,
 .column-header {
     font-size: 14px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     text-align: center !important;
     padding: var(--space-1) !important;
     border-radius: var(--radius-sm) !important;
@@ -7117,7 +7125,7 @@ body.bearla-page,
 .sticky-note {
     font-size: 13px !important;
     line-height: 1.4 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     padding: var(--space-2) var(--space-2) !important;
     border-radius: var(--radius-sm) !important;
     box-shadow: var(--shadow-sm) !important;
@@ -7236,7 +7244,7 @@ body.bearla-page,
 .persona-name {
     font-size: 24px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 0 var(--space-1) 0 !important;
 }
 
@@ -7266,7 +7274,7 @@ body.bearla-page,
 .persona-bio-text {
     font-size: 14px !important;
     line-height: 1.5 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 0 0 var(--space-2) !important; /* Generous gap from vertical bar */
 }
 
@@ -7326,7 +7334,7 @@ body.bearla-page,
 }
 
 .logo-plate:hover {
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     background-color: #eef1f4 !important;
 }
 
@@ -7400,20 +7408,20 @@ body.bearla-page,
 
 .flow-node.nav-step {
     background-color: #FFFFFF !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
 }
 
 .flow-node.primary-goal {
-    background-color: #FADBD8 !important; /* Soft red/coral */
-    color: #C0392B !important;
-    border: 1.5px solid #F1948A !important;
+    background-color: var(--status-error-bg) !important;
+    color: var(--status-error-text) !important;
+    border: 1.5px solid var(--status-error-border) !important;
 }
 
 .flow-node.secondary-goal {
-    background-color: #EAECEE !important; /* Soft grey */
-    color: #5D6D7E !important;
-    border: 1.5px solid #BDC3C7 !important;
+    background-color: var(--status-disabled-bg) !important;
+    color: var(--status-disabled-text) !important;
+    border: 1.5px solid var(--status-disabled-border) !important;
 }
 
 .arrow-right {
@@ -7468,13 +7476,13 @@ body.bearla-page,
 }
 
 .legend-color-box.red-box {
-    background-color: #FADBD8 !important;
-    border: 1.5px solid #F1948A !important;
+    background-color: var(--status-error-bg) !important;
+    border: 1.5px solid var(--status-error-border) !important;
 }
 
 .legend-color-box.grey-box {
-    background-color: #EAECEE !important;
-    border: 1.5px solid #BDC3C7 !important;
+    background-color: var(--status-disabled-bg) !important;
+    border: 1.5px solid var(--status-disabled-border) !important;
 }
 
 .legend-color-box.white-box {
@@ -7485,7 +7493,7 @@ body.bearla-page,
 .legend-item span {
     font-size: 13px !important;
     font-weight: 500 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
 }
 
 @media screen and (max-width: 1068px) {
@@ -7718,7 +7726,7 @@ body.bearla-page,
 .card-title {
     font-size: 13px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     text-align: center !important;
 }
 
@@ -7837,14 +7845,14 @@ body.bearla-page,
 .finding-content h3 {
     font-size: 18px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 !important;
 }
 
 .finding-content p {
     font-size: 14px !important;
     line-height: 1.5 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 !important;
 }
 
@@ -7875,7 +7883,7 @@ body.bearla-page,
 .polish-header-row h3 {
     font-size: 20px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin-bottom: var(--space-1) !important;
 }
 
@@ -7917,14 +7925,14 @@ body.bearla-page,
 
 .comparison-badge.after-badge {
     background-color: #E6B8D1 !important; /* Soft Pink */
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .phone-frame {
     width: 220px !important;
     height: 380px !important;
     background-color: #FFFFFF !important;
-    border: 6px solid #202020 !important;
+    border: 1.5px solid var(--apple-border) !important;
     border-radius: var(--radius-pill) !important;
     box-shadow: var(--shadow-lg) !important;
     overflow: hidden !important;
@@ -7987,7 +7995,7 @@ body.bearla-page,
 
 .phone-tabs-segmented .tab-item.active {
     background-color: #FFFFFF !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     box-shadow: var(--shadow-sm) !important;
 }
 
@@ -8067,7 +8075,7 @@ body.bearla-page,
 }
 
 .gallery-dots .dot.active {
-    background-color: #202020 !important;
+    background-color: var(--color-text-primary) !important;
 }
 
 .pdp-badge-row {
@@ -8119,7 +8127,7 @@ body.bearla-page,
 
 .pdp-btn.grey-btn {
     background-color: #e5e5ea !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
 }
 
 .pdp-button-consolidated {
@@ -8129,7 +8137,7 @@ body.bearla-page,
 
 .pdp-btn.pink-pill-btn {
     background-color: #E6B8D1 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     border-radius: var(--radius-md) !important;
     font-weight: 700 !important;
     font-size: 9px !important;
@@ -8165,14 +8173,14 @@ body.bearla-page,
 .challenge-text-col h3 {
     font-size: 24px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin-bottom: var(--space-2) !important;
 }
 
 .challenge-text-col p {
     font-size: 16px !important;
     line-height: 1.6 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 !important;
 }
 
@@ -8257,7 +8265,7 @@ body.bearla-page,
 .slide-caption h4 {
     font-size: 18px !important;
     font-weight: 600 !important;
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     margin: 0 0 var(--space-1) 0 !important;
 }
 
@@ -8313,7 +8321,7 @@ body.bearla-page,
 #slide-1:checked ~ .carousel-nav-dots label[for="slide-1"],
 #slide-2:checked ~ .carousel-nav-dots label[for="slide-2"],
 #slide-3:checked ~ .carousel-nav-dots label[for="slide-3"] {
-    background-color: #202020 !important;
+    background-color: var(--color-text-primary) !important;
     transform: scale(1.1) !important;
 }
 
@@ -8356,7 +8364,7 @@ body.bearla-page,
 .takeaways-pill-btn {
     display: inline-block !important;
     background-color: #E6B8D1 !important; /* Muted Blush Pink */
-    color: #202020 !important;
+    color: var(--color-text-primary) !important;
     font-weight: 700 !important;
     font-size: 14px !important;
     letter-spacing: 0.1em !important;
