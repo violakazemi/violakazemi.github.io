@@ -4635,24 +4635,34 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 
 .case-study-nav-btn {
     color: var(--apple-blue) !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+    background-color: var(--apple-bg-gray) !important;
+    border: 1px solid var(--apple-border) !important;
+    box-shadow: var(--shadow-sm) !important;
     font-size: var(--fs-small) !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     text-decoration: none !important;
     display: inline-flex !important;
     align-items: center !important;
     height: auto !important;
-    padding: 0 !important;
+    padding: var(--space-2) var(--space-3) !important; /* Premium button padding */
     margin: 0 !important;
+    border-radius: var(--radius-pill) !important;
     cursor: pointer !important;
-    transition: color 0.2s ease !important;
+    transition: all 0.2s ease !important;
 }
 
 .case-study-nav-btn:hover {
-    color: var(--apple-blue-hover) !important;
-    text-decoration: underline !important;
+    background-color: var(--apple-blue) !important;
+    color: #ffffff !important;
+    border-color: var(--apple-blue) !important;
+    text-decoration: none !important;
+}
+
+/* Ensure list elements within case studies have clean indentation on all viewports */
+.museum-page #main ul,
+.mechmarket-page #main ul,
+.bearla-page #main ul {
+    padding-left: var(--space-3) !important;
 }
 
 
@@ -7077,7 +7087,7 @@ body.bearla-page,
     font-size: var(--fs-body) !important;
     line-height: 1.5 !important;
     color: var(--color-text-primary) !important;
-    margin: 0 0 0 var(--space-1) !important; /* Push text away from left absolute bar */
+    margin: 0 0 0 var(--space-2) !important; /* Push text away from left absolute bar */
     font-weight: 500 !important;
     text-align: left !important;
 }
@@ -7873,7 +7883,7 @@ body.bearla-page,
         gap: var(--space-2) !important;
     }
     .finding-card {
-        padding: var(--space-2) !important;
+        padding: var(--space-3) !important;
         gap: var(--space-2) !important;
     }
 }
@@ -7923,7 +7933,7 @@ body.bearla-page,
     font-size: var(--fs-small) !important;
     font-weight: 700 !important;
     letter-spacing: 0.1em !important;
-    padding: var(--space-1) var(--space-1) !important;
+    padding: var(--space-1) var(--space-2) !important; /* 8px top/bottom, 16px left/right */
     border-radius: var(--radius-md) !important;
     margin-bottom: var(--space-2) !important;
     text-transform: uppercase !important;
@@ -7956,7 +7966,7 @@ body.bearla-page,
 .phone-header {
     background-color: #f5f5f7 !important;
     border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-    padding: var(--space-2) var(--space-1) !important;
+    padding: var(--space-2) var(--space-2) !important; /* 16px top/bottom, 16px left/right */
     box-sizing: border-box !important;
 }
 
@@ -7972,7 +7982,7 @@ body.bearla-page,
     border-radius: var(--radius-sm) !important;
     font-size: var(--fs-small) !important;
     color: #86868b !important;
-    padding: var(--space-1) var(--space-1) !important;
+    padding: var(--space-1) var(--space-2) !important; /* 8px top/bottom, 16px left/right */
     text-align: left !important;
 }
 
@@ -7982,7 +7992,7 @@ body.bearla-page,
     border-radius: var(--radius-sm) !important;
     font-size: var(--fs-small) !important;
     color: #86868b !important;
-    padding: var(--space-1) var(--space-1) !important;
+    padding: var(--space-1) var(--space-2) !important; /* 8px top/bottom, 16px left/right */
     text-align: left !important;
 }
 
@@ -8012,10 +8022,10 @@ body.bearla-page,
 
 .phone-content {
     flex: 1 !important;
-    padding: var(--space-1) !important;
+    padding: var(--space-2) !important; /* 16px content margin inside mockup */
     display: flex !important;
     flex-direction: column !important;
-    gap: var(--space-1) !important;
+    gap: var(--space-2) !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
 }
@@ -8023,7 +8033,7 @@ body.bearla-page,
 .phone-content.grid-content {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: var(--space-1) !important;
+    gap: var(--space-2) !important;
 }
 
 .mini-product-card-flat {
@@ -8053,7 +8063,7 @@ body.bearla-page,
 
 /* PDP details */
 .phone-content.pdp-content {
-    padding: var(--space-1) !important;
+    padding: var(--space-2) !important; /* 16px content margin inside mockup */
 }
 
 .pdp-main-img-flat {
@@ -8099,7 +8109,7 @@ body.bearla-page,
     font-weight: 700 !important;
     color: var(--apple-connector-blue) !important;
     background-color: #E8F0FE !important;
-    padding: var(--space-1) var(--space-1) !important;
+    padding: var(--space-1) var(--space-2) !important;
     border-radius: var(--radius-sm) !important;
 }
 
