@@ -4635,27 +4635,28 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 
 .case-study-nav-btn {
     color: var(--apple-blue) !important;
-    background-color: var(--apple-bg-gray) !important;
-    border: 1px solid var(--apple-border) !important;
-    box-shadow: var(--shadow-sm) !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     font-size: var(--fs-small) !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     text-decoration: none !important;
     display: inline-flex !important;
     align-items: center !important;
     height: auto !important;
-    padding: var(--space-2) var(--space-3) !important; /* Premium button padding */
+    padding: 0 !important;
     margin: 0 !important;
-    border-radius: var(--radius-pill) !important;
+    border-radius: 0 !important;
     cursor: pointer !important;
-    transition: all 0.2s ease !important;
+    transition: color 0.2s ease !important;
 }
 
 .case-study-nav-btn:hover {
-    background-color: var(--apple-blue) !important;
-    color: #ffffff !important;
-    border-color: var(--apple-blue) !important;
-    text-decoration: none !important;
+    color: var(--apple-blue-hover) !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-decoration: underline !important;
 }
 
 /* Ensure list elements within case studies have clean indentation on all viewports */
