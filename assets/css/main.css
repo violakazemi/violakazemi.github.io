@@ -72,6 +72,11 @@
     --bp-mobile: 734px;
     --bp-tablet: 1068px;
     --bp-desktop: 1441px;
+
+    /* 7. Container Widths */
+    --container-wide: 1200px;
+    --container-content: 980px;
+    --container-text: 680px;
 }
 
 article, aside, details, figcaption, figure,
@@ -119,7 +124,7 @@ mark {
 		-ms-overflow-style: scrollbar;
 	}
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 734px) {
 
 		html, body {
 			min-width: 320px;
@@ -179,7 +184,7 @@ mark {
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 var(--space-4) 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -187,7 +192,7 @@ mark {
 	font-family: var(--font-primary) !important;
 	font-weight: 600;
 	line-height: 1.2;
-	margin: 0 0 1em 0;
+	margin: 0 0 var(--space-2) 0;
 }
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -234,40 +239,40 @@ mark {
 	blockquote {
 		border-left: solid 4px rgba(0, 0, 0, 0.1);
 		font-style: italic;
-		margin: 0 0 2em 0;
-		padding: 0.5em 0 0.5em 2em;
+		margin: 0 0 var(--space-4) 0;
+		padding: var(--space-1) 0 var(--space-1) var(--space-4);
 	}
 
 	code {
 		background: rgba(0, 0, 0, 1, 0.5);
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
-		margin: 0 0.25em;
-		padding: 0.25em 0.65em;
+		margin: 0 var(--space-1);
+		padding: var(--space-1) var(--space-1);
 	}
 
 	pre {
 		
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
-		margin: 0 0 2em 0;
+		margin: 0 0 var(--space-4) 0;
 	}
 
 		pre code {
 			display: block;
 			line-height: 1.75;
-			padding: 1em 1.5em;
+			padding: var(--space-2) var(--space-3);
 			overflow-x: auto;
 		}
 
 	hr {
 		border: 0;
 		border-bottom: 0;
-		margin: 2em 0;
+		margin: var(--space-4) 0;
 	}
 
 		hr.major {
-			margin: 3em 0;
+			margin: var(--space-5) 0;
 		}
 
 	.align-left {
@@ -425,107 +430,107 @@ mark {
 
 		.row.gtr-0 {
 			margin-top: 0;
-			margin-left: 0em;
+			margin-left: 0;
 		}
 
 			.row.gtr-0 > * {
-				padding: 0 0 0 0em;
+				padding: 0 0 0 0;
 			}
 
 			.row.gtr-0.gtr-uniform {
-				margin-top: 0em;
+				margin-top: 0;
 			}
 
 				.row.gtr-0.gtr-uniform > * {
-					padding-top: 0em;
+					padding-top: 0;
 				}
 
 		.row.gtr-25 {
 			margin-top: 0;
-			margin-left: -0.5em;
+			margin-left: -var(--space-1);
 		}
 
 			.row.gtr-25 > * {
-				padding: 0 0 0 0.5em;
+				padding: 0 0 0 var(--space-1);
 			}
 
 			.row.gtr-25.gtr-uniform {
-				margin-top: -0.5em;
+				margin-top: -var(--space-1);
 			}
 
 				.row.gtr-25.gtr-uniform > * {
-					padding-top: 0.5em;
+					padding-top: var(--space-1);
 				}
 
 		.row.gtr-50 {
 			margin-top: 0;
-			margin-left: -1em;
+			margin-left: -var(--space-2);
 		}
 
 			.row.gtr-50 > * {
-				padding: 0 0 0 1em;
+				padding: 0 0 0 var(--space-2);
 			}
 
 			.row.gtr-50.gtr-uniform {
-				margin-top: -1em;
+				margin-top: -var(--space-2);
 			}
 
 				.row.gtr-50.gtr-uniform > * {
-					padding-top: 1em;
+					padding-top: var(--space-2);
 				}
 
 		.row {
 			margin-top: 0;
-			margin-left: -2em;
+			margin-left: -var(--space-4);
 		}
 
 			.row > * {
-				padding: 0 0 0 2em;
+				padding: 0 0 0 var(--space-4);
 			}
 
 			.row.gtr-uniform {
-				margin-top: -2em;
+				margin-top: -var(--space-4);
 			}
 
 				.row.gtr-uniform > * {
-					padding-top: 2em;
+					padding-top: var(--space-4);
 				}
 
 		.row.gtr-150 {
 			margin-top: 0;
-			margin-left: -3em;
+			margin-left: -var(--space-5);
 		}
 
 			.row.gtr-150 > * {
-				padding: 0 0 0 3em;
+				padding: 0 0 0 var(--space-5);
 			}
 
 			.row.gtr-150.gtr-uniform {
-				margin-top: -3em;
+				margin-top: -var(--space-5);
 			}
 
 				.row.gtr-150.gtr-uniform > * {
-					padding-top: 3em;
+					padding-top: var(--space-5);
 				}
 
 		.row.gtr-200 {
 			margin-top: 0;
-			margin-left: -4em;
+			margin-left: -var(--space-6);
 		}
 
 			.row.gtr-200 > * {
-				padding: 0 0 0 4em;
+				padding: 0 0 0 var(--space-6);
 			}
 
 			.row.gtr-200.gtr-uniform {
-				margin-top: -4em;
+				margin-top: -var(--space-6);
 			}
 
 				.row.gtr-200.gtr-uniform > * {
-					padding-top: 4em;
+					padding-top: var(--space-6);
 				}
 
-		@media screen and (max-width: 1680px) {
+		@media screen and (max-width: 1441px) {
 
 			.row {
 				display: flex;
@@ -668,109 +673,109 @@ mark {
 
 				.row.gtr-0 {
 					margin-top: 0;
-					margin-left: 0em;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0 0 0 0em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0em;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0em;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
 					margin-top: 0;
-					margin-left: -0.5em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-25 > * {
-						padding: 0 0 0 0.5em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-25.gtr-uniform {
-						margin-top: -0.5em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-25.gtr-uniform > * {
-							padding-top: 0.5em;
+							padding-top: var(--space-1);
 						}
 
 				.row.gtr-50 {
 					margin-top: 0;
-					margin-left: -1em;
+					margin-left: -var(--space-2);
 				}
 
 					.row.gtr-50 > * {
-						padding: 0 0 0 1em;
+						padding: 0 0 0 var(--space-2);
 					}
 
 					.row.gtr-50.gtr-uniform {
-						margin-top: -1em;
+						margin-top: -var(--space-2);
 					}
 
 						.row.gtr-50.gtr-uniform > * {
-							padding-top: 1em;
+							padding-top: var(--space-2);
 						}
 
 				.row {
 					margin-top: 0;
-					margin-left: -2em;
+					margin-left: -var(--space-4);
 				}
 
 					.row > * {
-						padding: 0 0 0 2em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-uniform {
-						margin-top: -2em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-uniform > * {
-							padding-top: 2em;
+							padding-top: var(--space-4);
 						}
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -3em;
+					margin-left: -var(--space-5);
 				}
 
 					.row.gtr-150 > * {
-						padding: 0 0 0 3em;
+						padding: 0 0 0 var(--space-5);
 					}
 
 					.row.gtr-150.gtr-uniform {
-						margin-top: -3em;
+						margin-top: -var(--space-5);
 					}
 
 						.row.gtr-150.gtr-uniform > * {
-							padding-top: 3em;
+							padding-top: var(--space-5);
 						}
 
 				.row.gtr-200 {
 					margin-top: 0;
-					margin-left: -4em;
+					margin-left: -var(--space-6);
 				}
 
 					.row.gtr-200 > * {
-						padding: 0 0 0 4em;
+						padding: 0 0 0 var(--space-6);
 					}
 
 					.row.gtr-200.gtr-uniform {
-						margin-top: -4em;
+						margin-top: -var(--space-6);
 					}
 
 						.row.gtr-200.gtr-uniform > * {
-							padding-top: 4em;
+							padding-top: var(--space-6);
 						}
 
 		}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 1441px) {
 
 			.row {
 				display: flex;
@@ -913,109 +918,109 @@ mark {
 
 				.row.gtr-0 {
 					margin-top: 0;
-					margin-left: 0em;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0 0 0 0em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0em;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0em;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
 					margin-top: 0;
-					margin-left: -0.375em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-25 > * {
-						padding: 0 0 0 0.375em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-25.gtr-uniform {
-						margin-top: -0.375em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-25.gtr-uniform > * {
-							padding-top: 0.375em;
+							padding-top: var(--space-1);
 						}
 
 				.row.gtr-50 {
 					margin-top: 0;
-					margin-left: -0.75em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-50 > * {
-						padding: 0 0 0 0.75em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-50.gtr-uniform {
-						margin-top: -0.75em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-50.gtr-uniform > * {
-							padding-top: 0.75em;
+							padding-top: var(--space-1);
 						}
 
 				.row {
 					margin-top: 0;
-					margin-left: -1.5em;
+					margin-left: -var(--space-3);
 				}
 
 					.row > * {
-						padding: 0 0 0 1.5em;
+						padding: 0 0 0 var(--space-3);
 					}
 
 					.row.gtr-uniform {
-						margin-top: -1.5em;
+						margin-top: -var(--space-3);
 					}
 
 						.row.gtr-uniform > * {
-							padding-top: 1.5em;
+							padding-top: var(--space-3);
 						}
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -2.25em;
+					margin-left: -var(--space-4);
 				}
 
 					.row.gtr-150 > * {
-						padding: 0 0 0 2.25em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-150.gtr-uniform {
-						margin-top: -2.25em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-150.gtr-uniform > * {
-							padding-top: 2.25em;
+							padding-top: var(--space-4);
 						}
 
 				.row.gtr-200 {
 					margin-top: 0;
-					margin-left: -3em;
+					margin-left: -var(--space-5);
 				}
 
 					.row.gtr-200 > * {
-						padding: 0 0 0 3em;
+						padding: 0 0 0 var(--space-5);
 					}
 
 					.row.gtr-200.gtr-uniform {
-						margin-top: -3em;
+						margin-top: -var(--space-5);
 					}
 
 						.row.gtr-200.gtr-uniform > * {
-							padding-top: 3em;
+							padding-top: var(--space-5);
 						}
 
 		}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1068px) {
 
 			.row {
 				display: flex;
@@ -1158,109 +1163,109 @@ mark {
 
 				.row.gtr-0 {
 					margin-top: 0;
-					margin-left: 0em;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0 0 0 0em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0em;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0em;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
 					margin-top: 0;
-					margin-left: -0.375em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-25 > * {
-						padding: 0 0 0 0.375em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-25.gtr-uniform {
-						margin-top: -0.375em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-25.gtr-uniform > * {
-							padding-top: 0.375em;
+							padding-top: var(--space-1);
 						}
 
 				.row.gtr-50 {
 					margin-top: 0;
-					margin-left: -0.75em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-50 > * {
-						padding: 0 0 0 0.75em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-50.gtr-uniform {
-						margin-top: -0.75em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-50.gtr-uniform > * {
-							padding-top: 0.75em;
+							padding-top: var(--space-1);
 						}
 
 				.row {
 					margin-top: 0;
-					margin-left: -1.5em;
+					margin-left: -var(--space-3);
 				}
 
 					.row > * {
-						padding: 0 0 0 1.5em;
+						padding: 0 0 0 var(--space-3);
 					}
 
 					.row.gtr-uniform {
-						margin-top: -1.5em;
+						margin-top: -var(--space-3);
 					}
 
 						.row.gtr-uniform > * {
-							padding-top: 1.5em;
+							padding-top: var(--space-3);
 						}
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -2.25em;
+					margin-left: -var(--space-4);
 				}
 
 					.row.gtr-150 > * {
-						padding: 0 0 0 2.25em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-150.gtr-uniform {
-						margin-top: -2.25em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-150.gtr-uniform > * {
-							padding-top: 2.25em;
+							padding-top: var(--space-4);
 						}
 
 				.row.gtr-200 {
 					margin-top: 0;
-					margin-left: -3em;
+					margin-left: -var(--space-5);
 				}
 
 					.row.gtr-200 > * {
-						padding: 0 0 0 3em;
+						padding: 0 0 0 var(--space-5);
 					}
 
 					.row.gtr-200.gtr-uniform {
-						margin-top: -3em;
+						margin-top: -var(--space-5);
 					}
 
 						.row.gtr-200.gtr-uniform > * {
-							padding-top: 3em;
+							padding-top: var(--space-5);
 						}
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			.row {
 				display: flex;
@@ -1403,109 +1408,109 @@ mark {
 
 				.row.gtr-0 {
 					margin-top: 0;
-					margin-left: 0em;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0 0 0 0em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0em;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0em;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
 					margin-top: 0;
-					margin-left: -0.3125em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-25 > * {
-						padding: 0 0 0 0.3125em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-25.gtr-uniform {
-						margin-top: -0.3125em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-25.gtr-uniform > * {
-							padding-top: 0.3125em;
+							padding-top: var(--space-1);
 						}
 
 				.row.gtr-50 {
 					margin-top: 0;
-					margin-left: -0.625em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-50 > * {
-						padding: 0 0 0 0.625em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-50.gtr-uniform {
-						margin-top: -0.625em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-50.gtr-uniform > * {
-							padding-top: 0.625em;
+							padding-top: var(--space-1);
 						}
 
 				.row {
 					margin-top: 0;
-					margin-left: -1.25em;
+					margin-left: -var(--space-2);
 				}
 
 					.row > * {
-						padding: 0 0 0 1.25em;
+						padding: 0 0 0 var(--space-2);
 					}
 
 					.row.gtr-uniform {
-						margin-top: -1.25em;
+						margin-top: -var(--space-2);
 					}
 
 						.row.gtr-uniform > * {
-							padding-top: 1.25em;
+							padding-top: var(--space-2);
 						}
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -1.875em;
+					margin-left: -var(--space-4);
 				}
 
 					.row.gtr-150 > * {
-						padding: 0 0 0 1.875em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-150.gtr-uniform {
-						margin-top: -1.875em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-150.gtr-uniform > * {
-							padding-top: 1.875em;
+							padding-top: var(--space-4);
 						}
 
 				.row.gtr-200 {
 					margin-top: 0;
-					margin-left: -2.5em;
+					margin-left: -var(--space-4);
 				}
 
 					.row.gtr-200 > * {
-						padding: 0 0 0 2.5em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-200.gtr-uniform {
-						margin-top: -2.5em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-200.gtr-uniform > * {
-							padding-top: 2.5em;
+							padding-top: var(--space-4);
 						}
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 734px) {
 
 			.row {
 				display: flex;
@@ -1648,104 +1653,104 @@ mark {
 
 				.row.gtr-0 {
 					margin-top: 0;
-					margin-left: 0em;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0 0 0 0em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0em;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0em;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
 					margin-top: 0;
-					margin-left: -0.3125em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-25 > * {
-						padding: 0 0 0 0.3125em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-25.gtr-uniform {
-						margin-top: -0.3125em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-25.gtr-uniform > * {
-							padding-top: 0.3125em;
+							padding-top: var(--space-1);
 						}
 
 				.row.gtr-50 {
 					margin-top: 0;
-					margin-left: -0.625em;
+					margin-left: -var(--space-1);
 				}
 
 					.row.gtr-50 > * {
-						padding: 0 0 0 0.625em;
+						padding: 0 0 0 var(--space-1);
 					}
 
 					.row.gtr-50.gtr-uniform {
-						margin-top: -0.625em;
+						margin-top: -var(--space-1);
 					}
 
 						.row.gtr-50.gtr-uniform > * {
-							padding-top: 0.625em;
+							padding-top: var(--space-1);
 						}
 
 				.row {
 					margin-top: 0;
-					margin-left: -1.25em;
+					margin-left: -var(--space-2);
 				}
 
 					.row > * {
-						padding: 0 0 0 1.25em;
+						padding: 0 0 0 var(--space-2);
 					}
 
 					.row.gtr-uniform {
-						margin-top: -1.25em;
+						margin-top: -var(--space-2);
 					}
 
 						.row.gtr-uniform > * {
-							padding-top: 1.25em;
+							padding-top: var(--space-2);
 						}
 
 				.row.gtr-150 {
 					margin-top: 0;
-					margin-left: -1.875em;
+					margin-left: -var(--space-4);
 				}
 
 					.row.gtr-150 > * {
-						padding: 0 0 0 1.875em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-150.gtr-uniform {
-						margin-top: -1.875em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-150.gtr-uniform > * {
-							padding-top: 1.875em;
+							padding-top: var(--space-4);
 						}
 
 				.row.gtr-200 {
 					margin-top: 0;
-					margin-left: -2.5em;
+					margin-left: -var(--space-4);
 				}
 
 					.row.gtr-200 > * {
-						padding: 0 0 0 2.5em;
+						padding: 0 0 0 var(--space-4);
 					}
 
 					.row.gtr-200.gtr-uniform {
-						margin-top: -2.5em;
+						margin-top: -var(--space-4);
 					}
 
 						.row.gtr-200.gtr-uniform > * {
-							padding-top: 2.5em;
+							padding-top: var(--space-4);
 						}
 
 		}
@@ -1759,7 +1764,7 @@ mark {
 	header.major {
 		
 		width: max-content;
-		margin-bottom: 2em;
+		margin-bottom: var(--space-4);
 	}
 
 		header.major > :first-child {
@@ -1772,7 +1777,7 @@ mark {
     			background-color: #111111;
     			display: none !important; /* Adding !important ensures it overrides other rules */
     			height: 0;
-    			margin: 0.325em 0 0.5em 0;
+    			margin: var(--space-1) 0 var(--space-1) 0;
     			width: 100%;
 			}
 
@@ -1788,7 +1793,7 @@ mark {
 
 		
 
-	@media screen and (max-width: 736px) {
+	@media screen and (max-width: 734px) {
 
 		header.major > p br {
 			display: none;
@@ -1799,7 +1804,7 @@ mark {
 /* Form */
 
 	form {
-		margin: 0 0 2em 0;
+		margin: 0 0 var(--space-4) 0;
 	}
 
 		form > :last-child {
@@ -1812,7 +1817,7 @@ mark {
 			
 			flex-wrap: wrap;
 			width: calc(100% + 3em);
-			margin: -1.5em 0 2em -1.5em;
+			margin: -var(--space-3) 0 var(--space-4) -var(--space-3);
 		}
 
 			form > .fields > .field {
@@ -1820,7 +1825,7 @@ mark {
 				flex-grow: 0;
 				
 				flex-shrink: 0;
-				padding: 1.5em 0 0 1.5em;
+				padding: var(--space-3) 0 0 var(--space-3);
 				width: calc(100% - 1.5em);
 			}
 
@@ -1836,15 +1841,15 @@ mark {
 					width: calc(25% - 0.375em);
 				}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 734px) {
 
 			form > .fields {
 				width: calc(100% + 3em);
-				margin: -1.5em 0 2em -1.5em;
+				margin: -var(--space-3) 0 var(--space-4) -var(--space-3);
 			}
 
 				form > .fields > .field {
-					padding: 1.5em 0 0 1.5em;
+					padding: var(--space-3) 0 0 var(--space-3);
 					width: calc(100% - 1.5em);
 				}
 
@@ -1868,7 +1873,7 @@ mark {
 		font-size: 0.8em;
 		font-weight: 600;
 		letter-spacing: 0.25em;
-		margin: 0 0 1em 0;
+		margin: 0 0 var(--space-2) 0;
 		text-transform: uppercase;
 	}
 
@@ -1879,7 +1884,7 @@ mark {
 		background-repeat: no-repeat;
 		background-position: calc(100% - 1rem) center;
 		height: 2.75em;
-		padding-right: 2.75em;
+		padding-right: var(--space-5);
 		text-overflow: ellipsis;
 	}
 
@@ -1907,7 +1912,7 @@ mark {
 	}
 
 	textarea {
-		padding: 0.75em 1em;
+		padding: var(--space-1) var(--space-2);
 	}
 
 	input[type="checkbox"],
@@ -1916,7 +1921,7 @@ mark {
 		appearance: none;
 		display: block;
 		float: left;
-		margin-right: -2em;
+		margin-right: -var(--space-4);
 		opacity: 0;
 		width: 1em;
 		z-index: -1;
@@ -1929,8 +1934,8 @@ mark {
 			cursor: pointer;
 			display: inline-block;
 			font-weight: 300;
-			padding-left: 2.65em;
-			padding-right: 0.75em;
+			padding-left: var(--space-5);
+			padding-right: var(--space-1);
 			position: relative;
 		}
 
@@ -1986,8 +1991,8 @@ mark {
 
 	.box {
 		border: solid 1px rgba(0, 0, 0, 0.1);
-		margin-bottom: 2em;
-		padding: 1.5em;
+		margin-bottom: var(--space-4);
+		padding: var(--space-3);
 	}
 
 		.box > :last-child,
@@ -2083,19 +2088,19 @@ mark {
 
 		.image.left {
 			float: left;
-			margin: 0 1.5em 1.25em 0;
+			margin: 0 var(--space-3) var(--space-2) 0;
 			top: 0.25em;
 		}
 
 		.image.right {
 			float: right;
-			margin: 0 0 1.25em 1.5em;
+			margin: 0 0 var(--space-2) var(--space-3);
 			top: 0.25em;
 		}
 
 		.image.fit {
 			display: block;
-			margin: 0 0 2em 0;
+			margin: 0 0 var(--space-4) 0;
 			width: 100%;
 		}
 
@@ -2105,7 +2110,7 @@ mark {
 
 		.image.main {
 			display: block;
-			margin: 2.5em 0;
+			margin: var(--space-4) 0;
 			width: 100%;
 		}
 
@@ -2113,10 +2118,10 @@ mark {
 				width: 100%;
 			}
 
-			@media screen and (max-width: 736px) {
+			@media screen and (max-width: 734px) {
 
 				.image.main {
-					margin: 1.5em 0;
+					margin: var(--space-3) 0;
 				}
 
 			}
@@ -2125,22 +2130,22 @@ mark {
 
 	ol {
 		list-style: decimal;
-		margin: 0 0 2em 0;
-		padding-left: 1.25em;
+		margin: 0 0 var(--space-4) 0;
+		padding-left: var(--space-2);
 	}
 
 		ol li {
-			padding-left: 0.25em;
+			padding-left: var(--space-1);
 		}
 
 	ul {
 		list-style: disc;
-		margin: 0 0 2em 0;
-		padding-left: 1em;
+		margin: 0 0 var(--space-4) 0;
+		padding-left: var(--space-2);
 	}
 
 		ul li {
-			padding-left: 0.5em;
+			padding-left: var(--space-1);
 		}
 
 		ul.alt {
@@ -2150,7 +2155,7 @@ mark {
 
 			ul.alt li {
 				border-top: solid 1px rgba(0, 0, 0, 0.1);
-				padding: 0.5em 0;
+				padding: var(--space-1) 0;
 			}
 
 				ul.alt li:first-child {
@@ -2159,17 +2164,17 @@ mark {
 				}
 
 	dl {
-		margin: 0 0 2em 0;
+		margin: 0 0 var(--space-4) 0;
 	}
 
 		dl dt {
 			display: block;
 			font-weight: 600;
-			margin: 0 0 1em 0;
+			margin: 0 0 var(--space-2) 0;
 		}
 
 		dl dd {
-			margin-left: 2em;
+			margin-left: var(--space-4);
 		}
 
 /* Actions */
@@ -2179,12 +2184,12 @@ mark {
 		display: flex;
 		cursor: default;
 		list-style: none;
-		margin-left: -1em;
+		margin-left: -var(--space-2);
 		padding-left: 0;
 	}
 
 		ul.actions li {
-			padding: 0 0 0 1em;
+			padding: 0 0 0 var(--space-2);
 			vertical-align: middle;
 		}
 
@@ -2206,7 +2211,7 @@ mark {
 		}
 
 			ul.actions.stacked li {
-				padding: 1.3em 0 0 0;
+				padding: var(--space-3) 0 0 0;
 			}
 
 				ul.actions.stacked li:first-child {
@@ -2243,17 +2248,17 @@ mark {
 
 		ul.icons li {
 			display: inline-block;
-			padding: 0 1em 0 0;
+			padding: 0 var(--space-2) 0 0;
 		}
 
 			ul.icons li:last-child {
 				padding-right: 0;
 			}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			ul.icons li {
-				padding: 0 0.75em 0 0;
+				padding: 0 var(--space-1) 0 0;
 			}
 
 		}
@@ -2281,9 +2286,9 @@ mark {
 				font-weight: 600;
 				height: 1.5em;
 				line-height: 1.5em;
-				margin: 0 0.125em;
+				margin: 0 var(--space-1);
 				min-width: 1.5em;
-				padding: 0 0.5em;
+				padding: 0 var(--space-1);
 				text-align: center;
 			}
 
@@ -2302,14 +2307,14 @@ mark {
 					}
 
 			ul.pagination li:first-child {
-				padding-right: 0.75em;
+				padding-right: var(--space-1);
 			}
 
 			ul.pagination li:last-child {
-				padding-left: 0.75em;
+				padding-left: var(--space-1);
 			}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 734px) {
 
 			ul.pagination li:nth-child(n+2):nth-last-child(n+2) {
 				display: none;
@@ -2327,7 +2332,7 @@ mark {
 		-webkit-overflow-scrolling: touch !important;
 		overflow-x: auto !important;
 		width: 100% !important;
-		margin: 24px 0 !important;
+		margin: var(--space-3) 0 !important;
 		box-sizing: border-box !important;
 	}
 
@@ -2337,7 +2342,7 @@ mark {
 	}
 
 	table {
-		margin: 0 0 2em 0;
+		margin: 0 0 var(--space-4) 0;
 		width: 100%;
 	}
 
@@ -2352,14 +2357,14 @@ mark {
 			}
 
 		table td {
-			padding: 0.75em 0.75em;
+			padding: var(--space-1) var(--space-1);
 		}
 
 		table th {
 			color: #111111;
 			font-size: 0.9em;
 			font-weight: 600;
-			padding: 0 0.75em 0.75em 0.75em;
+			padding: 0 var(--space-1) var(--space-1) var(--space-1);
 			text-align: left;
 		}
 
@@ -2420,7 +2425,7 @@ mark {
 		height: 3.5em;
 		letter-spacing: 0.25em;
 		line-height: 3.5em;
-		padding: 0 1.75em;
+		padding: 0 var(--space-3);
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -2455,7 +2460,7 @@ mark {
 		input[type="button"].icon:before,
 		button.icon:before,
 		.button.icon:before {
-			margin-right: 0.5em;
+			margin-right: var(--space-1);
 		}
 
 		input[type="submit"].fit,
@@ -2489,7 +2494,7 @@ mark {
 		input[type="button"].next,
 		button.next,
 		.button.next {
-			padding-right: 4.5em;
+			padding-right: var(--space-6);
 			position: relative;
 		}
 
@@ -2547,14 +2552,14 @@ mark {
 				opacity: 1;
 			}
 
-			@media screen and (max-width: 1280px) {
+			@media screen and (max-width: 1441px) {
 
 				input[type="submit"].next,
 				input[type="reset"].next,
 				input[type="button"].next,
 				button.next,
 				.button.next {
-					padding-right: 5em;
+					padding-right: var(--space-6);
 				}
 
 			}
@@ -2617,7 +2622,7 @@ mark {
 			
 			align-items: center;
 			display: flex;
-			padding: 4em 4em 2em 4em ;
+			padding: var(--space-6) var(--space-6) var(--space-4) var(--space-6);
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -2724,10 +2729,10 @@ mark {
 				background-color: #B39DDB;
 			}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 1441px) {
 
 			.tiles article {
-				padding: 4em 3em 2em 3em ;
+				padding: var(--space-6) var(--space-5) var(--space-4) var(--space-5);
 				height: 30vh;
 				max-height: 30em;
 				min-height: 20em;
@@ -2735,7 +2740,7 @@ mark {
 
 		}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1068px) {
 
 			.tiles article {
 				width: 50% !important;
@@ -2743,10 +2748,10 @@ mark {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			.tiles article {
-				padding: 3em 1.5em 1em 1.5em ;
+				padding: var(--space-5) var(--space-3) var(--space-2) var(--space-3);
 				height: 16em;
 				max-height: none;
 				min-height: 0;
@@ -2758,7 +2763,7 @@ mark {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 734px) {
 
 			.tiles {
 				display: block;
@@ -2775,8 +2780,8 @@ mark {
 /* Contact Method */
 
 	.contact-method {
-		margin: 0 0 2em 0;
-		padding-left: 3.25em;
+		margin: 0 0 var(--space-4) 0;
+		padding-left: var(--space-5);
 		position: relative;
 	}
 
@@ -2787,7 +2792,7 @@ mark {
 		}
 
 		.contact-method h3 {
-			margin: 0 0 0.5em 0;
+			margin: 0 0 var(--space-1) 0;
 		}
 
 /* Spotlights */
@@ -2844,7 +2849,7 @@ mark {
 				justify-content: center;
 				
 				align-items: center;
-				padding: 2em 3em 0.1em 3em ;
+				padding: var(--space-4) var(--space-5) var(--space-1) var(--space-5);
 				width: 70%;
 			}
 
@@ -2865,7 +2870,7 @@ mark {
 					align-items: flex-end;
 				}
 
-		@media screen and (max-width: 1680px) {
+		@media screen and (max-width: 1441px) {
 
 			.spotlights > section > .image {
 				width: 40%;
@@ -2877,7 +2882,7 @@ mark {
 
 		}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 1441px) {
 
 			.spotlights > section > .image {
 				width: 45%;
@@ -2889,7 +2894,7 @@ mark {
 
 		}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1068px) {
 
 			.spotlights > section {
 				display: block;
@@ -2900,16 +2905,16 @@ mark {
 				}
 
 				.spotlights > section > .content {
-					padding: 4em 3em 2em 3em ;
+					padding: var(--space-6) var(--space-5) var(--space-4) var(--space-5);
 					width: 100%;
 				}
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			.spotlights > section > .content {
-				padding: 3em 1.5em 1em 1.5em ;
+				padding: var(--space-5) var(--space-3) var(--space-2) var(--space-3);
 			}
 
 		}
@@ -2943,7 +2948,7 @@ mark {
     z-index: 10000;
     background-color: var(--bg-color, #FFFFFF) !important; /* Enforces uniform off-white across all pages */
     border-bottom: 3px solid #000000 !important;
-    padding: 0 40px !important; 
+    padding: 0 var(--space-4) !important; 
     box-sizing: border-box;
     cursor: default;
     font-weight: 600;
@@ -2956,7 +2961,7 @@ mark {
 			font-size: 0.8em;
 			height: inherit;
 			line-height: inherit;
-			padding: 0 1.5em;
+			padding: 0 var(--space-3);
 		}
 
 			#header .logo strong {
@@ -2966,8 +2971,8 @@ mark {
 				color: #FFFFFF;
 				display: inline-block;
 				line-height: 1.65em;
-				margin-right: 0.325em;
-				padding: 0 0.125em 0 0.375em;
+				margin-right: var(--space-1);
+				padding: 0 var(--space-1) 0 var(--space-1);
 			}
 
 			#header .logo:hover strong {
@@ -2998,17 +3003,17 @@ mark {
 				font-size: 0.8em;
 				height: inherit;
 				line-height: inherit;
-				padding: 0 0.75em;
+				padding: 0 var(--space-1);
 				position: relative;
 				vertical-align: middle;
 			}
 
 				#header nav a:last-child {
-					padding-right: 1.5em;
+					padding-right: var(--space-3);
 				}
 
 				#header nav a[href="#menu"] {
-					padding-right: 3.325em !important;
+					padding-right: var(--space-5) !important;
 				}
 
 					#header nav a[href="#menu"]:before, #header nav a[href="#menu"]:after {
@@ -3039,7 +3044,7 @@ mark {
 					}
 
 					#header nav a[href="#menu"]:last-child {
-						padding-right: 3.875em !important;
+						padding-right: var(--space-6) !important;
 					}
 
 						#header nav a[href="#menu"]:last-child:before, #header nav a[href="#menu"]:last-child:after {
@@ -3086,31 +3091,31 @@ mark {
 			opacity: 0;
 		} */
 
-		@media screen and (max-width: 1680px) {
+		@media screen and (max-width: 1441px) {
 
 			#header nav a[href="#menu"] {
-				padding-right: 3.75em !important;
+				padding-right: var(--space-6) !important;
 			}
 
 				#header nav a[href="#menu"]:last-child {
-					padding-right: 4.25em !important;
+					padding-right: var(--space-6) !important;
 				}
 
 		}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 1441px) {
 
 			#header nav a[href="#menu"] {
-				padding-right: 4em !important;
+				padding-right: var(--space-6) !important;
 			}
 
 				#header nav a[href="#menu"]:last-child {
-					padding-right: 4.5em !important;
+					padding-right: var(--space-6) !important;
 				}
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			#header {
 				height: 2.75em;
@@ -3118,19 +3123,19 @@ mark {
 			}
 
 				#header .logo {
-					padding: 0 1em;
+					padding: 0 var(--space-2);
 				}
 
 				#header nav a {
-					padding: 0 0.5em;
+					padding: 0 var(--space-1);
 				}
 
 					#header nav a:last-child {
-						padding-right: 1em;
+						padding-right: var(--space-2);
 					}
 
 					#header nav a[href="#menu"] {
-						padding-right: 3.25em !important;
+						padding-right: var(--space-5) !important;
 					}
 
 						#header nav a[href="#menu"]:before, #header nav a[href="#menu"]:after {
@@ -3138,7 +3143,7 @@ mark {
 						}
 
 						#header nav a[href="#menu"]:last-child {
-							padding-right: 4em !important;
+							padding-right: var(--space-6) !important;
 						}
 
 							#header nav a[href="#menu"]:last-child:before, #header nav a[href="#menu"]:last-child:after {
@@ -3147,7 +3152,7 @@ mark {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 734px) {
 
 			#header .logo span {
 				display: none;
@@ -3183,7 +3188,7 @@ mark {
 		
 		
 		display: flex;
-		padding: 6em 0 2em 0 ;
+		padding: var(--space-7) 0 var(--space-4) 0;
 		#banner {
     /* Replace fixed with scroll to stop the repaint lag */
     background-attachment: scroll; 
@@ -3195,7 +3200,7 @@ mark {
 		border-bottom: 0 !important;
 		cursor: default;
 		height: 60vh;
-		margin-bottom: -3.25em;
+		margin-bottom: -var(--space-5);
 		max-height: 32em;
 		min-height: 22em;
 		position: relative;
@@ -3285,11 +3290,11 @@ mark {
 				display: flex;
 				
 				align-items: center;
-				margin: 0 0 2em 0;
+				margin: 0 0 var(--space-4) 0;
 			}
 
 				#banner > .inner .content > * {
-					margin-right: 1.5em;
+					margin-right: var(--space-3);
 					margin-bottom: 0;
 				}
 
@@ -3350,7 +3355,7 @@ mark {
 			opacity: 0;
 		}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 1441px) {
 
 			#banner {
 				background-attachment: scroll;
@@ -3358,12 +3363,12 @@ mark {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			#banner {
-				padding: 5em 0 1em 0 ;
+				padding: var(--space-6) 0 var(--space-2) 0;
 				height: auto;
-				margin-bottom: -2.75em;
+				margin-bottom: -var(--space-5);
 				max-height: none;
 				min-height: 0;
 				top: -2.75em;
@@ -3379,7 +3384,7 @@ mark {
 
 					#banner > .inner .content > * {
 						margin-right: 0;
-						margin-bottom: 2em;
+						margin-bottom: var(--space-4);
 					}
 
 				#banner.major {
@@ -3390,10 +3395,10 @@ mark {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		@media screen and (max-width: 734px) {
 
 			#banner {
-				padding: 6em 0 2em 0 ;
+				padding: var(--space-7) 0 var(--space-4) 0;
 			}
 
 				#banner > .inner .content p br {
@@ -3401,7 +3406,7 @@ mark {
 				}
 
 				#banner.major {
-					padding: 8em 0 4em 0 ;
+					padding: var(--space-8) 0 var(--space-6) 0;
 				}
 
 		}
@@ -3421,16 +3426,16 @@ mark {
 			}
 
 			#main > * > .inner {
-				padding: 4em 0 2em 0 ;
+				padding: var(--space-6) 0 var(--space-4) 0;
 				margin: 0 auto;
-				max-width: 65em;
+				max-width: var(--container-content);
 				width: calc(100% - 6em);
 			}
 
-				@media screen and (max-width: 736px) {
+				@media screen and (max-width: 734px) {
 
 					#main > * > .inner {
-						padding: 3em 0 1em 0 ;
+						padding: var(--space-5) 0 var(--space-2) 0;
 						width: calc(100% - 3em);
 					}
 
@@ -3455,13 +3460,13 @@ mark {
 		}
 
 			#contact > .inner > :nth-child(2n - 1) {
-				padding: 4em 3em 2em 0 ;
+				padding: var(--space-6) var(--space-5) var(--space-4) 0;
 				border-right: solid 1px rgba(0, 0, 0, 0.1);
 				width: 60%;
 			}
 
 			#contact > .inner > :nth-child(2n) {
-				padding-left: 3em;
+				padding-left: var(--space-5);
 				width: 40%;
 			}
 
@@ -3470,7 +3475,7 @@ mark {
 			}
 
 				#contact > .inner > .split > * {
-					padding: 3em 0 1em 3em ;
+					padding: var(--space-5) 0 var(--space-2) var(--space-5);
 					position: relative;
 				}
 
@@ -3478,7 +3483,7 @@ mark {
 						border-top: solid 1px rgba(0, 0, 0, 0.1);
 						content: '';
 						display: block;
-						margin-left: -3em;
+						margin-left: -var(--space-5);
 						position: absolute;
 						top: 0;
 						width: calc(100vw + 3em);
@@ -3488,14 +3493,14 @@ mark {
 					display: none;
 				}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1068px) {
 
 			#contact > .inner {
 				display: block;
 			}
 
 				#contact > .inner > :nth-child(2n - 1) {
-					padding: 4em 0 2em 0 ;
+					padding: var(--space-6) 0 var(--space-4) 0;
 					border-right: 0;
 					width: 100%;
 				}
@@ -3506,7 +3511,7 @@ mark {
 				}
 
 				#contact > .inner > .split > * {
-					padding: 3em 0 1em 0 ;
+					padding: var(--space-5) 0 var(--space-2) 0;
 				}
 
 				#contact > .inner > .split > :first-child:before {
@@ -3515,10 +3520,10 @@ mark {
 
 		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			#contact > .inner > :nth-child(2n - 1) {
-				padding: 3em 0 1em 0 ;
+				padding: var(--space-5) 0 var(--space-2) 0;
 			}
 
 		}
@@ -3527,7 +3532,7 @@ mark {
 
 
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 734px) {
 
 		#footer .copyright li {
 			display: block;
@@ -3543,7 +3548,7 @@ mark {
 
 	#wrapper {
 		
-		padding-top: 3.25em;
+		padding-top: var(--space-5);
 	}
 
 		#wrapper.is-transitioning {
@@ -3551,25 +3556,25 @@ mark {
 		}
 
 		#wrapper > * > .inner {
-			padding: 4em 0 2em 0 ;
+			padding: var(--space-6) 0 var(--space-4) 0;
 			margin: 0 auto;
-			max-width: 65em;
+			max-width: var(--container-content);
 			width: calc(100% - 6em);
 		}
 
-			@media screen and (max-width: 736px) {
+			@media screen and (max-width: 734px) {
 
 				#wrapper > * > .inner {
-					padding: 3em 0 1em 0 ;
+					padding: var(--space-5) 0 var(--space-2) 0;
 					width: calc(100% - 3em);
 				}
 
 			}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 734px) {
 
 			#wrapper {
-				padding-top: 2.75em;
+				padding-top: var(--space-5);
 			}
 
 		}
@@ -3592,7 +3597,7 @@ mark {
 		left: 0;
 		opacity: 0;
 		overflow: hidden;
-		padding: 3em 2em;
+		padding: var(--space-5) var(--space-4);
 		position: fixed;
 		top: 0;
 		visibility: hidden;
@@ -3616,15 +3621,15 @@ mark {
 		}
 
 			#menu .inner > :first-child {
-				margin-top: 2em;
+				margin-top: var(--space-4);
 			}
 
 			#menu .inner > :last-child {
-				margin-bottom: 3em;
+				margin-bottom: var(--space-5);
 			}
 
 		#menu ul {
-			margin: 0 0 1em 0;
+			margin: 0 0 var(--space-2) 0;
 		}
 
 			#menu ul.links {
@@ -3650,7 +3655,7 @@ mark {
 
 					#menu ul.links > li > .button {
 						display: block;
-						margin: 0.5em 0 0 0;
+						margin: var(--space-1) 0 0 0;
 					}
 
 					#menu ul.links > li:first-child > a:not(.button) {
@@ -3667,7 +3672,7 @@ mark {
 			height: 4em;
 			line-height: 4em;
 			overflow: hidden;
-			padding-right: 1.25em;
+			padding-right: var(--space-2);
 			position: absolute;
 			right: 0;
 			text-align: right;
@@ -3791,26 +3796,26 @@ body {
 #footer .inner {
     max-width: 100% !important; /* Forces the inner content container to fill the width */
     margin: 0 auto;
-    padding: 0 2em; /* Keeps content from touching the very edge of the screen */
+    padding: 0 var(--space-4); /* Keeps content from touching the very edge of the screen */
 }
 
 #footer .icons {
     text-align: center; /* Centers your social icons */
-    margin-top: 2em;
+    margin-top: var(--space-4);
 }
 
 #footer {
     background-color: #000000 !important;
     width: 100% !important;
     margin: 0 !important;
-    padding: 4em 0 2em 0 !important; /* Adjust padding as you prefer */
+    padding: var(--space-6) 0 var(--space-4) 0 !important; /* Adjust padding as you prefer */
 }
 
 /* 2. Force the inner container to behave and remove any internal borders */
 #footer .inner {
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 2em !important;
+    padding: 0 var(--space-4) !important;
     border-top: none !important;
 }
 
@@ -3850,11 +3855,11 @@ article header.major {
     font-weight: 300;       /* Lighter weight */
     color: #666666;        /* Subtle gray instead of black */
     font-size: 0.9em;      /* Slightly smaller */
-    margin-right: 10px;    /* Adds space between the year and the title */
+    margin-right: var(--space-1);    /* Adds space between the year and the title */
 }
 
 .job {
-    margin-bottom: 1.5em;
+    margin-bottom: var(--space-3);
     font-size: 1.1em;
     font-weight: 500;      /* Slightly bolder for the title */
 }
@@ -3867,7 +3872,7 @@ article header.major {
     color: #FFFFFF !important;
     font-size: 15px !important;
     font-weight: 500 !important;
-    padding: 14px 28px !important;
+    padding: var(--space-2) var(--space-3) !important;
     height: 48px !important; /* Meets min 44px tap target constraint */
     min-width: 44px !important;
     border-radius: var(--radius-pill) !important;
@@ -3897,18 +3902,18 @@ article header.major {
     font-weight: 400; /* Ensures all titles have the same weight */
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 734px) {
     .experience-list .job {
         display: block !important;
         white-space: nowrap !important;
         font-size: 13px !important; /* Smaller but accessible */
-        margin-bottom: 0.75em !important;
+        margin-bottom: var(--space-1) !important;
         text-overflow: ellipsis !important;
         overflow: hidden !important;
     }
     .experience-list .year {
         display: inline !important;
-        margin-right: 0.5em !important;
+        margin-right: var(--space-1) !important;
         font-weight: 600 !important;
         font-size: 1em !important;
     }
@@ -3928,12 +3933,12 @@ article header.major {
 .prototype-link-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: var(--space-2);
     justify-content: flex-start !important; /* Left-align prototype buttons with the left side of images */
     align-items: center !important; /* Center contents vertically */
     width: 100%;             /* Ensures the container spans the full width to allow centering */
-    margin-top: 20px;        /* Adds a little space above the button */
-    margin-bottom: 40px;
+    margin-top: var(--space-2);        /* Adds a little space above the button */
+    margin-bottom: var(--space-4);
 }
 
 body {
@@ -3963,7 +3968,7 @@ body {
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 734px) {
     
     /* 1. The Header Container: Perfect vertical alignment & spacing */
     header, #header {
@@ -3971,7 +3976,7 @@ body {
         align-items: center !important;            /* Forces perfect vertical centering */
         justify-content: space-between !important; /* Logo anchored Left, Button anchored Right */
         height: 75px !important;              
-        padding: 0 20px !important;           
+        padding: 0 var(--space-2) !important;           
         box-sizing: border-box !important;
     }
 
@@ -3998,11 +4003,11 @@ body {
     header .header-button {
         height: auto !important;              
         margin: 0 !important;                 /* Protects the button from rogue spacing */
-        padding: 10px 18px !important;        
+        padding: var(--space-1) var(--space-2) !important;        
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 734px) {
     .button, 
     input[type="submit"], 
     input[type="reset"], 
@@ -4011,7 +4016,7 @@ body {
         white-space: normal !important;
         height: auto !important;
         line-height: 1.4 !important;
-        padding: 12px 20px !important;
+        padding: var(--space-1) var(--space-2) !important;
         display: inline-flex !important;
         align-items: center;
         justify-content: center;
@@ -4020,7 +4025,7 @@ body {
     }
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 734px) {
     /* Shrinks the general body text */
     body, p {
         font-size: 16px !important; 
@@ -4069,7 +4074,7 @@ p {
     line-height: 1.55 !important;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 734px) {
     /* Target only the inner container to avoid nested padding compounding */
     #main > * > .inner {
         padding-left: max(24px, 8%) !important;
@@ -4091,14 +4096,14 @@ p {
     /* Ensure home page banner text aligns with the mobile grid */
     #banner > .inner {
         width: 100% !important;
-        padding: 1.5em max(24px, 8%) 1.5em max(24px, 8%) !important;
+        padding: var(--space-3) max(24px, 8%) var(--space-3) max(24px, 8%) !important;
         margin: 0 !important;
     }
 
     /* Ensure footer aligns with the mobile grid */
     #footer {
-        margin: 0 max(24px, 8%) 20px max(24px, 8%) !important;
-        padding: 3em max(24px, 8%) 2em max(24px, 8%) !important;
+        margin: 0 max(24px, 8%) var(--space-2) max(24px, 8%) !important;
+        padding: var(--space-5) max(24px, 8%) var(--space-4) max(24px, 8%) !important;
         text-align: center !important;
     }
     
@@ -4117,7 +4122,7 @@ p {
     #footer ul.icons li {
         display: inline-block !important;
         vertical-align: middle !important;
-        padding: 0 0.5em !important;
+        padding: 0 var(--space-1) !important;
     }
 
     /* Force all layout texts to align left horizontally on mobile */
@@ -4138,7 +4143,7 @@ p {
     }
 
     #banner {
-        padding: 1.5em 0 1.5em 0 !important;
+        padding: var(--space-3) 0 var(--space-3) 0 !important;
     }
 
     #banner h1 {
@@ -4153,7 +4158,7 @@ p {
     }
 
     #banner header.major {
-        margin-bottom: 1.4em !important; /* Matches h2 margin-bottom on mobile */
+        margin-bottom: var(--space-3) !important; /* Matches h2 margin-bottom on mobile */
     }
 
     /* Reset padding on action lists to align buttons perfectly */
@@ -4171,7 +4176,7 @@ p {
         flex-direction: column !important;
         justify-content: space-between !important;
         align-items: flex-start !important;
-        padding: 0 20px 0 20px !important;
+        padding: 0 var(--space-2) 0 var(--space-2) !important;
         height: 12em !important; /* Sleek, accessible height */
     }
 
@@ -4234,7 +4239,7 @@ html {
 .museum-page section[id],
 .mechmarket-page section[id],
 .bearla-page section[id] {
-    scroll-margin-top: 112px !important;
+    scroll-margin-top: var(--space-8) !important;
 }
 /* Trigger fresh GitHub Pages deployment build */
 
@@ -4276,7 +4281,7 @@ html {
 }
 
 #banner {
-    padding: 5.5em 0 5.5em 0 !important;
+    padding: var(--space-7) 0 var(--space-7) 0 !important;
     background-color: #F9F7F3 !important; /* Matches body background color */
     background-image: none !important;
     height: auto !important;
@@ -4287,7 +4292,7 @@ html {
 
 #banner > .inner {
     width: calc(100% - 6em) !important;
-    max-width: 65em !important;
+    max-width: var(--container-content) !important;
     margin: 0 auto !important;
     padding: 0 !important; /* Let outer padding control space */
     background: none !important;
@@ -4298,8 +4303,8 @@ html {
     font-size: var(--fs-h2) !important;
     font-weight: 500 !important;
     color: #555555 !important;
-    margin-top: -1em !important;
-    margin-bottom: 0.8em !important;
+    margin-top: -var(--space-2) !important;
+    margin-bottom: var(--space-2) !important;
     text-transform: none !important;
     letter-spacing: normal !important;
 }
@@ -4316,7 +4321,7 @@ html {
 }
 
 #banner header.major {
-    margin-bottom: 1.75em !important; /* Matches h2 margin-bottom on desktop */
+    margin-bottom: var(--space-3) !important; /* Matches h2 margin-bottom on desktop */
 }
 
 #banner p {
@@ -4339,7 +4344,7 @@ html {
     background-color: transparent !important;
     color: #000000 !important;
     padding: 0 !important;
-    margin-right: 0.325em !important;
+    margin-right: var(--space-1) !important;
     font-weight: 700 !important;
     display: inline-block !important;
 }
@@ -4350,8 +4355,8 @@ html {
     color: #FFFFFF !important;
     display: inline-block !important;
     line-height: 1.65em !important;
-    padding: 0 0.5em 0 0.5em !important;
-    margin-left: 0.325em !important;
+    padding: 0 var(--space-1) 0 var(--space-1) !important;
+    margin-left: var(--space-1) !important;
     font-weight: 400 !important;
 }
 
@@ -4366,13 +4371,13 @@ html {
 }
 
 /* Mobile & Tablet Header Layout Breakpoint (980px and below) */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     header, #header {
         display: flex !important;
         align-items: center !important;            /* Forces perfect vertical centering */
         justify-content: space-between !important; /* Logo anchored Left, Button anchored Right */
         height: 75px !important;              
-        padding: 0 20px !important;           
+        padding: 0 var(--space-2) !important;           
         box-sizing: border-box !important;
     }
     
@@ -4401,14 +4406,14 @@ html {
     header .header-button {
         height: auto !important;              
         margin: 0 !important;
-        padding: 10px 18px !important;        
+        padding: var(--space-1) var(--space-2) !important;        
     }
 }
 
 /* Desktop-only Tile Title Spacing (768px and up) */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 735px) {
     .tiles article h3 {
-        margin-bottom: 1.5em !important;
+        margin-bottom: var(--space-3) !important;
     }
     .tiles article p {
         margin-top: 0 !important;
@@ -4419,16 +4424,16 @@ html {
 .iteration-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 30px !important;
-    margin-top: 2.5em !important;
-    margin-bottom: 2.5em !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
 }
 
 .iteration-card {
     background-color: #ffffff !important;
     border: 1px solid var(--apple-border) !important;
     box-shadow: var(--shadow-sm) !important;
-    padding: 24px !important;
+    padding: var(--space-3) !important;
     display: flex !important;
     flex-direction: column !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -4444,7 +4449,7 @@ html {
     font-weight: 700 !important;
     font-size: 1.15em !important;
     margin-top: 0 !important;
-    margin-bottom: 12px !important;
+    margin-bottom: var(--space-1) !important;
     text-transform: none !important;
     letter-spacing: normal !important;
     color: var(--color-text-primary) !important;
@@ -4452,15 +4457,15 @@ html {
 
 .iteration-card .badge {
     display: inline-block !important;
-    padding: 6px 12px !important;
+    padding: var(--space-1) var(--space-1) !important;
     font-size: 0.7em !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     border: none !important;
-    margin-bottom: 16px !important;
+    margin-bottom: var(--space-2) !important;
     width: fit-content !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     line-height: 1.2 !important;
 }
 
@@ -4481,14 +4486,14 @@ html {
 
 .iteration-card ul {
     margin: 0 !important;
-    padding-left: 18px !important;
+    padding-left: var(--space-2) !important;
     font-size: 0.9em !important;
     line-height: 1.65 !important;
     list-style-type: disc !important;
 }
 
 .iteration-card ul li {
-    margin-bottom: 8px !important;
+    margin-bottom: var(--space-1) !important;
     color: var(--color-text-primary) !important;
     background: none !important;
     padding-left: 0 !important;
@@ -4506,10 +4511,10 @@ html {
     background-color: var(--apple-blue) !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .iteration-grid {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        gap: var(--space-3) !important;
     }
 }
 
@@ -4539,7 +4544,7 @@ h1, h2, h3, h4, h5, h6 {
 #main section p,
 .hero-text-content p,
 .takeaways p {
-    max-width: 680px !important;
+    max-width: var(--container-text) !important;
     margin-left: 0 !important;
     margin-right: auto !important; /* Keep it left-aligned */
 }
@@ -4593,7 +4598,7 @@ p a:hover, li a:hover {
 
 #wrapper {
     background-color: var(--apple-bg-gray) !important;
-    padding-top: 48px !important; /* Sync wrapper padding-top with Apple header height to eliminate gap/grey bar */
+    padding-top: var(--space-5) !important; /* Sync wrapper padding-top with Apple header height to eliminate gap/grey bar */
 }
 
 /* Header Overrides */
@@ -4610,7 +4615,7 @@ p a:hover, li a:hover {
     height: 48px !important; /* Apple standard 48px height */
     line-height: 48px !important;
     z-index: 9999 !important;
-    padding: 0 24px !important;
+    padding: 0 var(--space-3) !important;
 }
 
 body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
@@ -4658,7 +4663,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 
 #header .logo-sub-desktop {
     color: var(--apple-text-muted) !important;
-    margin-left: 6px !important;
+    margin-left: var(--space-1) !important;
 }
 
 /* Header button matches standard Apple link style */
@@ -4669,7 +4674,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     box-shadow: none !important;
     font-size: 12px !important;
     font-weight: 500 !important;
-    padding: 0 14px 0 0 !important; /* Reserve space for absolute positioned chevron */
+    padding: 0 var(--space-2) 0 0 !important; /* Reserve space for absolute positioned chevron */
     position: relative !important;
     border-radius: 0 !important;
     line-height: inherit !important;
@@ -4719,14 +4724,14 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     background-color: var(--apple-bg-light) !important;
     background-image: none !important;
     color: var(--apple-text-primary) !important;
-    padding: 10em 24px 6em 24px !important;
+    padding: var(--space-8) var(--space-3) var(--space-7) var(--space-3) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     text-align: center !important;
     box-shadow: none !important;
 }
 
 #banner .inner {
-    max-width: 800px !important;
+    max-width: var(--container-content) !important;
     margin: 0 auto !important;
 }
 
@@ -4735,15 +4740,15 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     font-weight: 700 !important;
     letter-spacing: -0.005em !important;
     color: var(--apple-text-primary) !important;
-    margin-bottom: 8px !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 #banner h2 {
     font-size: 28px !important; /* Apple scale h2 */
     font-weight: 600 !important;
     color: var(--apple-text-primary) !important;
-    margin-top: 8px !important;
-    margin-bottom: 16px !important;
+    margin-top: var(--space-1) !important;
+    margin-bottom: var(--space-2) !important;
     text-transform: none !important;
     letter-spacing: -0.01em !important;
 }
@@ -4753,8 +4758,8 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     font-weight: 400 !important;
     line-height: 1.42 !important;
     color: var(--apple-text-secondary) !important;
-    max-width: 600px !important;
-    margin: 16px auto !important;
+    max-width: var(--container-text) !important;
+    margin: var(--space-2) auto !important;
 }
 
 /* Shared Alignment Wrapper for Featured Projects Section */
@@ -4768,24 +4773,24 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 }
 
 .featured-projects-inner {
-    max-width: 1200px !important;
+    max-width: var(--container-wide) !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 40px !important; /* Centered inset left/right padding */
+    padding: 0 var(--space-4) !important; /* Centered inset left/right padding */
     box-sizing: border-box !important;
     background-color: transparent !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .featured-projects-inner {
-        padding: 0 16px !important; /* Mobile padding */
+        padding: 0 var(--space-2) !important; /* Mobile padding */
     }
 }
 
 /* Desktop Breakpoint: Header size */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 735px) {
     .grid-section-header {
-        padding: 40px 0 0 0 !important; /* Spacing from top only, sides aligned by wrapper */
+        padding: var(--space-4) 0 0 0 !important; /* Spacing from top only, sides aligned by wrapper */
         background-color: transparent !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -4823,8 +4828,8 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     scroll-snap-type: x mandatory !important;
     scrollbar-width: none !important; /* Hide scrollbar Firefox */
     -ms-overflow-style: none !important;  /* Hide scrollbar IE/Edge */
-    gap: 32px !important; /* Set grid-gap between project tiles to a consistent 32px */
-    padding: 30px 0 !important; /* No side padding inside wrapper to keep first card perfectly flush */
+    gap: var(--space-4) !important; /* Set grid-gap between project tiles to a consistent 32px */
+    padding: var(--space-4) 0 !important; /* No side padding inside wrapper to keep first card perfectly flush */
     background-color: transparent !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -4897,7 +4902,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     content: "\2039" !important; /* Single left angle chevron ‹ */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .carousel-nav-btn {
         display: none !important; /* Hide arrows on mobile */
     }
@@ -4907,8 +4912,8 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     display: none !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important;
-    padding: 16px 0 24px 0 !important;
+    gap: var(--space-1) !important;
+    padding: var(--space-2) 0 var(--space-3) 0 !important;
     background-color: transparent !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -4936,10 +4941,10 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     flex: 0 0 calc((100% - 32px) / 2) !important; /* Exactly 2 tiles visible at once on desktop */
     scroll-snap-align: start !important;
     background-color: var(--apple-bg-light) !important;
-    border-radius: 18px !important; /* Consistent Apple 18px corner radius */
+    border-radius: var(--radius-md) !important; /* Consistent Apple 18px corner radius */
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     border: none !important; /* Remove card border */
-    padding: 32px !important; /* Matches museum iteration cards */
+    padding: var(--space-4) !important; /* Matches museum iteration cards */
     height: 560px !important; /* Vertical rectangle layout */
     width: 100% !important;
     max-width: 100% !important;
@@ -5037,7 +5042,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     font-weight: 600 !important;
     background-color: transparent !important;
     color: var(--apple-text-secondary) !important;
-    margin-bottom: 12px !important;
+    margin-bottom: var(--space-1) !important;
     border: none !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important; /* Tracking 0.05em */
@@ -5047,7 +5052,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     font-size: 28px !important; /* Dominant visual anchor size (28px) */
     font-weight: 600 !important;
     color: var(--apple-text-primary) !important;
-    margin-bottom: 8px !important;
+    margin-bottom: var(--space-1) !important;
     margin-top: 0 !important;
     letter-spacing: -0.015em !important;
 }
@@ -5071,7 +5076,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 14px 0 0 !important; /* Reserve space for absolute positioned chevron */
+    padding: 0 var(--space-2) 0 0 !important; /* Reserve space for absolute positioned chevron */
     margin: 0 !important;
     text-transform: none !important;
     letter-spacing: normal !important;
@@ -5103,17 +5108,17 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 /* Experience List Overrides */
 #two {
     background-color: var(--apple-bg-light) !important;
-    padding: 80px 0 !important; /* Top/bottom padding only */
+    padding: var(--space-6) 0 !important; /* Top/bottom padding only */
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
 
 #two .inner {
-    max-width: 1200px !important;
+    max-width: var(--container-wide) !important;
     margin: 0 auto !important;
-    padding-left: 40px !important; /* Matches featured projects section padding */
-    padding-right: 40px !important;
+    padding-left: var(--space-4) !important; /* Matches featured projects section padding */
+    padding-right: var(--space-4) !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
@@ -5121,20 +5126,20 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 .experience-list {
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
-    margin-top: 40px !important;
+    gap: var(--space-2) !important;
+    margin-top: var(--space-4) !important;
 }
 
 .experience-list .job {
     background-color: var(--apple-bg-gray) !important; /* Standard Apple off-white background */
-    padding: 24px 32px !important;
-    border-radius: 18px !important;
+    padding: var(--space-3) var(--space-4) !important;
+    border-radius: var(--radius-md) !important;
     border: none !important;
     box-shadow: var(--shadow-md) !important; /* Use Apple shadow system */
     display: flex !important;
     justify-content: flex-start !important;
     align-items: center !important;
-    gap: 24px !important;
+    gap: var(--space-3) !important;
     font-size: 15px !important;
     color: var(--apple-text-primary) !important;
 }
@@ -5159,7 +5164,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     border: none !important;
     box-shadow: none !important;
     font-weight: 500 !important;
-    padding: 0 14px 0 0 !important; /* Reserve space for absolutely positioned chevron */
+    padding: 0 var(--space-2) 0 0 !important; /* Reserve space for absolutely positioned chevron */
     position: relative !important;
     font-size: 17px !important; /* Premium readable link font size */
     transition: color 0.2s ease !important;
@@ -5167,7 +5172,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     line-height: inherit !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 4px !important;
+    gap: var(--space-1) !important;
     text-transform: none !important;
     letter-spacing: normal !important;
     transform: none !important;
@@ -5250,13 +5255,13 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 
 /* Horizontal spacing between side-by-side buttons */
 .button + .button {
-    margin-left: 24px !important;
+    margin-left: var(--space-3) !important;
 }
 
 /* Multi-Column Apple Site Directory Footer */
 #footer {
     background-color: var(--apple-bg-gray) !important; /* Soft gray directory background */
-    padding: 60px 24px 40px 24px !important;
+    padding: var(--space-6) var(--space-3) var(--space-4) var(--space-3) !important;
     border: none !important;
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
     box-shadow: none !important;
@@ -5264,7 +5269,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 }
 
 #footer .inner {
-    max-width: 1200px !important;
+    max-width: var(--container-wide) !important;
     margin: 0 auto !important;
     padding: 0 !important;
 }
@@ -5272,10 +5277,10 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 .footer-directory {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 40px !important;
+    gap: var(--space-4) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    padding-bottom: 40px !important;
-    margin-bottom: 24px !important;
+    padding-bottom: var(--space-4) !important;
+    margin-bottom: var(--space-3) !important;
 }
 
 .directory-column h3 {
@@ -5284,7 +5289,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     color: var(--apple-text-primary) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    margin-bottom: 16px !important;
+    margin-bottom: var(--space-2) !important;
     margin-top: 0 !important;
 }
 
@@ -5295,7 +5300,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 }
 
 .directory-column ul li {
-    margin-bottom: 8px !important;
+    margin-bottom: var(--space-1) !important;
     padding-left: 0 !important;
 }
 
@@ -5339,7 +5344,7 @@ body.museum-page,
 
 .museum-page #main {
     background-color: var(--accent-museum-bg) !important;
-    padding: 120px 24px 80px 24px !important; /* Give padding top to prevent overlap by header & sub-nav */
+    padding: var(--space-8) var(--space-3) var(--space-6) var(--space-3) !important; /* Give padding top to prevent overlap by header & sub-nav */
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -5351,14 +5356,14 @@ body.museum-page,
     box-shadow: var(--shadow-sm) !important;
     padding: var(--space-5) !important;
     margin: var(--space-7) auto !important;
-    max-width: 1000px !important;
+    max-width: var(--container-content) !important;
     width: 100% !important;
     box-sizing: border-box !important;
     border: none !important;
 }
 
 .museum-page #main section {
-    margin-bottom: 48px !important;
+    margin-bottom: var(--space-5) !important;
     border: none !important;
     background: transparent;
     box-shadow: none !important;
@@ -5378,8 +5383,8 @@ body.museum-page,
     flex-direction: row !important;
     justify-content: center !important; /* Centered horizontal links */
     align-items: center !important;
-    gap: 32px !important;
-    padding: 0 24px !important;
+    gap: var(--space-4) !important;
+    padding: 0 var(--space-3) !important;
     box-shadow: none !important;
     border-left: none !important;
     border-radius: 0 !important;
@@ -5439,16 +5444,16 @@ body.museum-page,
 #systems .iteration-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 24px !important;
-    margin-top: 40px !important;
+    gap: var(--space-3) !important;
+    margin-top: var(--space-4) !important;
 }
 
 #systems .iteration-card {
     background-color: var(--apple-bg-light) !important;
     border: none !important; /* Remove card border */
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
-    border-radius: 18px !important;
-    padding: 32px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
@@ -5465,19 +5470,19 @@ body.museum-page,
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
-    border-radius: 4px !important;
-    padding: 4px 10px !important;
-    margin-bottom: 16px !important;
+    border-radius: var(--radius-sm) !important;
+    padding: var(--space-1) var(--space-1) !important;
+    margin-bottom: var(--space-2) !important;
 }
 
 #systems .iteration-card h4 {
     font-size: 1.25rem !important;
     font-weight: 600 !important;
-    margin-bottom: 16px !important;
+    margin-bottom: var(--space-2) !important;
 }
 
 /* Responsive Overrides */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1068px) {
     .museum-page .nav-container {
         border-left: none !important;
         border-bottom: 1px solid var(--apple-border) !important;
@@ -5488,7 +5493,7 @@ body.museum-page,
         border-left: none !important;
         border-bottom: 2px solid transparent !important;
         margin-left: 0 !important;
-        padding: 0 16px !important;
+        padding: 0 var(--space-2) !important;
         height: 48px !important;
         line-height: 48px !important;
     }
@@ -5498,9 +5503,9 @@ body.museum-page,
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .grid-section-header {
-        padding: 24px 16px 0 16px !important;
+        padding: var(--space-3) var(--space-2) 0 var(--space-2) !important;
         background-color: var(--apple-bg-gray) !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -5529,8 +5534,8 @@ body.museum-page,
     .tiles {
         display: flex !important;
         flex-direction: column !important; /* Stack vertically for tight scannable feed */
-        gap: 20px !important;
-        padding: 30px 16px !important;
+        gap: var(--space-2) !important;
+        padding: var(--space-4) var(--space-2) !important;
         overflow-x: visible !important;
         background-color: var(--apple-bg-gray) !important; /* Soft gray background on mobile */
     }
@@ -5547,11 +5552,11 @@ body.museum-page,
         aspect-ratio: auto !important;
         min-height: 420px !important;
         height: 420px !important;
-        padding: 16px !important; /* Reduce inner padding to 16px */
+        padding: var(--space-2) !important; /* Reduce inner padding to 16px */
         width: 100% !important;
         max-width: 100% !important;
         max-height: none !important;
-        border-radius: 18px !important;
+        border-radius: var(--radius-md) !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
@@ -5563,7 +5568,7 @@ body.museum-page,
         margin-left: 0 !important;
         margin-right: 0 !important;
         height: 220px !important; /* Fixed height for clean mobile contain scaling */
-        margin: 16px auto !important;
+        margin: var(--space-2) auto !important;
         background: transparent !important;
         border: none !important;
         overflow: visible !important; /* Prevent clipping mobile scaled mockup */
@@ -5590,7 +5595,7 @@ body.museum-page,
         max-width: 100% !important;
     }
     #two {
-        padding: 48px 16px !important; /* Balanced container padding on mobile */
+        padding: var(--space-5) var(--space-2) !important; /* Balanced container padding on mobile */
     }
     #two .inner {
         width: 100% !important;
@@ -5607,14 +5612,14 @@ body.museum-page,
         margin-left: 0 !important;
     }
     .experience-list {
-        margin-top: 24px !important;
-        gap: 12px !important;
+        margin-top: var(--space-3) !important;
+        gap: var(--space-1) !important;
     }
     .experience-list .job {
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 6px !important;
-        padding: 16px 20px !important; /* Clean balanced padding inside mobile cards */
+        gap: var(--space-1) !important;
+        padding: var(--space-2) var(--space-2) !important; /* Clean balanced padding inside mobile cards */
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -5623,14 +5628,14 @@ body.museum-page,
     }
     .footer-directory {
         grid-template-columns: 1fr !important;
-        gap: 30px !important;
+        gap: var(--space-4) !important;
     }
     #systems .iteration-grid {
         grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        gap: var(--space-2) !important;
     }
     .museum-page #main {
-        padding-top: 100px !important;
+        padding-top: var(--space-7) !important;
     }
 }
 
@@ -5641,9 +5646,9 @@ body.museum-page,
     background-color: var(--apple-bg-light) !important;
     border: none !important; /* Remove card border */
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
-    border-radius: 18px !important;
-    padding: 24px !important; /* Premium card frame padding */
-    margin-bottom: 2em !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) !important; /* Premium card frame padding */
+    margin-bottom: var(--space-4) !important;
     display: block !important;
     overflow: hidden !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -5661,7 +5666,7 @@ body.museum-page,
 .museum-page #main .image.main img,
 .mechmarket-page #main .image.main img,
 .bearla-page #main .image.main img {
-    border-radius: 8px !important; /* Keep internal image slightly rounded too */
+    border-radius: var(--radius-sm) !important; /* Keep internal image slightly rounded too */
     display: block !important;
     width: 100% !important;
     height: auto !important;
@@ -5671,14 +5676,14 @@ body.museum-page,
 .apple-bento-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 24px !important;
+    gap: var(--space-3) !important;
     width: 100% !important;
-    margin-top: 40px !important;
-    margin-bottom: 40px !important;
+    margin-top: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
 }.apple-tile {
     background: #FFFFFF !important; /* Restore white card background */
-    border-radius: 18px !important; /* Restore rounded borders */
-    padding: 20px !important;
+    border-radius: var(--radius-md) !important; /* Restore rounded borders */
+    padding: var(--space-2) !important;
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     display: flex !important;
     flex-direction: column !important;
@@ -5706,7 +5711,7 @@ body.museum-page,
     justify-content: center !important;
     align-items: center !important;
     overflow: hidden !important;
-    border-radius: 12px !important;
+    border-radius: var(--radius-sm) !important;
     background-color: transparent !important; /* Remove the grey background block/border */
     margin: 0 !important;
     padding: 0 !important;
@@ -5719,21 +5724,21 @@ body.museum-page,
     left: 0 !important;
     right: 0 !important;
     height: 100% !important; /* Expand wrapper fully to card borders on hover */
-    border-radius: 18px !important;
+    border-radius: var(--radius-md) !important;
 }
 
 .tile-image-wrapper img {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-sm) !important;
     box-shadow: none !important; /* Remove grey drop shadow from the screenshots */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth zoom transition */
 }
 
 /* Expand to fill entire card boundaries on hover */
 .apple-tile:hover .tile-image-wrapper img {
-    border-radius: 18px !important;
+    border-radius: var(--radius-md) !important;
     transform: scale(1.05) !important; /* Clean zoom scale */
 }
 
@@ -5764,7 +5769,7 @@ body.museum-page,
     font-weight: 600 !important;
     color: var(--apple-blue) !important; /* Apple Blue Accent */
     text-transform: uppercase !important;
-    margin-bottom: 6px !important;
+    margin-bottom: var(--space-1) !important;
     letter-spacing: 0.05em !important;
     display: inline-block !important;
 }
@@ -5783,19 +5788,19 @@ body.museum-page,
 }
 
 /* Horizontal Scroll Behavior on Mobile and Tablet Viewports */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1068px) {
     .apple-bento-grid {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
-        padding-bottom: 20px !important;
-        gap: 16px !important;
+        padding-bottom: var(--space-2) !important;
+        gap: var(--space-2) !important;
         width: calc(100% + 48px) !important; /* Bleed slightly over padding edges */
-        margin-left: -24px !important;
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+        margin-left: -var(--space-3) !important;
+        padding-left: var(--space-3) !important;
+        padding-right: var(--space-3) !important;
         scrollbar-width: none !important; /* Hide scrollbars for a clean iOS aesthetic */
     }
     
@@ -5849,16 +5854,16 @@ body.museum-page,
 .test-insights-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 24px !important;
+    gap: var(--space-3) !important;
     width: 100% !important;
-    margin-top: 32px !important;
-    margin-bottom: 32px !important;
+    margin-top: var(--space-4) !important;
+    margin-bottom: var(--space-4) !important;
 }
 
 .insight-card {
     background: #FFFFFF !important;
-    border-radius: 18px !important;
-    padding: 24px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) !important;
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     border: none !important; /* Remove card border */
     display: flex !important;
@@ -5878,10 +5883,10 @@ body.museum-page,
     font-weight: 600 !important;
     color: #0071e3 !important;
     background-color: #f5f5f7 !important;
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
+    padding: var(--space-1) var(--space-1) !important;
+    border-radius: var(--radius-sm) !important;
     display: inline-block !important;
-    margin-bottom: 12px !important;
+    margin-bottom: var(--space-1) !important;
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
 }
@@ -5890,7 +5895,7 @@ body.museum-page,
     font-size: 17px !important;
     font-weight: 600 !important;
     color: #1D1D1F !important;
-    margin-bottom: 12px !important;
+    margin-bottom: var(--space-1) !important;
     text-transform: none !important;
     letter-spacing: normal !important;
 }
@@ -5899,7 +5904,7 @@ body.museum-page,
     font-size: 14px !important;
     line-height: 1.6 !important;
     color: #515154 !important;
-    margin-bottom: 12px !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 .insight-card p:last-child {
@@ -5912,10 +5917,10 @@ body.museum-page,
 }
 
 /* Responsive adjustment for Usability Insights */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .test-insights-grid {
         grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        gap: var(--space-2) !important;
     }
 }
 
@@ -5927,7 +5932,7 @@ body.museum-page,
     justify-content: space-between !important;
     background: #FFFFFF !important;
     overflow: hidden !important;
-    padding: 32px !important;
+    padding: var(--space-4) !important;
 }
 
 .hero-tile-split header.major {
@@ -5950,11 +5955,11 @@ body.museum-page,
     justify-content: center !important;
     overflow: hidden !important;
     padding: 0 !important;
-    border-radius: 12px !important;
+    border-radius: var(--radius-sm) !important;
     border: none !important;
     background-color: #f5f5f7 !important;
     box-shadow: var(--shadow-sm) !important;
-    margin-left: 24px !important;
+    margin-left: var(--space-3) !important;
     transition: transform 0.2s ease !important;
 }
 
@@ -5966,23 +5971,23 @@ body.museum-page,
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-radius: 12px !important;
+    border-radius: var(--radius-sm) !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .tiles article.hero-tile-split {
         flex-direction: column-reverse !important;
         justify-content: flex-end !important;
         aspect-ratio: auto !important;
         height: auto !important;
         min-height: 480px !important;
-        padding: 32px !important;
+        padding: var(--space-4) !important;
     }
     
     .tiles article.hero-tile-split header.major {
         max-width: 100% !important;
         width: 100% !important;
-        margin-top: 24px !important;
+        margin-top: var(--space-3) !important;
     }
     
     .tiles article.hero-tile-split .tile-image-container {
@@ -6006,22 +6011,22 @@ body.bearla-page,
 
 .mechmarket-page #main {
     background-color: var(--accent-mechmarket-bg) !important;
-    padding-top: 52px !important;
+    padding-top: var(--space-5) !important;
 }
 
 .bearla-page #main {
     background-color: var(--accent-bearla-bg) !important;
-    padding-top: 52px !important; /* Give padding top to prevent overlap by header & sub-nav */
+    padding-top: var(--space-5) !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
 .museum-hero {
     background-color: #FFFFFF !important; /* Soft White Background */
     width: 100% !important;
-    max-width: 1000px !important;
-    margin: 48px auto !important;
-    border-radius: 18px !important;
+    max-width: var(--container-content) !important;
+    margin: var(--space-5) auto !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-md) !important;
-    padding: 48px !important;
+    padding: var(--space-5) !important;
     box-sizing: border-box !important;
     color: #202020 !important;
 }
@@ -6036,7 +6041,7 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 48px !important;
+    gap: var(--space-5) !important;
 }
 
 .museum-hero .hero-text-block {
@@ -6052,8 +6057,8 @@ body.bearla-page,
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
-    margin-bottom: 8px !important;
+    gap: var(--space-1) !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 .museum-hero .logo-icon-m {
@@ -6084,15 +6089,15 @@ body.bearla-page,
     font-size: var(--fs-h3) !important;
     font-weight: 500 !important;
     color: rgba(32, 32, 32, 0.8) !important;
-    margin-bottom: 32px !important;
+    margin-bottom: var(--space-4) !important;
     line-height: 1.2 !important;
 }
 
 .museum-hero .metadata-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
-    margin-bottom: 40px !important;
+    gap: var(--space-1) !important;
+    margin-bottom: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -6102,7 +6107,7 @@ body.bearla-page,
     font-family: var(--font-primary) !important;
     display: flex !important;
     flex-direction: row !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
 }
 
 .museum-hero .metadata-item .label {
@@ -6126,7 +6131,7 @@ body.bearla-page,
 .museum-hero .hero-visual-block img {
     max-width: 100% !important;
     height: auto !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-lg) !important;
 }
 
@@ -6134,23 +6139,23 @@ body.bearla-page,
     background-color: var(--accent-mechmarket-bg) !important; /* Soft Pastel Lavender/Pink Background */
     width: 100% !important;
     max-width: 100% !important;
-    padding: 80px 0 !important;
+    padding: var(--space-6) 0 !important;
     box-sizing: border-box !important;
     color: #202020 !important; /* Deep Charcoal primary text */
 }
 
 .mechmarket-hero .hero-inner {
-    max-width: 1200px !important;
+    max-width: var(--container-wide) !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 40px !important;
+    padding: 0 var(--space-4) !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    gap: 40px !important;
+    gap: var(--space-4) !important;
 }
 
 .mechmarket-hero .hero-text-block {
@@ -6168,8 +6173,8 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 12px !important;
-    margin-bottom: 8px !important;
+    gap: var(--space-1) !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 .mechmarket-hero .logo-icon-m {
@@ -6201,7 +6206,7 @@ body.bearla-page,
     font-size: var(--fs-h3) !important;
     font-weight: 500 !important;
     color: rgba(32, 32, 32, 0.8) !important; /* Charcoal subtitle */
-    margin-bottom: 24px !important;
+    margin-bottom: var(--space-3) !important;
     line-height: 1.2 !important;
 }
 
@@ -6210,9 +6215,9 @@ body.bearla-page,
     flex-direction: row !important;
     justify-content: center !important;
     flex-wrap: wrap !important;
-    gap: 32px !important;
-    margin-top: 16px !important;
-    margin-bottom: 32px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-2) !important;
+    margin-bottom: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -6222,7 +6227,7 @@ body.bearla-page,
     font-family: var(--font-primary) !important;
     display: flex !important;
     flex-direction: row !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
 }
 
 .mechmarket-hero .metadata-item .label {
@@ -6243,8 +6248,8 @@ body.bearla-page,
     background-color: #202020 !important; /* Deep Charcoal button background */
     color: #FFFFFF !important;
     font-weight: 600 !important;
-    border-radius: 30px !important;
-    padding: 0 28px !important;
+    border-radius: var(--radius-pill) !important;
+    padding: 0 var(--space-3) !important;
     height: 48px !important;
     line-height: 48px !important;
     font-size: 14px !important;
@@ -6273,7 +6278,7 @@ body.bearla-page,
 }
 
 .mechmarket-hero .hero-visual-block img {
-    max-width: 700px !important;
+    max-width: var(--container-text) !important;
     width: 100% !important;
     height: auto !important;
     display: block !important;
@@ -6286,23 +6291,23 @@ body.bearla-page,
     background-color: #F5F0E8 !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 96px 0 64px 0 !important;
+    padding: var(--space-7) 0 var(--space-6) 0 !important;
     box-sizing: border-box !important;
     color: #202020 !important;
 }
 
 .bearla-hero .hero-inner {
-    max-width: 1200px !important;
+    max-width: var(--container-wide) !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 40px !important;
+    padding: 0 var(--space-4) !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    gap: 36px !important;
+    gap: var(--space-4) !important;
 }
 
 .bearla-hero .hero-text-block {
@@ -6320,7 +6325,7 @@ body.bearla-page,
     font-weight: 700 !important;
     color: #1d1d1f !important;
     font-family: var(--font-primary) !important;
-    margin: 0 0 20px 0 !important;
+    margin: 0 0 var(--space-2) 0 !important;
     line-height: 1.08 !important;
     letter-spacing: -0.025em !important;
 }
@@ -6330,8 +6335,8 @@ body.bearla-page,
     font-weight: 400 !important;
     color: rgba(29, 29, 31, 0.75) !important;
     font-family: var(--font-primary) !important;
-    max-width: 820px !important;
-    margin: 0 auto 36px auto !important;
+    max-width: var(--container-text) !important;
+    margin: 0 auto var(--space-4) auto !important;
     line-height: 1.45 !important;
     letter-spacing: -0.015em !important;
 }
@@ -6341,9 +6346,9 @@ body.bearla-page,
     flex-direction: row !important;
     justify-content: center !important;
     flex-wrap: wrap !important;
-    gap: 40px !important;
-    margin-top: 12px !important;
-    margin-bottom: 44px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-1) !important;
+    margin-bottom: var(--space-5) !important;
     width: 100% !important;
 }
 
@@ -6352,7 +6357,7 @@ body.bearla-page,
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 4px !important;
+    gap: var(--space-1) !important;
 }
 
 .bearla-hero .metadata-item .label {
@@ -6372,7 +6377,7 @@ body.bearla-page,
 
 .bearla-hero .hero-visual-block {
     flex: 1 !important;
-    max-width: 960px !important;
+    max-width: var(--container-content) !important;
     width: 100% !important;
     display: flex !important;
     align-items: center !important;
@@ -6386,7 +6391,7 @@ body.bearla-page,
     width: 100% !important;
     height: auto !important;
     display: block !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-lg) !important;
 }
 
@@ -6397,7 +6402,7 @@ body.bearla-page,
     box-shadow: var(--shadow-sm) !important;
     padding: var(--space-5) !important;
     margin: var(--space-7) auto !important; /* Luxury whitespace padding */
-    max-width: 1000px !important;
+    max-width: var(--container-content) !important;
     width: 100% !important;
     box-sizing: border-box !important;
     border: none !important;
@@ -6410,7 +6415,7 @@ body.bearla-page,
     border: 1px solid var(--apple-border) !important;
     padding: var(--space-5) !important;
     margin: var(--space-7) auto !important; /* Luxury whitespace padding */
-    max-width: 1000px !important;
+    max-width: var(--container-content) !important;
     width: 100% !important;
     box-sizing: border-box !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
@@ -6447,8 +6452,8 @@ body.bearla-page,
 .bearla-page .split-columns-grid .right-column {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
-    border-radius: 16px !important;
-    padding: 24px 26px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) var(--space-3) !important;
     box-shadow: var(--shadow-sm) !important;
 }
 
@@ -6456,16 +6461,16 @@ body.bearla-page,
 .bearla-page ul.challenge-list {
     padding-left: 0 !important;
     list-style-type: none !important;
-    margin: 20px 0 !important;
+    margin: var(--space-2) 0 !important;
 }
 
 .bearla-page ul.differentiators-list li,
 .bearla-page ul.challenge-list li {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
-    border-radius: 14px !important;
-    padding: 18px 22px !important;
-    margin-bottom: 14px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    margin-bottom: var(--space-2) !important;
     list-style-type: none !important;
     box-shadow: var(--shadow-sm) !important;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
@@ -6479,12 +6484,12 @@ body.bearla-page,
 }
 
 .bearla-page .image.main {
-    border-radius: 16px !important;
+    border-radius: var(--radius-md) !important;
     overflow: hidden !important;
     box-shadow: var(--shadow-md) !important;
     border: 1px solid var(--apple-border) !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    margin: 28px 0 !important;
+    margin: var(--space-3) 0 !important;
 }
 
 .bearla-page .image.main:hover {
@@ -6493,7 +6498,7 @@ body.bearla-page,
 }
 
 .bearla-page table {
-    border-radius: 14px !important;
+    border-radius: var(--radius-md) !important;
     overflow: hidden !important;
     box-shadow: var(--shadow-md) !important;
     border: 1px solid var(--apple-border) !important;
@@ -6557,23 +6562,23 @@ body.bearla-page,
   --shadow-card: var(--shadow-md);
 }
 
-#design-system section.block { margin-bottom: 48px !important; }
-#design-system .block-head { display:flex !important; align-items:baseline !important; gap: 16px !important; margin-bottom: 24px !important; border-bottom: 1px solid var(--color-border) !important; padding-bottom: 16px !important; }
+#design-system section.block { margin-bottom: var(--space-5) !important; }
+#design-system .block-head { display:flex !important; align-items:baseline !important; gap: var(--space-2) !important; margin-bottom: var(--space-3) !important; border-bottom: 1px solid var(--color-border) !important; padding-bottom: var(--space-2) !important; }
 #design-system .block-num { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 28px !important; color: var(--color-gold) !important; }
-#design-system .block-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 30px !important; color: var(--color-maroon) !important; margin:0 !important; }
-#design-system .block-desc { color: var(--color-taupe) !important; font-size: 14px !important; margin: -12px 0 24px 0 !important; font-family: var(--font-ui) !important; }
+#design-system .block-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 30px !important; color: var(--color-maroon) !important; margin: 0 !important; }
+#design-system .block-desc { color: var(--color-taupe) !important; font-size: 14px !important; margin: -var(--space-1) 0 var(--space-3) 0 !important; font-family: var(--font-ui) !important; }
 
 /* ---- color swatches ---- */
-#design-system .swatch-grid { display:grid !important; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)) !important; gap: 20px !important; }
+#design-system .swatch-grid { display:grid !important; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)) !important; gap: var(--space-2) !important; }
 #design-system .swatch { border: 1px solid var(--color-border) !important; border-radius: var(--radius-md) !important; overflow:hidden !important; background: var(--color-cream-card) !important; }
 #design-system .swatch-fill { height: 90px !important; }
-#design-system .swatch-meta { padding: 12px 16px !important; }
+#design-system .swatch-meta { padding: var(--space-1) var(--space-2) !important; }
 #design-system .swatch-name { font-size: 13px !important; font-weight: 500 !important; font-family: var(--font-ui) !important; }
 #design-system .swatch-hex { font-size: 12px !important; color: var(--color-taupe-light) !important; font-family: monospace !important; }
-#design-system .swatch-use { font-size: 11px !important; color: var(--color-taupe) !important; margin-top: 4px !important; font-family: var(--font-ui) !important; }
+#design-system .swatch-use { font-size: 11px !important; color: var(--color-taupe) !important; margin-top: var(--space-1) !important; font-family: var(--font-ui) !important; }
 
 /* ---- type specimens ---- */
-#design-system .type-row { display:flex !important; align-items:baseline !important; justify-content: space-between !important; gap: 20px !important; padding: 20px 0 !important; border-bottom: 1px dashed var(--color-border) !important; flex-wrap: wrap !important; }
+#design-system .type-row { display:flex !important; align-items:baseline !important; justify-content: space-between !important; gap: var(--space-2) !important; padding: var(--space-2) 0 !important; border-bottom: 1px dashed var(--color-border) !important; flex-wrap: wrap !important; }
 #design-system .type-row:last-child { border-bottom:none !important; }
 #design-system .type-sample { font-family: var(--font-display) !important; color: var(--color-maroon) !important; font-weight: 300 !important; }
 #design-system .type-meta { font-size: 12px !important; color: var(--color-taupe-light) !important; text-align:right !important; min-width: 190px !important; font-family: monospace !important; }
@@ -6582,14 +6587,14 @@ body.bearla-page,
 #design-system .micro-sample { font-family: var(--font-micro) !important; font-size: 11px !important; color: var(--color-ink) !important; }
 
 /* ---- buttons ---- */
-#design-system .btn-row { display:flex !important; gap: 20px !important; flex-wrap: wrap !important; align-items:center !important; margin-bottom: 24px !important; }
+#design-system .btn-row { display:flex !important; gap: var(--space-2) !important; flex-wrap: wrap !important; align-items:center !important; margin-bottom: var(--space-3) !important; }
 #design-system .ds-btn {
     font-family: var(--font-ui) !important;
     font-weight: 500 !important;
     font-size: 12px !important;
     letter-spacing: 0.14em !important;
     text-transform: uppercase !important;
-    padding: 16px 32px !important;
+    padding: var(--space-2) var(--space-4) !important;
     border-radius: var(--radius-sm) !important;
     cursor: pointer !important;
     display:inline-block !important;
@@ -6603,44 +6608,44 @@ body.bearla-page,
 #design-system .btn-ondark { background: transparent !important; color: var(--color-cream) !important; border: 1px solid var(--color-border-deep) !important; }
 
 /* ---- cards ---- */
-#design-system .card-grid { display:grid !important; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)) !important; gap: 20px !important; }
-#design-system .material-card { border: 1px solid var(--color-border) !important; border-radius: var(--radius-md) !important; padding: 24px !important; background: var(--color-cream-card) !important; position:relative !important; }
+#design-system .card-grid { display:grid !important; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)) !important; gap: var(--space-2) !important; }
+#design-system .material-card { border: 1px solid var(--color-border) !important; border-radius: var(--radius-md) !important; padding: var(--space-3) !important; background: var(--color-cream-card) !important; position:relative !important; }
 #design-system .material-card.selected { border-color: var(--color-gold) !important; box-shadow: var(--shadow-card) !important; }
-#design-system .material-ring { width: 44px !important; height:44px !important; border-radius:50% !important; border: 6px solid var(--color-gold) !important; margin-bottom: 16px !important; }
-#design-system .material-name { font-family: var(--font-ui) !important; font-size: 14px !important; font-weight: 500 !important; margin-bottom: 2px !important; }
-#design-system .material-desc { font-family: var(--font-ui) !important; font-size: 12px !important; color: var(--color-taupe) !important; margin-bottom: 16px !important; }
+#design-system .material-ring { width: 44px !important; height:44px !important; border-radius:50% !important; border: 6px solid var(--color-gold) !important; margin-bottom: var(--space-2) !important; }
+#design-system .material-name { font-family: var(--font-ui) !important; font-size: 14px !important; font-weight: 500 !important; margin-bottom: var(--space-1) !important; }
+#design-system .material-desc { font-family: var(--font-ui) !important; font-size: 12px !important; color: var(--color-taupe) !important; margin-bottom: var(--space-2) !important; }
 #design-system .material-price { font-family: var(--font-display) !important; font-weight:400 !important; font-size: 20px !important; color: var(--color-maroon) !important; }
-#design-system .badge-selected { position:absolute !important; top:12px !important; right:12px !important; font-family: var(--font-micro) !important; font-weight:700 !important; font-size:9px !important; letter-spacing:0.1em !important; background: var(--color-gold) !important; color:#fff !important; padding: 3px 8px !important; border-radius: var(--radius-full) !important; }
+#design-system .badge-selected { position:absolute !important; top:12px !important; right:12px !important; font-family: var(--font-micro) !important; font-weight:700 !important; font-size:9px !important; letter-spacing:0.1em !important; background: var(--color-gold) !important; color:#fff !important; padding: var(--space-1) var(--space-1) !important; border-radius: var(--radius-full) !important; }
 
-#design-system .testimonial-card { background: rgba(0,0,0,0.14) !important; border: 1px solid var(--color-border-deep) !important; border-radius: var(--radius-md) !important; padding: 24px !important; color: var(--color-cream) !important; }
-#design-system .testimonial-stars { color: var(--color-gold) !important; font-size: 13px !important; letter-spacing: 2px !important; margin-bottom: 12px !important; }
-#design-system .testimonial-quote { font-family: var(--font-serif-body) !important; font-size: 17px !important; font-style: italic !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+#design-system .testimonial-card { background: rgba(0,0,0,0.14) !important; border: 1px solid var(--color-border-deep) !important; border-radius: var(--radius-md) !important; padding: var(--space-3) !important; color: var(--color-cream) !important; }
+#design-system .testimonial-stars { color: var(--color-gold) !important; font-size: 13px !important; letter-spacing: 2px !important; margin-bottom: var(--space-1) !important; }
+#design-system .testimonial-quote { font-family: var(--font-serif-body) !important; font-size: 17px !important; font-style: italic !important; line-height: 1.5 !important; margin-bottom: var(--space-2) !important; }
 #design-system .testimonial-name { font-family: var(--font-ui) !important; font-size: 12px !important; font-weight: 500 !important; }
 #design-system .testimonial-meta { font-family: var(--font-ui) !important; font-size: 11px !important; color: rgba(245,240,232,0.6) !important; }
-#design-system .maroon-panel { background: var(--color-maroon-section) !important; padding: 48px !important; border-radius: var(--radius-md) !important; }
+#design-system .maroon-panel { background: var(--color-maroon-section) !important; padding: var(--space-5) !important; border-radius: var(--radius-md) !important; }
 
 /* ---- process numbering ---- */
-#design-system .process-row { display:flex !important; gap: 32px !important; align-items:flex-start !important; margin-bottom: 24px !important; }
+#design-system .process-row { display:flex !important; gap: var(--space-4) !important; align-items:flex-start !important; margin-bottom: var(--space-3) !important; }
 #design-system .process-num { font-family: var(--font-display) !important; font-size: 40px !important; color: var(--color-border) !important; font-weight: 300 !important; min-width: 60px !important; }
-#design-system .process-label { font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 11px !important; letter-spacing:0.14em !important; text-transform:uppercase !important; color: var(--color-gold) !important; margin-bottom: 8px !important; }
-#design-system .process-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 22px !important; color: var(--color-maroon) !important; margin: 0 0 8px 0 !important; }
+#design-system .process-label { font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 11px !important; letter-spacing:0.14em !important; text-transform:uppercase !important; color: var(--color-gold) !important; margin-bottom: var(--space-1) !important; }
+#design-system .process-title { font-family: var(--font-display) !important; font-weight:300 !important; font-size: 22px !important; color: var(--color-maroon) !important; margin: 0 0 var(--space-1) 0 !important; }
 #design-system .process-desc { font-family: var(--font-serif-body) !important; font-size: 15px !important; color: var(--color-taupe) !important; max-width: 420px !important; }
 
 /* ---- nav / footer strips ---- */
-#design-system .strip { display:flex !important; align-items:center !important; justify-content: space-between !important; padding: 16px 32px !important; border-radius: var(--radius-md) !important; margin-bottom: 16px !important; flex-wrap: wrap !important; gap: 16px !important; }
+#design-system .strip { display:flex !important; align-items:center !important; justify-content: space-between !important; padding: var(--space-2) var(--space-4) !important; border-radius: var(--radius-md) !important; margin-bottom: var(--space-2) !important; flex-wrap: wrap !important; gap: var(--space-2) !important; }
 #design-system .strip.light { background: var(--color-cream-light) !important; border: 1px solid var(--color-border) !important; }
 #design-system .strip.dark { background: var(--color-espresso) !important; color: var(--color-cream) !important; }
 #design-system .strip-logo { font-family: var(--font-display) !important; font-weight:400 !important; font-size: 18px !important; letter-spacing: 0.08em !important; }
-#design-system .strip-links { display:flex !important; gap: 32px !important; font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 12px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: var(--color-taupe) !important; }
+#design-system .strip-links { display:flex !important; gap: var(--space-4) !important; font-family: var(--font-ui) !important; font-weight:500 !important; font-size: 12px !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; color: var(--color-taupe) !important; }
 
 /* ---- faq ---- */
-#design-system .faq-item { display:flex !important; justify-content: space-between !important; align-items:center !important; padding: 24px 0 !important; border-bottom: 1px solid var(--color-border) !important; font-size: 15px !important; }
+#design-system .faq-item { display:flex !important; justify-content: space-between !important; align-items:center !important; padding: var(--space-3) 0 !important; border-bottom: 1px solid var(--color-border) !important; font-size: 15px !important; }
 #design-system .faq-item .q { font-family: var(--font-display) !important; font-weight:400 !important; color: var(--color-ink) !important; font-size: 18px !important; }
 #design-system .faq-chev { color: var(--color-gold) !important; }
 
 /* usage table */
-#design-system table.usage { width:100% !important; border-collapse: collapse !important; font-size: 13px !important; margin: 16px 0 !important; }
-#design-system table.usage th, #design-system table.usage td { text-align:left !important; padding: 12px 16px !important; border-bottom: 1px solid var(--color-border) !important; }
+#design-system table.usage { width:100% !important; border-collapse: collapse !important; font-size: 13px !important; margin: var(--space-2) 0 !important; }
+#design-system table.usage th, #design-system table.usage td { text-align:left !important; padding: var(--space-1) var(--space-2) !important; border-bottom: 1px solid var(--color-border) !important; }
 #design-system table.usage th { color: var(--color-taupe) !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: 11px !important; letter-spacing: 0.08em !important; background: transparent !important; }
 
 .mechmarket-page #main section .inner,
@@ -6671,7 +6676,7 @@ body.bearla-page,
     font-size: clamp(24px, 4vw, 32px) !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em !important;
-    margin-bottom: 24px !important;
+    margin-bottom: var(--space-3) !important;
 }
 
 .mechmarket-page p,
@@ -6699,8 +6704,8 @@ body.bearla-page,
     flex-direction: row !important;
     justify-content: center !important; /* Centered horizontal links */
     align-items: center !important;
-    gap: 32px !important;
-    padding: 0 24px !important;
+    gap: var(--space-4) !important;
+    padding: 0 var(--space-3) !important;
     box-shadow: none !important;
     border-left: none !important;
     border-radius: 0 !important;
@@ -6727,8 +6732,8 @@ body.bearla-page,
     flex-direction: row !important;
     justify-content: center !important; /* Centered horizontal links */
     align-items: center !important;
-    gap: 32px !important;
-    padding: 0 24px !important;
+    gap: var(--space-4) !important;
+    padding: 0 var(--space-3) !important;
     box-shadow: none !important;
     border-left: none !important;
     border-radius: 0 !important;
@@ -6791,18 +6796,18 @@ body.bearla-page,
     font-weight: 600 !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .mechmarket-page .nav-container,
     .bearla-page .nav-container {
         justify-content: flex-start !important; /* Left-align so scrolling operates correctly on small viewports */
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+        padding-left: var(--space-3) !important;
+        padding-right: var(--space-3) !important;
     }
     .table-wrapper {
         background-color: var(--color-bg-section-alt) !important; /* Cool grey background */
         border: 1px solid var(--apple-border) !important; /* Soft grey border */
-        border-radius: 14px !important;
-        padding: 18px 22px !important;
+        border-radius: var(--radius-md) !important;
+        padding: var(--space-2) var(--space-3) !important;
         box-shadow: none !important;
     }
     .bearla-page .table-wrapper {
@@ -6820,15 +6825,15 @@ body.bearla-page,
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .mechmarket-hero,
     .bearla-hero {
-        padding: 60px 0 !important;
+        padding: var(--space-6) 0 !important;
     }
     .mechmarket-hero .hero-inner,
     .bearla-hero .hero-inner {
         flex-direction: column !important;
-        gap: 32px !important;
+        gap: var(--space-4) !important;
         padding: 0 8% !important;
     }
     .mechmarket-hero .hero-text-block,
@@ -6844,7 +6849,7 @@ body.bearla-page,
     .mechmarket-hero .hero-subtitle,
     .bearla-hero .hero-subtitle {
         font-size: 18px !important;
-        margin-bottom: 24px !important;
+        margin-bottom: var(--space-3) !important;
     }
     .mechmarket-hero .metadata-item,
     .bearla-hero .metadata-item {
@@ -6855,11 +6860,11 @@ body.bearla-page,
         max-width: 100% !important;
     }
     .museum-hero {
-        padding: 60px 0 !important;
+        padding: var(--space-6) 0 !important;
     }
     .museum-hero .hero-inner {
         flex-direction: column !important;
-        gap: 32px !important;
+        gap: var(--space-4) !important;
         padding: 0 8% !important;
     }
     .museum-hero .hero-text-block {
@@ -6872,7 +6877,7 @@ body.bearla-page,
     }
     .museum-hero .hero-subtitle {
         font-size: 18px !important;
-        margin-bottom: 24px !important;
+        margin-bottom: var(--space-3) !important;
     }
     .museum-hero .metadata-item {
         justify-content: center !important;
@@ -6899,31 +6904,31 @@ body.bearla-page,
         padding: 0 !important;
     }
     .differentiators-list {
-        margin: 32px 0 0 0 !important;
-        padding-left: 24px !important;
+        margin: var(--space-4) 0 0 0 !important;
+        padding-left: var(--space-3) !important;
     }
     .challenge-list {
-        margin: 32px 0 0 0 !important;
-        padding-left: 24px !important;
+        margin: var(--space-4) 0 0 0 !important;
+        padding-left: var(--space-3) !important;
     }
     .competitor-logo-row {
-        gap: 16px !important;
-        margin-top: 32px !important;
+        gap: var(--space-2) !important;
+        margin-top: var(--space-4) !important;
         justify-content: center !important;
         width: 100% !important;
         padding: 0 !important;
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 734px) {
     .mechmarket-hero,
     .bearla-hero {
-        padding: 40px 0 !important;
+        padding: var(--space-4) 0 !important;
     }
     .mechmarket-hero .hero-inner,
     .bearla-hero .hero-inner {
-        padding: 0 16px !important;
-        gap: 20px !important;
+        padding: 0 var(--space-2) !important;
+        gap: var(--space-2) !important;
     }
     .mechmarket-hero .hero-title,
     .bearla-hero .hero-title {
@@ -6933,15 +6938,15 @@ body.bearla-page,
     .mechmarket-hero .hero-subtitle,
     .bearla-hero .hero-subtitle {
         font-size: 15px !important;
-        margin-bottom: 16px !important;
+        margin-bottom: var(--space-2) !important;
     }
     .mechmarket-hero .metadata-grid,
     .bearla-hero .metadata-grid {
         flex-direction: column !important;
         align-items: center !important;
-        gap: 8px !important;
-        margin-top: 12px !important;
-        margin-bottom: 16px !important;
+        gap: var(--space-1) !important;
+        margin-top: var(--space-1) !important;
+        margin-bottom: var(--space-2) !important;
     }
     .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
@@ -6949,7 +6954,7 @@ body.bearla-page,
         width: calc(100% - 24px) !important;
         max-width: calc(100% - 24px) !important;
         margin: var(--space-3) auto !important; /* 24px margin */
-        padding: var(--space-3) 20px !important; /* 24px top/bottom, 20px left/right */
+        padding: var(--space-3) var(--space-2) !important; /* 24px top/bottom, 20px left/right */
         border-radius: var(--radius-md) !important; /* 18px radius */
     }
     .mechmarket-page #main section .inner,
@@ -6959,9 +6964,9 @@ body.bearla-page,
     }
     .mechmarket-page #main .image.main,
     .bearla-page #main .image.main {
-        padding: 12px !important;
-        border-radius: 12px !important;
-        margin-bottom: 1.5em !important;
+        padding: var(--space-1) !important;
+        border-radius: var(--radius-sm) !important;
+        margin-bottom: var(--space-3) !important;
     }
 }
 
@@ -6971,7 +6976,7 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: flex-start !important;
     justify-content: space-between !important;
-    gap: 64px !important;
+    gap: var(--space-6) !important;
     width: 100% !important;
 }
 
@@ -6985,7 +6990,7 @@ body.bearla-page,
     font-size: 28px !important;
     font-weight: 600 !important;
     color: #202020 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: var(--space-2) !important;
     letter-spacing: -0.015em !important;
     border-bottom: none !important;
     padding-bottom: 0 !important;
@@ -6999,7 +7004,7 @@ body.bearla-page,
 }
 
 .challenge-list {
-    margin: 0 0 0 20px !important;
+    margin: 0 0 0 var(--space-2) !important;
     padding: 0 !important;
     list-style: decimal !important;
 }
@@ -7008,14 +7013,14 @@ body.bearla-page,
     font-size: 15px !important;
     line-height: 1.6 !important;
     color: #202020 !important;
-    margin-bottom: 12px !important;
-    padding-left: 4px !important;
+    margin-bottom: var(--space-1) !important;
+    padding-left: var(--space-1) !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .split-columns-grid {
         flex-direction: column !important;
-        gap: 40px !important;
+        gap: var(--space-4) !important;
     }
     .split-columns-grid .left-column,
     .split-columns-grid .right-column {
@@ -7027,8 +7032,8 @@ body.bearla-page,
 .questions-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 32px !important;
-    margin-top: 40px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -7037,8 +7042,8 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     background-color: #f5f5f7 !important; /* Nested card grey */
-    border-radius: 12px !important;
-    padding: 24px 28px !important;
+    border-radius: var(--radius-sm) !important;
+    padding: var(--space-3) var(--space-3) !important;
     position: relative !important;
     overflow: hidden !important;
     min-height: 100px !important;
@@ -7058,25 +7063,25 @@ body.bearla-page,
     font-size: 15px !important;
     line-height: 1.5 !important;
     color: #202020 !important;
-    margin: 0 0 0 12px !important; /* Push text away from left absolute bar */
+    margin: 0 0 0 var(--space-1) !important; /* Push text away from left absolute bar */
     font-weight: 500 !important;
     text-align: left !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .questions-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 24px !important;
+        gap: var(--space-3) !important;
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 734px) {
     .questions-grid {
         grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        gap: var(--space-2) !important;
     }
     .question-card {
-        padding: 20px 24px !important;
+        padding: var(--space-2) var(--space-3) !important;
         min-height: auto !important;
     }
 }
@@ -7085,15 +7090,15 @@ body.bearla-page,
 .affinity-map-grid {
     display: grid !important;
     grid-template-columns: repeat(5, 1fr) !important;
-    gap: 16px !important;
-    margin-top: 32px !important;
+    gap: var(--space-2) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
 .affinity-column {
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: var(--space-1) !important;
 }
 
 .column-header {
@@ -7101,8 +7106,8 @@ body.bearla-page,
     font-weight: 600 !important;
     color: #202020 !important;
     text-align: center !important;
-    padding: 10px !important;
-    border-radius: 8px !important;
+    padding: var(--space-1) !important;
+    border-radius: var(--radius-sm) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
 }
@@ -7114,15 +7119,15 @@ body.bearla-page,
 .affinity-notes {
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important;
+    gap: var(--space-1) !important;
 }
 
 .sticky-note {
     font-size: 13px !important;
     line-height: 1.4 !important;
     color: #202020 !important;
-    padding: 14px 16px !important;
-    border-radius: 10px !important;
+    padding: var(--space-2) var(--space-2) !important;
+    border-radius: var(--radius-sm) !important;
     box-shadow: var(--shadow-sm) !important;
     border: none !important;
     font-weight: 400 !important;
@@ -7146,30 +7151,30 @@ body.bearla-page,
 .solutions-grid-4x4 {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 16px !important;
-    margin-top: 32px !important;
+    gap: var(--space-2) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
 .section-divider {
     border-top: 1px solid rgba(32, 32, 32, 0.08) !important;
-    margin: 48px 0 !important;
+    margin: var(--space-5) 0 !important;
     border-bottom: none !important;
     border-left: none !important;
     border-right: none !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .affinity-map-grid {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 16px !important;
+        gap: var(--space-2) !important;
     }
     .solutions-grid-4x4 {
         grid-template-columns: repeat(3, 1fr) !important;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .affinity-map-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
@@ -7178,7 +7183,7 @@ body.bearla-page,
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 734px) {
     .affinity-map-grid {
         grid-template-columns: 1fr !important;
     }
@@ -7191,8 +7196,8 @@ body.bearla-page,
 .personas-grid-3col {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 32px !important;
-    margin-top: 40px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -7201,8 +7206,8 @@ body.bearla-page,
     flex-direction: column !important;
     align-items: center !important;
     background-color: #f5f5f7 !important; /* Nested card grey */
-    border-radius: 16px !important;
-    padding: 32px 24px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) var(--space-3) !important;
     box-sizing: border-box !important;
     text-align: center !important;
 }
@@ -7213,7 +7218,7 @@ body.bearla-page,
     color: #E6B8D1 !important; /* Muted Blush accent color */
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
-    margin-bottom: 16px !important;
+    margin-bottom: var(--space-2) !important;
     display: block !important;
 }
 
@@ -7223,7 +7228,7 @@ body.bearla-page,
     border-radius: 50% !important;
     border: 3px solid #E6B8D1 !important; /* Circular avatar border in Muted Blush */
     overflow: hidden !important;
-    margin: 0 auto 16px auto !important;
+    margin: 0 auto var(--space-2) auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -7240,13 +7245,13 @@ body.bearla-page,
     font-size: 24px !important;
     font-weight: 600 !important;
     color: #202020 !important;
-    margin: 0 0 6px 0 !important;
+    margin: 0 0 var(--space-1) 0 !important;
 }
 
 .persona-meta {
     font-size: 13px !important;
     color: rgba(32, 32, 32, 0.6) !important;
-    margin-bottom: 24px !important;
+    margin-bottom: var(--space-3) !important;
     font-weight: 500 !important;
 }
 
@@ -7263,29 +7268,29 @@ body.bearla-page,
     width: 4px !important;
     background-color: #E6B8D1 !important; /* Vertical accent line in Muted Blush */
     flex-shrink: 0 !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
 }
 
 .persona-bio-text {
     font-size: 14px !important;
     line-height: 1.5 !important;
     color: #202020 !important;
-    margin: 0 0 0 16px !important; /* Generous gap from vertical bar */
+    margin: 0 0 0 var(--space-2) !important; /* Generous gap from vertical bar */
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .personas-grid-3col {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        gap: var(--space-3) !important;
     }
     .persona-card-col {
-        padding: 24px !important;
+        padding: var(--space-3) !important;
     }
 }
 
 /* Competitive Analysis Styles */
 .differentiators-list {
-    margin: 20px 0 0 24px !important;
+    margin: var(--space-2) 0 0 var(--space-3) !important;
     padding: 0 !important;
     list-style: disc !important;
 }
@@ -7294,7 +7299,7 @@ body.bearla-page,
     font-size: 18px !important;
     line-height: 1.6 !important;
     color: #1d1d1f !important;
-    margin-bottom: 12px !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 .competitor-logo-row {
@@ -7302,8 +7307,8 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 24px !important;
-    margin-top: 48px !important;
+    gap: var(--space-3) !important;
+    margin-top: var(--space-5) !important;
     flex-wrap: wrap !important;
     width: 100% !important;
 }
@@ -7314,8 +7319,8 @@ body.bearla-page,
     font-weight: 700 !important;
     color: rgba(32, 32, 32, 0.4) !important;
     background-color: #f5f5f7 !important;
-    padding: 16px 32px !important;
-    border-radius: 12px !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-sm) !important;
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
     display: inline-flex !important;
@@ -7333,14 +7338,14 @@ body.bearla-page,
     background-color: #eef1f4 !important;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 734px) {
     .competitor-logo-row {
-        gap: 16px !important;
-        margin-top: 32px !important;
+        gap: var(--space-2) !important;
+        margin-top: var(--space-4) !important;
     }
     .logo-plate {
         min-width: 120px !important;
-        padding: 12px 24px !important;
+        padding: var(--space-1) var(--space-3) !important;
         font-size: 15px !important;
     }
 }
@@ -7350,8 +7355,8 @@ body.bearla-page,
     display: flex !important;
     flex-direction: row !important;
     align-items: stretch !important;
-    gap: 32px !important;
-    margin-top: 40px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -7359,13 +7364,13 @@ body.bearla-page,
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: var(--space-2) !important;
 }
 
 .flow-group {
     background-color: #f5f5f7 !important;
-    border-radius: 14px !important;
-    padding: 24px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) !important;
     border: 1px solid rgba(32, 32, 32, 0.04) !important;
 }
 
@@ -7374,7 +7379,7 @@ body.bearla-page,
     font-weight: 700 !important;
     color: rgba(32, 32, 32, 0.5) !important;
     letter-spacing: 0.08em !important;
-    margin-bottom: 20px !important;
+    margin-bottom: var(--space-2) !important;
     text-transform: uppercase !important;
 }
 
@@ -7383,7 +7388,7 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 12px !important;
+    gap: var(--space-1) !important;
 }
 
 .flow-node {
@@ -7392,8 +7397,8 @@ body.bearla-page,
     line-height: 1.4 !important;
     font-weight: 600 !important;
     text-align: center !important;
-    padding: 12px 14px !important;
-    border-radius: 10px !important;
+    padding: var(--space-1) var(--space-2) !important;
+    border-radius: var(--radius-sm) !important;
     box-shadow: var(--shadow-sm) !important;
     min-height: 48px !important;
     display: flex !important;
@@ -7431,19 +7436,19 @@ body.bearla-page,
     color: rgba(32, 32, 32, 0.3) !important;
     font-weight: 700 !important;
     text-align: center !important;
-    margin: -10px 0 !important;
+    margin: -var(--space-1) 0 !important;
 }
 
 /* Legend Styling */
 .flow-legend {
     width: 220px !important;
     background-color: #f5f5f7 !important;
-    border-radius: 14px !important;
-    padding: 24px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) !important;
     border: 1px solid rgba(32, 32, 32, 0.04) !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
+    gap: var(--space-2) !important;
     flex-shrink: 0 !important;
 }
 
@@ -7453,20 +7458,20 @@ body.bearla-page,
     color: rgba(32, 32, 32, 0.5) !important;
     letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
-    margin-bottom: 8px !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 .legend-item {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: var(--space-1) !important;
 }
 
 .legend-color-box {
     width: 20px !important;
     height: 20px !important;
-    border-radius: 6px !important;
+    border-radius: var(--radius-sm) !important;
     flex-shrink: 0 !important;
 }
 
@@ -7491,7 +7496,7 @@ body.bearla-page,
     color: #202020 !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .user-flow-container {
         flex-direction: column !important;
     }
@@ -7500,21 +7505,21 @@ body.bearla-page,
         flex-direction: row !important;
         justify-content: space-around !important;
         align-items: center !important;
-        gap: 16px !important;
+        gap: var(--space-2) !important;
     }
     .legend-title {
         margin-bottom: 0 !important;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .flow-nodes-row {
         flex-direction: column !important;
-        gap: 8px !important;
+        gap: var(--space-1) !important;
     }
     .arrow-right {
         transform: rotate(90deg) !important;
-        margin: 4px 0 !important;
+        margin: var(--space-1) 0 !important;
     }
     .flow-node {
         width: 100% !important;
@@ -7529,15 +7534,15 @@ body.bearla-page,
 .wireflow-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 40px !important;
-    margin-top: 40px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
 .wireflow-branch-container {
     background-color: #f5f5f7 !important;
-    border-radius: 16px !important;
-    padding: 32px 24px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) var(--space-3) !important;
     border: 1px solid rgba(32, 32, 32, 0.04) !important;
 }
 
@@ -7546,7 +7551,7 @@ body.bearla-page,
     font-weight: 700 !important;
     color: rgba(32, 32, 32, 0.5) !important;
     letter-spacing: 0.08em !important;
-    margin-bottom: 24px !important;
+    margin-bottom: var(--space-3) !important;
     text-transform: uppercase !important;
 }
 
@@ -7555,15 +7560,15 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    gap: 16px !important;
+    gap: var(--space-2) !important;
     width: 100% !important;
 }
 
 .wireflow-card {
     background-color: #FFFFFF !important;
     border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
-    border-radius: 12px !important;
-    padding: 16px !important;
+    border-radius: var(--radius-sm) !important;
+    padding: var(--space-2) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -7594,14 +7599,14 @@ body.bearla-page,
     height: 120px !important;
     background-color: #f5f5f7 !important;
     border: 1.5px solid #d2d2d7 !important;
-    border-radius: 8px !important;
-    margin-bottom: 12px !important;
-    padding: 8px !important;
+    border-radius: var(--radius-sm) !important;
+    margin-bottom: var(--space-1) !important;
+    padding: var(--space-1) !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    gap: 6px !important;
+    gap: var(--space-1) !important;
     overflow: hidden !important;
 }
 
@@ -7609,7 +7614,7 @@ body.bearla-page,
 .mockup-body {
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px !important;
+    gap: var(--space-1) !important;
     width: 100% !important;
     height: 100% !important;
     justify-content: center !important;
@@ -7626,35 +7631,35 @@ body.bearla-page,
 .mockup-input {
     height: 10px !important;
     background-color: #e5e5ea !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-button {
     height: 12px !important;
     background-color: #aeaeb2 !important;
-    border-radius: 3px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-grid-item {
     height: 24px !important;
     background-color: #e5e5ea !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-image-box {
     height: 40px !important;
     background-color: #e5e5ea !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-text-line {
     height: 8px !important;
     background-color: #e5e5ea !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 70% !important;
 }
 
@@ -7662,35 +7667,35 @@ body.bearla-page,
     height: 12px !important;
     border: 1.5px solid #d2d2d7 !important;
     background-color: #FFFFFF !important;
-    border-radius: 3px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-list-item {
     height: 12px !important;
     background-color: #e5e5ea !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-header-tabs {
     height: 10px !important;
     background-color: #aeaeb2 !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-hero-img {
     height: 50px !important;
     background-color: #e5e5ea !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .mockup-total-price {
     height: 14px !important;
     background-color: #d2d2d7 !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 50% !important;
     align-self: flex-end !important;
 }
@@ -7698,7 +7703,7 @@ body.bearla-page,
 .mockup-card-slot {
     height: 30px !important;
     border: 1.5px dashed #aeaeb2 !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
@@ -7713,7 +7718,7 @@ body.bearla-page,
 .mockup-filter-option {
     height: 16px !important;
     background-color: #e5e5ea !important;
-    border-radius: 3px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
@@ -7729,10 +7734,10 @@ body.bearla-page,
     font-size: 11px !important;
     line-height: 1.35 !important;
     color: #666666 !important;
-    margin-top: 10px !important;
+    margin-top: var(--space-1) !important;
     text-align: center !important;
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
-    padding-top: 8px !important;
+    padding-top: var(--space-1) !important;
     font-style: italic !important;
     font-weight: 400 !important;
 }
@@ -7759,8 +7764,8 @@ body.bearla-page,
 
 /* Sub-flow placement (Filter Screen) */
 .filter-sub-flow-row {
-    margin-top: 40px !important;
-    padding-left: 156px !important; /* Horizontally aligned exactly under the Home card */
+    margin-top: var(--space-4) !important;
+    padding-left: var(--space-8) !important; /* Horizontally aligned exactly under the Home card */
     display: flex !important;
 }
 
@@ -7768,14 +7773,14 @@ body.bearla-page,
     border-color: rgba(0, 102, 204, 0.3) !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .wireflow-row {
         flex-wrap: wrap !important;
-        gap: 16px !important;
+        gap: var(--space-2) !important;
     }
     .flow-arrow.blue-arrow {
         transform: rotate(90deg) !important;
-        margin: 8px 0 !important;
+        margin: var(--space-1) 0 !important;
         align-self: center !important;
         width: 100% !important;
         text-align: center !important;
@@ -7786,7 +7791,7 @@ body.bearla-page,
     .filter-sub-flow-row {
         padding-left: 0 !important;
         justify-content: center !important;
-        margin-top: 24px !important;
+        margin-top: var(--space-3) !important;
     }
 }
 
@@ -7794,8 +7799,8 @@ body.bearla-page,
 .findings-grid-2x2 {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 32px !important;
-    margin-top: 40px !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -7804,10 +7809,10 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     background-color: #f5f5f7 !important; /* Nested card grey */
-    border-radius: 16px !important;
-    padding: 28px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) !important;
     box-sizing: border-box !important;
-    gap: 24px !important;
+    gap: var(--space-3) !important;
     box-shadow: var(--shadow-sm) !important;
     transition: transform 0.2s ease !important;
 }
@@ -7833,7 +7838,7 @@ body.bearla-page,
 .finding-content {
     display: flex !important;
     flex-direction: column !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
     text-align: left !important;
 }
 
@@ -7851,27 +7856,27 @@ body.bearla-page,
     margin: 0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .findings-grid-2x2 {
         grid-template-columns: 1fr !important;
-        gap: 20px !important;
+        gap: var(--space-2) !important;
     }
     .finding-card {
-        padding: 20px !important;
-        gap: 16px !important;
+        padding: var(--space-2) !important;
+        gap: var(--space-2) !important;
     }
 }
 
 /* High Fidelity Polish Comparison Layout */
 .polish-module {
     background-color: #f5f5f7 !important;
-    border-radius: 16px !important;
-    padding: 32px 24px !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) var(--space-3) !important;
     border: 1px solid rgba(32, 32, 32, 0.04) !important;
 }
 
 .polish-header-row {
-    margin-bottom: 24px !important;
+    margin-bottom: var(--space-3) !important;
     text-align: left !important;
 }
 
@@ -7879,7 +7884,7 @@ body.bearla-page,
     font-size: 20px !important;
     font-weight: 600 !important;
     color: #202020 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: var(--space-1) !important;
 }
 
 .polish-desc {
@@ -7892,7 +7897,7 @@ body.bearla-page,
 .comparison-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 32px !important;
+    gap: var(--space-4) !important;
     width: 100% !important;
 }
 
@@ -7907,9 +7912,9 @@ body.bearla-page,
     font-size: 10px !important;
     font-weight: 700 !important;
     letter-spacing: 0.1em !important;
-    padding: 4px 10px !important;
-    border-radius: 20px !important;
-    margin-bottom: 16px !important;
+    padding: var(--space-1) var(--space-1) !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: var(--space-2) !important;
     text-transform: uppercase !important;
 }
 
@@ -7928,7 +7933,7 @@ body.bearla-page,
     height: 380px !important;
     background-color: #FFFFFF !important;
     border: 6px solid #202020 !important;
-    border-radius: 32px !important;
+    border-radius: var(--radius-pill) !important;
     box-shadow: var(--shadow-lg) !important;
     overflow: hidden !important;
     display: flex !important;
@@ -7940,41 +7945,41 @@ body.bearla-page,
 .phone-header {
     background-color: #f5f5f7 !important;
     border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-    padding: 14px 12px !important;
+    padding: var(--space-2) var(--space-1) !important;
     box-sizing: border-box !important;
 }
 
 .phone-header.flex-column-header {
     display: flex !important;
     flex-direction: column !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
 }
 
 .phone-search-input {
     background-color: #FFFFFF !important;
     border: 1px solid #d2d2d7 !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-sm) !important;
     font-size: 10px !important;
     color: #86868b !important;
-    padding: 6px 8px !important;
+    padding: var(--space-1) var(--space-1) !important;
     text-align: left !important;
 }
 
 .phone-search-input-small {
     background-color: #FFFFFF !important;
     border: 1px solid #d2d2d7 !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-sm) !important;
     font-size: 9px !important;
     color: #86868b !important;
-    padding: 4px 8px !important;
+    padding: var(--space-1) var(--space-1) !important;
     text-align: left !important;
 }
 
 .phone-tabs-segmented {
     display: flex !important;
     background-color: #e5e5ea !important;
-    border-radius: 6px !important;
-    padding: 2px !important;
+    border-radius: var(--radius-sm) !important;
+    padding: var(--space-1) !important;
 }
 
 .phone-tabs-segmented .tab-item {
@@ -7982,9 +7987,9 @@ body.bearla-page,
     font-size: 9px !important;
     font-weight: 600 !important;
     text-align: center !important;
-    padding: 4px 0 !important;
+    padding: var(--space-1) 0 !important;
     color: #86868b !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     cursor: default !important;
 }
 
@@ -7996,10 +8001,10 @@ body.bearla-page,
 
 .phone-content {
     flex: 1 !important;
-    padding: 12px !important;
+    padding: var(--space-1) !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: var(--space-1) !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
 }
@@ -8007,49 +8012,49 @@ body.bearla-page,
 .phone-content.grid-content {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
 }
 
 .mini-product-card-flat {
     height: 56px !important;
     background-color: #f5f5f7 !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-sm) !important;
 }
 
 .mini-product-card-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px !important;
+    gap: var(--space-1) !important;
 }
 
 .mini-product-card-grid .card-img {
     height: 70px !important;
     background-color: #f5f5f7 !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-sm) !important;
 }
 
 .mini-product-card-grid .card-line {
     height: 6px !important;
     background-color: #e5e5ea !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 60% !important;
 }
 
 /* PDP details */
 .phone-content.pdp-content {
-    padding: 12px !important;
+    padding: var(--space-1) !important;
 }
 
 .pdp-main-img-flat {
     height: 120px !important;
     background-color: #f5f5f7 !important;
-    border-radius: 12px !important;
+    border-radius: var(--radius-sm) !important;
 }
 
 .pdp-main-img-gallery {
     height: 120px !important;
     background-color: #f5f5f7 !important;
-    border-radius: 12px !important;
+    border-radius: var(--radius-sm) !important;
     position: relative !important;
 }
 
@@ -8059,7 +8064,7 @@ body.bearla-page,
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex !important;
-    gap: 4px !important;
+    gap: var(--space-1) !important;
 }
 
 .gallery-dots .dot {
@@ -8075,7 +8080,7 @@ body.bearla-page,
 
 .pdp-badge-row {
     display: flex !important;
-    margin-top: 4px !important;
+    margin-top: var(--space-1) !important;
 }
 
 .certified-badge {
@@ -8083,29 +8088,29 @@ body.bearla-page,
     font-weight: 700 !important;
     color: #0066cc !important;
     background-color: #E8F0FE !important;
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
+    padding: var(--space-1) var(--space-1) !important;
+    border-radius: var(--radius-sm) !important;
 }
 
 .pdp-title-block {
     height: 12px !important;
     background-color: #e5e5ea !important;
-    border-radius: 2px !important;
+    border-radius: var(--radius-sm) !important;
     width: 80% !important;
 }
 
 .pdp-body-block {
     height: 24px !important;
     background-color: #f5f5f7 !important;
-    border-radius: 4px !important;
+    border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
 
 .pdp-buttons-split {
     display: flex !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
     margin-top: auto !important;
-    padding-bottom: 8px !important;
+    padding-bottom: var(--space-1) !important;
 }
 
 .pdp-btn {
@@ -8113,8 +8118,8 @@ body.bearla-page,
     font-size: 9px !important;
     font-weight: 600 !important;
     text-align: center !important;
-    padding: 8px 0 !important;
-    border-radius: 6px !important;
+    padding: var(--space-1) 0 !important;
+    border-radius: var(--radius-sm) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -8127,21 +8132,21 @@ body.bearla-page,
 
 .pdp-button-consolidated {
     margin-top: auto !important;
-    padding-bottom: 8px !important;
+    padding-bottom: var(--space-1) !important;
 }
 
 .pdp-btn.pink-pill-btn {
     background-color: #E6B8D1 !important;
     color: #202020 !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
     font-weight: 700 !important;
     font-size: 9px !important;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 734px) {
     .comparison-grid {
         grid-template-columns: 1fr !important;
-        gap: 40px !important;
+        gap: var(--space-4) !important;
     }
 }
 
@@ -8151,8 +8156,8 @@ body.bearla-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 64px !important;
-    margin-top: 64px !important;
+    gap: var(--space-6) !important;
+    margin-top: var(--space-6) !important;
     width: 100% !important;
 }
 
@@ -8169,7 +8174,7 @@ body.bearla-page,
     font-size: 24px !important;
     font-weight: 600 !important;
     color: #202020 !important;
-    margin-bottom: 16px !important;
+    margin-bottom: var(--space-2) !important;
 }
 
 .challenge-text-col p {
@@ -8190,18 +8195,18 @@ body.bearla-page,
     max-width: 100% !important;
     max-height: 480px !important;
     height: auto !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-lg) !important;
     object-fit: contain !important;
     background-color: transparent !important;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1068px) {
     .challenge-row,
     .challenge-row.reverse-row {
         flex-direction: column !important;
-        gap: 32px !important;
-        margin-top: 48px !important;
+        gap: var(--space-4) !important;
+        margin-top: var(--space-5) !important;
     }
     .challenge-text-col {
         width: 100% !important;
@@ -8218,10 +8223,10 @@ body.bearla-page,
 .marketing-carousel {
     position: relative !important;
     width: 100% !important;
-    max-width: 900px !important;
-    margin: 40px auto 0 auto !important;
+    max-width: var(--container-content) !important;
+    margin: var(--space-4) auto 0 auto !important;
     overflow: hidden !important;
-    border-radius: 20px !important;
+    border-radius: var(--radius-md) !important;
     background-color: #f5f5f7 !important;
     box-shadow: var(--shadow-lg) !important;
     border: 1px solid rgba(32, 32, 32, 0.04) !important;
@@ -8250,7 +8255,7 @@ body.bearla-page,
 
 .slide-caption {
     width: 100% !important;
-    padding: 24px 32px 48px 32px !important;
+    padding: var(--space-3) var(--space-4) var(--space-5) var(--space-4) !important;
     background-color: #FFFFFF !important;
     text-align: left !important;
     box-sizing: border-box !important;
@@ -8261,7 +8266,7 @@ body.bearla-page,
     font-size: 18px !important;
     font-weight: 600 !important;
     color: #202020 !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 var(--space-1) 0 !important;
 }
 
 .slide-caption p {
@@ -8296,7 +8301,7 @@ body.bearla-page,
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex !important;
-    gap: 12px !important;
+    gap: var(--space-1) !important;
     z-index: 10 !important;
 }
 
@@ -8320,9 +8325,9 @@ body.bearla-page,
     transform: scale(1.1) !important;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 734px) {
     .slide-caption {
-        padding: 16px 20px 36px 20px !important;
+        padding: var(--space-2) var(--space-2) var(--space-4) var(--space-2) !important;
     }
     .carousel-nav-dots {
         bottom: 12px !important;
@@ -8337,8 +8342,8 @@ body.bearla-page,
 
 /* Takeaways Footer Styles */
 #takeaways {
-    padding-top: 80px !important;
-    padding-bottom: 100px !important;
+    padding-top: var(--space-6) !important;
+    padding-bottom: var(--space-7) !important;
 }
 
 .takeaways-footer-container {
@@ -8346,8 +8351,8 @@ body.bearla-page,
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    margin-top: 48px !important;
-    gap: 32px !important;
+    margin-top: var(--space-5) !important;
+    gap: var(--space-4) !important;
 }
 
 .takeaways-button-wrapper {
@@ -8363,8 +8368,8 @@ body.bearla-page,
     font-weight: 700 !important;
     font-size: 14px !important;
     letter-spacing: 0.1em !important;
-    padding: 16px 40px !important;
-    border-radius: 30px !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-pill) !important;
     text-decoration: none !important;
     text-transform: uppercase !important;
     box-shadow: var(--shadow-md) !important;
@@ -8384,8 +8389,8 @@ body.bearla-page,
 .takeaways-credits {
     display: flex !important;
     flex-direction: column !important;
-    gap: 8px !important;
-    max-width: 600px !important;
+    gap: var(--space-1) !important;
+    max-width: var(--container-text) !important;
 }
 
 .takeaways-credits p {
@@ -8410,17 +8415,17 @@ body.bearla-page,
 
 .museum-white-section {
     background-color: #FFFFFF !important;
-    border-radius: 18px !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-md) !important;
-    padding: 48px !important;
-    margin-bottom: 80px !important;
+    padding: var(--space-5) !important;
+    margin-bottom: var(--space-6) !important;
     box-sizing: border-box !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 734px) {
     .museum-white-section {
-        padding: 24px !important;
-        border-radius: 14px !important;
+        padding: var(--space-3) !important;
+        border-radius: var(--radius-md) !important;
     }
 }
 
@@ -8434,7 +8439,7 @@ body.bearla-page,
     max-height: none !important;
     top: 0 !important;
     margin: 0 !important; /* Reset margin so it spans full width */
-    padding: 60px 0 !important; /* Beautiful top/bottom padding */
+    padding: var(--space-6) 0 !important; /* Beautiful top/bottom padding */
     display: block !important;
     box-shadow: none !important;
     border: none !important;
@@ -8447,20 +8452,20 @@ body.bearla-page,
 }
 
 .home-page #banner > .inner {
-    max-width: 1200px !important;
+    max-width: var(--container-wide) !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 40px !important; /* Matches .featured-projects-inner spacing perfectly */
+    padding: 0 var(--space-4) !important; /* Matches .featured-projects-inner spacing perfectly */
     box-sizing: border-box !important;
 }
 
 .home-page .hero-card-layout {
     background-color: #f5f5f7 !important; /* Rectangle is light grey */
-    border-radius: 24px !important; /* Premium rounded corner */
-    padding: 56px !important; /* Cohesive card padding */
+    border-radius: var(--radius-lg) !important; /* Premium rounded corner */
+    padding: var(--space-5) !important; /* Cohesive card padding */
     display: grid !important;
     grid-template-columns: 1.4fr 0.6fr !important;
-    gap: 48px !important;
+    gap: var(--space-5) !important;
     align-items: center !important;
     box-sizing: border-box !important;
     width: 100% !important;
@@ -8484,12 +8489,12 @@ body.bearla-page,
 .home-page .status-pill {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: var(--space-1) !important;
     background-color: rgba(52, 199, 89, 0.1) !important;
     border: 1px solid rgba(52, 199, 89, 0.15) !important;
-    padding: 6px 14px !important;
-    border-radius: 100px !important;
-    margin-bottom: 24px !important;
+    padding: var(--space-1) var(--space-2) !important;
+    border-radius: var(--radius-pill) !important;
+    margin-bottom: var(--space-3) !important;
 }
 
 .home-page .status-dot {
@@ -8519,7 +8524,7 @@ body.bearla-page,
     font-size: 3.2em !important;
     font-weight: 700 !important;
     color: var(--apple-text-primary) !important;
-    margin-bottom: 6px !important;
+    margin-bottom: var(--space-1) !important;
     line-height: 1.1 !important;
 }
 
@@ -8527,7 +8532,7 @@ body.bearla-page,
     font-size: 1.6em !important;
     font-weight: 500 !important;
     color: #6e6e73 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: var(--space-3) !important;
     border: none !important;
     padding-bottom: 0 !important;
     line-height: 1.2 !important;
@@ -8537,7 +8542,7 @@ body.bearla-page,
     font-size: 1.2em !important;
     line-height: 1.6 !important;
     color: #38383a !important;
-    margin-bottom: 16px !important;
+    margin-bottom: var(--space-2) !important;
 }
 
 .home-page .hero-text-content .hero-subtext {
@@ -8557,26 +8562,26 @@ body.bearla-page,
 .home-page .hero-avatar-img {
     width: 240px !important;
     height: 240px !important;
-    border-radius: 20px !important; /* Soft corners for avatar card */
+    border-radius: var(--radius-md) !important; /* Soft corners for avatar card */
     object-fit: cover !important;
     box-shadow: var(--shadow-md) !important;
     background-color: #FFFFFF !important;
 }
 
 /* Mobile responsive styling */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1068px) {
     .home-page #banner {
-        padding: 40px 0 !important;
+        padding: var(--space-4) 0 !important;
     }
     
     .home-page #banner > .inner {
-        padding: 0 16px !important; /* Matches mobile padding */
+        padding: 0 var(--space-2) !important; /* Matches mobile padding */
     }
     
     .home-page .hero-card-layout {
         grid-template-columns: 1fr !important;
-        gap: 32px !important;
-        padding: 40px 32px !important;
+        gap: var(--space-4) !important;
+        padding: var(--space-4) var(--space-4) !important;
     }
     
     .home-page .hero-image-content {
@@ -8589,9 +8594,9 @@ body.bearla-page,
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 734px) {
     .home-page .hero-card-layout {
-        padding: 32px 24px !important;
+        padding: var(--space-4) var(--space-3) !important;
     }
     
     .home-page .hero-text-content h1 {
