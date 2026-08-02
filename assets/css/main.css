@@ -39,6 +39,9 @@
     --apple-text-muted: #86868b;
     --apple-blue: #0071e3;
     --apple-blue-hover: #0077ed;
+    --apple-red: #ff3b30;
+    --apple-orange: #ff9500;
+    --apple-green: #34c759;
     --apple-border: #d2d2d7;
     --apple-badge-bg: #e8e8ed;
     --apple-grid-padding-left: max(12px, calc((100% - 1200px) / 2 + 12px));
@@ -5370,6 +5373,69 @@ body.museum-page,
     border: none !important;
     background: transparent;
     box-shadow: none !important;
+}
+
+.museum-page .ideation-cards-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: var(--space-3) !important;
+    margin-top: var(--space-4) !important;
+}
+
+.museum-page .ideation-card {
+    background: #f5f5f7 !important;
+    padding: var(--space-3) !important;
+    border-radius: var(--radius-sm) !important;
+    position: relative !important;
+    border: none !important;
+    box-sizing: border-box !important;
+}
+
+.museum-page .ideation-card.selected {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-museum) !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+}
+
+.museum-page .ideation-card span {
+    font-size: var(--fs-small) !important;
+    font-weight: 700 !important;
+    color: #86868b !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: var(--space-1) !important;
+}
+
+.museum-page .ideation-card.selected span {
+    color: var(--accent-museum) !important;
+}
+
+.museum-page .ideation-card h3 {
+    font-size: var(--fs-body) !important;
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    margin-bottom: var(--space-1) !important;
+    min-height: 2.4em !important;
+}
+
+.museum-page .ideation-card p {
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-secondary) !important;
+    margin-bottom: var(--space-2) !important;
+}
+
+.museum-page .ideation-card .trade-off {
+    font-size: var(--fs-small) !important;
+    line-height: 1.4 !important;
+    color: var(--color-text-primary) !important;
+    border-top: 1px solid var(--apple-border) !important;
+    padding-top: var(--space-1) !important;
+    margin: 0 !important;
+}
+
+.museum-page .ideation-card.selected .trade-off {
+    color: var(--accent-museum) !important;
+    border-top: 1px solid color-mix(in srgb, var(--accent-museum) 20%, white) !important;
 }
 
 /* Apple-style Horizontal Product Sub-Navigation */

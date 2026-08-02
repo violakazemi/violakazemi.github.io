@@ -251,11 +251,11 @@
                                     </tr>
                                     <tr style="border-bottom: 1px solid #e8e8ed;">
                                         <td style="padding: var(--space-2); font-weight: 600; color: #1d1d1f; vertical-align: top;">User Feeling</td>
-                                        <td style="padding: var(--space-2); color: #0071e3; font-weight: 600; vertical-align: top;">Optimistic</td>
-                                        <td style="padding: var(--space-2); color: #ff3b30; font-weight: 600; vertical-align: top;">Frustrated</td>
-                                        <td style="padding: var(--space-2); color: #ff9500; font-weight: 600; vertical-align: top;">Overwhelmed</td>
-                                        <td style="padding: var(--space-2); color: #ff3b30; font-weight: 600; vertical-align: top;">Anxious / Rushed</td>
-                                        <td style="padding: var(--space-2); color: #34c759; font-weight: 600; vertical-align: top;">Relieved / Tired</td>
+                                        <td style="padding: var(--space-2); color: var(--apple-blue); font-weight: 600; vertical-align: top;">Optimistic</td>
+                                        <td style="padding: var(--space-2); color: var(--apple-red); font-weight: 600; vertical-align: top;">Frustrated</td>
+                                        <td style="padding: var(--space-2); color: var(--apple-orange); font-weight: 600; vertical-align: top;">Overwhelmed</td>
+                                        <td style="padding: var(--space-2); color: var(--apple-red); font-weight: 600; vertical-align: top;">Anxious / Rushed</td>
+                                        <td style="padding: var(--space-2); color: var(--apple-green); font-weight: 600; vertical-align: top;">Relieved / Tired</td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid #e8e8ed;">
                                         <td style="padding: var(--space-2); font-weight: 600; color: #1d1d1f; vertical-align: top;">Design Opportunities</td>
@@ -276,30 +276,30 @@
             <h2>Ideation</h2>
                         <p>With the research insights in hand, I sketched out a few different directions before landing on the storyboard you'll see next.</p>
 
-                        <div class="ideation-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-3); margin-top: var(--space-4);">
+                        <div class="ideation-cards-container">
                             
                             <!-- Direction A -->
-                            <div class="ideation-card" style="background: #f5f5f7; padding: var(--space-3); border-radius: var(--radius-sm); position: relative;">
-                                <span style="font-size: 11px; font-weight: 700; color: #86868b; text-transform: uppercase; display: block; margin-bottom: var(--space-1);">Rejected</span>
-                                <h3 style="font-size: 1.1em; font-weight: 600; color: #1d1d1f; margin-bottom: var(--space-1); min-height: 2.4em;">Direction A: Standalone Ratio Calculator</h3>
-                                <p style="font-size: 0.95em; color: #515154; margin-bottom: var(--space-2);">A simple tool focused exclusively on solving the chaperone-to-student math.</p>
-                                <p style="font-size: 0.9em; line-height: 1.4; color: #1d1d1f; border-top: 1px solid #d2d2d7; padding-top: var(--space-1); margin: 0;"><strong>Trade-off:</strong> Solved one problem but left accessibility planning as a separate, disconnected step.</p>
+                            <div class="ideation-card">
+                                <span>Rejected</span>
+                                <h3>Direction A: Standalone Ratio Calculator</h3>
+                                <p>A simple tool focused exclusively on solving the chaperone-to-student math.</p>
+                                <p class="trade-off"><strong>Trade-off:</strong> Solved one problem but left accessibility planning as a separate, disconnected step.</p>
                             </div>
 
                             <!-- Direction B -->
-                            <div class="ideation-card" style="background: #f5f5f7; padding: var(--space-3); border-radius: var(--radius-sm); position: relative;">
-                                <span style="font-size: 11px; font-weight: 700; color: #86868b; text-transform: uppercase; display: block; margin-bottom: var(--space-1);">Rejected</span>
-                                <h3 style="font-size: 1.1em; font-weight: 600; color: #1d1d1f; margin-bottom: var(--space-1); min-height: 2.4em;">Direction B: Chat-Based Planning Assistant</h3>
-                                <p style="font-size: 0.95em; color: #515154; margin-bottom: var(--space-2);">An interactive chat interface to guide teachers through booking steps.</p>
-                                <p style="font-size: 0.9em; line-height: 1.4; color: #1d1d1f; border-top: 1px solid #d2d2d7; padding-top: var(--space-1); margin: 0;"><strong>Trade-off:</strong> Felt tedious for busy teachers who wanted to scan all details at a glance rather than chat.</p>
+                            <div class="ideation-card">
+                                <span>Rejected</span>
+                                <h3>Direction B: Chat-Based Planning Assistant</h3>
+                                <p>An interactive chat interface to guide teachers through booking steps.</p>
+                                <p class="trade-off"><strong>Trade-off:</strong> Felt tedious for busy teachers who wanted to scan all details at a glance rather than chat.</p>
                             </div>
 
                             <!-- Direction C -->
-                            <div class="ideation-card" style="background: #fcfcfd; padding: var(--space-3); border-radius: var(--radius-sm); border: 2px solid #0071e3; position: relative; box-shadow: 0 4px 20px rgba(0,113,227,0.05);">
-                                <span style="font-size: 11px; font-weight: 700; color: #0071e3; text-transform: uppercase; display: block; margin-bottom: var(--space-1);">Selected</span>
-                                <h3 style="font-size: 1.1em; font-weight: 600; color: #1d1d1f; margin-bottom: var(--space-1); min-height: 2.4em;">Direction C: Unified Trip Dashboard</h3>
-                                <p style="font-size: 0.95em; color: #515154; margin-bottom: var(--space-2);">A single overview hub displaying trip status, ratio calculations, and accessibility options together.</p>
-                                <p style="font-size: 0.9em; line-height: 1.4; color: #0071e3; border-top: 1px solid #c8e1fa; padding-top: var(--space-1); margin: 0;"><strong>Why Chosen:</strong> Combined ratio math and accessibility planning into one place, matching how teachers actually think about a trip: as one task, not three.</p>
+                            <div class="ideation-card selected">
+                                <span>Selected</span>
+                                <h3>Direction C: Unified Trip Dashboard</h3>
+                                <p>A single overview hub displaying trip status, ratio calculations, and accessibility options together.</p>
+                                <p class="trade-off"><strong>Why Chosen:</strong> Combined ratio math and accessibility planning into one place, matching how teachers actually think about a trip: as one task, not three.</p>
                             </div>
 
                         </div>
