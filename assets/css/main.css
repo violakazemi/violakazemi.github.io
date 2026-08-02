@@ -8450,19 +8450,21 @@ body.bearla-page,
     background-color: #587C56 !important;
 }
 
-.museum-white-section {
-    background-color: #ffffff !important;
-    border-radius: var(--radius-md) !important;
-    box-shadow: var(--shadow-md) !important;
-    padding: var(--space-5) !important;
-    margin-bottom: var(--space-6) !important;
+.inner-block-card {
+    background-color: transparent !important;
+    border: 1px solid var(--apple-border) !important;
+    box-shadow: none !important;
+    border-radius: var(--radius-sm) !important; /* 8px radius */
+    padding: var(--space-4) !important; /* Generous inner margins */
+    margin: var(--space-4) 0 !important; /* Separation from surrounding prose */
     box-sizing: border-box !important;
+    width: 100% !important;
 }
 
 @media screen and (max-width: 734px) {
-    .museum-white-section {
-        padding: var(--space-3) !important;
-        border-radius: var(--radius-md) !important;
+    .inner-block-card {
+        padding: var(--space-3) !important; /* 24px padding on mobile */
+        margin: var(--space-3) 0 !important;
     }
 }
 
