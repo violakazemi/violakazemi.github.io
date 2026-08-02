@@ -5392,17 +5392,17 @@ body.museum-page,
     z-index: 9998 !important;
     display: flex !important;
     flex-direction: row !important;
-    justify-content: flex-start !important; /* Left-align so scrolling operates correctly and avoids WebKit centering bugs */
+    justify-content: center !important; /* Centered horizontal links on desktop viewports */
     align-items: center !important;
     gap: var(--space-4) !important;
-    padding-left: var(--apple-grid-padding-left) !important; /* Align with standard content layout grid */
-    padding-right: var(--apple-grid-padding-left) !important;
+    padding: 0 var(--space-3) !important;
     box-shadow: none !important;
     border-left: none !important;
     border-radius: 0 !important;
     transform: none !important;
     margin: 0 !important;
     overflow-x: auto !important; /* Allow swipe scrolling on mobile */
+    overflow-y: hidden !important; /* Prevent scrollbar allocation clipping */
     scrollbar-width: none !important; /* Firefox hide scrollbar */
 }
 
@@ -5501,6 +5501,9 @@ body.museum-page,
         border-bottom: 1px solid var(--apple-border) !important;
         background-color: var(--apple-bg-light) !important;
         height: 48px !important;
+        justify-content: flex-start !important; /* Left-align so scrolling operates correctly on small viewports */
+        padding-left: var(--space-3) !important;
+        padding-right: var(--space-3) !important;
     }
     .museum-page .nav-segment {
         border-left: none !important;
