@@ -6669,11 +6669,13 @@ body.bearla-page,
 #design-system table.usage th, #design-system table.usage td { text-align:left !important; padding: var(--space-1) var(--space-2) !important; border-bottom: 1px solid var(--color-border) !important; }
 #design-system table.usage th { color: var(--color-taupe) !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: var(--fs-small) !important; letter-spacing: 0.08em !important; background: transparent !important; }
 
+.museum-page #main section .inner,
 .mechmarket-page #main section .inner,
 .bearla-page #main section .inner {
     padding: 0 !important;
     max-width: 100% !important;
-    width: 100% !important;
+    width: calc(100% - 6em) !important;
+    margin: 0 auto !important;
 }
 
 .bearla-page table thead th {
@@ -7017,6 +7019,7 @@ body.bearla-page,
         padding: var(--space-3) var(--space-2) !important; /* 24px top/bottom, 20px left/right */
         border-radius: var(--radius-md) !important; /* 18px radius */
     }
+    .museum-page #main section .inner,
     .mechmarket-page #main section .inner,
     .bearla-page #main section .inner {
         width: 100% !important;
