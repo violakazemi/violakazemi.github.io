@@ -8644,7 +8644,7 @@ body.home-page .hero-card-layout,
     }
 }
 
-/* Bottom Navigation Alignment (Unifies Previous/Next buttons alignment with the page text content grid) */
+/* Bottom Navigation Alignment (Unifies Previous/Next buttons alignment with the page card edges) */
 #bottom-nav {
     background: none !important;
     background-color: transparent !important;
@@ -8653,8 +8653,7 @@ body.home-page .hero-card-layout,
     max-width: var(--container-content) !important;
     width: 100% !important;
     margin: var(--space-5) auto var(--space-6) auto !important;
-    padding-left: var(--space-5) !important; /* Matches desktop content layout text edge */
-    padding-right: var(--space-5) !important;
+    padding: 0 !important; /* Align exactly with the left/right edges of the card above */
     box-sizing: border-box !important;
 }
 
@@ -8670,21 +8669,19 @@ body.home-page .hero-card-layout,
 
 @media screen and (max-width: 1068px) {
     #bottom-nav {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: calc(100% - 24px) !important; /* Matches mobile card outer width */
+        max-width: calc(100% - 24px) !important;
         margin: var(--space-4) auto var(--space-5) auto !important;
-        padding-left: var(--space-3) !important; /* Align with mobile padding grid */
-        padding-right: var(--space-3) !important;
+        padding: 0 !important;
     }
 }
 
 @media screen and (max-width: 734px) {
     #bottom-nav {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: calc(100% - 24px) !important; /* Matches mobile card outer width */
+        max-width: calc(100% - 24px) !important;
         margin: var(--space-3) auto var(--space-4) auto !important;
-        padding-left: var(--space-2) !important; /* Align with mobile padding grid */
-        padding-right: var(--space-2) !important;
+        padding: 0 !important;
     }
 }
 
