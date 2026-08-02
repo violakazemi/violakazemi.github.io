@@ -7999,7 +7999,7 @@ body.bearla-page,
     height: 380px !important;
     background-color: #FFFFFF !important;
     border: 1.5px solid var(--apple-border) !important;
-    border-radius: var(--radius-pill) !important;
+    border-radius: var(--radius-lg) !important;
     box-shadow: var(--shadow-lg) !important;
     overflow: hidden !important;
     display: flex !important;
