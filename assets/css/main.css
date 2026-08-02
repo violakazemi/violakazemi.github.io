@@ -6697,33 +6697,69 @@ body.bearla-page,
     color: #ffffff !important;
 }
 
-/* General Typography inside lavender page */
-.mechmarket-page h2,
-.mechmarket-page h3,
-.mechmarket-page p,
-.mechmarket-page li,
-.bearla-page h2,
-.bearla-page h3,
-.bearla-page p,
-.bearla-page li {
-    color: var(--color-text-primary) !important; /* Deep Charcoal for legibility */
+/* ===== CASE STUDY UNIFIED TYPOGRAPHY (5-LEVEL SYSTEM) ===== */
+.museum-page h1, .mechmarket-page h1, .bearla-page h1 {
+    font-size: var(--fs-h1) !important;
+    font-weight: 700 !important;
+    color: var(--color-text-primary) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
 }
 
-.mechmarket-page h2,
-.bearla-page h2 {
-    font-size: clamp(24px, 4vw, 32px) !important;
+.museum-page h2, .mechmarket-page h2, .bearla-page h2 {
+    font-size: var(--fs-h2) !important;
     font-weight: 700 !important;
+    color: var(--color-text-primary) !important;
+    line-height: 1.15 !important;
     letter-spacing: -0.02em !important;
     margin-bottom: var(--space-3) !important;
 }
 
-.mechmarket-page p,
-.mechmarket-page li,
-.bearla-page p,
-.bearla-page li {
+.museum-page h3, .mechmarket-page h3, .bearla-page h3 {
+    font-size: var(--fs-h3) !important;
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.015em !important;
+}
+
+.museum-page p, .mechmarket-page p, .bearla-page p,
+.museum-page li, .mechmarket-page li, .bearla-page li,
+.museum-page td, .mechmarket-page td, .bearla-page td {
     font-size: var(--fs-body) !important;
-    line-height: 1.7 !important;
+    font-weight: 400 !important;
+    color: var(--color-text-primary) !important;
+    line-height: 1.65 !important;
     letter-spacing: -0.01em !important;
+}
+
+/* Level 5 — Labels, Meta Text, Column Headers, Badges, Captions */
+.museum-page th, .mechmarket-page th, .bearla-page th,
+.museum-page .persona-type-label, .mechmarket-page .persona-type-label, .bearla-page .persona-type-label,
+.museum-page .comparison-badge, .mechmarket-page .comparison-badge, .bearla-page .comparison-badge,
+.museum-page .phase-pill, .mechmarket-page .phase-pill, .bearla-page .phase-pill,
+.museum-page .certified-badge, .mechmarket-page .certified-badge, .bearla-page .certified-badge,
+.museum-page .ideation-card span, .mechmarket-page .ideation-card span, .bearla-page .ideation-card span,
+.museum-page .case-study-caption, .mechmarket-page .case-study-caption, .bearla-page .case-study-caption {
+    font-size: var(--fs-small) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+
+/* Default color for Level 5 labels/meta text */
+.museum-page th, .mechmarket-page th, .bearla-page th,
+.museum-page .persona-type-label, .mechmarket-page .persona-type-label, .bearla-page .persona-type-label,
+.museum-page .certified-badge, .mechmarket-page .certified-badge, .bearla-page .certified-badge,
+.museum-page .case-study-caption, .mechmarket-page .case-study-caption, .bearla-page .case-study-caption {
+    color: var(--color-text-secondary) !important;
+}
+
+.case-study-caption {
+    text-align: center !important;
+    margin-top: -var(--space-2) !important;
+    margin-bottom: var(--space-4) !important;
+    display: block !important;
 }
 
 /* Sub-Navigation styling for MechMarket & Bearla */
