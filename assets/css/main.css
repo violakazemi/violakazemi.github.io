@@ -7343,17 +7343,14 @@ body.bearla-page,
 }
 
 .persona-bio-block .accent-line-vertical {
-    width: 4px !important;
-    background-color: #E6B8D1 !important; /* Vertical accent line in Muted Blush */
-    flex-shrink: 0 !important;
-    border-radius: var(--radius-sm) !important;
+    display: none !important;
 }
 
 .persona-bio-text {
     font-size: var(--fs-small) !important;
     line-height: 1.5 !important;
     color: var(--color-text-primary) !important;
-    margin: 0 0 0 var(--space-2) !important; /* Generous gap from vertical bar */
+    margin: 0 !important;
 }
 
 @media screen and (max-width: 1068px) {
