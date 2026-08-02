@@ -6454,24 +6454,9 @@ body.bearla-page,
     max-width: var(--container-content) !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.bearla-page #main section:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: var(--shadow-lg) !important;
-}
-
-/* Bearla Sub-Card Apple Micro-Interactions */
-.bearla-page .persona-card,
-.bearla-page .problem-card,
-.bearla-page .exploration-card,
-.bearla-page .stepper-card,
-.bearla-page .split-columns-grid .left-column,
-.bearla-page .split-columns-grid .right-column {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
-}
-
+/* Bearla Sub-Card Apple Styles */
 .bearla-page .persona-card,
 .bearla-page .problem-card,
 .bearla-page .exploration-card,
@@ -6480,19 +6465,8 @@ body.bearla-page,
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
-    box-shadow: var(--shadow-sm) !important;
+    box-shadow: none !important;
     padding: var(--space-3) !important;
-}
-
-.bearla-page .persona-card:hover,
-.bearla-page .problem-card:hover,
-.bearla-page .exploration-card:hover,
-.bearla-page .stepper-card:hover,
-.bearla-page .split-columns-grid .left-column:hover,
-.bearla-page .split-columns-grid .right-column:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: var(--shadow-md) !important;
-    border-color: var(--accent-bearla) !important;
 }
 
 .bearla-page .split-columns-grid .left-column,
@@ -6501,7 +6475,7 @@ body.bearla-page,
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
     padding: var(--space-3) var(--space-3) !important;
-    box-shadow: var(--shadow-sm) !important;
+    box-shadow: none !important;
 }
 
 .bearla-page ul.differentiators-list,
