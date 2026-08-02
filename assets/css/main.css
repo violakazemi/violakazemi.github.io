@@ -5668,23 +5668,15 @@ body.museum-page,
 .mechmarket-page #main .image.main,
 .bearla-page #main .image.main {
     background-color: var(--apple-bg-light) !important;
-    border: none !important; /* Remove card border */
-    box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
+    border: 1px solid var(--apple-border) !important;
+    box-shadow: none !important;
     border-radius: var(--radius-md) !important;
     padding: var(--space-3) !important; /* Premium card frame padding */
     margin-bottom: var(--space-4) !important;
     display: block !important;
     overflow: hidden !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
     width: 100% !important;
     box-sizing: border-box !important;
-}
-
-.museum-page #main .image.main:hover,
-.mechmarket-page #main .image.main:hover,
-.bearla-page #main .image.main:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: var(--shadow-lg) !important;
 }
 
 .museum-page #main .image.main img,
@@ -6507,15 +6499,9 @@ body.bearla-page,
 .bearla-page .image.main {
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
-    box-shadow: var(--shadow-md) !important;
+    box-shadow: none !important;
     border: 1px solid var(--apple-border) !important;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     margin: var(--space-3) 0 !important;
-}
-
-.bearla-page .image.main:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: var(--shadow-lg) !important;
 }
 
 .bearla-page table {
