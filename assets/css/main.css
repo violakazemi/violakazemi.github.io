@@ -7304,7 +7304,7 @@ body.bearla-page,
     width: 100px !important;
     height: 100px !important;
     border-radius: 50% !important;
-    border: 3px solid #E6B8D1 !important; /* Circular avatar border in Muted Blush */
+    border: 2px solid var(--apple-border) !important; /* Neutral grey border */
     overflow: hidden !important;
     margin: 0 auto var(--space-2) auto !important;
     display: flex !important;
