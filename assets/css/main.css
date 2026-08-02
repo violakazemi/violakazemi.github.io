@@ -5784,11 +5784,23 @@ body.museum-page,
 .phase-pill {
     font-size: var(--fs-small) !important;
     font-weight: 600 !important;
-    color: var(--apple-blue) !important; /* Apple Blue Accent */
+    color: var(--apple-blue) !important; /* Fallback */
     text-transform: uppercase !important;
     margin-bottom: var(--space-1) !important;
     letter-spacing: 0.05em !important;
     display: inline-block !important;
+}
+
+.museum-page .phase-pill {
+    color: var(--accent-museum) !important; /* Matcha Green Accent */
+}
+
+.mechmarket-page .phase-pill {
+    color: var(--accent-mechmarket) !important; /* Soft Pink Accent */
+}
+
+.bearla-page .phase-pill {
+    color: var(--accent-bearla) !important; /* Maroon Accent */
 }
 
 .tile-title {
