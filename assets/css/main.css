@@ -6448,6 +6448,10 @@ body.bearla-page,
     box-sizing: border-box !important;
 }
 
+.bearla-page section p {
+    max-width: 100% !important; /* Let text use the same width as images/cards in this column */
+}
+
 /* Bearla Sub-Card Apple Styles */
 .bearla-page .persona-card,
 .bearla-page .problem-card,
