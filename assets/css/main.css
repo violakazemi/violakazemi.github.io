@@ -5752,7 +5752,7 @@ body.museum-page,
 }.apple-tile {
     background: #FFFFFF !important; /* Restore white card background */
     border-radius: var(--radius-md) !important; /* Restore rounded borders */
-    padding: var(--space-2) !important;
+    padding: var(--space-3) !important;
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     display: flex !important;
     flex-direction: column !important;
@@ -5771,11 +5771,11 @@ body.museum-page,
 
 .tile-image-wrapper {
     width: auto !important;
-    height: 250px !important; /* Restricts the image container to the top portion of the tile */
+    height: 230px !important; /* Restricts the image container to the top portion of the tile */
     position: absolute !important;
-    top: 20px !important;
-    left: 20px !important;
-    right: 20px !important;
+    top: var(--space-3) !important;
+    left: var(--space-3) !important;
+    right: var(--space-3) !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -5817,9 +5817,9 @@ body.museum-page,
     align-items: flex-start !important;
     text-align: left !important;
     position: absolute !important;
-    top: 310px !important; /* Image wrapper bottom is at 270px + 40px spacing = 310px */
-    left: 20px !important;
-    right: 20px !important;
+    top: 278px !important; /* Image wrapper bottom is at 230px + 24px (space-3) = 254px, plus 24px space = 278px */
+    left: var(--space-3) !important;
+    right: var(--space-3) !important;
     bottom: auto !important;
     height: auto !important; /* Let content determine height to prevent truncation */
     justify-content: flex-start !important;
@@ -5885,11 +5885,11 @@ body.museum-page,
 
     .tile-image-wrapper {
         width: auto !important;
-        height: 210px !important; /* Restricts wrapper on mobile */
+        height: 190px !important; /* Proportional image container on mobile */
         position: absolute !important;
-        top: 16px !important;
-        left: 16px !important;
-        right: 16px !important;
+        top: var(--space-3) !important;
+        left: var(--space-3) !important;
+        right: var(--space-3) !important;
         padding: 0 !important;
     }
 
@@ -5911,9 +5911,9 @@ body.museum-page,
     }
 
     .tile-text-content {
-        top: 266px !important; /* Mobile wrapper bottom is at 226px + 40px spacing = 266px */
-        left: 16px !important;
-        right: 16px !important;
+        top: 238px !important; /* Mobile wrapper bottom is at 190px + 24px (space-3) = 214px, plus 24px space = 238px */
+        left: var(--space-3) !important;
+        right: var(--space-3) !important;
         bottom: auto !important;
         height: auto !important;
     }
@@ -7273,7 +7273,7 @@ body.bearla-page,
     align-items: center !important;
     background-color: #f5f5f7 !important; /* Nested card grey */
     border-radius: var(--radius-md) !important;
-    padding: var(--space-4) var(--space-3) !important;
+    padding: var(--space-4) !important;
     box-sizing: border-box !important;
     text-align: center !important;
 }
