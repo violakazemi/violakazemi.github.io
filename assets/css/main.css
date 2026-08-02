@@ -5419,6 +5419,7 @@ body.museum-page,
     border-radius: 0 !important;
     cursor: pointer !important;
     white-space: nowrap !important;
+    flex-shrink: 0 !important; /* Prevent text compression and overlapping in Safari/WebKit flexbox */
 }
 
 .museum-page .nav-segment:hover {
