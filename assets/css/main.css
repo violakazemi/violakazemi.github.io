@@ -39,6 +39,7 @@
     --apple-text-muted: #86868b;
     --apple-blue: #0071e3;
     --apple-blue-hover: #0077ed;
+    --apple-connector-blue: #0066cc;
     --apple-red: #ff3b30;
     --apple-orange: #ff9500;
     --apple-green: #34c759;
@@ -152,7 +153,7 @@ mark {
 	}
 
 	body {
-		background: #FFFFFF;
+		background: #ffffff;
 	}
 
 
@@ -1901,7 +1902,7 @@ mark {
 
 		select option {
 			color: #111111;
-			background: #FFFFFF;
+			background: #ffffff;
 		}
 
 		select:focus::-ms-value {
@@ -1984,7 +1985,7 @@ mark {
 			background: var(--color-text-primary);
 			border-color: var(--color-text-primary);
 			content: '\f00c';
-			color: #FFFFFF;
+			color: #ffffff;
 		}
 
 		input[type="checkbox"]:focus + label:before,
@@ -2305,7 +2306,7 @@ mark {
 
 				ul.pagination li > .page.active {
 					background-color: #111111;
-					color: #FFFFFF;
+					color: #ffffff;
 				}
 
 					ul.pagination li > .page.active:hover {
@@ -2716,29 +2717,6 @@ mark {
 				width: 60%;
 			}
 
-			.tiles article:nth-child(6n - 5):before {
-				background-color: #FFD700;
-			}
-
-			.tiles article:nth-child(6n - 4):before {
-				background-color: #FF7F7F;
-			}
-
-			.tiles article:nth-child(6n - 3):before {
-				background-color: #77B5FE;
-			}
-
-			.tiles article:nth-child(6n - 2):before {
-				background-color: #98D8A0;
-			}
-
-			.tiles article:nth-child(6n - 1):before {
-				background-color: #FFAB5E;
-			}
-
-			.tiles article:nth-child(6n):before {
-				background-color: #B39DDB;
-			}
 
 		@media screen and (max-width: 1441px) {
 
@@ -2957,7 +2935,7 @@ mark {
     height: 4em;
     line-height: 4em; 
     z-index: 10000;
-    background-color: var(--bg-color, #FFFFFF) !important; /* Enforces uniform off-white across all pages */
+    background-color: var(--bg-color, #ffffff) !important; /* Enforces uniform off-white across all pages */
     border-bottom: 3px solid #000000 !important;
     padding: 0 var(--space-4) !important; 
     box-sizing: border-box;
@@ -2979,7 +2957,7 @@ mark {
 				
 				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				background-color: #333333;
-				color: #FFFFFF;
+				color: #ffffff;
 				display: inline-block;
 				line-height: 1.65em;
 				margin-right: var(--space-1);
@@ -3069,34 +3047,11 @@ mark {
 
 		#header.alt {
     animation: none;
-    background-color: var(--bg-color, #FFFFFF) !important; /* Keeps background solid on scroll/load */
+    background-color: var(--bg-color, #ffffff) !important; /* Keeps background solid on scroll/load */
     box-shadow: none;
     position: absolute;
 }
 
-			#header.alt.style1 .logo strong {
-				color: #000000;
-			}
-
-			#header.alt.style2 .logo strong {
-				color: #8d82c4;
-			}
-
-			#header.alt.style3 .logo strong {
-				color: #ec8d81;
-			}
-
-			#header.alt.style4 .logo strong {
-				color: #e7b788;
-			}
-
-			#header.alt.style5 .logo strong {
-				color: #8ea9e8;
-			}
-
-			#header.alt.style6 .logo strong {
-				color: #87c5a4;
-			}
 
 		/* body.is-preload #header.alt {
 			opacity: 0;
@@ -3224,7 +3179,7 @@ mark {
 			
 			transition-delay: 0.75s;
 			pointer-events: none;
-			background-color: #FFFFFF;
+			background-color: #ffffff;
 			content: '';
 			display: block;
 			height: 100%;
@@ -3330,29 +3285,6 @@ mark {
 				opacity: 0.75;
 			}
 
-		#banner.style1:after {
-			background-color: #000000;
-		}
-
-		#banner.style2:after {
-			background-color: #8d82c4;
-		}
-
-		#banner.style3:after {
-			background-color: #ec8d81;
-		}
-
-		#banner.style4:after {
-			background-color: #e7b788;
-		}
-
-		#banner.style5:after {
-			background-color: #8ea9e8;
-		}
-
-		#banner.style6:after {
-			background-color: #87c5a4;
-		}
 
 		body.is-preload #banner:after {
 			opacity: 1.0;
@@ -3875,7 +3807,7 @@ article header.major {
     align-items: center !important;
     justify-content: center !important;
     background-color: var(--apple-blue) !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     font-size: var(--fs-body) !important;
     font-weight: 500 !important;
     padding: var(--space-2) var(--space-3) !important;
@@ -3894,7 +3826,7 @@ article header.major {
 
 .button:hover {
     background-color: var(--apple-blue-hover) !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     transform: scale(1.02) !important;
     box-shadow: none !important;
 }
@@ -4358,7 +4290,7 @@ html {
 #header .logo .logo-sub-desktop {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     background-color: #333333 !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     display: inline-block !important;
     line-height: 1.65em !important;
     padding: 0 var(--space-1) 0 var(--space-1) !important;
@@ -5357,7 +5289,7 @@ body.museum-page,
 }
 
 .museum-page #main section[id]:not(#one):not(#bottom-nav) {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-sm) !important;
     padding: var(--space-5) !important;
@@ -5614,7 +5546,7 @@ body.museum-page,
         aspect-ratio: auto !important;
         min-height: 420px !important;
         height: 420px !important;
-        background: #FFFFFF !important; /* Remove background image for mobile version */
+        background: #ffffff !important; /* Remove background image for mobile version */
     }
     .tiles article {
         flex: 1 1 auto !important;
@@ -5750,7 +5682,7 @@ body.museum-page,
     margin-top: var(--space-4) !important;
     margin-bottom: var(--space-4) !important;
 }.apple-tile {
-    background: #FFFFFF !important; /* Restore white card background */
+    background: #ffffff !important; /* Restore white card background */
     border-radius: var(--radius-md) !important; /* Restore rounded borders */
     padding: var(--space-3) !important;
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
@@ -5846,7 +5778,7 @@ body.museum-page,
 .tile-title {
     font-size: var(--fs-body) !important;
     font-weight: 600 !important;
-    color: #1D1D1F !important;
+    color: #1d1d1f !important;
     margin: 0 !important;
     line-height: 1.25 !important;
     letter-spacing: -0.01em !important;
@@ -5930,7 +5862,7 @@ body.museum-page,
 }
 
 .insight-card {
-    background: #FFFFFF !important;
+    background: #ffffff !important;
     border-radius: var(--radius-md) !important;
     padding: var(--space-3) !important;
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
@@ -5963,7 +5895,7 @@ body.museum-page,
 .insight-card h4 {
     font-size: var(--fs-body) !important;
     font-weight: 600 !important;
-    color: #1D1D1F !important;
+    color: #1d1d1f !important;
     margin-bottom: var(--space-1) !important;
     text-transform: none !important;
     letter-spacing: normal !important;
@@ -5981,7 +5913,7 @@ body.museum-page,
 }
 
 .insight-card strong {
-    color: #1D1D1F !important;
+    color: #1d1d1f !important;
     font-weight: 600 !important;
 }
 
@@ -5999,7 +5931,7 @@ body.museum-page,
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    background: #FFFFFF !important;
+    background: #ffffff !important;
     overflow: hidden !important;
     padding: var(--space-4) !important;
 }
@@ -6089,7 +6021,7 @@ body.bearla-page,
 }
 
 .museum-hero {
-    background-color: #FFFFFF !important; /* Soft White Background */
+    background-color: #ffffff !important; /* Soft White Background */
     width: 100% !important;
     max-width: var(--container-content) !important;
     margin: var(--space-5) auto !important;
@@ -6315,7 +6247,7 @@ body.bearla-page,
 
 .mechmarket-hero .hero-button {
     background-color: var(--color-text-primary) !important; /* Deep Charcoal button background */
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     font-weight: 600 !important;
     border-radius: var(--radius-pill) !important;
     padding: 0 var(--space-3) !important;
@@ -6466,7 +6398,7 @@ body.bearla-page,
 
 /* Floating White Bento-style Cards Over Lavender */
 .mechmarket-page #main section {
-    background-color: #FFFFFF !important; /* Pure White Surfaces */
+    background-color: #ffffff !important; /* Pure White Surfaces */
     border-radius: var(--radius-md) !important; /* Soft corners */
     box-shadow: var(--shadow-sm) !important;
     padding: var(--space-5) !important;
@@ -6478,7 +6410,7 @@ body.bearla-page,
 }
 
 .bearla-page #main section {
-    background-color: #FFFFFF !important; /* Pure White Surface */
+    background-color: #ffffff !important; /* Pure White Surface */
     border-radius: var(--radius-md) !important; /* Smooth Apple rounded corners */
     box-shadow: var(--shadow-sm) !important;
     border: none !important;
@@ -6680,7 +6612,7 @@ body.bearla-page,
     transition: all .2s ease !important;
 }
 #design-system .btn-primary { background: var(--color-maroon) !important; color: var(--color-cream-light) !important; border: 1px solid var(--color-maroon) !important; }
-#design-system .btn-primary:hover { background: var(--color-maroon-deep) !important; color: #FFFFFF !important; }
+#design-system .btn-primary:hover { background: var(--color-maroon-deep) !important; color: #ffffff !important; }
 #design-system .btn-secondary { background: transparent !important; color: var(--color-ink) !important; border: 1px solid var(--color-taupe-light) !important; }
 #design-system .btn-secondary:hover { border-color: var(--color-ink) !important; }
 #design-system .btn-ondark { background: transparent !important; color: var(--color-cream) !important; border: 1px solid var(--color-border-deep) !important; }
@@ -6734,7 +6666,7 @@ body.bearla-page,
 }
 
 .bearla-page table thead th {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
 }
 
 /* General Typography inside lavender page */
@@ -7310,7 +7242,7 @@ body.bearla-page,
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
 }
 
 .persona-avatar-wrapper img {
@@ -7482,7 +7414,7 @@ body.bearla-page,
 }
 
 .flow-node.nav-step {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     color: var(--color-text-primary) !important;
     border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
 }
@@ -7561,7 +7493,7 @@ body.bearla-page,
 }
 
 .legend-color-box.white-box {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
 }
 
@@ -7640,7 +7572,7 @@ body.bearla-page,
 }
 
 .wireflow-card {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1.5px solid rgba(32, 32, 32, 0.1) !important;
     border-radius: var(--radius-sm) !important;
     padding: var(--space-2) !important;
@@ -7658,11 +7590,11 @@ body.bearla-page,
 
 .wireflow-card:hover {
     transform: translateY(-2px) !important;
-    border-color: #0066cc !important;
+    border-color: var(--apple-connector-blue) !important;
 }
 
 .wireflow-card.highlight-card {
-    border-color: rgba(0, 102, 204, 0.3) !important;
+    border-color: color-mix(in srgb, var(--apple-connector-blue) 30%, transparent) !important;
 }
 
 .wireflow-card.relative-parent {
@@ -7741,7 +7673,7 @@ body.bearla-page,
 .mockup-search-bar {
     height: 12px !important;
     border: 1.5px solid #d2d2d7 !important;
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border-radius: var(--radius-sm) !important;
     width: 100% !important;
 }
@@ -7820,7 +7752,7 @@ body.bearla-page,
 /* Arrows */
 .flow-arrow.blue-arrow {
     font-size: var(--fs-body) !important;
-    color: #0066cc !important; /* Vibrant Blue for connector lines */
+    color: var(--apple-connector-blue) !important; /* Vibrant Blue for connector lines */
     font-weight: 700 !important;
     flex-shrink: 0 !important;
     user-select: none !important;
@@ -7832,7 +7764,7 @@ body.bearla-page,
     left: 50% !important;
     transform: translateX(-50%) !important;
     font-size: var(--fs-body) !important;
-    color: #0066cc !important;
+    color: var(--apple-connector-blue) !important;
     font-weight: 700 !important;
     z-index: 10 !important;
 }
@@ -7845,7 +7777,7 @@ body.bearla-page,
 }
 
 .filter-card {
-    border-color: rgba(0, 102, 204, 0.3) !important;
+    border-color: color-mix(in srgb, var(--apple-connector-blue) 30%, transparent) !important;
 }
 
 @media screen and (max-width: 1068px) {
@@ -8006,7 +7938,7 @@ body.bearla-page,
 .phone-frame {
     width: 220px !important;
     height: 380px !important;
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1.5px solid var(--apple-border) !important;
     border-radius: var(--radius-lg) !important;
     box-shadow: var(--shadow-lg) !important;
@@ -8031,7 +7963,7 @@ body.bearla-page,
 }
 
 .phone-search-input {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1px solid #d2d2d7 !important;
     border-radius: var(--radius-sm) !important;
     font-size: var(--fs-small) !important;
@@ -8041,7 +7973,7 @@ body.bearla-page,
 }
 
 .phone-search-input-small {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border: 1px solid #d2d2d7 !important;
     border-radius: var(--radius-sm) !important;
     font-size: var(--fs-small) !important;
@@ -8069,7 +8001,7 @@ body.bearla-page,
 }
 
 .phone-tabs-segmented .tab-item.active {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     color: var(--color-text-primary) !important;
     box-shadow: var(--shadow-sm) !important;
 }
@@ -8161,7 +8093,7 @@ body.bearla-page,
 .certified-badge {
     font-size: var(--fs-small) !important;
     font-weight: 700 !important;
-    color: #0066cc !important;
+    color: var(--apple-connector-blue) !important;
     background-color: #E8F0FE !important;
     padding: var(--space-1) var(--space-1) !important;
     border-radius: var(--radius-sm) !important;
@@ -8331,7 +8263,7 @@ body.bearla-page,
 .slide-caption {
     width: 100% !important;
     padding: var(--space-3) var(--space-4) var(--space-5) var(--space-4) !important;
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     text-align: left !important;
     box-sizing: border-box !important;
     border-top: 1px solid rgba(32, 32, 32, 0.04) !important;
@@ -8489,7 +8421,7 @@ body.bearla-page,
 }
 
 .museum-white-section {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-md) !important;
     padding: var(--space-5) !important;
@@ -8506,7 +8438,7 @@ body.bearla-page,
 
 /* Home Page Banner Card Style */
 .home-page #banner {
-    background-color: #FFFFFF !important; /* Outer banner section is pure white */
+    background-color: #ffffff !important; /* Outer banner section is pure white */
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
@@ -8640,7 +8572,7 @@ body.bearla-page,
     border-radius: var(--radius-md) !important; /* Soft corners for avatar card */
     object-fit: cover !important;
     box-shadow: var(--shadow-md) !important;
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
 }
 
 /* Mobile responsive styling */
