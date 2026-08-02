@@ -8621,6 +8621,10 @@ body.home-page .hero-card-layout,
 }
 
 @media screen and (max-width: 734px) {
+    .home-page #banner > .inner {
+        padding: 0 max(24px, 8%) !important; /* Align boundaries with featured projects cards on mobile viewports */
+    }
+
     body.home-page .hero-card-layout,
     #banner .hero-card-layout {
         padding: var(--space-4) var(--space-3) !important;
