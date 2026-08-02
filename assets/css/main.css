@@ -26,8 +26,8 @@
     /* Project Accent Colors */
     --accent-museum: #587C56;
     --accent-museum-bg: color-mix(in srgb, var(--accent-museum) 15%, white);
-    --accent-bearla: #F5F0E8;
-    --accent-bearla-bg: var(--accent-bearla);
+    --accent-bearla: #621D26; /* Maroon Accent */
+    --accent-bearla-bg: #F5F0E8; /* Warm Cotton/Linen Beige Background */
     --accent-mechmarket: #E6B8D1;
     --accent-mechmarket-bg: color-mix(in srgb, var(--accent-mechmarket) 35%, white);
 
@@ -6475,11 +6475,13 @@ body.bearla-page,
 .bearla-page .persona-card,
 .bearla-page .problem-card,
 .bearla-page .exploration-card,
-.bearla-page .stepper-card {
+.bearla-page .stepper-card,
+.bearla-page .inner-block-card {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
     box-shadow: var(--shadow-sm) !important;
+    padding: var(--space-3) !important;
 }
 
 .bearla-page .persona-card:hover,
