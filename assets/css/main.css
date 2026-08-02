@@ -8644,6 +8644,50 @@ body.home-page .hero-card-layout,
     }
 }
 
+/* Bottom Navigation Alignment (Unifies Previous/Next buttons alignment with the page text content grid) */
+#bottom-nav {
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    max-width: var(--container-content) !important;
+    width: 100% !important;
+    margin: var(--space-5) auto var(--space-6) auto !important;
+    padding-left: var(--space-5) !important; /* Matches desktop content layout text edge */
+    padding-right: var(--space-5) !important;
+    box-sizing: border-box !important;
+}
+
+#bottom-nav .inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+@media screen and (max-width: 1068px) {
+    #bottom-nav {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: var(--space-4) auto var(--space-5) auto !important;
+        padding-left: var(--space-3) !important; /* Align with mobile padding grid */
+        padding-right: var(--space-3) !important;
+    }
+}
+
+@media screen and (max-width: 734px) {
+    #bottom-nav {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: var(--space-3) auto var(--space-4) auto !important;
+        padding-left: var(--space-2) !important; /* Align with mobile padding grid */
+        padding-right: var(--space-2) !important;
+    }
+}
+
 
 
 
