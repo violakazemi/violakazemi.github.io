@@ -8483,7 +8483,8 @@ body.bearla-page,
     box-sizing: border-box !important;
 }
 
-.home-page .hero-card-layout {
+body.home-page .hero-card-layout,
+#banner .hero-card-layout {
     background-color: #f5f5f7 !important; /* Rectangle is light grey */
     border-radius: var(--radius-lg) !important; /* Premium rounded corner */
     padding: var(--space-5) !important; /* Cohesive card padding */
@@ -8602,7 +8603,8 @@ body.bearla-page,
         padding: 0 var(--space-2) !important; /* Matches mobile padding */
     }
     
-    .home-page .hero-card-layout {
+    body.home-page .hero-card-layout,
+    #banner .hero-card-layout {
         grid-template-columns: 1fr !important;
         gap: var(--space-4) !important;
         padding: var(--space-4) var(--space-4) !important;
@@ -8619,7 +8621,8 @@ body.bearla-page,
 }
 
 @media screen and (max-width: 734px) {
-    .home-page .hero-card-layout {
+    body.home-page .hero-card-layout,
+    #banner .hero-card-layout {
         padding: var(--space-4) var(--space-3) !important;
     }
     
