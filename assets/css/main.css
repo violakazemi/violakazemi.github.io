@@ -6412,19 +6412,18 @@ body.bearla-page,
     background-color: #FFFFFF !important; /* Pure White Surface */
     border-radius: var(--radius-md) !important; /* Smooth Apple rounded corners */
     box-shadow: var(--shadow-sm) !important;
-    border: 1px solid var(--apple-border) !important;
+    border: none !important;
     padding: var(--space-5) !important;
     margin: var(--space-7) auto !important; /* Luxury whitespace padding */
     max-width: var(--container-content) !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .bearla-page #main section:hover {
     transform: translateY(-4px) !important;
     box-shadow: var(--shadow-lg) !important;
-    border-color: var(--apple-blue) !important;
 }
 
 /* Bearla Sub-Card Apple Micro-Interactions */
@@ -6434,7 +6433,7 @@ body.bearla-page,
 .bearla-page .stepper-card,
 .bearla-page .split-columns-grid .left-column,
 .bearla-page .split-columns-grid .right-column {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .bearla-page .persona-card:hover,
@@ -6445,13 +6444,12 @@ body.bearla-page,
 .bearla-page .split-columns-grid .right-column:hover {
     transform: translateY(-3px) !important;
     box-shadow: var(--shadow-md) !important;
-    border-color: var(--apple-blue) !important;
 }
 
 .bearla-page .split-columns-grid .left-column,
 .bearla-page .split-columns-grid .right-column {
     background-color: var(--color-bg-page) !important;
-    border: 1px solid var(--apple-border) !important;
+    border: none !important;
     border-radius: var(--radius-md) !important;
     padding: var(--space-3) var(--space-3) !important;
     box-shadow: var(--shadow-sm) !important;
@@ -6467,27 +6465,26 @@ body.bearla-page,
 .bearla-page ul.differentiators-list li,
 .bearla-page ul.challenge-list li {
     background-color: var(--color-bg-page) !important;
-    border: 1px solid var(--apple-border) !important;
+    border: none !important;
     border-radius: var(--radius-md) !important;
     padding: var(--space-2) var(--space-3) !important;
     margin-bottom: var(--space-2) !important;
     list-style-type: none !important;
     box-shadow: var(--shadow-sm) !important;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .bearla-page ul.differentiators-list li:hover,
 .bearla-page ul.challenge-list li:hover {
     transform: translateY(-3px) !important;
     box-shadow: var(--shadow-md) !important;
-    border-color: var(--apple-blue) !important;
 }
 
 .bearla-page .image.main {
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
     box-shadow: var(--shadow-md) !important;
-    border: 1px solid var(--apple-border) !important;
+    border: none !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     margin: var(--space-3) 0 !important;
 }
@@ -6501,7 +6498,7 @@ body.bearla-page,
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
     box-shadow: var(--shadow-md) !important;
-    border: 1px solid var(--apple-border) !important;
+    border: none !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
