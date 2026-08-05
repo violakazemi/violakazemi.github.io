@@ -4957,12 +4957,12 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
     margin: 0 auto !important;
     transform: scale(1.50) !important; /* Scaled up by 50% total */
     transform-origin: center center !important;
-    transition: transform 0.3s ease !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .tiles article:hover .tile-mockup img {
-    transform: scale(1.55) !important; /* Hover zoom */
-    transform-origin: center center !important;
+    transform: translateY(-55px) scale(1.15) !important; /* Shift up and scale down */
+    opacity: 0.12 !important; /* Fade mockup out slightly to let text overlay read clearly */
 }
 
 .tiles article::before, .tiles article::after {
@@ -4973,6 +4973,66 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page) #header {
 .tiles article:hover {
     transform: translateY(-4px) !important; /* Matches museum iteration cards translation */
     box-shadow: var(--shadow-lg) !important; /* Premium hover shadow elevation */
+}
+
+/* Featured Projects Overlay animation */
+.project-overview-overlay {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    transform: translateY(100%) !important;
+    opacity: 0 !important;
+    padding: var(--space-4) !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid var(--apple-border) !important;
+    z-index: 3 !important;
+    text-decoration: none !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+    height: 180px !important; /* Fixed height for the overlay */
+}
+
+.tiles article:hover .project-overview-overlay {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+.project-overview-overlay .overview-text {
+    font-size: var(--fs-body) !important;
+    line-height: 1.5 !important;
+    color: var(--color-text-primary) !important;
+    margin: 0 0 var(--space-2) 0 !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+}
+
+.project-overview-overlay .view-project-label {
+    font-size: var(--fs-small) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: #0071e3 !important;
+    display: inline-block !important;
+}
+
+/* Custom Accent Colors for Read Labels */
+.project-card:not(.bearla-tile):not(.mechmarket-tile) .view-project-label {
+    color: #587C56 !important; /* Museum Green */
+}
+
+.bearla-tile .view-project-label {
+    color: #621D26 !important; /* Bearla Maroon */
+}
+
+.mechmarket-tile .view-project-label {
+    color: #b05c84 !important; /* Mechmarket Purple */
 }
 
 .tiles article header.major {
