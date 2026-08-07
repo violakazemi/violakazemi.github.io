@@ -6992,8 +6992,8 @@ body.bearla-page,
         padding-left: var(--space-3) !important;
     }
     .challenge-list {
-        margin: var(--space-4) 0 0 0 !important;
-        padding-left: var(--space-3) !important;
+        margin: var(--space-2) 0 0 0 !important; /* Halved gap between title and numbered list */
+        padding-left: 20px !important; /* Aligned nicely with card borders on mobile */
     }
     .competitor-logo-row {
         gap: var(--space-2) !important;
@@ -7089,7 +7089,7 @@ body.bearla-page,
 }
 
 .challenge-list {
-    margin: 0 0 0 var(--space-2) !important;
+    margin: 0 0 0 20px !important;
     padding: 0 !important;
     list-style: decimal !important;
 }
@@ -7099,7 +7099,7 @@ body.bearla-page,
     line-height: 1.6 !important;
     color: var(--color-text-primary) !important;
     margin-bottom: var(--space-1) !important;
-    padding-left: var(--space-1) !important;
+    padding-left: 2px !important; /* Halved the gap between the decimal marker and text */
 }
 
 @media screen and (max-width: 734px) {
