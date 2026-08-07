@@ -8814,6 +8814,32 @@ body.home-page .hero-card-layout,
         flex-direction: column !important;
         gap: var(--space-3) !important;
     }
+
+    /* Stack bento items vertically on mobile viewports */
+    .apple-bento-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-5) !important; /* Luxury margin/spacing between stacked items */
+        width: 100% !important;
+        overflow-x: visible !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .apple-bento-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .apple-tile-container {
+        flex: none !important;
+        width: 100% !important;
+    }
+
+    .apple-tile {
+        height: 200px !important; /* Perfect vertical card proportions for mobile screenshots */
+        width: 100% !important;
+    }
 }
 
 
