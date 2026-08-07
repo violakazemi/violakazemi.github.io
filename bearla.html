@@ -221,11 +221,29 @@
                     <h2>4. High-Fidelity Prototype</h2>
                     <p>I built an interactive prototype in Figma to verify how layout shifts work across mobile and desktop sizes:</p>
                     
-                    <div class="inner-block-card">
-                        <ul class="differentiators-list" style="margin-bottom: 0 !important;">
-                            <li><strong>Mobile Touch Targets:</strong> All buttons and interactive elements are sized at least 48px to make them easy to tap on smaller screens.</li>
-                            <li><strong>Desktop Split Panel:</strong> On larger screens, the viewport splits to show the preview panel and note workspace side-by-side.</li>
-                        </ul>
+                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
+                        <!-- Desktop Viewport -->
+                        <div class="desktop-only-table">
+                            <ul class="differentiators-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
+                                <li><strong>Mobile Touch Targets:</strong> All buttons and interactive elements are sized at least 48px to make them easy to tap on smaller screens.</li>
+                                <li><strong>Desktop Split Panel:</strong> On larger screens, the viewport splits to show the preview panel and note workspace side-by-side.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Mobile Viewport: Styled exactly like 1. Research -->
+                        <div class="mobile-only-cards">
+                            <div class="mobile-table-card">
+                                <h4>Prototype Features</h4>
+                                <div class="card-row">
+                                    <span class="value">
+                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Mobile Touch Targets:</strong> All buttons and interactive elements are sized at least 48px to make them easy to tap on smaller screens.</li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Desktop Split Panel:</strong> On larger screens, the viewport splits to show the preview panel and note workspace side-by-side.</li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="image main">
@@ -244,21 +262,37 @@
                     <h2>5. How the Design Works Behind the Scenes</h2>
                     <p>Building a mobile-first annotation tool required clear interface constraints to prevent mistakes and make sure drawings are manufactured accurately:</p>
                     
-                    <div class="inner-block-card">
-                        <ul class="differentiators-list" style="margin-bottom: 0 !important;">
-                            <li>
-                                <strong>Image Cropping Boundaries</strong>
-                                <br>To make sure coordinates function accurately, the interface forces the user to crop and isolate a single drawing from the page immediately after uploading it. This stops notes from being placed on background shadows or nearby drawings.
-                            </li>
-                            <li>
-                                <strong>Mobile Touch Target Sizes</strong>
-                                <br>Annotating a drawing is simple on desktop, but difficult on small screens. I set a minimum 48px touch target size for dropping pins, and used a slide-up panel for text entry so the phone's keyboard doesn't cover the drawing while typing.
-                            </li>
-                            <li>
-                                <strong>Linking Notes to Manufacturing Data</strong>
-                                <br>The custom notes aren't just display text; the system saves each pin's coordinates directly with the cropped drawing file. This data is carried through the cart and checkout stages, so the bench jeweler sees exactly where the customer added instructions.
-                            </li>
-                        </ul>
+                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
+                        <!-- Desktop Viewport -->
+                        <div class="desktop-only-table">
+                            <ul class="differentiators-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
+                                <li>
+                                    <strong>Image Cropping Boundaries:</strong> To make sure coordinates function accurately, the interface forces the user to crop and isolate a single drawing from the page immediately after uploading it. This stops notes from being placed on background shadows or nearby drawings.
+                                </li>
+                                <li>
+                                    <strong>Mobile Touch Target Sizes:</strong> Annotating a drawing is simple on desktop, but difficult on small screens. I set a minimum 48px touch target size for dropping pins, and used a slide-up panel for text entry so the phone's keyboard doesn't cover the drawing while typing.
+                                </li>
+                                <li>
+                                    <strong>Linking Notes to Manufacturing Data:</strong> The custom notes aren't just display text; the system saves each pin's coordinates directly with the cropped drawing file. This data is carried through the cart and checkout stages, so the bench jeweler sees exactly where the customer added instructions.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Mobile Viewport: Styled exactly like 1. Research -->
+                        <div class="mobile-only-cards">
+                            <div class="mobile-table-card">
+                                <h4>System Constraints</h4>
+                                <div class="card-row">
+                                    <span class="value">
+                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Image Cropping Boundaries:</strong> To make sure coordinates function accurately, the interface forces the user to crop and isolate a single drawing from the page immediately after uploading it. This stops notes from being placed on background shadows or nearby drawings.</li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Mobile Touch Target Sizes:</strong> Annotating a drawing is simple on desktop, but difficult on small screens. I set a minimum 48px touch target size for dropping pins, and used a slide-up panel for text entry so the phone's keyboard doesn't cover the drawing while typing.</li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Linking Notes to Manufacturing Data:</strong> The custom notes aren't just display text; the system saves each pin's coordinates directly with the cropped drawing file. This data is carried through the cart and checkout stages, so the bench jeweler sees exactly where the customer added instructions.</li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -385,12 +419,30 @@
             <!-- Section 9: Next Steps -->
             <section id="next-steps" style="border: none !important; padding-top: var(--space-5); margin-top: var(--space-5);">
                 <div class="inner">
-                        <div class="inner-block-card">
-                            <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Next Steps</h3>
-                            <ul class="challenge-list" style="margin-bottom: 0 !important;">
-                                <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
-                                <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
-                            </ul>
+                        <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
+                            <!-- Desktop Viewport -->
+                            <div class="desktop-only-table">
+                                <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Next Steps</h3>
+                                <ul class="challenge-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
+                                    <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
+                                    <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Mobile Viewport: Styled exactly like 1. Research -->
+                            <div class="mobile-only-cards">
+                                <div class="mobile-table-card">
+                                    <h4>Next Steps</h4>
+                                    <div class="card-row">
+                                        <span class="value">
+                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
+                                                <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
+                                                <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
+                                            </ul>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                 </div>
             </section>
