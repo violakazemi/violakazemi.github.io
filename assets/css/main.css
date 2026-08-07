@@ -8840,6 +8840,95 @@ body.home-page .hero-card-layout,
         height: 200px !important; /* Perfect vertical card proportions for mobile screenshots */
         width: 100% !important;
     }
+
+    /* List-to-Cards Transformation on Mobile Viewports */
+    .challenge-list,
+    .differentiators-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+        list-style: none !important;
+        padding-left: 0 !important;
+        margin: var(--space-3) 0 0 0 !important;
+        width: 100% !important;
+    }
+
+    .challenge-list li,
+    .differentiators-list li {
+        background-color: var(--color-bg-page) !important;
+        border: 1px solid var(--apple-border) !important;
+        border-radius: var(--radius-md) !important;
+        padding: var(--space-4) !important;
+        box-shadow: var(--shadow-sm) !important;
+        margin-bottom: 0 !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        text-align: left !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+        position: relative !important;
+    }
+
+    .challenge-list {
+        counter-reset: card-counter !important;
+    }
+
+    .challenge-list li::before {
+        counter-increment: card-counter !important;
+        content: "0" counter(card-counter) !important;
+        display: inline-block !important;
+        font-size: var(--fs-small) !important;
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        background-color: var(--accent-museum) !important;
+        padding: 2px 8px !important;
+        border-radius: var(--radius-pill) !important;
+        text-transform: uppercase !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+    }
+
+    .differentiators-list {
+        counter-reset: diff-counter !important;
+    }
+
+    .differentiators-list li::before {
+        counter-increment: diff-counter !important;
+        content: "0" counter(diff-counter) !important;
+        display: inline-block !important;
+        font-size: var(--fs-small) !important;
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        background-color: var(--accent-museum) !important;
+        padding: 2px 8px !important;
+        border-radius: var(--radius-pill) !important;
+        text-transform: uppercase !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+    }
+
+    /* Page-specific counter color mappings */
+    .mechmarket-page .challenge-list li::before,
+    .mechmarket-page .differentiators-list li::before {
+        background-color: var(--accent-mechmarket) !important;
+    }
+
+    .bearla-page .challenge-list li::before,
+    .bearla-page .differentiators-list li::before {
+        background-color: var(--accent-bearla) !important;
+    }
+
+    /* Wrap heading tags cleanly inside the card layout */
+    .challenge-list li strong,
+    .differentiators-list li strong {
+        font-size: var(--fs-body) !important;
+        font-weight: 600 !important;
+        margin-bottom: 2px !important;
+        color: var(--color-text-primary) !important;
+        display: block !important;
+    }
 }
 
 
