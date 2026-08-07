@@ -6988,12 +6988,12 @@ body.bearla-page,
         padding: 0 !important;
     }
     .differentiators-list {
-        margin: var(--space-4) 0 0 0 !important;
-        padding-left: var(--space-3) !important;
+        margin: var(--space-2) 0 0 0 !important; /* Cohesive spacing with title */
+        padding-left: 15px !important; /* Aligns bullets exactly with left boundary of titles */
     }
     .challenge-list {
         margin: var(--space-2) 0 0 0 !important; /* Halved gap between title and numbered list */
-        padding-left: 20px !important; /* Aligned nicely with card borders on mobile */
+        padding-left: 15px !important; /* Aligns numbers (1.) exactly with left boundary of titles */
     }
     .competitor-logo-row {
         gap: var(--space-2) !important;
