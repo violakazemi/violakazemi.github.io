@@ -8805,7 +8805,7 @@ body.home-page .hero-card-layout,
     margin: 0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1068px) {
     .desktop-only-table {
         display: none !important;
     }
