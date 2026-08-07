@@ -5756,19 +5756,27 @@ body.museum-page,
     width: 100% !important;
     margin-top: var(--space-4) !important;
     margin-bottom: var(--space-4) !important;
-}.apple-tile {
+}.apple-tile-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+
+.apple-tile {
     background: #ffffff !important; /* Restore white card background */
     border-radius: var(--radius-md) !important; /* Restore rounded borders */
     padding: var(--space-3) !important;
     box-shadow: var(--shadow-md) !important; /* Apple-style soft shadow */
     display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    height: 420px !important; /* Standard fixed height */
-    border: none !important; /* Remove card border */
-    position: relative !important; /* Establish local coordinate system */
+    align-items: center !important;
+    justify-content: center !important;
+    height: 240px !important; /* Fixed height for image card */
+    width: 100% !important;
+    border: none !important;
     overflow: hidden !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-sizing: border-box !important;
 }
 
 .apple-tile:hover {
@@ -5777,67 +5785,38 @@ body.museum-page,
 }
 
 .tile-image-wrapper {
-    width: auto !important;
-    height: 230px !important; /* Restricts the image container to the top portion of the tile */
-    position: absolute !important;
-    top: var(--space-3) !important;
-    left: var(--space-3) !important;
-    right: var(--space-3) !important;
+    width: 100% !important;
+    height: 100% !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     overflow: hidden !important;
-    border-radius: var(--radius-sm) !important;
-    background-color: transparent !important; /* Remove the grey background block/border */
+    background-color: transparent !important;
     margin: 0 !important;
     padding: 0 !important;
-    z-index: 1 !important;
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
-}
-
-.apple-tile:hover .tile-image-wrapper {
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 100% !important; /* Expand wrapper fully to card borders on hover */
-    border-radius: var(--radius-md) !important;
+    box-sizing: border-box !important;
 }
 
 .tile-image-wrapper img {
-    width: 100% !important;
-    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
     object-fit: contain !important;
     border-radius: var(--radius-sm) !important;
-    box-shadow: none !important; /* Remove grey drop shadow from the screenshots */
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; /* Smooth zoom transition */
+    box-shadow: none !important;
+    transition: transform 0.3s ease !important;
 }
 
-/* Expand to fill entire card boundaries on hover */
 .apple-tile:hover .tile-image-wrapper img {
-    border-radius: var(--radius-md) !important;
-    transform: scale(1.05) !important; /* Clean zoom scale */
+    transform: scale(1.03) !important; /* Subtle zoom on hover */
 }
 
-.tile-text-content {
+.tile-text-under {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     text-align: left !important;
-    position: absolute !important;
-    top: 278px !important; /* Image wrapper bottom is at 230px + 24px (space-3) = 254px, plus 24px space = 278px */
-    left: var(--space-3) !important;
-    right: var(--space-3) !important;
-    bottom: auto !important;
-    height: auto !important; /* Let content determine height to prevent truncation */
-    justify-content: flex-start !important;
-    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    z-index: 2 !important;
-    opacity: 1 !important;
-}
-
-.apple-tile:hover .tile-text-content {
-    opacity: 0 !important;
-    transform: translateY(10px) !important; /* Smoothly slide down and disappear */
+    margin-top: var(--space-3) !important;
+    width: 100% !important;
 }
 
 .phase-pill {
@@ -5896,27 +5875,24 @@ body.museum-page,
         display: none !important; /* Hide scrollbars on WebKit */
     }
 
-    .apple-tile {
+    .apple-tile-container {
         flex: 0 0 280px !important; /* Fixed width cards for horizontal scrolling */
         scroll-snap-align: start !important;
-        height: 380px !important;
+    }
+
+    .apple-tile {
+        height: 190px !important;
+        width: 100% !important;
     }
 
     .tile-image-wrapper {
-        width: auto !important;
-        height: 190px !important; /* Proportional image container on mobile */
-        position: absolute !important;
-        top: var(--space-3) !important;
-        left: var(--space-3) !important;
-        right: var(--space-3) !important;
-        padding: 0 !important;
-    }
-
-    .apple-tile:hover .tile-image-wrapper {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
-        height: 100% !important;
+        padding: 0 !important;
     }
 
     .tile-image-wrapper img {
@@ -5926,15 +5902,11 @@ body.museum-page,
     }
 
     .apple-tile:hover .tile-image-wrapper img {
-        transform: scale(1) !important; /* Disable hover zoom magnification on mobile viewports */
+        transform: none !important;
     }
 
-    .tile-text-content {
-        top: 238px !important; /* Mobile wrapper bottom is at 190px + 24px (space-3) = 214px, plus 24px space = 238px */
-        left: var(--space-3) !important;
-        right: var(--space-3) !important;
-        bottom: auto !important;
-        height: auto !important;
+    .tile-text-under {
+        margin-top: var(--space-2) !important;
     }
 }
 
