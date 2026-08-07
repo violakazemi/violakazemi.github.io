@@ -8841,6 +8841,43 @@ body.home-page .hero-card-layout,
         width: 100% !important;
     }
 
+    /* Hero layout reordering on mobile */
+    .hero-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: var(--space-4) !important;
+        width: 100% !important;
+    }
+
+    .hero-text-block {
+        order: 1 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .hero-visual-block {
+        order: 2 !important;
+        width: 100% !important;
+        margin: var(--space-3) 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .hero-visual-block img,
+    .hero-visual-block .hero-card-main {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .hero-inner .mobile-only-cards {
+        order: 3 !important;
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
 }
 
 
