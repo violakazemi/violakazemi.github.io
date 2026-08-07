@@ -5842,11 +5842,11 @@ body.museum-page,
 }
 
 .tile-title {
-    font-size: var(--fs-body) !important;
-    font-weight: 600 !important;
-    color: #1d1d1f !important;
+    font-size: var(--fs-small) !important;
+    font-weight: 400 !important;
+    color: var(--color-text-secondary) !important;
     margin: 0 !important;
-    line-height: 1.25 !important;
+    line-height: 1.45 !important;
     letter-spacing: -0.01em !important;
     white-space: normal !important; /* Allow normal line wrapping */
     overflow: visible !important;
