@@ -8744,6 +8744,78 @@ body.home-page .hero-card-layout,
     }
 }
 
+/* Responsive Tables to Stacked Cards on Mobile */
+.desktop-only-table {
+    display: block !important;
+}
+
+.mobile-only-cards {
+    display: none !important;
+}
+
+.mobile-table-card {
+    background-color: var(--color-bg-page) !important;
+    border: 1px solid var(--apple-border) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) !important;
+    box-shadow: var(--shadow-sm) !important;
+    margin-bottom: var(--space-3) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+.mobile-table-card:last-child {
+    margin-bottom: 0 !important;
+}
+
+.mobile-table-card h4 {
+    font-size: var(--fs-body) !important;
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    border-bottom: 1px solid var(--apple-border) !important;
+    padding-bottom: var(--space-2) !important;
+    margin: 0 !important;
+}
+
+.mobile-table-card .card-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.mobile-table-card .card-row .label {
+    font-size: var(--fs-small) !important;
+    font-weight: 600 !important;
+    color: var(--color-text-secondary) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.mobile-table-card .card-row .value {
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-primary) !important;
+    line-height: 1.45 !important;
+}
+
+.mobile-table-card .card-row .value ul {
+    margin: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .desktop-only-table {
+        display: none !important;
+    }
+    .mobile-only-cards {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+}
+
 
 
 
