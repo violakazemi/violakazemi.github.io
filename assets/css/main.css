@@ -8925,9 +8925,12 @@ body.home-page .hero-card-layout,
     .differentiators-list li strong {
         font-size: var(--fs-body) !important;
         font-weight: 600 !important;
-        margin-bottom: 2px !important;
         color: var(--color-text-primary) !important;
         display: block !important;
+        width: 100% !important;
+        border-bottom: 1px solid var(--apple-border) !important;
+        padding-bottom: var(--space-2) !important; /* Space above border */
+        margin-bottom: var(--space-2) !important; /* Space below border (between title and content) */
     }
 }
 
