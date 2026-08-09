@@ -8894,11 +8894,83 @@ body.home-page .hero-card-layout,
     width: 100% !important;
 }
 
+/* Generic 3-Column Card Grid for Desktop */
+.apple-3col-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-3) !important;
+    margin-bottom: var(--space-3) !important;
+    width: 100% !important;
+}
+
+.apple-3col-card {
+    background: #ffffff !important;
+    border: 1px solid var(--apple-border) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+.apple-3col-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.apple-3col-card span.badge {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: var(--accent-museum) !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: var(--space-1) !important;
+    letter-spacing: 0.05em !important;
+    text-align: left !important;
+}
+
+.mechmarket-page .apple-3col-card span.badge {
+    color: var(--accent-mechmarket) !important;
+}
+
+.bearla-page .apple-3col-card span.badge {
+    color: var(--accent-bearla) !important;
+}
+
+.apple-3col-card h4 {
+    font-size: var(--fs-body) !important;
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    margin-top: 0 !important;
+    margin-bottom: var(--space-2) !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    text-align: left !important;
+}
+
+.apple-3col-card p {
+    font-size: var(--fs-small) !important;
+    line-height: 1.5 !important;
+    color: var(--color-text-secondary) !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
 @media screen and (max-width: 1068px) {
     .desktop-only-table {
         display: none !important;
     }
     .mobile-only-cards {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+    .apple-3col-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: var(--space-3) !important;

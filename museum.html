@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.22" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.23" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -82,12 +82,20 @@
             
             <div class="inner-block-card" style="margin-top: var(--space-4) !important; border: none !important; padding: 0 !important; background-color: transparent !important;">
                 <!-- Desktop Viewport -->
-                <div class="desktop-only-table">
+                <div class="desktop-only-table" style="width: 100% !important;">
                     <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Business Goals &amp; KPIs</h3>
-                    <ul class="challenge-list" style="margin-bottom: 0 !important; margin-left: 0; padding-left: var(--space-2);">
-                        <li style="margin-bottom: var(--space-1);"><strong>Primary KPI:</strong> Increase the conversion rate of school group bookings by reducing drop-offs during the complex logistics phase.</li>
-                        <li style="margin-bottom: 0;"><strong>Secondary KPI:</strong> Decrease the volume of manual customer support emails/calls to museum staff by automating the chaperone ratio math and centralizing accessibility PDFs.</li>
-                    </ul>
+                    <div class="apple-3col-grid" style="grid-template-columns: repeat(2, 1fr) !important;">
+                        <div class="apple-3col-card">
+                            <span class="badge">Primary KPI</span>
+                            <h4>Increase Conversions</h4>
+                            <p>Increase the conversion rate of school group bookings by reducing drop-offs during the complex logistics phase.</p>
+                        </div>
+                        <div class="apple-3col-card">
+                            <span class="badge">Secondary KPI</span>
+                            <h4>Reduce Support Load</h4>
+                            <p>Decrease the volume of manual customer support emails/calls to museum staff by automating the chaperone ratio math and centralizing accessibility PDFs.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Mobile Viewport: Styled exactly like 1. Research -->
@@ -113,24 +121,35 @@
             <h2>Research &amp; Discovery</h2>
                         <p>Before designing anything, I wanted to understand what actually makes museum field trips stressful for the people running them — not just assume. I conducted 5 interviews with elementary school teachers and reviewed 10 trip-planning forums to see where the friction really shows up.</p>
 
-                        <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important;">
+                        <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-3) !important;">
                             <!-- Desktop Viewport -->
-                            <div class="split-columns-grid desktop-only-table" style="margin-top: 0 !important; margin-bottom: 0 !important;">
-                                <div class="left-column">
-                                    <h3 style="margin-top: 0 !important;">What I Did</h3>
-                                    <ul class="challenge-list" style="margin-left: 0; padding-left: var(--space-2);">
+                            <div class="desktop-only-table" style="margin-top: 0 !important; margin-bottom: 0 !important; width: 100% !important;">
+                                <div class="inner-block-card" style="margin-bottom: var(--space-4) !important; padding: var(--space-4) !important;">
+                                    <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">What I Did</h3>
+                                    <ul class="challenge-list" style="margin-left: 0; padding-left: var(--space-2); margin-bottom: 0 !important;">
                                         <li style="margin-bottom: var(--space-1);"><strong>5 remote interviews</strong> (30–40 min) with elementary educators who plan field trips at least once a year</li>
                                         <li style="margin-bottom: var(--space-1);"><strong>Competitive review</strong> of 3 existing trip-planning tools/apps museums currently offer</li>
-                                        <li style="margin-bottom: var(--space-1);"><strong>Survey of 10 educators</strong> to quantify how much time is spent on logistics vs. lesson planning</li>
+                                        <li style="margin-bottom: 0;"><strong>Survey of 10 educators</strong> to quantify how much time is spent on logistics vs. lesson planning</li>
                                     </ul>
                                 </div>
-                                <div class="right-column">
-                                    <h3 style="margin-top: 0 !important;">What I Learned</h3>
-                                    <ul class="challenge-list" style="margin-left: 0; padding-left: var(--space-2);">
-                                        <li style="margin-bottom: var(--space-1);"><strong>Insight 1:</strong> "70% of teachers said calculating chaperone ratios was the single most time-consuming part of trip prep."</li>
-                                        <li style="margin-bottom: var(--space-1);"><strong>Insight 2:</strong> "Teachers with students needing accessibility accommodations had no single source of truth — they were piecing together info from emails, PDFs, and phone calls."</li>
-                                        <li style="margin-bottom: var(--space-1);"><strong>Insight 3:</strong> "Most planning happens on a phone between classes, not at a desk — so a desktop-only tool was a non-starter."</li>
-                                    </ul>
+
+                                <h3 style="margin-top: var(--space-4) !important; margin-bottom: var(--space-3) !important;">What I Learned</h3>
+                                <div class="apple-3col-grid" style="margin-top: 0 !important; margin-bottom: 0 !important;">
+                                    <div class="apple-3col-card">
+                                        <span class="badge">Insight 1</span>
+                                        <h4>Chaperone Ratio Calculation</h4>
+                                        <p>"70% of teachers said calculating chaperone ratios was the single most time-consuming part of trip prep."</p>
+                                    </div>
+                                    <div class="apple-3col-card">
+                                        <span class="badge">Insight 2</span>
+                                        <h4>Accessibility Fragmentation</h4>
+                                        <p>"Teachers with students needing accessibility accommodations had no single source of truth — they were piecing together info from emails, PDFs, and phone calls."</p>
+                                    </div>
+                                    <div class="apple-3col-card">
+                                        <span class="badge">Insight 3</span>
+                                        <h4>Mobile-First Realities</h4>
+                                        <p>"Most planning happens on a phone between classes, not at a desk — so a desktop-only tool was a non-starter."</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -190,13 +209,25 @@
                         
                         <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
                             <!-- Desktop Viewport -->
-                            <div class="desktop-only-table">
+                            <div class="desktop-only-table" style="width: 100% !important;">
                                 <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Key Differentiators</h3>
-                                <ul class="differentiators-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
-                                    <li>Museum sites have authority but rely on slow, manual email booking</li>
-                                    <li>Ticketing apps are fast but designed for individuals, not school groups</li>
-                                    <li>Accessibility info is hidden in static PDFs rather than being built into the trip plan</li>
-                                </ul>
+                                <div class="apple-3col-grid">
+                                    <div class="apple-3col-card">
+                                        <span class="badge">Differentiator 1</span>
+                                        <h4>Manual Booking</h4>
+                                        <p>Museum sites have authority but rely on slow, manual email booking.</p>
+                                    </div>
+                                    <div class="apple-3col-card">
+                                        <span class="badge">Differentiator 2</span>
+                                        <h4>Individual Focus</h4>
+                                        <p>Ticketing apps are fast but designed for individuals, not school groups.</p>
+                                    </div>
+                                    <div class="apple-3col-card">
+                                        <span class="badge">Differentiator 3</span>
+                                        <h4>Static Accessibility</h4>
+                                        <p>Accessibility info is hidden in static PDFs rather than being built into the trip plan.</p>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Mobile Viewport: Styled exactly like 1. Research -->
