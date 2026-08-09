@@ -8805,6 +8805,70 @@ body.home-page .hero-card-layout,
     margin: 0 !important;
 }
 
+/* Clean, Aesthetic Apple-Style Comparison Tables for Desktop */
+.apple-compare-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    font-size: var(--fs-small) !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    background-color: var(--color-bg-page) !important;
+}
+
+.apple-compare-table thead tr {
+    border-bottom: 1px solid var(--apple-border) !important;
+    background-color: rgba(0, 0, 0, 0.015) !important;
+}
+
+.apple-compare-table th {
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    font-size: var(--fs-small) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.apple-compare-table tbody tr {
+    border-bottom: 1px solid var(--apple-border) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.apple-compare-table tbody tr:last-child {
+    border-bottom: none !important;
+}
+
+.apple-compare-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.005) !important;
+}
+
+.apple-compare-table td {
+    padding: var(--space-4) !important;
+    color: var(--color-text-primary) !important;
+    vertical-align: top !important;
+}
+
+.apple-compare-table td.state-label {
+    font-weight: 600 !important;
+    color: var(--color-text-secondary) !important;
+    background-color: rgba(0, 0, 0, 0.008) !important;
+    width: 18% !important;
+}
+
+/* Desktop table-wrapper styling */
+.table-wrapper.desktop-only-table {
+    border: 1px solid var(--apple-border) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    background-color: var(--color-bg-page) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    margin-top: var(--space-3) !important;
+    margin-bottom: var(--space-4) !important;
+    width: 100% !important;
+}
+
 @media screen and (max-width: 1068px) {
     .desktop-only-table {
         display: none !important;
