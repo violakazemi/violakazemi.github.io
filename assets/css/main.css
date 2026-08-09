@@ -4010,6 +4010,8 @@ h1 {
 .museum-page .apple-tile {
     background: #f5f5f7 !important;
     border: 1px solid var(--apple-border) !important;
+    padding: 0 !important; /* Zero padding to make images full size inside cards */
+    height: auto !important; /* Let image define height */
     box-shadow: none !important;
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
@@ -9434,7 +9436,8 @@ body.home-page .hero-card-layout,
 .museum-page .persona-card,
 .museum-page .task-card,
 .museum-page .comparison-card,
-.museum-page .insight-card {
+.museum-page .insight-card,
+.museum-page .ideation-card {
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
@@ -9443,7 +9446,8 @@ body.home-page .hero-card-layout,
 .museum-page .persona-card:hover,
 .museum-page .task-card:hover,
 .museum-page .comparison-card:hover,
-.museum-page .insight-card:hover {
+.museum-page .insight-card:hover,
+.museum-page .ideation-card:hover {
     transform: scale(1.008) translateY(-3px) !important;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
 }
@@ -9453,9 +9457,15 @@ body.home-page .hero-card-layout,
 .museum-page .apple-3col-card.selected-step:hover,
 .museum-page .persona-card.selected:hover,
 .museum-page .comparison-card.selected:hover,
-.museum-page .insight-card.selected:hover {
+.museum-page .insight-card.selected:hover,
+.museum-page .ideation-card.selected:hover {
     transform: scale(1.008) translateY(-3px) !important;
     box-shadow: 0 12px 30px rgba(88, 124, 86, 0.12) !important;
+}
+
+/* Disable inner image zoom on hover for refining dashboard tiles */
+.museum-page .apple-tile:hover .tile-image-wrapper img {
+    transform: none !important;
 }
 
 /* Storyboards Section */
