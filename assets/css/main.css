@@ -9563,3 +9563,85 @@ body.home-page .hero-card-layout,
     height: auto !important;
     display: block !important;
 }
+
+/* Accessibility Bento Grid */
+.accessibility-bento-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
+    width: 100% !important;
+}
+
+@media screen and (max-width: 1068px) {
+    .accessibility-bento-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+}
+
+.accessibility-card {
+    background: #ffffff !important;
+    border: 1px solid var(--apple-border) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-4) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.accessibility-card:hover {
+    transform: scale(1.008) translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.accessibility-card h3 {
+    font-size: var(--fs-h3) !important;
+    font-weight: 700 !important;
+    color: var(--color-text-primary) !important;
+    margin-top: var(--space-1) !important;
+    margin-bottom: var(--space-2) !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.accessibility-card p {
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-secondary) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+}
+
+.accessibility-card span.badge {
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    color: #86868b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-sm) !important;
+    background-color: #f5f5f7 !important;
+    display: inline-block !important;
+    align-self: flex-start !important;
+    margin-bottom: var(--space-2) !important;
+}
+
+/* Color highlights for cards matching the page accent */
+.accessibility-card.feature-card {
+    border: 2px solid var(--accent-museum) !important;
+    background: #fcfcfd !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+}
+
+.accessibility-card.feature-card:hover {
+    box-shadow: 0 12px 30px rgba(88, 124, 86, 0.12) !important;
+}
+
+.accessibility-card.feature-card span.badge {
+    color: var(--accent-museum) !important;
+    background-color: rgba(88, 124, 86, 0.08) !important;
+}
