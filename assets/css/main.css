@@ -9190,17 +9190,23 @@ body.home-page .hero-card-layout,
     }
 }
 
-/* Task Analysis Cards Grid */
+/* Task Analysis Cards Grid - Bento 2x2 + Full Width 5th Card */
 .task-analysis-cards-grid {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: var(--space-4) !important;
     margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
+.task-analysis-cards-grid .task-card:nth-child(5) {
+    grid-column: 1 / -1 !important;
+}
+
 @media screen and (max-width: 1068px) {
     .task-analysis-cards-grid {
+        display: flex !important;
+        flex-direction: column !important;
         gap: var(--space-3) !important;
     }
 }
