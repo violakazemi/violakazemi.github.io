@@ -5405,6 +5405,7 @@ body.museum-page,
     background: #fcfcfd !important;
     border: 2px solid var(--accent-museum) !important;
     box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+    grid-column: 1 / -1 !important;
 }
 
 .museum-page .ideation-card span {
