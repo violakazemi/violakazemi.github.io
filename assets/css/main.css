@@ -9645,3 +9645,153 @@ body.home-page .hero-card-layout,
     color: var(--accent-museum) !important;
     background-color: rgba(88, 124, 86, 0.08) !important;
 }
+
+/* Research Bento Layout */
+.research-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-4) !important;
+    margin-top: var(--space-4) !important;
+    width: 100% !important;
+}
+
+@media screen and (max-width: 1068px) {
+    .research-cards-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-4) !important;
+    }
+}
+
+.research-bento-card {
+    background: #ffffff !important;
+    border: 1px solid var(--apple-border) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.research-bento-card.selected {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-museum) !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+}
+
+.research-bento-card:hover {
+    transform: scale(1.008) translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.research-bento-card.selected:hover {
+    box-shadow: 0 12px 30px rgba(88, 124, 86, 0.12) !important;
+}
+
+.research-bento-card-header {
+    padding: var(--space-4) !important;
+    border-bottom: 1px solid var(--apple-border) !important;
+    background: rgba(250, 250, 250, 0.5) !important;
+    text-align: left !important;
+}
+
+.research-bento-card.selected .research-bento-card-header {
+    background: rgba(88, 124, 86, 0.02) !important;
+}
+
+.research-bento-card-header h3 {
+    font-size: var(--fs-h3) !important;
+    font-weight: 700 !important;
+    color: var(--color-text-primary) !important;
+    margin-top: var(--space-1) !important;
+    margin-bottom: var(--space-2) !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.research-bento-card-header p {
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-secondary) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.4 !important;
+}
+
+.research-bento-card-header span.badge {
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    color: #86868b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-sm) !important;
+    background-color: #f5f5f7 !important;
+    display: inline-block !important;
+}
+
+.research-bento-card.selected span.badge {
+    color: var(--accent-museum) !important;
+    background-color: rgba(88, 124, 86, 0.08) !important;
+}
+
+.research-bento-card-body {
+    padding: var(--space-4) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    background: #ffffff !important;
+    flex-grow: 1 !important;
+}
+
+.research-bento-card.selected .research-bento-card-body {
+    background: #fcfcfd !important;
+}
+
+.research-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: var(--space-3) !important;
+    padding-bottom: var(--space-3) !important;
+    border-bottom: 1px solid var(--apple-border) !important;
+    text-align: left !important;
+}
+
+.research-item:last-child {
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+.research-item span.badge {
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-sm) !important;
+    white-space: nowrap !important;
+    margin-top: 2px !important;
+}
+
+.research-item span.badge.method-badge {
+    color: var(--color-text-primary) !important;
+    background-color: #f5f5f7 !important;
+}
+
+.research-item span.badge.insight-badge {
+    color: var(--accent-museum) !important;
+    background-color: rgba(88, 124, 86, 0.08) !important;
+}
+
+.research-item-content h4 {
+    font-size: var(--fs-body) !important;
+    font-weight: 600 !important;
+    color: var(--color-text-primary) !important;
+    margin: 0 0 var(--space-1) 0 !important;
+}
+
+.research-item-content p {
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-secondary) !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+}
