@@ -4010,27 +4010,15 @@ h1 {
 .museum-page .apple-tile {
     background: #f5f5f7 !important;
     border: 1px solid var(--apple-border) !important;
-    padding: 0 !important; /* Zero padding around image */
-    height: auto !important; /* Let image define height */
     box-shadow: none !important;
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
-    transition: none !important;
-}
-
-.museum-page .apple-tile:hover {
-    transform: none !important;
-    box-shadow: none !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 .museum-page .apple-tile.selected {
     background: #fcfcfd !important;
     border: 2px solid var(--accent-museum) !important;
-    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
-}
-
-.museum-page .apple-tile.selected:hover {
-    transform: none !important;
     box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
 }
 
@@ -9438,4 +9426,34 @@ body.home-page .hero-card-layout,
         grid-template-columns: 1fr !important;
         gap: var(--space-2) !important;
     }
+}
+
+/* Unified Premium Apple Hover Animation for Bento Cards */
+.museum-page .apple-tile,
+.museum-page .apple-3col-card,
+.museum-page .persona-card,
+.museum-page .task-card,
+.museum-page .comparison-card,
+.museum-page .insight-card {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.museum-page .apple-tile:hover,
+.museum-page .apple-3col-card:hover,
+.museum-page .persona-card:hover,
+.museum-page .task-card:hover,
+.museum-page .comparison-card:hover,
+.museum-page .insight-card:hover {
+    transform: scale(1.008) translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* For green/selected cards, retain a soft green glow shadow on hover */
+.museum-page .apple-tile.selected:hover,
+.museum-page .apple-3col-card.selected-step:hover,
+.museum-page .persona-card.selected:hover,
+.museum-page .comparison-card.selected:hover,
+.museum-page .insight-card.selected:hover {
+    transform: scale(1.008) translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(88, 124, 86, 0.12) !important;
 }
