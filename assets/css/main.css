@@ -4023,7 +4023,18 @@ h1 {
     background: #fcfcfd !important;
     border: 2px solid var(--accent-museum) !important;
     box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
-    border-left: none !important; /* Replace left-only border with full border */
+}
+
+.museum-page .insight-card:hover {
+    transform: none !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+}
+
+.museum-page .test-insights-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-4) !important;
+    grid-template-columns: none !important;
 }
 
 .museum-page .apple-3col-card.selected-step {
