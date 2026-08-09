@@ -4482,13 +4482,32 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: none !important;
 }
 
-/* Apple-style readability constraint for body text */
-#main section p,
+/* Apple-style readability constraint for body text - Centered to prevent right-side gutter */
+.museum-page #main section .inner > p,
+.mechmarket-page #main section .inner > p,
+.bearla-page #main section .inner > p,
 .hero-text-content p,
 .takeaways p {
     max-width: var(--container-text) !important;
-    margin-left: 0 !important;
-    margin-right: auto !important; /* Keep it left-aligned */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.museum-page #main section .inner > h2,
+.museum-page #main section .inner > h3,
+.museum-page #main section .inner > ul,
+.museum-page #main section .inner > ol,
+.mechmarket-page #main section .inner > h2,
+.mechmarket-page #main section .inner > h3,
+.mechmarket-page #main section .inner > ul,
+.mechmarket-page #main section .inner > ol,
+.bearla-page #main section .inner > h2,
+.bearla-page #main section .inner > h3,
+.bearla-page #main section .inner > ul,
+.bearla-page #main section .inner > ol {
+    max-width: var(--container-text) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Links in body text styling */
