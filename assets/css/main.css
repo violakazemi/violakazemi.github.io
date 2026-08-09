@@ -4584,7 +4584,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-text-content p,
 .takeaways p {
     max-width: var(--container-text) !important;
-    margin-left: auto !important;
+    margin-left: 0 !important;
     margin-right: auto !important;
 }
 
@@ -4601,7 +4601,7 @@ h1, h2, h3, h4, h5, h6 {
 .bearla-page #main section .inner > ul,
 .bearla-page #main section .inner > ol {
     max-width: var(--container-text) !important;
-    margin-left: auto !important;
+    margin-left: 0 !important;
     margin-right: auto !important;
 }
 
