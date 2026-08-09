@@ -7420,8 +7420,8 @@ body.bearla-page,
 
 /* Personas Grid Layout */
 .personas-grid-3col {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: var(--space-4) !important;
     margin-top: var(--space-4) !important;
     width: 100% !important;
@@ -7431,17 +7431,19 @@ body.bearla-page,
     background: #f5f5f7 !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
-    padding: var(--space-4) !important;
+    padding: 0 !important; /* Zero padding to make images full size inside cards */
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
+    overflow: hidden !important;
 }
 
 .persona-card.selected {
     background: #fcfcfd !important;
     border: 2px solid var(--accent-museum) !important;
     box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+    grid-column: 1 / -1 !important; /* Tara Wong spans full width */
 }
 
 .persona-card span.badge {
