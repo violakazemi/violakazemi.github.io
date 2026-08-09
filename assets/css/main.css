@@ -4081,13 +4081,13 @@ h1 {
 }
 
 /* User Group Comparison column highlight for Target User Group (Tara) */
-.museum-page .apple-compare-table th:nth-child(3) {
+.museum-page .apple-compare-table th:nth-child(2) {
     color: var(--accent-museum) !important;
     font-weight: 700 !important;
     background-color: rgba(88, 124, 86, 0.04) !important;
 }
 
-.museum-page .apple-compare-table td:nth-child(3) {
+.museum-page .apple-compare-table td:nth-child(2) {
     background-color: rgba(88, 124, 86, 0.02) !important;
     font-weight: 500 !important;
 }
@@ -7421,21 +7421,54 @@ body.bearla-page,
 /* Personas Grid Layout */
 .personas-grid-3col {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: var(--space-4) !important;
     margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
-.persona-card-col {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    background-color: #f5f5f7 !important; /* Nested card grey */
+.persona-card {
+    background: #f5f5f7 !important;
+    border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
     padding: var(--space-4) !important;
     box-sizing: border-box !important;
-    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.persona-card.selected {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-museum) !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+    grid-column: 1 / -1 !important; /* Tara Wong spans full width to make her card prominent and readable! */
+}
+
+.persona-card span.badge {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #86868b !important;
+    text-transform: uppercase !important;
+    display: block !important;
+    margin-bottom: var(--space-2) !important;
+    letter-spacing: 0.05em !important;
+}
+
+.persona-card.selected span.badge {
+    color: var(--accent-museum) !important;
+}
+
+.persona-image-wrapper {
+    width: 100% !important;
+    border-radius: var(--radius-sm) !important;
+    overflow: hidden !important;
+}
+
+.persona-image-wrapper img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
 }
 
 .persona-type-label {
