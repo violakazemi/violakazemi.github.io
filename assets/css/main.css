@@ -9192,17 +9192,15 @@ body.home-page .hero-card-layout,
 
 /* Task Analysis Cards Grid */
 .task-analysis-cards-grid {
-    display: grid !important;
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: var(--space-3) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-4) !important;
     margin-top: var(--space-4) !important;
     width: 100% !important;
 }
 
 @media screen and (max-width: 1068px) {
     .task-analysis-cards-grid {
-        display: flex !important;
-        flex-direction: column !important;
         gap: var(--space-3) !important;
     }
 }
@@ -9210,12 +9208,12 @@ body.home-page .hero-card-layout,
 .task-card {
     background: #ffffff !important;
     border-radius: var(--radius-md) !important;
-    padding: var(--space-3) !important;
+    padding: var(--space-4) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     box-sizing: border-box !important;
-    min-height: 380px !important;
+    min-height: auto !important; /* Auto height for stacked rows */
     transition: transform var(--transition-medium), box-shadow var(--transition-medium) !important;
 }
 
