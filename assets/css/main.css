@@ -7420,8 +7420,8 @@ body.bearla-page,
 
 /* Personas Grid Layout */
 .personas-grid-3col {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: var(--space-4) !important;
     margin-top: var(--space-4) !important;
     width: 100% !important;
@@ -7442,7 +7442,6 @@ body.bearla-page,
     background: #fcfcfd !important;
     border: 2px solid var(--accent-museum) !important;
     box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
-    grid-column: 1 / -1 !important; /* Tara Wong spans full width to make her card prominent and readable! */
 }
 
 .persona-card span.badge {
