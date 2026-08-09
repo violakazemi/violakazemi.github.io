@@ -5957,6 +5957,10 @@ body.museum-page,
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
+.museum-page .insight-card {
+    border-left: 3px solid var(--accent-museum) !important;
+}
+
 .insight-card:hover {
     transform: translateY(-4px) !important;
     box-shadow: var(--shadow-lg) !important;
