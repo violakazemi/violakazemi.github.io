@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.31" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.32" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -426,183 +426,91 @@
             <h3 style="margin-bottom: var(--space-3) !important;">Task Analysis: Tara's Journey</h3>
             <p style="margin-bottom: var(--space-3) !important;">I mapped out Tara's journey across five key stages to see exactly where she hits roadblocks and what features would help her the most.</p>
                         
-                        <div class="inner-block-card" style="border: none !important; padding: 0 !important; margin-top: var(--space-3) !important; background-color: transparent !important;">
-                            <div class="table-wrapper desktop-only-table">
-                                <table class="apple-compare-table">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 15%;">Stage</th>
-                                            <th style="width: 17%;">1. Research</th>
-                                            <th style="width: 17%;">2. Initial Booking</th>
-                                            <th style="width: 17%;">3. Logistic Sync</th>
-                                            <th style="width: 17%;">4. Trip Day Arrival</th>
-                                            <th style="width: 17%;">5. Post-Trip Reflection</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="state-label">Task List</td>
-                                            <td>
-                                                <ul style="margin: 0; padding-left: var(--space-2); list-style-type: disc;">
-                                                    <li>Search for grade-appropriate exhibits.</li>
-                                                    <li>Check curriculum alignment.</li>
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                <ul style="margin: 0; padding-left: var(--space-2); list-style-type: disc;">
-                                                    <li>Try to find group prices.</li>
-                                                    <li>Navigate booking form.</li>
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                <ul style="margin: 0; padding-left: var(--space-2); list-style-type: disc;">
-                                                    <li>Inquire about bus parking.</li>
-                                                    <li>Check chaperone ratios.</li>
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                <ul style="margin: 0; padding-left: var(--space-2); list-style-type: disc;">
-                                                    <li>Coordinate 20+ students at the entrance.</li>
-                                                    <li>Check-in with museum staff.</li>
-                                                    <li>Navigate students to first activity.</li>
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                <ul style="margin: 0; padding-left: var(--space-2); list-style-type: disc;">
-                                                    <li>Reconcile school payment receipts.</li>
-                                                    <li>Share learning outcomes with parents.</li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="state-label">User Feeling</td>
-                                            <td style="color: var(--apple-blue) !important; font-weight: 600 !important;">Optimistic</td>
-                                            <td style="color: var(--apple-red) !important; font-weight: 600 !important;">Frustrated</td>
-                                            <td style="color: var(--apple-orange) !important; font-weight: 600 !important;">Overwhelmed</td>
-                                            <td style="color: var(--apple-red) !important; font-weight: 600 !important;">Anxious / Rushed</td>
-                                            <td style="color: var(--apple-green) !important; font-weight: 600 !important;">Relieved / Tired</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="state-label">Design Opportunities</td>
-                                            <td>Clear curriculum tagging system.</td>
-                                            <td>Transparent, online tier-pricing.</td>
-                                            <td>Integrated logistical checklist.</td>
-                                            <td>Digital Group QR check-in & Wayfinding.</td>
-                                            <td>Automated receipting & Resource packs.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="mobile-only-cards">
-                                <!-- Card 1: 1. Research -->
-                                <div class="mobile-table-card">
-                                    <h4>1. Research</h4>
-                                    <div class="card-row">
-                                        <span class="label">Task List</span>
-                                        <span class="value">
-                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                                <li>Search for grade-appropriate exhibits.</li>
-                                                <li>Check curriculum alignment.</li>
-                                            </ul>
-                                        </span>
+                        <div class="inner-block-card" style="border: none !important; padding: 0 !important; margin-top: var(--space-3) !important; background-color: transparent !important; width: 100% !important;">
+                            <div class="task-analysis-cards-grid">
+                                <!-- Card 1: Research -->
+                                <div class="task-card optimistic-border">
+                                    <span class="badge optimistic-badge">Optimistic</span>
+                                    <h3>1. Research</h3>
+                                    <div class="task-section">
+                                        <strong>Tasks:</strong>
+                                        <ul>
+                                            <li>Search for grade-appropriate exhibits.</li>
+                                            <li>Check curriculum alignment.</li>
+                                        </ul>
                                     </div>
-                                    <div class="card-row">
-                                        <span class="label">User Feeling</span>
-                                        <span class="value" style="color: var(--apple-blue); font-weight: 600;">Optimistic</span>
+                                    <div class="opportunity-section">
+                                        <strong>Opportunity:</strong>
+                                        <p>Clear curriculum tagging system.</p>
                                     </div>
-                                    <div class="card-row">
-                                        <span class="label">Design Opportunities</span>
-                                        <span class="value">Clear curriculum tagging system.</span>
+                                </div>
+                                
+                                <!-- Card 2: Initial Booking -->
+                                <div class="task-card frustrated-border">
+                                    <span class="badge frustrated-badge">Frustrated</span>
+                                    <h3>2. Initial Booking</h3>
+                                    <div class="task-section">
+                                        <strong>Tasks:</strong>
+                                        <ul>
+                                            <li>Try to find group prices.</li>
+                                            <li>Navigate booking form.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="opportunity-section">
+                                        <strong>Opportunity:</strong>
+                                        <p>Transparent, online tier-pricing.</p>
                                     </div>
                                 </div>
 
-                                <!-- Card 2: 2. Initial Booking -->
-                                <div class="mobile-table-card">
-                                    <h4>2. Initial Booking</h4>
-                                    <div class="card-row">
-                                        <span class="label">Task List</span>
-                                        <span class="value">
-                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                                <li>Try to find group prices.</li>
-                                                <li>Navigate booking form.</li>
-                                            </ul>
-                                        </span>
+                                <!-- Card 3: Logistic Sync -->
+                                <div class="task-card overwhelmed-border">
+                                    <span class="badge overwhelmed-badge">Overwhelmed</span>
+                                    <h3>3. Logistic Sync</h3>
+                                    <div class="task-section">
+                                        <strong>Tasks:</strong>
+                                        <ul>
+                                            <li>Inquire about bus parking.</li>
+                                            <li>Check chaperone ratios.</li>
+                                        </ul>
                                     </div>
-                                    <div class="card-row">
-                                        <span class="label">User Feeling</span>
-                                        <span class="value" style="color: var(--apple-red); font-weight: 600;">Frustrated</span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="label">Design Opportunities</span>
-                                        <span class="value">Transparent, online tier-pricing.</span>
+                                    <div class="opportunity-section">
+                                        <strong>Opportunity:</strong>
+                                        <p>Integrated logistical checklist.</p>
                                     </div>
                                 </div>
 
-                                <!-- Card 3: 3. Logistic Sync -->
-                                <div class="mobile-table-card">
-                                    <h4>3. Logistic Sync</h4>
-                                    <div class="card-row">
-                                        <span class="label">Task List</span>
-                                        <span class="value">
-                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                                <li>Inquire about bus parking.</li>
-                                                <li>Check chaperone ratios.</li>
-                                            </ul>
-                                        </span>
+                                <!-- Card 4: Trip Day Arrival -->
+                                <div class="task-card anxious-border">
+                                    <span class="badge anxious-badge">Anxious / Rushed</span>
+                                    <h3>4. Trip Day Arrival</h3>
+                                    <div class="task-section">
+                                        <strong>Tasks:</strong>
+                                        <ul>
+                                            <li>Coordinate 20+ students at the entrance.</li>
+                                            <li>Check-in with museum staff.</li>
+                                            <li>Navigate students to first activity.</li>
+                                        </ul>
                                     </div>
-                                    <div class="card-row">
-                                        <span class="label">User Feeling</span>
-                                        <span class="value" style="color: var(--apple-orange); font-weight: 600;">Overwhelmed</span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="label">Design Opportunities</span>
-                                        <span class="value">Integrated logistical checklist.</span>
+                                    <div class="opportunity-section">
+                                        <strong>Opportunity:</strong>
+                                        <p>Digital Group QR check-in & Wayfinding.</p>
                                     </div>
                                 </div>
 
-                                <!-- Card 4: 4. Trip Day Arrival -->
-                                <div class="mobile-table-card">
-                                    <h4>4. Trip Day Arrival</h4>
-                                    <div class="card-row">
-                                        <span class="label">Task List</span>
-                                        <span class="value">
-                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                                <li>Coordinate 20+ students at the entrance.</li>
-                                                <li>Check-in with museum staff.</li>
-                                                <li>Navigate students to first activity.</li>
-                                            </ul>
-                                        </span>
+                                <!-- Card 5: Post-Trip Reflection -->
+                                <div class="task-card relieved-border">
+                                    <span class="badge relieved-badge">Relieved / Tired</span>
+                                    <h3>5. Post-Trip Reflection</h3>
+                                    <div class="task-section">
+                                        <strong>Tasks:</strong>
+                                        <ul>
+                                            <li>Reconcile school payment receipts.</li>
+                                            <li>Share learning outcomes with parents.</li>
+                                        </ul>
                                     </div>
-                                    <div class="card-row">
-                                        <span class="label">User Feeling</span>
-                                        <span class="value" style="color: var(--apple-red); font-weight: 600;">Anxious / Rushed</span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="label">Design Opportunities</span>
-                                        <span class="value">Digital Group QR check-in & Wayfinding.</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 5: 5. Post-Trip Reflection -->
-                                <div class="mobile-table-card">
-                                    <h4>5. Post-Trip Reflection</h4>
-                                    <div class="card-row">
-                                        <span class="label">Task List</span>
-                                        <span class="value">
-                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                                <li>Reconcile school payment receipts.</li>
-                                                <li>Share learning outcomes with parents.</li>
-                                            </ul>
-                                        </span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="label">User Feeling</span>
-                                        <span class="value" style="color: var(--apple-green); font-weight: 600;">Relieved / Tired</span>
-                                    </div>
-                                    <div class="card-row">
-                                        <span class="label">Design Opportunities</span>
-                                        <span class="value">Automated receipting & Resource packs.</span>
+                                    <div class="opportunity-section">
+                                        <strong>Opportunity:</strong>
+                                        <p>Automated receipting & Resource packs.</p>
                                     </div>
                                 </div>
                             </div>

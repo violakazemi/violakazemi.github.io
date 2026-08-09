@@ -9190,8 +9190,145 @@ body.home-page .hero-card-layout,
     }
 }
 
+/* Task Analysis Cards Grid */
+.task-analysis-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: var(--space-3) !important;
+    margin-top: var(--space-4) !important;
+    width: 100% !important;
+}
 
+@media screen and (max-width: 1068px) {
+    .task-analysis-cards-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+}
 
+.task-card {
+    background: #ffffff !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-3) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    min-height: 380px !important;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium) !important;
+}
 
+.task-card:hover {
+    transform: translateY(-2px) !important;
+}
 
+.task-card h3 {
+    font-size: var(--fs-body) !important;
+    font-weight: 700 !important;
+    color: var(--color-text-primary) !important;
+    margin-top: 0 !important;
+    margin-bottom: var(--space-2) !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    text-align: left !important;
+}
 
+.task-card span.badge {
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+    margin-bottom: var(--space-1) !important;
+    letter-spacing: 0.05em !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-sm) !important;
+    align-self: flex-start !important;
+}
+
+.task-card .task-section,
+.task-card .opportunity-section {
+    font-size: var(--fs-small) !important;
+    line-height: 1.45 !important;
+    text-align: left !important;
+}
+
+.task-card .task-section {
+    margin-bottom: var(--space-3) !important;
+    flex-grow: 1 !important;
+}
+
+.task-card .task-section ul {
+    margin: var(--space-1) 0 0 0 !important;
+    padding-left: var(--space-2) !important;
+    list-style-type: disc !important;
+}
+
+.task-card .task-section li {
+    font-size: var(--fs-small) !important;
+    margin-bottom: var(--space-1) !important;
+    color: var(--color-text-secondary) !important;
+}
+
+.task-card .opportunity-section {
+    border-top: 1px solid var(--apple-border) !important;
+    padding-top: var(--space-2) !important;
+    margin-top: auto !important;
+}
+
+.task-card .opportunity-section p {
+    margin: var(--space-1) 0 0 0 !important;
+    font-size: var(--fs-small) !important;
+    color: var(--color-text-secondary) !important;
+}
+
+/* Feeling color code borders & badges (using Apple colors) */
+/* Optimistic - Blue */
+.task-card.optimistic-border {
+    border: 2px solid var(--apple-blue) !important;
+    box-shadow: 0 4px 15px rgba(0, 113, 227, 0.05) !important;
+}
+.task-card span.badge.optimistic-badge {
+    color: var(--apple-blue) !important;
+    background-color: rgba(0, 113, 227, 0.08) !important;
+}
+
+/* Frustrated - Red */
+.task-card.frustrated-border {
+    border: 2px solid var(--apple-red) !important;
+    box-shadow: 0 4px 15px rgba(255, 69, 58, 0.05) !important;
+}
+.task-card span.badge.frustrated-badge {
+    color: var(--apple-red) !important;
+    background-color: rgba(255, 69, 58, 0.08) !important;
+}
+
+/* Overwhelmed - Orange */
+.task-card.overwhelmed-border {
+    border: 2px solid var(--apple-orange) !important;
+    box-shadow: 0 4px 15px rgba(255, 159, 10, 0.05) !important;
+}
+.task-card span.badge.overwhelmed-badge {
+    color: var(--apple-orange) !important;
+    background-color: rgba(255, 159, 10, 0.08) !important;
+}
+
+/* Anxious - Red (or pinkish red) */
+.task-card.anxious-border {
+    border: 2px solid #ff3b30 !important;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.05) !important;
+}
+.task-card span.badge.anxious-badge {
+    color: #ff3b30 !important;
+    background-color: rgba(255, 59, 48, 0.08) !important;
+}
+
+/* Relieved - Green */
+.task-card.relieved-border {
+    border: 2px solid var(--apple-green) !important;
+    box-shadow: 0 4px 15px rgba(52, 199, 89, 0.05) !important;
+}
+.task-card span.badge.relieved-badge {
+    color: var(--apple-green) !important;
+    background-color: rgba(52, 199, 89, 0.08) !important;
+}
