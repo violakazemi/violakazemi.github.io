@@ -3998,6 +3998,63 @@ h1 {
     line-height: 1.1 !important;
 }
 
+.apple-3col-card p {
+    font-size: var(--fs-small) !important;
+    line-height: 1.5 !important;
+    color: var(--color-text-secondary) !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* Semantic Highlight patterns for selected choices */
+.apple-tile.selected {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-museum) !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+}
+
+.selected-pill {
+    background-color: rgba(88, 124, 86, 0.08) !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+.museum-page .insight-card {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-museum) !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+    border-left: none !important; /* Replace left-only border with full border */
+}
+
+.museum-page .apple-3col-card.selected-step {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-museum) !important;
+    box-shadow: 0 4px 20px rgba(88, 124, 86, 0.08) !important;
+}
+
+/* User Group Comparison column highlight for Target User Group (Tara) */
+.museum-page .apple-compare-table th:nth-child(3) {
+    color: var(--accent-museum) !important;
+    font-weight: 700 !important;
+    background-color: rgba(88, 124, 86, 0.04) !important;
+}
+
+.museum-page .apple-compare-table td:nth-child(3) {
+    background-color: rgba(88, 124, 86, 0.02) !important;
+    font-weight: 500 !important;
+}
+
+/* Task Analysis row highlight for Design Opportunities */
+.museum-page .apple-compare-table tr:last-child td {
+    background-color: rgba(88, 124, 86, 0.03) !important;
+    font-weight: 500 !important;
+}
+
+.museum-page .apple-compare-table tr:last-child td.state-label {
+    color: var(--accent-museum) !important;
+    background-color: rgba(88, 124, 86, 0.06) !important;
+}
+
 h2 {
     font-size: var(--fs-h2) !important;
     font-weight: 700 !important;
