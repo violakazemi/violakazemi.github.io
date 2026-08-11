@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Tomaan: AI-Native Security - Viola</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" href="assets/css/main.css?v=17.47" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    
+    <style>
+        /* Dark Theme overrides for Tomaan Spec Page */
+        body.tomaan-page {
+            background-color: #09090b !important;
+            color: #f4f4f5 !important;
+        }
+        
+        .tomaan-page #wrapper {
+            background-color: #09090b !important;
+        }
+        
+        .tomaan-page #header {
+            background-color: rgba(9, 9, 11, 0.8) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page #header .logo strong,
+        .tomaan-page #header .logo span {
+            color: #ffffff !important;
+        }
+        
+        .tomaan-page #header nav a {
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .tomaan-page #header nav a:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            border-color: #00ff88 !important;
+            color: #00ff88 !important;
+        }
+        
+        .tomaan-page h1, 
+        .tomaan-page h2, 
+        .tomaan-page h3, 
+        .tomaan-page h4 {
+            color: #ffffff !important;
+        }
+        
+        .tomaan-page p {
+            color: #a1a1aa !important;
+        }
+        
+        /* Nav Container */
+        .tomaan-page .nav-container {
+            background: rgba(20, 20, 25, 0.6) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page .nav-segment {
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .nav-segment.active {
+            color: #00ff88 !important;
+            background: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        /* Hero Section Card */
+        .tomaan-page .tomaan-hero {
+            background: rgba(20, 20, 25, 0.6) !important;
+            border: 2px solid rgba(0, 255, 136, 0.15) !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.04) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page .metadata-item {
+            background-color: rgba(0, 255, 136, 0.06) !important;
+            border: 1px solid rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        .tomaan-page .metadata-item .label {
+            color: #00ff88 !important;
+        }
+        
+        .tomaan-page .metadata-item .value {
+            color: #ffffff !important;
+        }
+        
+        /* Section Containers */
+        .tomaan-page section {
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        /* Bento Cards */
+        .tomaan-page .storyboard-card {
+            background: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected {
+            background: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #00ff88 !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .storyboard-card-header {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected .storyboard-card-header {
+            background: rgba(0, 255, 136, 0.02) !important;
+        }
+        
+        .tomaan-page .storyboard-card span.badge {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected span.badge {
+            color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .storyboard-image-wrapper {
+            background: #020202 !important;
+        }
+        
+        /* Hover Effects overrides for Dark Theme */
+        .tomaan-page .storyboard-card:hover {
+            transform: scale(1.008) translateY(-3px) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected:hover {
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
+        }
+    </style>
+</head>
+
+<body class="is-preload tomaan-page">
+    
+    <div id="wrapper">
+
+        <header id="header">
+            <a href="index.html" class="logo">
+                <strong class="logo-text-desktop">Tomaan</strong>
+                <span class="logo-sub-desktop">Concept Specs</span>
+                <strong class="logo-text-mobile">Tomaan</strong>
+            </a>
+            <nav>
+                <a href="index.html" class="button">Back to Home</a>
+            </nav>
+        </header>
+
+        <nav class="nav-container" id="nav-container">
+            <a href="#overview" class="nav-segment active" id="seg-overview" title="Overview">1. Overview</a>
+            <a href="#latency" class="nav-segment" id="seg-latency" title="Latency & Temporal UX">2. Latency &amp; UX</a>
+            <a href="#confidence" class="nav-segment" id="seg-confidence" title="Visual Confidence">3. Visual Confidence</a>
+            <a href="#degradation" class="nav-segment" id="seg-degradation" title="Graceful Degradation">4. Systemic Resilience</a>
+        </nav>
+
+        <div id="main" class="alt">
+            <!-- Hero Section -->
+            <section id="hero-section" class="museum-hero tomaan-hero">
+                <div class="hero-inner">
+                    <div class="hero-text-block">
+                        <div class="logo-wrapper">
+                            <h1 class="hero-title" style="color: #ffffff !important;">Tomaan</h1>
+                        </div>
+                        
+                        <!-- Desktop Viewport -->
+                        <div class="metadata-grid desktop-only-table">
+                            <div class="metadata-item">
+                                <span class="label">System:</span>
+                                <span class="value">AI-Native Fintech Security</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Status:</span>
+                                <span class="value">2026 Evolution Concept</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual-block" style="background: #020202 !important;">
+                        <img src="images/TomaanThumbnail.png" alt="Tomaan Security Dashboard Showcase" />
+                    </div>
+
+                    <!-- Mobile Viewport -->
+                    <div class="mobile-only-cards" style="margin-top: var(--space-3) !important; width: 100% !important;">
+                        <div class="mobile-table-card" style="background: rgba(20, 20, 25, 0.8) !important; border: 1px solid rgba(255, 255, 255, 0.08) !important;">
+                            <h4 style="color: #ffffff !important;">Project Details</h4>
+                            <div class="card-row">
+                                <span class="label" style="color: #00ff88 !important;">System</span>
+                                <span class="value" style="color: #ffffff !important;">AI-Native Fintech Security</span>
+                            </div>
+                            <div class="card-row">
+                                <span class="label" style="color: #00ff88 !important;">Status</span>
+                                <span class="value" style="color: #ffffff !important;">2026 Evolution Concept</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Overview -->
+            <section id="overview">
+                <div class="inner">
+                    <h2>Overview</h2>
+                    <p>Designing for authentication and personal finance at scale requires more than just functional UI; it demands a system built on absolute trust. Drawing from the foundational architecture of legacy offline OTP systems that successfully secured transactions for roughly 7 million users across multi-tenant banking ecosystems, Tomaan represents the 2026 evolution of financial security.</p>
+                    <p>As financial platforms transition from deterministic software to probabilistic AI models, Tomaan was built from the ground up to address the unique UX challenges of generative interfaces.</p>
+                </div>
+            </section>
+
+            <!-- Section 2: Latency & Temporal UX -->
+            <section id="latency">
+                <div class="inner">
+                    <h2>Designing for Latency &amp; Temporal UX</h2>
+                    <p>Generative AI introduces unavoidable latency. In high-stakes financial environments, relying on static loading spinners during a 1-to-8 second LLM inference call destroys user confidence and creates the assumption that the application is broken.</p>
+                    
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="storyboard-card selected">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Temporal Mechanics</span>
+                                <h3>Active Wait Ambiguity Management</h3>
+                                <p>Tomaan actively manages LLM latency through deliberate, interactive feedback loops to keep users visually engaged and maintain systemic trust while background data is generated.</p>
+                            </div>
+                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
+                                <p style="margin: 0; line-height: 1.6; color: #a1a1aa !important;">
+                                    By pairing <strong>structural skeleton screens</strong> with <strong>typewriter-effect streaming text</strong>, the interface creates a progress narrative. Instead of viewing a frozen indicator, the user observes the conceptual thoughts and fraud check nodes compiling in real time, reducing perceived wait times.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Visual Confidence -->
+            <section id="confidence">
+                <div class="inner">
+                    <h2>Visual Confidence &amp; The Aesthetic of Security</h2>
+                    <p>AI applications generate rather than display, requiring a paradigm shift in how certainty is communicated.</p>
+                    
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Visual UI Paradigm</span>
+                                <h3>Certainty Metrics &amp; Frosted Glassmorphism</h3>
+                                <p>Tomaan integrates strict visual confidence indicators to communicate the AI's certainty regarding fraud detection and transaction integrity.</p>
+                            </div>
+                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
+                                <p style="margin: 0; line-height: 1.6; color: #a1a1aa !important;">
+                                    Aesthetically, the platform <strong>abandons legacy banking patterns</strong> in favor of a true black base surface layered with translucent frosted panels. This not only reduces eye strain during extended generative sessions but establishes a premium, highly secure environment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Systemic Resilience -->
+            <section id="degradation">
+                <div class="inner">
+                    <h2>Graceful Degradation &amp; Systemic Resilience</h2>
+                    <p>A scalable financial product must account for edge cases beyond the idealized "happy path."</p>
+                    
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Fault Tolerance</span>
+                                <h3>Graceful Offline Failsafes</h3>
+                                <p>Tomaan is engineered for graceful degradation, explicitly accounting for AI outages, unexpected outputs, or confident-sounding hallucinations.</p>
+                            </div>
+                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
+                                <p style="margin: 0; line-height: 1.6; color: #a1a1aa !important;">
+                                    If the generative security layer falters, the application is designed to <strong>seamlessly fall back</strong> to a bulletproof, offline authentication failsafe (drawing from our legacy offline OTP mechanisms), ensuring the user is never left stranded by technological failure.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer id="footer" style="border-top: 1px solid rgba(255, 255, 255, 0.08) !important;">
+            <div class="inner">
+                <p class="copyright">&copy; Viola Kazemi. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Simple active nav highlighting logic
+        $(window).on('scroll', function() {
+            var scrollPos = $(document).scrollTop();
+            $('.nav-segment').each(function() {
+                var currLink = $(this);
+                var refElement = $(currLink.attr("href"));
+                if (refElement.position().top - 120 <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                    $('.nav-segment').removeClass("active");
+                    currLink.addClass("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
