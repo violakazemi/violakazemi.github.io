@@ -4679,9 +4679,10 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page):not(.tomaan-page)
 }
 
 .tomaan-page #header {
-    background-color: #000000 !important;
+    background-color: rgba(0, 255, 136, 0.06) !important;
     border-bottom: 2px solid #00ff88 !important;
-    backdrop-filter: none !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
 }
 
 .museum-page #header {
