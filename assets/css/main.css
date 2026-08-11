@@ -9796,3 +9796,41 @@ body.home-page .hero-card-layout,
     line-height: 1.45 !important;
     margin: 0 !important;
 }
+
+/* Tomaan Custom Homepage Tile: True Black & Frosted Glass */
+.tiles article.tomaan-tile {
+    background-color: #09090b !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.tiles article.tomaan-tile header.major h3 a {
+    color: #ffffff !important;
+}
+
+.tiles article.tomaan-tile header.major p {
+    color: #a1a1aa !important;
+}
+
+.tiles article.tomaan-tile .tile-mockup {
+    background-color: #020202 !important;
+}
+
+/* Overlay for Tomaan on homepage */
+.tiles article.tomaan-tile .project-overview-overlay {
+    background: rgba(9, 9, 11, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(0, 255, 136, 0.15) !important;
+}
+
+.tiles article.tomaan-tile .project-overview-overlay p {
+    color: #f4f4f5 !important;
+}
+
+.tiles article.tomaan-tile .project-overview-overlay .view-project-label {
+    color: #00ff88 !important;
+}
+
+.tiles article.tomaan-tile:hover {
+    border-color: rgba(0, 255, 136, 0.3) !important;
+    box-shadow: 0 12px 30px rgba(0, 255, 136, 0.08) !important;
+}
