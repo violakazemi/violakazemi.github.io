@@ -9811,7 +9811,7 @@ body.home-page .hero-card-layout,
 }
 
 .tiles article.tomaan-tile header.major {
-    background-color: #000000 !important;
+    background-color: transparent !important;
 }
 
 .tiles article.tomaan-tile header.major h3 a {
@@ -9823,7 +9823,7 @@ body.home-page .hero-card-layout,
 }
 
 .tiles article.tomaan-tile .tile-mockup {
-    background-color: #000000 !important;
+    background-color: transparent !important;
 }
 
 /* Overlay for Tomaan on homepage */
