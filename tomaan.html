@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.62" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.63" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -102,11 +102,20 @@
             border-top: 2px solid #00ff88 !important;
         }
         
-        /* Hero Visual Block Image Styling to match Constraint 1 card */
-        .tomaan-page .hero-visual-block img {
+        /* Entire Hero Section Styling (Matches Constraint 1 card) */
+        body.tomaan-page #hero-section {
             border: 2px solid #00ff88 !important;
             border-radius: var(--radius-md) !important;
             box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+            background-color: #09090b !important;
+            margin: var(--space-4) 0 !important;
+            overflow: hidden !important;
+        }
+        
+        .tomaan-page .hero-visual-block img {
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
             max-width: 100% !important;
             height: auto !important;
         }
