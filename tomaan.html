@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.54" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.55" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -146,6 +146,38 @@
         }
         
         .tomaan-page .storyboard-card.selected:hover {
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        /* Accessibility Card overrides for dark mode */
+        .tomaan-page .accessibility-card {
+            background: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        .tomaan-page .accessibility-card.feature-card {
+            background: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #00ff88 !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .accessibility-card span.badge {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .accessibility-card.feature-card span.badge {
+            color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .accessibility-card:hover {
+            transform: scale(1.008) translateY(-3px) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .tomaan-page .accessibility-card.feature-card:hover {
             box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
         }
         
