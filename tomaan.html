@@ -179,9 +179,9 @@
 
         <nav class="nav-container" id="nav-container">
             <a href="#overview" class="nav-segment active" id="seg-overview" title="Overview">1. Overview</a>
-            <a href="#latency" class="nav-segment" id="seg-latency" title="Latency & Temporal UX">2. Latency &amp; UX</a>
-            <a href="#confidence" class="nav-segment" id="seg-confidence" title="Visual Confidence">3. Visual Confidence</a>
-            <a href="#degradation" class="nav-segment" id="seg-degradation" title="Graceful Degradation">4. Systemic Resilience</a>
+            <a href="#problem" class="nav-segment" id="seg-problem" title="The Problem">2. The Problem</a>
+            <a href="#solutions" class="nav-segment" id="seg-solutions" title="Design Iterations">3. Design Iterations</a>
+            <a href="#takeaways" class="nav-segment" id="seg-takeaways" title="Key Takeaways">4. Takeaways</a>
         </nav>
 
         <div id="main" class="alt">
@@ -191,14 +191,18 @@
                     <div class="hero-text-block">
                         <div class="logo-wrapper">
                             <h1 class="hero-title" style="color: #ffffff !important; margin-bottom: 0 !important;">Tomaan</h1>
-                            <p class="hero-subtitle" style="font-size: var(--fs-body) !important; color: #a1a1aa !important; margin-top: var(--space-2) !important; margin-bottom: 0 !important; font-weight: 500 !important; line-height: 1.4 !important; text-align: left !important;">Reimagining Offline OTP for the AI-Native Era</p>
+                            <p class="hero-subtitle" style="font-size: var(--fs-body) !important; color: #a1a1aa !important; margin-top: var(--space-2) !important; margin-bottom: 0 !important; font-weight: 500 !important; line-height: 1.4 !important; text-align: left !important;">Reimagining Offline Security for the AI-Native Era</p>
                         </div>
                         
                         <!-- Desktop Viewport -->
                         <div class="metadata-grid desktop-only-table">
                             <div class="metadata-item">
+                                <span class="label">Role:</span>
+                                <span class="value">Product Designer (UX/UI)</span>
+                            </div>
+                            <div class="metadata-item">
                                 <span class="label">System:</span>
-                                <span class="value">AI-Native Fintech Security</span>
+                                <span class="value">Fintech Security &bull; Authentication</span>
                             </div>
                             <div class="metadata-item">
                                 <span class="label">Status:</span>
@@ -216,8 +220,12 @@
                         <div class="mobile-table-card" style="background: rgba(20, 20, 25, 0.8) !important; border: 1px solid rgba(255, 255, 255, 0.08) !important;">
                             <h4 style="color: #ffffff !important;">Project Details</h4>
                             <div class="card-row">
+                                <span class="label" style="color: #00ff88 !important;">Role</span>
+                                <span class="value" style="color: #ffffff !important;">Product Designer (UX/UI)</span>
+                            </div>
+                            <div class="card-row">
                                 <span class="label" style="color: #00ff88 !important;">System</span>
-                                <span class="value" style="color: #ffffff !important;">AI-Native Fintech Security</span>
+                                <span class="value" style="color: #ffffff !important;">Fintech Security &bull; Auth</span>
                             </div>
                             <div class="card-row">
                                 <span class="label" style="color: #00ff88 !important;">Status</span>
@@ -232,79 +240,134 @@
             <section id="overview">
                 <div class="inner">
                     <h2>Overview</h2>
-                    <p>At Carrene, I designed the interfaces for offline OTP applications like Ramzbaan and Aras, securing transactions for roughly 7 million users across multiple banks and significantly reducing fraudulent login attempts. Tomaan is my 2026 vision of what comes next. I wanted to take that bulletproof, legacy security foundation and completely reimagine it for an AI-native world—making complex authentication feel simple, fast, and completely trustworthy.</p>
+                    <p>At Carrene, I designed the interfaces for offline one-time-password applications &mdash; Ramzbaan and Aras &mdash; securing transactions for a security-conscious banking user base at a time when offline OTP was still a genuinely novel idea in the market. Those apps have since scaled past 5 million users, and the core mechanism I helped design is still running in production today.</p>
+                    <p>Tomaan is what I'd build next. It takes the same non-negotiable requirement &mdash; a transaction can never be left unverifiable &mdash; and asks what that requirement looks like once the interface itself is no longer static. Generative AI changes the terms: a security system that reasons about a transaction in real time doesn't just display a result, it produces one, live, in front of the user. That shift breaks almost every convention the original apps relied on, and this project is my attempt to design for what replaces them.</p>
                 </div>
             </section>
 
-            <!-- Section 2: Latency & Temporal UX -->
-            <section id="latency">
+            <!-- Section 2: The Problem -->
+            <section id="problem">
                 <div class="inner">
-                    <h2>Designing for Latency &amp; Temporal UX</h2>
-                    <p>Generative AI introduces unavoidable latency. In high-stakes financial environments, relying on static loading spinners during a 1-to-8 second LLM inference call destroys user confidence and creates the assumption that the application is broken.</p>
+                    <h2>The Problem With Bringing AI Into a High-Stakes Flow</h2>
+                    <p>Three things are true about generative security checks that weren't true about the old deterministic flow:</p>
                     
+                    <div class="accessibility-bento-grid" style="margin-top: var(--space-4) !important;">
+                        <!-- Card 1: Slow Speeds -->
+                        <div class="accessibility-card feature-card">
+                            <span class="badge">Constraint 1</span>
+                            <h3>Generative Latency</h3>
+                            <p>They're slow relative to user expectation. An LLM-driven fraud check can take one to eight seconds. A static loading spinner over that duration reads as "broken," not "working," destroying systemic trust.</p>
+                        </div>
+
+                        <!-- Card 2: Probabilistic estimates -->
+                        <div class="accessibility-card">
+                            <span class="badge">Constraint 2</span>
+                            <h3>Estimate Uncertainty</h3>
+                            <p>They're probabilistic. The system doesn't know a transaction is safe the way the old flow "knew" a code matched. It estimates. That estimate has to be shown clearly, not hidden behind a binary checkmark.</p>
+                        </div>
+                    </div>
+
                     <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <!-- Card 3: AI Failures -->
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Constraint 3</span>
+                                <h3>New Failure Modalities</h3>
+                                <p>They can fail in a new way. The old apps had one failure mode: no connection, no code. An AI layer can time out, degrade, or &mdash; worse &mdash; return a confident wrong answer (hallucination). The interface needs an honest way to say "this part of the system isn't sure" without triggering panic or being ignored.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Design Iterations -->
+            <section id="solutions">
+                <div class="inner">
+                    <h2>Design Iterations</h2>
+                    <p>I designed three screens that each answer one of these challenges directly, establishing a highly secure, modern generative paradigm.</p>
+
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <!-- Screen 1: Dashboard -->
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">01 &mdash; Dashboard</span>
+                                <h3>Establishing the Visual Language</h3>
+                                <p>Before touching the security flow, I rebuilt the visual foundation. The original apps used standard light-mode banking chrome &mdash; white surfaces, primary blue, dense text. Tomaan moves to a near-black base (#0A0A0C, not pure black, to avoid OLED smearing) layered with frosted, blurred surfaces &mdash; thin hairline borders instead of heavy strokes, which is the current version of glassmorphism rather than the heavier 2020-era pattern.</p>
+                            </div>
+                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
+                                <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">The Confidence Chip</h4>
+                                <p style="margin-bottom: var(--space-3) !important;">The dashboard's job is to introduce the system's central new primitive before the user ever needs it under pressure: the confidence chip. <em>"Account Health: Excellent,"</em> rendered in a soft green pill, sits directly under the balance. It's a low-stakes, ambient first exposure to a visual language &mdash; a colored signal tied to AI certainty &mdash; that becomes load-bearing two screens later.</p>
+                                <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Mid-Process Correction: Color Conflict Resolution</h4>
+                                <p style="margin-bottom: 0 !important;">One deliberate correction I made mid-process: my first pass used red/green dots for both transaction direction (money in/out) and AI confidence, and they collided &mdash; a viewer couldn't tell if a red dot meant "you spent money" or "the system is unsure." I removed color from the debit/credit indicator entirely (a plain +/− prefix does that job) and kept red/green reserved exclusively for confidence signaling. Small decision, but it's the kind of internal consistency that either holds up or falls apart under real scrutiny.</p>
+                            </div>
+                        </div>
+
+                        <!-- Screen 2: Authorization -->
                         <div class="storyboard-card selected">
                             <div class="storyboard-card-header">
-                                <span class="badge">Temporal Mechanics</span>
-                                <h3>Active Wait Ambiguity Management</h3>
-                                <p>Tomaan actively manages LLM latency through deliberate, interactive feedback loops to keep users visually engaged and maintain systemic trust while background data is generated.</p>
+                                <span class="badge">02 &mdash; Authorization</span>
+                                <h3>Designing for the Wait</h3>
+                                <p>This is the core interaction. When a transfer is initiated, the system doesn't freeze on a spinner &mdash; it shows its work. A skeleton-paired, typewriter-style sequence narrates the check as it happens: checking device fingerprint, cross-referencing transaction pattern, verifying recipient history. Completed checks resolve to a solid confidence-colored dot; the check still running gets a distinct spinning indicator, so the user can tell "done" from "in progress" at a glance rather than reading text carefully under time pressure.</p>
                             </div>
                             <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
-                                <p style="margin: 0; line-height: 1.6; color: #a1a1aa !important;">
-                                    By pairing <strong>structural skeleton screens</strong> with <strong>typewriter-effect streaming text</strong>, the interface creates a progress narrative. Instead of viewing a frozen indicator, the user observes the conceptual thoughts and fraud check nodes compiling in real time, reducing perceived wait times.
-                                </p>
+                                <h4 style="color: #00ff88 !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Legibility as a Prerequisite for Trust</h4>
+                                <p style="margin-bottom: 0 !important;">The sequence resolves into a confidence score &mdash; <strong>98%, Low Risk</strong> &mdash; rendered as a large, unmissable ring before the OTP code reveals underneath it. The ordering matters: the user sees the system's reasoning conclude before they see the number they're supposed to trust. That's the whole thesis of the redesign in one screen &mdash; legibility of AI reasoning as a prerequisite for trust, not an afterthought bolted onto a result.</p>
+                            </div>
+                        </div>
+
+                        <!-- Screen 3: Fallback -->
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">03 &mdash; Fallback</span>
+                                <h3>The Screen Most Redesigns Skip</h3>
+                                <p>Most AI-redesign concepts stop at the happy path. Tomaan's third screen is the one I think does the real work: what happens when the AI layer can't finish its job.</p>
+                            </div>
+                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
+                                <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Precision Degradation</h4>
+                                <p style="margin-bottom: var(--space-3) !important;">Here, one check &mdash; recipient history &mdash; times out. The interface doesn't declare total failure or throw an alarming error state. It scopes the problem precisely (<em>"Recipient check unavailable"</em>) and falls back to exactly the mechanism the original Ramzbaan and Aras apps used: a manually entered, offline OTP tied to the physical card.</p>
+                                <p style="margin-bottom: 0 !important;">The visual treatment stays calm &mdash; same dark surfaces, same typography &mdash; rather than switching to red-alert styling, because a fallback to a proven, bulletproof legacy mechanism isn't an error. It's the system working correctly. This is also where the project closes its own loop: the "old" mechanism I designed at Carrene doesn't get replaced by the AI layer, it becomes its safety net.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 3: Visual Confidence -->
-            <section id="confidence">
+            <!-- Section 4: Takeaways -->
+            <section id="takeaways">
                 <div class="inner">
-                    <h2>Visual Confidence &amp; The Aesthetic of Security</h2>
-                    <p>AI applications generate rather than display, requiring a paradigm shift in how certainty is communicated.</p>
-                    
+                    <h2>What I'd Take Into a Real Build</h2>
+                    <p>A few open questions I'd want to resolve with real users and a security team before shipping anything like this:</p>
+
+                    <div class="accessibility-bento-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="accessibility-card">
+                            <span class="badge">Validation 1</span>
+                            <h3>Calibration Honesty</h3>
+                            <p>A 98% confidence score is only trustworthy if the number is actually calibrated to real fraud-model output, not a UI decoration. That's a cross-functional problem, not just a design one.</p>
+                        </div>
+                        <div class="accessibility-card">
+                            <span class="badge">Validation 2</span>
+                            <h3>Alert Fatigue</h3>
+                            <p>Confidence indicators need to earn their visibility. If every transaction shows a badge, users stop reading them. I'd want usage data before deciding how often to surface the chip versus staying silent by default.</p>
+                        </div>
+                    </div>
+
                     <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
                         <div class="storyboard-card">
                             <div class="storyboard-card-header">
-                                <span class="badge">Visual UI Paradigm</span>
-                                <h3>Certainty Metrics &amp; Frosted Glassmorphism</h3>
-                                <p>Tomaan integrates strict visual confidence indicators to communicate the AI's certainty regarding fraud detection and transaction integrity.</p>
-                            </div>
-                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
-                                <p style="margin: 0; line-height: 1.6; color: #a1a1aa !important;">
-                                    Aesthetically, the platform <strong>abandons legacy banking patterns</strong> in favor of a true black base surface layered with translucent frosted panels. This not only reduces eye strain during extended generative sessions but establishes a premium, highly secure environment.
-                                </p>
+                                <span class="badge">Validation 3</span>
+                                <h3>Localization &amp; Layout Direction</h3>
+                                <p>This version was designed for an international/USD context. The original systems were Iranian-market products; a real build would need currency, numeral, and RTL-layout decisions made deliberately, not left as an afterthought.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- Section 4: Systemic Resilience -->
-            <section id="degradation">
-                <div class="inner">
-                    <h2>Graceful Degradation &amp; Systemic Resilience</h2>
-                    <p>A scalable financial product must account for edge cases beyond the idealized "happy path."</p>
                     
-                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
-                        <div class="storyboard-card">
-                            <div class="storyboard-card-header">
-                                <span class="badge">Fault Tolerance</span>
-                                <h3>Graceful Offline Failsafes</h3>
-                                <p>Tomaan is engineered for graceful degradation, explicitly accounting for AI outages, unexpected outputs, or confident-sounding hallucinations.</p>
-                            </div>
-                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
-                                <p style="margin: 0; line-height: 1.6; color: #a1a1aa !important;">
-                                    If the generative security layer falters, the application is designed to <strong>seamlessly fall back</strong> to a bulletproof, offline authentication failsafe (drawing from our legacy offline OTP mechanisms), ensuring the user is never left stranded by technological failure.
-                                </p>
-                            </div>
-                        </div>
+                    <div style="margin-top: var(--space-5) !important; padding: var(--space-4) !important; border-radius: var(--radius-md) !important; background: rgba(255, 255, 255, 0.02) !important; border: 1px solid rgba(255, 255, 255, 0.06) !important; text-align: left !important;">
+                        <p style="margin: 0; font-size: var(--fs-small) !important; line-height: 1.5; color: #a1a1aa !important;">
+                            <strong>Note:</strong> Tomaan is a personal design exploration, not a shipped product. It builds on real work I did at Carrene designing offline OTP interfaces for Ramzbaan and Aras.
+                        </p>
                     </div>
                 </div>
             </section>
-
         </div>
 
         <footer id="footer" style="border-top: 1px solid rgba(255, 255, 255, 0.08) !important;">
@@ -331,7 +394,7 @@
             $('.nav-segment').each(function() {
                 var currLink = $(this);
                 var refElement = $(currLink.attr("href"));
-                if (refElement.position().top - 120 <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                if (refElement && refElement.position() && (refElement.position().top - 120 <= scrollPos) && (refElement.position().top + refElement.height() > scrollPos)) {
                     $('.nav-segment').removeClass("active");
                     currLink.addClass("active");
                 }
