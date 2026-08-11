@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.48" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.49" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -20,25 +20,31 @@
         }
         
         .tomaan-page #header {
-            background-color: rgba(9, 9, 11, 0.8) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-            backdrop-filter: blur(12px) !important;
+            background-color: #000000 !important;
+            border-bottom: 2px solid #00ff88 !important;
+            backdrop-filter: none !important;
         }
         
-        .tomaan-page #header .logo strong,
+        .tomaan-page #header .logo strong {
+            color: #00ff88 !important;
+        }
+        
         .tomaan-page #header .logo span {
             color: #ffffff !important;
+            opacity: 0.8 !important;
         }
         
         .tomaan-page #header nav a {
-            color: #ffffff !important;
-            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: #00ff88 !important;
+            border-color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.05) !important;
         }
         
         .tomaan-page #header nav a:hover {
-            background-color: rgba(255, 255, 255, 0.05) !important;
+            background-color: rgba(0, 255, 136, 0.15) !important;
             border-color: #00ff88 !important;
-            color: #00ff88 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3) !important;
         }
         
         .tomaan-page h1, 
@@ -139,6 +145,18 @@
         
         .tomaan-page .storyboard-card.selected:hover {
             box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        .tomaan-page #footer {
+            background-color: #000000 !important;
+            border-top: 2px solid #00ff88 !important;
+            padding-top: var(--space-4) !important;
+            padding-bottom: var(--space-4) !important;
+        }
+        
+        .tomaan-page #footer .copyright {
+            color: #00ff88 !important;
+            opacity: 0.9 !important;
         }
     </style>
 </head>
