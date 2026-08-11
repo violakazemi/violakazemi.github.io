@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.52" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.53" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -293,12 +293,15 @@
                                 <span class="badge">01 &mdash; Dashboard</span>
                                 <h3>Establishing the Visual Language</h3>
                                 <p>Before touching the security flow, I rebuilt the visual foundation. The original apps used standard light-mode banking chrome &mdash; white surfaces, primary blue, dense text. Tomaan moves to a near-black base (#0A0A0C, not pure black, to avoid OLED smearing) layered with frosted, blurred surfaces &mdash; thin hairline borders instead of heavy strokes, which is the current version of glassmorphism rather than the heavier 2020-era pattern.</p>
+                                <div style="margin-top: var(--space-3) !important;">
+                                    <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">The Confidence Chip</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: var(--space-3) !important; line-height: 1.4 !important;">The dashboard's job is to introduce the system's central new primitive before the user ever needs it under pressure: the confidence chip. <em>"Account Health: Excellent,"</em> rendered in a soft green pill, sits directly under the balance. It's a low-stakes, ambient first exposure to a visual language &mdash; a colored signal tied to AI certainty &mdash; that becomes load-bearing two screens later.</p>
+                                    <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: 0 !important; font-size: var(--fs-small) !important;">Mid-Process Correction: Color Conflict Resolution</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">One deliberate correction I made mid-process: my first pass used red/green dots for both transaction direction (money in/out) and AI confidence, and they collided &mdash; a viewer couldn't tell if a red dot meant "you spent money" or "the system is unsure." I removed color from the debit/credit indicator entirely (a plain +/− prefix does that job) and kept red/green reserved exclusively for confidence signaling. Small decision, but it's the kind of internal consistency that either holds up or falls apart under real scrutiny.</p>
+                                </div>
                             </div>
-                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
-                                <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">The Confidence Chip</h4>
-                                <p style="margin-bottom: var(--space-3) !important;">The dashboard's job is to introduce the system's central new primitive before the user ever needs it under pressure: the confidence chip. <em>"Account Health: Excellent,"</em> rendered in a soft green pill, sits directly under the balance. It's a low-stakes, ambient first exposure to a visual language &mdash; a colored signal tied to AI certainty &mdash; that becomes load-bearing two screens later.</p>
-                                <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Mid-Process Correction: Color Conflict Resolution</h4>
-                                <p style="margin-bottom: 0 !important;">One deliberate correction I made mid-process: my first pass used red/green dots for both transaction direction (money in/out) and AI confidence, and they collided &mdash; a viewer couldn't tell if a red dot meant "you spent money" or "the system is unsure." I removed color from the debit/credit indicator entirely (a plain +/− prefix does that job) and kept red/green reserved exclusively for confidence signaling. Small decision, but it's the kind of internal consistency that either holds up or falls apart under real scrutiny.</p>
+                            <div class="storyboard-image-wrapper" style="background: #020202 !important; padding: var(--space-4) !important;">
+                                <img src="images/Tomaan-dashboard.png" alt="Tomaan Dashboard Screen showing Account balance, Confidence chip and Transactions list" style="max-height: 480px !important; width: auto !important; margin: 0 auto !important; display: block !important;" />
                             </div>
                         </div>
 
@@ -308,10 +311,13 @@
                                 <span class="badge">02 &mdash; Authorization</span>
                                 <h3>Designing for the Wait</h3>
                                 <p>This is the core interaction. When a transfer is initiated, the system doesn't freeze on a spinner &mdash; it shows its work. A skeleton-paired, typewriter-style sequence narrates the check as it happens: checking device fingerprint, cross-referencing transaction pattern, verifying recipient history. Completed checks resolve to a solid confidence-colored dot; the check still running gets a distinct spinning indicator, so the user can tell "done" from "in progress" at a glance rather than reading text carefully under time pressure.</p>
+                                <div style="margin-top: var(--space-3) !important;">
+                                    <h4 style="color: #00ff88 !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">Legibility as a Prerequisite for Trust</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">The sequence resolves into a confidence score &mdash; <strong>98%, Low Risk</strong> &mdash; rendered as a large, unmissable ring before the OTP code reveals underneath it. The ordering matters: the user sees the system's reasoning conclude before they see the number they're supposed to trust. That's the whole thesis of the redesign in one screen &mdash; legibility of AI reasoning as a prerequisite for trust, not an afterthought bolted onto a result.</p>
+                                </div>
                             </div>
-                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
-                                <h4 style="color: #00ff88 !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Legibility as a Prerequisite for Trust</h4>
-                                <p style="margin-bottom: 0 !important;">The sequence resolves into a confidence score &mdash; <strong>98%, Low Risk</strong> &mdash; rendered as a large, unmissable ring before the OTP code reveals underneath it. The ordering matters: the user sees the system's reasoning conclude before they see the number they're supposed to trust. That's the whole thesis of the redesign in one screen &mdash; legibility of AI reasoning as a prerequisite for trust, not an afterthought bolted onto a result.</p>
+                            <div class="storyboard-image-wrapper" style="background: #020202 !important; padding: var(--space-4) !important;">
+                                <img src="images/Tomaan-authorization.png" alt="Tomaan Authorization Screen showing loading metrics and confidence score indicator" style="max-height: 480px !important; width: auto !important; margin: 0 auto !important; display: block !important;" />
                             </div>
                         </div>
 
@@ -321,11 +327,14 @@
                                 <span class="badge">03 &mdash; Fallback</span>
                                 <h3>The Screen Most Redesigns Skip</h3>
                                 <p>Most AI-redesign concepts stop at the happy path. Tomaan's third screen is the one I think does the real work: what happens when the AI layer can't finish its job.</p>
+                                <div style="margin-top: var(--space-3) !important;">
+                                    <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">Precision Degradation</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: var(--space-3) !important; line-height: 1.4 !important;">Here, one check &mdash; recipient history &mdash; times out. The interface doesn't declare total failure or throw an alarming error state. It scopes the problem precisely (<em>"Recipient check unavailable"</em>) and falls back to exactly the mechanism the original Ramzbaan and Aras apps used: a manually entered, offline OTP tied to the physical card.</p>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">The visual treatment stays calm &mdash; same dark surfaces, same typography &mdash; rather than switching to red-alert styling, because a fallback to a proven, bulletproof legacy mechanism isn't an error. It's the system working correctly. This is also where the project closes its own loop: the "old" mechanism I designed at Carrene doesn't get replaced by the AI layer, it becomes its safety net.</p>
+                                </div>
                             </div>
-                            <div class="storyboard-image-wrapper" style="padding: var(--space-4) !important; text-align: left !important; background: rgba(20, 20, 25, 0.5) !important;">
-                                <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Precision Degradation</h4>
-                                <p style="margin-bottom: var(--space-3) !important;">Here, one check &mdash; recipient history &mdash; times out. The interface doesn't declare total failure or throw an alarming error state. It scopes the problem precisely (<em>"Recipient check unavailable"</em>) and falls back to exactly the mechanism the original Ramzbaan and Aras apps used: a manually entered, offline OTP tied to the physical card.</p>
-                                <p style="margin-bottom: 0 !important;">The visual treatment stays calm &mdash; same dark surfaces, same typography &mdash; rather than switching to red-alert styling, because a fallback to a proven, bulletproof legacy mechanism isn't an error. It's the system working correctly. This is also where the project closes its own loop: the "old" mechanism I designed at Carrene doesn't get replaced by the AI layer, it becomes its safety net.</p>
+                            <div class="storyboard-image-wrapper" style="background: #020202 !important; padding: var(--space-4) !important;">
+                                <img src="images/Tomaan-fallback.png" alt="Tomaan Fallback Screen showing offline OTP input layout" style="max-height: 480px !important; width: auto !important; margin: 0 auto !important; display: block !important;" />
                             </div>
                         </div>
                     </div>
