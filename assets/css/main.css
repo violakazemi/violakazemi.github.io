@@ -9799,8 +9799,12 @@ body.home-page .hero-card-layout,
 
 /* Tomaan Custom Homepage Tile: True Black & Frosted Glass */
 .tiles article.tomaan-tile {
-    background-color: #09090b !important;
+    background-color: #000000 !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.tiles article.tomaan-tile header.major {
+    background-color: #000000 !important;
 }
 
 .tiles article.tomaan-tile header.major h3 a {
@@ -9812,7 +9816,7 @@ body.home-page .hero-card-layout,
 }
 
 .tiles article.tomaan-tile .tile-mockup {
-    background-color: #020202 !important;
+    background-color: #000000 !important;
 }
 
 /* Overlay for Tomaan on homepage */
