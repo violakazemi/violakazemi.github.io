@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.69" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.70" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -331,13 +331,37 @@
         }
         
         @media screen and (max-width: 734px) {
+            body.tomaan-page #hero-section {
+                padding: var(--space-3) !important;
+                margin-top: var(--space-2) !important;
+                margin-bottom: var(--space-3) !important;
+            }
+            .tomaan-page #hero-section .hero-inner {
+                gap: var(--space-2) !important;
+            }
             .tomaan-page .hero-text-block {
                 align-items: flex-start !important;
                 text-align: left !important;
+                max-width: 100% !important;
             }
-            .tomaan-page .hero-title,
-            .tomaan-page .hero-subtitle {
+            .tomaan-page .hero-title {
+                font-size: 28px !important;
                 text-align: left !important;
+            }
+            .tomaan-page .hero-subtitle {
+                font-size: var(--fs-small) !important;
+                text-align: left !important;
+                margin-bottom: var(--space-2) !important;
+            }
+            .tomaan-page .hero-visual-block {
+                width: 100% !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+            .tomaan-page .hero-visual-block img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
             }
         }
         
