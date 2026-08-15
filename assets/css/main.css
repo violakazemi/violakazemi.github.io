@@ -5716,7 +5716,7 @@ body.museum-page,
 
 @media screen and (max-width: 734px) {
     .grid-section-header {
-        padding: var(--space-3) var(--space-2) 0 var(--space-2) !important;
+        padding: var(--space-3) var(--space-2) var(--space-2) var(--space-2) !important;
         background-color: var(--apple-bg-gray) !important;
         max-width: 100% !important;
         margin: 0 !important;
