@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.72" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.73" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -337,7 +337,7 @@
                 margin-bottom: var(--space-3) !important;
             }
             .tomaan-page #hero-section .hero-inner {
-                gap: var(--space-2) !important;
+                gap: var(--space-3) !important;
             }
             .tomaan-page .hero-text-block {
                 align-items: flex-start !important;
@@ -353,6 +353,18 @@
                 text-align: left !important;
                 margin-bottom: var(--space-2) !important;
             }
+            /* Render metadata grid on mobile cleanly stacked */
+            .tomaan-page .metadata-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 6px !important;
+                width: 100% !important;
+                margin-top: var(--space-2) !important;
+            }
+            .tomaan-page .metadata-item {
+                padding: 6px 12px !important;
+                text-align: left !important;
+            }
             .tomaan-page .hero-visual-block {
                 width: 100% !important;
                 margin: 0 !important;
@@ -362,6 +374,18 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
+            }
+            /* Subtle section padding on mobile to avoid deadly spaces */
+            .tomaan-page section {
+                padding: var(--space-4) 0 !important;
+            }
+            .tomaan-page section .inner {
+                padding-left: var(--space-3) !important;
+                padding-right: var(--space-3) !important;
+            }
+            /* Expand iteration mockup sizes on mobile */
+            .tomaan-page .iteration-bento-image-pane {
+                padding: var(--space-2) !important;
             }
         }
         
