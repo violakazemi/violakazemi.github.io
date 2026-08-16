@@ -6486,36 +6486,39 @@ body.bearla-page,
 /* Bearla Hero Overrides (matches Mechmarket layout) */
 /* Bearla Hero Overrides (Apple Design System Spacing & Typography) */
 .bearla-hero {
-    background-color: #F5F0E8 !important;
+    background-color: #fcfcfd !important; /* Premium Off-White Background */
+    border: 2px solid var(--accent-bearla) !important;
+    box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
     width: 100% !important;
-    max-width: 100% !important;
-    padding: var(--space-7) 0 var(--space-6) 0 !important;
+    max-width: var(--container-content) !important;
+    margin: var(--space-5) auto !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-5) !important;
     box-sizing: border-box !important;
     color: var(--color-text-primary) !important;
 }
 
 .bearla-hero .hero-inner {
-    max-width: var(--container-wide) !important;
+    max-width: 100% !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 var(--space-4) !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    gap: var(--space-4) !important;
+    justify-content: space-between !important;
+    gap: var(--space-5) !important;
 }
 
 .bearla-hero .hero-text-block {
     flex: 1 !important;
-    max-width: 100% !important;
+    max-width: 50% !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
 }
 
 .bearla-hero .hero-title {
@@ -6529,24 +6532,24 @@ body.bearla-page,
 }
 
 .bearla-hero .hero-subtitle {
-    font-size: var(--fs-body) !important;
-    font-weight: 400 !important;
-    color: rgba(29, 29, 31, 0.75) !important;
+    font-size: var(--fs-h3) !important;
+    font-weight: 500 !important;
+    color: rgba(29, 29, 31, 0.8) !important;
     font-family: var(--font-primary) !important;
-    max-width: var(--container-text) !important;
-    margin: 0 auto var(--space-4) auto !important;
-    line-height: 1.45 !important;
+    max-width: 100% !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    line-height: 1.25 !important;
     letter-spacing: -0.015em !important;
 }
 
 .bearla-hero .metadata-grid {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     flex-wrap: wrap !important;
-    gap: var(--space-4) !important;
+    gap: var(--space-2) !important;
     margin-top: var(--space-1) !important;
-    margin-bottom: var(--space-5) !important;
+    margin-bottom: var(--space-3) !important;
     width: 100% !important;
 }
 
@@ -6575,12 +6578,12 @@ body.bearla-page,
 
 .bearla-hero .hero-visual-block {
     flex: 1 !important;
-    max-width: var(--container-content) !important;
+    max-width: 50% !important;
     width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
 }
 
 .bearla-hero .hero-visual-block img,
