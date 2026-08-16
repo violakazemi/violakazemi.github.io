@@ -7162,13 +7162,26 @@ body.bearla-page,
         font-size: var(--fs-body) !important;
         margin-bottom: var(--space-2) !important;
     }
+    .museum-hero .metadata-grid,
     .mechmarket-hero .metadata-grid,
-    .bearla-hero .metadata-grid {
+    .bearla-hero .metadata-grid,
+    .tomaan-hero .metadata-grid {
+        display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        gap: var(--space-1) !important;
-        margin-top: var(--space-1) !important;
-        margin-bottom: var(--space-2) !important;
+        width: 100% !important;
+        gap: 8px !important;
+        margin-top: var(--space-2) !important;
+        margin-bottom: var(--space-3) !important;
+    }
+    .museum-hero .metadata-item,
+    .mechmarket-hero .metadata-item,
+    .bearla-hero .metadata-item,
+    .tomaan-hero .metadata-item {
+        display: flex !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 8px 16px !important;
     }
     .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
