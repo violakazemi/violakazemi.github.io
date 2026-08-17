@@ -6094,7 +6094,7 @@ body.museum-page,
 .insight-card p {
     font-size: var(--fs-small) !important;
     line-height: 1.6 !important;
-    color: #515154 !important;
+    color: var(--color-text-secondary) !important;
     margin-bottom: var(--space-1) !important;
 }
 
