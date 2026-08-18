@@ -6554,11 +6554,14 @@ body.bearla-page,
 }
 
 .bearla-hero .metadata-item {
-    font-family: var(--font-primary) !important;
-    display: flex !important;
-    flex-direction: column !important;
+    background-color: rgba(107, 31, 42, 0.06) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    border-radius: var(--radius-sm) !important;
+    border: 1px solid rgba(107, 31, 42, 0.15) !important;
+    display: inline-flex !important;
     align-items: center !important;
     gap: var(--space-1) !important;
+    font-family: var(--font-primary) !important;
 }
 
 .bearla-hero .metadata-item .label {
@@ -6570,7 +6573,7 @@ body.bearla-page,
 }
 
 .bearla-hero .metadata-item .value {
-    font-size: var(--fs-body) !important;
+    font-size: var(--fs-small) !important;
     font-weight: 600 !important;
     color: #1d1d1f !important;
     letter-spacing: -0.01em !important;
