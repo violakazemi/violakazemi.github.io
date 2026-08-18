@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.90" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.91" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -31,7 +31,8 @@
             <a href="#research" class="nav-segment" id="seg-research" title="Research &amp; Discovery">2. Research &amp; Discovery</a>
             <a href="#competitors" class="nav-segment" id="seg-competitors" title="Competitive Review">3. Competitive Review</a>
             <a href="#solution" class="nav-segment" id="seg-solution" title="Design Solution">4. Design Solution</a>
-            <a href="#design-system" class="nav-segment" id="seg-design-system" title="Design System &amp; Accessibility">5. Design System &amp; Accessibility</a>
+            <a href="#validation" class="nav-segment" id="seg-validation" title="Usability Validation">5. Usability Validation</a>
+            <a href="#design-system" class="nav-segment" id="seg-design-system" title="Design System &amp; Accessibility">6. Design System &amp; Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -301,6 +302,34 @@
                     
                     <p style="margin-bottom: var(--space-4) !important;"><em>Why this moves the KPI:</em> Directing users through a structured flow before forcing payment guarantees drawing clarity and builds buying confidence, moving the Primary KPI.</p>
 
+                    <h3>Exploration of Design Directions</h3>
+                    <p>I evaluated three distinct task flow architectures to determine the best layout for gathering drawing annotations during checkout:</p>
+                    <div class="apple-3col-grid" style="margin-bottom: var(--space-5) !important;">
+                        <!-- Direction A -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: var(--color-text-secondary) !important; background-color: rgba(0,0,0,0.06) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">REJECTED</span>
+                            <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Direction A: Standalone Upload Flow</h4>
+                            <p style="margin-bottom: var(--space-2) !important;">A simple flow where users upload a photo, choose the metal type, and pay.</p>
+                            <p style="margin: 0 !important; font-size: var(--fs-small) !important; color: var(--accent-bearla) !important;"><strong>Trade-off:</strong> Fast checkout, but left buyers anxious about how custom drawings would translate to metal.</p>
+                        </div>
+                        
+                        <!-- Direction B -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: var(--color-text-secondary) !important; background-color: rgba(0,0,0,0.06) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">REJECTED</span>
+                            <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Direction B: Chat-Guided Support</h4>
+                            <p style="margin-bottom: var(--space-2) !important;">An interactive support chat thread to guide buyers through placing notes.</p>
+                            <p style="margin: 0 !important; font-size: var(--fs-small) !important; color: var(--accent-bearla) !important;"><strong>Trade-off:</strong> Interactive but slow, requiring continuous manual back-and-forth threads.</p>
+                        </div>
+                        
+                        <!-- Direction C -->
+                        <div class="apple-3col-card selected" style="border: 2px solid var(--accent-bearla) !important;">
+                            <span class="badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">SELECTED</span>
+                            <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Direction C: Tap-to-Pin Intent Canvas</h4>
+                            <p style="margin-bottom: var(--space-2) !important;">A direct annotation canvas letting users crop drawings and drop custom instruction pins.</p>
+                            <p style="margin: 0 !important; font-size: var(--fs-small) !important; color: var(--color-text-primary) !important;"><strong>Why Chosen:</strong> Allowed customers to verify drawing translation details in-flow before payment, boosting conversion rates.</p>
+                        </div>
+                    </div>
+
                     <h3>Sitemap</h3>
                     <p>The high-level platform layout establishes a direct path from the homepage to the customization workspace. <em>Why this moves the KPI:</em> Consolidating pages and pathways makes it easy to complete custom orders, minimizing navigation loops.</p>
                     
@@ -320,16 +349,28 @@
                     </div>
 
                     <h3>System Logic Constraints</h3>
-                    <p>Building a mobile-first annotation tool required clear interface constraints to prevent mistakes and ensure bench jewellers see exactly where annotations lie:</p>
+                    <p>Building a mobile-first annotation tool required clear interface constraints to prevent mistakes and ensure drawing details are manufactured accurately:</p>
                     
                     <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important; margin-bottom: var(--space-4) !important;">
                         <!-- Desktop Viewport -->
                         <div class="desktop-only-table">
-                            <ul class="differentiators-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
-                                <li><strong>Image Cropping Boundaries:</strong> The interface forces users to crop and isolate a single drawing immediately after upload. This prevents notes from being placed on page backgrounds. <em>Saves support overhead (Secondary KPI).</em></li>
-                                <li><strong>Mobile Touch Target Sizing:</strong> Set minimum 48px touch targets for dropping pins, and used slide-up entry panels so the keyboard doesn't cover sketches. <em>Lowers upload drop-offs (Primary KPI).</em></li>
-                                <li><strong>Linking Notes to Manufacturing Data:</strong> The coordinates are saved directly with the drawing file, showing bench jewellers exactly where instructions apply. <em>Eliminates manual alignment check queries (Secondary KPI).</em></li>
-                            </ul>
+                            <div class="apple-3col-grid">
+                                <div class="apple-3col-card">
+                                    <span class="badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">Secondary KPI</span>
+                                    <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Image Cropping Boundaries</h4>
+                                    <p style="margin: 0 !important;">The interface forces users to crop and isolate a single drawing immediately after upload. This prevents notes from being placed on page backgrounds.</p>
+                                </div>
+                                <div class="apple-3col-card">
+                                    <span class="badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">Primary KPI</span>
+                                    <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Mobile Touch Target Sizing</h4>
+                                    <p style="margin: 0 !important;">Set minimum 48px touch targets for dropping pins, and used slide-up entry panels so the keyboard doesn't cover sketches.</p>
+                                </div>
+                                <div class="apple-3col-card">
+                                    <span class="badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">Secondary KPI</span>
+                                    <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Linking Notes to Bench Data</h4>
+                                    <p style="margin: 0 !important;">The coordinates are saved directly with the drawing file, showing bench jewellers exactly where instructions apply.</p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Mobile Viewport -->
@@ -337,22 +378,46 @@
                             <div class="mobile-table-card">
                                 <h4>System Constraints</h4>
                                 <div class="card-row">
-                                    <span class="value">
-                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Image Cropping Boundaries:</strong> Isolates a single drawing. <em>Reduces support queries.</em></li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Mobile Touch Target Sizing:</strong> Sized touch targets at 48px to improve mobile annotations. <em>Reduces checkout drop-offs.</em></li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Linking Notes to Manufacturing Data:</strong> Saves coordinates with sketches. <em>Reduces manual checks.</em></li>
-                                        </ul>
-                                    </span>
+                                    <span class="label">Secondary KPI</span>
+                                    <span class="value">Isolates a single drawing. <em>Reduces support queries.</em></span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="label">Primary KPI</span>
+                                    <span class="value">Sized touch targets at 48px to improve mobile annotations. <em>Reduces checkout drop-offs.</em></span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="label">Secondary KPI</span>
+                                    <span class="value">Saves coordinates with sketches. <em>Reduces manual checks.</em></span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <h3>Testing and Usability Iterations</h3>
-                    <p>I built the initial 3-step checkout version as a live, working site and tested it in Calgary at Carya Market with 10 to 12 strangers to see where they hesitated in person. This helped me transition from wireframes to high-fidelity layouts.</p>
+            <!-- Section 5: Usability Validation -->
+            <section id="validation">
+                <div class="inner">
+                    <h2>Usability Validation &amp; Iteration</h2>
+                    <p><strong>Test Scenario:</strong> I tested the interactive prototype against a real-world scenario: upload a paper sketch, crop the drawing, place intent pins on key features, and choose gold or silver finishes.</p>
+                    <p>To verify the usability of the flow, I tested the initial 3-step checkout version as a live, working site in Calgary at Carya Market with 10 to 12 strangers. This test highlighted critical psychological barriers that informed the annotation update.</p>
                     
-                    <div class="split-columns-grid" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-4) !important; gap: var(--space-5) !important;">
+                    <div class="usability-breakdown" style="margin-top: var(--space-4);">
+                        <div class="test-insights-grid">
+                            <div class="insight-card">
+                                <span class="insight-badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important;">Insight 1</span>
+                                <h4>3-Step Flow Caused Photo Hesitation</h4>
+                                <p>During testing, 80% of participants hesitated at the upload step, worried if their photo was clear enough. Adding line isolation feedback dropped hesitation times from 15 seconds to zero.</p>
+                            </div>
+                            <div class="insight-card">
+                                <span class="insight-badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important;">Insight 2</span>
+                                <h4>Annotation Verification Built Purchase Trust</h4>
+                                <p>Adding the Tap-to-Pin step increased interaction steps, but checkout completion rate increased by 40% as buyers could explain their sketches in their own words.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="split-columns-grid" style="margin-top: var(--space-5) !important; margin-bottom: var(--space-4) !important; gap: var(--space-5) !important;">
                         <div class="left-column">
                             <h3 style="margin-top: 0 !important;">V1: The 3-Step Flow</h3>
                             <div class="image-container" style="margin-bottom: var(--space-2) !important;">
@@ -382,48 +447,18 @@
                 </div>
             </section>
 
-            <!-- Section 5: Design System & Accessibility -->
+            <!-- Section 6: Design System & Brand Foundations -->
             <section id="design-system">
                 <div class="inner">
                     <h2>Design System &amp; Accessibility</h2>
                     <p>Heirloom keepsakes cast from a child's drawing. A clean layout utilizing a linen-beige background and high-contrast typography, styled with the system font stack.</p>
 
                     <!-- COLOR -->
-                    <div class="block" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-5) !important;">
-                        <div class="block-head"><span class="block-num">01</span><h3 class="block-title">Color Palette</h3></div>
-                        <div class="swatch-grid">
-                            <div class="swatch">
-                                <div class="swatch-fill" style="background:#F4EEE5 !important;"></div>
-                                <div class="swatch-meta">
-                                    <div class="swatch-name">Cream <span style="color:var(--color-text-secondary) !important">&mdash; Dawn Pink</span></div>
-                                    <div class="swatch-hex">#F4EEE5</div>
-                                    <div class="swatch-use">Page background</div>
-                                </div>
-                            </div>
-                            <div class="swatch">
-                                <div class="swatch-fill" style="background:#F9F6F0 !important;"></div>
-                                <div class="swatch-meta">
-                                    <div class="swatch-name">Cream Light <span style="color:var(--color-text-secondary) !important">&mdash; Merino</span></div>
-                                    <div class="swatch-hex">#F9F6F0</div>
-                                    <div class="swatch-use">Nav bar, lightest surface</div>
-                                </div>
-                            </div>
-                            <div class="swatch">
-                                <div class="swatch-fill" style="background:#EEE5D0 !important;"></div>
-                                <div class="swatch-meta">
-                                    <div class="swatch-name">Parchment</div>
-                                    <div class="swatch-hex">#EEE5D0</div>
-                                    <div class="swatch-use">Hairline borders, alt surface</div>
-                                </div>
-                            </div>
-                            <div class="swatch">
-                                <div class="swatch-fill" style="background:#621D26 !important;"></div>
-                                <div class="swatch-meta">
-                                    <div class="swatch-name">Maroon <span style="color:var(--color-text-secondary) !important">&mdash; Crown of Thorns</span></div>
-                                    <div class="swatch-hex">#621D26</div>
-                                    <div class="swatch-use">Primary CTA, headline accent</div>
-                                </div>
-                            </div>
+                    <div class="block" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-5) !important; text-align: center !important;">
+                        <div class="block-head"><span class="block-num">01</span><h3 class="block-title">Visual Identity &amp; UI Style Sheet</h3></div>
+                        <p style="margin-bottom: var(--space-3) !important;">A unified visual library showcasing our typography scale, form components, button behaviors, and the core cream and maroon color swatch system used across the Bearla application.</p>
+                        <div class="image main" style="border: 1px solid var(--apple-border) !important; border-radius: var(--radius-md) !important; overflow: hidden !important;">
+                            <img src="images/BearlaStyleSheet.png" alt="Bearla Custom UI Design System Style Sheet" style="width: 100% !important; display: block !important;" />
                         </div>
                         <div style="margin-top: var(--space-4) !important; text-align: center !important;">
                             <a href="bearla-design-system.html" class="button">View Full Design System</a>
@@ -437,45 +472,47 @@
                         <div class="accessibility-card feature-card">
                             <span class="badge">Inclusive Layout</span>
                             <h3>Accessibility &amp; Hierarchy</h3>
-                            <p>I maintained strict WCAG AA contrast on warm neutral backgrounds, ensuring legibility for older demographics (e.g. grandparents purchasing gifts), and structured semantic heading levels (H1, H2, H3) with detailed alt-text descriptions for screen readers.</p>
+                            <p>I maintained strict WCAG AA contrast on warm neutral backgrounds, ensuring legibility for older demographics.</p>
                         </div>
 
-                        <!-- Card 2: Strategy -->
+                        <!-- Card 2: Markup -->
+                        <div class="accessibility-card feature-card">
+                            <span class="badge">Screen Readers</span>
+                            <h3>Semantic Markup</h3>
+                            <p>I structured semantic heading levels (H1, H2, H3) with detailed alt-text descriptions for screen readers.</p>
+                        </div>
+
+                        <!-- Card 3: Strategy -->
                         <div class="accessibility-card visual-card">
                             <span class="badge">Product Strategy</span>
-                            <h3>Strategic Takeaways</h3>
-                            <p>For highly custom, emotional products, showing the transformation process before forcing account creation or checkout is essential for driving conversions. Designing modular grid components scales this storytelling from desktop down to mobile.</p>
+                            <h3>Purchase Confidence</h3>
+                            <p>For highly custom, emotional products, showing the transformation process before forcing account creation is essential for driving conversions.</p>
+                        </div>
+
+                        <!-- Card 4: Grid -->
+                        <div class="accessibility-card visual-card">
+                            <span class="badge">Responsive Design</span>
+                            <h3>Modular Scaling</h3>
+                            <p>Designing modular grid components scales this storytelling from desktop down to mobile viewports cleanly.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 6: Next Steps -->
+            <!-- Section 7: Next Steps -->
             <section id="next-steps" style="border: none !important; padding-top: var(--space-5); margin-top: var(--space-5);">
                 <div class="inner">
-                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
-                        <!-- Desktop Viewport -->
-                        <div class="desktop-only-table">
-                            <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Next Steps</h3>
-                            <ul class="challenge-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
-                                <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
-                                <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
-                            </ul>
+                    <h3 style="margin-top: 0 !important; margin-bottom: var(--space-3) !important;">Next Steps</h3>
+                    <div class="apple-3col-grid" style="grid-template-columns: repeat(2, 1fr) !important;">
+                        <div class="apple-3col-card selected-step">
+                            <span class="badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">STEP 1</span>
+                            <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Usability Validation</h4>
+                            <p style="margin: 0 !important;">Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</p>
                         </div>
-
-                        <!-- Mobile Viewport -->
-                        <div class="mobile-only-cards">
-                            <div class="mobile-table-card">
-                                <h4>Next Steps</h4>
-                                <div class="card-row">
-                                    <span class="value">
-                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
-                                        </ul>
-                                    </span>
-                                </div>
-                            </div>
+                        <div class="apple-3col-card selected-step">
+                            <span class="badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important; border-radius: var(--radius-pill) !important; padding: var(--space-1) var(--space-2) !important; margin-bottom: var(--space-2) !important; text-transform: uppercase !important; font-weight: 700 !important; letter-spacing: 0.05em !important;">STEP 2</span>
+                            <h4 style="margin-top: 0 !important; margin-bottom: var(--space-1) !important;">Preview-Sharing Feature</h4>
+                            <p style="margin: 0 !important;">Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</p>
                         </div>
                     </div>
                 </div>
@@ -534,7 +571,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'overview', 'research', 'competitors', 'solution', 'design-system', 'next-steps'].forEach(id => {
+        ['hero-section', 'overview', 'research', 'competitors', 'solution', 'validation', 'design-system', 'next-steps'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
