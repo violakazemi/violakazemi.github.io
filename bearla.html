@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link rel="stylesheet" href="assets/css/main.css?v=17.87" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17.88" />
     <link rel="icon" type="image/png" href="images/logo.png" />
 </head>
 
@@ -27,14 +27,11 @@
 
         <!-- Fixed Local Sub-Navigation Bar -->
         <nav class="nav-container" id="nav-container">
-            <a href="#empathize" class="nav-segment active" id="seg-empathize" title="Empathize">1. Empathize</a>
-            <a href="#define" class="nav-segment" id="seg-define" title="Define">2. Define</a>
-            <a href="#ideate" class="nav-segment" id="seg-ideate" title="Ideate">3. Ideate</a>
-            <a href="#prototype" class="nav-segment" id="seg-prototype" title="Prototype">4. Prototype</a>
-            <a href="#systems" class="nav-segment" id="seg-systems" title="How it Works">5. How it Works</a>
-            <a href="#design-system" class="nav-segment" id="seg-design-system" title="Design System">6. Design System</a>
-            <a href="#validation" class="nav-segment" id="seg-validation" title="Testing">7. Testing</a>
-            <a href="#accessibility" class="nav-segment" id="seg-accessibility" title="Accessibility">8. Accessibility</a>
+            <a href="#overview" class="nav-segment active" id="seg-overview" title="Product Overview">1. Product Overview</a>
+            <a href="#research" class="nav-segment" id="seg-research" title="Research &amp; Discovery">2. Research &amp; Discovery</a>
+            <a href="#competitors" class="nav-segment" id="seg-competitors" title="Competitive Review">3. Competitive Review</a>
+            <a href="#solution" class="nav-segment" id="seg-solution" title="Design Solution">4. Design Solution</a>
+            <a href="#design-system" class="nav-segment" id="seg-design-system" title="Design System &amp; Accessibility">5. Design System &amp; Accessibility</a>
         </nav>
 
         <div id="main" class="alt">
@@ -72,83 +69,205 @@
                 </div>
             </section>
 
-            <!-- Section 1: Empathize — Where This Actually Started -->
-            <section id="empathize">
+            <!-- Section 1: Product Overview -->
+            <section id="overview">
                 <div class="inner">
-                    <h2>Empathize &mdash; Where This Actually Started</h2>
-                    <p><strong>Project Overview:</strong> A custom jewelry site where buyers upload a child's drawing and need to feel certain, before paying, that it'll come out right. Golaab Jewelry is my own handmade jewelry brand, and in 2025 I started getting a specific kind of request through Instagram: turn a child's drawing into real, permanent jewelry. One order made the problem clear &mdash; a woman wanted a necklace from her niece's drawing of a bunny and a girl, and looking at the actual sketch, it's obvious the bunny is drawn bigger than the girl and the hair is just tangled loops, but none of that is obvious to a stranger holding the page for the first time; I had to decide what those marks meant and cast my read of them in silver, not hers.</p>
+                    <h2>Project Overview</h2>
+                    <p><strong>Project Overview:</strong> A custom jewelry site where buyers upload a child's drawing and need to feel certain, before paying, that it'll come out right. Golaab Jewelry is my own handmade jewelry brand, and in 2025 I started getting a specific kind of request through Instagram: turn a child's drawing into real, permanent jewelry. One order made the problem clear &mdash; a woman wanted a necklace from her niece's drawing of a bunny and a girl, and looking at the actual sketch, it's obvious the bunny is drawn bigger than the girl and the hair is just tangled loops, but none of that is obvious to a stranger holding the page for the first time; I had to decide what those marks meant and cast my read of them in silver, not hers. That's the problem I kept hitting order after order &mdash; including with a neighbor who'd ordered from me before and nearly didn't go through with a piece for her niece's graduation because she had no way of knowing what the final piece would look like before committing, and only moved forward once I asked her directly what mattered most.</p>
                     
-                    <p>That's the problem I kept hitting order after order &mdash; including with a neighbor who'd ordered from me before and nearly didn't go through with a piece for her niece's graduation because she had no way of knowing what the final piece would look like before committing, and only moved forward once I asked her directly what mattered most. My real process was always just to ask the customer what they saw and what the story was &mdash; it worked, but only because I did it by hand, one conversation at a time, with nothing recorded that a jeweler could check the piece against later.</p>
-                    
+                    <div class="inner-block-card" style="margin-top: var(--space-4) !important; border: none !important; padding: 0 !important; background-color: transparent !important;">
+                        <!-- Desktop Viewport -->
+                        <div class="desktop-only-table" style="width: 100% !important;">
+                            <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Business Goals &amp; KPIs</h3>
+                            <div class="apple-3col-grid" style="grid-template-columns: repeat(2, 1fr) !important;">
+                                <div class="apple-3col-card">
+                                    <span class="badge">Primary KPI</span>
+                                    <h4>Reduce Checkout Hesitation</h4>
+                                    <p>Increase order conversions at the drawing-approval step by letting buyers see and confirm details before paying, lowering cart drop-off rates.</p>
+                                </div>
+                                <div class="apple-3col-card">
+                                    <span class="badge">Secondary KPI</span>
+                                    <h4>Drop Pre-Checkout Support Load</h4>
+                                    <p>Minimize back-and-forth Instagram/Etsy DM support queries by automating drawing intent tagging directly in the purchasing flow.</p>
+                                </div>
+                            </div>
+                        </div>
 
-
-                    <div class="image main" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-2) !important;">
-                        <img src="images/bearla-story.png" alt="Visual narrative of the Golaab custom drawing jewelry translation story" style="border-radius: var(--radius-sm) !important; border: none !important;" />
+                        <!-- Mobile Viewport -->
+                        <div class="mobile-only-cards">
+                            <div class="mobile-table-card">
+                                <h4>Business Goals &amp; KPIs</h4>
+                                <div class="card-row">
+                                    <span class="label">Primary KPI</span>
+                                    <span class="value">Increase order conversions at the drawing-approval step by letting buyers see and confirm details before paying, lowering cart drop-off rates.</span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="label">Secondary KPI</span>
+                                    <span class="value">Minimize back-and-forth Instagram/Etsy DM support queries by automating drawing intent tagging directly in the purchasing flow.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id="define">
+            <!-- Section 2: Research & Discovery -->
+            <section id="research">
                 <div class="inner">
-                    <h2>Define &mdash; The Real Problem</h2>
+                    <h2>Research &amp; Discovery</h2>
+                    <p>My original Golaab Jewelry custom jewelry process was high-fidelity, but only because I handled it manually, one client conversation at a time. To identify the core pain points and emotional barriers before mapping out a digital interface, I recruited 6 past customers and close contacts who had previously ordered or wanted to order custom products to run walk-through tests with early sketch ideas.</p>
                     
-                    <div class="problem-card" style="background-color: var(--color-bg-section-alt) !important; border: 1px solid var(--apple-border) !important; padding: var(--space-3) !important; border-radius: var(--radius-md) !important; margin: var(--space-3) 0 var(--space-4) 0 !important; box-shadow: none !important;">
-                        <p style="line-height: 1.6 !important; margin: 0 0 var(--space-2) 0 !important;">The gap isn't &ldquo;customers don't trust artisans.&rdquo; It's narrower than that: when someone else's drawing gets turned into a physical object, whoever's interpreting it is making calls that the person who actually loves that drawing never got to weigh in on. In 2025, that interpreter was just me, working off a photo, with no way for the customer to point at the page and say &ldquo;this matters, this doesn't&rdquo; before it was too late to change.</p>
-                        
-                        <p style="line-height: 1.6 !important; margin: 0 !important;">That's the actual problem the 2026 version, Bearla, is built to solve &mdash; not &ldquo;reduce anxiety&rdquo; as an abstract goal, but move the decision about what the drawing means from my eye to theirs.</p>
+                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-3) !important; width: 100% !important;">
+                        <div class="research-cards-grid">
+                            <!-- Card 1: What I Did -->
+                            <div class="research-bento-card">
+                                <div class="research-bento-card-header">
+                                    <span class="badge">Approach</span>
+                                    <h3>What I Did</h3>
+                                    <p>I reviewed order patterns and spoke directly with past keepsake buyers to pinpoint where transaction hesitation starts.</p>
+                                </div>
+                                <div class="research-bento-card-body">
+                                    <div class="research-item">
+                                        <span class="badge method-badge">Method 1</span>
+                                        <div class="research-item-content">
+                                            <h4>Enthusiast Interviews</h4>
+                                            <p>Conducted qualitative sessions with 6 past keepsake jewelry buyers to trace their purchase journeys and check points of hesitation.</p>
+                                        </div>
+                                    </div>
+                                    <div class="research-item">
+                                        <span class="badge method-badge">Method 2</span>
+                                        <div class="research-item-content">
+                                            <h4>Order Pattern Audit</h4>
+                                            <p>Analyzed 20+ manual drawing order DM chains to find when and why conversations went cold before final checkout.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: What I Learned -->
+                            <div class="research-bento-card selected">
+                                <div class="research-bento-card-header">
+                                    <span class="badge">Synthesis</span>
+                                    <h3>What I Learned</h3>
+                                    <p>Talking to buyers showed that fear of interpretation errors during the handoff represents the biggest barrier to completing an order.</p>
+                                </div>
+                                <div class="research-bento-card-body">
+                                    <div class="research-item">
+                                        <span class="badge insight-badge">Insight 1</span>
+                                        <div class="research-item-content">
+                                            <h4>Fear of Misread Lines</h4>
+                                            <p>Customers want a way to say "this line represents this feature" before their memory is permanently set in silver.</p>
+                                        </div>
+                                    </div>
+                                    <div class="research-item">
+                                        <span class="badge insight-badge">Insight 2</span>
+                                        <div class="research-item-content">
+                                            <h4>Manual Friction Pivot</h4>
+                                            <p>Pre-checkout messaging threads are chaotic, causing buyers to drop off due to delays in getting simple detail clarifications.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Research Synthesis</span>
+                                <h3>Affinity Mapping</h3>
+                                <p>To clarify design goals, I grouped buyer feedback into two key themes: <strong>Translation Anxiety</strong> (fear that a jeweler will mistake a meaningful detail for a smudge or hair scribble) and <strong>Friction Barriers</strong> (drop-offs caused by slow manual review steps). This highlighted that solving the communication gap directly moves the Primary KPI (checkout hesitation).</p>
+                            </div>
+                            <div class="storyboard-image-wrapper">
+                                <img src="images/bearla-story.png" alt="Affinity mapping visual showing translation anxiety and friction clusters" style="border-radius: var(--radius-sm) !important; border: none !important;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="usability-breakdown" style="margin-top: var(--space-5);">
+                        <h3 style="margin-bottom: var(--space-3) !important;">Key User Insights</h3>
+                        <div class="test-insights-grid">
+                            <div class="insight-card">
+                                <span class="insight-badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important;">Insight 1</span>
+                                <h4>Interpretation Anxiety Blocks Purchases</h4>
+                                <p>When ordering a keepsake, users hesitate to commit money because they cannot verify what the jeweler sees on the paper. <em>"She hesitated and asked a lot of questions &mdash; not about price, but because she had no way of knowing what the final piece would look like before committing."</em></p>
+                            </div>
+                            <div class="insight-card">
+                                <span class="insight-badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important;">Insight 2</span>
+                                <h4>Text Alone Fails to Map Details</h4>
+                                <p>Unstructured descriptions in checkout notes fail to capture details. <em>"The bunny is drawn bigger than the girl and the hair is just tangled loops... I had to decide what those marks meant, not her."</em></p>
+                            </div>
+                            <div class="insight-card">
+                                <span class="insight-badge" style="color: var(--accent-bearla) !important; background-color: rgba(107, 31, 42, 0.08) !important;">Insight 3</span>
+                                <h4>Line Isolation Must Happen Fast</h4>
+                                <p>Strangers testing early layouts got stuck right at the photo upload stage, worrying if their sketch was clear. <em>"Strangers testing the initial live site in Calgary got stuck at step 1 because they didn't know what counted as a good enough photo."</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Competitive Review -->
+            <section id="competitors">
+                <div class="inner">
+                    <h2>Competitive Review</h2>
+                    <p>I audited how typical high-volume Etsy sellers handle custom sketch orders. Caitlyn Minimalist and CoraJewelryCrafts are market leaders with established trust, but both rely on disconnected messaging loops that separate payment from custom parameters.</p>
                     
                     <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
                         <!-- Desktop Viewport -->
                         <div class="desktop-only-table" style="width: 100% !important;">
-                            <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Competitors</h3>
-                            <p style="margin-bottom: var(--space-3) !important;">I looked directly at how two real Etsy sellers handle this same handoff &mdash; Caitlyn Minimalist and CoraJewelryCrafts. Both work the same way:</p>
-                            <div class="apple-3col-grid" style="grid-template-columns: repeat(2, 1fr) !important; margin-top: 0 !important;">
+                            <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Etsy Handoff Gaps</h3>
+                            <div class="apple-3col-grid">
                                 <div class="apple-3col-card">
                                     <span class="badge">Competitor 1</span>
                                     <h4>Caitlyn Minimalist</h4>
-                                    <p>Customer picks finish and length, adds to cart, and only after that do they separately send a photo of the drawing through a generic message thread or email.</p>
+                                    <p>Requires selection of standard materials and additions to cart first, then separately requires sending the sketch file inside a generic message thread after order completion.</p>
                                 </div>
                                 <div class="apple-3col-card">
                                     <span class="badge">Competitor 2</span>
                                     <h4>CoraJewelryCrafts</h4>
-                                    <p>Same shape &mdash; choose finish/size, add to cart, and only after that do they separately send a photo of the drawing through a generic message thread or email.</p>
+                                    <p>Uses a similar disconnected flow: checkout is completed with basic dimensions first, and custom artwork is coordinated via manual support threads later.</p>
+                                </div>
+                                <div class="apple-3col-card">
+                                    <span class="badge">Differentiator Gap</span>
+                                    <h4>No Intent Pinning</h4>
+                                    <p>Neither seller provides a method to highlight custom details. This forces users into back-and-forth messaging, driving support overhead.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Mobile Viewport: Styled exactly like 1. Research -->
+                        <!-- Mobile Viewport -->
                         <div class="mobile-only-cards">
                             <div class="mobile-table-card">
-                                <h4>Competitors</h4>
+                                <h4>Etsy Handoff Gaps</h4>
                                 <div class="card-row">
-                                    <span class="label">Etsy Sellers Handoff</span>
-                                    <span class="value">
-                                        <p style="margin-top: 0 !important; margin-bottom: var(--space-2) !important; font-size: var(--fs-small) !important; line-height: 1.45 !important;">I looked directly at how two real Etsy sellers handle this same handoff &mdash; Caitlyn Minimalist and CoraJewelryCrafts. Both work the same way:</p>
-                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Caitlyn Minimalist:</strong> Customer picks finish and length, adds to cart, and only after that do they separately send a photo of the drawing through a generic message thread or an email address.</li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>CoraJewelryCrafts:</strong> Same shape &mdash; choose finish/size, add to cart, and only after that do they separately send a photo of the drawing through a generic message thread or an email address.</li>
-                                        </ul>
-                                    </span>
+                                    <span class="label">Caitlyn Minimalist</span>
+                                    <span class="value">Requires selection of standard materials and additions to cart first, then separately requires sending the sketch file inside a generic message thread after order completion.</span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="label">CoraJewelryCrafts</span>
+                                    <span class="value">Uses a similar disconnected flow: checkout is completed with basic dimensions first, and custom artwork is coordinated via manual support threads later.</span>
+                                </div>
+                                <div class="card-row">
+                                    <span class="label">Interpretation Gap</span>
+                                    <span class="value">Neither seller provides a method to highlight custom details. This forces users into back-and-forth messaging, driving support overhead.</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <p>The drawing itself is treated like an afterthought to the transaction, not part of it. Neither gives a customer any way to point at a specific part of the drawing and say why it matters. That gap &mdash; not camera quality, not upload speed &mdash; is the real thing Bearla is designed against.</p>
+                    
+                    <p style="margin-top: var(--space-4) !important;">This study revealed two clear opportunities: first, no existing platform connects custom artwork parameters directly with checkout steps; second, customers currently have no mechanism to highlight details, leading to high-friction manual message threads. This shaped my goal: build an annotation tool that lets customers highlight drawing details directly in the checkout flow, improving conversion rates (Primary KPI) and reducing manual support overhead (Secondary KPI).</p>
                 </div>
             </section>
 
-            <!-- Section 3: Ideate & User Flow Architecture -->
-            <section id="ideate">
+            <!-- Section 4: Design Solution -->
+            <section id="solution">
                 <div class="inner">
-                    <h2>Ideate &mdash; How Tap-to-Pin Actually Came About</h2>
-                    <p>Tap-to-Pin wasn't the result of comparing multiple structured directions on a whiteboard. It came directly out of talking to people about why they hesitated &mdash; both the strangers who tested the early version at the market and my neighbor, who almost didn't order at all until I asked her what mattered most in her drawing.</p>
-                    
-                    <p>The pattern was the same every time: people weren't afraid of the process being slow. They were afraid that something meaningful to them would be lost in translation &mdash; read as a smudge, a mistake, or just decoration &mdash; with no way to say otherwise before it was too late. Tap-to-Pin is the direct answer to that: a way to let someone mark, in their own hand, which parts of a drawing matter and why, instead of leaving that entirely to my read of it.</p>
+                    <h2>Design Solution</h2>
+                    <p>To bridge the communication gap, I designed a 4-step customization flow centered around a Tap-to-Pin annotation canvas. This lets buyers drop pins directly on their uploaded drawings to label key details before committing to a final purchase, lowering checkout hesitation (Primary KPI).</p>
 
                     <h3>Core 4-Step User Flow</h3>
-                    <p>I structured a simple 4-step flow that leads a customer from uploading a paper drawing to reviewing their final keepsake proof. This guides them through resolving details before making any payment:</p>
+                    <p>I structured a simple 4-step flow that leads a customer from uploading a paper drawing to reviewing their final keepsake proof, resolving details before making any payment:</p>
                     
                     <div style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important; gap: var(--space-2) !important; margin: var(--space-3) 0 var(--space-4) 0 !important;">
                         <!-- Step 01 -->
@@ -187,109 +306,99 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <p style="margin-bottom: var(--space-4) !important;"><em>Why this moves the KPI:</em> Directing users through a structured flow before forcing payment guarantees drawing clarity and builds buying confidence, moving the Primary KPI.</p>
 
                     <h3>Sitemap</h3>
-                    <p>The high-level platform layout establishes a direct path from the homepage to the customization workspace.</p>
+                    <p>The high-level platform layout establishes a direct path from the homepage to the customization workspace. <em>Why this moves the KPI:</em> Consolidating pages and pathways makes it easy to complete custom orders, minimizing navigation loops.</p>
                     
-                    <div class="image main">
+                    <div class="image main" style="margin-bottom: var(--space-4) !important;">
                         <img src="images/BearlaSitemap.png" alt="Bearla High-Level Information Architecture Sitemap" />
                     </div>
 
-                </div>
-            </section>
-
-            <!-- Section 4: Prototype -->
-            <section id="prototype">
-                <div class="inner">
-                    <h2>High-Fidelity Prototype</h2>
-                    <p>I built an interactive prototype in Figma to verify how layout shifts work across mobile and desktop sizes:</p>
+                    <h3>Interactive Prototype &amp; Blueprints</h3>
+                    <p>I built interactive prototypes to test usability on different screens, checking that the system remains accessible and intuitive. <em>Why this moves the KPI:</em> Responsive previews build purchase trust, directly improving conversion rates.</p>
                     
-                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
-                        <!-- Desktop Viewport -->
-                        <div class="desktop-only-table">
-                            <ul class="differentiators-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
-                                <li><strong>Mobile Touch Targets:</strong> All buttons and interactive elements are sized at least 48px to make them easy to tap on smaller screens.</li>
-                                <li><strong>Desktop Split Panel:</strong> On larger screens, the viewport splits to show the preview panel and note workspace side-by-side.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Mobile Viewport: Styled exactly like 1. Research -->
-                        <div class="mobile-only-cards">
-                            <div class="mobile-table-card">
-                                <h4>Prototype Features</h4>
-                                <div class="card-row">
-                                    <span class="value">
-                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Mobile Touch Targets:</strong> All buttons and interactive elements are sized at least 48px to make them easy to tap on smaller screens.</li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Desktop Split Panel:</strong> On larger screens, the viewport splits to show the preview panel and note workspace side-by-side.</li>
-                                        </ul>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="image main">
                         <img src="images/bearla-thumbnail-web.png" alt="Bearla High-Fidelity Responsive Prototype Overview" />
                     </div>
-                    <div style="display: flex !important; gap: var(--space-3) !important; margin-top: var(--space-3) !important; flex-wrap: wrap !important;">
+                    <div style="display: flex !important; gap: var(--space-3) !important; margin-top: var(--space-3) !important; flex-wrap: wrap !important; margin-bottom: var(--space-5) !important;">
                         <a href="https://www.figma.com/proto/T6VbncYAJlXKyV99MUCrye/Bearla?node-id=446-2004&amp;t=VROooRyNGpqCKZmf-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=430%3A1391" target="_blank" rel="noopener noreferrer" class="button">View Lo-Fi Prototype</a>
                         <a href="https://www.figma.com/proto/T6VbncYAJlXKyV99MUCrye/Bearla?node-id=458-2175&amp;t=OIZ3PE6VaT9NT7yw-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=434%3A1393&amp;starting-point-node-id=458%3A2175" target="_blank" rel="noopener noreferrer" class="button">View Hi-Fi Prototype</a>
                     </div>
-                </div>
-            </section>
 
-            <!-- Section 5: System Logic: Powering the Intent Canvas -->
-            <section id="systems">
-                <div class="inner">
-                    <h2>How the Design Works Behind the Scenes</h2>
-                    <p>Building a mobile-first annotation tool required clear interface constraints to prevent mistakes and make sure drawings are manufactured accurately:</p>
+                    <h3>System Logic Constraints</h3>
+                    <p>Building a mobile-first annotation tool required clear interface constraints to prevent mistakes and ensure bench jewellers see exactly where annotations lie:</p>
                     
-                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
+                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important; margin-bottom: var(--space-4) !important;">
                         <!-- Desktop Viewport -->
                         <div class="desktop-only-table">
                             <ul class="differentiators-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
-                                <li>
-                                    <strong>Image Cropping Boundaries:</strong> To make sure coordinates function accurately, the interface forces the user to crop and isolate a single drawing from the page immediately after uploading it. This stops notes from being placed on background shadows or nearby drawings.
-                                </li>
-                                <li>
-                                    <strong>Mobile Touch Target Sizes:</strong> Annotating a drawing is simple on desktop, but difficult on small screens. I set a minimum 48px touch target size for dropping pins, and used a slide-up panel for text entry so the phone's keyboard doesn't cover the drawing while typing.
-                                </li>
-                                <li>
-                                    <strong>Linking Notes to Manufacturing Data:</strong> The custom notes aren't just display text; the system saves each pin's coordinates directly with the cropped drawing file. This data is carried through the cart and checkout stages, so the bench jeweler sees exactly where the customer added instructions.
-                                </li>
+                                <li><strong>Image Cropping Boundaries:</strong> The interface forces users to crop and isolate a single drawing immediately after upload. This prevents notes from being placed on page backgrounds. <em>Saves support overhead (Secondary KPI).</em></li>
+                                <li><strong>Mobile Touch Target Sizing:</strong> Set minimum 48px touch targets for dropping pins, and used slide-up entry panels so the keyboard doesn't cover sketches. <em>Lowers upload drop-offs (Primary KPI).</em></li>
+                                <li><strong>Linking Notes to Manufacturing Data:</strong> The coordinates are saved directly with the drawing file, showing bench jewellers exactly where instructions apply. <em>Eliminates manual alignment check queries (Secondary KPI).</em></li>
                             </ul>
                         </div>
 
-                        <!-- Mobile Viewport: Styled exactly like 1. Research -->
+                        <!-- Mobile Viewport -->
                         <div class="mobile-only-cards">
                             <div class="mobile-table-card">
                                 <h4>System Constraints</h4>
                                 <div class="card-row">
                                     <span class="value">
                                         <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Image Cropping Boundaries:</strong> To make sure coordinates function accurately, the interface forces the user to crop and isolate a single drawing from the page immediately after uploading it. This stops notes from being placed on background shadows or nearby drawings.</li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Mobile Touch Target Sizes:</strong> Annotating a drawing is simple on desktop, but difficult on small screens. I set a minimum 48px touch target size for dropping pins, and used a slide-up panel for text entry so the phone's keyboard doesn't cover the drawing while typing.</li>
-                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Linking Notes to Manufacturing Data:</strong> The custom notes aren't just display text; the system saves each pin's coordinates directly with the cropped drawing file. This data is carried through the cart and checkout stages, so the bench jeweler sees exactly where the customer added instructions.</li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Image Cropping Boundaries:</strong> Isolates a single drawing. <em>Reduces support queries.</em></li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Mobile Touch Target Sizing:</strong> Sized touch targets at 48px to improve mobile annotations. <em>Reduces checkout drop-offs.</em></li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Linking Notes to Manufacturing Data:</strong> Saves coordinates with sketches. <em>Reduces manual checks.</em></li>
                                         </ul>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <h3>Testing and Usability Iterations</h3>
+                    <p>I built the initial 3-step checkout version as a live, working site and tested it in Calgary at Carya Market with 10 to 12 strangers to see where they hesitated in person. This helped me transition from wireframes to high-fidelity layouts.</p>
+                    
+                    <div class="split-columns-grid" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-4) !important; gap: var(--space-5) !important;">
+                        <div class="left-column">
+                            <h3 style="margin-top: 0 !important;">V1: The 3-Step Flow</h3>
+                            <div class="image-container" style="margin-bottom: var(--space-2) !important;">
+                                <img src="images/bearla-v01.gif" alt="Bearla V1 3-Step Fast Checkout flow showing rapid path to payment" style="width: 100% !important; border-radius: var(--radius-sm) !important; border: none !important;" />
+                                <p class="case-study-caption" style="margin: var(--space-1) 0 0 0 !important; font-style: italic !important;">First try: A simple flow where users upload a photo, choose the metal type, and pay.</p>
+                            </div>
+                            <p style="margin-bottom: var(--space-2) !important;">I first tried a fast 3-step checkout: uploading a photo, choosing a material, and checking out. I assumed fewer steps would lead to faster purchases.</p>
+                            <div style="border-top: 1px dashed var(--apple-border) !important; padding-top: var(--space-2) !important; margin-top: var(--space-2) !important;">
+                                <strong class="persona-type-label" style="display: block !important; margin-bottom: var(--space-1) !important;">What broke:</strong>
+                                <p style="margin-bottom: var(--space-2) !important;">People hesitated right at the photo step. They weren't sure what counted as a good enough photo, and were afraid something meaningful to them would just look like a smudge once I had it.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="right-column" style="border: 1.5px solid var(--accent-bearla) !important; box-shadow: var(--shadow-md) !important;">
+                            <h3 style="margin-top: 0 !important;">V2: The 4-Step Intent Flow</h3>
+                            <div class="image-container" style="margin-bottom: var(--space-2) !important;">
+                                <img src="images/bearla-v02.gif" alt="Bearla V2 4-Step Intent Flow showing Tap-to-Pin annotation interface" style="width: 100% !important; border-radius: var(--radius-sm) !important; border: none !important;" />
+                                <p class="case-study-caption" style="margin: var(--space-1) 0 0 0 !important; font-style: italic !important;">Second try: Adding the Tap-to-Pin annotation step to resolve ambiguity before paying.</p>
+                            </div>
+                            <p style="margin-bottom: var(--space-2) !important;">Based on what I observed, I added the Tap-to-Pin annotation step. Customers pin specific notes directly onto their drawing, converting a manual conversation into a clear step in the checkout flow.</p>
+                            <div style="border-top: 1px dashed var(--apple-border) !important; padding-top: var(--space-2) !important; margin-top: var(--space-2) !important;">
+                                <strong class="persona-type-label" style="display: block !important; margin-bottom: var(--space-1) !important; color: var(--accent-bearla) !important;">What I learned:</strong>
+                                <p style="margin: 0 !important;">Adding a step increased interaction effort, but it removed the psychological worry that kept people from ordering. Letting customers explain their sketch built the confidence needed to complete checkout, directly improving the Primary KPI.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Section 6: Design System & Brand Foundations -->
+            <!-- Section 5: Design System & Accessibility -->
             <section id="design-system">
                 <div class="inner">
-                    <h2>Design System &amp; Brand Foundations</h2>
-                    <p>Heirloom keepsakes cast from a child's drawing. A clean, Apple-inspired layout utilizing a linen-beige background and high-contrast typography, styled with the system font stack.</p>
+                    <h2>Design System &amp; Accessibility</h2>
+                    <p>Heirloom keepsakes cast from a child's drawing. A clean layout utilizing a linen-beige background and high-contrast typography, styled with the system font stack.</p>
 
-                    <!-- 01 COLOR -->
-                    <div class="block" style="margin-top: var(--space-4) !important;">
-                        <div class="block-head"><span class="block-num">01</span><h3 class="block-title">Color</h3></div>
-                        
+                    <!-- COLOR -->
+                    <div class="block" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-5) !important;">
+                        <div class="block-head"><span class="block-num">01</span><h3 class="block-title">Color Palette</h3></div>
                         <div class="swatch-grid">
                             <div class="swatch">
                                 <div class="swatch-fill" style="background:#F4EEE5 !important;"></div>
@@ -324,62 +433,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div style="margin-top: var(--space-5) !important; text-align: center !important;">
-                        <a href="bearla-design-system.html" class="button">View Full Design System</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="validation">
-                <div class="inner">
-                    <h2>Testing with Real Customers</h2>
-                    <p><strong>Methodology:</strong> I built the initial 3-step version as a live, working site and tested it in person with roughly 10 to 12 real strangers at Carya Market in Calgary &mdash; actual potential customers approached in the real world.</p>
-                    
-                    <div class="split-columns-grid" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-4) !important; gap: var(--space-5) !important;">
-                        <div class="left-column">
-                            <h3 style="margin-top: 0 !important;">V1: The 3-Step Flow</h3>
-                            
-                            <div class="image-container" style="margin-bottom: var(--space-2) !important;">
-                                <img src="images/bearla-v01.gif" alt="Bearla V1 3-Step Fast Checkout flow showing rapid path to payment" style="width: 100% !important; border-radius: var(--radius-sm) !important; border: none !important;" />
-                                <p class="case-study-caption" style="margin: var(--space-1) 0 0 0 !important; font-style: italic !important;">First try: A simple flow where users upload a photo, choose the metal type, and pay.</p>
-                            </div>
-
-                            <p style="margin-bottom: var(--space-2) !important;">I first tried a fast 3-step checkout: uploading a photo, choosing a material, and checking out. I assumed that fewer steps would mean less friction and a faster path to purchase.</p>
-                            
-                            <div style="border-top: 1px dashed var(--apple-border) !important; padding-top: var(--space-2) !important; margin-top: var(--space-2) !important;">
-                                <strong class="persona-type-label" style="display: block !important; margin-bottom: var(--space-1) !important;">What broke:</strong>
-                                <p style="margin-bottom: var(--space-2) !important;">People hesitated right at the photo step. They weren't sure what counted as a good enough photo, and more specifically, they were afraid something that mattered to them would just look like a smudge or a mistake once I had it.</p>
-                                <p style="margin: 0 !important;">That fear showed up again separately with a neighbor of mine, an existing customer, who wanted a piece made for her niece's graduation. She hesitated and asked a lot of questions &mdash; not about price, but because she had no way of knowing what the final piece would actually look like before committing to a non-refundable order. She only moved forward once I asked her directly what mattered most and what she wanted the piece to convey.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="right-column" style="border: 1.5px solid var(--accent-bearla) !important; box-shadow: var(--shadow-md) !important;">
-                            <h3 style="margin-top: 0 !important;">V2: The 4-Step Intent Flow</h3>
-                            
-                            <div class="image-container" style="margin-bottom: var(--space-2) !important;">
-                                <img src="images/bearla-v02.gif" alt="Bearla V2 4-Step Intent Flow showing Tap-to-Pin annotation interface" style="width: 100% !important; border-radius: var(--radius-sm) !important; border: none !important;" />
-                                <p class="case-study-caption" style="margin: var(--space-1) 0 0 0 !important; font-style: italic !important;">Second try: Adding the Tap-to-Pin annotation step to resolve ambiguity before paying.</p>
-                            </div>
-
-                            <p style="margin-bottom: var(--space-2) !important;">Based on what I observed, I changed the design by adding the Tap-to-Pin annotation step. Customers pin specific notes directly onto their drawing, converting a manual conversation into a clear step in the checkout flow. It's the same thing I was already doing by hand on real Golaab orders, turned into an actual step in the flow instead of something that only happened if I remembered to ask.</p>
-                            
-                            <div style="border-top: 1px dashed var(--apple-border) !important; padding-top: var(--space-2) !important; margin-top: var(--space-2) !important;">
-                                <strong class="persona-type-label" style="display: block !important; margin-bottom: var(--space-1) !important; color: var(--accent-bearla) !important;">What I learned:</strong>
-                                <p style="margin: 0 !important;">Adding a step increased the interaction effort, but it removed the psychological worry that kept people from ordering. Letting customers explain their sketch in their own words built enough confidence to complete the order.</p>
-                            </div>
+                        <div style="margin-top: var(--space-4) !important; text-align: center !important;">
+                            <a href="bearla-design-system.html" class="button">View Full Design System</a>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- Section 8: Accessibility & Reflections -->
-            <section id="accessibility">
-                <div class="inner">
-                    <h2>Accessibility &amp; Reflections</h2>
-                    <p style="margin-bottom: var(--space-4) !important;">To make sure the site works for every customer, I focused on accessibility and key product strategies:</p>
-                    
+                    <!-- Accessibility Bento Grid -->
+                    <h3 style="margin-top: var(--space-4) !important; margin-bottom: var(--space-2) !important;">Inclusive Design &amp; Reflections</h3>
                     <div class="accessibility-bento-grid">
                         <!-- Card 1: Features -->
                         <div class="accessibility-card feature-card">
@@ -398,34 +458,34 @@
                 </div>
             </section>
 
-            <!-- Section 9: Next Steps -->
+            <!-- Section 6: Next Steps -->
             <section id="next-steps" style="border: none !important; padding-top: var(--space-5); margin-top: var(--space-5);">
                 <div class="inner">
-                        <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
-                            <!-- Desktop Viewport -->
-                            <div class="desktop-only-table">
-                                <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Next Steps</h3>
-                                <ul class="challenge-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
-                                    <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
-                                    <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
-                                </ul>
-                            </div>
+                    <div class="inner-block-card" style="border: none !important; padding: 0 !important; background-color: transparent !important; margin-top: var(--space-4) !important;">
+                        <!-- Desktop Viewport -->
+                        <div class="desktop-only-table">
+                            <h3 style="margin-top: 0 !important; margin-bottom: var(--space-2) !important;">Next Steps</h3>
+                            <ul class="challenge-list" style="margin-bottom: 0 !important; padding-left: var(--space-2); margin-left: 0;">
+                                <li><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
+                                <li><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
+                            </ul>
+                        </div>
 
-                            <!-- Mobile Viewport: Styled exactly like 1. Research -->
-                            <div class="mobile-only-cards">
-                                <div class="mobile-table-card">
-                                    <h4>Next Steps</h4>
-                                    <div class="card-row">
-                                        <span class="value">
-                                            <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
-                                                <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
-                                                <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
-                                            </ul>
-                                        </span>
-                                    </div>
+                        <!-- Mobile Viewport -->
+                        <div class="mobile-only-cards">
+                            <div class="mobile-table-card">
+                                <h4>Next Steps</h4>
+                                <div class="card-row">
+                                    <span class="value">
+                                        <ul style="margin: 0; padding-left: var(--space-3); list-style-type: disc;">
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: var(--space-1);"><strong>Usability Testing:</strong> Run a second round of usability testing on the 4-step flow with a larger sample (10+) to confirm the friction pivot holds at scale.</li>
+                                            <li style="font-size: var(--fs-small) !important; margin-bottom: 0;"><strong>Preview-Sharing Feature:</strong> Explore a lightweight preview-sharing feature so buyers can send the intent-tagged proof to family before finalizing the order.</li>
+                                        </ul>
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </section>
 
@@ -468,9 +528,9 @@
                     let targetId = activeId;
                     
                     if (activeId === 'hero-section') {
-                        targetId = 'empathize';
+                        targetId = 'overview';
                     } else if (activeId === 'next-steps') {
-                        targetId = 'accessibility';
+                        targetId = 'design-system';
                     }
                     
                     const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
@@ -482,7 +542,7 @@
             });
         }, observerOptions);
 
-        ['hero-section', 'empathize', 'define', 'ideate', 'prototype', 'systems', 'validation', 'accessibility', 'next-steps'].forEach(id => {
+        ['hero-section', 'overview', 'research', 'competitors', 'solution', 'design-system', 'next-steps'].forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
