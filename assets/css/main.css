@@ -9969,3 +9969,21 @@ body.home-page .hero-card-layout,
 .bearla-page .apple-3col-card.selected-step:hover {
     box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
 }
+
+.bearla-page .test-insights-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-4) !important;
+    grid-template-columns: none !important;
+}
+
+.bearla-page .insight-card {
+    background: #fcfcfd !important;
+    border: 2px solid var(--accent-bearla) !important;
+    box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
+}
+
+.bearla-page .insight-card:hover {
+    transform: none !important;
+    box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
+}
