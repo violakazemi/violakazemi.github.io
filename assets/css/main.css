@@ -9927,3 +9927,45 @@ body.home-page .hero-card-layout,
     color: #ffffff !important;
     box-shadow: 0 0 12px rgba(0, 255, 136, 0.2) !important;
 }
+
+/* Bearla Maroon Bento Highlight Overrides */
+.bearla-page .accessibility-card.feature-card {
+    border: 2px solid var(--accent-bearla) !important;
+    box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
+}
+
+.bearla-page .accessibility-card.feature-card:hover {
+    box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
+}
+
+.bearla-page .accessibility-card.feature-card span.badge {
+    color: var(--accent-bearla) !important;
+    background-color: rgba(107, 31, 42, 0.08) !important;
+}
+
+.bearla-page .research-bento-card.selected {
+    border: 2px solid var(--accent-bearla) !important;
+    box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
+}
+
+.bearla-page .research-bento-card.selected:hover {
+    box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
+}
+
+.bearla-page .research-bento-card.selected .research-bento-card-header {
+    background: rgba(107, 31, 42, 0.02) !important;
+}
+
+.bearla-page .research-bento-card.selected span.badge {
+    color: var(--accent-bearla) !important;
+    background-color: rgba(107, 31, 42, 0.08) !important;
+}
+
+.bearla-page .research-item span.badge.insight-badge {
+    color: var(--accent-bearla) !important;
+    background-color: rgba(107, 31, 42, 0.08) !important;
+}
+
+.bearla-page .apple-3col-card.selected-step:hover {
+    box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
+}
