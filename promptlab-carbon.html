@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Designing Inside Carbon: Prompt Lab Compare View - Viola</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" href="assets/css/main.css?v=17.92" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    
+    <style>
+        /* Dark Theme overrides for Prompt Lab Spec Page */
+        body.promptlab-page {
+            --bg-color: #000000 !important;
+            background-color: #09090b !important;
+            color: #f4f4f5 !important;
+        }
+        
+        .promptlab-page #wrapper {
+            background-color: #09090b !important;
+        }
+        
+        body.promptlab-page #header {
+            background-color: rgba(15, 98, 254, 0.06) !important;
+            border-bottom: 1px solid rgba(15, 98, 254, 0.1) !important;
+            backdrop-filter: blur(20px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        }
+        
+        .promptlab-page #header .logo strong {
+            color: #0f62fe !important;
+        }
+        
+        .promptlab-page #header .logo span {
+            color: #ffffff !important;
+            opacity: 0.8 !important;
+        }
+        
+        .promptlab-page #header nav a {
+            color: #0f62fe !important;
+            border-color: #0f62fe !important;
+            background-color: rgba(15, 98, 254, 0.05) !important;
+        }
+        
+        .promptlab-page #header nav a:hover {
+            background-color: rgba(15, 98, 254, 0.15) !important;
+            border-color: #0f62fe !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(15, 98, 254, 0.3) !important;
+        }
+        
+        .promptlab-page h1, 
+        .promptlab-page h2, 
+        .promptlab-page h3, 
+        .promptlab-page h4 {
+            color: #ffffff !important;
+        }
+        
+        .promptlab-page p {
+            color: #a1a1aa !important;
+        }
+        
+        /* Nav Container */
+        .promptlab-page .nav-container {
+            background: rgba(20, 20, 25, 0.6) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .promptlab-page .nav-segment {
+            color: #a1a1aa !important;
+        }
+        
+        .promptlab-page .nav-segment.active {
+            color: #0f62fe !important;
+            background: rgba(15, 98, 254, 0.08) !important;
+        }
+        
+        /* Hero Section Card */
+        .promptlab-page .promptlab-hero {
+            background: rgba(20, 20, 25, 0.6) !important;
+            border: 2px solid rgba(15, 98, 254, 0.15) !important;
+            box-shadow: 0 4px 30px rgba(15, 98, 254, 0.04) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .promptlab-page .metadata-item {
+            background-color: rgba(15, 98, 254, 0.06) !important;
+            border: 1px solid rgba(15, 98, 254, 0.15) !important;
+        }
+        
+        .promptlab-page .metadata-item .label {
+            color: #0f62fe !important;
+        }
+        
+        .promptlab-page .metadata-item .value {
+            color: #ffffff !important;
+        }
+        
+        /* Section Containers */
+        .promptlab-page section {
+            background-color: #09090b !important;
+            border-top: 1px solid rgba(15, 98, 254, 0.1) !important;
+        }
+        
+        /* Entire Hero Section Styling */
+        body.promptlab-page #hero-section {
+            border: 2px solid #0f62fe !important;
+            border-radius: var(--radius-md) !important;
+            box-shadow: 0 4px 30px rgba(15, 98, 254, 0.08) !important;
+            background-color: #09090b !important;
+            margin: var(--space-4) auto !important;
+            overflow: hidden !important;
+        }
+        
+        .promptlab-page .hero-visual-block img {
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
+        
+        /* Bento Cards */
+        .promptlab-page .storyboard-card {
+            background: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .promptlab-page .storyboard-card.selected {
+            background: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #0f62fe !important;
+            box-shadow: 0 4px 30px rgba(15, 98, 254, 0.08) !important;
+        }
+        
+        .promptlab-page .storyboard-card-header {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        .promptlab-page .storyboard-card.selected .storyboard-card-header {
+            background: rgba(15, 98, 254, 0.02) !important;
+        }
+        
+        .promptlab-page .storyboard-card span.badge {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #a1a1aa !important;
+        }
+        
+        .promptlab-page .storyboard-card.selected span.badge {
+            color: #0f62fe !important;
+            background-color: rgba(15, 98, 254, 0.08) !important;
+        }
+        
+        .promptlab-page .storyboard-image-wrapper {
+            background: #020202 !important;
+        }
+        
+        /* Hover Effects overrides for Dark Theme */
+        .promptlab-page .storyboard-card:hover {
+            transform: scale(1.008) translateY(-3px) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .promptlab-page .storyboard-card.selected:hover {
+            box-shadow: 0 12px 30px rgba(15, 98, 254, 0.15) !important;
+        }
+        
+        /* White text overrides for accessibility & visibility in Dark Theme */
+        .promptlab-page strong,
+        .promptlab-page b {
+            color: #ffffff !important;
+        }
+        
+        .promptlab-page .storyboard-card p,
+        .promptlab-page .storyboard-card-header p,
+        .promptlab-page .storyboard-image-wrapper p {
+            color: #a1a1aa !important;
+        }
+        
+        .promptlab-page .storyboard-card h3,
+        .promptlab-page .storyboard-card h4 {
+            color: #ffffff !important;
+        }
+        
+        /* Split layout elements */
+        .promptlab-page .apple-3col-card {
+            background-color: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        .promptlab-page .apple-3col-card.selected-step {
+            background-color: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #0f62fe !important;
+            box-shadow: 0 4px 30px rgba(15, 98, 254, 0.08) !important;
+        }
+        
+        .promptlab-page .apple-3col-card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+        }
+    </style>
+</head>
+
+<body class="is-preload promptlab-page">
+    
+    <div id="wrapper">
+
+        <!-- Core Top Navigation -->
+        <header id="header">
+            <a href="index.html" class="logo">
+                <strong class="logo-text-desktop">IBM watsonx</strong>
+                <span class="logo-sub-desktop">Design Proposal</span>
+                <strong class="logo-text-mobile">watsonx</strong>
+            </a>
+            <nav>
+                <a href="index.html" class="button">Back to Home</a>
+            </nav>
+        </header>
+
+        <!-- Fixed Local Sub-Navigation Bar -->
+        <nav class="nav-container" id="nav-container">
+            <a href="#overview" class="nav-segment active" id="seg-overview" title="Concept Overview">1. Concept Overview</a>
+            <a href="#problem" class="nav-segment" id="seg-problem" title="The Problem">2. The Problem</a>
+            <a href="#solution" class="nav-segment" id="seg-solution" title="Proposed Solution">3. Proposed Solution</a>
+            <a href="#synergy" class="nav-segment" id="seg-synergy" title="System Alignment">4. System Alignment</a>
+        </nav>
+
+        <div id="main" class="alt">
+            
+            <!-- Step 0: Hero & Proposal Overview -->
+            <section id="hero-section" class="promptlab-hero">
+                <div class="hero-inner">
+                    <!-- Title & Executive Summary -->
+                    <div class="hero-text-block">
+                        <div class="logo-wrapper">
+                            <h1 class="hero-title" style="font-size: var(--fs-h1) !important; line-height: 1.1 !important;">Prompt Lab Compare View</h1>
+                        </div>
+                        <p style="margin-top: var(--space-2) !important; font-size: var(--fs-body) !important; color: #a1a1aa !important;">An enterprise proposal to enable side-by-side prompt and model iterations, built entirely within the constraints of the IBM Carbon Design System.</p>
+
+                        <!-- Desktop Viewport -->
+                        <div class="metadata-grid">
+                            <div class="metadata-item">
+                                <span class="label">Scope</span>
+                                <span class="value">UI Concept Specs</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">System</span>
+                                <span class="value">Carbon v11</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Focus</span>
+                                <span class="value">AI Playground UX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Showcase Placeholder -->
+                    <div class="hero-visual-block" style="background: #161616 !important; min-height: 280px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md);">
+                        <p style="color: #a1a1aa !important; font-family: monospace; font-size: var(--fs-small);">[Fig. 01: Side-by-Side Compare Workspace Mockup Pending]</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Overview -->
+            <section id="overview">
+                <div class="inner">
+                    <h2>Concept Overview</h2>
+                    <p>IBM watsonx Prompt Lab is an enterprise playground for engineering, testing, and refining model prompts. This proposal introduces a side-by-side <strong>Compare View</strong> that lets users run and compare multiple variations of prompts, models, and parameters concurrently in a single dashboard layout.</p>
+                    
+                    <p>To ensure high compliance and seamless integration, the entire concept is built utilizing strict Carbon Design System constraints, serving as an exercise in extending IBM's corporate UI language. <em>This is a self-directed design proposal, not an IBM-commissioned project.</em></p>
+                </div>
+            </section>
+
+            <!-- Section 2: The Problem -->
+            <section id="problem">
+                <div class="inner">
+                    <h2>The Problem</h2>
+                    <p>Based on reasoned observation of watsonx Prompt Lab, the current layout restricts testing to a single active editor workspace. Users can only test one prompt variation, one LLM model, and one set of parameters (such as temperature or token limits) at a time.</p>
+                    
+                    <p>To compare results across 2 or 3 models or prompt adjustments, users must perform a manual mental-note workflow: edit the prompt, run the test, record the output token counts and responses, select a different model, overwrite the prompt, and run it again. This manual repetition increases friction for a tool whose core enterprise purpose is iterative experimentation.</p>
+                </div>
+            </section>
+
+            <!-- Section 3: Proposed Solution -->
+            <section id="solution">
+                <div class="inner">
+                    <h2>Proposed Solution: Compare View</h2>
+                    <p>We propose a tabbed comparing framework that splits the single workspace canvas into a responsive grid. This allows users to execute concurrent prompts and compare outcomes side-by-side.</p>
+                    
+                    <div class="apple-3col-grid" style="grid-template-columns: repeat(3, 1fr) !important; margin-top: var(--space-4) !important;">
+                        <!-- Step 1 -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 1</span>
+                            <h4>Compare Toggles</h4>
+                            <p>Switches the single editor panel into 2 or 3 side-by-side pane editors mapped cleanly onto a responsive Carbon 16-Column Grid.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 2</span>
+                            <h4>Independent Panes</h4>
+                            <p>Each pane houses its own prompt text editor, filterable dropdown model selector, and collapsible parameters side panel.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 3</span>
+                            <h4>Unified Run Trigger</h4>
+                            <p>A single "Run All" action runs all workspace inputs concurrently to guarantee a synchronous performance and latency benchmark.</p>
+                        </div>
+                    </div>
+
+                    <div class="apple-3col-grid" style="grid-template-columns: repeat(2, 1fr) !important; margin-top: var(--space-3) !important;">
+                        <!-- Step 4 -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 4</span>
+                            <h4>Inline Output Rows</h4>
+                            <p>Renders generated text output, execution times, and calculated token consumption directly beneath each pane without extra hover details.</p>
+                        </div>
+                        <!-- Step 5 -->
+                        <div class="apple-3col-card">
+                            <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 5</span>
+                            <h4>Select &amp; Continue</h4>
+                            <p>A simple check action lets users select the best performing variation, collapsing the workspace back to single editor mode with the chosen prompt preloaded.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: System Alignment -->
+            <section id="synergy">
+                <div class="inner">
+                    <h2>System Alignment &amp; Value</h2>
+                    <p>Proposing new interfaces within enterprise environments requires careful alignment with existing component libraries rather than creating custom visual patterns. This concept is built using standard Carbon components:</p>
+                    
+                    <div style="margin-top: var(--space-4) !important; margin-bottom: var(--space-5) !important;">
+                        <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-3);">
+                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
+                                <strong>Grid:</strong> Manages responsive 2-column or 3-column layouts across desktop screen sizes.
+                            </li>
+                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
+                                <strong>Tabs:</strong> Switches viewports from single editor workspaces to structured comparison panels.
+                            </li>
+                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
+                                <strong>Data Table:</strong> Formats inline output comparisons, execution latency, and token consumption metrics.
+                            </li>
+                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
+                                <strong>Side Panel:</strong> Slides open to configure temperature, stop sequences, and top-p limits on a per-pane basis.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3>enterprise design systems &amp; data-dense UI</h3>
+                    <p>Designing inside a strict, pre-defined design system without breaking its corporate guidelines is a different skill from building freeform apps. Enterprise interfaces require high data-density and strict consistency across desktop dashboards, terminal outputs, and system settings.</p>
+                    
+                    <p>This design exercise demonstrates my ability to tackle complex, information-dense layouts within constrained design parameters &mdash; exactly the kind of systems challenges faced when building scalable fintech dashboards and multi-surface applications for companies like Indigo.</p>
+                </div>
+            </section>
+
+            <!-- Bottom Navigation -->
+            <section id="bottom-nav" style="background: none !important; box-shadow: none !important; border: none !important; margin-top: var(--space-5) !important; margin-bottom: var(--space-6) !important;">
+                <div class="inner" style="display: flex !important; justify-content: space-between !important; align-items: center !important; gap: var(--space-2) !important;">
+                    <a href="tomaan.html" class="case-study-nav-btn">&larr; Previous Concept</a>
+                    <span class="case-study-nav-btn disabled" style="opacity: 0.5; cursor: not-allowed;">Next Project &rarr;</span>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px", 
+            threshold: 0 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-segment').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    const activeId = entry.target.id;
+                    let targetId = activeId;
+                    
+                    if (activeId === 'hero-section') {
+                        targetId = 'overview';
+                    }
+                    
+                    const activeLink = document.querySelector(`.nav-segment[href="#${targetId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        ['hero-section', 'overview', 'problem', 'solution', 'synergy'].forEach(id => {
+            const section = document.getElementById(id);
+            if (section) observer.observe(section);
+        });
+    });
+    </script>
+</body>
+</html>
