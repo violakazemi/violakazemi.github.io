@@ -6612,7 +6612,7 @@ body.bearla-page,
     border: none !important;
 }
 
-.bearla-page #main section {
+.bearla-page #main section[id]:not(#hero-section):not(#bottom-nav) {
     background-color: #ffffff !important; /* Pure White Surface */
     border-radius: var(--radius-md) !important; /* Smooth Apple rounded corners */
     box-shadow: var(--shadow-sm) !important;
@@ -7122,7 +7122,7 @@ body.bearla-page,
 
     .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
-    .bearla-page #main section {
+    .bearla-page #main section[id]:not(#hero-section):not(#bottom-nav) {
         padding: var(--space-3) !important; /* 24px mobile padding */
         margin: var(--space-5) auto !important; /* 48px mobile margin */
         border-radius: var(--radius-md) !important; /* 18px radius */
@@ -7219,7 +7219,7 @@ body.bearla-page,
     }
     .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
-    .bearla-page #main section {
+    .bearla-page #main section[id]:not(#hero-section):not(#bottom-nav) {
         width: calc(100% - 24px) !important;
         max-width: calc(100% - 24px) !important;
         margin: var(--space-3) auto !important; /* 24px margin */
