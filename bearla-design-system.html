@@ -323,13 +323,64 @@
     <p class="doc-sub">Heirloom keepsakes cast from a child's drawing. A warm, editorial, jewelry-box aesthetic — cream & maroon, serif elegance, restrained gold detail.</p>
   </div>
 
-  <!-- 01 BRAND VISUAL STYLE SHEET -->
-  <section class="block" style="text-align: center !important;">
-    <div class="block-head"><span class="block-num">01</span><h2 class="block-title">Visual Identity &amp; UI Style Sheet</h2></div>
-    <p class="block-desc">A unified visual library showcasing our typography scale, form components, button behaviors, and the core cream and maroon color swatch system used across the Bearla application.</p>
-    <div class="image main" style="margin-top: var(--space-4) !important; max-width: 100% !important; border-radius: var(--radius-md) !important; overflow: hidden !important; border: 1px solid var(--color-border) !important;">
-      <img src="images/BearlaStyleSheet.png" alt="Bearla Custom UI Design System Style Sheet" style="width: 100% !important; display: block !important;" />
+  <!-- 01 COLOR -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">01</span><h2 class="block-title">Color</h2></div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream)"></div><div class="swatch-meta"><div class="swatch-name">Cream <span style="color:var(--color-taupe-light)">— Dawn Pink</span></div><div class="swatch-hex">#F4EEE5</div><div class="swatch-use">Page background</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-cream-light)"></div><div class="swatch-meta"><div class="swatch-name">Cream Light <span style="color:var(--color-taupe-light)">— Merino</span></div><div class="swatch-hex">#F9F6F0</div><div class="swatch-use">Nav bar, lightest surface</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-parchment)"></div><div class="swatch-meta"><div class="swatch-name">Parchment</div><div class="swatch-hex">#EEE5D0</div><div class="swatch-use">Hairline borders, alt surface</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-maroon)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Maroon <span style="color:rgba(255,255,255,.6)">— Crown of Thorns</span></div><div class="swatch-hex">#621D26</div><div class="swatch-use">Primary CTA, headline accent</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-maroon-deep)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Maroon Deep</div><div class="swatch-hex">#4E161D</div><div class="swatch-use">Hover / active state</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-espresso)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Espresso <span style="color:rgba(255,255,255,.6)">— Coffee Bean</span></div><div class="swatch-hex">#281712</div><div class="swatch-use">Footer background</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-gold)"></div><div class="swatch-meta"><div class="swatch-name">Gold <span style="color:var(--color-taupe-light)">— Tussock</span></div><div class="swatch-hex">#B18A3D</div><div class="swatch-use">Metallic accent, rings, stars</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-gold-bright)"></div><div class="swatch-meta"><div class="swatch-name">Gold Bright <span style="color:var(--color-taupe-light)">— Pizza</span></div><div class="swatch-hex">#D09727</div><div class="swatch-use">Live-preview fill, high-emphasis gold</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-ink)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Ink / Taupe <span style="color:rgba(255,255,255,.6)">— Coffee</span></div><div class="swatch-hex">#6F5F4F</div><div class="swatch-use">Body text, nav links</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-rose-gold)"></div><div class="swatch-meta"><div class="swatch-name">Rose Gold <span style="color:var(--color-taupe-light)">— Antique Brass</span></div><div class="swatch-hex">#BB7558</div><div class="swatch-use">Material swatch — rose gold</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-silver)"></div><div class="swatch-meta"><div class="swatch-name">Silver</div><div class="swatch-hex">#B8B8B8</div><div class="swatch-use">Material swatch — sterling silver</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-resin)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Resin <span style="color:rgba(255,255,255,.6)">— Korma</span></div><div class="swatch-hex">#823D19</div><div class="swatch-use">Material swatch — color resin</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:var(--color-focus)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Focus <span style="color:rgba(255,255,255,.6)">— Dodger Blue</span></div><div class="swatch-hex">#453AF7</div><div class="swatch-use">System only — focus rings, form validation. Never decorative.</div></div></div>
     </div>
+
+    <h3 style="font-family:var(--font-display); color:var(--color-maroon); font-size:18px; margin: var(--space-7) 0 var(--space-4);">Opacity ramps</h3>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.10)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 10%</div><div class="swatch-use">Subtle tint / row hover</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.20)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 20%</div><div class="swatch-use">Selected-state background</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.40)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 40%</div><div class="swatch-use">Disabled fill / muted badge</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(98,29,38,0.70)"></div><div class="swatch-meta"><div class="swatch-name">Maroon 70%</div><div class="swatch-use">Pressed state</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(177,138,61,0.15)"></div><div class="swatch-meta"><div class="swatch-name">Gold 15%</div><div class="swatch-use">Icon background wash</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(177,138,61,0.40)"></div><div class="swatch-meta"><div class="swatch-name">Gold 40%</div><div class="swatch-use">Active border tint</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(0,0,0,0.10); border:1px solid var(--color-border)"></div><div class="swatch-meta"><div class="swatch-name">Black 10%</div><div class="swatch-use">Hairline dividers on light</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(0,0,0,0.50)"></div><div class="swatch-meta"><div class="swatch-name">Black 50%</div><div class="swatch-use">Scrims / image overlays</div></div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:rgba(0,0,0,0.90)"></div><div class="swatch-meta" style="color:#fff"><div class="swatch-name">Black 90%</div><div class="swatch-use">Near-black text/UI on light</div></div></div>
+    </div>
+  </section>
+
+  <!-- 02 TYPE -->
+  <section class="block">
+    <div class="block-head"><span class="block-num">02</span><h2 class="block-title">Typography</h2></div>
+
+    <h3 style="font-family:var(--font-ui); font-weight:500; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-taupe); margin: var(--space-6) 0 var(--space-3);">Cormorant Garamond — display &amp; body</h3>
+    <div class="type-row"><span class="type-sample" style="font-size:72px; font-weight:300;">A Scribble</span><span class="type-meta">Display / Hero<br>Light 300 · 72/75.6</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:60px; font-weight:300;">Cast in Gold</span><span class="type-meta">Display / H1<br>Light 300 · 60/75</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:48px; font-weight:300;">Choose your medium</span><span class="type-meta">H2<br>Light 300 · 48/60</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:36px; font-weight:300;">Three steps from <em>crayon</em></span><span class="type-meta">H2 / Section title<br>Light 300 · 36/45</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:30px; font-weight:300;">Heirloom Proof</span><span class="type-meta">H3<br>Light 300 · 30/36</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:24px; font-weight:300;">Capture &amp; Upload</span><span class="type-meta">H4 / Card title<br>Light 300 · 24/32</span></div>
+    <div class="type-row"><span class="type-sample" style="font-size:20px; font-weight:400; font-style:italic; color:var(--color-ink);">"That drawing deserves to outlast everything"</span><span class="type-meta">Body Large / Italic<br>Light Italic · 20/32.5</span></div>
+    <div class="type-row"><span class="body-sample" style="font-size:18px;">We transform your grandchild's first drawing into a handcrafted pendant, charm, or brooch — precious metal, cast from their exact lines.</span><span class="type-meta">Body<br>Regular 400 · 18/29.3</span></div>
+    <div class="type-row"><span class="body-sample" style="font-size:16px;">Receive a high-resolution 3D proof with scale reference. Request any adjustments before we cast.</span><span class="type-meta">Body Small<br>Regular 400 · 16/26</span></div>
+
+    <h3 style="font-family:var(--font-ui); font-weight:500; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-taupe); margin: var(--space-7) 0 var(--space-3);">Jost — interface chrome</h3>
+    <div class="type-row"><span class="label-sample" style="font-size:14px;">Upload a Drawing</span><span class="type-meta">Button label<br>Medium 500, upper · 14/20</span></div>
+    <div class="type-row"><span class="label-sample" style="font-size:12px;">Heirloom Keepsakes · Est. 2019</span><span class="type-meta">Eyebrow / Label<br>Regular 400, upper · 12/16</span></div>
+    <div class="type-row"><span class="label-sample" style="font-size:10px;">Approve Before We Cast a Single Gram</span><span class="type-meta">Small eyebrow<br>Regular 400, upper · 10/15</span></div>
+    <div class="type-row"><span style="font-family:var(--font-ui); font-weight:500; font-size:12px;">Rich warm yellow, lifetime heirloom weight</span><span class="type-meta">UI caption (sentence case)<br>Medium 500 · 12/16</span></div>
+
+    <h3 style="font-family:var(--font-ui); font-weight:500; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-taupe); margin: var(--space-7) 0 var(--space-3);">Inter — micro UI only</h3>
+    <div class="type-row"><span class="micro-sample" style="font-weight:700;">SELECTED</span><span class="type-meta">Badge / tag<br>Bold 700 · 11/16</span></div>
+    <div class="type-row"><span class="micro-sample" style="font-weight:600;">4.97 average</span><span class="type-meta">Micro stat<br>Semi Bold 600 · 11/16</span></div>
+    <div class="type-row"><span class="micro-sample" style="font-weight:500;">1,340 pieces crafted</span><span class="type-meta">Micro stat<br>Medium 500 · 11/16</span></div>
   </section>
 
   <!-- 03 SPACING -->
