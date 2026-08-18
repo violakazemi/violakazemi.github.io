@@ -7053,9 +7053,11 @@ body.bearla-page,
 }
 
 @media screen and (max-width: 734px) {
-    .mechmarket-hero,
-    .bearla-hero {
+    .mechmarket-hero {
         padding: var(--space-6) 0 !important;
+    }
+    .bearla-hero {
+        padding: var(--space-4) !important;
     }
     .mechmarket-hero .hero-inner,
     .bearla-hero .hero-inner {
