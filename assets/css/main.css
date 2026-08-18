@@ -6487,7 +6487,7 @@ body.bearla-page,
 /* Bearla Hero Overrides (Apple Design System Spacing & Typography) */
 .bearla-hero {
     background-color: #fcfcfd !important; /* Premium Off-White Background */
-    border: 2px solid var(--accent-bearla) !important;
+    border: none !important;
     box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
     width: 100% !important;
     max-width: var(--container-content) !important;
