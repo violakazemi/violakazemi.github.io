@@ -6628,8 +6628,13 @@ body.bearla-page,
     max-width: 100% !important; /* Let text use the same width as images/cards in this column */
 }
 
-/* Bearla Sub-Card Apple Styles */
-.bearla-page .persona-card,
+.bearla-page .persona-card {
+    background-color: var(--color-bg-page) !important;
+    border: 1px solid var(--apple-border) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: none !important;
+}
+
 .bearla-page .problem-card,
 .bearla-page .exploration-card,
 .bearla-page .stepper-card,
