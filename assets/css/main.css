@@ -10042,3 +10042,12 @@ body.home-page .hero-card-layout,
     color: #ffffff !important;
     box-shadow: 0 0 12px rgba(255, 102, 0, 0.2) !important;
 }
+
+.tiles article.carbon-promptlab-tile .tile-mockup img {
+    transform: scale(1.10) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.tiles article.carbon-promptlab-tile:hover .tile-mockup img {
+    transform: scale(1.18) !important;
+}
