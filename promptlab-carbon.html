@@ -267,9 +267,7 @@
             <section id="overview">
                 <div class="inner">
                     <h2>Concept Overview</h2>
-                    <p>IBM watsonx Prompt Lab is an enterprise playground for engineering, testing, and refining model prompts. This proposal introduces a side-by-side <strong>Compare View</strong> that lets users run and compare multiple variations of prompts, models, and parameters concurrently in a single dashboard layout.</p>
-                    
-                    <p>To ensure high compliance and seamless integration, the entire concept is built utilizing strict Carbon Design System constraints, serving as an exercise in extending IBM's corporate UI language. <em>This is a self-directed design proposal, not an IBM-commissioned project.</em></p>
+                    <p>IBM watsonx's Prompt Lab is where teams experiment with generative AI models — writing prompts, adjusting parameters, and reviewing outputs before using a model in production. This is a concept proposal for one new screen: a side-by-side Compare view, letting a user test two or three prompt or model variations at once instead of one at a time. The entire screen is built using only components from IBM's Carbon Design System — that constraint is the point of the exercise, not a footnote. This is a self-directed design proposal, not an IBM-commissioned project.</p>
                 </div>
             </section>
 
@@ -277,36 +275,34 @@
             <section id="problem">
                 <div class="inner">
                     <h2>The Problem</h2>
-                    <p>Based on reasoned observation of watsonx Prompt Lab, the current layout restricts testing to a single active editor workspace. Users can only test one prompt variation, one LLM model, and one set of parameters (such as temperature or token limits) at a time.</p>
-                    
-                    <p>To compare results across 2 or 3 models or prompt adjustments, users must perform a manual mental-note workflow: edit the prompt, run the test, record the output token counts and responses, select a different model, overwrite the prompt, and run it again. This manual repetition increases friction for a tool whose core enterprise purpose is iterative experimentation.</p>
+                    <p>Prompt Lab's editor supports one prompt, one model, one pane at a time. Comparing two approaches — a different phrasing, a different model, a different temperature — means running one variation, noting the result, then overwriting it to run the next. There's no persistent side-by-side state, so the tool's most common real use case, iterative experimentation, isn't directly supported by its own interface. This is a reasoned observation from using the live product, not a data-backed finding.</p>
                 </div>
             </section>
 
             <!-- Section 3: Proposed Solution -->
             <section id="solution">
                 <div class="inner">
-                    <h2>Proposed Solution: Compare View</h2>
+                    <h2>Proposed Solution</h2>
                     <p>We propose a tabbed comparing framework that splits the single workspace canvas into a responsive grid. This allows users to execute concurrent prompts and compare outcomes side-by-side.</p>
                     
                     <div class="apple-3col-grid" style="grid-template-columns: repeat(3, 1fr) !important; margin-top: var(--space-4) !important;">
                         <!-- Step 1 -->
                         <div class="apple-3col-card">
                             <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 1</span>
-                            <h4>Compare Toggles</h4>
-                            <p>Switches the single editor panel into 2 or 3 side-by-side pane editors mapped cleanly onto a responsive Carbon 16-Column Grid.</p>
+                            <h4>Compare Toggle</h4>
+                            <p>Switches the single editor into 2-3 side-by-side panes, laid out on Carbon's Grid.</p>
                         </div>
                         <!-- Step 2 -->
                         <div class="apple-3col-card">
                             <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 2</span>
-                            <h4>Independent Panes</h4>
-                            <p>Each pane houses its own prompt text editor, filterable dropdown model selector, and collapsible parameters side panel.</p>
+                            <h4>Per-Pane Structure</h4>
+                            <p>Each pane holds its own prompt editor, a filterable model Dropdown, and a collapsible parameter Side Panel.</p>
                         </div>
                         <!-- Step 3 -->
                         <div class="apple-3col-card">
                             <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 3</span>
-                            <h4>Unified Run Trigger</h4>
-                            <p>A single "Run All" action runs all workspace inputs concurrently to guarantee a synchronous performance and latency benchmark.</p>
+                            <h4>Run All</h4>
+                            <p>A single Button fires every pane together, so comparisons run under the same conditions.</p>
                         </div>
                     </div>
 
@@ -314,16 +310,18 @@
                         <!-- Step 4 -->
                         <div class="apple-3col-card">
                             <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 4</span>
-                            <h4>Inline Output Rows</h4>
-                            <p>Renders generated text output, execution times, and calculated token consumption directly beneath each pane without extra hover details.</p>
+                            <h4>Output Row</h4>
+                            <p>Each pane's response and token count sit directly below its prompt, visible without extra clicks, structured as a Data Table.</p>
                         </div>
                         <!-- Step 5 -->
                         <div class="apple-3col-card">
                             <span class="badge" style="color: #0f62fe !important; background-color: rgba(15, 98, 254, 0.08) !important;">Feature 5</span>
                             <h4>Select &amp; Continue</h4>
-                            <p>A simple check action lets users select the best performing variation, collapsing the workspace back to single editor mode with the chosen prompt preloaded.</p>
+                            <p>Pick the winning variation and drop back into single-editor mode with it already loaded.</p>
                         </div>
                     </div>
+
+                    <p style="margin-top: var(--space-4) !important;">Every element — Grid, Tabs, Data Table, Side Panel, Dropdown, Button — is an unmodified Carbon component instance. This is what "extending components in Figma" looks like in practice: composing within an existing system's rules rather than inventing new ones.</p>
                 </div>
             </section>
 
@@ -350,10 +348,8 @@
                         </ul>
                     </div>
 
-                    <h3>enterprise design systems &amp; data-dense UI</h3>
-                    <p>Designing inside a strict, pre-defined design system without breaking its corporate guidelines is a different skill from building freeform apps. Enterprise interfaces require high data-density and strict consistency across desktop dashboards, terminal outputs, and system settings.</p>
-                    
-                    <p>This design exercise demonstrates my ability to tackle complex, information-dense layouts within constrained design parameters &mdash; exactly the kind of systems challenges faced when building scalable fintech dashboards and multi-surface applications for companies like Indigo.</p>
+                    <h3>Why This Matters for Constrained-System Work</h3>
+                    <p>Working inside someone else's design system, without breaking its rules, is a different skill from freeform design — and it's the skill that shows up directly in multi-surface consistency (a website, app, and kiosk that all need to stay coherent), in fintech-style data-dense interfaces, and in enterprise design systems generally. This project is a deliberate demonstration of that skill, aimed squarely at the kind of work Indigo's multi-channel stack and fintech product teams actually do day to day.</p>
                 </div>
             </section>
 
