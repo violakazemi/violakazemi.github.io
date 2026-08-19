@@ -4686,8 +4686,8 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page):not(.tomaan-page)
 }
 
 .promptlab-page #header {
-    background-color: #09090b !important;
-    border-bottom: 1px solid rgba(255, 102, 0, 0.2) !important;
+    background-color: rgba(255, 102, 0, 0.06) !important;
+    border-bottom: 2px solid #ff6600 !important;
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
 }
