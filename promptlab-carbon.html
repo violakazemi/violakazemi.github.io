@@ -365,21 +365,34 @@
                     <h2>System Alignment &amp; Value</h2>
                     <p>Proposing new interfaces within enterprise environments requires careful alignment with existing component libraries rather than creating custom visual patterns. This concept is built using standard Carbon components:</p>
                     
-                    <div style="margin-top: var(--space-4) !important; margin-bottom: var(--space-5) !important;">
-                        <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-3);">
-                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
-                                <strong>Grid:</strong> Manages responsive 2-column or 3-column layouts across desktop screen sizes.
-                            </li>
-                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
-                                <strong>Tabs:</strong> Switches viewports from single editor workspaces to structured comparison panels.
-                            </li>
-                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
-                                <strong>Data Table:</strong> Formats inline output comparisons, execution latency, and token consumption metrics.
-                            </li>
-                            <li style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: var(--space-3); border-radius: var(--radius-sm);">
-                                <strong>Side Panel:</strong> Slides open to configure temperature, stop sequences, and top-p limits on a per-pane basis.
-                            </li>
-                        </ul>
+                    <div class="accessibility-bento-grid" style="margin-top: var(--space-4) !important; margin-bottom: var(--space-5) !important;">
+                        <!-- Card 1: Grid -->
+                        <div class="accessibility-card">
+                            <span class="badge">Grid</span>
+                            <h3>Carbon Layout System</h3>
+                            <p>Manages responsive 2-column or 3-column layouts across desktop screen sizes.</p>
+                        </div>
+                        
+                        <!-- Card 2: Tabs -->
+                        <div class="accessibility-card">
+                            <span class="badge">Tabs</span>
+                            <h3>Workspace Pivots</h3>
+                            <p>Switches viewports from single editor workspaces to structured comparison panels.</p>
+                        </div>
+                        
+                        <!-- Card 3: Data Table -->
+                        <div class="accessibility-card">
+                            <span class="badge">Data Table</span>
+                            <h3>Metric Comparisons</h3>
+                            <p>Formats inline output comparisons, execution latency, and token consumption metrics.</p>
+                        </div>
+                        
+                        <!-- Card 4: Side Panel -->
+                        <div class="accessibility-card">
+                            <span class="badge">Side Panel</span>
+                            <h3>Parameter Overrides</h3>
+                            <p>Slides open to configure temperature, stop sequences, and top-p limits on a per-pane basis.</p>
+                        </div>
                     </div>
 
                     <h3>Why This Matters for Constrained-System Work</h3>
