@@ -10063,6 +10063,33 @@ body.home-page .hero-card-layout,
     transform: scale(1.18) !important;
 }
 
+/* Responsive adjustments for Carbon Prompt Lab card mockup */
+@media screen and (max-width: 980px) {
+    .tiles article.carbon-promptlab-tile .tile-mockup {
+        top: 55% !important;
+        height: 40% !important;
+    }
+    .tiles article.carbon-promptlab-tile .tile-mockup img {
+        transform: scale(1.05) !important;
+    }
+    .tiles article.carbon-promptlab-tile:hover .tile-mockup img {
+        transform: scale(1.10) !important;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .tiles article.carbon-promptlab-tile .tile-mockup {
+        top: 58% !important;
+        height: 38% !important;
+    }
+    .tiles article.carbon-promptlab-tile .tile-mockup img {
+        transform: scale(1.00) !important;
+    }
+    .tiles article.carbon-promptlab-tile:hover .tile-mockup img {
+        transform: scale(1.05) !important;
+    }
+}
+
 /* Page Section Separators */
 .tomaan-page #main section:not(#hero-section) {
     border-top: 1px solid rgba(0, 255, 136, 0.1) !important;
