@@ -127,7 +127,8 @@
             backdrop-filter: blur(12px) !important;
         }
         
-        .promptlab-page .storyboard-card.selected {
+        .promptlab-page .storyboard-card.primary-action-card,
+        .promptlab-page .accessibility-card.primary-action-card {
             background: rgba(20, 20, 25, 0.7) !important;
             border: 2px solid #ff6600 !important;
             box-shadow: 0 4px 30px rgba(255, 102, 0, 0.08) !important;
@@ -138,16 +139,12 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
         }
         
-        .promptlab-page .storyboard-card.selected .storyboard-card-header {
+        .promptlab-page .storyboard-card.primary-action-card .storyboard-card-header {
             background: rgba(255, 102, 0, 0.02) !important;
         }
         
-        .promptlab-page .storyboard-card span.badge {
-            background-color: rgba(255, 255, 255, 0.05) !important;
-            color: #a1a1aa !important;
-        }
-        
-        .promptlab-page .storyboard-card.selected span.badge {
+        .promptlab-page .storyboard-card span.badge,
+        .promptlab-page .accessibility-card span.badge {
             color: #ff6600 !important;
             background-color: rgba(255, 102, 0, 0.08) !important;
         }
@@ -157,13 +154,15 @@
         }
         
         /* Hover Effects overrides for Dark Theme */
-        .promptlab-page .storyboard-card:hover {
+        .promptlab-page .storyboard-card:hover,
+        .promptlab-page .accessibility-card:hover {
             transform: scale(1.008) translateY(-3px) !important;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
             border-color: rgba(255, 255, 255, 0.15) !important;
         }
         
-        .promptlab-page .storyboard-card.selected:hover {
+        .promptlab-page .storyboard-card.primary-action-card:hover,
+        .promptlab-page .accessibility-card.primary-action-card:hover {
             box-shadow: 0 12px 30px rgba(255, 102, 0, 0.15) !important;
         }
         
@@ -191,32 +190,6 @@
         .promptlab-page .accessibility-card {
             background: rgba(20, 20, 25, 0.5) !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        }
-        
-        .promptlab-page .accessibility-card.feature-card {
-            background: rgba(20, 20, 25, 0.7) !important;
-            border: 2px solid #ff6600 !important;
-            box-shadow: 0 4px 30px rgba(255, 102, 0, 0.08) !important;
-        }
-        
-        .promptlab-page .accessibility-card span.badge {
-            background-color: rgba(255, 255, 255, 0.05) !important;
-            color: #a1a1aa !important;
-        }
-        
-        .promptlab-page .accessibility-card.feature-card span.badge {
-            color: #ff6600 !important;
-            background-color: rgba(255, 102, 0, 0.08) !important;
-        }
-        
-        .promptlab-page .accessibility-card:hover {
-            transform: scale(1.008) translateY(-3px) !important;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
-            border-color: rgba(255, 255, 255, 0.15) !important;
-        }
-        
-        .promptlab-page .accessibility-card.feature-card:hover {
-            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.15) !important;
         }
         
         .promptlab-page .case-study-nav-btn {
@@ -312,6 +285,7 @@
                 <div class="inner">
                     <h2>Proposed Solution</h2>
                     <p>We propose a tabbed comparing framework that splits the single workspace canvas into a responsive grid. This allows users to execute concurrent prompts and compare outcomes side-by-side.</p>
+                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-top: var(--space-2) !important; opacity: 0.8 !important;"><em>Note: All feature badges are highlighted in orange. Thick orange borders indicate primary user actions (Feature 3 and Feature 5) within the workflow layout.</em></p>
                     
                     <!-- Inline Compare View Mockup Showcase -->
                     <div class="inline-visual-block" style="margin: var(--space-4) 0 !important; width: 100% !important; overflow: hidden !important;">
@@ -320,7 +294,7 @@
                     
                     <div class="accessibility-bento-grid" style="margin-top: var(--space-4) !important;">
                         <!-- Feature 1: Compare Toggle -->
-                        <div class="accessibility-card feature-card">
+                        <div class="accessibility-card">
                             <span class="badge">Feature 1</span>
                             <h3>Compare Toggle</h3>
                             <p>Switches the single editor into 2-3 side-by-side panes, laid out on Carbon's Grid.</p>
@@ -336,7 +310,7 @@
 
                     <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
                         <!-- Feature 3: Run All -->
-                        <div class="storyboard-card selected">
+                        <div class="storyboard-card primary-action-card">
                             <div class="storyboard-card-header">
                                 <span class="badge">Feature 3</span>
                                 <h3>Run All</h3>
@@ -354,7 +328,7 @@
                         </div>
 
                         <!-- Feature 5: Select & Continue -->
-                        <div class="storyboard-card" style="margin-top: var(--space-4) !important;">
+                        <div class="storyboard-card primary-action-card" style="margin-top: var(--space-4) !important;">
                             <div class="storyboard-card-header">
                                 <span class="badge">Feature 5</span>
                                 <h3>Select &amp; Continue</h3>
