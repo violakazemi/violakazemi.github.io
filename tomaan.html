@@ -453,8 +453,9 @@
             <section id="overview">
                 <div class="inner">
                     <h2>Overview</h2>
-                    <p>At Carrene, I designed the interfaces for offline one-time-password applications &mdash; Ramzbaan and Aras &mdash; securing transactions for a security-conscious banking user base at a time when offline OTP was still a genuinely novel idea in the market. Those apps have since scaled past 2 million users, and the core mechanism I helped design is still running in production today.</p>
-                    <p>Tomaan is what I'd build next. It takes the same non-negotiable requirement &mdash; a transaction can never be left unverifiable &mdash; and asks what that requirement looks like once the interface itself is no longer static. Generative AI changes the terms: a security system that reasons about a transaction in real time doesn't just display a result, it produces one, live, in front of the user. That shift breaks almost every convention the original apps relied on, and this project is my attempt to design for what replaces them.</p>
+                    <p>At Carrene, I designed the interfaces for offline one-time-password apps — Ramzbaan and Aras — used to protect card-based transactions for a security-conscious banking user base, at a time when offline OTP was still a genuinely novel idea in the market. Those apps have since scaled past 2 million users, and the core mechanism I helped design is still running in production today.</p>
+                    <p>The problem those apps solve is sharper than "authentication." Bank card details leak constantly — skimming, phishing, plain carelessness — and once they do, that information alone is often enough for a criminal to withdraw funds or launder money through someone else's account. Ramzbaan's answer was a second, one-time password generated per card, valid for sixty seconds, produced entirely offline after a one-time registration step. The code never travels over any network to reach you, so there's nothing in transit for anyone to intercept: stolen card details by themselves become useless.</p>
+                    <p>Tomaan is what I'd build next. It asks a narrower, harder question than "add AI to banking security": can a real-time fraud check sit on top of this system without weakening the one guarantee that makes it trustworthy — that your code never has to travel anywhere to prove who you are? Generative AI is probabilistic and slow relative to instant, offline code-matching, and it can fail in ways the original system never could. This project is my attempt to design an AI judgment layer that adds real value without ever touching the offline guarantee underneath it.</p>
                 </div>
             </section>
 
@@ -476,7 +477,7 @@
                         <div class="accessibility-card">
                             <span class="badge">Constraint 2</span>
                             <h3>Estimate Uncertainty</h3>
-                            <p>They're probabilistic. The system doesn't know a transaction is safe the way the old flow "knew" a code matched. It estimates. That estimate has to be shown clearly, not hidden behind a binary checkmark.</p>
+                            <p>They're probabilistic. The old flow didn't guess &mdash; a code either matched what your device generated offline, or it didn't. An AI fraud check estimates instead. That estimate has to be shown clearly, not hidden behind a binary checkmark.</p>
                         </div>
                     </div>
 
@@ -486,7 +487,7 @@
                             <div class="storyboard-card-header">
                                 <span class="badge">Constraint 3</span>
                                 <h3>New Failure Modalities</h3>
-                                <p>They can fail in a new way. The old apps had one failure mode: no connection, no code. An AI layer can time out, degrade, or &mdash; worse &mdash; return a confident wrong answer (hallucination). The interface needs an honest way to say "this part of the system isn't sure" without triggering panic or being ignored.</p>
+                                <p>They can fail in a new way. The old system's only failure mode was blunt: your device was available, or it wasn't. An AI layer can fail more quietly &mdash; it can time out, degrade, or worse, return a confident wrong answer (hallucination). The interface needs an honest way to say "this part of the system isn't sure" without triggering panic or being ignored.</p>
                             </div>
                         </div>
                     </div>
@@ -524,11 +525,11 @@
                             <div class="iteration-bento-text-pane">
                                 <span class="badge">02 &mdash; Authorization</span>
                                 <h3>Designing for the Wait</h3>
-                                <p>This is the core interaction. When a transfer is initiated, the system doesn't freeze on a spinner &mdash; it shows its work. A skeleton-paired, typewriter-style sequence narrates the check as it happens: checking device fingerprint, cross-referencing transaction pattern, verifying recipient history. Completed checks resolve to a solid confidence-colored dot; the check still running gets a distinct spinning indicator, so the user can tell "done" from "in progress" at a glance rather than reading text carefully under time pressure.</p>
+                                <p>This is the core interaction, and the core constraint: this fraud check runs entirely bank-side, ahead of the moment you're asked for your code. It never touches how that code gets generated. When a transfer is initiated, the interface doesn't freeze on a spinner &mdash; it shows the bank's model at work. A skeleton-paired, typewriter-style sequence narrates the check as it happens: checking device fingerprint, cross-referencing transaction pattern, verifying recipient history. Completed checks resolve to a solid confidence-colored dot; the check still running gets a distinct spinning indicator, so the user can tell "done" from "in progress" at a glance rather than reading text carefully under time pressure.</p>
                                 
                                 <div style="margin-top: var(--space-2) !important;">
                                     <h4 style="color: #00ff88 !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">Legibility as a Prerequisite for Trust</h4>
-                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">The sequence resolves into a confidence score &mdash; <strong>98%, Low Risk</strong> &mdash; rendered as a large, unmissable ring before the OTP code reveals underneath it. The ordering matters: the user sees the system's reasoning conclude before they see the number they're supposed to trust. That's the whole thesis of the redesign in one screen &mdash; legibility of AI reasoning as a prerequisite for trust, not an afterthought bolted onto a result.</p>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">The sequence resolves into a confidence score &mdash; <strong>98%, Low Risk</strong> &mdash; rendered as a large, unmissable ring before the same offline-generated code reveals underneath it, exactly as it always did. The ordering matters: the user sees the bank's reasoning conclude before they see the number they're supposed to trust. That's the whole thesis of the redesign in one screen &mdash; legibility of AI reasoning as a prerequisite for trust, added on top of a code-generation guarantee that stays untouched.</p>
                                 </div>
                             </div>
                             <div class="iteration-bento-image-pane">
@@ -580,6 +581,13 @@
                         <div class="storyboard-card">
                             <div class="storyboard-card-header">
                                 <span class="badge">Validation 3</span>
+                                <h3>The Missing Middle State</h3>
+                                <p>This concept designs the happy path (high confidence) and the total-failure path (a check times out). It doesn't yet design the middle: what a real, unresolved doubt should trigger &mdash; not a pass, not a failure, but something in between. A real build needs that third state, likely an added confirmation step, before this ships.</p>
+                            </div>
+                        </div>
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Validation 4</span>
                                 <h3>Localization &amp; Layout Direction</h3>
                                 <p>This version was designed for an international/USD context. The original systems were Iranian-market products; a real build would need currency, numeral, and RTL-layout decisions made deliberately, not left as an afterthought.</p>
                             </div>
