@@ -26,8 +26,8 @@
     /* Project Accent Colors */
     --accent-museum: #587C56;
     --accent-museum-bg: color-mix(in srgb, var(--accent-museum) 15%, white);
-    --accent-bearla: #621D26; /* Maroon Accent */
-    --accent-bearla-bg: #F5F0E8; /* Warm Cotton/Linen Beige Background */
+    --accent-golaab: #621D26; /* Maroon Accent */
+    --accent-golaab-bg: #F5F0E8; /* Warm Cotton/Linen Beige Background */
     --accent-mechmarket: #E6B8D1;
     --accent-mechmarket-bg: color-mix(in srgb, var(--accent-mechmarket) 35%, white);
 
@@ -4275,7 +4275,7 @@ html {
 
 .museum-page section[id],
 .mechmarket-page section[id],
-.bearla-page section[id] {
+.golaab-page section[id] {
     scroll-margin-top: var(--space-8) !important;
 }
 /* Trigger fresh GitHub Pages deployment build */
@@ -4299,8 +4299,8 @@ html {
 .museum-page .image.main img,
 .mechmarket-page .image.main,
 .mechmarket-page .image.main img,
-.bearla-page .image.main,
-.bearla-page .image.main img {
+.golaab-page .image.main,
+.golaab-page .image.main img {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -4580,7 +4580,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Apple-style readability constraint for body text - Centered to prevent right-side gutter */
 .museum-page #main section .inner > p,
 .mechmarket-page #main section .inner > p,
-.bearla-page #main section .inner > p,
+.golaab-page #main section .inner > p,
 .hero-text-content p,
 .takeaways p {
     max-width: var(--container-text) !important;
@@ -4596,10 +4596,10 @@ h1, h2, h3, h4, h5, h6 {
 .mechmarket-page #main section .inner > h3,
 .mechmarket-page #main section .inner > ul,
 .mechmarket-page #main section .inner > ol,
-.bearla-page #main section .inner > h2,
-.bearla-page #main section .inner > h3,
-.bearla-page #main section .inner > ul,
-.bearla-page #main section .inner > ol {
+.golaab-page #main section .inner > h2,
+.golaab-page #main section .inner > h3,
+.golaab-page #main section .inner > ul,
+.golaab-page #main section .inner > ol {
     max-width: var(--container-text) !important;
     margin-left: 0 !important;
     margin-right: auto !important;
@@ -4674,7 +4674,7 @@ p a:hover, li a:hover {
     padding: 0 var(--space-3) !important;
 }
 
-body:not(.museum-page):not(.mechmarket-page):not(.bearla-page):not(.tomaan-page):not(.promptlab-page) #header {
+body:not(.museum-page):not(.mechmarket-page):not(.golaab-page):not(.tomaan-page):not(.promptlab-page) #header {
     background-color: var(--apple-bg-gray) !important;
 }
 
@@ -4704,8 +4704,8 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page):not(.tomaan-page)
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
 }
 
-.bearla-page #header {
-    background-color: color-mix(in srgb, var(--accent-bearla-bg) 85%, transparent) !important; /* Dynamically matches bearla background exactly but translucent */
+.golaab-page #header {
+    background-color: color-mix(in srgb, var(--accent-golaab-bg) 85%, transparent) !important; /* Dynamically matches golaab background exactly but translucent */
     backdrop-filter: blur(20px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
     border-bottom: 1px solid rgba(107, 31, 42, 0.1) !important;
@@ -4794,7 +4794,7 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page):not(.tomaan-page)
 /* Ensure list elements within case studies have clean indentation on all viewports */
 .museum-page #main ul,
 .mechmarket-page #main ul,
-.bearla-page #main ul {
+.golaab-page #main ul {
     padding-left: var(--space-3) !important;
 }
 
@@ -5151,12 +5151,12 @@ body:not(.museum-page):not(.mechmarket-page):not(.bearla-page):not(.tomaan-page)
 }
 
 /* Custom Accent Colors for Read Labels */
-.project-card:not(.bearla-tile):not(.mechmarket-tile) .view-project-label {
+.project-card:not(.golaab-tile):not(.mechmarket-tile) .view-project-label {
     color: #587C56 !important; /* Museum Green */
 }
 
-.bearla-tile .view-project-label {
-    color: #621D26 !important; /* Bearla Maroon */
+.golaab-tile .view-project-label {
+    color: #621D26 !important; /* Golaab Maroon */
 }
 
 .mechmarket-tile .view-project-label {
@@ -5860,7 +5860,7 @@ body.museum-page,
 /* Museum Page Image Cards Overrides */
 .museum-page #main .image.main,
 .mechmarket-page #main .image.main,
-.bearla-page #main .image.main {
+.golaab-page #main .image.main {
     background-color: var(--apple-bg-light) !important;
     border: 1px solid var(--apple-border) !important;
     box-shadow: none !important;
@@ -5875,7 +5875,7 @@ body.museum-page,
 
 .museum-page #main .image.main img,
 .mechmarket-page #main .image.main img,
-.bearla-page #main .image.main img {
+.golaab-page #main .image.main img {
     border-radius: var(--radius-sm) !important; /* Keep internal image slightly rounded too */
     display: block !important;
     width: 100% !important;
@@ -5971,8 +5971,8 @@ body.museum-page,
     color: var(--accent-mechmarket) !important; /* Soft Pink Accent */
 }
 
-.bearla-page .phase-pill {
-    color: var(--accent-bearla) !important; /* Maroon Accent */
+.golaab-page .phase-pill {
+    color: var(--accent-golaab) !important; /* Maroon Accent */
 }
 
 .tile-title {
@@ -6202,9 +6202,9 @@ body.mechmarket-page,
     background-color: var(--accent-mechmarket-bg) !important; /* Soft Pastel Lavender/Pink Background */
 }
 
-body.bearla-page,
-.bearla-page #wrapper {
-    background-color: var(--accent-bearla-bg) !important; /* Warm Cotton Beige Background */
+body.golaab-page,
+.golaab-page #wrapper {
+    background-color: var(--accent-golaab-bg) !important; /* Warm Cotton Beige Background */
 }
 
 .mechmarket-page #main {
@@ -6212,8 +6212,8 @@ body.bearla-page,
     padding-top: var(--space-5) !important;
 }
 
-.bearla-page #main {
-    background-color: var(--accent-bearla-bg) !important;
+.golaab-page #main {
+    background-color: var(--accent-golaab-bg) !important;
     padding-top: var(--space-5) !important; /* Give padding top to prevent overlap by header & sub-nav */
 }
 
@@ -6490,9 +6490,9 @@ body.bearla-page,
     filter: drop-shadow(0 15px 30px rgba(32, 32, 32, 0.08)) !important;
 }
 
-/* Bearla Hero Overrides (matches Mechmarket layout) */
-/* Bearla Hero Overrides (Apple Design System Spacing & Typography) */
-.bearla-hero {
+/* Golaab Hero Overrides (matches Mechmarket layout) */
+/* Golaab Hero Overrides (Apple Design System Spacing & Typography) */
+.golaab-hero {
     background-color: #fcfcfd !important; /* Premium Off-White Background */
     border: none !important;
     box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
@@ -6505,7 +6505,7 @@ body.bearla-page,
     color: var(--color-text-primary) !important;
 }
 
-.bearla-hero .hero-inner {
+.golaab-hero .hero-inner {
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 auto !important;
@@ -6518,7 +6518,7 @@ body.bearla-page,
     gap: var(--space-5) !important;
 }
 
-.bearla-hero .hero-text-block {
+.golaab-hero .hero-text-block {
     flex: 1 !important;
     max-width: 50% !important;
     display: flex !important;
@@ -6528,7 +6528,7 @@ body.bearla-page,
     text-align: left !important;
 }
 
-.bearla-hero .hero-title {
+.golaab-hero .hero-title {
     font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
     color: #1d1d1f !important;
@@ -6538,7 +6538,7 @@ body.bearla-page,
     letter-spacing: -0.025em !important;
 }
 
-.bearla-hero .hero-subtitle {
+.golaab-hero .hero-subtitle {
     font-size: var(--fs-h3) !important;
     font-weight: 500 !important;
     color: rgba(29, 29, 31, 0.8) !important;
@@ -6549,7 +6549,7 @@ body.bearla-page,
     letter-spacing: -0.015em !important;
 }
 
-.bearla-hero .metadata-grid {
+.golaab-hero .metadata-grid {
     display: flex !important;
     flex-direction: row !important;
     justify-content: flex-start !important;
@@ -6560,7 +6560,7 @@ body.bearla-page,
     width: 100% !important;
 }
 
-.bearla-hero .metadata-item {
+.golaab-hero .metadata-item {
     background-color: rgba(107, 31, 42, 0.06) !important;
     padding: var(--space-2) var(--space-3) !important;
     border-radius: var(--radius-sm) !important;
@@ -6571,7 +6571,7 @@ body.bearla-page,
     font-family: var(--font-primary) !important;
 }
 
-.bearla-hero .metadata-item .label {
+.golaab-hero .metadata-item .label {
     font-size: var(--fs-small) !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
@@ -6579,14 +6579,14 @@ body.bearla-page,
     color: rgba(29, 29, 31, 0.5) !important;
 }
 
-.bearla-hero .metadata-item .value {
+.golaab-hero .metadata-item .value {
     font-size: var(--fs-small) !important;
     font-weight: 600 !important;
     color: #1d1d1f !important;
     letter-spacing: -0.01em !important;
 }
 
-.bearla-hero .hero-visual-block {
+.golaab-hero .hero-visual-block {
     flex: 1 !important;
     max-width: 50% !important;
     width: 100% !important;
@@ -6596,8 +6596,8 @@ body.bearla-page,
     margin: 0 !important;
 }
 
-.bearla-hero .hero-visual-block img,
-.bearla-hero .hero-card-main img {
+.golaab-hero .hero-visual-block img,
+.golaab-hero .hero-card-main img {
     max-width: 100% !important;
     width: 100% !important;
     height: auto !important;
@@ -6619,7 +6619,7 @@ body.bearla-page,
     border: none !important;
 }
 
-.bearla-page #main section[id]:not(#hero-section):not(#bottom-nav) {
+.golaab-page #main section[id]:not(#hero-section):not(#bottom-nav) {
     background-color: #ffffff !important; /* Pure White Surface */
     border-radius: var(--radius-md) !important; /* Smooth Apple rounded corners */
     box-shadow: var(--shadow-sm) !important;
@@ -6631,21 +6631,21 @@ body.bearla-page,
     box-sizing: border-box !important;
 }
 
-.bearla-page section p {
+.golaab-page section p {
     max-width: 100% !important; /* Let text use the same width as images/cards in this column */
 }
 
-.bearla-page .persona-card {
+.golaab-page .persona-card {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
     box-shadow: none !important;
 }
 
-.bearla-page .problem-card,
-.bearla-page .exploration-card,
-.bearla-page .stepper-card,
-.bearla-page .inner-block-card {
+.golaab-page .problem-card,
+.golaab-page .exploration-card,
+.golaab-page .stepper-card,
+.golaab-page .inner-block-card {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
@@ -6653,8 +6653,8 @@ body.bearla-page,
     padding: var(--space-3) !important;
 }
 
-.bearla-page .split-columns-grid .left-column,
-.bearla-page .split-columns-grid .right-column {
+.golaab-page .split-columns-grid .left-column,
+.golaab-page .split-columns-grid .right-column {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
@@ -6662,15 +6662,15 @@ body.bearla-page,
     box-shadow: none !important;
 }
 
-.bearla-page ul.differentiators-list,
-.bearla-page ul.challenge-list {
+.golaab-page ul.differentiators-list,
+.golaab-page ul.challenge-list {
     padding-left: 0 !important;
     list-style-type: none !important;
     margin: var(--space-2) 0 !important;
 }
 
-.bearla-page ul.differentiators-list li,
-.bearla-page ul.challenge-list li {
+.golaab-page ul.differentiators-list li,
+.golaab-page ul.challenge-list li {
     background-color: var(--color-bg-page) !important;
     border: 1px solid var(--apple-border) !important;
     border-radius: var(--radius-md) !important;
@@ -6681,14 +6681,14 @@ body.bearla-page,
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
 }
 
-.bearla-page ul.differentiators-list li:hover,
-.bearla-page ul.challenge-list li:hover {
+.golaab-page ul.differentiators-list li:hover,
+.golaab-page ul.challenge-list li:hover {
     transform: translateY(-3px) !important;
     box-shadow: var(--shadow-md) !important;
-    border-color: var(--accent-bearla) !important;
+    border-color: var(--accent-golaab) !important;
 }
 
-.bearla-page .image.main {
+.golaab-page .image.main {
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
     box-shadow: none !important;
@@ -6696,7 +6696,7 @@ body.bearla-page,
     margin: var(--space-3) 0 !important;
 }
 
-.bearla-page table {
+.golaab-page table {
     border-radius: var(--radius-md) !important;
     overflow: hidden !important;
     box-shadow: var(--shadow-md) !important;
@@ -6705,17 +6705,17 @@ body.bearla-page,
 }
 
 
-.bearla-page table:hover {
+.golaab-page table:hover {
     transform: translateY(-2px) !important;
     box-shadow: var(--shadow-md) !important;
 }
 
-/* ===== BEARLA DESIGN SYSTEM SECTION ===== */
-/* ===== BEARLA DESIGN SYSTEM SECTION ===== */
+/* ===== GOLAAB DESIGN SYSTEM SECTION ===== */
+/* ===== GOLAAB DESIGN SYSTEM SECTION ===== */
 #design-system {
   /* ---- Color — unified with standard neutral tokens ---- */
-  --color-cream:         var(--accent-bearla-bg); 
-  --color-cream-light:   var(--accent-bearla-bg); 
+  --color-cream:         var(--accent-golaab-bg); 
+  --color-cream-light:   var(--accent-golaab-bg); 
   --color-cream-card:    var(--color-bg-page);
   --color-parchment:     var(--apple-border);
 
@@ -6849,19 +6849,19 @@ body.bearla-page,
 
 .museum-page #main section .inner,
 .mechmarket-page #main section .inner,
-.bearla-page #main section .inner {
+.golaab-page #main section .inner {
     padding: 0 !important;
     max-width: 100% !important;
     width: calc(100% - 6em) !important;
     margin: 0 auto !important;
 }
 
-.bearla-page table thead th {
+.golaab-page table thead th {
     color: #ffffff !important;
 }
 
 /* ===== CASE STUDY UNIFIED TYPOGRAPHY (5-LEVEL SYSTEM) ===== */
-.museum-page h1, .mechmarket-page h1, .bearla-page h1 {
+.museum-page h1, .mechmarket-page h1, .golaab-page h1 {
     font-size: var(--fs-h1) !important;
     font-weight: 700 !important;
     color: var(--color-text-primary) !important;
@@ -6869,7 +6869,7 @@ body.bearla-page,
     letter-spacing: -0.02em !important;
 }
 
-.museum-page h2, .mechmarket-page h2, .bearla-page h2 {
+.museum-page h2, .mechmarket-page h2, .golaab-page h2 {
     font-size: var(--fs-h2) !important;
     font-weight: 700 !important;
     color: var(--color-text-primary) !important;
@@ -6878,7 +6878,7 @@ body.bearla-page,
     margin-bottom: var(--space-3) !important;
 }
 
-.museum-page h3, .mechmarket-page h3, .bearla-page h3 {
+.museum-page h3, .mechmarket-page h3, .golaab-page h3 {
     font-size: var(--fs-h3) !important;
     font-weight: 600 !important;
     color: var(--color-text-primary) !important;
@@ -6886,9 +6886,9 @@ body.bearla-page,
     letter-spacing: -0.015em !important;
 }
 
-.museum-page p, .mechmarket-page p, .bearla-page p,
-.museum-page li, .mechmarket-page li, .bearla-page li,
-.museum-page td, .mechmarket-page td, .bearla-page td {
+.museum-page p, .mechmarket-page p, .golaab-page p,
+.museum-page li, .mechmarket-page li, .golaab-page li,
+.museum-page td, .mechmarket-page td, .golaab-page td {
     font-size: var(--fs-body) !important;
     font-weight: 400 !important;
     color: var(--color-text-primary) !important;
@@ -6897,14 +6897,14 @@ body.bearla-page,
 }
 
 /* Level 5 — Labels, Meta Text, Column Headers, Badges, Captions */
-.museum-page th, .mechmarket-page th, .bearla-page th,
-.museum-page .persona-type-label, .mechmarket-page .persona-type-label, .bearla-page .persona-type-label,
-.museum-page .comparison-badge, .mechmarket-page .comparison-badge, .bearla-page .comparison-badge,
-.museum-page .phase-pill, .mechmarket-page .phase-pill, .bearla-page .phase-pill,
-.museum-page .certified-badge, .mechmarket-page .certified-badge, .bearla-page .certified-badge,
-.museum-page .ideation-card span, .mechmarket-page .ideation-card span, .bearla-page .ideation-card span,
-.museum-page .case-study-caption, .mechmarket-page .case-study-caption, .bearla-page .case-study-caption,
-.museum-page .state-label, .mechmarket-page .state-label, .bearla-page .state-label {
+.museum-page th, .mechmarket-page th, .golaab-page th,
+.museum-page .persona-type-label, .mechmarket-page .persona-type-label, .golaab-page .persona-type-label,
+.museum-page .comparison-badge, .mechmarket-page .comparison-badge, .golaab-page .comparison-badge,
+.museum-page .phase-pill, .mechmarket-page .phase-pill, .golaab-page .phase-pill,
+.museum-page .certified-badge, .mechmarket-page .certified-badge, .golaab-page .certified-badge,
+.museum-page .ideation-card span, .mechmarket-page .ideation-card span, .golaab-page .ideation-card span,
+.museum-page .case-study-caption, .mechmarket-page .case-study-caption, .golaab-page .case-study-caption,
+.museum-page .state-label, .mechmarket-page .state-label, .golaab-page .state-label {
     font-size: var(--fs-small) !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
@@ -6912,10 +6912,10 @@ body.bearla-page,
 }
 
 /* Default color for Level 5 labels/meta text */
-.museum-page th, .mechmarket-page th, .bearla-page th,
-.museum-page .persona-type-label, .mechmarket-page .persona-type-label, .bearla-page .persona-type-label,
-.museum-page .certified-badge, .mechmarket-page .certified-badge, .bearla-page .certified-badge,
-.museum-page .case-study-caption, .mechmarket-page .case-study-caption, .bearla-page .case-study-caption {
+.museum-page th, .mechmarket-page th, .golaab-page th,
+.museum-page .persona-type-label, .mechmarket-page .persona-type-label, .golaab-page .persona-type-label,
+.museum-page .certified-badge, .mechmarket-page .certified-badge, .golaab-page .certified-badge,
+.museum-page .case-study-caption, .mechmarket-page .case-study-caption, .golaab-page .case-study-caption {
     color: var(--color-text-secondary) !important;
 }
 
@@ -6926,7 +6926,7 @@ body.bearla-page,
     display: block !important;
 }
 
-/* Sub-Navigation styling for MechMarket & Bearla */
+/* Sub-Navigation styling for MechMarket & Golaab */
 .mechmarket-page .nav-container {
     position: fixed !important;
     top: 48px !important; /* Direct sub-header under the main fixed header */
@@ -6956,7 +6956,7 @@ body.bearla-page,
     -webkit-overflow-scrolling: touch !important; /* Smooth scroll */
 }
 
-.bearla-page .nav-container {
+.golaab-page .nav-container {
     position: fixed !important;
     top: 48px !important; /* Direct sub-header under the main fixed header */
     left: 0 !important;
@@ -6985,12 +6985,12 @@ body.bearla-page,
 }
 
 .mechmarket-page .nav-container::-webkit-scrollbar,
-.bearla-page .nav-container::-webkit-scrollbar {
+.golaab-page .nav-container::-webkit-scrollbar {
     display: none !important; /* Chrome/Safari hide scrollbar */
 }
 
 .mechmarket-page .nav-segment,
-.bearla-page .nav-segment {
+.golaab-page .nav-segment {
     height: 48px !important;
     padding: 0 !important;
     display: inline-flex !important;
@@ -7008,7 +7008,7 @@ body.bearla-page,
 }
 
 .mechmarket-page .nav-container .nav-segment,
-.bearla-page .nav-container .nav-segment {
+.golaab-page .nav-container .nav-segment {
     color: rgba(32, 32, 32, 0.6) !important;
     border-bottom: 2px solid transparent !important;
     font-size: var(--fs-small) !important;
@@ -7019,7 +7019,7 @@ body.bearla-page,
     color: #0071e3 !important;
 }
 
-.bearla-page .nav-container .nav-segment:hover {
+.golaab-page .nav-container .nav-segment:hover {
     color: var(--apple-blue) !important;
 }
 
@@ -7029,7 +7029,7 @@ body.bearla-page,
     font-weight: 600 !important;
 }
 
-.bearla-page .nav-container .nav-segment.active {
+.golaab-page .nav-container .nav-segment.active {
     color: var(--apple-blue) !important; /* Accent blue */
     border-bottom: 2px solid var(--apple-blue) !important;
     font-weight: 600 !important;
@@ -7037,7 +7037,7 @@ body.bearla-page,
 
 @media screen and (max-width: 1068px) {
     .mechmarket-page .nav-container,
-    .bearla-page .nav-container {
+    .golaab-page .nav-container {
         justify-content: flex-start !important; /* Left-align so scrolling operates correctly on small viewports */
         padding-left: var(--space-3) !important;
         padding-right: var(--space-3) !important;
@@ -7049,7 +7049,7 @@ body.bearla-page,
         padding: var(--space-2) var(--space-3) !important;
         box-shadow: none !important;
     }
-    .bearla-page .table-wrapper {
+    .golaab-page .table-wrapper {
         background-color: var(--color-bg-page) !important;
         border: 1px solid var(--apple-border) !important;
         box-shadow: none !important;
@@ -7068,36 +7068,36 @@ body.bearla-page,
     .mechmarket-hero {
         padding: var(--space-6) 0 !important;
     }
-    .bearla-hero {
+    .golaab-hero {
         padding: var(--space-4) !important;
     }
     .mechmarket-hero .hero-inner,
-    .bearla-hero .hero-inner {
+    .golaab-hero .hero-inner {
         flex-direction: column !important;
         gap: var(--space-4) !important;
         padding: 0 8% !important;
     }
     .mechmarket-hero .hero-text-block,
-    .bearla-hero .hero-text-block {
+    .golaab-hero .hero-text-block {
         max-width: 100% !important;
         align-items: center !important;
         text-align: center !important;
     }
     .mechmarket-hero .hero-title,
-    .bearla-hero .hero-title {
+    .golaab-hero .hero-title {
         font-size: var(--fs-h2) !important;
     }
     .mechmarket-hero .hero-subtitle,
-    .bearla-hero .hero-subtitle {
+    .golaab-hero .hero-subtitle {
         font-size: var(--fs-body) !important;
         margin-bottom: var(--space-3) !important;
     }
     .mechmarket-hero .metadata-item,
-    .bearla-hero .metadata-item {
+    .golaab-hero .metadata-item {
         justify-content: center !important;
     }
     .mechmarket-hero .hero-visual-block,
-    .bearla-hero .hero-visual-block {
+    .golaab-hero .hero-visual-block {
         max-width: 100% !important;
     }
     .museum-hero {
@@ -7129,7 +7129,7 @@ body.bearla-page,
 
     .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
-    .bearla-page #main section[id]:not(#hero-section):not(#bottom-nav) {
+    .golaab-page #main section[id]:not(#hero-section):not(#bottom-nav) {
         padding: var(--space-3) !important; /* 24px mobile padding */
         margin: var(--space-5) auto !important; /* 48px mobile margin */
         border-radius: var(--radius-md) !important; /* 18px radius */
@@ -7138,7 +7138,7 @@ body.bearla-page,
         box-sizing: border-box !important;
     }
     .mechmarket-page #main section .inner,
-    .bearla-page #main section .inner {
+    .golaab-page #main section .inner {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -7163,27 +7163,27 @@ body.bearla-page,
 
 @media screen and (max-width: 734px) {
     .mechmarket-hero,
-    .bearla-hero {
+    .golaab-hero {
         padding: var(--space-4) 0 !important;
     }
     .mechmarket-hero .hero-inner,
-    .bearla-hero .hero-inner {
+    .golaab-hero .hero-inner {
         padding: 0 var(--space-2) !important;
         gap: var(--space-2) !important;
     }
     .mechmarket-hero .hero-title,
-    .bearla-hero .hero-title {
+    .golaab-hero .hero-title {
         font-size: var(--fs-h3) !important;
         line-height: 1.25 !important;
     }
     .mechmarket-hero .hero-subtitle,
-    .bearla-hero .hero-subtitle {
+    .golaab-hero .hero-subtitle {
         font-size: var(--fs-body) !important;
         margin-bottom: var(--space-2) !important;
     }
     .museum-hero .metadata-grid,
     .mechmarket-hero .metadata-grid,
-    .bearla-hero .metadata-grid,
+    .golaab-hero .metadata-grid,
     .tomaan-hero .metadata-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -7194,7 +7194,7 @@ body.bearla-page,
     }
     .museum-hero .metadata-item,
     .mechmarket-hero .metadata-item,
-    .bearla-hero .metadata-item,
+    .golaab-hero .metadata-item,
     .tomaan-hero .metadata-item {
         display: flex !important;
         justify-content: space-between !important;
@@ -7209,7 +7209,7 @@ body.bearla-page,
         border: 1px solid rgba(88, 124, 86, 0.15) !important;
         border-radius: var(--radius-sm) !important;
     }
-    .bearla-hero .metadata-item {
+    .golaab-hero .metadata-item {
         background-color: rgba(107, 31, 42, 0.06) !important;
         border: 1px solid rgba(107, 31, 42, 0.15) !important;
         border-radius: var(--radius-sm) !important;
@@ -7226,7 +7226,7 @@ body.bearla-page,
     }
     .museum-page #main section[id]:not(#one):not(#bottom-nav),
     .mechmarket-page #main section,
-    .bearla-page #main section[id]:not(#hero-section):not(#bottom-nav) {
+    .golaab-page #main section[id]:not(#hero-section):not(#bottom-nav) {
         width: calc(100% - 24px) !important;
         max-width: calc(100% - 24px) !important;
         margin: var(--space-3) auto !important; /* 24px margin */
@@ -7235,12 +7235,12 @@ body.bearla-page,
     }
     .museum-page #main section .inner,
     .mechmarket-page #main section .inner,
-    .bearla-page #main section .inner {
+    .golaab-page #main section .inner {
         width: 100% !important;
         max-width: 100% !important;
     }
     .mechmarket-page #main .image.main,
-    .bearla-page #main .image.main {
+    .golaab-page #main .image.main {
         padding: var(--space-1) !important;
         border-radius: var(--radius-sm) !important;
         margin-bottom: var(--space-3) !important;
@@ -8665,7 +8665,7 @@ body.bearla-page,
 }
 
 .tiles article.mechmarket-tile,
-.tiles article.bearla-tile {
+.tiles article.golaab-tile {
     background-color: var(--apple-bg-light) !important;
 }
 
@@ -9161,8 +9161,8 @@ body.home-page .hero-card-layout,
     color: var(--accent-mechmarket) !important;
 }
 
-.bearla-page .apple-3col-card span.badge {
-    color: var(--accent-bearla) !important;
+.golaab-page .apple-3col-card span.badge {
+    color: var(--accent-golaab) !important;
 }
 
 .apple-3col-card h4 {
@@ -9935,62 +9935,62 @@ body.home-page .hero-card-layout,
     box-shadow: 0 0 12px rgba(0, 255, 136, 0.2) !important;
 }
 
-/* Bearla Maroon Bento Highlight Overrides */
-.bearla-page .accessibility-card.feature-card {
-    border: 2px solid var(--accent-bearla) !important;
+/* Golaab Maroon Bento Highlight Overrides */
+.golaab-page .accessibility-card.feature-card {
+    border: 2px solid var(--accent-golaab) !important;
     box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
 }
 
-.bearla-page .accessibility-card.feature-card:hover {
+.golaab-page .accessibility-card.feature-card:hover {
     box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
 }
 
-.bearla-page .accessibility-card.feature-card span.badge {
-    color: var(--accent-bearla) !important;
+.golaab-page .accessibility-card.feature-card span.badge {
+    color: var(--accent-golaab) !important;
     background-color: rgba(107, 31, 42, 0.08) !important;
 }
 
-.bearla-page .research-bento-card.selected {
-    border: 2px solid var(--accent-bearla) !important;
+.golaab-page .research-bento-card.selected {
+    border: 2px solid var(--accent-golaab) !important;
     box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
 }
 
-.bearla-page .research-bento-card.selected:hover {
+.golaab-page .research-bento-card.selected:hover {
     box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
 }
 
-.bearla-page .research-bento-card.selected .research-bento-card-header {
+.golaab-page .research-bento-card.selected .research-bento-card-header {
     background: rgba(107, 31, 42, 0.02) !important;
 }
 
-.bearla-page .research-bento-card.selected span.badge {
-    color: var(--accent-bearla) !important;
+.golaab-page .research-bento-card.selected span.badge {
+    color: var(--accent-golaab) !important;
     background-color: rgba(107, 31, 42, 0.08) !important;
 }
 
-.bearla-page .research-item span.badge.insight-badge {
-    color: var(--accent-bearla) !important;
+.golaab-page .research-item span.badge.insight-badge {
+    color: var(--accent-golaab) !important;
     background-color: rgba(107, 31, 42, 0.08) !important;
 }
 
-.bearla-page .apple-3col-card.selected-step:hover {
+.golaab-page .apple-3col-card.selected-step:hover {
     box-shadow: 0 12px 30px rgba(107, 31, 42, 0.12) !important;
 }
 
-.bearla-page .test-insights-grid {
+.golaab-page .test-insights-grid {
     display: flex !important;
     flex-direction: column !important;
     gap: var(--space-4) !important;
     grid-template-columns: none !important;
 }
 
-.bearla-page .insight-card {
+.golaab-page .insight-card {
     background: #fcfcfd !important;
-    border: 2px solid var(--accent-bearla) !important;
+    border: 2px solid var(--accent-golaab) !important;
     box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
 }
 
-.bearla-page .insight-card:hover {
+.golaab-page .insight-card:hover {
     transform: none !important;
     box-shadow: 0 4px 20px rgba(107, 31, 42, 0.08) !important;
 }
