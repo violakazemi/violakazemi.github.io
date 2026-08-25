@@ -1,0 +1,643 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Tomaan: AI-Native Security - Viola</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" href="assets/css/main.css?v=18.01" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    
+    <style>
+        /* Dark Theme overrides for Tomaan Spec Page */
+        body.tomaan-page {
+            --bg-color: #000000 !important;
+            background-color: #09090b !important;
+            color: #f4f4f5 !important;
+        }
+        
+        .tomaan-page #wrapper {
+            background-color: #09090b !important;
+        }
+        
+        body.tomaan-page #header {
+            background-color: rgba(0, 255, 136, 0.06) !important;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1) !important;
+            backdrop-filter: blur(20px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        }
+        
+        .tomaan-page #header .logo strong {
+            color: #00ff88 !important;
+        }
+        
+        .tomaan-page #header .logo span {
+            color: #ffffff !important;
+            opacity: 0.8 !important;
+        }
+        
+        .tomaan-page #header nav a {
+            color: #00ff88 !important;
+            border-color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.05) !important;
+        }
+        
+        .tomaan-page #header nav a:hover {
+            background-color: rgba(0, 255, 136, 0.15) !important;
+            border-color: #00ff88 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3) !important;
+        }
+        
+        .tomaan-page h1, 
+        .tomaan-page h2, 
+        .tomaan-page h3, 
+        .tomaan-page h4 {
+            color: #ffffff !important;
+        }
+        
+        .tomaan-page p {
+            color: #a1a1aa !important;
+        }
+        
+        /* Nav Container */
+        .tomaan-page .nav-container {
+            background: rgba(20, 20, 25, 0.6) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page .nav-segment {
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .nav-segment.active {
+            color: #00ff88 !important;
+            background: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        /* Hero Section Card */
+        .tomaan-page .tomaan-hero {
+            background: rgba(20, 20, 25, 0.6) !important;
+            border: 2px solid rgba(0, 255, 136, 0.15) !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.04) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page .metadata-item {
+            background-color: rgba(0, 255, 136, 0.06) !important;
+            border: 1px solid rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        .tomaan-page .metadata-item .label {
+            color: #00ff88 !important;
+        }
+        
+        .tomaan-page .metadata-item .value {
+            color: #ffffff !important;
+        }
+        
+        /* Section Containers */
+        .tomaan-page section {
+            background-color: #09090b !important;
+            border-top: 1px solid rgba(0, 255, 136, 0.1) !important;
+        }
+        
+        /* Entire Hero Section Styling (Matches Constraint 1 card) */
+        body.tomaan-page #hero-section {
+            border: 2px solid #00ff88 !important;
+            border-radius: var(--radius-md) !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+            background-color: #09090b !important;
+            margin: var(--space-4) auto !important;
+            overflow: hidden !important;
+        }
+        
+        .tomaan-page .hero-visual-block img {
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
+        
+        /* Bento Cards */
+        .tomaan-page .storyboard-card {
+            background: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected {
+            background: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #00ff88 !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .storyboard-card-header {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected .storyboard-card-header {
+            background: rgba(0, 255, 136, 0.02) !important;
+        }
+        
+        .tomaan-page .storyboard-card span.badge {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected span.badge {
+            color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .storyboard-image-wrapper {
+            background: #020202 !important;
+        }
+        
+        /* Hover Effects overrides for Dark Theme */
+        .tomaan-page .storyboard-card:hover {
+            transform: scale(1.008) translateY(-3px) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .tomaan-page .storyboard-card.selected:hover {
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        /* Accessibility Card overrides for dark mode */
+        .tomaan-page .accessibility-card {
+            background: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        
+        .tomaan-page .accessibility-card.feature-card {
+            background: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #00ff88 !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .accessibility-card span.badge {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .accessibility-card.feature-card span.badge {
+            color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .accessibility-card:hover {
+            transform: scale(1.008) translateY(-3px) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .tomaan-page .accessibility-card.feature-card:hover {
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        /* White text overrides for accessibility & visibility in Dark Theme */
+        .tomaan-page strong,
+        .tomaan-page b {
+            color: #ffffff !important;
+        }
+        
+        .tomaan-page .storyboard-card p,
+        .tomaan-page .storyboard-card-header p,
+        .tomaan-page .storyboard-image-wrapper p,
+        .tomaan-page .accessibility-card p {
+            color: #a1a1aa !important;
+        }
+        
+        .tomaan-page .storyboard-card h3,
+        .tomaan-page .storyboard-card h4,
+        .tomaan-page .accessibility-card h3,
+        .tomaan-page .accessibility-card h4 {
+            color: #ffffff !important;
+        }
+        
+        /* Side-by-Side Iteration Bento Cards */
+        .tomaan-page .iteration-bento-card {
+            background: rgba(20, 20, 25, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: var(--radius-md) !important;
+            backdrop-filter: blur(12px) !important;
+            display: grid !important;
+            grid-template-columns: 1.2fr 1.0fr !important;
+            gap: 0 !important;
+            overflow: hidden !important;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+            margin-bottom: var(--space-5) !important;
+        }
+        
+        .tomaan-page .iteration-bento-card.selected {
+            background: rgba(20, 20, 25, 0.7) !important;
+            border: 2px solid #00ff88 !important;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .iteration-bento-card:hover {
+            transform: scale(1.008) translateY(-3px) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .tomaan-page .iteration-bento-card.selected:hover {
+            box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15) !important;
+        }
+        
+        .tomaan-page .iteration-bento-text-pane {
+            padding: var(--space-5) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            text-align: left !important;
+        }
+        
+        .tomaan-page .iteration-bento-text-pane span.badge {
+            align-self: flex-start !important;
+            background-color: rgba(255, 255, 255, 0.05) !important;
+            color: #a1a1aa !important;
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.05em !important;
+            padding: 2px 6px !important;
+            border-radius: var(--radius-sm) !important;
+            margin-bottom: var(--space-2) !important;
+        }
+        
+        .tomaan-page .iteration-bento-card.selected .iteration-bento-text-pane span.badge {
+            color: #00ff88 !important;
+            background-color: rgba(0, 255, 136, 0.08) !important;
+        }
+        
+        .tomaan-page .iteration-bento-text-pane h3 {
+            font-size: var(--fs-h3) !important;
+            font-weight: 700 !important;
+            color: #ffffff !important;
+            margin-top: var(--space-1) !important;
+            margin-bottom: var(--space-2) !important;
+        }
+        
+        .tomaan-page .iteration-bento-text-pane p {
+            font-size: var(--fs-small) !important;
+            color: #a1a1aa !important;
+            line-height: 1.5 !important;
+            margin-bottom: var(--space-3) !important;
+        }
+        
+        .tomaan-page .iteration-bento-text-pane p:last-child {
+            margin-bottom: 0 !important;
+        }
+        
+        .tomaan-page .iteration-bento-image-pane {
+            background: #020202 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: var(--space-4) !important;
+        }
+        
+        .tomaan-page .iteration-bento-image-pane img {
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 480px !important;
+            display: block !important;
+            object-fit: contain !important;
+            border: 1.5px solid rgba(0, 255, 136, 0.2) !important;
+            border-radius: 24px !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 136, 0.05) !important;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+        }
+        
+        .tomaan-page .iteration-bento-card:hover .iteration-bento-image-pane img {
+            border-color: rgba(0, 255, 136, 0.5) !important;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 255, 136, 0.18) !important;
+            transform: scale(1.02) !important;
+        }
+        
+        @media screen and (max-width: 980px) {
+            .tomaan-page .iteration-bento-card {
+                grid-template-columns: 1fr !important;
+            }
+            .tomaan-page .iteration-bento-text-pane {
+                padding: var(--space-4) !important;
+            }
+        }
+        
+        @media screen and (max-width: 734px) {
+            body.tomaan-page #hero-section {
+                padding: var(--space-3) !important;
+                margin-top: var(--space-2) !important;
+                margin-bottom: var(--space-3) !important;
+            }
+            .tomaan-page #hero-section .hero-inner {
+                gap: var(--space-3) !important;
+            }
+            .tomaan-page .hero-text-block {
+                align-items: flex-start !important;
+                text-align: left !important;
+                max-width: 100% !important;
+            }
+            .tomaan-page .hero-title {
+                font-size: 28px !important;
+                text-align: left !important;
+            }
+            .tomaan-page .hero-subtitle {
+                font-size: var(--fs-small) !important;
+                text-align: left !important;
+                margin-bottom: var(--space-2) !important;
+            }
+
+            .tomaan-page .hero-visual-block {
+                width: 100% !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+            .tomaan-page .hero-visual-block img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            /* Subtle section padding on mobile to avoid deadly spaces */
+            .tomaan-page section {
+                padding: var(--space-4) 0 !important;
+            }
+            .tomaan-page section .inner {
+                padding-left: var(--space-3) !important;
+                padding-right: var(--space-3) !important;
+            }
+            /* Expand iteration mockup sizes on mobile */
+            .tomaan-page .iteration-bento-image-pane {
+                padding: var(--space-2) !important;
+            }
+        }
+        
+        .tomaan-page #footer {
+            background-color: #000000 !important;
+            border-top: 1px solid rgba(0, 255, 136, 0.1) !important;
+            padding-top: var(--space-4) !important;
+            padding-bottom: var(--space-4) !important;
+        }
+        
+        .tomaan-page #footer .copyright {
+            color: #00ff88 !important;
+            opacity: 0.9 !important;
+        }
+    </style>
+</head>
+
+<body class="is-preload tomaan-page">
+    
+    <div id="wrapper">
+
+        <header id="header">
+            <a href="index.html" class="logo">
+                <strong class="logo-text-desktop">Tomaan</strong>
+                <span class="logo-sub-desktop">Concept Specs</span>
+                <strong class="logo-text-mobile">Tomaan</strong>
+            </a>
+            <nav>
+                <a href="index.html" class="button">Back to Home</a>
+            </nav>
+        </header>
+
+        <nav class="nav-container" id="nav-container">
+            <a href="#overview" class="nav-segment active" id="seg-overview" title="Overview">1. Overview</a>
+            <a href="#problem" class="nav-segment" id="seg-problem" title="The Problem">2. The Problem</a>
+            <a href="#solutions" class="nav-segment" id="seg-solutions" title="Design Iterations">3. Design Iterations</a>
+            <a href="#takeaways" class="nav-segment" id="seg-takeaways" title="Key Takeaways">4. Takeaways</a>
+        </nav>
+
+        <div id="main" class="alt">
+            <!-- Hero Section -->
+            <section id="hero-section" class="museum-hero tomaan-hero">
+                <div class="hero-inner">
+                    <div class="hero-text-block">
+                        <div class="logo-wrapper">
+                            <h1 class="hero-title" style="color: #ffffff !important; margin-bottom: 0 !important;">Tomaan</h1>
+                        </div>
+                        <p class="hero-subtitle" style="font-size: var(--fs-body) !important; color: #a1a1aa !important; margin-top: var(--space-2) !important; margin-bottom: var(--space-3) !important; font-weight: 500 !important; line-height: 1.4 !important; text-align: left !important;">Reimagining Offline Security for the AI-Native Era</p>
+                        
+                        <!-- Desktop Viewport -->
+                        <div class="metadata-grid desktop-only-table">
+                            <div class="metadata-item">
+                                <span class="label">Role:</span>
+                                <span class="value">Product Designer (UX/UI)</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">System:</span>
+                                <span class="value">Fintech Security &bull; Authentication</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Status:</span>
+                                <span class="value">2026 Evolution Concept</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual-block">
+                        <img src="images/Tomaan-Thumbnail.png" alt="Tomaan Security Dashboard Showcase" />
+                    </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Overview -->
+            <section id="overview">
+                <div class="inner">
+                    <h2>Overview</h2>
+                    <p>At Carrene, I designed the interfaces for a pair of offline one-time-password apps used to protect card-based transactions for a security-conscious banking user base, at a time when offline OTP was still a genuinely novel idea in the market. Those apps have since scaled past 2 million users, and the core mechanism I helped design is still running in production today.</p>
+                    <p>The problem those apps solve is sharper than "authentication." Bank card details leak constantly — skimming, phishing, plain carelessness — and once they do, that information alone is often enough for a criminal to withdraw funds or launder money through someone else's account. The app's answer was a second, one-time password generated per card, valid for sixty seconds, produced entirely offline after a one-time registration step. The code never travels over any network to reach you, so there's nothing in transit for anyone to intercept: stolen card details by themselves become useless.</p>
+                    <p>Tomaan is what I'd build next. It asks a narrower, harder question than "add AI to banking security": can a real-time fraud check sit on top of this system without weakening the one guarantee that makes it trustworthy — that your code never has to travel anywhere to prove who you are? Generative AI is probabilistic and slow relative to instant, offline code-matching, and it can fail in ways the original system never could. This project is my attempt to design an AI judgment layer that adds real value without ever touching the offline guarantee underneath it.</p>
+                    <p>A scope note, since it matters: this concept treats fraud detection itself as a given input, not something to design — scoring risk is a modeling problem, not a UX one. The design question is narrower and, I think, more interesting: deciding when a system has earned the right to interrupt someone at all, and once identity itself is proven, addressing the fraud that identity can't stop on its own — a scam that talks the real, authenticated person into approving the transfer themselves. Both are honest, current UX problems, and neither is fully solved industry-wide yet.</p>
+                </div>
+            </section>
+
+            <!-- Section 2: The Problem -->
+            <section id="problem">
+                <div class="inner">
+                    <h2>The Problem With Bringing AI Into a High-Stakes Flow</h2>
+                    <p>Three things are true about generative security checks that weren't true about the old deterministic flow:</p>
+                    
+                    <div class="accessibility-bento-grid" style="margin-top: var(--space-4) !important;">
+                        <!-- Card 1: Slow Speeds -->
+                        <div class="accessibility-card feature-card">
+                            <span class="badge">Constraint 1</span>
+                            <h3>Generative Latency</h3>
+                            <p>They're slow relative to user expectation. An LLM-driven fraud check can take one to eight seconds. A static loading spinner over that duration reads as "broken," not "working," destroying systemic trust.</p>
+                        </div>
+
+                        <!-- Card 2: Probabilistic estimates -->
+                        <div class="accessibility-card">
+                            <span class="badge">Constraint 2</span>
+                            <h3>Estimate Uncertainty</h3>
+                            <p>They're probabilistic. The old flow didn't guess &mdash; a code either matched what your device generated offline, or it didn't. An AI fraud check estimates instead. That estimate has to be shown clearly, not hidden behind a binary checkmark.</p>
+                        </div>
+                    </div>
+
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <!-- Card 3: AI Failures -->
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Constraint 3</span>
+                                <h3>New Failure Modalities</h3>
+                                <p>They can fail in a new way. The old system's only failure mode was blunt: your device was available, or it wasn't. An AI layer can fail more quietly &mdash; it can time out, degrade, or worse, return a confident wrong answer (hallucination). The interface needs an honest way to say "this part of the system isn't sure" without triggering panic or being ignored.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Design Iterations -->
+            <section id="solutions">
+                <div class="inner">
+                    <h2>Design Iterations</h2>
+                    <p>I designed three screens that each answer one of these challenges directly, establishing a highly secure, modern generative paradigm.</p>
+
+                    <div style="margin-top: var(--space-4) !important;">
+                        <!-- Screen 1: Dashboard -->
+                        <div class="iteration-bento-card">
+                            <div class="iteration-bento-text-pane">
+                                <span class="badge">01 &mdash; Dashboard</span>
+                                <h3>Establishing the Visual Language</h3>
+                                <p>Before touching the security flow, I rebuilt the visual foundation. The original apps used standard light-mode banking chrome &mdash; white surfaces, primary blue, dense text. Tomaan moves to a near-black base (#0A0A0C, not pure black, to avoid OLED smearing) layered with frosted, blurred surfaces &mdash; thin hairline borders instead of heavy strokes, which is the current version of glassmorphism rather than the heavier 2020-era pattern.</p>
+                                
+                                <div style="margin-top: var(--space-2) !important;">
+                                    <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">The Confidence Chip</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: var(--space-3) !important; line-height: 1.4 !important;">The dashboard's job is to introduce the system's central new primitive before the user ever needs it under pressure: the confidence chip. <em>"Account Health: Excellent,"</em> rendered in a soft green pill, sits directly under the balance. It's a low-stakes, ambient first exposure to a visual language &mdash; a colored signal tied to AI certainty &mdash; that becomes load-bearing two screens later.</p>
+                                    <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: 0 !important; font-size: var(--fs-small) !important;">Color Conflict Resolution</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">One deliberate correction I made mid-process: my first pass used red/green dots for both transaction direction (money in/out) and AI confidence, and they collided. I removed color from the debit/credit indicator entirely (a plain +/− prefix does that job) and kept red/green reserved exclusively for confidence signaling to preserve internal logic.</p>
+                                </div>
+                            </div>
+                            <div class="iteration-bento-image-pane">
+                                <img src="images/Tomaan-dashboard.png" alt="Tomaan Dashboard Screen showing Account balance, Confidence chip and Transactions list" />
+                            </div>
+                        </div>
+
+                        <!-- Screen 2: Authorization -->
+                        <div class="iteration-bento-card selected">
+                            <div class="iteration-bento-text-pane">
+                                <span class="badge">02 &mdash; Authorization</span>
+                                <h3>Designing for the Wait</h3>
+                                <p>This is the core interaction, and the core constraint: this fraud check runs entirely bank-side, ahead of the moment you're asked for your code. It never touches how that code gets generated. When a transfer is initiated, the interface doesn't freeze on a spinner &mdash; it shows the bank's model at work. A skeleton-paired, typewriter-style sequence narrates the check as it happens: checking device fingerprint, cross-referencing transaction pattern, verifying recipient history. Completed checks resolve to a solid confidence-colored dot; the check still running gets a distinct spinning indicator, so the user can tell "done" from "in progress" at a glance rather than reading text carefully under time pressure.</p>
+                                
+                                <div style="margin-top: var(--space-2) !important;">
+                                    <h4 style="color: #00ff88 !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">Legibility as a Prerequisite for Trust</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: var(--space-3) !important; line-height: 1.4 !important;">The sequence resolves into a confidence score &mdash; <strong>98%, Low Risk</strong> &mdash; rendered as a large, unmissable ring before the same offline-generated code reveals underneath it, exactly as it always did. The ordering matters: the user sees the bank's reasoning conclude before they see the number they're supposed to trust. That's the whole thesis of the redesign in one screen &mdash; legibility of AI reasoning as a prerequisite for trust, added on top of a code-generation guarantee that stays untouched.</p>
+                                    <h4 style="color: #00ff88 !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">Why Interrupt, Not Just Inform</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">The score itself is a modeling problem, not a design one. The design problem is deciding whether a given moment has earned the right to interrupt someone at all. A warning that fires on every transaction gets dismissed like every other banking pop-up; one that never fires is useless the one time it matters. This screen is my attempt at an interruption built to earn attention, not just be technically accurate.</p>
+                                </div>
+                            </div>
+                            <div class="iteration-bento-image-pane">
+                                <img src="images/Tomaan-authorization.png" alt="Tomaan Authorization Screen showing loading metrics and confidence score indicator" />
+                            </div>
+                        </div>
+
+                        <!-- Screen 3: Fallback -->
+                        <div class="iteration-bento-card">
+                            <div class="iteration-bento-text-pane">
+                                <span class="badge">03 &mdash; Fallback</span>
+                                <h3>The Screen Most Redesigns Skip</h3>
+                                <p>Most AI-redesign concepts stop at the happy path. Tomaan's third screen is the one I think does the real work: what happens when the AI layer can't finish its job.</p>
+                                
+                                <div style="margin-top: var(--space-2) !important;">
+                                    <h4 style="color: #ffffff !important; margin-top: 0 !important; margin-bottom: 2px !important; font-size: var(--fs-small) !important;">Precision Degradation</h4>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 3px !important; line-height: 1.4 !important;">Here, one check &mdash; recipient history &mdash; times out. The interface doesn't declare total failure or throw an alarming error state. It scopes the problem precisely (<em>"Recipient check unavailable"</em>) and falls back to exactly the mechanism the original apps used: a manually entered, offline OTP tied to the physical card.</p>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 3px !important; line-height: 1.4 !important;">The visual treatment stays calm &mdash; same dark surfaces, same typography &mdash; rather than switching to red-alert styling, because a fallback to a proven legacy mechanism isn't an error. It's the system working correctly. This is also where the project closes its own loop: the "old" mechanism doesn't get replaced, it becomes the safety net.</p>
+                                    <p style="font-size: var(--fs-small) !important; color: #a1a1aa !important; margin-bottom: 0 !important; line-height: 1.4 !important;">That same instinct &mdash; a fallback that's confident, not apologetic &mdash; is the exact problem device-bound credentials like passkeys still haven't solved industry-wide: what happens when someone loses the device holding their credential. That's the next real version of this screen I'd want to design.</p>
+                                </div>
+                            </div>
+                            <div class="iteration-bento-image-pane">
+                                <img src="images/Tomaan-fallback.png" alt="Tomaan Fallback Screen showing offline OTP input layout" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Takeaways -->
+            <section id="takeaways">
+                <div class="inner">
+                    <h2>What I'd Take Into a Real Build</h2>
+                    <p>A few open questions I'd want to resolve with real users and a security team before shipping anything like this:</p>
+
+                    <div class="accessibility-bento-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="accessibility-card">
+                            <span class="badge">Validation 1</span>
+                            <h3>Calibration Honesty</h3>
+                            <p>A 98% confidence score is only trustworthy if the number is actually calibrated to real fraud-model output, not a UI decoration. That's a cross-functional problem, not just a design one.</p>
+                        </div>
+                        <div class="accessibility-card">
+                            <span class="badge">Validation 2</span>
+                            <h3>Alert Fatigue</h3>
+                            <p>Confidence indicators need to earn their visibility. If every transaction shows a badge, users stop reading them. I'd want usage data before deciding how often to surface the chip versus staying silent by default.</p>
+                        </div>
+                    </div>
+
+                    <div class="storyboards-grid" style="margin-top: var(--space-4) !important;">
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Validation 3</span>
+                                <h3>The Missing Middle State</h3>
+                                <p>This concept designs the happy path (high confidence) and the total-failure path (a check times out). It doesn't yet design the middle: what a real, unresolved doubt should trigger &mdash; not a pass, not a failure, but something in between. A real build needs that third state, likely an added confirmation step, before this ships.</p>
+                            </div>
+                        </div>
+                        <div class="storyboard-card">
+                            <div class="storyboard-card-header">
+                                <span class="badge">Validation 4</span>
+                                <h3>Localization &amp; Layout Direction</h3>
+                                <p>This version was designed for an international/USD context. The original systems were Iranian-market products; a real build would need currency, numeral, and RTL-layout decisions made deliberately, not left as an afterthought.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-5) !important; padding: var(--space-4) !important; border-radius: var(--radius-md) !important; background: rgba(255, 255, 255, 0.02) !important; border: 1px solid rgba(255, 255, 255, 0.06) !important; text-align: left !important;">
+                        <p style="margin: 0; font-size: var(--fs-small) !important; line-height: 1.5; color: #a1a1aa !important;">
+                            <strong>Note:</strong> Tomaan is a personal design exploration, not a shipped product. It builds on real work I did at Carrene designing offline OTP interfaces for a security-conscious banking user base.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer id="footer" style="border-top: 1px solid rgba(255, 255, 255, 0.08) !important;">
+            <div class="inner">
+                <p class="copyright">&copy; Viola Kazemi. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Simple active nav highlighting logic
+        $(window).on('scroll', function() {
+            var scrollPos = $(document).scrollTop();
+            $('.nav-segment').each(function() {
+                var currLink = $(this);
+                var refElement = $(currLink.attr("href"));
+                if (refElement && refElement.position() && (refElement.position().top - 120 <= scrollPos) && (refElement.position().top + refElement.height() > scrollPos)) {
+                    $('.nav-segment').removeClass("active");
+                    currLink.addClass("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
