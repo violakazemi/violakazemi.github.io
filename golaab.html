@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Golaab Jewelry Case Study - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="index.html" class="logo">Viola Kazemi</a>
+        <nav>
+            <a href="index.html#work" class="button button-secondary" style="height: 32px; font-size: 12px;">Back to Work</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Fixed Spacing & Image Background) -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div class="split-grid" style="align-items: center;">
+                <div>
+                    <span class="badge">E-Commerce & UI Design</span>
+                    <h1 style="margin-top: var(--space-2);">Golaab Jewelry</h1>
+                    <h2 style="color: var(--color-text-secondary); font-weight: 500;">Custom Keepsakes Builder</h2>
+                    
+                    <div style="margin-top: var(--space-4); display: flex; gap: var(--space-4);">
+                        <div>
+                            <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700;">Role</span>
+                            <span style="font-weight: 500; font-size: var(--fs-small);">Product Designer</span>
+                        </div>
+                        <div>
+                            <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700;">Timeline</span>
+                            <span style="font-weight: 500; font-size: var(--fs-small);">6 Weeks</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Removed the grey card-image-wrapper so the mockup's natural background shines -->
+                    <img src="images/GolaabMockup.png" alt="Golaab Mobile Interface" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Product Overview -->
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>Product Overview</h2>
+            <p>A custom jewelry platform where buyers upload a child's drawing and annotate specific details. The goal is to make them feel certain about the final manufactured piece before paying.</p>
+            
+            <details>
+                <summary>Context: The Bunny Sketch Origin Story</summary>
+                <p>In 2025, operating Golaab Jewelry, I received a request to turn a child's drawing into real, permanent jewelry. Looking at the sketch, the bunny was drawn bigger than the girl and the hair was just tangled loops. I had to decide what those marks meant and cast my read of them in silver, not hers. My manual process was to ask the customer what they saw; it worked, but only because I did it by hand. There was nothing recorded that a bench jeweler could check the piece against later.</p>
+            </details>
+
+            <h3 style="margin-top: var(--space-5);">Business Goals & KPIs</h3>
+            <div class="bento-grid">
+                <article class="card">
+                    <span class="badge">Primary KPI</span>
+                    <h3>Reduce Checkout Hesitation</h3>
+                    <p>Increase order conversions at the drawing-approval step by letting buyers see and confirm details before paying, lowering cart drop-off rates.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Secondary KPI</span>
+                    <h3>Drop Pre-Checkout Support Load</h3>
+                    <p>Minimize back-and-forth DM support queries by automating drawing intent tagging directly in the purchasing flow.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Research & Discovery -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Research & Discovery</h2>
+            <p>I reviewed order patterns and spoke directly with past keepsake buyers to pinpoint where transaction hesitation starts.</p>
+            
+            <div class="bento-grid">
+                <article class="card">
+                    <span class="badge">Insight 1</span>
+                    <h3>Fear of Misread Lines</h3>
+                    <p>Customers want a way to say "this line represents this feature" before their memory is permanently set in silver.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Insight 2</span>
+                    <h3>Manual Friction Pivot</h3>
+                    <p>Pre-checkout messaging threads are chaotic, causing buyers to drop off due to delays in getting simple detail clarifications.</p>
+                </article>
+            </div>
+
+            <details>
+                <summary>View User Testing Quotes</summary>
+                <p><strong>On hesitation:</strong> "She hesitated and asked a lot of questions — not about price, but because she had no way of knowing what the final piece would look like before committing."<br><br><strong>On uploading:</strong> "Strangers testing the initial live site in Calgary got stuck at step 1 because they didn't know what counted as a good enough photo."</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 3. Competitive Review -->
+    <section class="section">
+        <div class="container">
+            <h2>Competitive Review</h2>
+            <p>I audited how high-volume Etsy sellers handle custom sketch orders. Both major market leaders (Caitlyn Minimalist and CoraJewelryCrafts) require checkout first, followed by manual messaging threads to handle custom artwork parameters.</p>
+            
+            <div class="bento-grid">
+                <article class="card">
+                    <span class="badge">Differentiator Gap</span>
+                    <h3>No Intent Pinning</h3>
+                    <p>No existing platform connects custom artwork parameters directly with checkout steps. Customers have no mechanism to highlight details, leading to high-friction manual support threads.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Design Solution -->
+    <section class="section">
+        <div class="container">
+            <h2>Design Solution</h2>
+            <p>To bridge the communication gap, I designed a 4-step customization flow centered around a Tap-to-Pin annotation canvas. This lets buyers drop pins directly on their uploaded drawings to label key details before committing to a final purchase.</p>
+
+            <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: var(--space-5);">
+                <article class="card">
+                    <span class="badge">Step 1</span>
+                    <h3 style="font-size: var(--fs-body);">Upload & Isolate</h3>
+                    <p style="font-size: var(--fs-small);">Automatically adjusting contrast to remove paper background shadows.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Step 2</span>
+                    <h3 style="font-size: var(--fs-body);">Tap-to-Pin</h3>
+                    <p style="font-size: var(--fs-small);">Tapping specific parts of the drawing to attach quick text notes.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Step 3</span>
+                    <h3 style="font-size: var(--fs-body);">Material</h3>
+                    <p style="font-size: var(--fs-small);">Choosing metal materials and previewing the finish style.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Step 4</span>
+                    <h3 style="font-size: var(--fs-body);">Review Proof</h3>
+                    <p style="font-size: var(--fs-small);">Reviewing the final layout and notes summary before checking out.</p>
+                </article>
+            </div>
+
+            <details>
+                <summary>System Logic Constraints (Edge Cases)</summary>
+                <p><strong>Mobile Touch Target Sizing:</strong> Set minimum 48px touch targets for dropping pins, and used slide-up entry panels so the keyboard doesn't cover sketches.<br><strong>Linking Notes to Bench Data:</strong> The coordinates are saved directly with the drawing file, showing bench jewelers exactly where instructions apply.</p>
+            </details>
+
+            <div style="margin-top: var(--space-4);">
+                <!-- Removed grey padding wrapper here as well -->
+                <img src="images/golaab-thumbnail-web.png" alt="Golaab High-Fidelity Responsive Prototype Overview" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            </div>
+            
+            <div style="display: flex; gap: var(--space-3); margin-top: var(--space-3);">
+                <a href="https://www.figma.com/proto/T6VbncYAJlXKyV99MUCrye/Golaab?node-id=458-2175&t=OIZ3PE6VaT9NT7yw-1&scaling=min-zoom&content-scaling=fixed&page-id=434%3A1393&starting-point-node-id=458%3A2175" target="_blank" rel="noopener noreferrer" class="button">View Hi-Fi Prototype</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Usability Validation (Fixed GIF Sizes) -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Usability Validation & Iteration</h2>
+            <p>I tested the initial fast-checkout version as a live site in Calgary at Carya Market. The test highlighted critical psychological barriers that informed the annotation update.</p>
+            
+            <!-- Bento grid used to place cards side-by-side, max-width applied strictly to the GIFs -->
+            <div class="bento-grid" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <h3 style="font-size: var(--fs-h3); text-align: center;">V1: The 3-Step Flow</h3>
+                    <div style="max-width: 220px; margin: var(--space-3) auto;">
+                        <img src="images/golaab-v01.gif" alt="Golaab V1 Flow" style="width: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); display: block;" />
+                    </div>
+                    <p style="font-size: var(--fs-small); margin-top: auto;"><strong>What broke:</strong> People hesitated right at the photo step. They weren't sure what counted as a good photo, and were afraid something meaningful to them would just look like a smudge.</p>
+                </article>
+
+                <article class="card">
+                    <h3 style="font-size: var(--fs-h3); text-align: center;">V2: The 4-Step Intent Flow</h3>
+                    <div style="max-width: 220px; margin: var(--space-3) auto;">
+                        <img src="images/golaab-v02.gif" alt="Golaab V2 Flow" style="width: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); display: block;" />
+                    </div>
+                    <p style="font-size: var(--fs-small); margin-top: auto;"><strong>What I learned:</strong> Adding the Tap-to-Pin annotation step increased interaction effort, but it removed the psychological worry. Letting customers explain their sketch built purchase confidence.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Navigation -->
+    <section class="section">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: var(--space-4);">
+                <a href="museum.html" class="button button-secondary">&larr; Previous Case Study</a>
+                <a href="mechmarket.html" class="button button-secondary">Next Case Study &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum.html">The Museum Companion</a></li>
+                        <li><a href="golaab.html">Golaab</a></li>
+                        <li><a href="mechmarket.html">Mechmarket</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan.html">Tomaan</a></li>
+                        <li><a href="promptlab-carbon.html">Designing Inside Carbon</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Viola Kazemi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
