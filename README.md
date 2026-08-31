@@ -33,10 +33,3 @@ The portfolio highlights a range of end-to-end design work, categorized into ful
 * **Tomaan:** Reimagining offline-first security and latency-aware interfaces for the AI-native era.
 * **Designing Inside Carbon:** A concept redesign proposing a compare-view within IBM watsonx's Prompt Lab.
 
-## 💻 Local Development
-
-Because this project is built with static, vanilla web technologies, there is no complex build step required to run it locally.
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/yourusername/portfolio.git](https://github.com/yourusername/portfolio.git)
