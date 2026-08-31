@@ -3796,10 +3796,47 @@ article header.major {
     margin-right: var(--space-1);    /* Adds space between the year and the title */
 }
 
-.job {
-    margin-bottom: var(--space-3);
-    font-size: var(--fs-body);
-    font-weight: 500;      /* Slightly bolder for the title */
+.experience-text-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* 8pt grid strict spacing */
+    margin-top: 32px;
+}
+
+.experience-item {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 32px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Replaces the box with a subtle structural line */
+    padding-bottom: 16px;
+}
+
+.experience-date {
+    min-width: 180px;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: #666666; /* Slate grey for secondary info */
+    margin: 0;
+}
+
+.experience-company {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    color: #333333; /* Deep charcoal */
+    margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 736px) {
+    .experience-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .experience-date {
+        min-width: auto;
+    }
 }
 
 .button {
