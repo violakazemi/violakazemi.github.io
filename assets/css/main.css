@@ -5301,43 +5301,6 @@ body:not(.museum-page):not(.mechmarket-page):not(.golaab-page):not(.tomaan-page)
     box-sizing: border-box !important;
 }
 
-.experience-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: var(--space-2) !important;
-    margin-top: var(--space-4) !important;
-}
-
-.experience-list .job {
-    background-color: var(--apple-bg-gray) !important; /* Standard Apple off-white background */
-    padding: var(--space-3) var(--space-4) !important;
-    border-radius: var(--radius-md) !important;
-    border: none !important;
-    box-shadow: var(--shadow-md) !important; /* Use Apple shadow system */
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    gap: var(--space-3) !important;
-    font-size: var(--fs-body) !important;
-    color: var(--apple-text-primary) !important;
-}
-
-.experience-list .job .year {
-    font-weight: 600 !important;
-    color: var(--color-text-secondary) !important;
-    min-width: 180px !important;
-    flex-shrink: 0 !important;
-    font-size: var(--fs-small) !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-}
-
-.experience-list .job .title {
-    font-weight: 400 !important;
-    color: var(--color-text-primary) !important;
-    font-size: var(--fs-body) !important;
-}
-
 /* Button Overrides - Apple signature blue text links with chevron */
 .button, input[type="submit"], input[type="reset"], input[type="button"] {
     background-color: transparent !important;
