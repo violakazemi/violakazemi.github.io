@@ -1,0 +1,301 @@
+/* ==========================================================================
+   1. UNIFIED DESIGN TOKENS (THE MASTER SYSTEM)
+   ========================================================================== */
+:root {
+    /* Fluid Typography - Scales naturally across all devices */
+    --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --fs-h1: clamp(2.125rem, 5vw + 1rem, 3.5rem);
+    --fs-h2: clamp(1.625rem, 3.5vw + 1rem, 2.5rem);
+    --fs-h3: clamp(1.25rem, 2vw + 1rem, 1.75rem);
+    --fs-body: clamp(1.0625rem, 1vw + 0.9rem, 1.125rem);
+    --fs-small: clamp(0.8125rem, 0.5vw + 0.75rem, 0.9375rem);
+
+    /* Single Universal Color Palette */
+    --color-bg-page: #F9F7F3;       /* Warm off-white background everywhere */
+    --color-bg-card: #FFFFFF;       /* Pure white for elevation */
+    --color-bg-alt: #F5F5F7;        /* Apple gray for nested elements */
+    --color-text-primary: #1D1D1F;  /* Deep charcoal */
+    --color-text-secondary: #6E6E73;
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-accent: #0071E3;        /* Unified interactive blue */
+
+    /* Strict 8px Spacing Grid */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-8: 128px;
+
+    /* Elevation & Radii */
+    --radius-sm: 8px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+    /* Containers */
+    --container-wide: 1200px;
+    --container-content: 980px;
+    --container-text: 680px;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 48px; /* Accounts for fixed header */
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+p, ul, ol { margin-bottom: var(--space-3); }
+
+/* Max-width constraints for optimal reading lengths */
+p, ul, ol {
+    max-width: var(--container-text);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #005bb5;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. UNIVERSAL LAYOUT & INTRINSIC GRIDS
+   ========================================================================== */
+/* Replaces all 1000+ lines of .col- media queries */
+.container {
+    width: 100%;
+    max-width: var(--container-content);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section {
+    padding: var(--space-8) 0;
+}
+
+/* Auto-scaling Bento Grid */
+.bento-grid {
+    display: grid;
+    /* Automatically creates columns that fit the screen, minimum 300px wide */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    width: 100%;
+    margin: var(--space-4) 0;
+}
+
+/* Auto-scaling 2-Column Split (for comparisons, challenge/solution) */
+.split-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-6);
+    align-items: center;
+}
+
+/* ==========================================================================
+   4. UNIVERSAL COMPONENTS
+   ========================================================================== */
+/* The Master Card (Replaces .apple-tile, .persona-card, .ideation-card) */
+.card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-image-wrapper {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: var(--space-3);
+    background-color: var(--color-bg-alt);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badges & Metadata */
+.badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg-alt);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+    align-self: flex-start;
+}
+
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-text-primary);
+    color: #FFFFFF;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    padding: 0 var(--space-4);
+    height: 48px;
+    border-radius: var(--radius-pill);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   5. UNIFIED HEADER & SUB-NAVIGATION
+   ========================================================================== */
+.global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background-color: rgba(249, 247, 243, 0.85); /* Matches --color-bg-page with transparency */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-4);
+    z-index: 9999;
+}
+
+.global-header .logo {
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sub-nav {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+    z-index: 9998;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.sub-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.sub-nav a {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.sub-nav a:hover, .sub-nav a.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE ADJUSTMENTS (The ONLY media query you need)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-3);
+    }
+    
+    .section {
+        padding: var(--space-5) 0;
+    }
+
+    .split-grid {
+        grid-template-columns: 1fr; /* Stacks image and text vertically */
+        gap: var(--space-4);
+    }
+    
+    .sub-nav {
+        justify-content: flex-start;
+        padding: 0 var(--space-3);
+    }
+}
