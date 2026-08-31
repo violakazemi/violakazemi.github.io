@@ -3872,33 +3872,6 @@ article header.major {
     transform: scale(0.98) !important;
     box-shadow: none !important;
 }
-
-.experience-list .title {
-    font-weight: 400; /* Ensures all titles have the same weight */
-}
-
-@media screen and (max-width: 734px) {
-    .experience-list .job {
-        display: block !important;
-        white-space: nowrap !important;
-        font-size: var(--fs-small) !important; /* Smaller but accessible */
-        margin-bottom: var(--space-1) !important;
-        text-overflow: ellipsis !important;
-        overflow: hidden !important;
-    }
-    .experience-list .year {
-        display: inline !important;
-        margin-right: var(--space-1) !important;
-        font-weight: 600 !important;
-        font-size: var(--fs-body) !important;
-    }
-    .experience-list .title {
-        display: inline !important;
-    }
-}
-
-
-
 .nav-container {
     display: none;
 }
@@ -4208,7 +4181,6 @@ p {
     header.major,
     header.major > :first-child,
     #banner > .inner .content,
-    .experience-list,
     #banner > .inner > *,
     #main > * > .inner > *,
     #banner > .inner .content > * {
@@ -5833,17 +5805,7 @@ body.museum-page,
         margin-top: var(--space-3) !important;
         gap: var(--space-1) !important;
     }
-    .experience-list .job {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: var(--space-1) !important;
-        padding: var(--space-2) var(--space-2) !important; /* Clean balanced padding inside mobile cards */
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    .experience-list .job .year {
-        min-width: 0 !important;
-    }
+    
     .footer-directory {
         grid-template-columns: 1fr !important;
         gap: var(--space-4) !important;
