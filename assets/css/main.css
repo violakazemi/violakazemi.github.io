@@ -198,6 +198,24 @@ a:hover {
     color: #FFFFFF;
 }
 
+.subtitle {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.exp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3) 0;
+}
+
+.exp-title { margin: 0; font-size: var(--fs-body); }
+.exp-date { color: var(--color-text-secondary); font-size: var(--fs-small); }
+
+.card-cta { margin-top: auto; }
+
 .button {
     display: inline-flex;
     align-items: center;
