@@ -2,7 +2,7 @@
 // 1. PROJECT NAVIGATION LOOP (PLACED AT TOP TO AVOID CRASHES)
 // =========================================================
 document.addEventListener("DOMContentLoaded", function() {
-    const projects = ["museum", "golaab", "tomaan", "promptlab-carbon"];
+    const projects = ["museum", "golaab", "tomaan", "promptlab-carbon", "smart-substitutions"];
     
     // Grab the URL no matter where it is hosted
     let currentUrl = window.location.href.toLowerCase();
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     else if (currentUrl.includes("golaab")) currentIndex = 1;
     else if (currentUrl.includes("tomaan")) currentIndex = 2;
     else if (currentUrl.includes("promptlab")) currentIndex = 3;
+    else if (currentUrl.includes("smart-substitutions")) currentIndex = 4;
 
     if (currentIndex !== -1) {
         const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
