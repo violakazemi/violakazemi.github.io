@@ -1,8 +1,4 @@
-/*
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 (function($) {
 
@@ -384,5 +380,38 @@
 				$tilesContainer.animate({ scrollLeft: $tilesContainer.scrollLeft() - scrollAmount }, 300);
 			});
 		}
+
+	document.addEventListener('DOMContentLoaded', () => {
+    // 1. THE MASTER QUEUE: Define your project order here once.
+    // To add a new project tomorrow, just add "new-project.html" to this list!
+    const projects = [
+        "museum.html", 
+        "golaab.html", 
+        "tomaan.html", 
+        "promptlab-carbon.html"
+    ];
+
+    // 2. Find out what page the user is currently looking at
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop(); 
+
+    // 3. Find where this page sits in the master queue
+    const currentIndex = projects.indexOf(currentPage);
+
+    // 4. If we are on a project page, calculate the next and previous pages
+    if (currentIndex !== -1) {
+        
+        // This math seamlessly loops the queue from start to finish and back again
+        const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+        const nextIndex = (currentIndex + 1) % projects.length;
+
+        // 5. Inject those links into the buttons
+        const prevBtn = document.getElementById('btn-prev-project');
+        const nextBtn = document.getElementById('btn-next-project');
+
+        if (prevBtn) prevBtn.href = projects[prevIndex];
+        if (nextBtn) nextBtn.href = projects[nextIndex];
+    }
+});
 
 })(jQuery);
