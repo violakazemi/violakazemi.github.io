@@ -384,34 +384,34 @@
 	document.addEventListener('DOMContentLoaded', () => {
     // 1. THE MASTER QUEUE: Define your project order here once.
     // To add a new project tomorrow, just add "new-project.html" to this list!
-    const projects = [
-        "museum.html", 
-        "golaab.html", 
-        "tomaan.html", 
-        "promptlab-carbon.html"
-    ];
+   // 1. THE MASTER QUEUE: Define your clean URLs here (NO .html)
+const projects = [
+    "museum", 
+    "golaab", 
+    "tomaan", 
+    "promptlab-carbon"
+];
 
-    // 2. Find out what page the user is currently looking at
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop(); 
+// 2. Find out what page the user is currently looking at
+let currentPage = window.location.pathname.split('/').pop(); 
 
-    // 3. Find where this page sits in the master queue
-    const currentIndex = projects.indexOf(currentPage);
+// Safeguard: If testing locally on your computer, strip the .html out
+currentPage = currentPage.replace('.html', '');
 
-    // 4. If we are on a project page, calculate the next and previous pages
-    if (currentIndex !== -1) {
-        
-        // This math seamlessly loops the queue from start to finish and back again
-        const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
-        const nextIndex = (currentIndex + 1) % projects.length;
+// 3. Find where this page sits in the master queue
+const currentIndex = projects.indexOf(currentPage);
 
-        // 5. Inject those links into the buttons
-        const prevBtn = document.getElementById('btn-prev-project');
-        const nextBtn = document.getElementById('btn-next-project');
+// 4. If we are on a project page, calculate the next and previous pages
+if (currentIndex !== -1) {
+    
+    // This math seamlessly loops the queue from start to finish and back again
+    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+    const nextIndex = (currentIndex + 1) % projects.length;
 
-        if (prevBtn) prevBtn.href = projects[prevIndex];
-        if (nextBtn) nextBtn.href = projects[nextIndex];
-    }
-});
+    // 5. Inject the clean links into the HTML buttons
+    const prevBtn = document.getElementById('btn-prev-project');
+    const nextBtn = document.getElementById('btn-next-project');
 
-})(jQuery);
+    if (prevBtn) prevBtn.href = projects[prevIndex];
+    if (nextBtn) nextBtn.href = projects[nextIndex];
+}
