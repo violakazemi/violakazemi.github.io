@@ -170,6 +170,15 @@ a:hover {
     display: block;
 }
 
+.carousel-grid {
+    display: grid;
+    grid-auto-flow: column;
+    /* Changed from calc(50% - 1rem) to 45% to let the 3rd card peek in */
+    grid-auto-columns: calc(45% - 1rem); 
+    gap: 2rem;
+    /* ... rest of your styles */
+}
+
 .badge {
     display: inline-flex;
     align-items: center;
