@@ -386,36 +386,41 @@
 // =========================================================
 // PROJECT NAVIGATION LOOP
 // =========================================================
-
-// 1. THE MASTER QUEUE: Define your clean URLs here (NO .html)
-const projects = [
-    "museum", 
-    "golaab", 
-    "tomaan", 
-    "promptlab-carbon"
-];
-
-// 2. Find out what page the user is currently looking at
-// Added .replace(/\/$/, '') to fix an edge case where trailing slashes break the script
-let currentPage = window.location.pathname.replace(/\/$/, '').split('/').pop(); 
-
-// Safeguard: If testing locally on your computer, strip the .html out
-currentPage = currentPage.replace('.html', '');
-
-// 3. Find where this page sits in the master queue
-const currentIndex = projects.indexOf(currentPage);
-
-// 4. If we are on a project page, calculate the next and previous pages
-if (currentIndex !== -1) {
+// =========================================================
+// PROJECT NAVIGATION LOOP
+// =========================================================
+document.addEventListener("DOMContentLoaded", function() {
     
-    // This math seamlessly loops the queue from start to finish and back again
-    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
-    const nextIndex = (currentIndex + 1) % projects.length;
+    // 1. THE MASTER QUEUE: Define your clean URLs here
+    const projects = [
+        "museum", 
+        "golaab", 
+        "tomaan", 
+        "promptlab-carbon"
+    ];
 
-    // 5. Inject the clean links into the HTML buttons
-    const prevBtn = document.getElementById('btn-prev-project');
-    const nextBtn = document.getElementById('btn-next-project');
+    // 2. Safely grab the current page name
+    let currentPage = window.location.pathname.replace(/\/$/, '').split('/').pop(); 
+    currentPage = currentPage.replace('.html', '');
 
-    if (prevBtn) prevBtn.href = projects[prevIndex];
-    if (nextBtn) nextBtn.href = projects[nextIndex];
-}
+    // 3. Find where this page sits in the master queue
+    const currentIndex = projects.indexOf(currentPage);
+
+    // 4. Calculate next/prev ONLY if the page is found in the list
+    if (currentIndex !== -1) {
+        
+        const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+        const nextIndex = (currentIndex + 1) % projects.length;
+
+        const prevBtn = document.getElementById('btn-prev-project');
+        const nextBtn = document.getElementById('btn-next-project');
+
+        // 5. Inject the links using Absolute Paths (starting with /)
+        if (prevBtn) {
+            prevBtn.href = "/" + projects[prevIndex];
+        }
+        if (nextBtn) {
+            nextBtn.href = "/" + projects[nextIndex];
+        }
+    }
+});
