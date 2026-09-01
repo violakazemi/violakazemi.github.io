@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Smart Substitutions - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        
+        /* Strict 2-Column Grid (Guarantees perfect symmetry, never orphans a 3rd item) */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Smart Substitutions</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Stacked Layout) -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">Agentic UX Concept</span>
+                <h1 style="margin-top: var(--space-2);">Smart Substitutions & Latency</h1>
+                <p class="subtitle" style="font-size: 1.25rem; max-width: 800px;">A fast concept exploring how AI-driven substitution should feel in grocery e-commerce — designed around latency, trust, and deterministic fallback states.</p>
+            </div>
+            
+            <div style="width: 100%; border-radius: var(--radius-md); overflow: hidden; background-color: var(--color-bg-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+                <!-- Hero Image -->
+                <img src="images/Smart_Substitutions.jpg" alt="Smart Substitutions AI Flow" style="width: 100%; height: auto; display: block;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="margin-bottom: var(--space-3);">The Problem</h2>
+                <p>When an item goes out of stock in a grocery order, the default experience is manual: the customer either picks a replacement themselves or gets nothing. If an AI agent takes over that decision, it introduces a new problem — latency while it queries inventory and evaluates alternatives, and a trust gap when it presents a substitution the customer didn't ask for.</p>
+                <p>The question this concept answers: <strong>what does it look like to design for that exact moment — the gap between "item unavailable" and "agent has a recommendation" — without it feeling broken, slow, or untrustworthy?</strong></p>
+                
+                <hr style="border: 0; border-top: 1px solid var(--color-border); margin: var(--space-5) 0;">
+
+                <h2 style="margin-bottom: var(--space-3);">Frame 1 — The "Thinking" State</h2>
+                <div style="width: 100%; border-radius: var(--radius-md); overflow: hidden; background-color: var(--color-bg-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); margin-bottom: var(--space-4);">
+                    <img src="images/frame-1-thinking.png" alt="Progressive Loading UI" style="width: 100%; height: auto; display: block;" />
+                </div>
+                <p>Instead of a generic loading spinner, the out-of-stock item shows a progressive loading component: sequential status text ("AI Agent checking local dairy inventory..." → "Evaluating organic alternatives...") paired with a subtle progress indicator.</p>
+                <p><strong>Why it matters:</strong> LLM retrieval takes real time. Abstracting that wait into visible, conversational steps prevents abandonment and builds trust — the user can see the agent is working, not stuck. A small accessibility annotation calls out that these steps update via an <code>aria-live</code> region, so screen reader users aren't left on a silent spinner.</p>
+
+                <hr style="border: 0; border-top: 1px solid var(--color-border); margin: var(--space-5) 0;">
+
+                <h2 style="margin-bottom: var(--space-3);">Frame 2 — The Agentic Recommendation</h2>
+                <div style="width: 100%; border-radius: var(--radius-md); overflow: hidden; background-color: var(--color-bg-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); margin-bottom: var(--space-4);">
+                    <img src="images/frame-2-recommendation.png" alt="AI Substitution Options" style="width: 100%; height: auto; display: block;" />
+                </div>
+                <p>The agent presents two substitution options, each with a short "why" rationale rather than just a name and price:</p>
+                <ul style="margin-bottom: var(--space-3);">
+                    <li><strong>Natrel Organic 2%</strong> — <em>Matches Dietary & Brand Tier</em></li>
+                    <li><strong>PC Standard 2%</strong> — <em>Matches Brand, Lower Price</em></li>
+                </ul>
+                <p><strong>Why it matters:</strong> AI recommendations need to feel deterministic, not magical. Surfacing the reasoning behind each option reduces cognitive load for the customer and cuts down on the support tickets that come from unexplained auto-substitutions.</p>
+
+                <hr style="border: 0; border-top: 1px solid var(--color-border); margin: var(--space-5) 0;">
+
+                <h2 style="margin-bottom: var(--space-3);">Frame 3 — The System Constraint & Fallback</h2>
+                <div style="width: 100%; border-radius: var(--radius-md); overflow: hidden; background-color: var(--color-bg-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); margin-bottom: var(--space-4);">
+                    <img src="images/frame-3-fallback.png" alt="Low Confidence Fallback UI" style="width: 100%; height: auto; display: block;" />
+                </div>
+                <p>This is the frame that does the most work. A sticky note frames the underlying engineering constraint:</p>
+                <blockquote style="margin: var(--space-3) 0; padding-left: var(--space-3); border-left: 4px solid var(--color-primary); color: var(--color-text-secondary); font-style: italic;">
+                    "Agentic UX in grocery e-commerce cannot just be a chatbot. It requires deterministic fallback states. If the LLM confidence score for a dietary match (e.g., Gluten-Free) is below 95%, the UI must gracefully degrade to a manual search fallback to avoid compliance and health risks."
+                </blockquote>
+                <p>Below it, the actual fallback UI: a clear "Low Substitution Confidence" message with two ways forward — search manually, or browse alternatives — so a low-confidence moment resolves as a graceful next step, not a dead end.</p>
+
+                <hr style="border: 0; border-top: 1px solid var(--color-border); margin: var(--space-5) 0;">
+
+                <h2 style="margin-bottom: var(--space-3);">Hypothetical Success Metrics</h2>
+                <p>If shipped, this concept would be measured against:</p>
+                <ul>
+                    <li>Substitution acceptance rate (target: >85%)</li>
+                    <li>Reduction in CX tickets tied to auto-substitutions</li>
+                    <li>Time-to-resolution on out-of-stock cart items</li>
+                </ul>
+
+                <hr style="border: 0; border-top: 1px solid var(--color-border); margin: var(--space-5) 0;">
+
+                <h2 style="margin-bottom: var(--space-3);">Reflection</h2>
+                <p>The interesting design problem here wasn't the happy path — it was designing for uncertainty. Latency, confidence scores, and failure states are usually treated as engineering concerns that get bolted onto a UI after the fact. Treating them as first-class design decisions — what the user sees while the system is unsure, and what happens when it's <em>too</em> unsure to act — is where agentic products either earn trust or lose it.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <section id="bottom-nav" style="background: none !important; box-shadow: none !important; border: none !important; margin-top: var(--space-5) !important; margin-bottom: var(--space-6) !important;">
+        <div class="inner container" style="display: flex !important; justify-content: space-between !important; align-items: center !important; gap: var(--space-2) !important;">
+            <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Concept</a>
+            <a href="#" id="btn-next-project" class="button button-secondary">Next Concept &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum.html">The Museum Companion</a></li>
+                        <li><a href="golaab.html">Golaab</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan.html">Tomaan</a></li>
+                        <li><a href="promptlab-carbon.html">Designing Inside Carbon</a></li>
+                        <li><a href="smart-substitutions.html">Smart Substitutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Viola Kazemi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
