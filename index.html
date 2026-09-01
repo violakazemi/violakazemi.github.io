@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Portfolio - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 40px; /* Adds a slight offset so the section doesn't hug the very top of the window */
+        }
+        
+        /* Flexbox fix to perfectly align buttons at the bottom of cards */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi</a>
+        <nav>
+            <a href="#work" class="button">View My Work</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Viola Kazemi</h1>
+                    <h2 class="subtitle">Product Designer</h2>
+                    <p>I'm a product designer with a Computer Engineering background designing AI-native, compliance-aware experiences for products where the details actually carry risk.</p>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="images/avatar.PNG" alt="Viola Kazemi" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Lab -->
+    <section class="section">
+        <div class="container">
+            <h2>Concept Lab: AI Integrations</h2>
+            <div class="bento-grid">
+                
+                <article class="card">
+                    <span class="badge badge--concept">AI-Native Security</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/Tomaan-Thumbnail.png" alt="Tomaan Security Mockup" />
+                    </div>
+                    <h3><a href="tomaan">Tomaan</a></h3>
+                    <p>Reimagining offline security for the AI-native era: latency-aware interfaces and graceful degradation.</p>
+                    <a href="tomaan" class="button button-secondary" style="margin-top: auto;">View Concept</a>
+                </article>
+
+                <article class="card">
+                    <span class="badge badge--concept">AI Tooling</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/PromptLab-Compare-Filled.png" alt="Carbon Design Mockup" />
+                    </div>
+                    <h3><a href="promptlab-carbon">Designing Inside Carbon</a></h3>
+                    <p>A concept redesign of IBM watsonx's Prompt Lab, proposing a side-by-side comparison view.</p>
+                    <a href="promptlab-carbon" class="button button-secondary" style="margin-top: auto;">View Concept</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="work" class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="bento-grid">
+                
+                <article class="card">
+                    <span class="badge badge--project">UX Research & Design</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/MuseumThumbnail.png" alt="The Museum Companion Mockup" />
+                    </div>
+                    <h3><a href="museum">The Museum Companion</a></h3>
+                    <p>Research-driven elementary educator dashboard and chaperone ratio calculator to simplify school field trips.</p>
+                    <a href="museum" class="button button-secondary" style="margin-top: auto;">View Project</a>
+                </article>
+
+                <article class="card">
+                    <span class="badge badge--project">E-Commerce</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/golaab-mobile.png" alt="Golaab Mockup" />
+                    </div>
+                    <h3><a href="golaab">Golaab</a></h3>
+                    <p>A custom keepsakes builder focusing on artwork intent isolation and high-confidence proofing.</p>
+                    <a href="golaab" class="button button-secondary" style="margin-top: auto;">View Project</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+        <div class="container">
+            <div class="exp-row">
+                <h3 class="exp-title">Unitedreams Inc.</h3>
+                <span class="exp-date">Sep 2024 &mdash; Present</span>
+            </div>
+            <div class="exp-row">
+                <h3 class="exp-title">Carrene Corp</h3>
+                <span class="exp-date">July 2021 &mdash; Sep 2024</span>
+            </div>
+            <a href="ViolaKazemi.pdf" class="button">Download Full Resume</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <a href="museum" class="button button-secondary card-cta">View Concept</a>
+                        <a href="golaab" class="button button-secondary card-cta">View Concept</a>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <a href="tomaan" class="button button-secondary card-cta">View Concept</a>
+                        <a href="promptlab-carbon" class="button button-secondary card-cta">View Concept</a>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2026 Viola Kazemi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
