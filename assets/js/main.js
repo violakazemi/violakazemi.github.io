@@ -379,13 +379,14 @@
 				var scrollAmount = $tilesContainer.width() * 0.75;
 				$tilesContainer.animate({ scrollLeft: $tilesContainer.scrollLeft() - scrollAmount }, 300);
 			});
-		}
+		}// (This closes the original carousel function above it)
+        }
 
-	document.addEventListener('DOMContentLoaded', () => {
-    // 1. THE MASTER QUEUE: Define your project order here once.
-    // To add a new project tomorrow, just add "new-project.html" to this list!
-   // 1. THE MASTER QUEUE: Define your clean URLs here (NO .html)
-// 1. THE MASTER QUEUE: Define your clean URLs here (NO .html)
+// 1. CRITICAL FIX: Close the massive jQuery wrapper that started on Line 1
+})(jQuery); 
+
+
+// 2. THE MASTER QUEUE: Define your clean URLs here (NO .html)
 const projects = [
     "museum", 
     "golaab", 
@@ -393,23 +394,24 @@ const projects = [
     "promptlab-carbon"
 ];
 
-// 2. Find out what page the user is currently looking at
-let currentPage = window.location.pathname.split('/').pop(); 
+// 3. Find out what page the user is currently looking at
+// Added .replace(/\/$/, '') to fix an edge case where trailing slashes break the script
+let currentPage = window.location.pathname.replace(/\/$/, '').split('/').pop(); 
 
 // Safeguard: If testing locally on your computer, strip the .html out
 currentPage = currentPage.replace('.html', '');
 
-// 3. Find where this page sits in the master queue
+// 4. Find where this page sits in the master queue
 const currentIndex = projects.indexOf(currentPage);
 
-// 4. If we are on a project page, calculate the next and previous pages
+// 5. If we are on a project page, calculate the next and previous pages
 if (currentIndex !== -1) {
     
     // This math seamlessly loops the queue from start to finish and back again
     const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
     const nextIndex = (currentIndex + 1) % projects.length;
 
-    // 5. Inject the clean links into the HTML buttons
+    // 6. Inject the clean links into the HTML buttons
     const prevBtn = document.getElementById('btn-prev-project');
     const nextBtn = document.getElementById('btn-next-project');
 
