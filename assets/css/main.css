@@ -186,6 +186,18 @@ a:hover {
     border: 1px solid var(--color-border);
 }
 
+.badge--concept {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.badge--project {
+    background-color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+    color: #FFFFFF;
+}
+
 .button {
     display: inline-flex;
     align-items: center;
