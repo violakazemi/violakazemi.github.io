@@ -385,6 +385,7 @@
     // 1. THE MASTER QUEUE: Define your project order here once.
     // To add a new project tomorrow, just add "new-project.html" to this list!
    // 1. THE MASTER QUEUE: Define your clean URLs here (NO .html)
+// 1. THE MASTER QUEUE: Define your clean URLs here (NO .html)
 const projects = [
     "museum", 
     "golaab", 
