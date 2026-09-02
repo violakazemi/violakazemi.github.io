@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sudoku — Viola Kazemi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFDF5;
+    --ink:#111111;
+    --blue:#3D5AFE;
+    --yellow:#FFD23F;
+    --coral:#FF5D73;
+    --white:#FFFFFF;
+  }
+  *,*:before,*:after{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:48px 16px 80px;
+  }
+  .wrap{ width:100%; max-width:480px; }
+
+  .top{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:28px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:32px;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .timer{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    border:3px solid var(--ink);
+    background:var(--white);
+    padding:6px 14px;
+    box-shadow:4px 4px 0 var(--ink);
+  }
+
+  .board{
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+    grid-template-rows:repeat(9,1fr);
+    width:100%;
+    aspect-ratio:1/1;
+    background:var(--ink);
+    border:4px solid var(--ink);
+    box-shadow:8px 8px 0 var(--ink);
+    gap:0;
+  }
+  .cell{
+    background:var(--white);
+    border:1px solid #cfcfc7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:500;
+    font-size:clamp(16px,4vw,22px);
+    cursor:pointer;
+    user-select:none;
+    position:relative;
+  }
+  .cell.given{ font-weight:700; background:var(--yellow); }
+  .cell.selected{ background:var(--blue); color:var(--white); }
+  .cell.peer{ background:#E8ECFF; }
+  .cell.given.peer{ background:#FFE58A; }
+  .cell.conflict{ background:var(--coral); color:var(--white); }
+  .cell:nth-child(3n){ border-right:3px solid var(--ink); }
+  .cell:nth-child(9n){ border-right:1px solid #cfcfc7; }
+  .row3 .cell{ border-bottom:3px solid var(--ink); }
+
+  .pad{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:24px;
+  }
+  .key{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:18px;
+    background:var(--white);
+    border:3px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    padding:12px 0;
+    cursor:pointer;
+    transition:transform 0.05s ease;
+  }
+  .key:active{ box-shadow:1px 1px 0 var(--ink); transform:translate(3px,3px); }
+  .key.erase{ background:var(--coral); color:var(--white); grid-column:span 2; }
+
+  .actions{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+  }
+  .btn{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    background:var(--white);
+    border:3px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    padding:10px 18px;
+    cursor:pointer;
+    flex:1;
+  }
+  .btn:active{ box-shadow:1px 1px 0 var(--ink); transform:translate(3px,3px); }
+  .btn.primary{ background:var(--blue); color:var(--white); }
+
+  .msg{
+    margin-top:18px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    text-align:center;
+    background:var(--yellow);
+    border:3px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    padding:10px;
+    display:none;
+  }
+  .msg.show{ display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>Sudoku</h1>
+    <div class="timer" id="timer">00:00</div>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="pad" id="pad"></div>
+
+  <div class="actions">
+    <button class="btn" id="newGame">New puzzle</button>
+    <button class="btn primary" id="check">Check</button>
+  </div>
+
+  <div class="msg" id="msg">Solved! Nice work.</div>
+</div>
+
+<script>
+function makeSolvedGrid(){
+  const g = Array.from({length:9},()=>Array(9).fill(0));
+  function valid(r,c,v){
+    for(let i=0;i<9;i++){ if(g[r][i]===v||g[i][c]===v) return false; }
+    const br=Math.floor(r/3)*3, bc=Math.floor(c/3)*3;
+    for(let i=0;i<3;i++) for(let j=0;j<3;j++) if(g[br+i][bc+j]===v) return false;
+    return true;
+  }
+  function fill(pos){
+    if(pos===81) return true;
+    const r=Math.floor(pos/9), c=pos%9;
+    const nums=[1,2,3,4,5,6,7,8,9].sort(()=>Math.random()-0.5);
+    for(const v of nums){
+      if(valid(r,c,v)){
+        g[r][c]=v;
+        if(fill(pos+1)) return true;
+        g[r][c]=0;
+      }
+    }
+    return false;
+  }
+  fill(0);
+  return g;
+}
+
+function makePuzzle(){
+  const solved = makeSolvedGrid();
+  const puzzle = solved.map(row=>row.slice());
+  let removed = 0;
+  const targetRemoved = 44;
+  const cells = [];
+  for(let r=0;r<9;r++) for(let c=0;c<9;c++) cells.push([r,c]);
+  cells.sort(()=>Math.random()-0.5);
+  for(const [r,c] of cells){
+    if(removed>=targetRemoved) break;
+    puzzle[r][c]=0;
+    removed++;
+  }
+  return { puzzle, solved };
+}
+
+let state = makePuzzle();
+let given = state.puzzle.map(row=>row.map(v=>v!==0));
+let current = state.puzzle.map(row=>row.slice());
+let selected = null;
+let seconds = 0;
+let timerInt = null;
+
+const boardEl = document.getElementById('board');
+const padEl = document.getElementById('pad');
+const msgEl = document.getElementById('msg');
+const timerEl = document.getElementById('timer');
+
+function startTimer(){
+  clearInterval(timerInt);
+  seconds = 0;
+  timerEl.textContent = '00:00';
+  timerInt = setInterval(()=>{
+    seconds++;
+    const m = String(Math.floor(seconds/60)).padStart(2,'0');
+    const s = String(seconds%60).padStart(2,'0');
+    timerEl.textContent = m+':'+s;
+  },1000);
+}
+
+function conflictsAt(r,c,v){
+  if(v===0) return false;
+  for(let i=0;i<9;i++){
+    if(i!==c && current[r][i]===v) return true;
+    if(i!==r && current[i][c]===v) return true;
+  }
+  const br=Math.floor(r/3)*3, bc=Math.floor(c/3)*3;
+  for(let i=0;i<3;i++) for(let j=0;j<3;j++){
+    const rr=br+i, cc=bc+j;
+    if((rr!==r||cc!==c) && current[rr][cc]===v) return true;
+  }
+  return false;
+}
+
+function render(){
+  boardEl.innerHTML='';
+  for(let r=0;r<9;r++){
+    for(let c=0;c<9;c++){
+      const div = document.createElement('div');
+      div.className = 'cell' + (r%3===2 && r!==8 ? ' row3' : '');
+      const v = current[r][c];
+      if(v!==0) div.textContent = v;
+      if(given[r][c]) div.classList.add('given');
+      if(selected && selected[0]===r && selected[1]===c) div.classList.add('selected');
+      else if(selected && (selected[0]===r || selected[1]===c ||
+        (Math.floor(selected[0]/3)===Math.floor(r/3) && Math.floor(selected[1]/3)===Math.floor(c/3)))){
+        div.classList.add('peer');
+      }
+      if(!given[r][c] && v!==0 && conflictsAt(r,c,v)) div.classList.add('conflict');
+      div.addEventListener('click', ()=>{
+        if(given[r][c]) { selected=[r,c]; render(); return; }
+        selected=[r,c];
+        render();
+      });
+      boardEl.appendChild(div);
+    }
+  }
+}
+
+function renderPad(){
+  padEl.innerHTML='';
+  for(let n=1;n<=9;n++){
+    const btn = document.createElement('button');
+    btn.className='key';
+    btn.textContent=n;
+    btn.addEventListener('click', ()=>place(n));
+    padEl.appendChild(btn);
+  }
+  const erase = document.createElement('button');
+  erase.className='key erase';
+  erase.textContent='Erase';
+  erase.addEventListener('click', ()=>place(0));
+  padEl.appendChild(erase);
+}
+
+function place(v){
+  if(!selected) return;
+  const [r,c] = selected;
+  if(given[r][c]) return;
+  current[r][c]=v;
+  msgEl.classList.remove('show');
+  render();
+}
+
+document.addEventListener('keydown', (e)=>{
+  if(!selected) return;
+  if(e.key>='1' && e.key<='9') place(parseInt(e.key));
+  if(e.key==='Backspace' || e.key==='Delete' || e.key==='0') place(0);
+});
+
+document.getElementById('newGame').addEventListener('click', ()=>{
+  state = makePuzzle();
+  given = state.puzzle.map(row=>row.map(v=>v!==0));
+  current = state.puzzle.map(row=>row.slice());
+  selected = null;
+  msgEl.classList.remove('show');
+  startTimer();
+  render();
+});
+
+document.getElementById('check').addEventListener('click', ()=>{
+  let complete = true;
+  let hasConflict = false;
+  for(let r=0;r<9;r++){
+    for(let c=0;c<9;c++){
+      if(current[r][c]===0) complete=false;
+      if(current[r][c]!==0 && conflictsAt(r,c,current[r][c])) hasConflict=true;
+    }
+  }
+  if(complete && !hasConflict){
+    msgEl.textContent='Solved! Nice work.';
+    msgEl.classList.add('show');
+    clearInterval(timerInt);
+  } else if(hasConflict){
+    msgEl.textContent='A few numbers are clashing — check the coral cells.';
+    msgEl.classList.add('show');
+  } else {
+    msgEl.textContent='Not finished yet — keep going.';
+    msgEl.classList.add('show');
+  }
+});
+
+renderPad();
+render();
+startTimer();
+</script>
+</body>
+</html>
