@@ -1,0 +1,329 @@
+/* ==========================================================================
+   1. UNIFIED DESIGN TOKENS (STRICT MONOCHROME)
+   ========================================================================== */
+:root {
+    --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --fs-h1: clamp(2.125rem, 5vw + 1rem, 3.5rem);
+    --fs-h2: clamp(1.625rem, 3.5vw + 1rem, 2.5rem);
+    --fs-h3: clamp(1.25rem, 2vw + 1rem, 1.75rem);
+    --fs-body: clamp(1.0625rem, 1vw + 0.9rem, 1.125rem);
+    --fs-small: clamp(0.8125rem, 0.5vw + 0.75rem, 0.9375rem);
+
+    /* Cool Grey Backgrounds */
+    --color-bg-page: #F5F5F7;        
+    --color-bg-card: #FFFFFF;        
+    --color-bg-alt: #EBECEF;         
+    --color-text-primary: #1D1D1F;   
+    --color-text-secondary: #86868B; 
+    --color-border: rgba(0, 0, 0, 0.08);
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-8: 128px;
+
+    --radius-sm: 8px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    --container-content: 980px;
+    --container-text: 680px;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 64px; 
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+p, ul, ol { margin-bottom: var(--space-3); max-width: var(--container-text); }
+
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
+/* ==========================================================================
+   3. LAYOUT & GRIDS
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--container-content);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section { padding: var(--space-8) 0; }
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    width: 100%;
+    margin: var(--space-4) 0;
+}
+
+/* Hard-locked Grid to prevent image blowout */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px; 
+    gap: var(--space-6);
+    align-items: center;
+}
+
+/* Explicit 3-Column Footer Grid */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+}
+
+/* ==========================================================================
+   4. COMPONENTS 
+   ========================================================================== */
+.card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Project Thumbnail Wrapper */
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: var(--space-3);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.carousel-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(45% - 1rem); 
+    gap: 2rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-bg-alt);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+    align-self: flex-start;
+    border: 1px solid var(--color-border);
+}
+
+.badge--concept {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.badge--project {
+    background-color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+    color: #FFFFFF;
+}
+
+.subtitle {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.exp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3) 0;
+}
+
+.exp-title { margin: 0; font-size: var(--fs-body); }
+.exp-date { color: var(--color-text-secondary); font-size: var(--fs-small); }
+
+.card-cta { margin-top: auto; }
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-text-primary);
+    color: #FFFFFF;
+    font-size: 14px; 
+    font-weight: 600;
+    padding: 0 20px;
+    height: 40px; 
+    border-radius: var(--radius-pill);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover { opacity: 0.8; transform: translateY(-2px); color: #FFFFFF; text-decoration: none; }
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.button-secondary:hover { background-color: var(--color-bg-alt); color: var(--color-text-primary); }
+
+/* ==========================================================================
+   5. HEADER & FOOTER
+   ========================================================================== */
+.global-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px; 
+    background-color: rgba(245, 245, 247, 0.85); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-4);
+    z-index: 9999;
+}
+
+.global-header .logo {
+    font-weight: 700;
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer {
+    background-color: var(--color-bg-card);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-6) 0 var(--space-4) 0;
+}
+
+.footer h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+}
+
+.footer ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.footer li { 
+    margin-bottom: var(--space-3); 
+}
+
+.footer a { 
+    font-weight: 500; 
+    font-size: 14px; 
+    color: var(--color-text-primary); 
+}
+
+.footer a:not(:hover) {
+    color: #4a4a4c; 
+}
+
+.footer-copyright {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--fs-small);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .container { padding: 0 var(--space-3); }
+    .section { padding: var(--space-5) 0; }
+    
+    .hero-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .hero-image-wrapper { max-width: 300px; margin: 0 auto; }
+    
+    .footer-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+}
