@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Portfolio - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=final" />
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 40px;
+        }
+        
+        /* Flexbox fix to perfectly align buttons at the bottom of cards */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Stable Grid Carousel for horizontal scrolling */
+        .carousel-grid {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 2rem;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1rem;
+            scrollbar-width: none; /* Hides scrollbar in Firefox */
+            
+            /* DEFAULT (3 or more items): 40% width with a peek */
+            grid-auto-columns: calc(40% - 1rem); 
+        }
+
+        /* IF EXACTLY 1 ITEM: Take full width */
+        .carousel-grid:has(> article:last-child:nth-child(1)) {
+            grid-auto-columns: 100%;
+        }
+
+        /* IF EXACTLY 2 ITEMS: Split 50/50 evenly */
+        .carousel-grid:has(> article:last-child:nth-child(2)) {
+            grid-auto-columns: calc(50% - 1rem);
+        }
+
+        .carousel-grid::-webkit-scrollbar {
+            display: none; /* Hides scrollbar in Chrome/Safari */
+        }
+        
+        .carousel-grid .card {
+            scroll-snap-align: start;
+            width: 100%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            /* Override for mobile: 1 item visible with an 85% peek */
+            .carousel-grid,
+            .carousel-grid:has(> article:last-child:nth-child(2)) {
+                grid-auto-columns: 85%;
+                gap: 1rem;
+            }
+            
+            /* If there is genuinely only 1 item, it stays 100% on mobile (nothing to peek at) */
+            .carousel-grid:has(> article:last-child:nth-child(1)) {
+                grid-auto-columns: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi</a>
+        <nav>
+            <a href="#work" class="button">View My Work</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Viola Kazemi</h1>
+                    <h2 class="subtitle">Product Designer</h2>
+                    <p>I'm a product designer with a Computer Engineering background designing AI-native, compliance-aware experiences for products where the details actually carry risk.</p>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="images/avatar.PNG" alt="Viola Kazemi" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Lab -->
+    <section class="section">
+        <div class="container">
+            <h2>Concept Lab: AI Integrations</h2>
+            <div class="carousel-grid">
+                
+                <article class="card">
+                    <span class="badge badge--concept">AI-Native Security</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/Tomaan-Thumbnail.png" alt="Tomaan Security Mockup" />
+                    </div>
+                    <h3><a href="tomaan">Tomaan: Fraud Verification</a></h3>
+                    <p>Real-time AI fraud checks layered securely over offline one-time passwords</p>
+                    <a href="tomaan" class="button button-secondary" style="margin-top: auto;">View Concept</a>
+                </article>
+
+                <article class="card">
+                    <span class="badge badge--concept">AI Tooling</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/PromptLab-Compare-Filled.png" alt="Carbon Design Mockup" />
+                    </div>
+                    <h3><a href="promptlab-carbon">IBM watsonx: Prompt Compare</a></h3>
+                    <p>Side-by-side prompt iteration built natively within the Carbon v11 system</p>
+                    <a href="promptlab-carbon" class="button button-secondary" style="margin-top: auto;">View Concept</a>
+                </article>
+
+                <article class="card">
+                    <span class="badge badge--concept">Agentic UX</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/Smart_Substitution.png" alt="Smart Substitutions AI Flow" />
+                    </div>
+                    <h3><a href="smart-substitutions">Agentic Grocery Substitutions</a></h3>
+                    <p>AI-driven cart replacements designed around system latency, trust, and deterministic fallbacks</p>
+                    <a href="smart-substitutions" class="button button-secondary" style="margin-top: auto;">View Concept</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="work" class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="carousel-grid">
+                
+                <article class="card">
+                    <span class="badge badge--project">UX Research & Design</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/MuseumThumbnail.png" alt="The Museum Companion Mockup" />
+                    </div>
+                    <h3><a href="museum">Museum Educator Dashboard</a></h3>
+                    <p>Unified logistics and booking management to simplify school field trips</p>
+                    <a href="museum" class="button button-secondary" style="margin-top: auto;">View Project</a>
+                </article>
+
+                <article class="card">
+                    <span class="badge badge--project">E-Commerce</span>
+                    <div class="card-image-wrapper">
+                        <img src="images/golaab-mobile.png" alt="Golaab Mockup" />
+                    </div>
+                    <h3><a href="golaab">Golaab Jewelry: Keepsake Builder</a></h3>
+                    <p>A custom upload flow focused on buyer intent and high-confidence proofing.</p>
+                    <a href="golaab" class="button button-secondary" style="margin-top: auto;">View Project</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div style="margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0;">
+                    <h3 style="margin: 0; font-size: var(--fs-body);">Unitedreams Inc.</h3>
+                    <span style="color: var(--color-text-secondary); font-size: var(--fs-small);">Sep 2024 &mdash; Present</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0;">
+                    <h3 style="margin: 0; font-size: var(--fs-body);">Carrene Corp</h3>
+                    <span style="color: var(--color-text-secondary); font-size: var(--fs-small);">July 2021 &mdash; Sep 2024</span>
+                </div>
+            </div>
+            <a href="ViolaKazemi.pdf" class="button">Download Full Resume</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum">Museum Educator Dashboard</a></li>
+                        <li><a href="golaab">Golaab Jewelry: Keepsake Builder</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan: Fraud Verification</a></li>
+                        <li><a href="promptlab-carbon">IBM watsonx: Prompt Compare</a></li>
+                        <li><a href="smart-substitutions">Agentic Grocery Substitutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2026 Viola Kazemi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js?v=final"></script>
+
+</body>
+</html>
