@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>The Transparent Jar: Family Savings Concept - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        /* ---- Transparent Jar prototype (scoped, does not touch global page styles) ---- */
+        .tj-root, .tj-root *{ box-sizing:border-box; }
+        .tj-root{
+            --page-bg:#EAEEEC;
+            --surface:#FCFBF8;
+            --ink:#1B2321;
+            --muted:#6E7873;
+            --muted-2:#9BA39D;
+            --line:#DBDFDA;
+            --glass-line:#28312F;
+            --coin-1:#C9A46B;
+            --coin-2:#E4D3B0;
+            --accent:#4C6B63;
+            --accent-soft:#DCE7E2;
+            --allowance:#8C6A4F;
+            --allowance-soft:#EAE2D6;
+            --offline:#A9895A;
+            --offline-soft:#F1E9DA;
+            --shadow-tint: 43, 58, 55;
+            --coin-ease: cubic-bezier(.22,.61,.36,1);
+            --amount-size: 38px;
+            --amount-weight: 500;
+            display:flex;
+            justify-content:center;
+            font-family:'Inter',sans-serif;
+            -webkit-font-smoothing:antialiased;
+        }
+        .tj-root.tj-mode-kid{
+            --page-bg:#F6EEE6;
+            --glass-line:#2E241C;
+            --coin-1:#E8862F;
+            --coin-2:#FFD27A;
+            --accent:#E0703F;
+            --accent-soft:#FBE3D4;
+            --allowance:#B15E3F;
+            --allowance-soft:#F1DDD2;
+            --coin-ease: cubic-bezier(.34,1.56,.64,1);
+            --amount-size: 44px;
+            --amount-weight: 600;
+        }
+        .tj-caption{
+            text-align:center;
+            font-size: var(--fs-small, 13px);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-2, 12px);
+        }
+        .tj-phone{
+            width:100%;
+            max-width:330px;
+            background:var(--surface);
+            border:1px solid var(--line);
+            border-radius:32px;
+            padding:20px 22px 26px;
+            box-shadow:0 24px 48px -24px rgba(var(--shadow-tint),0.35);
+            transition:box-shadow .6s ease;
+        }
+        .tj-phone.tj-complete{
+            box-shadow:0 0 0 2px var(--accent), 0 24px 48px -20px rgba(var(--shadow-tint),0.4);
+        }
+        .tj-toolbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px; }
+        .tj-conn-toggle{
+            display:flex; align-items:center; gap:6px;
+            border:1px solid var(--line); background:var(--surface);
+            border-radius:100px; padding:5px 10px 5px 6px; cursor:pointer;
+            font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:var(--muted);
+        }
+        .tj-conn-dot{ width:8px;height:8px;border-radius:50%; background:var(--accent); flex:none; transition:background .25s ease; }
+        .tj-conn-toggle.tj-conn-off .tj-conn-dot{ background:var(--offline); }
+        .tj-conn-toggle.tj-conn-off{ color:var(--offline); border-color:var(--offline-soft); background:var(--offline-soft); }
+        .tj-segmented{ display:inline-flex; background:#F1F0EA; border-radius:100px; padding:3px; gap:2px; }
+        .tj-segmented button{
+            border:none; background:transparent; font-family:'Inter',sans-serif;
+            font-size:12px; font-weight:600; padding:6px 12px; border-radius:100px;
+            color:var(--muted); cursor:pointer;
+        }
+        .tj-segmented button.tj-active{ background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,0.08); }
+        .tj-offline-banner{
+            max-height:0; overflow:hidden; opacity:0;
+            transition:max-height .35s ease, opacity .3s ease, margin .35s ease;
+            font-size:12px; color:var(--offline); background:var(--offline-soft);
+            border-radius:10px; padding:0 10px; margin:0; line-height:1.5;
+        }
+        .tj-offline-banner.tj-show{ max-height:60px; opacity:1; padding:8px 10px; margin:0 0 14px; }
+        .tj-title{ font-family:'Fraunces',serif; font-size:22px; font-weight:500; margin:0 0 2px; color:var(--ink); }
+        .tj-subtitle{ font-size:13px; color:var(--muted); margin:0 0 18px; }
+        .tj-jar-stage{ width:78%; margin:0 auto 6px; position:relative; }
+        .tj-coin{
+            transform:translateY(-40px) scale(.55); opacity:0; transform-origin:center;
+            transition:transform .55s var(--coin-ease), opacity .3s ease;
+        }
+        .tj-coin.tj-visible{ transform:translateY(0) scale(1); opacity:1; }
+        .tj-coin.tj-instant{ transition:none !important; }
+        .tj-amount-block{ text-align:center; margin:8px 0 20px; }
+        .tj-amount{
+            font-family:'Fraunces',serif; font-weight:var(--amount-weight); font-size:var(--amount-size);
+            letter-spacing:-0.01em; color:var(--ink); transition:font-size .4s ease, font-weight .4s ease;
+        }
+        .tj-goal-line{ font-size:13px; color:var(--muted); margin-top:2px; }
+        .tj-goal-line.tj-done{ color:var(--accent); font-weight:600; }
+        .tj-actions{ display:flex; gap:8px; margin-bottom:22px; }
+        .tj-chip{
+            flex:1; border:1px solid var(--line); background:var(--surface);
+            border-radius:14px; padding:10px 6px; font-family:'Inter',sans-serif;
+            font-weight:600; font-size:13px; color:var(--ink); cursor:pointer;
+            display:flex; flex-direction:column; align-items:center; gap:2px;
+            transition:transform .15s ease, background .2s ease, color .2s ease;
+            text-align:center;
+        }
+        .tj-chip small{ font-weight:500; color:var(--muted); font-size:10.5px; }
+        .tj-chip:active{ transform:scale(0.96); }
+        .tj-chip:hover{ background:var(--accent-soft); }
+        .tj-chip:disabled{ opacity:.55; cursor:not-allowed; transform:none; }
+        .tj-chip.tj-allowance{ background:var(--allowance-soft); border-color:transparent; }
+        .tj-chip.tj-pending{
+            background:var(--offline-soft) !important; border-color:transparent; color:var(--offline);
+            opacity:1; animation:tjPulse 1.6s ease-in-out infinite;
+        }
+        .tj-chip.tj-pending small{ color:var(--offline); }
+        @keyframes tjPulse{ 0%,100%{opacity:1;} 50%{opacity:.6;} }
+        .tj-activity-label{ font-size:12px; font-weight:600; color:var(--muted-2); margin:0 0 10px; }
+        .tj-activity-list{ list-style:none; margin:0 0 18px; padding:0; display:flex; flex-direction:column; gap:11px; max-height:150px; overflow-y:auto; }
+        .tj-activity-list li{ display:flex; align-items:center; gap:10px; font-size:13px; }
+        .tj-dot{ width:9px;height:9px;border-radius:50%; background:linear-gradient(160deg,var(--coin-2),var(--coin-1)); flex:none; }
+        .tj-activity-list li.tj-allow .tj-dot{ background:linear-gradient(160deg,#E7A488,var(--allowance)); }
+        .tj-activity-list li.tj-pending-row .tj-dot{ background:var(--offline); }
+        .tj-activity-list li.tj-pending-row{ color:var(--offline); font-style:italic; }
+        .tj-a-label{ flex:1; color:#333; }
+        .tj-pending-row .tj-a-label{ color:var(--offline); }
+        .tj-a-date{ color:var(--muted-2); font-size:11.5px; }
+        .tj-pending-row .tj-a-date{ color:var(--offline); }
+        .tj-a-amount{ font-weight:600; font-variant-numeric:tabular-nums; }
+        .tj-reset{
+            display:block; margin:0 auto; background:none; border:none;
+            font-family:'Inter',sans-serif; font-size:12px; color:var(--muted-2);
+            cursor:pointer; text-decoration:underline; text-underline-offset:2px;
+        }
+        .tj-reset:hover{ color:var(--muted); }
+        .tj-root button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+        @media (prefers-reduced-motion: reduce){
+            .tj-coin{ transition:none; }
+            .tj-phone{ transition:none; }
+            .tj-chip.tj-pending{ animation:none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Transparent Jar</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">Interaction Design Concept</span>
+                <h1 style="margin-top: var(--space-2);">The Transparent Jar</h1>
+                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A physical metaphor for saving money, coded as a working prototype.</h2>
+
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Role</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">Product Designer</span>
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Status</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">2026 · Personal Exploration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live prototype, embedded directly -->
+            <div class="tj-root tj-mode-kid" id="tjRoot">
+                <div>
+                    <div class="tj-phone" id="tjPhone">
+                        <div class="tj-toolbar">
+                            <button type="button" class="tj-conn-toggle" id="tjConnToggle" aria-pressed="false">
+                                <span class="tj-conn-dot"></span>
+                                <span id="tjConnLabel">Simulate bad connection</span>
+                            </button>
+                            <div class="tj-segmented" role="group" aria-label="View mode">
+                                <button type="button" class="tj-active" id="tjKidBtn">Kid</button>
+                                <button type="button" id="tjCalmBtn">Calm</button>
+                            </div>
+                        </div>
+
+                        <div class="tj-offline-banner" id="tjOfflineBanner">Weak connection — saves are held safely and sync when it's back.</div>
+
+                        <p class="tj-title">Bike Fund</p>
+                        <p class="tj-subtitle" id="tjSubtitle">Saving for a new bicycle 🚲</p>
+
+                        <div class="tj-jar-stage">
+                            <svg id="tjJarSvg" viewBox="0 0 240 320" width="100%" height="auto" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="tjCoinGrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="var(--coin-2)"/>
+                                        <stop offset="100%" stop-color="var(--coin-1)"/>
+                                    </linearGradient>
+                                    <clipPath id="tjJarClip">
+                                        <path d="M84,34 L156,34 C156,48 168,51 182,60 C196,69 206,78 206,95 L206,278 C206,292 196,300 182,300 L58,300 C44,300 34,292 34,278 L34,95 C34,78 44,69 58,60 C72,51 84,48 84,34 Z"/>
+                                    </clipPath>
+                                </defs>
+                                <g id="tjCoinsGroup" clip-path="url(#tjJarClip)"></g>
+                                <path d="M82,28 L158,28 C158,45 172,48 188,58 C204,68 215,78 215,95 L215,282 C215,298 204,308 188,308 L52,308 C36,308 25,298 25,282 L25,95 C25,78 36,68 52,58 C68,48 82,45 82,28 Z"
+                                      fill="none" stroke="var(--glass-line)" stroke-width="3" stroke-linejoin="round"/>
+                                <rect x="82" y="6" width="76" height="24" rx="7" fill="none" stroke="var(--glass-line)" stroke-width="3"/>
+                                <line x1="82" y1="15" x2="158" y2="15" stroke="var(--glass-line)" stroke-width="1.5" opacity="0.5"/>
+                                <line x1="82" y1="22" x2="158" y2="22" stroke="var(--glass-line)" stroke-width="1.5" opacity="0.5"/>
+                            </svg>
+                        </div>
+
+                        <div class="tj-amount-block">
+                            <div class="tj-amount" id="tjAmount">$27</div>
+                            <div class="tj-goal-line" id="tjGoalLine">saved of $120 goal</div>
+                        </div>
+
+                        <div class="tj-actions">
+                            <button class="tj-chip" id="tjAdd1" data-amount="1" data-label="You added">+$1<small>I saved</small></button>
+                            <button class="tj-chip" id="tjAdd5" data-amount="5" data-label="You added">+$5<small>I saved</small></button>
+                            <button class="tj-chip tj-allowance" id="tjAdd10" data-amount="10" data-label="Allowance" data-allow="1">+$10<small>Allowance</small></button>
+                        </div>
+
+                        <p class="tj-activity-label">Recent drops</p>
+                        <ul class="tj-activity-list" id="tjActivity"></ul>
+
+                        <button class="tj-reset" id="tjReset">Start over</button>
+                    </div>
+                    <p class="tj-caption">Live prototype — tap the buttons, then try the connection toggle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Overview -->
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>Overview</h2>
+            <p style="max-width: 100%;">A Canadian fintech recently added a feature to its new family accounts: parents can manually add interest to a kid's savings, just to show them how growth works. Good idea. But it got me thinking about how that growth actually shows up on screen, so I built this as a personal exploration.</p>
+
+            <details>
+                <summary>Where this idea came from</summary>
+                <p style="max-width: 100%;">Most banking apps show growth as a line chart. And here's the problem: kids don't read graphs. Honestly, most adults don't love them either. A red line dropping down still triggers a small flinch, even when nothing bad happened. If a bank wants a kid to actually build a saving habit, the interface can't feel like a spreadsheet. It needs to feel real.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 2. The Problem -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>The Problem</h2>
+            <p style="max-width: 100%;">Two things kept coming up once I actually sat with this:</p>
+
+            <div class="grid-2">
+                <article class="card">
+                    <span class="badge">Constraint 1</span>
+                    <h3>Kids Don't Read Charts</h3>
+                    <p>A line going up and to the right means nothing to an 8-year-old. It's an abstraction on top of an abstraction. What they understand is something getting fuller, the same way a jar of coins or a water bottle does.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Constraint 2</span>
+                    <h3>Adults Don't Love Them Either</h3>
+                    <p>Red and green financial charts carry a small dose of anxiety even when nothing's wrong. If this is meant to be a calm, family-friendly product, the visual language shouldn't borrow from a trading app.</p>
+                </article>
+            </div>
+
+            <details>
+                <summary>Additional constraint: the offline moment</summary>
+                <p style="max-width: 100%;">If a parent tries to send an allowance while they're on the subway with no signal, the app can't just freeze or fail silently. That's exactly the moment someone panics and calls support.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 3. Design Solutions -->
+    <section class="section">
+        <div class="container">
+            <h2>Design Solutions</h2>
+            <p style="max-width: 100%;">Two decisions came directly out of those constraints. Both are live in the prototype above.</p>
+
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">01 — The Jar</span>
+                    <h3 style="font-size: var(--fs-h3);">Saving You Can Watch</h3>
+                    <p style="font-size: var(--fs-small);">Every dollar saved drops a coin into the jar. No numbers to interpret, just a jar getting fuller, which is something every kid already understands without being taught.</p>
+
+                    <details style="margin-top: auto; margin-bottom: 0;">
+                        <summary style="font-size: 13px;">Why a jar, not a progress bar</summary>
+                        <p style="font-size: 13px; max-width: 100%;">A progress bar is still an abstraction, just a friendlier one. A jar reads as an object with weight in it. That's a small difference, but it's the difference between "data" and "something real."</p>
+                    </details>
+                </article>
+
+                <article class="card">
+                    <span class="badge">02 — The Offline State</span>
+                    <h3 style="font-size: var(--fs-h3);">Designing for the Subway</h3>
+                    <p style="font-size: var(--fs-small);">Turn on "simulate bad connection" and try adding money. The button doesn't spin or fail. It tells the parent plainly that the save is held, and it'll drop in once the connection's back.</p>
+
+                    <details style="margin-top: auto; margin-bottom: 0;">
+                        <summary style="font-size: 13px;">Why it doesn't look like an error</summary>
+                        <p style="font-size: 13px; max-width: 100%;">An app that fails quietly during a money transfer is exactly the kind of thing that generates a support call. Handling the bad-connection state calmly isn't just nicer, it's fewer people needing to phone in and ask where their money went.</p>
+                    </details>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Takeaways -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Takeaways & Open Questions</h2>
+            <p style="max-width: 100%;">A few things I'd want to test with real families before this went anywhere near production:</p>
+
+            <div class="grid-2">
+                <article class="card">
+                    <span class="badge">Open Question 1</span>
+                    <h3>Real Networks Are Messier</h3>
+                    <p>My offline delay is a fixed 2.4 seconds for the demo. Real connections come back at random, sometimes not cleanly. The actual retry and conflict handling behind this would need real engineering input, not just a UI state.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Open Question 2</span>
+                    <h3>How Much Reward Is Too Much</h3>
+                    <p>A coin dropping in feels good, that's the whole point. But a savings product for kids should probably build patience, not just reward every deposit instantly. I'd want to test whether the jar still feels good on week six, not just the first time.</p>
+                </article>
+            </div>
+
+            <div style="margin-top: var(--space-5); padding: var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt);">
+                <p style="margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%;">
+                    <strong>Note:</strong> This is a personal design exploration, not built for or affiliated with any company. It was sparked by a real feature I noticed in the market, banks starting to let parents manually boost a kid's savings to teach them how growth works. Everything else here, including the jar itself and the offline state, is my own concept.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Footer -->
+    <footer class="footer">
+        <div class="container">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+                <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
+                <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
+            </div>
+
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum">The Museum Companion</a></li>
+                        <li><a href="golaab">Golaab</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan</a></li>
+                        <li><a href="promptlab-carbon">Designing Inside Carbon</a></li>
+                        <li><a href="transparent-jar">The Transparent Jar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+                <a href="sudoku.html" class="button button-secondary" style="padding: 5px 15px; font-size: 0.9em;">Play a Game 🎮</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+    (function(){
+      const root = document.getElementById('tjRoot');
+      const GOAL = 120;
+      const INITIAL_SAVED = 27;
+      const INITIAL_TX = [
+        {label:'Allowance', amount:10, date:'Aug 29', allow:true},
+        {label:'Birthday money', amount:12, date:'Aug 20', allow:false},
+        {label:'You added', amount:5, date:'Aug 14', allow:false}
+      ];
+      const OFFLINE_DELAY = 2400;
+
+      let saved = 0;
+      let dropCounter = 0;
+      let badConnection = false;
+      let txList = [];
+      let txSeq = 0;
+
+      const amountEl = document.getElementById('tjAmount');
+      const goalLineEl = document.getElementById('tjGoalLine');
+      const activityEl = document.getElementById('tjActivity');
+      const phoneEl = document.getElementById('tjPhone');
+      const coinsGroup = document.getElementById('tjCoinsGroup');
+      const subtitleEl = document.getElementById('tjSubtitle');
+      const connToggle = document.getElementById('tjConnToggle');
+      const connLabel = document.getElementById('tjConnLabel');
+      const offlineBanner = document.getElementById('tjOfflineBanner');
+      const buttons = [document.getElementById('tjAdd1'), document.getElementById('tjAdd5'), document.getElementById('tjAdd10')];
+
+      function mulberry32(a){
+        return function(){
+          a |= 0; a = a + 0x6D2B79F5 | 0;
+          let t = Math.imul(a ^ a >>> 15, 1 | a);
+          t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+          return ((t ^ t >>> 14) >>> 0) / 4294967296;
+        };
+      }
+      const rng = mulberry32(42);
+
+      const coins = [];
+      const rowStep = 15, colStep = 19, leftBound = 44, rightBound = 196;
+      let rowIndex = 0;
+      for (let y = 284; y >= 100; y -= rowStep, rowIndex++){
+        const offset = (rowIndex % 2 === 0) ? 0 : colStep/2;
+        for (let x = leftBound + offset; x <= rightBound; x += colStep){
+          coins.push({x: x + (rng()-0.5)*4, y: y + (rng()-0.5)*3});
+        }
+      }
+      coins.forEach((c) => {
+        const el = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        el.setAttribute('cx', c.x.toFixed(1));
+        el.setAttribute('cy', c.y.toFixed(1));
+        el.setAttribute('r', '8.2');
+        el.setAttribute('fill', 'url(#tjCoinGrad)');
+        el.classList.add('tj-coin');
+        coinsGroup.appendChild(el);
+        c.el = el;
+      });
+
+      function setVisibility(prevSaved, newSaved, animate){
+        coins.forEach((c, i) => {
+          const thresh = (i / coins.length) * GOAL;
+          const shouldShow = newSaved > thresh;
+          const wasShown = prevSaved > thresh;
+          if (shouldShow && !wasShown && animate){
+            const delay = dropCounter++ * 40;
+            setTimeout(() => c.el.classList.add('tj-visible'), delay);
+          } else if (shouldShow){
+            c.el.classList.add('tj-visible');
+          } else {
+            c.el.classList.remove('tj-visible');
+          }
+        });
+      }
+
+      function animateNumber(el, from, to, duration){
+        const start = performance.now();
+        function tick(now){
+          const p = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = '$' + Math.round(from + (to - from) * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      function renderActivity(){
+        activityEl.innerHTML = '';
+        txList.slice(0, 6).forEach(tx => {
+          const li = document.createElement('li');
+          if (tx.allow) li.classList.add('tj-allow');
+          if (tx.pending) li.classList.add('tj-pending-row');
+          const label = tx.pending ? tx.label + ' — saved offline' : tx.label;
+          li.innerHTML = '<span class="tj-dot"></span><span class="tj-a-label">' + label + '</span><span class="tj-a-date">' + tx.date + '</span><span class="tj-a-amount">+$' + tx.amount + '</span>';
+          activityEl.appendChild(li);
+        });
+      }
+
+      function refreshGoalState(){
+        if (saved >= GOAL){
+          phoneEl.classList.add('tj-complete');
+          const kid = root.classList.contains('tj-mode-kid');
+          goalLineEl.textContent = kid ? 'Goal reached — time for a new bike! 🎉' : 'Goal reached. Time for a new bike.';
+          goalLineEl.classList.add('tj-done');
+        } else {
+          phoneEl.classList.remove('tj-complete');
+          goalLineEl.textContent = 'saved of $' + GOAL + ' goal';
+          goalLineEl.classList.remove('tj-done');
+        }
+      }
+
+      function creditMoney(amount){
+        const prev = saved;
+        saved = Math.min(GOAL, saved + amount);
+        animateNumber(amountEl, prev, saved, 500);
+        setVisibility(prev, saved, true);
+        refreshGoalState();
+      }
+
+      function addMoney(btn){
+        if (saved >= GOAL || btn.classList.contains('tj-pending')) return;
+        const amount = Number(btn.dataset.amount);
+        const label = btn.dataset.label;
+        const allow = !!btn.dataset.allow;
+
+        if (badConnection){
+          const originalHTML = btn.innerHTML;
+          btn.classList.add('tj-pending');
+          btn.innerHTML = 'Saved offline<small>Will drop soon</small>';
+
+          const id = ++txSeq;
+          txList.unshift({id: id, label: label, amount: amount, date: 'Today', allow: allow, pending: true});
+          renderActivity();
+
+          setTimeout(() => {
+            btn.classList.remove('tj-pending');
+            btn.innerHTML = originalHTML;
+            const tx = txList.find(t => t.id === id);
+            if (tx) tx.pending = false;
+            renderActivity();
+            creditMoney(amount);
+          }, OFFLINE_DELAY);
+        } else {
+          txList.unshift({id: ++txSeq, label: label, amount: amount, date: 'Today', allow: allow, pending: false});
+          txList = txList.slice(0, 6);
+          renderActivity();
+          creditMoney(amount);
+        }
+      }
+
+      function init(){
+        saved = INITIAL_SAVED;
+        txList = INITIAL_TX.map(t => Object.assign({id: ++txSeq}, t));
+        amountEl.textContent = '$' + saved;
+        renderActivity();
+        setVisibility(0, saved, false);
+        coins.forEach(c => c.el.classList.add('tj-instant'));
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => coins.forEach(c => c.el.classList.remove('tj-instant')));
+        });
+        refreshGoalState();
+      }
+
+      buttons.forEach(b => b.addEventListener('click', () => addMoney(b)));
+
+      document.getElementById('tjReset').addEventListener('click', () => {
+        coins.forEach(c => c.el.classList.remove('tj-visible', 'tj-instant'));
+        dropCounter = 0;
+        buttons.forEach(b => b.classList.remove('tj-pending'));
+        init();
+      });
+
+      connToggle.addEventListener('click', function(){
+        badConnection = !badConnection;
+        this.classList.toggle('tj-conn-off', badConnection);
+        this.setAttribute('aria-pressed', String(badConnection));
+        connLabel.textContent = badConnection ? 'Bad connection: on' : 'Simulate bad connection';
+        offlineBanner.classList.toggle('tj-show', badConnection);
+      });
+
+      function applyModeCopy(){
+        const kid = root.classList.contains('tj-mode-kid');
+        subtitleEl.textContent = kid ? 'Saving for a new bicycle 🚲' : 'Saving for a new bicycle';
+        refreshGoalState();
+      }
+
+      document.getElementById('tjKidBtn').addEventListener('click', function(){
+        root.classList.add('tj-mode-kid');
+        this.classList.add('tj-active');
+        document.getElementById('tjCalmBtn').classList.remove('tj-active');
+        applyModeCopy();
+      });
+      document.getElementById('tjCalmBtn').addEventListener('click', function(){
+        root.classList.remove('tj-mode-kid');
+        this.classList.add('tj-active');
+        document.getElementById('tjKidBtn').classList.remove('tj-active');
+        applyModeCopy();
+      });
+
+      init();
+    })();
+    </script>
+
+</body>
+</html>
