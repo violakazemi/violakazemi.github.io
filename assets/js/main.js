@@ -2,7 +2,7 @@
 // 1. PROJECT NAVIGATION LOOP (IMMEDIATE EXECUTION)
 // =========================================================
 (function() {
-    const projects = ["museum", "golaab", "tomaan", "promptlab-carbon", "smart-substitutions"];
+    const projects = ["museum", "golaab", "tomaan", "promptlab-carbon", "smart-substitutions" , "transparent-jar"];
     
     // Grab the URL no matter where it is hosted
     let currentUrl = window.location.href.toLowerCase();
@@ -14,6 +14,7 @@
     else if (currentUrl.includes("tomaan")) currentIndex = 2;
     else if (currentUrl.includes("promptlab")) currentIndex = 3;
     else if (currentUrl.includes("smart-substitutions")) currentIndex = 4;
+	else if (currentUrl.includes("transparent-jar")) currentIndex = 5;
 
     if (currentIndex !== -1) {
         const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
