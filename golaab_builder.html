@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golaab Builder App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush: #f2e2db;
+    --blush-deep: #ecd6cc;
+    --paper: #fbf5f1;
+    --maroon: #4c1622;
+    --maroon-soft: #6e2635;
+    --gold: #a9813f;
+    --gold-text: #7a5a26;
+    --ink: #3a2b28;
+    --ink-soft: #6b5850;
+    --line: #ddc3b8;
+    --ok: #2f5a3a;
+    --radius: 2px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Lora', serif;
+    -webkit-font-smoothing:antialiased;
+    padding: 20px;
+  }
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; }
+  img{ max-width:100%; display:block; }
+  
+  .flow-card{ max-width:560px; margin:0 auto; background:var(--blush); border:1px solid var(--line); border-radius:8px; padding:clamp(28px,4vw,44px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .steps-track{ display:flex; gap:6px; margin-bottom:34px; }
+  .steps-track div{ flex:1; height:3px; background:var(--line); border-radius:2px; }
+  .steps-track div.done{ background:var(--maroon); }
+  .step-label{ font-size:0.75rem; letter-spacing:0.14em; color:var(--gold-text); margin:0 0 6px; font-weight:500; }
+  .step-title{ font-size:1.7rem; font-weight:500; color:var(--maroon); margin:0 0 10px; }
+  .step-copy{ color:var(--ink-soft); font-size:0.95rem; line-height:1.6; margin:0 0 26px; }
+  .panel{ display:none; }
+  .panel.active{ display:block; }
+
+  .upload-box{ border:1.5px dashed var(--line); border-radius:6px; padding:34px 20px; text-align:center; background:var(--paper); }
+  .upload-box p{ color:var(--ink-soft); font-size:0.87rem; margin:12px 0 18px; }
+  input[type=file]{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+  .file-label{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 22px; background:var(--maroon); color:var(--paper); border-radius:var(--radius); font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+  
+  .canvas-wrap{ position:relative; border-radius:6px; overflow:hidden; background:#000; margin-bottom:18px; touch-action:manipulation; }
+  .canvas-wrap img{ width:100%; filter:contrast(1.12) brightness(1.04); }
+  .pin{ position:absolute; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; background:var(--maroon); color:var(--paper); font-size:0.95rem; font-weight:600; display:flex; align-items:center; justify-content:center; border:2px solid var(--paper); box-shadow:0 1px 4px rgba(0,0,0,0.4); }
+  .hint{ font-size:0.85rem; color:var(--ink-soft); margin:0 0 18px; }
+  .pin-list{ list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .pin-list li{ display:flex; align-items:center; gap:10px; background:var(--paper); border-radius:4px; padding:8px 10px; }
+  .pin-list .num{ width:26px; height:26px; flex:none; border-radius:50%; background:var(--maroon); color:var(--paper); font-size:0.75rem; font-weight:600; display:flex; align-items:center; justify-content:center; }
+  .pin-list input{ flex:1; border:none; background:transparent; font-family:'Lora',serif; font-size:0.9rem; color:var(--ink); padding:8px 0; outline:none; min-width:0; }
+  .pin-list button{ border:none; background:none; color:var(--ink-soft); cursor:pointer; font-size:0.8rem; text-decoration:underline; flex:none; padding:8px 6px; min-height:44px; }
+
+  .materials{ display:flex; gap:14px; margin-bottom:26px; }
+  .material{ flex:1; border:1.5px solid var(--line); border-radius:6px; padding:16px 8px; text-align:center; background:var(--paper); cursor:pointer; font-family:inherit; min-height:88px; }
+  .material.selected{ border-color:var(--maroon); background:#f8ece5; }
+  .swatch{ width:34px; height:34px; border-radius:50%; margin:0 auto 8px; border:1px solid rgba(0,0,0,0.15); }
+  .material span{ font-size:0.8rem; color:var(--ink-soft); }
+  .material.selected span{ color:var(--maroon); }
+
+  .pendant-stage{ background:radial-gradient(circle at 50% 25%, var(--paper), var(--blush-deep)); border:1px solid var(--line); border-radius:8px; padding:32px 20px 24px; display:flex; flex-direction:column; align-items:center; margin-bottom:18px; }
+  .pendant-stage svg.chain{ width:80px; height:34px; margin-bottom:-4px; }
+  .pendant-frame{ width:170px; height:170px; background:var(--paper); border-radius:18px; box-shadow:0 10px 24px rgba(76,22,34,0.16); display:flex; align-items:center; justify-content:center; padding:16px; }
+  .pendant-frame img{ max-width:100%; max-height:100%; object-fit:contain; filter:drop-shadow(0 1px 1px rgba(0,0,0,0.3)); }
+  .pendant-caption{ font-size:0.85rem; color:var(--ink-soft); text-align:center; margin:14px 0 0; }
+
+  .summary-row{ display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); font-size:0.9rem; gap:16px; }
+  .summary-row span:first-child{ color:var(--ink-soft); flex:none; }
+  .summary-row span:last-child{ font-weight:500; text-align:right; }
+
+  .nav-buttons{ display:flex; gap:12px; margin-top:28px; }
+  .btn{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:52px; padding:16px 20px; font-family:'Lora',serif; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; border-radius:var(--radius); cursor:pointer; border:1px solid transparent; transition:transform .15s ease, background .15s ease; }
+  .btn-primary{ background:var(--maroon); color:var(--paper); }
+  .btn-primary:hover{ background:var(--maroon-soft); }
+  .btn-outline{ background:transparent; color:var(--maroon); border-color:var(--maroon); }
+  .btn:disabled{ opacity:0.45; cursor:not-allowed; }
+
+  .confirm-state{ text-align:center; padding:8px 10px 10px; }
+  .confirm-state .badge{ display:inline-flex; align-items:center; gap:8px; color:var(--ok); font-size:0.85rem; font-weight:600; margin-bottom:16px; }
+  .confirm-state .badge svg{ width:20px; height:20px; }
+  .confirm-state h3{ font-size:1.5rem; color:var(--maroon); margin:0 0 10px; }
+  .confirm-state p.desc{ color:var(--ink-soft); font-size:0.92rem; margin:0 0 26px; }
+</style>
+</head>
+<body>
+
+<div class="flow-card">
+  <div class="steps-track">
+    <div id="tr1"></div><div id="tr2"></div><div id="tr3"></div><div id="tr4"></div>
+  </div>
+
+  <div class="panel active" id="panel1">
+    <p class="step-label">STEP 1 OF 4</p>
+    <h2 class="step-title">Upload the drawing</h2>
+    <p class="step-copy">A clear, well-lit photo works best. We'll automatically brighten it and lift it off the paper so every line is easy to read.</p>
+    <div class="upload-box" id="uploadBox">
+      <div id="uploadEmpty">
+        <p>JPG or PNG, any size</p>
+        <label class="file-label" for="fileInput">Choose a Photo</label>
+        <input type="file" id="fileInput" accept="image/*">
+      </div>
+      <div id="uploadPreviewWrap" style="display:none;">
+        <div class="canvas-wrap" id="canvasWrap">
+          <img id="previewImg" alt="Your uploaded drawing">
+        </div>
+        <label class="file-label" for="fileInput" style="background:transparent;color:var(--maroon);border:1px solid var(--maroon);">Choose a Different Photo</label>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn btn-primary" id="toStep2" disabled>Continue</button>
+    </div>
+  </div>
+
+  <div class="panel" id="panel2">
+    <p class="step-label">STEP 2 OF 4</p>
+    <h2 class="step-title">Mark the details</h2>
+    <p class="step-copy">Tap anywhere on the drawing to drop a pin, then tell us what that mark means. This is what your jeweler will read before touching any metal.</p>
+    <div class="canvas-wrap" id="canvasWrap2"></div>
+    <p class="hint" id="pinHint">Tap the drawing to add your first pin.</p>
+    <ul class="pin-list" id="pinList"></ul>
+    <div class="nav-buttons">
+      <button class="btn btn-outline" id="back2">Back</button>
+      <button class="btn btn-primary" id="toStep3" disabled>Continue</button>
+    </div>
+  </div>
+
+  <div class="panel" id="panel3">
+    <p class="step-label">STEP 3 OF 4</p>
+    <h2 class="step-title">Choose your metal</h2>
+    <p class="step-copy">Pick a finish. We'll mock up your pendant in it so you know roughly how it will read once cast.</p>
+    <div class="materials" id="materials">
+      <button type="button" class="material" data-material="Sterling Silver" data-color="#c9c9cf" aria-pressed="false">
+        <div class="swatch" style="background:#c9c9cf;"></div><span>Sterling Silver</span>
+      </button>
+      <button type="button" class="material" data-material="14k Gold" data-color="#d4af37" aria-pressed="false">
+        <div class="swatch" style="background:#d4af37;"></div><span>14k Gold</span>
+      </button>
+      <button type="button" class="material" data-material="Rose Gold" data-color="#e3ada0" aria-pressed="false">
+        <div class="swatch" style="background:#e3ada0;"></div><span>Rose Gold</span>
+      </button>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn btn-outline" id="back3">Back</button>
+      <button class="btn btn-primary" id="toStep4" disabled>Continue</button>
+    </div>
+  </div>
+
+  <div class="panel" id="panel4">
+    <p class="step-label">STEP 4 OF 4</p>
+    <h2 class="step-title">Review your proof</h2>
+    <p class="step-copy">Here's a mockup of the actual piece, built from your lines and pins. Nothing gets cast until you confirm it.</p>
+    <div id="mockupStage4"></div>
+    <div id="summaryPins"></div>
+    <div class="summary-row"><span>Metal</span><span id="summaryMaterial">—</span></div>
+    <div class="nav-buttons">
+      <button class="btn btn-outline" id="back4">Back</button>
+      <button class="btn btn-primary" id="submitProof">Confirm &amp; Request Proof</button>
+    </div>
+  </div>
+
+  <div class="panel confirm-state" id="panelDone">
+    <div id="mockupStageDone"></div>
+    <div class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      Proof request sent
+    </div>
+    <h3>We're on it</h3>
+    <p class="desc">We'll email a rendered proof within 2 business days. You won't be charged until you approve it.</p>
+    <button class="btn btn-outline" id="startOver">Start Another Keepsake</button>
+  </div>
+</div>
+
+<canvas id="workCanvas" style="display:none;" aria-hidden="true"></canvas>
+
+<script>
+(function(){
+  var state = { imgSrc:null, pins:[], material:null, materialColor:null, mockupSrc:null };
+  var panels = { 1:'panel1', 2:'panel2', 3:'panel3', 4:'panel4', 5:'panelDone' };
+
+  function showStep(n){
+    Object.keys(panels).forEach(function(k){
+      document.getElementById(panels[k]).classList.toggle('active', Number(k) === n);
+    });
+    [1,2,3,4].forEach(function(i){
+      document.getElementById('tr'+i).classList.toggle('done', i < n || n === 5);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  var fileInput = document.getElementById('fileInput');
+  var uploadEmpty = document.getElementById('uploadEmpty');
+  var uploadPreviewWrap = document.getElementById('uploadPreviewWrap');
+  var previewImg = document.getElementById('previewImg');
+  var toStep2 = document.getElementById('toStep2');
+
+  fileInput.addEventListener('change', function(e){
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      state.imgSrc = ev.target.result;
+      previewImg.src = state.imgSrc;
+      uploadEmpty.style.display = 'none';
+      uploadPreviewWrap.style.display = 'block';
+      toStep2.disabled = false;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  toStep2.addEventListener('click', function(){ buildPinCanvas(); showStep(2); });
+  document.getElementById('back2').addEventListener('click', function(){ showStep(1); });
+
+  var canvasWrap2 = document.getElementById('canvasWrap2');
+  var pinList = document.getElementById('pinList');
+  var pinHint = document.getElementById('pinHint');
+  var toStep3 = document.getElementById('toStep3');
+  var pinIdSeq = 0;
+
+  function buildPinCanvas(){
+    canvasWrap2.innerHTML = '';
+    var img = document.createElement('img');
+    img.src = state.imgSrc;
+    img.alt = 'Tap to mark a detail';
+    canvasWrap2.appendChild(img);
+    canvasWrap2.addEventListener('click', onCanvasClick);
+  }
+
+  function onCanvasClick(e){
+    if (state.pins.length >= 6) return;
+    var rect = canvasWrap2.getBoundingClientRect();
+    var x = ((e.clientX - rect.left) / rect.width) * 100;
+    var y = ((e.clientY - rect.top) / rect.height) * 100;
+    var pin = { id: ++pinIdSeq, x:x, y:y, label:'' };
+    state.pins.push(pin);
+    renderPins();
+  }
+
+  function renderPins(){
+    canvasWrap2.querySelectorAll('.pin').forEach(function(p){ p.remove(); });
+    pinList.innerHTML = '';
+    state.pins.forEach(function(pin, i){
+      var marker = document.createElement('div');
+      marker.className = 'pin';
+      marker.style.left = pin.x + '%';
+      marker.style.top = pin.y + '%';
+      marker.textContent = i + 1;
+      canvasWrap2.appendChild(marker);
+
+      var li = document.createElement('li');
+      var num = document.createElement('span');
+      num.className = 'num';
+      num.textContent = i + 1;
+      var input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = 'What does this part mean? e.g. "her hair ribbon"';
+      input.value = pin.label;
+      input.addEventListener('input', function(ev){ pin.label = ev.target.value; checkStep2Ready(); });
+      var del = document.createElement('button');
+      del.type = 'button';
+      del.textContent = 'Remove';
+      del.addEventListener('click', function(){
+        state.pins = state.pins.filter(function(p){ return p.id !== pin.id; });
+        renderPins();
+      });
+      li.appendChild(num); li.appendChild(input); li.appendChild(del);
+      pinList.appendChild(li);
+    });
+    pinHint.textContent = state.pins.length === 0
+      ? 'Tap the drawing to add your first pin.'
+      : (state.pins.length >= 6 ? 'Maximum 6 pins for this drawing.' : 'Tap again to add another pin.');
+    checkStep2Ready();
+  }
+
+  function checkStep2Ready(){
+    var ready = state.pins.length > 0 && state.pins.every(function(p){ return p.label.trim().length > 0; });
+    toStep3.disabled = !ready;
+  }
+
+  toStep3.addEventListener('click', function(){ showStep(3); });
+  document.getElementById('back3').addEventListener('click', function(){ showStep(2); });
+
+  var materials = document.getElementById('materials');
+  var toStep4 = document.getElementById('toStep4');
+  materials.querySelectorAll('.material').forEach(function(el){
+    el.addEventListener('click', function(){
+      materials.querySelectorAll('.material').forEach(function(m){ m.classList.remove('selected'); m.setAttribute('aria-pressed','false'); });
+      el.classList.add('selected');
+      el.setAttribute('aria-pressed','true');
+      state.material = el.getAttribute('data-material');
+      state.materialColor = el.getAttribute('data-color');
+      toStep4.disabled = false;
+    });
+  });
+  document.getElementById('back4').addEventListener('click', function(){ showStep(3); });
+
+  function hexToRgb(hex){
+    hex = hex.replace('#','');
+    return { r: parseInt(hex.substring(0,2),16), g: parseInt(hex.substring(2,4),16), b: parseInt(hex.substring(4,6),16) };
+  }
+
+  function generateMockup(imgSrc, colorHex, callback){
+    var img = new Image();
+    img.onload = function(){
+      var maxDim = 360;
+      var scale = Math.min(maxDim / img.width, maxDim / img.height, 1);
+      var w = Math.max(1, Math.round(img.width * scale));
+      var h = Math.max(1, Math.round(img.height * scale));
+      var canvas = document.getElementById('workCanvas');
+      canvas.width = w; canvas.height = h;
+      var ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(img, 0, 0, w, h);
+      var imageData = ctx.getImageData(0, 0, w, h);
+      var d = imageData.data;
+      var rgb = hexToRgb(colorHex);
+      for (var i = 0; i < d.length; i += 4) {
+        var lum = 0.299 * d[i] + 0.587 * d[i+1] + 0.114 * d[i+2];
+        if (lum < 150) {
+          d[i] = rgb.r; d[i+1] = rgb.g; d[i+2] = rgb.b; d[i+3] = 255;
+        } else {
+          d[i+3] = 0;
+        }
+      }
+      ctx.putImageData(imageData, 0, 0);
+      callback(canvas.toDataURL('image/png'));
+    };
+    img.src = imgSrc;
+  }
+
+  function renderPendantMockup(container, src, materialName, materialColor){
+    container.innerHTML = '';
+    var stage = document.createElement('div');
+    stage.className = 'pendant-stage';
+    stage.innerHTML =
+      '<svg class="chain" viewBox="0 0 100 40" aria-hidden="true">' +
+        '<path d="M15,4 Q50,-6 85,4" fill="none" stroke="' + materialColor + '" stroke-width="2.5"/>' +
+        '<circle cx="50" cy="14" r="7" fill="none" stroke="' + materialColor + '" stroke-width="2.5"/>' +
+      '</svg>' +
+      '<div class="pendant-frame"><img alt="Mockup of your ' + materialName + ' pendant, cast from your drawing" src="' + src + '"></div>';
+    var caption = document.createElement('p');
+    caption.className = 'pendant-caption';
+    caption.textContent = materialName + ' pendant mockup — the actual cast piece may vary slightly.';
+    container.appendChild(stage);
+    container.appendChild(caption);
+  }
+
+  var mockupStage4 = document.getElementById('mockupStage4');
+  var mockupStageDone = document.getElementById('mockupStageDone');
+  var summaryPins = document.getElementById('summaryPins');
+  var summaryMaterial = document.getElementById('summaryMaterial');
+
+  function escapeHtml(str){
+    var d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  toStep4.addEventListener('click', function(){
+    generateMockup(state.imgSrc, state.materialColor, function(dataUrl){
+      state.mockupSrc = dataUrl;
+      renderPendantMockup(mockupStage4, dataUrl, state.material, state.materialColor);
+    });
+    summaryPins.innerHTML = '';
+    state.pins.forEach(function(pin, i){
+      var row = document.createElement('div');
+      row.className = 'summary-row';
+      row.innerHTML = '<span>Pin ' + (i+1) + '</span><span>' + escapeHtml(pin.label) + '</span>';
+      summaryPins.appendChild(row);
+    });
+    summaryMaterial.textContent = state.material || '—';
+    showStep(4);
+  });
+
+  document.getElementById('submitProof').addEventListener('click', function(){
+    if (state.mockupSrc) {
+      renderPendantMockup(mockupStageDone, state.mockupSrc, state.material, state.materialColor);
+    }
+    showStep(5);
+  });
+
+  document.getElementById('startOver').addEventListener('click', function(){
+    state = { imgSrc:null, pins:[], material:null, materialColor:null, mockupSrc:null };
+    fileInput.value = '';
+    uploadEmpty.style.display = 'block';
+    uploadPreviewWrap.style.display = 'none';
+    toStep2.disabled = true;
+    toStep3.disabled = true;
+    toStep4.disabled = true;
+    mockupStage4.innerHTML = '';
+    mockupStageDone.innerHTML = '';
+    materials.querySelectorAll('.material').forEach(function(m){ m.classList.remove('selected'); m.setAttribute('aria-pressed','false'); });
+    showStep(1);
+  });
+})();
+</script>
+</body>
+</html>
