@@ -48,6 +48,7 @@
   .upload-box p{ color:var(--ink-soft); font-size:0.87rem; margin:12px 0 18px; }
   input[type=file]{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
   .file-label{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 22px; background:var(--maroon); color:var(--paper); border-radius:var(--radius); font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+  .file-label:focus-within{ outline:2px solid var(--maroon); outline-offset:2px; }
   
   .canvas-wrap{ position:relative; border-radius:6px; overflow:hidden; background:#000; margin-bottom:18px; touch-action:manipulation; }
   .canvas-wrap img{ width:100%; filter:contrast(1.12) brightness(1.04); }
@@ -72,15 +73,23 @@
   .pendant-frame img{ max-width:100%; max-height:100%; object-fit:contain; filter:drop-shadow(0 1px 1px rgba(0,0,0,0.3)); }
   .pendant-caption{ font-size:0.85rem; color:var(--ink-soft); text-align:center; margin:14px 0 0; }
 
+  .field-label{ display:block; font-size:0.87rem; color:var(--ink-soft); margin:20px 0 8px; }
+  .text-input{ width:100%; min-height:48px; padding:12px 14px; border:1.5px solid var(--line); border-radius:6px; background:var(--paper); font-family:'Lora',serif; font-size:0.95rem; color:var(--ink); }
+  .text-input:focus{ outline:2px solid var(--maroon); outline-offset:1px; border-color:var(--maroon); }
+  .text-input[aria-invalid="true"]{ border-color:#a3312f; }
+  .field-error{ color:#a3312f; font-size:0.85rem; margin:8px 0 0; }
+
   .summary-row{ display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); font-size:0.9rem; gap:16px; }
   .summary-row span:first-child{ color:var(--ink-soft); flex:none; }
   .summary-row span:last-child{ font-weight:500; text-align:right; }
 
   .nav-buttons{ display:flex; gap:12px; margin-top:28px; }
   .btn{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:52px; padding:16px 20px; font-family:'Lora',serif; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; border-radius:var(--radius); cursor:pointer; border:1px solid transparent; transition:transform .15s ease, background .15s ease; }
+  .btn:active{ transform:scale(0.99); }
   .btn-primary{ background:var(--maroon); color:var(--paper); }
   .btn-primary:hover{ background:var(--maroon-soft); }
   .btn-outline{ background:transparent; color:var(--maroon); border-color:var(--maroon); }
+  .btn-outline:hover{ background:rgba(76,22,34,0.06); }
   .btn:disabled{ opacity:0.45; cursor:not-allowed; }
 
   .confirm-state{ text-align:center; padding:8px 10px 10px; }
@@ -122,13 +131,13 @@
   <div class="panel" id="panel2">
     <p class="step-label">STEP 2 OF 4</p>
     <h2 class="step-title">Mark the details</h2>
-    <p class="step-copy">Tap anywhere on the drawing to drop a pin, then tell us what that mark means. This is what your jeweler will read before touching any metal.</p>
+    <p class="step-copy">Optional: tap anywhere on the drawing to drop a pin and tell us what it means. Only do this if there's something specific you want your jeweler to notice — most drawings don't need it.</p>
     <div class="canvas-wrap" id="canvasWrap2"></div>
-    <p class="hint" id="pinHint">Tap the drawing to add your first pin.</p>
+    <p class="hint" id="pinHint">Optional — tap the drawing if there's anything you want to point out.</p>
     <ul class="pin-list" id="pinList"></ul>
     <div class="nav-buttons">
       <button class="btn btn-outline" id="back2">Back</button>
-      <button class="btn btn-primary" id="toStep3" disabled>Continue</button>
+      <button class="btn btn-primary" id="toStep3">Continue</button>
     </div>
   </div>
 
@@ -160,6 +169,11 @@
     <div id="mockupStage4"></div>
     <div id="summaryPins"></div>
     <div class="summary-row"><span>Metal</span><span id="summaryMaterial">—</span></div>
+    
+    <label for="emailInput" class="field-label">Where should we send your proof?</label>
+    <input type="email" id="emailInput" class="text-input" placeholder="you@email.com" autocomplete="email" aria-describedby="emailError">
+    <p class="field-error" id="emailError" role="alert" hidden>Enter a valid email address so we know where to send your proof.</p>
+    
     <div class="nav-buttons">
       <button class="btn btn-outline" id="back4">Back</button>
       <button class="btn btn-primary" id="submitProof">Confirm &amp; Request Proof</button>
@@ -173,7 +187,7 @@
       Proof request sent
     </div>
     <h3>We're on it</h3>
-    <p class="desc">We'll email a rendered proof within 2 business days. You won't be charged until you approve it.</p>
+    <p class="desc" id="confirmDesc">We'll email a rendered proof within 2 business days. You won't be charged until you approve it.</p>
     <button class="btn btn-outline" id="startOver">Start Another Keepsake</button>
   </div>
 </div>
@@ -182,7 +196,7 @@
 
 <script>
 (function(){
-  var state = { imgSrc:null, pins:[], material:null, materialColor:null, mockupSrc:null };
+  var state = { imgSrc:null, pins:[], material:null, materialColor:null, mockupSrc:null, email:null };
   var panels = { 1:'panel1', 2:'panel2', 3:'panel3', 4:'panel4', 5:'panelDone' };
 
   function showStep(n){
@@ -215,7 +229,7 @@
     reader.readAsDataURL(file);
   });
 
-  toStep2.addEventListener('click', function(){ buildPinCanvas(); showStep(2); });
+  toStep2.addEventListener('click', function(){ buildPinCanvas(); renderPins(); showStep(2); });
   document.getElementById('back2').addEventListener('click', function(){ showStep(1); });
 
   var canvasWrap2 = document.getElementById('canvasWrap2');
@@ -262,10 +276,12 @@
       input.type = 'text';
       input.placeholder = 'What does this part mean? e.g. "her hair ribbon"';
       input.value = pin.label;
+      input.setAttribute('aria-label', 'What pin ' + (i + 1) + ' represents');
       input.addEventListener('input', function(ev){ pin.label = ev.target.value; checkStep2Ready(); });
       var del = document.createElement('button');
       del.type = 'button';
       del.textContent = 'Remove';
+      del.setAttribute('aria-label', 'Remove pin ' + (i + 1));
       del.addEventListener('click', function(){
         state.pins = state.pins.filter(function(p){ return p.id !== pin.id; });
         renderPins();
@@ -274,13 +290,13 @@
       pinList.appendChild(li);
     });
     pinHint.textContent = state.pins.length === 0
-      ? 'Tap the drawing to add your first pin.'
-      : (state.pins.length >= 6 ? 'Maximum 6 pins for this drawing.' : 'Tap again to add another pin.');
+      ? 'Optional — tap the drawing if there\u2019s anything you want to point out.'
+      : (state.pins.length >= 6 ? 'Maximum 6 pins for this drawing.' : 'Tap again to add another pin, or continue whenever you\u2019re ready.');
     checkStep2Ready();
   }
 
   function checkStep2Ready(){
-    var ready = state.pins.length > 0 && state.pins.every(function(p){ return p.label.trim().length > 0; });
+    var ready = state.pins.every(function(p){ return p.label.trim().length > 0; });
     toStep3.disabled = !ready;
   }
 
@@ -379,23 +395,43 @@
     showStep(4);
   });
 
+  var emailInput = document.getElementById('emailInput');
+  var emailError = document.getElementById('emailError');
+  var confirmDesc = document.getElementById('confirmDesc');
+
   document.getElementById('submitProof').addEventListener('click', function(){
+    var email = emailInput.value.trim();
+    var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!validEmail) {
+      emailError.hidden = false;
+      emailInput.setAttribute('aria-invalid', 'true');
+      emailInput.focus();
+      return;
+    }
+    emailError.hidden = true;
+    emailInput.removeAttribute('aria-invalid');
+    state.email = email;
+
     if (state.mockupSrc) {
       renderPendantMockup(mockupStageDone, state.mockupSrc, state.material, state.materialColor);
     }
+    confirmDesc.textContent = "We'll email a rendered proof to " + email + " within 2 business days. You won't be charged until you approve it.";
     showStep(5);
   });
 
   document.getElementById('startOver').addEventListener('click', function(){
-    state = { imgSrc:null, pins:[], material:null, materialColor:null, mockupSrc:null };
+    state = { imgSrc:null, pins:[], material:null, materialColor:null, mockupSrc:null, email:null };
     fileInput.value = '';
     uploadEmpty.style.display = 'block';
     uploadPreviewWrap.style.display = 'none';
     toStep2.disabled = true;
-    toStep3.disabled = true;
     toStep4.disabled = true;
     mockupStage4.innerHTML = '';
     mockupStageDone.innerHTML = '';
+    emailInput.value = '';
+    emailError.hidden = true;
+    emailInput.removeAttribute('aria-invalid');
+    confirmDesc.textContent = "We'll email a rendered proof within 2 business days. You won't be charged until you approve it.";
     materials.querySelectorAll('.material').forEach(function(m){ m.classList.remove('selected'); m.setAttribute('aria-pressed','false'); });
     showStep(1);
   });
