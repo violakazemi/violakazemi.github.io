@@ -1,715 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Museum Companion</title>
-
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- React + ReactDOM (UMD builds) -->
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-<!-- Babel standalone, to compile JSX in the browser -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<!-- Lucide icons (UMD build exposes window.lucide with React-ish icon components via lucide.createElement, but
-     the official React icon set isn't in this UMD bundle, so we build small SVG icon wrappers below using the
-     raw path data from lucide's icon set, keeping everything self-contained without an npm build step) -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-<style>
-  html, body { height: 100%; margin: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .font-serif { font-family: Georgia, "Times New Roman", Times, serif; }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum Companion Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        html, body, #root { height: 100%; width: 100%; margin: 0; overflow: hidden; background-color: #e5e5e5; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .font-serif { font-family: Georgia, "Times New Roman", Times, serif; }
+    </style>
 </head>
 <body>
-<div id="root"></div>
-
-<script type="text/babel" data-presets="react,typescript">
-const { useState } = React;
-
-// ---- Lucide icon wrappers ----
-// The lucide UMD bundle exposes raw icon node data via lucide.icons (name -> array of [tag, attrs][]).
-// We build tiny React wrapper components on top of that so the JSX below can use <ChevronLeft />, <X />, etc.,
-// exactly the same way it would with the lucide-react package, but without needing a bundler.
-function LucideIcon({ name, size = 24, color = "currentColor", strokeWidth = 2, ...rest }) {
-  const iconData = lucide.icons[name];
-  if (!iconData) return null;
-  const children = iconData.toSvg
-    ? null
-    : null;
-  // lucide's icon nodes come as an array of [tagName, attrs] pairs on iconData.
-  const nodes = iconData.iconNode || iconData;
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...rest}
-    >
-      {nodes.map(([tag, attrs], i) => React.createElement(tag, { key: i, ...attrs }))}
-    </svg>
-  );
-}
-const ChevronLeft = (props) => <LucideIcon name="chevron-left" {...props} />;
-const X = (props) => <LucideIcon name="x" {...props} />;
-const Users = (props) => <LucideIcon name="users" {...props} />;
-const Check = (props) => <LucideIcon name="check" {...props} />;
-const MoreVertical = (props) => <LucideIcon name="more-vertical" {...props} />;
-
-// ---- Design tokens ----
-const FOREST = "#0F3D30";
-const CREAM = "#F5F3EE";
-const CHARCOAL = "#232323";
-const MUTED = "#6B6B6B";
-const ERROR = "#B3261E";
-
-// ---- Reusable pieces ----
-
-function AppShell({ children }) {
-  return (
-    <div className="w-full min-h-screen bg-neutral-200 sm:py-8 sm:flex sm:items-center sm:justify-center">
-      <div
-        className="w-full h-screen sm:max-w-[400px] sm:mx-auto sm:h-[860px] relative flex flex-col shadow-2xl overflow-hidden sm:rounded-[2rem]"
-        style={{ backgroundColor: CREAM }}
-      >
-        {children}
-      </div>
+    <div id="root">
+        <div style="height: 100vh; display: flex; align-items: center; justify-content: center; color: #6B6B6B;">
+            Loading interactive prototype...
+        </div>
     </div>
-  );
-}
 
-function StatusBar() {
-  return (
-    <div className="flex items-center justify-between px-6 pt-3 pb-1 text-white text-sm font-medium">
-      <span>9:41</span>
-      <div className="flex items-center gap-1">
-        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
-          <rect x="0" y="7" width="3" height="5" fill="white" />
-          <rect x="5" y="5" width="3" height="7" fill="white" />
-          <rect x="10" y="3" width="3" height="9" fill="white" />
-          <rect x="15" y="0" width="3" height="12" fill="white" />
-        </svg>
-        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-          <path
-            d="M8 2C10.5 2 12.8 3 14.5 4.7L13 6.2C11.6 4.8 9.9 4 8 4C6.1 4 4.4 4.8 3 6.2L1.5 4.7C3.2 3 5.5 2 8 2Z"
-            fill="white"
-          />
-          <circle cx="8" cy="9" r="1.5" fill="white" />
-        </svg>
-        <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
-          <rect
-            x="1"
-            y="1"
-            width="19"
-            height="10"
-            rx="2"
-            stroke="white"
-            strokeWidth="1"
-          />
-          <rect x="2.5" y="2.5" width="16" height="7" rx="1" fill="white" />
-          <rect x="21" y="4" width="2" height="4" rx="1" fill="white" />
-        </svg>
-      </div>
-    </div>
-  );
-}
+    <script type="text/babel">
+        const { useState } = React;
 
-function Header({ title, onBack, onClose, serif }) {
-  return (
-    <div style={{ backgroundColor: FOREST }} className="text-white shrink-0">
-      <StatusBar />
-      <div className="flex items-center justify-between px-4 py-3">
-        <div className="w-8">
-          {onBack && (
-            <button
-              onClick={onBack}
-              aria-label="Go back"
-              className="p-1 -ml-1 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors"
-            >
-              <ChevronLeft size={24} />
-            </button>
-          )}
-        </div>
-        <h1
-          className={`text-lg tracking-wide ${
-            serif ? "font-serif" : "font-sans font-medium"
-          }`}
-        >
-          {title}
-        </h1>
-        <div className="w-8 flex justify-end">
-          {onClose ? (
-            <button
-              onClick={onClose}
-              aria-label="Close"
-              className="p-1 -mr-1 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors"
-            >
-              <X size={22} />
-            </button>
-          ) : (
-            <button
-              aria-label="More options"
-              className="p-1 -mr-1 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors"
-            >
-              <MoreVertical size={20} />
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
+        // Hardcoded SVG Icons for bulletproof loading
+        const ChevronLeft = ({ size = 24, color = "currentColor" }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        );
+        const X = ({ size = 24, color = "currentColor" }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        );
+        const Users = ({ size = 24, color = "currentColor" }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        );
+        const Check = ({ size = 24, color = "currentColor", strokeWidth = 2 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        );
+        const MoreVertical = ({ size = 24, color = "currentColor" }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+        );
 
-function Toggle({ checked, onChange, label, disabled }) {
-  return (
-    <button
-      role="switch"
-      aria-checked={checked}
-      aria-label={label}
-      onClick={onChange}
-      disabled={disabled}
-      className="relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
-      style={{
-        backgroundColor: checked ? FOREST : "#D1CCC0",
-        boxShadow: checked ? "none" : "inset 0 0 0 1px #B9B2A3",
-      }}
-    >
-      <span
-        className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform duration-200 ${
-          checked ? "translate-x-6" : "translate-x-1"
-        }`}
-      />
-    </button>
-  );
-}
+        // Design tokens
+        const FOREST = "#0F3D30";
+        const CREAM = "#F5F3EE";
+        const CHARCOAL = "#232323";
+        const MUTED = "#6B6B6B";
+        const ERROR = "#B3261E";
 
-function PrimaryButton({ children, onClick, disabled }) {
-  return (
-    <div className="px-4 pb-6 pt-3 shrink-0">
-      <button
-        onClick={onClick}
-        disabled={disabled}
-        style={{ backgroundColor: disabled ? "#A9BDB5" : FOREST }}
-        className="w-full text-white font-semibold tracking-wide py-4 rounded-xl transition-colors active:scale-[0.99] disabled:cursor-not-allowed"
-      >
-        {children}
-      </button>
-    </div>
-  );
-}
-
-function StatusPill({ text }) {
-  const isApproved = text === "APPROVED";
-  return (
-    <span
-      className="text-xs font-semibold px-3 py-1.5 rounded-md text-white whitespace-nowrap"
-      style={{ backgroundColor: isApproved ? FOREST : "#7A7A7A" }}
-    >
-      {text}
-    </span>
-  );
-}
-
-// ---- Screens ----
-
-function DashboardScreen({ onStartPlanning }) {
-  const [reminders, setReminders] = useState({
-    ngc: true,
-    aga: true,
-    rom2: true,
-  });
-
-  const toggleReminder = (key) =>
-    setReminders((r) => ({ ...r, [key]: !r[key] }));
-
-  const trips = [
-    {
-      key: "ngc",
-      name: "National Gallery of Canada",
-      date: "June 28th 2027",
-      meta: "Art | 6th Grade",
-      slips: "5/19",
-      status: "Pending",
-    },
-    {
-      key: "aga",
-      name: "Aga Khan Museum",
-      date: "July 4th 2027",
-      meta: "History | 4th Grade",
-      slips: "6/21",
-      status: "Pending",
-    },
-    {
-      key: "rom2",
-      name: "Royal Ontario Museum (ROM)",
-      date: "July 10th 2027",
-      meta: "Science | 5th Grade",
-      slips: "10/14",
-      status: "Pending",
-    },
-  ];
-
-  return (
-    <>
-      <Header title="Museum Companion" serif />
-      <div className="flex-1 overflow-y-auto">
-        <div className="px-5 pt-6 pb-2 flex items-center gap-3">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm shrink-0"
-            style={{ backgroundColor: FOREST }}
-          >
-            T
-          </div>
-          <h2 className="text-lg font-semibold" style={{ color: CHARCOAL }}>
-            Welcome Back, Tara
-          </h2>
-        </div>
-
-        <div className="px-5 pt-3">
-          <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
-            <p className="text-sm font-semibold mb-2" style={{ color: CHARCOAL }}>
-              Next Field Trip in 4 days
-            </p>
-            <p className="text-xl font-serif font-bold mb-3" style={{ color: CHARCOAL }}>
-              Royal Ontario Museum (ROM)
-            </p>
-            <div className="flex items-end justify-between">
-              <div>
-                <p className="text-sm" style={{ color: "#8A8A8A" }}>
-                  June 15th 2027
-                </p>
-                <p className="text-sm" style={{ color: "#8A8A8A" }}>
-                  History | 4th Grade
-                </p>
-              </div>
-              <StatusPill text="APPROVED" />
-            </div>
-          </div>
-        </div>
-
-        <div className="px-5 pt-7 pb-3">
-          <h3 className="text-base font-semibold" style={{ color: CHARCOAL }}>
-            Upcoming Trips
-          </h3>
-        </div>
-
-        <div className="px-5 flex flex-col gap-3 pb-3">
-          {trips.map((trip) => (
-            <div
-              key={trip.key}
-              className="bg-white rounded-2xl p-5 shadow-sm border border-black/5"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <p
-                  className="font-serif font-bold text-base leading-snug"
-                  style={{ color: CHARCOAL }}
-                >
-                  {trip.name}
-                </p>
-                <div
-                  className="flex items-center gap-1 text-xs shrink-0 mt-0.5"
-                  style={{ color: FOREST }}
-                >
-                  <Users size={14} />
-                  <span>Student Slips : {trip.slips}</span>
+        function AppShell({ children }) {
+            return (
+                <div className="w-full h-full bg-neutral-200 sm:p-4 flex items-center justify-center">
+                    <div className="w-full h-full sm:max-w-[400px] relative flex flex-col sm:shadow-2xl overflow-hidden sm:rounded-[2rem]" style={{ backgroundColor: CREAM }}>
+                        {children}
+                    </div>
                 </div>
-              </div>
-              <p className="text-sm mt-1.5" style={{ color: "#8A8A8A" }}>
-                {trip.date}
-              </p>
-              <p className="text-sm" style={{ color: "#8A8A8A" }}>
-                {trip.meta}
-              </p>
+            );
+        }
 
-              <div className="flex items-center justify-between mt-4">
-                <span className="text-sm font-medium" style={{ color: CHARCOAL }}>
-                  Send Reminder Ping
+        function StatusBar() {
+            return (
+                <div className="flex items-center justify-between px-6 pt-3 pb-1 text-white text-sm font-medium">
+                    <span>9:41</span>
+                    <div className="flex items-center gap-1">
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+                            <rect x="0" y="7" width="3" height="5" fill="white" />
+                            <rect x="5" y="5" width="3" height="7" fill="white" />
+                            <rect x="10" y="3" width="3" height="9" fill="white" />
+                            <rect x="15" y="0" width="3" height="12" fill="white" />
+                        </svg>
+                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                            <path d="M8 2C10.5 2 12.8 3 14.5 4.7L13 6.2C11.6 4.8 9.9 4 8 4C6.1 4 4.4 4.8 3 6.2L1.5 4.7C3.2 3 5.5 2 8 2Z" fill="white" />
+                            <circle cx="8" cy="9" r="1.5" fill="white" />
+                        </svg>
+                        <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+                            <rect x="1" y="1" width="19" height="10" rx="2" stroke="white" strokeWidth="1" />
+                            <rect x="2.5" y="2.5" width="16" height="7" rx="1" fill="white" />
+                            <rect x="21" y="4" width="2" height="4" rx="1" fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            );
+        }
+
+        function Header({ title, onBack, onClose, serif }) {
+            return (
+                <div style={{ backgroundColor: FOREST }} className="text-white shrink-0">
+                    <StatusBar />
+                    <div className="flex items-center justify-between px-4 py-3">
+                        <div className="w-8">
+                            {onBack && (
+                                <button onClick={onBack} aria-label="Go back" className="p-1 -ml-1 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors">
+                                    <ChevronLeft size={24} />
+                                </button>
+                            )}
+                        </div>
+                        <h1 className={`text-lg tracking-wide ${serif ? "font-serif" : "font-sans font-medium"}`}>{title}</h1>
+                        <div className="w-8 flex justify-end">
+                            {onClose ? (
+                                <button onClick={onClose} aria-label="Close" className="p-1 -mr-1 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors">
+                                    <X size={22} />
+                                </button>
+                            ) : (
+                                <button aria-label="More options" className="p-1 -mr-1 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors">
+                                    <MoreVertical size={20} />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Toggle({ checked, onChange, label, disabled }) {
+            return (
+                <button role="switch" aria-checked={checked} aria-label={label} onClick={onChange} disabled={disabled}
+                    className="relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
+                    style={{ backgroundColor: checked ? FOREST : "#D1CCC0", boxShadow: checked ? "none" : "inset 0 0 0 1px #B9B2A3" }}>
+                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform duration-200 ${checked ? "translate-x-6" : "translate-x-1"}`} />
+                </button>
+            );
+        }
+
+        function PrimaryButton({ children, onClick, disabled }) {
+            return (
+                <div className="px-4 pb-6 pt-3 shrink-0">
+                    <button onClick={onClick} disabled={disabled} style={{ backgroundColor: disabled ? "#A9BDB5" : FOREST }}
+                        className="w-full text-white font-semibold tracking-wide py-4 rounded-xl transition-colors active:scale-[0.99] disabled:cursor-not-allowed">
+                        {children}
+                    </button>
+                </div>
+            );
+        }
+
+        function StatusPill({ text }) {
+            const isApproved = text === "APPROVED";
+            return (
+                <span className="text-xs font-semibold px-3 py-1.5 rounded-md text-white whitespace-nowrap" style={{ backgroundColor: isApproved ? FOREST : "#7A7A7A" }}>
+                    {text}
                 </span>
-                <div className="flex items-center gap-3">
-                  <StatusPill text={trip.status} />
-                  <Toggle
-                    checked={reminders[trip.key]}
-                    onChange={() => toggleReminder(trip.key)}
-                    label={`Toggle reminder ping for ${trip.name}`}
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <PrimaryButton onClick={onStartPlanning}>START PLANNING</PrimaryButton>
-    </>
-  );
-}
+            );
+        }
 
-function LogisticsCalculatorScreen({ onBack, onCalculate, data, setData }) {
-  const [accommodations, setAccommodations] = useState(data.accommodations);
+        function DashboardScreen({ onStartPlanning }) {
+            const [reminders, setReminders] = useState({ ngc: true, aga: true, rom2: true });
+            const toggleReminder = (key) => setReminders((r) => ({ ...r, [key]: !r[key] }));
 
-  const youthNum = data.youth === "" ? 0 : Number(data.youth);
-  const adultsNum = data.adults === "" ? 0 : Number(data.adults);
-  const minAdultsRequired = Math.ceil(youthNum / 5) || 0;
-  const belowMinimum = data.adults !== "" && adultsNum < minAdultsRequired;
+            const trips = [
+                { key: "ngc", name: "National Gallery of Canada", date: "June 28th 2027", meta: "Art | 6th Grade", slips: "5/19", status: "Pending" },
+                { key: "aga", name: "Aga Khan Museum", date: "July 4th 2027", meta: "History | 4th Grade", slips: "6/21", status: "Pending" },
+                { key: "rom2", name: "Royal Ontario Museum (ROM)", date: "July 10th 2027", meta: "Science | 5th Grade", slips: "10/14", status: "Pending" },
+            ];
 
-  const handleYouthChange = (e) => {
-    const raw = e.target.value;
-    if (raw === "") {
-      setData((d) => ({ ...d, youth: "", adults: "" }));
-      return;
-    }
-    const newYouth = parseInt(raw, 10);
-    if (Number.isNaN(newYouth) || newYouth < 0) return;
-    const requiredAdults = Math.ceil(newYouth / 5) || 0;
-    setData((d) => ({ ...d, youth: newYouth, adults: requiredAdults }));
-  };
+            return (
+                <React.Fragment>
+                    <Header title="Museum Companion" serif />
+                    <div className="flex-1 overflow-y-auto">
+                        <div className="px-5 pt-6 pb-2 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm shrink-0" style={{ backgroundColor: FOREST }}>T</div>
+                            <h2 className="text-lg font-semibold" style={{ color: CHARCOAL }}>Welcome Back, Tara</h2>
+                        </div>
+                        <div className="px-5 pt-3">
+                            <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
+                                <p className="text-sm font-semibold mb-2" style={{ color: CHARCOAL }}>Next Field Trip in 4 days</p>
+                                <p className="text-xl font-serif font-bold mb-3" style={{ color: CHARCOAL }}>Royal Ontario Museum (ROM)</p>
+                                <div className="flex items-end justify-between">
+                                    <div>
+                                        <p className="text-sm" style={{ color: "#8A8A8A" }}>June 15th 2027</p>
+                                        <p className="text-sm" style={{ color: "#8A8A8A" }}>History | 4th Grade</p>
+                                    </div>
+                                    <StatusPill text="APPROVED" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="px-5 pt-7 pb-3">
+                            <h3 className="text-base font-semibold" style={{ color: CHARCOAL }}>Upcoming Trips</h3>
+                        </div>
+                        <div className="px-5 flex flex-col gap-3 pb-3">
+                            {trips.map((trip) => (
+                                <div key={trip.key} className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
+                                    <div className="flex items-start justify-between gap-3">
+                                        <p className="font-serif font-bold text-base leading-snug" style={{ color: CHARCOAL }}>{trip.name}</p>
+                                        <div className="flex items-center gap-1 text-xs shrink-0 mt-0.5" style={{ color: FOREST }}>
+                                            <Users size={14} /><span>Student Slips : {trip.slips}</span>
+                                        </div>
+                                    </div>
+                                    <p className="text-sm mt-1.5" style={{ color: "#8A8A8A" }}>{trip.date}</p>
+                                    <p className="text-sm" style={{ color: "#8A8A8A" }}>{trip.meta}</p>
+                                    <div className="flex items-center justify-between mt-4">
+                                        <span className="text-sm font-medium" style={{ color: CHARCOAL }}>Send Reminder Ping</span>
+                                        <div className="flex items-center gap-3">
+                                            <StatusPill text={trip.status} />
+                                            <Toggle checked={reminders[trip.key]} onChange={() => toggleReminder(trip.key)} />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <PrimaryButton onClick={onStartPlanning}>START PLANNING</PrimaryButton>
+                </React.Fragment>
+            );
+        }
 
-  const handleAdultsChange = (e) => {
-    const raw = e.target.value;
-    if (raw === "") {
-      setData((d) => ({ ...d, adults: "" }));
-      return;
-    }
-    const newAdults = parseInt(raw, 10);
-    if (Number.isNaN(newAdults) || newAdults < 0) return;
-    setData((d) => ({ ...d, adults: newAdults }));
-  };
+        function LogisticsCalculatorScreen({ onBack, onCalculate, data, setData }) {
+            const [accommodations, setAccommodations] = useState(data.accommodations);
+            const youthNum = data.youth === "" ? 0 : Number(data.youth);
+            const adultsNum = data.adults === "" ? 0 : Number(data.adults);
+            const minAdultsRequired = Math.ceil(youthNum / 5) || 0;
+            const belowMinimum = data.adults !== "" && adultsNum < minAdultsRequired;
 
-  const canCalculate =
-    data.youth !== "" &&
-    data.adults !== "" &&
-    adultsNum > 0 &&
-    !belowMinimum;
+            const handleYouthChange = (e) => {
+                const raw = e.target.value;
+                if (raw === "") { setData((d) => ({ ...d, youth: "", adults: "" })); return; }
+                const newYouth = parseInt(raw, 10);
+                if (Number.isNaN(newYouth) || newYouth < 0) return;
+                setData((d) => ({ ...d, youth: newYouth, adults: Math.ceil(newYouth / 5) || 0 }));
+            };
 
-  const handleSubmit = () => {
-    if (!canCalculate) return;
-    onCalculate({ ...data, accommodations });
-  };
+            const handleAdultsChange = (e) => {
+                const raw = e.target.value;
+                if (raw === "") { setData((d) => ({ ...d, adults: "" })); return; }
+                const newAdults = parseInt(raw, 10);
+                if (Number.isNaN(newAdults) || newAdults < 0) return;
+                setData((d) => ({ ...d, adults: newAdults }));
+            };
 
-  return (
-    <>
-      <Header title="Logistics Calculator" onBack={onBack} />
-      <div className="flex-1 overflow-y-auto px-5 pt-6">
-        <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
-          <label className="block text-sm font-semibold mb-2" style={{ color: CHARCOAL }}>
-            Adults
-          </label>
-          <input
-            type="number"
-            min={0}
-            value={data.adults}
-            onChange={handleAdultsChange}
-            className="w-full border-2 rounded-lg px-3 py-2.5 text-base focus:outline-none focus-visible:ring-2"
-            style={{
-              borderColor: belowMinimum ? ERROR : FOREST,
-              color: CHARCOAL,
-            }}
-            aria-invalid={belowMinimum}
-          />
-          {belowMinimum ? (
-            <p className="text-xs mt-1.5 font-medium" style={{ color: ERROR }}>
-              Minimum {minAdultsRequired} adults required for {youthNum} youth
-            </p>
-          ) : (
-            <p className="text-xs mt-1.5" style={{ color: "#8A8A8A" }}>
-              Auto-filled from 1:5 policy — edit if needed.
-            </p>
-          )}
+            const canCalculate = data.youth !== "" && data.adults !== "" && adultsNum > 0 && !belowMinimum;
 
-          <label
-            className="block text-sm font-semibold mb-2 mt-5"
-            style={{ color: CHARCOAL }}
-          >
-            Youth
-          </label>
-          <input
-            type="number"
-            min={0}
-            value={data.youth}
-            onChange={handleYouthChange}
-            className="w-full border rounded-lg px-3 py-2.5 text-base focus:outline-none focus-visible:ring-2"
-            style={{ borderColor: "#D9D4C8", color: CHARCOAL }}
-          />
-        </div>
+            return (
+                <React.Fragment>
+                    <Header title="Logistics Calculator" onBack={onBack} />
+                    <div className="flex-1 overflow-y-auto px-5 pt-6">
+                        <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
+                            <label className="block text-sm font-semibold mb-2" style={{ color: CHARCOAL }}>Adults</label>
+                            <input type="number" min={0} value={data.adults} onChange={handleAdultsChange}
+                                className="w-full border-2 rounded-lg px-3 py-2.5 text-base focus:outline-none focus-visible:ring-2"
+                                style={{ borderColor: belowMinimum ? ERROR : FOREST, color: CHARCOAL }} />
+                            {belowMinimum ? (
+                                <p className="text-xs mt-1.5 font-medium" style={{ color: ERROR }}>Minimum {minAdultsRequired} adults required for {youthNum} youth</p>
+                            ) : (
+                                <p className="text-xs mt-1.5" style={{ color: "#8A8A8A" }}>Auto-filled from 1:5 policy — edit if needed.</p>
+                            )}
+                            <label className="block text-sm font-semibold mb-2 mt-5" style={{ color: CHARCOAL }}>Youth</label>
+                            <input type="number" min={0} value={data.youth} onChange={handleYouthChange}
+                                className="w-full border rounded-lg px-3 py-2.5 text-base focus:outline-none focus-visible:ring-2"
+                                style={{ borderColor: "#D9D4C8", color: CHARCOAL }} />
+                        </div>
+                        <div className="flex items-center justify-between mt-6">
+                            <span className="text-sm font-medium" style={{ color: CHARCOAL }}>Accessibility Accommodations</span>
+                            <Toggle checked={accommodations} onChange={() => setAccommodations((a) => !a)} />
+                        </div>
+                        <div className="mt-6 rounded-lg p-4 bg-white border-l-4" style={{ borderColor: FOREST }}>
+                            <p className="text-sm" style={{ color: CHARCOAL }}>Note: Standard museum policy requires a minimum ratio of 1 adult chaperone for every 5 youth. 1:5</p>
+                        </div>
+                    </div>
+                    <PrimaryButton onClick={() => { if (canCalculate) onCalculate({ ...data, accommodations }); }} disabled={!canCalculate}>
+                        CALCULATE RATIO
+                    </PrimaryButton>
+                </React.Fragment>
+            );
+        }
 
-        <div className="flex items-center justify-between mt-6">
-          <span className="text-sm font-medium" style={{ color: CHARCOAL }}>
-            Accessibility Accommodations
-          </span>
-          <Toggle
-            checked={accommodations}
-            onChange={() => setAccommodations((a) => !a)}
-            label="Toggle accessibility accommodations"
-          />
-        </div>
+        function LogisticsSummaryScreen({ onBack, data, onConfirm }) {
+            const adults = Number(data.adults) || 0;
+            const youth = Number(data.youth) || 0;
+            const ratio = adults > 0 ? Math.floor(youth / adults) : 0;
+            return (
+                <React.Fragment>
+                    <Header title="Logistics Summary" onBack={onBack} />
+                    <div className="flex-1 overflow-y-auto px-5 pt-6">
+                        <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
+                            <p className="font-serif font-bold text-base mb-3" style={{ color: CHARCOAL }}>Logistics Check</p>
+                            <div className="flex items-center justify-between text-sm mb-1.5">
+                                <span style={{ color: "#8A8A8A" }}>Trip Status:</span>
+                                <span className="font-semibold" style={{ color: FOREST }}>APPROVED</span>
+                            </div>
+                            <div className="flex items-center justify-between text-sm">
+                                <span style={{ color: "#8A8A8A" }}>Calculated ratio:</span>
+                                <span className="font-semibold" style={{ color: FOREST }}>1:{ratio}</span>
+                            </div>
+                            <div className="h-px bg-black/10 my-4" />
+                            <p className="font-serif font-bold text-base mb-3" style={{ color: CHARCOAL }}>Accommodations Update</p>
+                            <div className="flex items-center justify-between text-sm mb-1.5">
+                                <span style={{ color: "#8A8A8A" }}>Requires Accommodation:</span>
+                                <span className="font-semibold" style={{ color: FOREST }}>{data.accommodations ? "YES" : "NO"}</span>
+                            </div>
+                            <div className="flex items-center justify-between text-sm">
+                                <span style={{ color: "#8A8A8A" }}>Total Group Size:</span>
+                                <span className="font-semibold" style={{ color: FOREST }}>{adults + youth}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <PrimaryButton onClick={onConfirm}>CONFIRM AND PROCEED</PrimaryButton>
+                </React.Fragment>
+            );
+        }
 
-        <div
-          className="mt-6 rounded-lg p-4 bg-white border-l-4"
-          style={{ borderColor: FOREST }}
-        >
-          <p className="text-sm" style={{ color: CHARCOAL }}>
-            Note: Standard museum policy requires a minimum ratio of 1 adult
-            chaperone for every 5 youth. 1:5
-          </p>
-        </div>
-      </div>
-      <PrimaryButton onClick={handleSubmit} disabled={!canCalculate}>
-        CALCULATE RATIO
-      </PrimaryButton>
-    </>
-  );
-}
+        function MuseumFloorPlanScreen({ onBack, onConfirm }) {
+            const [controls, setControls] = useState({ accessibility: true, dining: false, guided: true });
+            const toggle = (key) => setControls((c) => ({ ...c, [key]: !c[key] }));
+            return (
+                <React.Fragment>
+                    <Header title="Museum Floor Plan" onBack={onBack} />
+                    <div className="flex-1 overflow-y-auto px-5 pt-6">
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5">
+                            <svg viewBox="0 0 360 300" className="w-full h-56 bg-neutral-100">
+                                <rect x="0" y="0" width="360" height="300" fill="#EFEDE7" />
+                                {Array.from({ length: 9 }).map((_, i) => (
+                                    <rect key={i} x={20 + (i % 3) * 110} y={20 + Math.floor(i / 3) * 90} width="90" height="70" fill="#E2DFD6" stroke="#C9C4B6" />
+                                ))}
+                                {controls.accessibility && <polyline points="45,55 45,145 265,145 265,55" fill="none" stroke={FOREST} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />}
+                                {controls.guided && <polyline points="65,240 155,240 155,110 265,110" fill="none" stroke="#A6296B" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />}
+                                {controls.dining && <circle cx="200" cy="200" r="16" fill="#C9A227" opacity="0.85" />}
+                                <text x="180" y="285" textAnchor="middle" fontSize="11" fill={MUTED}>Main Entrance</text>
+                            </svg>
+                        </div>
+                        <div className="mt-6 bg-white rounded-2xl p-5 shadow-sm border border-black/5">
+                            <p className="font-serif font-bold text-base mb-3" style={{ color: CHARCOAL }}>Map Controls</p>
+                            <div className="flex items-center justify-between py-2.5">
+                                <span className="text-sm font-medium" style={{ color: CHARCOAL }}>Accessibility Route</span>
+                                <Toggle checked={controls.accessibility} onChange={() => toggle("accessibility")} />
+                            </div>
+                            <div className="flex items-center justify-between py-2.5">
+                                <span className="text-sm font-medium" style={{ color: CHARCOAL }}>Dining and Sitting Zones</span>
+                                <Toggle checked={controls.dining} onChange={() => toggle("dining")} />
+                            </div>
+                            <div className="flex items-center justify-between py-2.5">
+                                <span className="text-sm font-medium" style={{ color: CHARCOAL }}>Guided Tour Paths</span>
+                                <Toggle checked={controls.guided} onChange={() => toggle("guided")} />
+                            </div>
+                        </div>
+                    </div>
+                    <PrimaryButton onClick={onConfirm}>CONFIRM AND PROCEED</PrimaryButton>
+                </React.Fragment>
+            );
+        }
 
-function LogisticsSummaryScreen({ onBack, data, onConfirm }) {
-  const adults = Number(data.adults) || 0;
-  const youth = Number(data.youth) || 0;
-  const ratio = adults > 0 ? Math.floor(youth / adults) : 0;
-  const totalGroupSize = adults + youth;
+        function VisitGuideScreen({ onBack, onClose }) {
+            const items = ["Dining and Sitting Itinerary", "Verified Chaperone Ratios", "Custom Accessible Map"];
+            return (
+                <React.Fragment>
+                    <Header title="Visit Guide" onBack={onBack} onClose={onClose} serif />
+                    <div className="flex-1 overflow-y-auto px-5 pt-6">
+                        <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
+                            <p className="font-serif font-bold text-base mb-4" style={{ color: CHARCOAL }}>Ready To Export</p>
+                            <div className="flex flex-col gap-3">
+                                {items.map((item) => (
+                                    <div key={item} className="flex items-center gap-2.5">
+                                        <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: FOREST }}>
+                                            <Check size={13} color="white" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-sm" style={{ color: CHARCOAL }}>{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <PrimaryButton onClick={() => alert("Trip plan downloading...")}>DOWNLOAD TRIP PLAN</PrimaryButton>
+                </React.Fragment>
+            );
+        }
 
-  return (
-    <>
-      <Header title="Logistics Summary" onBack={onBack} />
-      <div className="flex-1 overflow-y-auto px-5 pt-6">
-        <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
-          <p className="font-serif font-bold text-base mb-3" style={{ color: CHARCOAL }}>
-            Logistics Check
-          </p>
-          <div className="flex items-center justify-between text-sm mb-1.5">
-            <span style={{ color: "#8A8A8A" }}>Trip Status:</span>
-            <span className="font-semibold" style={{ color: FOREST }}>
-              APPROVED
-            </span>
-          </div>
-          <div className="flex items-center justify-between text-sm">
-            <span style={{ color: "#8A8A8A" }}>Calculated ratio:</span>
-            <span className="font-semibold" style={{ color: FOREST }}>
-              1:{ratio}
-            </span>
-          </div>
+        function MuseumEducatorApp() {
+            const [screen, setScreen] = useState("dashboard");
+            const [tripData, setTripData] = useState({ adults: 5, youth: 25, accommodations: true });
+            return (
+                <AppShell>
+                    {screen === "dashboard" && <DashboardScreen onStartPlanning={() => setScreen("calculator")} />}
+                    {screen === "calculator" && <LogisticsCalculatorScreen onBack={() => setScreen("dashboard")} data={tripData} setData={setTripData} onCalculate={(d) => { setTripData(d); setScreen("summary"); }} />}
+                    {screen === "summary" && <LogisticsSummaryScreen onBack={() => setScreen("calculator")} data={tripData} onConfirm={() => setScreen("floorplan")} />}
+                    {screen === "floorplan" && <MuseumFloorPlanScreen onBack={() => setScreen("summary")} onConfirm={() => setScreen("guide")} />}
+                    {screen === "guide" && <VisitGuideScreen onBack={() => setScreen("floorplan")} onClose={() => setScreen("dashboard")} />}
+                </AppShell>
+            );
+        }
 
-          <div className="h-px bg-black/10 my-4" />
-
-          <p className="font-serif font-bold text-base mb-3" style={{ color: CHARCOAL }}>
-            Accommodations Update
-          </p>
-          <div className="flex items-center justify-between text-sm mb-1.5">
-            <span style={{ color: "#8A8A8A" }}>Requires Accommodation:</span>
-            <span className="font-semibold" style={{ color: FOREST }}>
-              {data.accommodations ? "YES" : "NO"}
-            </span>
-          </div>
-          <div className="flex items-center justify-between text-sm">
-            <span style={{ color: "#8A8A8A" }}>Total Group Size:</span>
-            <span className="font-semibold" style={{ color: FOREST }}>
-              {totalGroupSize}
-            </span>
-          </div>
-        </div>
-      </div>
-      <PrimaryButton onClick={onConfirm}>CONFIRM AND PROCEED</PrimaryButton>
-    </>
-  );
-}
-
-function MuseumFloorPlanScreen({ onBack, onConfirm }) {
-  const [controls, setControls] = useState({
-    accessibility: true,
-    dining: false,
-    guided: true,
-  });
-
-  const toggle = (key) => setControls((c) => ({ ...c, [key]: !c[key] }));
-
-  return (
-    <>
-      <Header title="Museum Floor Plan" onBack={onBack} />
-      <div className="flex-1 overflow-y-auto px-5 pt-6">
-        <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5">
-          <svg viewBox="0 0 360 300" className="w-full h-56 bg-neutral-100">
-            <rect x="0" y="0" width="360" height="300" fill="#EFEDE7" />
-            {Array.from({ length: 9 }).map((_, i) => (
-              <rect
-                key={i}
-                x={20 + (i % 3) * 110}
-                y={20 + Math.floor(i / 3) * 90}
-                width="90"
-                height="70"
-                fill="#E2DFD6"
-                stroke="#C9C4B6"
-                strokeWidth="1"
-              />
-            ))}
-            {controls.accessibility && (
-              <polyline
-                points="45,55 45,145 265,145 265,55"
-                fill="none"
-                stroke={FOREST}
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            )}
-            {controls.guided && (
-              <polyline
-                points="65,240 155,240 155,110 265,110"
-                fill="none"
-                stroke="#A6296B"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            )}
-            {controls.dining && (
-              <circle cx="200" cy="200" r="16" fill="#C9A227" opacity="0.85" />
-            )}
-            <text x="180" y="285" textAnchor="middle" fontSize="11" fill={MUTED}>
-              Main Entrance
-            </text>
-          </svg>
-        </div>
-
-        <div className="mt-6 bg-white rounded-2xl p-5 shadow-sm border border-black/5">
-          <p className="font-serif font-bold text-base mb-3" style={{ color: CHARCOAL }}>
-            Map Controls
-          </p>
-
-          <div className="flex items-center justify-between py-2.5">
-            <span className="text-sm font-medium" style={{ color: CHARCOAL }}>
-              Accessibility Route
-            </span>
-            <Toggle
-              checked={controls.accessibility}
-              onChange={() => toggle("accessibility")}
-              label="Toggle accessibility route"
-            />
-          </div>
-          <div className="flex items-center justify-between py-2.5">
-            <span className="text-sm font-medium" style={{ color: CHARCOAL }}>
-              Dining and Sitting Zones
-            </span>
-            <Toggle
-              checked={controls.dining}
-              onChange={() => toggle("dining")}
-              label="Toggle dining and sitting zones"
-            />
-          </div>
-          <div className="flex items-center justify-between py-2.5">
-            <span className="text-sm font-medium" style={{ color: CHARCOAL }}>
-              Guided Tour Paths
-            </span>
-            <Toggle
-              checked={controls.guided}
-              onChange={() => toggle("guided")}
-              label="Toggle guided tour paths"
-            />
-          </div>
-        </div>
-      </div>
-      <PrimaryButton onClick={onConfirm}>CONFIRM AND PROCEED</PrimaryButton>
-    </>
-  );
-}
-
-function VisitGuideScreen({ onBack, onClose }) {
-  const items = [
-    "Dining and Sitting Itinerary",
-    "Verified Chaperone Ratios",
-    "Custom Accessible Map",
-  ];
-
-  return (
-    <>
-      <Header title="Visit Guide" onBack={onBack} onClose={onClose} serif />
-      <div className="flex-1 overflow-y-auto px-5 pt-6">
-        <div className="bg-white rounded-2xl p-5 shadow-sm border border-black/5">
-          <p className="font-serif font-bold text-base mb-4" style={{ color: CHARCOAL }}>
-            Ready To Export
-          </p>
-          <div className="flex flex-col gap-3">
-            {items.map((item) => (
-              <div key={item} className="flex items-center gap-2.5">
-                <div
-                  className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: FOREST }}
-                >
-                  <Check size={13} color="white" strokeWidth={3} />
-                </div>
-                <span className="text-sm" style={{ color: CHARCOAL }}>
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <PrimaryButton onClick={() => alert("Trip plan downloading...")}>
-        DOWNLOAD TRIP PLAN
-      </PrimaryButton>
-    </>
-  );
-}
-
-// ---- App ----
-
-function MuseumEducatorApp() {
-  const [screen, setScreen] = useState("dashboard");
-  const [tripData, setTripData] = useState({
-    adults: 5,
-    youth: 25,
-    accommodations: true,
-  });
-
-  return (
-    <AppShell>
-      {screen === "dashboard" && (
-        <DashboardScreen onStartPlanning={() => setScreen("calculator")} />
-      )}
-      {screen === "calculator" && (
-        <LogisticsCalculatorScreen
-          onBack={() => setScreen("dashboard")}
-          data={tripData}
-          setData={setTripData}
-          onCalculate={(finalData) => {
-            setTripData(finalData);
-            setScreen("summary");
-          }}
-        />
-      )}
-      {screen === "summary" && (
-        <LogisticsSummaryScreen
-          onBack={() => setScreen("calculator")}
-          data={tripData}
-          onConfirm={() => setScreen("floorplan")}
-        />
-      )}
-      {screen === "floorplan" && (
-        <MuseumFloorPlanScreen
-          onBack={() => setScreen("summary")}
-          onConfirm={() => setScreen("guide")}
-        />
-      )}
-      {screen === "guide" && (
-        <VisitGuideScreen
-          onBack={() => setScreen("floorplan")}
-          onClose={() => setScreen("dashboard")}
-        />
-      )}
-    </AppShell>
-  );
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<MuseumEducatorApp />);
-</script>
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<MuseumEducatorApp />);
+    </script>
 </body>
 </html>
