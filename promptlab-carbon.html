@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>IBM watsonx: Prompt Compare - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        
+        /* Strict 2-Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        .decision-block {
+            font-size: var(--fs-small);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Prompt Lab</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">IBM watsonx Design Proposal</span>
+                <h1 style="margin-top: var(--space-2);">IBM watsonx: Prompt Compare</h1>
+                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">How should an enterprise AI workspace support iterative experimentation without forcing users to destroy previous state?</h2>
+                
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Scope</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">UI Concept Specs</span>
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">System</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">Carbon v11</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Thumbnail -->
+            <div>
+                <img src="images/Carbon_Mockup.png" alt="IBM watsonx Prompt Lab Compare View Concept" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Context & Discovery -->
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>The Core Challenge</h2>
+            <p style="max-width: 100%;">IBM watsonx Prompt Lab is where teams experiment with generative AI models by writing prompts, tweaking parameters, and evaluating outputs before deployment. But right now, the workspace only supports one prompt, one model, and one pane at a time.</p>
+            <p style="max-width: 100%;">If a user wants to compare two phrasings or two models, they must run one variation, copy the output elsewhere, overwrite their prompt, and run the next. This creates continuous friction during prompt engineering.</p>
+
+            <details style="margin-top: var(--space-3);">
+                <summary>Discovery: Identifying the Workflow Friction</summary>
+                <p style="max-width: 100%;">This friction point was identified through hands-on workflow analysis of prompt engineering environments. Generative AI iteration is not a linear task, it is inherently comparative. Forcing users to overwrite active prompts or switch context to compare two outputs is a clear usability bottleneck for technical teams.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 2. Alternatives & Trade-offs -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Exploring Alternatives</h2>
+            <p style="max-width: 100%;">Before deciding on a side-by-side canvas, I evaluated three structural patterns for managing iteration states within IBM Carbon v11:</p>
+            
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">Option A</span>
+                    <h3>Version History Drawer</h3>
+                    <div class="decision-block"><strong>Concept:</strong> A slide-out panel that logs past prompt runs and outputs automatically.</div>
+                    <div class="decision-block"><strong>Trade-off:</strong> Good for audit trails, but poor for live comparison. Users still have to click back and forth between history items to evaluate differences line by line.</div>
+                </article>
+                <article class="card">
+                    <span class="badge">Option B</span>
+                    <h3>Multi-Tab Workspace</h3>
+                    <div class="decision-block"><strong>Concept:</strong> Standard Carbon workspace tabs where each tab holds an independent prompt and model setup.</div>
+                    <div class="decision-block"><strong>Trade-off:</strong> Preserves state cleanly, but keeps outputs hidden behind tab switches. Users cannot visually compare response quality or token latency at a single glance.</div>
+                </article>
+            </div>
+
+            <div style="margin-top: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt); border: 1px solid var(--color-border);">
+                <h3 style="font-size: var(--fs-h3); margin-top: 0;">Chosen Decision: Responsive Canvas Grid</h3>
+                <p style="margin: 0; font-size: var(--fs-small); max-width: 100%;">I chose a responsive canvas grid using Carbon's 16-column layout system. It splits the editor into 2 or 3 synchronous panes. It uses more screen space, but it enables direct visual comparison and concurrent execution, which solves the core problem directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Proposed Solution & Carbon Constraints -->
+    <section class="section">
+        <div class="container">
+            <h2>Chosen Solution & Design System Rules</h2>
+            <p style="max-width: 100%;">The proposed compare framework builds directly on existing Carbon v11 components. Composing natively within enterprise rules shows how to scale patterns across shared design systems.</p>
+            
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">UX Mechanic</span>
+                    <h3>Compare Toggle</h3>
+                    <p>Switches the single editor into 2 or 3 side-by-side panes, managed by Carbon's responsive layout grid.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Primary Action</span>
+                    <h3>Run All Execution</h3>
+                    <p>A single Carbon Primary Button triggers every pane at once. Global parameters like temperature stay locked, ensuring fair comparisons.</p>
+                </article>
+            </div>
+
+            <!-- Deep Dive Accordion -->
+            <details style="margin-top: var(--space-3);">
+                <summary>View High-Fidelity Mockup & System Specs</summary>
+                <div style="margin-top: var(--space-3);">
+                    <img src="images/PromptLab-Compare-Filled.png" alt="IBM watsonx Prompt Lab Compare View Mockup" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: block; margin-bottom: var(--space-3);" />
+                    
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Output Data Tables</h4>
+                    <p style="margin-top: 0; margin-bottom: var(--space-3); max-width: 100%;">Each pane's output, token count, and latency sit inside a Carbon Data Table directly below its prompt for instant evaluation.</p>
+                    
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Per-Pane Structure</h4>
+                    <p style="margin-top: 0; margin-bottom: var(--space-3); max-width: 100%;">Each pane contains its own prompt editor and filterable model Dropdown, allowing users to test different foundational models side-by-side.</p>
+
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Select & Continue</h4>
+                    <p style="margin-top: 0; max-width: 100%;">Users select the winning variation to collapse back into single-editor mode with the victorious prompt and model parameters loaded.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- 4. System Alignment -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>System Alignment & Enterprise Value</h2>
+            <p style="max-width: 100%;">Enterprise product work requires strict alignment with established component libraries rather than introducing custom UI patterns. Every component in this proposal is an unmodified Carbon instance.</p>
+
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">Layout</span>
+                    <h3>Carbon Grid System</h3>
+                    <p>Handles responsive 2-column or 3-column split layouts across desktop screen sizes without breaking editor proportions.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Navigation</span>
+                    <h3>Workspace Pivots</h3>
+                    <p>Uses Carbon Tabs to shift viewports between single-pane editing and multi-pane comparison modes.</p>
+                </article>
+            </div>
+
+            <details style="margin-top: var(--space-2);">
+                <summary>Component Deep Dive: Pickers & UI Logic</summary>
+                <div style="margin-top: var(--space-3);">
+                    <img src="images/PromptLab-DropDown.png" alt="IBM watsonx Prompt Lab Dropdown Component" style="width: 100%; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); display: block; margin-bottom: var(--space-3);" />
+                    <p style="margin-top: 0; margin-bottom: var(--space-4); max-width: 100%;">The <strong>Dropdown</strong> component functions as the model selector inside each prompt pane, letting users swap models directly without leaving the workspace.</p>
+                    
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Data Table</h4>
+                    <p style="margin-top: 0; margin-bottom: var(--space-3); max-width: 100%;">Formats inline output text, execution latency, and token consumption metrics cleanly.</p>
+
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Side Panel</h4>
+                    <p style="margin-top: 0; max-width: 100%;">Slides open to adjust shared temperature and top-p configurations across all active panes simultaneously.</p>
+                </div>
+            </details>
+            
+            <p style="margin-top: var(--space-4); max-width: 100%;">Working inside an existing design system without breaking its rules requires technical discipline. It demonstrates the exact system-level thinking needed for multi-surface enterprise software.</p>
+        </div>
+    </section>
+
+    <!-- Master Footer -->
+    <footer class="footer">
+        <div class="container">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+                <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
+                <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
+            </div>
+
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum">The Museum Companion</a></li>
+                        <li><a href="golaab">Golaab Jewelry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan</a></li>
+                        <li><a href="promptlab-carbon">Designing Inside Carbon</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+                <a href="sudoku.html" class="button button-secondary" style="padding: 5px 15px; font-size: 0.9em;">Play a Game 🎮</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
