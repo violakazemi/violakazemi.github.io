@@ -39,6 +39,16 @@
         @media screen and (max-width: 768px) {
             .grid-2 { grid-template-columns: 1fr; }
         }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-3 { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -114,6 +124,24 @@
         <div class="container">
             <h2>3. Designing Every State</h2>
             <p style="max-width: 100%;">I built an 8-screen functional flow instead of one hero screen. The point was to make sure the system had an honest answer for every possible state.</p>
+
+            <div class="grid-3" style="margin-top: var(--space-4); margin-bottom: var(--space-4);">
+                <article class="card">
+                    <img src="images/frame-1-thinking.png" alt="Progressive Loading UI" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <h3 style="font-size: var(--fs-h3);">Handling Latency</h3>
+                    <p style="font-size: var(--fs-small);">Abstracting the wait into visible, conversational steps so users don't abandon the flow.</p>
+                </article>
+                <article class="card">
+                    <img src="images/frame-2-recommendation.png" alt="AI Substitution Options" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <h3 style="font-size: var(--fs-h3);">Building Trust</h3>
+                    <p style="font-size: var(--fs-small);">Surfacing the reasoning behind each option with a short rationale tag rather than just a name.</p>
+                </article>
+                <article class="card">
+                    <img src="images/frame-3-fallback.png" alt="Low Confidence Fallback UI" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <h3 style="font-size: var(--fs-h3);">Graceful Fallback</h3>
+                    <p style="font-size: var(--fs-small);">If confidence is low, the UI degrades to a manual search to avoid compliance and health risks.</p>
+                </article>
+            </div>
 
             <ul style="margin-top: var(--space-3); margin-bottom: var(--space-4); line-height: 1.8;">
                 <li><strong>Recipe View:</strong> Calm checklist with an entry point to flag missing items.</li>
