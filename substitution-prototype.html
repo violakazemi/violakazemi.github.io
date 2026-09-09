@@ -22,30 +22,32 @@
     font-family: -apple-system, "Inter", "Segoe UI", Roboto, sans-serif;
   }
   *{box-sizing:border-box;}
+  
   body{
     margin:0;
-    background: transparent; /* Removes the color clash so it blends into your case study */
-    min-height:100vh;
+    background:var(--card-bg); /* Matches the app background to prevent color bleed */
+    height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
-    padding:24px 16px;
+    padding:0; /* Removed the padding that caused the gap */
     color:var(--ink);
   }
+  
   .phone{
     width:100%;
-    max-width:400px; /* Matched to Museum Companion width */
-    height:800px;
+    max-width:440px; /* Matches the iframe's max-width perfectly */
+    height:100%;
     background:var(--card-bg);
-    border-radius:2rem; /* Matched to Museum Companion curves */
-    border:none; /* Removed the thick black border */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Matched to Museum Companion shadow */
+    border-radius:0; /* Removed inner curve */
+    border:none; 
+    box-shadow:none; /* Removed inner shadow causing the gradient */
     position:relative;
     overflow:hidden;
     display:flex;
     flex-direction:column;
   }
+  
   .statusbar{
     display:flex;
     justify-content:space-between;
