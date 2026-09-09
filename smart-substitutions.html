@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Agentic Grocery Substitutions - Viola Kazemi</title>
+    <title>Ingredient Substitution Assistant - Viola Kazemi</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
-        /* Accordion Styling for Deep Dives */
         details {
             background-color: var(--color-bg-card);
             border: 1px solid var(--color-border);
@@ -31,7 +30,6 @@
         details[open] summary::after { content: '−'; }
         details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
         
-        /* Strict 2-Column Grid (Guarantees perfect symmetry) */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -41,36 +39,23 @@
         @media screen and (max-width: 768px) {
             .grid-2 { grid-template-columns: 1fr; }
         }
-
-        /* Strict 3-Column Grid (For Metrics) */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-4);
-            margin-bottom: var(--space-3);
-        }
-        @media screen and (max-width: 768px) {
-            .grid-3 { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="global-header">
-        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Smart Substitutions</span></a>
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Ingredient Assistant</span></a>
         <nav>
             <a href="/" class="button button-secondary">Back to Home</a>
         </nav>
     </header>
 
-    <!-- Hero Section (Stacked Layout) -->
     <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
         <div class="container">
             <div style="width: 100%; margin-bottom: var(--space-5);">
-                <span class="badge">Agentic UX Concept</span>
-                <h1 style="margin-top: var(--space-2);">Agentic Grocery Substitutions</h1>
-                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">AI-driven cart replacements designed around system latency, trust, and deterministic fallbacks.</h2>
+                <span class="badge">AI-Native Design Process</span>
+                <h1 style="margin-top: var(--space-2);">The Ingredient Substitution Assistant</h1>
+                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">Using AI as an exploration partner to build an 8-state fallback flow.</h2>
                 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                     <div>
@@ -78,140 +63,105 @@
                         <span style="font-weight: 500; font-size: var(--fs-small);">Product Designer</span>
                     </div>
                     <div>
-                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Status</span>
-                        <span style="font-weight: 500; font-size: var(--fs-small);">2026 Concept</span>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Focus</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">Agentic UX & Fallbacks</span>
                     </div>
                 </div>
             </div>
 
             <div>
-                <img src="images/Smart_Substitutions.png" alt="Smart Substitutions AI Flow" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+                <img src="substitution-flow.jpg" alt="8-screen functional flow showing working, uncertain, wrong, and empty states" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
             </div>
         </div>
     </section>
 
-    <!-- 1. The Problem -->
     <section class="section" style="padding-top: var(--space-4);">
         <div class="container">
-            <h2>The Problem</h2>
-            <p style="max-width: 100%;">When an item goes out of stock in a grocery order, the default experience is manual: the customer either picks a replacement themselves or gets nothing. If an AI agent takes over that decision, it introduces a new problem: latency while it queries inventory and evaluates alternatives, and a trust gap when it presents a substitution the customer didn't ask for.</p>
-            <p style="max-width: 100%;">The question this concept answers: </strong></p>
-            <p style="max-width: 100%;">What does it look like to design for that exact moment? </strong></p>
-            <p style="max-width: 100%;">The gap between "item unavailable" and "agent has a recommendation" without it feeling broken, slow, or untrustworthy? </strong></p>
-            
+            <h2>1. The Problem</h2>
+            <p style="max-width: 100%;">Most of my case studies show a finished screen. This one shows the process instead. A home cook is following a recipe and an ingredient is unavailable. They need a substitute but the system cannot just swap it in silently. It has to protect the recipe's dietary requirements like gluten-free rules and functional requirements like binding.</p>
+            <p style="max-width: 100%;">The main constraint was to never silently modify the recipe. Every AI suggestion has to stay a suggestion until the user confirms it.</p>
         </div>
     </section>
 
-    <!-- 2. Success Metrics -->
     <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <h2>Hypothetical Success Metrics</h2>
-            <p style="max-width: 100%;">If shipped, this concept would be measured against three primary key performance indicators:</p>
+            <h2>2. Architecture Before Screens</h2>
+            <p style="max-width: 100%;">Instead of jumping straight to Figma, I prompted an AI agent to help generate three competing interaction architectures.</p>
             
-            <div class="grid-3">
+            <div class="grid-2" style="margin-top: var(--space-4);">
                 <article class="card">
-                    <span class="badge">Metric 1</span>
-                    <h3>Acceptance Rate</h3>
-                    <p>Achieve >85% substitution acceptance rate by surfacing deterministic rationale chips.</p>
+                    <span class="badge">Option A</span>
+                    <h3>Inline Card Replacement</h3>
+                    <p>The flagged ingredient expands in place. It has low cognitive load but falls apart if more than one item is missing at a time.</p>
+                </article>
+                <article class="card" style="border: 2px solid var(--color-text-primary);">
+                    <span class="badge">Option B (Chosen)</span>
+                    <h3>Bottom Sheet Flow</h3>
+                    <p>Tapping the ingredient opens a sheet that moves through loading, options, and confirmation. The recipe stays dimmed underneath.</p>
                 </article>
                 <article class="card">
-                    <span class="badge">Metric 2</span>
-                    <h3>Ticket Reduction</h3>
-                    <p>Measurable drop in customer support queries tied directly to unexplained auto-substitutions.</p>
-                </article>
-                <article class="card">
-                    <span class="badge">Metric 3</span>
-                    <h3>Resolution Time</h3>
-                    <p>Decrease average time-to-resolution on out of stock cart items during checkout.</p>
+                    <span class="badge">Option C</span>
+                    <h3>Side-by-Side Split View</h3>
+                    <p>Great for comparing options but does not fit on a 375px mobile screen without collapsing into something else.</p>
                 </article>
             </div>
+
+            <p style="max-width: 100%; margin-top: var(--space-4);">I picked the Bottom Sheet. It fits a mobile-first approach, helps with accessible focus management, and creates a hard separation between an AI suggestion and a permanent recipe change.</p>
         </div>
     </section>
 
-    <!-- 3. Design Iterations -->
     <section class="section">
         <div class="container">
-            <h2>Design Solutions</h2>
-            <p style="max-width: 100%;">I designed three core screens that answer these constraints directly, establishing a highly secure, modern generative paradigm.</p>
+            <h2>3. Designing Every State</h2>
+            <p style="max-width: 100%;">I built an 8-screen functional flow instead of one hero screen. The point was to make sure the system had an honest answer for every possible state.</p>
 
-            <div class="grid-2" style="margin-top: var(--space-4);">
-                
-                <!-- Screen 1 -->
-                <article class="card">
-                    <div style="max-width: 220px; margin: 0 auto var(--space-4) auto;">
-                        <img src="images/frame-1-thinking.png" alt="Progressive Loading UI" style="width: 100%; display: block;" />
-                    </div>
-                    <span class="badge">01: Thinking State</span>
-                    <h3 style="font-size: var(--fs-h3);">Handling Latency</h3>
-                    <p style="font-size: var(--fs-small);">The out of stock item shows a progressive loading component: sequential status text paired with a subtle progress indicator.</p>
-                    
-                    <details style="margin-top: auto; margin-bottom: 0;">
-                        <summary style="font-size: 13px;">Why It Matters</summary>
-                        <p style="font-size: 13px; max-width: 100%;">LLM retrieval takes real time. Abstracting that wait into visible, conversational steps prevents abandonment and builds trust. These steps update via an <code>aria-live</code> region.</p>
-                    </details>
-                </article>
-
-                <!-- Screen 2 -->
-                <article class="card">
-                    <div style="max-width: 220px; margin: 0 auto var(--space-4) auto;">
-                        <img src="images/frame-2-recommendation.png" alt="AI Substitution Options" style="width: 100%; display: block;" />
-                    </div>
-                    <span class="badge">02: Recommendation</span>
-                    <h3 style="font-size: var(--fs-h3);">Building Trust</h3>
-                    <p style="font-size: var(--fs-small);">The agent presents two substitution options, each with a short rationale tag rather than just a name and price.</p>
-                    
-                    <details style="margin-top: auto; margin-bottom: 0;">
-                        <summary style="font-size: 13px;">Why It Matters</summary>
-                        <p style="font-size: 13px; max-width: 100%;">AI recommendations need to feel deterministic, not magical. Surfacing the reasoning behind each option reduces cognitive load and cuts down on support tickets.</p>
-                    </details>
-                </article>
-
-            </div>
-
-            <details>
-                <summary>View Constraint & Fallback State</summary>
-                <div style="margin-top: var(--space-3);">
-                    <div style="max-width: 220px; margin: 0 auto var(--space-3) auto;">
-                        <img src="images/frame-3-fallback.png" alt="Low Confidence Fallback UI" style="width: 100%; display: block;" />
-                    </div>
-                    <h4 style="font-size: 14px; margin-bottom: 4px; text-align: center;">03: Graceful Degradation</h4>
-                    <p style="margin-top: 0; margin-bottom: var(--space-3); text-align: center;">If the LLM confidence score for a dietary match is below 95%, the UI must gracefully degrade to a manual search fallback to avoid compliance and health risks.</p>
-                    
-                    <h4 style="font-size: 14px; margin-bottom: 4px;">Deterministic Fallback States</h4>
-                    <p style="margin-top: 0; max-width: 100%;">Agentic UX cannot just be a chatbot. The actual fallback UI provides a clear "Low Substitution Confidence" message with two ways forward: search manually, or browse alternatives.</p>
-                </div>
-            </details>
+            <ul style="margin-top: var(--space-3); margin-bottom: var(--space-4); line-height: 1.8;">
+                <li><strong>Recipe View:</strong> Calm checklist with an entry point to flag missing items.</li>
+                <li><strong>Bottom Sheet Loading:</strong> Dimmed recipe showing step-by-step progress.</li>
+                <li><strong>3 Options:</strong> Choices with dietary tags, ratios, and a chip explaining the logic.</li>
+                <li><strong>Confirm Substitution:</strong> Explicit outline of what changes and what stays the same.</li>
+                <li><strong>Low Confidence:</strong> Amber state for risky substitutes that defaults to manual search.</li>
+                <li><strong>Failure State:</strong> Empty state when no match is found.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- 4. Reflection -->
     <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border);">
         <div class="container">
-            <h2>Reflection</h2>
-            <p style="max-width: 100%;">The interesting design problem here wasn't the happy path. It was designing for uncertainty. Latency, confidence scores, and failure states are usually treated as engineering concerns that get bolted onto a UI after the fact. Treating them as first-class design decisions. Focusing on what the user sees while the system is unsure, and what happens when it is too unsure to act, is exactly where agentic products either earn trust or lose it.</p>
+            <h2>4. Self-Critique & Iteration</h2>
+            <p style="max-width: 100%;">Once the prototype existed, I asked the agent to critique its own work. It found five concrete risks. I treat generated prototypes as a first draft to interrogate, not a finished product.</p>
+            
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">Ambiguity Risk</span>
+                    <h3>Confusing Buttons</h3>
+                    <p>The "Choose" button did not actually mean choose. I fixed this by renaming the button to set correct expectations without changing the architecture.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Cognitive Load</span>
+                    <h3>Judging Health Risks</h3>
+                    <p>Asking users to judge AI confidence on health risks is dangerous. We have to hard-gate low-confidence suggestions for allergy tags.</p>
+                </article>
+            </div>
+            
+            <h3 style="margin-top: var(--space-5);">5. What's Next</h3>
+            <p style="max-width: 100%;">This is an unfinished loop. The next step is to put this prototype in front of 3 to 5 real home cooks. I want to watch where they hesitate on the loading, option comparison, and low-confidence screens. Then I will feed those exact breaks back to the agent to fix them.</p>
         </div>
     </section>
 
-    
-    <!-- Standard Footer -->
-    <!-- Master Combined Footer -->
     <footer class="footer">
         <div class="container">
-            
-            <!-- Universal Project Navigation -->
-           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
-        <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
-        <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
-    </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+                <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
+                <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
+            </div>
 
-            <!-- Standard Footer Links -->
             <div class="footer-grid">
                 <div>
                     <h3>Case Studies</h3>
                     <ul>
                         <li><a href="museum">The Museum Companion</a></li>
                         <li><a href="golaab">Golaab</a></li>
-                        
                     </ul>
                 </div>
                 <div>
@@ -237,7 +187,6 @@
             </div>
         </div>
     </footer>
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
 
