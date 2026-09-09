@@ -60,7 +60,7 @@
         </nav>
     </header>
 
-    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-4);">
         <div class="container">
             <div style="width: 100%; margin-bottom: var(--space-5);">
                 <span class="badge">AI-Native Design Process</span>
@@ -81,6 +81,26 @@
 
             <div>
                 <img src="substitution-flow.jpg" alt="8-screen functional flow showing working, uncertain, wrong, and empty states" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Interactive Prototype Embed -->
+    <section class="section" style="padding-bottom: var(--space-5);">
+        <div class="container">
+            <h2>Live Interactive Prototype</h2>
+            <p>Test the 8-state substitution flow exactly as the user experiences it. You can tap the unavailable flour row to run the happy path, or use the test chips to jump straight to the low-confidence and failure outcomes.</p>
+            
+            <div style="margin-top: var(--space-4); background-color: var(--color-bg-alt); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-border); display: flex; justify-content: center;">
+                <iframe 
+                    src="substitution-prototype.html" 
+                    title="Ingredient Substitution Live Prototype"
+                    style="width: 100%; max-width: 440px; height: 860px; max-height: 85vh; border: none; border-radius: 2rem; box-shadow: var(--shadow-md);"
+                ></iframe>
+            </div>
+            
+            <div style="margin-top: var(--space-3); text-align: center;">
+                <a href="substitution-prototype.html" target="_blank" rel="noopener noreferrer" class="button">Open Prototype in Full Screen</a>
             </div>
         </div>
     </section>
