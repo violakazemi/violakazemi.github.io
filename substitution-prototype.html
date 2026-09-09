@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ingredient Substitution — Functional Prototype</title>
+<style>
+  :root{
+    --ink:#1A1D29;
+    --ink-soft:#6B7280;
+    --border:#E5E7EB;
+    --page-bg:#EEF1F6;
+    --card-bg:#FFFFFF;
+    --red:#DC2626;
+    --red-bg:#FEECEC;
+    --green:#16A34A;
+    --green-bg:#DCFCE7;
+    --amber:#B45309;
+    --amber-bg:#FEF3C7;
+    --amber-border:#FDE68A;
+    --radius:18px;
+    font-family: -apple-system, "Inter", "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--page-bg);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:48px 16px;
+    color:var(--ink);
+  }
+  .caption{
+    max-width:380px;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:20px;
+  }
+  .caption b{color:var(--ink);}
+  .phone{
+    width:390px;
+    max-width:100%;
+    height:800px;
+    background:var(--card-bg);
+    border-radius:44px;
+    border:8px solid #111319;
+    box-shadow:0 30px 60px rgba(17,19,25,0.25);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .statusbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 24px 6px;
+    font-size:14px;
+    font-weight:600;
+    flex-shrink:0;
+  }
+  .statusbar .icons{display:flex; align-items:center; gap:5px;}
+  .bars{display:flex; align-items:flex-end; gap:2px; height:10px;}
+  .bars span{width:3px; background:var(--ink); border-radius:1px;}
+  .bars span:nth-child(1){height:4px;}
+  .bars span:nth-child(2){height:6px;}
+  .bars span:nth-child(3){height:8px;}
+  .bars span:nth-child(4){height:10px;}
+  .battery{width:22px; height:11px; border:1.4px solid var(--ink); border-radius:3px; position:relative; padding:1.5px;}
+  .battery::after{content:"";position:absolute;right:-4px;top:3px;width:2px;height:5px;background:var(--ink);border-radius:0 2px 2px 0;}
+  .battery-fill{width:80%; height:100%; background:var(--ink); border-radius:1px;}
+
+  .app-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:6px 20px 4px; flex-shrink:0;
+  }
+  .back-link{
+    display:flex; align-items:center; gap:6px;
+    color:var(--ink-soft); font-size:14px; font-weight:500;
+    background:none; border:none; cursor:pointer; padding:6px 0;
+  }
+  .icon-btn{background:none; border:none; color:var(--ink-soft); cursor:pointer; padding:6px;}
+
+  .content{
+    flex:1;
+    overflow-y:auto;
+    padding:8px 20px 100px;
+    position:relative;
+  }
+  .content.dimmed{ pointer-events:none; }
+  .content.dimmed::before{
+    content:"";
+    position:absolute; inset:0;
+    background:rgba(20,22,30,0.35);
+    z-index:5;
+    transition:opacity .25s ease;
+  }
+
+  h1.title{font-size:24px; margin:6px 0 2px; letter-spacing:-0.01em;}
+  .meta{color:var(--ink-soft); font-size:13px; margin-bottom:20px;}
+  h2.section-title{font-size:15px; margin:0 0 10px;}
+
+  .ing-row{
+    display:flex; align-items:flex-start; gap:10px;
+    padding:11px 4px; border-bottom:1px solid #F1F2F5;
+    font-size:14.5px; cursor:pointer;
+  }
+  .ing-row.plain:hover{background:#FAFAFB;}
+  .checkbox{
+    width:18px; height:18px; border-radius:5px; border:1.6px solid #C9CDD6;
+    margin-top:1px; flex-shrink:0;
+  }
+  .ing-card{
+    background:var(--red-bg);
+    border:1px solid #F7C9C9;
+    border-radius:12px;
+    padding:12px 14px;
+    margin:4px 0 8px;
+  }
+  .ing-card-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
+  .ing-card-top .checkbox{background:var(--red); border-color:var(--red); position:relative;}
+  .ing-card-top .checkbox::after{
+    content:"✓"; color:#fff; font-size:12px; position:absolute; left:2.5px; top:-1px;
+  }
+  .badge{
+    font-size:10.5px; font-weight:700; letter-spacing:0.03em;
+    padding:3px 8px; border-radius:20px; white-space:nowrap;
+  }
+  .badge-unavailable{background:var(--red); color:#fff;}
+  .badge-confidence{background:var(--green-bg); color:var(--green);}
+  .badge-low{background:var(--amber-bg); color:var(--amber);}
+  .badge-substituted{background:var(--green-bg); color:var(--green);}
+  .find-link{
+    background:none; border:none; color:var(--red); font-weight:600; font-size:13.5px;
+    padding:8px 0 0; cursor:pointer; display:flex; align-items:center; gap:4px;
+  }
+
+  .search-row{
+    margin-top:18px; display:flex; align-items:center; gap:8px;
+    border:1px solid var(--border); border-radius:12px; padding:11px 14px;
+    color:var(--ink-soft); font-size:14px;
+  }
+  .search-row input{
+    border:none; outline:none; flex:1; font-size:14px; font-family:inherit; color:var(--ink);
+    background:transparent;
+  }
+  .test-scenarios{margin-top:22px;}
+  .test-scenarios p{font-size:11.5px; color:var(--ink-soft); margin:0 0 8px; text-transform:uppercase; letter-spacing:0.04em; font-weight:700;}
+  .chip-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{
+    background:#F4F5F7; border:1px solid var(--border); border-radius:20px;
+    padding:8px 13px; font-size:13px; cursor:pointer; color:var(--ink);
+  }
+  .chip:hover{background:#ECEDF0;}
+
+  /* backdrop + sheet */
+  .backdrop{
+    position:absolute; inset:0; background:rgba(15,17,23,0.0);
+    transition:background .25s ease;
+    z-index:10; pointer-events:none;
+  }
+  .backdrop.open{background:rgba(15,17,23,0.0); pointer-events:auto;}
+
+  .sheet{
+    position:absolute; left:0; right:0; bottom:0;
+    background:#fff;
+    border-radius:24px 24px 0 0;
+    box-shadow:0 -10px 40px rgba(17,19,25,0.18);
+    transform:translateY(100%);
+    transition:transform .32s cubic-bezier(.32,.72,0,1);
+    z-index:20;
+    max-height:88%;
+    display:flex; flex-direction:column;
+    padding-bottom:18px;
+  }
+  .sheet.open{transform:translateY(0);}
+  .sheet-handle{
+    width:36px; height:4px; background:#DADCE1; border-radius:3px;
+    margin:10px auto 4px;
+  }
+  .sheet-close{
+    position:absolute; top:10px; right:14px; z-index:5;
+    background:#F4F5F7; border:none; border-radius:50%;
+    width:30px; height:30px; font-size:14px; color:var(--ink-soft);
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .sheet-body{padding:40px 22px 4px; overflow-y:auto; position:relative; z-index:1;}
+  .sheet-title-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin:0 0 4px; padding-right:4px;}
+  .sheet-title-row h3{font-size:18px; margin:0;}
+
+  /* loading */
+  .loading-title{font-size:17px; font-weight:700; margin:10px 0 16px;}
+  .step{display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13.5px; color:var(--ink-soft);}
+  .step.done{color:var(--ink);}
+  .step-mark{width:16px; height:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center;}
+  .step.done .step-mark{color:var(--green); font-weight:700;}
+  .dots span{display:inline-block; width:4px; height:4px; background:var(--red); border-radius:50%; margin-right:2px; animation:pulse 1s infinite ease-in-out;}
+  .dots span:nth-child(2){animation-delay:.15s;} .dots span:nth-child(3){animation-delay:.3s;}
+  @keyframes pulse{0%,80%,100%{opacity:.25;} 40%{opacity:1;}}
+  .ai-note{
+    margin-top:18px; background:#F4F5F7; border-radius:10px; padding:9px 12px;
+    font-size:12px; color:var(--ink-soft);
+  }
+
+  /* options */
+  .opt-card{border:1px solid var(--border); border-radius:14px; padding:14px; margin-bottom:12px;}
+  .opt-top{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .opt-top h4{font-size:15.5px; margin:0;}
+  .opt-tags{font-size:12px; color:var(--green); margin-top:5px; font-weight:600;}
+  .opt-tags.unsure{color:var(--ink-soft);}
+  .opt-why{font-size:13px; color:var(--ink-soft); margin-top:7px; line-height:1.4;}
+  .btn{
+    border:none; border-radius:10px; padding:9px 16px; font-size:13.5px; font-weight:700;
+    cursor:pointer; flex-shrink:0;
+  }
+  .btn-red{background:var(--red); color:#fff;}
+  .btn-neutral-outline{background:#fff; border:1.4px solid #C9CDD6; color:var(--ink);}
+  .btn-dark-block{width:100%; padding:13px; border-radius:12px; font-size:14.5px; font-weight:700; background:var(--ink); color:#fff; border:none; cursor:pointer;}
+  .sheet-footer-links{display:flex; justify-content:space-between; padding:14px 4px 4px; font-size:13px; color:var(--ink-soft);}
+  .sheet-footer-links button{background:none;border:none;color:var(--ink-soft);font-size:13px;cursor:pointer;padding:0;}
+
+  /* confirm */
+  .swap-row{display:flex; align-items:center; gap:8px; font-size:15px; font-weight:700; margin:14px 0 18px; flex-wrap:wrap;}
+  .swap-row .from{color:var(--ink-soft); font-weight:500;}
+  .confirm-block{margin-bottom:14px;}
+  .confirm-block .label{font-size:11px; font-weight:700; letter-spacing:0.04em; color:var(--ink-soft); margin-bottom:4px; text-transform:uppercase;}
+  .confirm-block p{font-size:13.5px; margin:0; line-height:1.5;}
+  .warn-box{
+    background:var(--red-bg); border:1px solid #F7C9C9; border-radius:10px;
+    padding:11px 13px; font-size:12.5px; color:#8f2323; margin:16px 0 14px; line-height:1.4;
+  }
+  .warn-box.amber{background:var(--amber-bg); border-color:var(--amber-border); color:#7a4a06;}
+  .btn-block{width:100%; padding:13px; border-radius:12px; font-size:14.5px;}
+  .btn-secondary-block{
+    width:100%; padding:12px; border-radius:12px; font-size:14px; font-weight:600;
+    background:#fff; border:1.4px solid var(--border); color:var(--ink); margin-top:8px; cursor:pointer;
+  }
+
+  /* failure / empty */
+  .empty-wrap{text-align:center; padding:20px 8px 6px;}
+  .empty-icon{
+    width:52px; height:52px; border-radius:50%; background:#F4F5F7;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 16px;
+    font-size:22px; color:var(--ink-soft);
+  }
+  .empty-wrap h3{font-size:17px; margin:0 0 8px;}
+  .empty-wrap p{font-size:13.5px; color:var(--ink-soft); line-height:1.5; margin:0 0 20px;}
+  .empty-wrap p b{color:var(--ink);}
+  .footnote{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:14px;}
+
+  /* snackbar */
+  .snackbar{
+    position:absolute; left:16px; right:16px; bottom:22px;
+    background:#191B22; color:#fff; border-radius:12px;
+    padding:12px 16px; display:flex; align-items:center; justify-content:space-between;
+    font-size:13px; z-index:30;
+    transform:translateY(120%); transition:transform .3s ease;
+  }
+  .snackbar.show{transform:translateY(0);}
+  .snackbar button{background:none; border:none; color:#fff; font-weight:700; font-size:13px; cursor:pointer; display:flex; gap:8px; align-items:center;}
+  .snackbar .timer{color:#9CA0AC;}
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+</style>
+</head>
+<body>
+
+<p class="caption">Tap the flour row (or type "flour") to run the full happy path. Use the test chips at the bottom of the recipe to jump straight to the <b>low‑confidence</b> and <b>no‑match</b> outcomes.</p>
+
+<div class="phone">
+  <div class="statusbar">
+    <span>9:41</span>
+    <div class="icons">
+      <div class="bars"><span></span><span></span><span></span><span></span></div>
+      <svg width="15" height="11" viewBox="0 0 15 11" fill="none"><path d="M7.5 9.5C8.05 9.5 8.5 9.95 8.5 10.5C8.5 11.05 8.05 11.5 7.5 11.5C6.95 11.5 6.5 11.05 6.5 10.5C6.5 9.95 6.95 9.5 7.5 9.5Z" fill="black"/><path d="M2.5 6.2C4 4.8 5.9 4 7.5 4C9.1 4 11 4.8 12.5 6.2" stroke="black" stroke-width="1.3" stroke-linecap="round"/><path d="M0.5 3.4C2.7 1.4 5 0.5 7.5 0.5C10 0.5 12.3 1.4 14.5 3.4" stroke="black" stroke-width="1.3" stroke-linecap="round"/></svg>
+      <div class="battery"><div class="battery-fill"></div></div>
+    </div>
+  </div>
+
+  <div class="app-header">
+    <button class="back-link">&larr; Back to recipes</button>
+    <button class="icon-btn" aria-label="Bookmark">🔖</button>
+  </div>
+
+  <div class="content" id="content">
+    <h1 class="title">Classic Banana Bread</h1>
+    <div class="meta">Prep: 45 mins &nbsp;•&nbsp; 8 servings</div>
+
+    <h2 class="section-title">Ingredients</h2>
+    <div id="ingredientList"></div>
+
+    <div class="search-row">
+      <span>🔍</span>
+      <input id="searchInput" type="text" placeholder="I'm missing an ingredient..." aria-label="Search for a missing ingredient" />
+    </div>
+
+    <div class="test-scenarios">
+      <p>Try other outcomes</p>
+      <div class="chip-row">
+        <button class="chip" id="chipXanthan">Xanthan Gum — low confidence</button>
+        <button class="chip" id="chipYeast">Fresh Yeast — no match</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetHeading">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close" id="sheetClose" aria-label="Close">✕</button>
+    <div class="sheet-body" id="sheetBody"></div>
+  </div>
+
+  <div class="snackbar" id="snackbar">
+    <span id="snackbarText"></span>
+    <button id="undoBtn">Undo <span class="timer" id="undoTimer"></span></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const recipe = [
+    {id:'bananas', text:'3 ripe bananas, mashed'},
+    {id:'butter', text:'1/3 cup melted butter'},
+    {id:'sugar', text:'3/4 cup sugar'},
+    {id:'egg', text:'1 egg, beaten'},
+    {id:'vanilla', text:'1 tsp vanilla extract'},
+    {id:'soda', text:'1 tsp baking soda'},
+    {id:'salt', text:'Pinch of salt'},
+    {id:'flour', text:'1.5 cups all-purpose flour', flaggable:true, flagged:false, substituted:null},
+  ];
+
+  const outcomes = {
+    flour: {
+      label:'All-Purpose Flour',
+      type:'success',
+      options:[
+        {id:'almond', name:'Almond Flour', ratio:'1:1 ratio', dietary:'Gluten-Free ✓', structure:'Similar',
+          why:'Maintains binding. Adds pleasant nuttiness. 100% GF-safe.',
+          changes:'Texture will be slightly denser with a subtle nuttier flavor profile.',
+          stays:'Remains Gluten-Free. Flour’s functional roles (structure & binding) are fully preserved.'},
+        {id:'oat', name:'Oat Flour', ratio:'1:1 ratio', dietary:'Gluten-Free ✓', structure:'Lighter',
+          why:'Lighter crumb texture. Very mild flavor. Check oat purity for celiac.',
+          changes:'Crumb will be lighter and slightly softer, with a mild oat flavor.',
+          stays:'Remains Gluten-Free (certified oats). Binding role is preserved.'},
+        {id:'coconut', name:'Coconut Flour', ratio:'1:3 ratio', dietary:'Gluten-Free ✓', structure:'Dense',
+          why:'Very absorbent — needs more liquid. Adds mild coconut flavor.',
+          changes:'Denser crumb and a mild coconut flavor. You may need extra liquid.',
+          stays:'Remains Gluten-Free. Binding role preserved at the adjusted ratio.'}
+      ]
+    },
+    xanthan: {
+      label:'Xanthan Gum',
+      type:'low',
+      option:{id:'psyllium', name:'Psyllium Husk Powder', ratio:'2:1 ratio', dietary:'Gluten-Free ?', bind:'Varied',
+        why:'Common thickening substitute, but binding strength varies by brand.',
+        changes:'Binding behavior may vary by brand — texture is less predictable than the original.',
+        stays:'Still functions as a binder. Not verified for celiac-safe certification.'}
+    },
+    yeast: {label:'Fresh Yeast', type:'failure'}
+  };
+
+  let state = { stage:'closed', activeKey:null, chosenOption:null, riskAck:false, undoInterval:null };
+
+  const listEl = document.getElementById('ingredientList');
+  const contentEl = document.getElementById('content');
+  const backdrop = document.getElementById('backdrop');
+  const sheet = document.getElementById('sheet');
+  const sheetBody = document.getElementById('sheetBody');
+  const sheetClose = document.getElementById('sheetClose');
+  const snackbar = document.getElementById('snackbar');
+  const undoTimer = document.getElementById('undoTimer');
+  let lastTrigger = null;
+
+  function renderIngredients(){
+    listEl.innerHTML = '';
+    recipe.forEach(ing => {
+      if (ing.flaggable && ing.flagged){
+        const card = document.createElement('div');
+        card.className = 'ing-card';
+        if (ing.substituted){
+          card.style.background = '#EFFCF3';
+          card.style.borderColor = '#BFEAC9';
+          card.innerHTML = `
+            <div class="ing-card-top">
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div class="checkbox" style="background:${'#16A34A'}; border-color:#16A34A;"></div>
+                <span>${ing.substituted.ratio.replace(' ratio','')} ${ing.substituted.name}</span>
+              </div>
+              <span class="badge badge-substituted">AI SUBSTITUTED</span>
+            </div>`;
+        } else {
+          card.innerHTML = `
+            <div class="ing-card-top">
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div class="checkbox"></div>
+                <span>${ing.text}</span>
+              </div>
+              <span class="badge badge-unavailable">UNAVAILABLE</span>
+            </div>
+            <button class="find-link" data-key="flour">Find a substitute? &rarr;</button>`;
+        }
+        listEl.appendChild(card);
+      } else {
+        const row = document.createElement('div');
+        row.className = 'ing-row plain';
+        row.tabIndex = 0;
+        row.innerHTML = `<div class="checkbox"></div><span>${ing.text}</span>`;
+        if (ing.flaggable){
+          row.addEventListener('click', () => flagIngredient('flour'));
+          row.addEventListener('keydown', e => { if(e.key==='Enter') flagIngredient('flour'); });
+        }
+        listEl.appendChild(row);
+      }
+    });
+    listEl.querySelectorAll('.find-link').forEach(btn=>{
+      btn.addEventListener('click', (e)=> openSheet(e.currentTarget.dataset.key, e.currentTarget));
+    });
+  }
+
+  function flagIngredient(key){
+    const ing = recipe.find(r=>r.id===key);
+    if (ing){ ing.flagged = true; renderIngredients(); }
+  }
+
+  document.getElementById('searchInput').addEventListener('keydown', (e)=>{
+    if (e.key === 'Enter'){
+      const val = e.target.value.toLowerCase();
+      if (val.includes('flour')) { flagIngredient('flour'); e.target.value=''; }
+    }
+  });
+
+  document.getElementById('chipXanthan').addEventListener('click', (e)=> openSheet('xanthan', e.currentTarget));
+  document.getElementById('chipYeast').addEventListener('click', (e)=> openSheet('yeast', e.currentTarget));
+
+  function openSheet(key, triggerEl){
+    lastTrigger = triggerEl || document.activeElement;
+    state.activeKey = key;
+    state.chosenOption = null;
+    state.riskAck = false;
+    contentEl.classList.add('dimmed');
+    backdrop.classList.add('open');
+    sheet.classList.add('open');
+    renderLoading();
+    sheet.querySelector('.sheet-handle')?.focus();
+    document.addEventListener('keydown', escHandler);
+    runLoadingSequence();
+  }
+
+  function escHandler(e){ if(e.key==='Escape') closeSheet(); }
+
+  function closeSheet(){
+    sheet.classList.remove('open');
+    backdrop.classList.remove('open');
+    contentEl.classList.remove('dimmed');
+    document.removeEventListener('keydown', escHandler);
+    if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+  }
+  sheetClose.addEventListener('click', closeSheet);
+  backdrop.addEventListener('click', closeSheet);
+
+  function renderLoading(){
+    const outcome = outcomes[state.activeKey];
+    sheetBody.innerHTML = `
+      <div class="loading-title">Finding substitutes for ${outcome.label}&hellip;</div>
+      <div id="stepsWrap" aria-live="polite">
+        <div class="step" data-step="0"><span class="step-mark"></span><span>Checking dietary profile (Gluten-Free)</span></div>
+        <div class="step" data-step="1"><span class="step-mark"></span><span>Evaluating functional role in recipe&hellip;</span></div>
+        <div class="step" data-step="2"><span class="step-mark"></span><span>Matching clean allergen-free alternatives</span></div>
+      </div>
+      <div class="ai-note">AI-generated suggestions — review before confirming</div>
+    `;
+  }
+
+  function runLoadingSequence(){
+    const steps = () => sheetBody.querySelectorAll('.step');
+    const markDone = (i) => {
+      const el = steps()[i];
+      if (!el) return;
+      el.classList.add('done');
+      el.querySelector('.step-mark').textContent = '✓';
+    };
+    const markActive = (i) => {
+      const el = steps()[i];
+      if (!el) return;
+      el.querySelector('.step-mark').innerHTML = '<span class="dots"><span></span><span></span><span></span></span>';
+    };
+    markActive(0);
+    setTimeout(()=>{ if(state.stage==='closed'){} markDone(0); markActive(1); }, 550);
+    setTimeout(()=>{ markDone(1); markActive(2); }, 1250);
+    setTimeout(()=>{
+      markDone(2);
+      setTimeout(()=> transitionAfterLoading(), 400);
+    }, 2000);
+  }
+
+  function transitionAfterLoading(){
+    const outcome = outcomes[state.activeKey];
+    if (outcome.type === 'success') renderOptions(outcome);
+    else if (outcome.type === 'low') renderLowConfidence(outcome);
+    else renderFailure(outcome);
+  }
+
+  function renderOptions(outcome){
+    let html = `
+      <div class="sheet-title-row">
+        <h3 id="sheetHeading">${outcome.options.length} Substitutes for Flour</h3>
+        <span class="badge badge-confidence">HIGH CONFIDENCE</span>
+      </div>`;
+    outcome.options.forEach(opt=>{
+      html += `
+        <div class="opt-card">
+          <div class="opt-top">
+            <h4>${opt.name} (${opt.ratio})</h4>
+            <button class="btn btn-red" data-opt="${opt.id}">Choose</button>
+          </div>
+          <div class="opt-tags">${opt.dietary} &nbsp;|&nbsp; Structure: ${opt.structure}</div>
+          <div class="opt-why">Why: ${opt.why}</div>
+        </div>`;
+    });
+    html += `
+      <div class="sheet-footer-links">
+        <button id="showMore">Show more options</button>
+        <button id="manualSearch1">Search manually</button>
+      </div>`;
+    sheetBody.innerHTML = html;
+    sheetBody.querySelectorAll('[data-opt]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const opt = outcome.options.find(o=>o.id===btn.dataset.opt);
+        state.chosenOption = opt;
+        state.riskAck = false;
+        renderConfirm(opt);
+      });
+    });
+    sheetBody.querySelector('#manualSearch1').addEventListener('click', closeSheet);
+    sheetBody.querySelector('#showMore').addEventListener('click', (e)=>{ e.target.textContent = 'No more options nearby'; });
+  }
+
+  function renderLowConfidence(outcome){
+    const opt = outcome.option;
+    sheetBody.innerHTML = `
+      <div class="sheet-title-row">
+        <h3 id="sheetHeading">Substitutes for Xanthan Gum</h3>
+        <span class="badge badge-low">LOW CONFIDENCE</span>
+      </div>
+      <p style="font-size:13px; color:var(--ink-soft); margin:4px 0 14px;">When AI confidence is low, we prioritize dietary compliance and safety.</p>
+      <div class="opt-card">
+        <div class="opt-top">
+          <h4>${opt.name} (${opt.ratio})</h4>
+          <button class="btn btn-neutral-outline" id="useAnywayBtn">Use Anyway</button>
+        </div>
+        <div class="opt-tags unsure">${opt.dietary} &nbsp;|&nbsp; Bind Quality: ${opt.bind}</div>
+      </div>
+      <div class="warn-box amber">AI confidence is below threshold for dietary safety. This suggestion has not been verified for absolute celiac compliance.</div>
+      <button class="btn-dark-block" id="manualSearch2">Search Manually</button>
+      <div class="sheet-footer-links">
+        <button id="discretionBtn">Use at your own discretion</button>
+        <button id="askFriendBtn">Ask a friend</button>
+      </div>
+    `;
+    sheetBody.querySelector('#useAnywayBtn').addEventListener('click', ()=>{
+      state.chosenOption = opt;
+      state.riskAck = true;
+      renderConfirm(opt);
+    });
+    sheetBody.querySelector('#manualSearch2').addEventListener('click', closeSheet);
+    sheetBody.querySelector('#discretionBtn').addEventListener('click', closeSheet);
+    sheetBody.querySelector('#askFriendBtn').addEventListener('click', closeSheet);
+  }
+
+  function renderFailure(outcome){
+    sheetBody.innerHTML = `
+      <div class="empty-wrap">
+        <div class="empty-icon">⊘</div>
+        <h3 id="sheetHeading">No Substitutes Found</h3>
+        <p>We couldn't find a confident match for <b>${outcome.label}</b> that meets your strict dietary requirements.</p>
+        <button class="btn btn-red btn-block" id="manualSearch3">Search Manually</button>
+        <button class="btn-secondary-block" id="browseBtn">Browse Pantry Staples</button>
+        <div class="sheet-footer-links" style="justify-content:center;">
+          <button id="skipBtn">Skip this ingredient</button>
+        </div>
+        <div class="footnote">Your recipe hasn't been changed.</div>
+      </div>
+    `;
+    sheetBody.querySelector('#manualSearch3').addEventListener('click', closeSheet);
+    sheetBody.querySelector('#browseBtn').addEventListener('click', closeSheet);
+    sheetBody.querySelector('#skipBtn').addEventListener('click', closeSheet);
+  }
+
+  function renderConfirm(opt){
+    const fromLabel = state.activeKey === 'flour' ? 'All-Purpose Flour' : outcomes[state.activeKey].label;
+    sheetBody.innerHTML = `
+      <h3 id="sheetHeading">Confirm Substitution</h3>
+      <div class="swap-row"><span class="from">${fromLabel}</span> &rarr; <span>${opt.name} (${opt.ratio.replace(' ratio','')})</span></div>
+      <div class="confirm-block">
+        <div class="label">What changes</div>
+        <p>${opt.changes}</p>
+      </div>
+      <div class="confirm-block">
+        <div class="label">What stays the same</div>
+        <p>${opt.stays}</p>
+      </div>
+      <div class="warn-box ${state.riskAck ? 'amber' : ''}">${state.riskAck
+        ? '⚠ This suggestion was low-confidence. You are choosing to use it anyway.'
+        : 'This will update your recipe. You can undo this swap at any time.'}</div>
+      <button class="btn btn-red btn-block" id="confirmBtn">Confirm &amp; Update Recipe</button>
+      <button class="btn-secondary-block" id="goBackBtn">Go Back</button>
+    `;
+    sheetBody.querySelector('#confirmBtn').addEventListener('click', ()=> applySubstitution(opt));
+    sheetBody.querySelector('#goBackBtn').addEventListener('click', ()=>{
+      const outcome = outcomes[state.activeKey];
+      if (outcome.type === 'success') renderOptions(outcome);
+      else renderLowConfidence(outcome);
+    });
+  }
+
+  function applySubstitution(opt){
+    if (state.activeKey === 'flour'){
+      const ing = recipe.find(r=>r.id==='flour');
+      ing.substituted = opt;
+      renderIngredients();
+    }
+    closeSheet();
+    showSnackbar(opt.name);
+  }
+
+  function showSnackbar(name){
+    clearInterval(state.undoInterval);
+    document.getElementById('snackbarText').textContent = `Recipe updated with ${name}`;
+    let secs = 5;
+    undoTimer.textContent = secs + 's';
+    snackbar.classList.add('show');
+    state.undoInterval = setInterval(()=>{
+      secs -= 1;
+      if (secs <= 0){
+        clearInterval(state.undoInterval);
+        snackbar.classList.remove('show');
+        return;
+      }
+      undoTimer.textContent = secs + 's';
+    }, 1000);
+  }
+
+  document.getElementById('undoBtn').addEventListener('click', ()=>{
+    clearInterval(state.undoInterval);
+    snackbar.classList.remove('show');
+    const ing = recipe.find(r=>r.id==='flour');
+    if (ing) ing.substituted = null;
+    renderIngredients();
+  });
+
+  renderIngredients();
+})();
+</script>
+
+</body>
+</html>
