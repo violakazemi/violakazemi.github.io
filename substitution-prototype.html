@@ -24,23 +24,23 @@
   *{box-sizing:border-box;}
   body{
     margin:0;
-    background:var(--page-bg);
+    background: transparent; /* Removes the color clash so it blends into your case study */
     min-height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:48px 16px;
+    padding:24px 16px;
     color:var(--ink);
   }
   .phone{
-    width:390px;
-    max-width:100%;
+    width:100%;
+    max-width:400px; /* Matched to Museum Companion width */
     height:800px;
     background:var(--card-bg);
-    border-radius:44px;
-    border:8px solid #111319;
-    box-shadow:0 30px 60px rgba(17,19,25,0.25);
+    border-radius:2rem; /* Matched to Museum Companion curves */
+    border:none; /* Removed the thick black border */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Matched to Museum Companion shadow */
     position:relative;
     overflow:hidden;
     display:flex;
