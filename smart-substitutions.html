@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Ingredient Substitution Assistant - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    
+    <style>
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Ingredient Assistant</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Back to Home</a>
+        </nav>
+    </header>
+
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-4);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">AI-Native Design Process</span>
+                <h1 style="margin-top: var(--space-2);">The Ingredient Substitution Assistant</h1>
+                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">Using AI as an exploration partner to build an 8-state fallback flow.</h2>
+                
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Role</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">Product Designer</span>
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Focus</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">Agentic UX & Fallbacks</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <img src="images/substitution-flow.png" alt="8-screen functional flow showing working, uncertain, wrong, and empty states" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Interactive Prototype Embed -->
+    <section class="section" style="padding-bottom: var(--space-5);">
+        <div class="container">
+            <h2>Live Interactive Prototype</h2>
+            <p>Test the 8-state substitution flow exactly as the user experiences it. You can tap the unavailable flour row to run the happy path, or use the test chips to jump straight to the low-confidence and failure outcomes.</p>
+            
+            <div style="margin-top: var(--space-4); background-color: var(--color-bg-alt); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-border); display: flex; justify-content: center;">
+                <iframe 
+                    src="substitution-prototype.html" 
+                    title="Ingredient Substitution Live Prototype"
+                    style="width: 100%; max-width: 440px; height: 860px; max-height: 85vh; border: none; border-radius: 2rem; box-shadow: var(--shadow-md);"
+                ></iframe>
+            </div>
+            
+            <div style="margin-top: var(--space-3); text-align: center;">
+                <a href="substitution-prototype.html" target="_blank" rel="noopener noreferrer" class="button">Open Prototype in Full Screen</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>1. The Problem</h2>
+            <p style="max-width: 100%;">Most of my case studies show a finished screen. This one shows the process instead. A home cook is following a recipe and an ingredient is unavailable. They need a substitute but the system cannot just swap it in silently. It has to protect the recipe's dietary requirements like gluten-free rules and functional requirements like binding.</p>
+            <p style="max-width: 100%;">The main constraint was to never silently modify the recipe. Every AI suggestion has to stay a suggestion until the user confirms it.</p>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>2. Architecture Before Screens</h2>
+            <p style="max-width: 100%;">Instead of jumping straight to Figma, I prompted an AI agent to help generate three competing interaction architectures.</p>
+            
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">Option A</span>
+                    <h3>Inline Card Replacement</h3>
+                    <p>The flagged ingredient expands in place. It has low cognitive load but falls apart if more than one item is missing at a time.</p>
+                </article>
+                <article class="card" style="border: 2px solid var(--color-text-primary);">
+                    <span class="badge">Option B (Chosen)</span>
+                    <h3>Bottom Sheet Flow</h3>
+                    <p>Tapping the ingredient opens a sheet that moves through loading, options, and confirmation. The recipe stays dimmed underneath.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Option C</span>
+                    <h3>Side-by-Side Split View</h3>
+                    <p>Great for comparing options but does not fit on a 375px mobile screen without collapsing into something else.</p>
+                </article>
+            </div>
+
+            <p style="max-width: 100%; margin-top: var(--space-4);">I picked the Bottom Sheet. It fits a mobile-first approach, helps with accessible focus management, and creates a hard separation between an AI suggestion and a permanent recipe change.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>3. Designing Every State</h2>
+            <p style="max-width: 100%;">I built an 8-screen functional flow instead of one hero screen. The point was to make sure the system had an honest answer for every possible state.</p>
+
+            <div class="grid-3" style="margin-top: var(--space-4); margin-bottom: var(--space-4);">
+                <article class="card">
+                    <img src="images/frame-1-thinking.png" alt="Progressive Loading UI" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <h3 style="font-size: var(--fs-h3);">Handling Latency</h3>
+                    <p style="font-size: var(--fs-small);">Abstracting the wait into visible, conversational steps so users don't abandon the flow.</p>
+                </article>
+                <article class="card">
+                    <img src="images/frame-2-recommendation.png" alt="AI Substitution Options" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <h3 style="font-size: var(--fs-h3);">Building Trust</h3>
+                    <p style="font-size: var(--fs-small);">Surfacing the reasoning behind each option with a short rationale tag rather than just a name.</p>
+                </article>
+                <article class="card">
+                    <img src="images/frame-3-fallback.png" alt="Low Confidence Fallback UI" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <h3 style="font-size: var(--fs-h3);">Graceful Fallback</h3>
+                    <p style="font-size: var(--fs-small);">If confidence is low, the UI degrades to a manual search to avoid compliance and health risks.</p>
+                </article>
+            </div>
+
+            <ul style="margin-top: var(--space-3); margin-bottom: var(--space-4); line-height: 1.8;">
+                <li><strong>Recipe View:</strong> Calm checklist with an entry point to flag missing items.</li>
+                <li><strong>Bottom Sheet Loading:</strong> Dimmed recipe showing step-by-step progress.</li>
+                <li><strong>3 Options:</strong> Choices with dietary tags, ratios, and a chip explaining the logic.</li>
+                <li><strong>Confirm Substitution:</strong> Explicit outline of what changes and what stays the same.</li>
+                <li><strong>Low Confidence:</strong> Amber state for risky substitutes that defaults to manual search.</li>
+                <li><strong>Failure State:</strong> Empty state when no match is found.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>4. Self-Critique & Iteration</h2>
+            <p style="max-width: 100%;">Once the prototype existed, I asked the agent to critique its own work. It found five concrete risks. I treat generated prototypes as a first draft to interrogate, not a finished product.</p>
+            
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">Ambiguity Risk</span>
+                    <h3>Confusing Buttons</h3>
+                    <p>The "Choose" button did not actually mean choose. I fixed this by renaming the button to set correct expectations without changing the architecture.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Cognitive Load</span>
+                    <h3>Judging Health Risks</h3>
+                    <p>Asking users to judge AI confidence on health risks is dangerous. We have to hard-gate low-confidence suggestions for allergy tags.</p>
+                </article>
+            </div>
+            
+            <h3 style="margin-top: var(--space-5);">5. What's Next</h3>
+            <p style="max-width: 100%;">This is an unfinished loop. The next step is to put this prototype in front of 3 to 5 real home cooks. I want to watch where they hesitate on the loading, option comparison, and low-confidence screens. Then I will feed those exact breaks back to the agent to fix them.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+                <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
+                <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
+            </div>
+
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum">The Museum Companion</a></li>
+                        <li><a href="golaab">Golaab</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan</a></li>
+                        <li><a href="promptlab-carbon">Designing Inside Carbon</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+                <a href="sudoku.html" class="button button-secondary" style="padding: 5px 15px; font-size: 0.9em;">Play a Game 🎮</a>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
