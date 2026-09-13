@@ -450,4 +450,24 @@
 			}
 		});
 
+// Enable horizontal scrolling with mouse wheel for carousel grids
+document.addEventListener("DOMContentLoaded", function() {
+    const carousels = document.querySelectorAll(".carousel-grid");
+    carousels.forEach(carousel => {
+        carousel.addEventListener("wheel", function(e) {
+            // Only translate vertical scrolling to horizontal if it's primarily a vertical scroll
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                const isScrollingDown = e.deltaY > 0;
+                // Add a 1px buffer to account for sub-pixel rounding
+                const isAtEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1;
+                const isAtBeginning = carousel.scrollLeft <= 0;
+
+                if ((isScrollingDown && !isAtEnd) || (!isScrollingDown && !isAtBeginning)) {
+                    e.preventDefault();
+                    carousel.scrollLeft += e.deltaY;
+                }
+            }
+        });
+    });
+});
 })(jQuery);

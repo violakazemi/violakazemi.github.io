@@ -174,6 +174,9 @@ a:hover {
     grid-auto-flow: column;
     grid-auto-columns: calc(45% - 1rem); 
     gap: 2rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 1rem;
     
     /* Firefox */
     scrollbar-width: thin;
@@ -341,6 +344,16 @@ a:hover {
     
     .hero-grid { grid-template-columns: 1fr; gap: var(--space-4); }
     .hero-image-wrapper { max-width: 300px; margin: 0 auto; }
+    
+    .carousel-grid {
+        grid-auto-columns: calc(85% - 1rem);
+        /* Scroll snap makes it feel native on mobile */
+        scroll-snap-type: x mandatory;
+        padding-bottom: var(--space-3);
+    }
+    .carousel-grid > * {
+        scroll-snap-align: start;
+    }
     
     .footer-grid { grid-template-columns: 1fr; gap: var(--space-5); }
 }
