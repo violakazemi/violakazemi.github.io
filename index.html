@@ -321,15 +321,39 @@
         
         if (!grid || !prevBtn || !nextBtn) return;
         
-        // Count how many cards are inside this specific grid
         const itemCount = grid.querySelectorAll('.card').length;
         
-        // Hide the buttons if there are 2 or fewer items
         if (itemCount <= 2) {
             prevBtn.style.display = 'none';
             nextBtn.style.display = 'none';
-            return; // Stops the rest of the script for this grid
+            return;
         }
+
+        // Function to check scroll position and hide/show arrows
+        const updateArrowVisibility = () => {
+            // Check if at the very beginning
+            if (grid.scrollLeft <= 0) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'flex';
+            }
+
+            // Check if at the very end (with a 1px buffer for browser rounding)
+            if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'flex';
+            }
+        };
+
+        // Run the check when the page loads
+        updateArrowVisibility();
+
+        // Run the check every time someone scrolls
+        grid.addEventListener('scroll', updateArrowVisibility);
+        
+        // Run the check if the screen resizes
+        window.addEventListener('resize', updateArrowVisibility);
         
         nextBtn.addEventListener('click', () => {
             grid.scrollBy({ left: 350, behavior: 'smooth' });
