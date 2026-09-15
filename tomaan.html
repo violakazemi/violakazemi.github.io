@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Tomaan: Fraud Verification - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        
+        /* Strict 2-Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+        
+        /* Trade-off styling */
+        .decision-block {
+            font-size: var(--fs-small);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Tomaan</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">Fintech Security & UI Design</span>
+                <h1 style="margin-top: var(--space-2);">Tomaan: Fraud Verification</h1>
+                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">Exploring how probabilistic AI risk assessment could be layered onto an offline OTP authentication flow.</h2>
+                
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Role</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">Product Designer</span>
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px;">Status</span>
+                        <span style="font-weight: 500; font-size: var(--fs-small);">2026 Concept Exploration</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <img src="images/Tomaan_Mock.png" alt="Tomaan Security Dashboard Showcase" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Overview -->
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>Overview</h2>
+            <p style="max-width: 100%;">This concept asks a narrow, difficult question: can a real-time AI fraud check sit on top of an offline one-time-password (OTP) system without weakening the one guarantee that makes it trustworthy? That guarantee is that your code never has to travel anywhere to prove who you are.</p>
+            
+            <details>
+                <summary>Context: The Legacy Offline OTP Foundation</summary>
+                <p style="max-width: 100%;">At Carrene, I designed the interfaces for offline OTP apps used to protect card transactions for a security-conscious banking user base. Those apps scaled past 2 million users. The core mechanism generated a code entirely offline, valid for 60 seconds. Tomaan explores adding a generative AI judgment layer to this proven system to stop authorized fraud without ever touching the offline guarantee underneath it.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 2. The Problem -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>The UX Challenges of AI Security</h2>
+            <p style="max-width: 100%;">Three things are true about generative security checks that were not true about deterministic offline flows:</p>
+            
+            <div class="grid-2">
+                <article class="card">
+                    <span class="badge">Challenge 1</span>
+                    <h3>Generative Latency</h3>
+                    <p>They are slow relative to user expectation. AI checks take time, and a static loading spinner over that duration reads as "broken," which destroys systemic trust.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Challenge 2</span>
+                    <h3>Estimate Uncertainty</h3>
+                    <p>They are probabilistic. The old flow did not guess, a code either matched or it did not. An AI fraud check only estimates, and that uncertainty must be shown clearly.</p>
+                </article>
+            </div>
+            
+            <details>
+                <summary>Additional Challenge: Quiet Failures</summary>
+                <div>
+                    <p style="margin-top: 0; max-width: 100%;">An AI layer can fail quietly by timing out, degrading, or hallucinating. The interface needs a way to say "this part of the system isn't sure" without triggering panic.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- 3. Design Iterations -->
+    <section class="section">
+        <div class="container">
+            <h2>Design Decisions & Trade-offs</h2>
+            <p style="max-width: 100%;">I designed three core screens that answer these constraints directly, focusing on human control and recovery states.</p>
+
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                
+                <!-- Screen 1 -->
+                <article class="card">
+                    <div style="max-width: 220px; margin: 0 auto var(--space-4) auto;">
+                        <img src="images/Tomaan-dashboard.png" alt="Tomaan Dashboard Screen" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: block;" />
+                    </div>
+                    <span class="badge">01: Dashboard</span>
+                    <h3 style="font-size: var(--fs-h3);">Visual Trust</h3>
+                    
+                    <div class="decision-block"><strong>Constraint:</strong> AI estimates bring uncertainty to a deterministic system.</div>
+                    <div class="decision-block"><strong>Alternatives:</strong> I considered full-screen alerts, hiding the AI assessment entirely, or using an ambient colored chip.</div>
+                    <div class="decision-block"><strong>Decision:</strong> I chose the ambient chip under the balance.</div>
+                    <div class="decision-block"><strong>Trade-off:</strong> Users might ignore it over time, but it acts as a low-stakes exposure to AI certainty without blocking their main task.</div>
+                </article>
+
+                <!-- Screen 2 -->
+                <article class="card">
+                    <div style="max-width: 220px; margin: 0 auto var(--space-4) auto;">
+                        <img src="images/Tomaan-authorization.png" alt="Tomaan Authorization Screen" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: block;" />
+                    </div>
+                    <span class="badge">02: Authorization</span>
+                    <h3 style="font-size: var(--fs-h3);">Designing for the Wait</h3>
+                    
+                    <div class="decision-block"><strong>Constraint:</strong> Generative latency makes users think the app is broken.</div>
+                    <div class="decision-block"><strong>Alternatives:</strong> I considered a standard loading spinner, a categorical risk label, and a precise numeric confidence score.</div>
+                    <div class="decision-block"><strong>Decision:</strong> I chose a typewriter-style sequence that narrates the check, resolving into a categorical label ("Low Risk"). I actively avoided numeric scores like 98% because they imply a false mathematical certainty that this hypothetical model cannot guarantee.</div>
+                    <div class="decision-block"><strong>Trade-off:</strong> The text takes up more visual space, but it keeps the user informed and sets honest expectations about the AI's capabilities.</div>
+                </article>
+
+            </div>
+
+            <details>
+                <summary>View Fallback State (Handling Quiet Failures)</summary>
+                <div style="margin-top: var(--space-3);">
+                    <div style="max-width: 220px; margin: 0 auto var(--space-3) auto;">
+                        <img src="images/Tomaan-fallback.png" alt="Tomaan Fallback Screen" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: block;" />
+                    </div>
+                    <h4 style="font-size: 14px; margin-bottom: 4px; text-align: center;">03: Precision Degradation</h4>
+                    
+                    <div class="decision-block" style="text-align: center;"><strong>Constraint:</strong> An AI layer can fail quietly or time out.</div>
+                    <div class="decision-block" style="text-align: center;"><strong>Alternatives:</strong> I considered blocking the transaction entirely, showing a generic error message, or falling back silently.</div>
+                    <div class="decision-block" style="text-align: center;"><strong>Decision:</strong> I chose to explicitly name the failure ("Recipient check unavailable") and default back to the original offline OTP mechanism.</div>
+                    <div class="decision-block" style="text-align: center;"><strong>Trade-off:</strong> It breaks the seamless AI experience, but a fallback to a proven legacy mechanism is not an error. It is the system working correctly as a safety net.</div>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- 4. Takeaways -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Takeaways & Open Questions</h2>
+            <p style="max-width: 100%;">If bringing this into a real production environment, I would resolve these UX risks with the security and engineering teams:</p>
+            
+            <div class="grid-2">
+                <article class="card">
+                    <span class="badge">Validation 1</span>
+                    <h3>Alert Fatigue</h3>
+                    <p>Confidence indicators need to earn their visibility. If every transaction shows a badge, users stop reading them. We need usage data to decide how often to surface the chip versus staying silent.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Validation 2</span>
+                    <h3>The Missing Middle</h3>
+                    <p>This designs the happy path and the timeout path. The missing state is genuine uncertainty. My proposal is a distinct screen requiring a slow-press hold confirmation that names specific doubts in plain language.</p>
+                </article>
+            </div>
+            
+            <div style="margin-top: var(--space-5); padding: var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt);">
+                <p style="margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%;">
+                    <strong>Note:</strong> Tomaan is a conceptual design exploration of AI patterns, not a validated machine learning product. It builds on real work I did at Carrene designing offline OTP interfaces for a security-conscious banking user base.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+                <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
+                <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
+            </div>
+
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="museum">The Museum Companion</a></li>
+                        <li><a href="golaab">Golaab Jewelry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Design Lab</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan</a></li>
+                        <li><a href="promptlab-carbon">Designing Inside Carbon</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+                <a href="sudoku.html" class="button button-secondary" style="padding: 5px 15px; font-size: 0.9em;">Play a Game 🎮</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
