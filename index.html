@@ -314,21 +314,31 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/main.js?v=final"></script>
     <script>
-        document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
-            const grid = wrapper.querySelector('.carousel-grid');
-            const prevBtn = wrapper.querySelector('.prev-btn');
-            const nextBtn = wrapper.querySelector('.next-btn');
-            
-            if (!grid || !prevBtn || !nextBtn) return;
-            
-            nextBtn.addEventListener('click', () => {
-                grid.scrollBy({ left: 350, behavior: 'smooth' });
-            });
-            
-            prevBtn.addEventListener('click', () => {
-                grid.scrollBy({ left: -350, behavior: 'smooth' });
-            });
+    document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+        const grid = wrapper.querySelector('.carousel-grid');
+        const prevBtn = wrapper.querySelector('.prev-btn');
+        const nextBtn = wrapper.querySelector('.next-btn');
+        
+        if (!grid || !prevBtn || !nextBtn) return;
+        
+        // Count how many cards are inside this specific grid
+        const itemCount = grid.querySelectorAll('.card').length;
+        
+        // Hide the buttons if there are 2 or fewer items
+        if (itemCount <= 2) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            return; // Stops the rest of the script for this grid
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            grid.scrollBy({ left: 350, behavior: 'smooth' });
         });
-    </script>
+        
+        prevBtn.addEventListener('click', () => {
+            grid.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+    });
+</script>
 </body>
 </html>
