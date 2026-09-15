@@ -9,13 +9,14 @@
     --fs-body: clamp(1.0625rem, 1vw + 0.9rem, 1.125rem);
     --fs-small: clamp(0.8125rem, 0.5vw + 0.75rem, 0.9375rem);
 
-    /* Cool Grey Backgrounds */
-    --color-bg-page: #F5F5F7;        
+    
+    /* Light Matcha Theme */
+    --color-bg-page: #E9EFE8;        
     --color-bg-card: #FFFFFF;        
-    --color-bg-alt: #EBECEF;         
-    --color-text-primary: #1D1D1F;   
-    --color-text-secondary: #86868B; 
-    --color-border: rgba(0, 0, 0, 0.08);
+    --color-bg-alt: #DCE5DB;         
+    --color-text-primary: #1C261F;   
+    --color-text-secondary: #748278; 
+    --color-border: rgba(28, 38, 31, 0.12);
 
     --space-1: 8px;
     --space-2: 16px;
