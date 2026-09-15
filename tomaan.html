@@ -213,9 +213,10 @@
         <div class="container">
             
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
-                <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous Case Study</a>
-                <a href="#" id="btn-next-project" class="button button-secondary">Next Case Study &rarr;</a>
-            </div>
+    <!-- The words " Case Study" will disappear on phones -->
+    <a href="#" id="btn-prev-project" class="button button-secondary">&larr; Previous<span class="hide-on-mobile"> Case Study</span></a>
+    <a href="#" id="btn-next-project" class="button button-secondary">Next<span class="hide-on-mobile"> Case Study</span> &rarr;</a>
+</div>
 
             <div class="footer-grid">
                 <div>
