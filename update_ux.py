@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+import re
+
+html_template = """<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <title>UX/UI Redesign Concept - Viola Kazemi</title>
@@ -27,7 +29,7 @@
         }
         summary::-webkit-details-marker { display: none; }
         summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
-        details[open] summary::after { content: '−'; }
+        details[open] summary::after { content: '\u2212'; }
         details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
         
         .grid-2 {
@@ -497,3 +499,7 @@
 
 </body>
 </html>
+"""
+
+with open("ux-ui-redesign.html", "w") as f:
+    f.write(html_template)
