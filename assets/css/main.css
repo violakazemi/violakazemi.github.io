@@ -412,8 +412,9 @@ a:hover {
 .work-card__media--cover img { object-fit: cover; object-position: left center; transform: none; filter: none; }
 .work-card:hover .work-card__media--cover img { transform: scale(1.03); filter: none; }
 .work-card__meta { font-size: var(--fs-small); color: var(--color-text-secondary); margin: 0 0 6px; }
-.work-card__title { font-size: 1.375rem; margin: 0 0 var(--space-1); display: inline-flex; align-items: baseline; gap: 8px; }
-.work-card__title .arrow { display: inline-block; transition: transform 0.35s var(--ease-out); color: var(--color-text-secondary); }
+.work-card__title { font-size: 1.375rem; margin: 0 0 var(--space-1); display: block; }
+.work-card__title .nowrap { white-space: nowrap; }
+.work-card__title .arrow { display: inline-block; margin-left: 4px; transition: transform 0.35s var(--ease-out); color: var(--color-text-secondary); }
 .work-card:hover .work-card__title .arrow { transform: translateX(4px); color: var(--color-text-primary); }
 .work-card p { margin: 0; color: var(--color-text-secondary); font-size: var(--fs-small); max-width: 46ch; }
 .work-card:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 6px; border-radius: var(--radius-md); }
