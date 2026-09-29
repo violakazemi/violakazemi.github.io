@@ -181,6 +181,12 @@
         }
         .tj-reset:hover{ color:var(--muted); }
         .tj-root button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+        /* Touch devices: keep controls at a comfortable tap size (HIG 44pt / Material 48dp guidance) */
+        @media (pointer:coarse){
+            .tj-conn-toggle{ min-height:36px; padding:8px 12px 8px 10px; }
+            .tj-segmented button{ min-height:32px; padding:8px 14px; }
+            .tj-reset{ min-height:40px; padding:10px 16px; }
+        }
         @media (prefers-reduced-motion: reduce){
             .tj-coin{ transition:none; }
             .tj-phone{ transition:none; }
