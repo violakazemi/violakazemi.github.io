@@ -114,6 +114,17 @@
             }
         }
     </style>
+    <style>
+        .selected-card { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-5); align-items: center; }
+        .selected-card__media { margin-bottom: 0; }
+        .selected-card__body { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
+        .selected-card__body p { margin: 0; }
+        .footer-grid.four { grid-template-columns: repeat(4, 1fr); }
+        @media screen and (max-width: 768px) {
+            .selected-card { grid-template-columns: 1fr; gap: var(--space-3); }
+            .footer-grid.four { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -143,10 +154,26 @@
         </div>
     </section>
 
-    <!-- Selected Work (Carrene and Capzy case studies go here once finished) -->
+    <!-- Selected Work -->
+    <section id="work" class="section">
+        <div class="container">
+            <h2>Selected Work</h2>
+            <article class="card selected-card">
+                <div class="card-image-wrapper selected-card__media">
+                    <img src="images/otp-thumbnail.webp" alt="Three screens of the Offline OTP Authenticator app" />
+                </div>
+                <div class="selected-card__body">
+                    <span class="badge">Shipped &middot; Carrene &middot; iOS &amp; Android</span>
+                    <h3 style="margin: 0;"><a href="otp-authenticator">Offline OTP Authenticator</a></h3>
+                    <p>A native mobile app that generates one-time passwords for card transactions, used by more than 2 million people. Includes the design system I architected: 20 components adopted by 5+ product teams.</p>
+                    <a href="otp-authenticator" class="button" style="align-self: flex-start;">View Case Study</a>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <!-- Concepts -->
-    <section id="work" class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <section id="concepts" class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>Concepts</h2>
             <div class="carousel-wrapper">
@@ -271,7 +298,14 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid four">
+                <div>
+                    <h3>Selected Work</h3>
+                    <ul>
+                        <li><a href="otp-authenticator">Offline OTP Authenticator</a></li>
+                    </ul>
+                </div>
+
                 <div>
                     <h3>Concepts</h3>
                     <ul>
