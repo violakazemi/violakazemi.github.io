@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Offline OTP Authenticator - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Case study: a native iOS and Android one-time password app for card transactions, used by 2M+ people. Designed by Viola Kazemi at Carrene." />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        
+        /* Strict 2-Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+        
+        /* Trade-off styling */
+        .decision-block {
+            font-size: var(--fs-small);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+    
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+        @media screen and (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+        .phone { max-width: 240px; margin: 0 auto var(--space-3) auto; }
+        .phone img { width: 100%; border-radius: 22px; box-shadow: var(--shadow-sm); display: block; border: 1px solid var(--color-border); }
+        .step-num { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 4px; }
+        .meta-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px; }
+        .meta-value { font-weight: 500; font-size: var(--fs-small); }
+        .stat { font-size: clamp(2rem, 4vw + 1rem, 3rem); font-weight: 700; line-height: 1; margin: 0 0 var(--space-1) 0; }
+        .note { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt); }
+        .note p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        .table-wrap { overflow-x: auto; margin-top: var(--space-3); }
+        table.audit { width: 100%; border-collapse: collapse; font-size: var(--fs-small); min-width: 560px; }
+        table.audit th, table.audit td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+        table.audit th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); }
+        .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.12); }
+        .fail { color: #B3261E; font-weight: 600; }
+        .pass { color: #1B5E20; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ OTP Authenticator</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">Shipped Work &middot; Native iOS &amp; Android</span>
+                <h1 style="margin-top: var(--space-2);">Offline OTP Authenticator</h1>
+                <h2 style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native mobile app that generates one-time passwords for card transactions, used by more than 2 million people.</h2>
+
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
+                    <div><span class="meta-label">Company</span><span class="meta-value">Carrene Corp</span></div>
+                    <div><span class="meta-label">Timeline</span><span class="meta-value">2021 &ndash; 2024</span></div>
+                    <div><span class="meta-label">Platforms</span><span class="meta-value">iOS &amp; Android</span></div>
+                    <div><span class="meta-label">Scale</span><span class="meta-value">2M+ users</span></div>
+                </div>
+            </div>
+
+            <img src="images/otp-hero.webp" alt="Three screens of the OTP app: adding a bank, the list of banks with password codes and countdown timers, and activating passwords" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+
+            <div class="note">
+                <p><strong>Note:</strong> Screens are recreated with fictional banks and placeholder data to respect confidentiality. The flows and design decisions reflect the product I worked on.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>Overview</h2>
+            <p style="max-width: 100%;">Cardholders needed a one-time password to approve card transactions. The app generated those passwords on the phone itself, so no connection was needed, and each code expired after a short countdown. Each bank could issue two kinds of password:</p>
+            <div class="grid-2" style="margin-top: var(--space-3);">
+                <article class="card">
+                    <span class="badge">Password 1</span>
+                    <h3>ATMs and card readers</h3>
+                    <p>Used at physical terminals: withdrawing cash or paying in store.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Password 2</span>
+                    <h3>Online shopping and transactions</h3>
+                    <p>Used when paying or moving money online.</p>
+                </article>
+            </div>
+            <h3 style="margin-top: var(--space-4);">My role</h3>
+            <p style="max-width: 100%;">As UI/UX Designer, I designed the app&rsquo;s flows and screens for native iOS and Android, following Apple&rsquo;s Human Interface Guidelines and Material Design, from wireframes and high-fidelity mockups through annotated developer handoff. I also architected the unified design system used across the company&rsquo;s products.</p>
+        </div>
+    </section>
+
+    <!-- Core flow -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>The core flow</h2>
+            <p style="max-width: 100%;">Three steps take a cardholder from installing the app to approving a payment.</p>
+            <div class="grid-3" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <div class="phone"><img src="images/otp-add-new-bank.webp" alt="Add New Bank screen with four bank tiles and a Scan Code button" loading="lazy" width="390" height="844" /></div>
+                    <span class="step-num">Step 1</span>
+                    <h3>Add a bank</h3>
+                    <p>The user picks their bank and scans the code they received from their branch or internet banking.</p>
+                </article>
+                <article class="card">
+                    <div class="phone"><img src="images/otp-enter-bank-passwords.webp" alt="Enter Bank Passwords screen with Password 1 selected, an activation code field and a backup PIN field" loading="lazy" width="390" height="844" /></div>
+                    <span class="step-num">Step 2</span>
+                    <h3>Activate passwords</h3>
+                    <p>They choose Password 1, Password 2, or both, enter the activation code sent by SMS, and set a 6-digit backup PIN.</p>
+                </article>
+                <article class="card">
+                    <div class="phone"><img src="images/otp-bank-list.webp" alt="Bank List screen showing three bank cards, each with a password code, a copy button and a countdown ring" loading="lazy" width="390" height="844" /></div>
+                    <span class="step-num">Step 3</span>
+                    <h3>Use a password</h3>
+                    <p>Each bank gets one card with its active passwords, a countdown to expiry, and a one-tap copy button.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design decisions -->
+    <section class="section">
+        <div class="container">
+            <h2>Design decisions</h2>
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <span class="badge">Clarity</span>
+                    <h3>One card per bank</h3>
+                    <p>Each card shows only the passwords the user has activated. Password 2 appears as a dashed &ldquo;Add&rdquo; action rather than an empty field, so the screen never shows a code that doesn&rsquo;t exist yet.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Time pressure</span>
+                    <h3>Expiry you can read at a glance</h3>
+                    <p>A countdown ring shows the seconds left as a number. It turns red in the last 15 seconds, and because the number is always visible, the warning never relies on color alone.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Speed</span>
+                    <h3>Big digits, one-tap copy</h3>
+                    <p>Codes are read at a card reader or pasted into a checkout, often in a hurry. Large digits and a copy button beside each code make both quick.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Security</span>
+                    <h3>Lock the app, not just the phone</h3>
+                    <p>The app has its own pattern or password lock and a configurable screen-lock timeout, so an unlocked phone doesn&rsquo;t expose card passwords.</p>
+                </article>
+            </div>
+            <div class="grid-2" style="margin-top: var(--space-4);">
+                <article class="card">
+                    <div class="phone"><img src="images/otp-authentication-method.webp" alt="Authentication Method screen with a Password and Pattern toggle and a nine-dot pattern grid" loading="lazy" width="390" height="844" /></div>
+                    <h3>Authentication method</h3>
+                    <p>Users choose between a password and a pattern to unlock the app.</p>
+                </article>
+                <article class="card">
+                    <div class="phone"><img src="images/otp-bank-support.webp" alt="Bank Support screen listing six banks with a call button for each" loading="lazy" width="390" height="844" /></div>
+                    <h3>Help one tap away</h3>
+                    <p>If a card is lost or a password fails, each bank&rsquo;s support line is listed with a call button, next to a way to report app issues.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design system -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>The design system</h2>
+            <p style="max-width: 100%;">I architected a unified design system of 20 components that five or more product teams adopted. After it rolled out, our QA team reported far fewer color and style inconsistencies, and handoff to developers became faster.</p>
+            <div style="max-width: 800px; margin: var(--space-4) auto 0;">
+                <img src="images/otp-color-system.webp" alt="Color system documentation: primary, neutral, text, and semantic status colors with hex values and usage notes" loading="lazy" width="800" height="962" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: block;" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container">
+            <h2>Results</h2>
+            <div class="grid-3" style="margin-top: var(--space-4);">
+                <div class="card"><p class="stat">2M+</p><p style="margin: 0;">people used the app</p></div>
+                <div class="card"><p class="stat">20</p><p style="margin: 0;">design system components</p></div>
+                <div class="card"><p class="stat">5+</p><p style="margin: 0;">product teams adopted the system</p></div>
+            </div>
+            <p style="max-width: 100%; margin-top: var(--space-4);">I also contributed to a login redesign that reduced fraudulent login attempts.</p>
+        </div>
+    </section>
+
+    <!-- What I'd improve -->
+    <section class="section" style="background-color: var(--color-bg-card); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>What I&rsquo;d improve today</h2>
+            <p style="max-width: 100%;">Looking back with fresh eyes, I audited the color system against WCAG 2.1 AA. Most pairs pass comfortably, like white on the primary blue at 6.87:1. Three would fail if used for text:</p>
+            <div class="table-wrap">
+                <table class="audit">
+                    <thead><tr><th>Pair</th><th>Contrast</th><th>Fix</th><th>New contrast</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="sw" style="background:#757575"></span>Text Secondary on Light Background</td><td class="fail">4.22:1</td><td><span class="sw" style="background:#6B6B6B"></span>#6B6B6B</td><td class="pass">4.89:1</td></tr>
+                        <tr><td><span class="sw" style="background:#4CAF50"></span>White on Success Green</td><td class="fail">2.78:1</td><td><span class="sw" style="background:#2E7D32"></span>#2E7D32</td><td class="pass">5.13:1</td></tr>
+                        <tr><td><span class="sw" style="background:#F44336"></span>White on Error Red</td><td class="fail">3.68:1</td><td><span class="sw" style="background:#D32F2F"></span>#D32F2F</td><td class="pass">4.98:1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="max-width: 100%; margin-top: var(--space-3);">AA requires 4.5:1 for body text. The red I use for the countdown warning, #D32F2F, already comes from this corrected set.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5); gap: var(--space-2); flex-wrap: wrap;">
+                <a href="/" class="button button-secondary">&larr; All work</a>
+                <a href="tomaan" class="button button-secondary">Next: Tomaan &rarr;</a>
+            </div>
+            <div class="footer-grid">
+                <div>
+                    <h3>Concepts</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan: Fraud Verification</a></li>
+                        <li><a href="transparent-jar">The Transparent Jar</a></li>
+                        <li><a href="promptlab-carbon">IBM watsonx: Prompt Compare</a></li>
+                        <li><a href="smart-substitutions">Agentic Grocery Substitutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>More Work</h3>
+                    <ul>
+                        <li><a href="museum">Museum Educator Dashboard</a></li>
+                        <li><a href="golaab">Golaab Jewelry: Keepsake Builder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+                <a href="sudoku.html" class="button button-secondary" style="padding: 5px 15px; font-size: 0.9em;">Play a Game 🎮</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
