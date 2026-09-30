@@ -8,15 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
-    <link rel="stylesheet" href="assets/css/main.css?v=4" />
+    <link rel="stylesheet" href="assets/css/main.css?v=6" />
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         html { scroll-padding-top: 80px; }
-        .hero { padding: 112px 0 96px; }
-        .hero-grid { grid-template-columns: 1fr 240px; gap: var(--space-6); }
-        .hero-avatar { display: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 50%; margin-bottom: var(--space-3); }
+        .hero { padding: 120px 0 96px; }
+        .hero-grid { grid-template-columns: 1fr 240px; gap: 72px; }
+        .hero-avatar { display: none; width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: 50% 50%; margin-bottom: var(--space-3); }
         .hero-eyebrow { font-size: var(--fs-small); color: var(--color-text-secondary); font-weight: 500; margin-bottom: var(--space-2); }
-        .hero h1 { font-size: clamp(2rem, 3.2vw + 1rem, 3.1rem); line-height: 1.12; letter-spacing: -0.025em; max-width: 18ch; margin-bottom: var(--space-3); }
+        .hero h1 { font-size: clamp(2.6rem, 4.6vw + 1rem, 4.4rem); line-height: 1.04; letter-spacing: -0.015em; max-width: 17ch; margin-bottom: var(--space-3); }
         .hero-lede { color: var(--color-text-primary); max-width: 54ch; }
         .hero-meta { font-size: var(--fs-small); color: var(--color-text-secondary); margin-bottom: var(--space-2); }
         .hero-links { display: flex; gap: var(--space-3); flex-wrap: wrap; }
@@ -24,7 +24,7 @@
         .section-intro { color: var(--color-text-secondary); margin-top: calc(-1 * var(--space-1)); }
         .footer-grid.four { grid-template-columns: repeat(4, 1fr); }
         @media screen and (max-width: 768px) {
-            .hero { padding: 40px 0 56px; }
+            .hero { padding: 48px 0 72px; }
             .hero-grid { grid-template-columns: 1fr; }
             .hero-visual { display: none; }
             .hero-avatar { display: block; }
@@ -32,7 +32,7 @@
         }
     </style>
 </head>
-<body>
+<body class="home">
 
     <!-- Header -->
     <header class="global-header">
@@ -49,9 +49,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text reveal">
-                    <img class="hero-avatar" src="images/avatar-face.webp" alt="" aria-hidden="true" width="72" height="72" />
+                    <img class="hero-avatar" src="images/avatar-face.webp" alt="" aria-hidden="true" width="80" height="80" />
                     <p class="hero-eyebrow">Viola Kazemi &middot; Mobile Product Designer &middot; Toronto</p>
-                    <h1>I design native iOS and Android apps, and the design systems behind them.</h1>
+                    <h1>I design native iOS and Android apps, and the <em>design systems</em> behind them.</h1>
                     <p class="hero-lede">For 5+ years I&rsquo;ve shipped mobile products, including offline security apps used by 2M+ people. I studied computer engineering, so I design with the build in mind.</p>
                     <p class="hero-meta">Product Designer at Unitedreams &middot; Previously UI/UX Designer at Carrene</p>
                     <div class="hero-links">
