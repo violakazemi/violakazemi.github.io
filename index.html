@@ -14,6 +14,7 @@
         html { scroll-padding-top: 80px; }
         .hero { padding: 112px 0 96px; }
         .hero-grid { grid-template-columns: 1fr 240px; gap: var(--space-6); }
+        .hero-avatar { display: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 50%; margin-bottom: var(--space-3); }
         .hero-eyebrow { font-size: var(--fs-small); color: var(--color-text-secondary); font-weight: 500; margin-bottom: var(--space-2); }
         .hero h1 { font-size: clamp(2rem, 3.2vw + 1rem, 3.1rem); line-height: 1.12; letter-spacing: -0.025em; max-width: 18ch; margin-bottom: var(--space-3); }
         .hero-lede { color: var(--color-text-primary); max-width: 54ch; }
@@ -23,10 +24,10 @@
         .section-intro { color: var(--color-text-secondary); margin-top: calc(-1 * var(--space-1)); }
         .footer-grid.four { grid-template-columns: repeat(4, 1fr); }
         @media screen and (max-width: 768px) {
-            .hero { padding: 56px 0 64px; }
+            .hero { padding: 40px 0 56px; }
             .hero-grid { grid-template-columns: 1fr; }
-            .hero-visual { order: -1; }
-            .hero .hero-image-wrapper { max-width: 160px; margin: 0; }
+            .hero-visual { display: none; }
+            .hero-avatar { display: block; }
             .footer-grid.four { grid-template-columns: 1fr; }
         }
     </style>
@@ -48,6 +49,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text reveal">
+                    <img class="hero-avatar" src="images/avatar-face.webp" alt="" aria-hidden="true" width="72" height="72" />
                     <p class="hero-eyebrow">Viola Kazemi &middot; Mobile Product Designer &middot; Toronto</p>
                     <h1>I design native iOS and Android apps, and the design systems behind them.</h1>
                     <p class="hero-lede">For 5+ years I&rsquo;ve shipped mobile products, including offline security apps used by 2M+ people. I studied computer engineering, so I design with the build in mind.</p>
@@ -70,7 +72,7 @@
     <!-- Selected Work -->
     <section id="work" class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <h2>Selected Work</h2>
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">01</span>Selected Work</h2>
             <p class="section-intro">Shipped products, redacted where needed.</p>
             <a class="work-card work-card--feature" href="otp-authenticator" style="margin-top: var(--space-4);">
                 <div class="work-card__media"><img src="images/otp-thumbnail.webp" alt="Three screens of the Offline OTP Authenticator app" /></div>
@@ -86,7 +88,7 @@
     <!-- Concepts -->
     <section id="concepts" class="section">
         <div class="container">
-            <h2>Concepts</h2>
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">02</span>Concepts</h2>
             <p class="section-intro">Self-initiated explorations, mostly in fintech and AI.</p>
             <div class="work-grid">
                 <a class="work-card" href="tomaan">
@@ -120,7 +122,7 @@
     <!-- More Work -->
     <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <h2>More Work</h2>
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">03</span>More Work</h2>
             <div class="work-grid">
                 <a class="work-card" href="museum">
                     <div class="work-card__media"><img src="images/MuseumThumbnail.png" alt="Museum educator dashboard screens" loading="lazy" /></div>
@@ -141,25 +143,19 @@
     <!-- Experience -->
     <section id="experience" class="section">
         <div class="container">
-            <h2>Experience</h2>
-            <div style="margin-bottom: var(--space-4);">
-                <div style="border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); flex-wrap: wrap;">
-                        <h3 style="margin: 0; font-size: var(--fs-body);">Unitedreams Inc.</h3>
-                        <span style="color: var(--color-text-secondary); font-size: var(--fs-small);">Sep 2024 to Present</span>
-                    </div>
-                    <p style="margin: 0.25rem 0 0; color: var(--color-text-secondary); font-size: var(--fs-small);">Product Designer &middot; Toronto</p>
-                    <p style="margin: 0.5rem 0 0; max-width: 65ch;">Native iOS and Android apps, including Capzy, an AI video captioning app. Accessible, privacy-first flows that meet WCAG 2.1 AA, AODA, and EU data regulations, shaped by usability studies.</p>
-                </div>
-                <div style="border-bottom: 1px solid var(--color-border); padding: var(--space-3) 0;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); flex-wrap: wrap;">
-                        <h3 style="margin: 0; font-size: var(--fs-body);">Carrene Corp</h3>
-                        <span style="color: var(--color-text-secondary); font-size: var(--fs-small);">May 2021 to Sep 2024</span>
-                    </div>
-                    <p style="margin: 0.25rem 0 0; color: var(--color-text-secondary); font-size: var(--fs-small);">UI/UX Designer &middot; Tehran, Iran</p>
-                    <p style="margin: 0.5rem 0 0; max-width: 65ch;">Native iOS and Android offline one-time-password apps that secured card transactions for 2M+ users. Architected a unified design system and contributed to a login redesign that reduced fraudulent logins.</p>
-                </div>
-            </div>
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">04</span>Experience</h2>
+            <ol class="xp-list">
+                <li class="xp-row">
+                    <span class="xp-dates">Sep 2024 &ndash; Present</span>
+                    <span class="xp-role">Product Designer</span>
+                    <span class="xp-company">Unitedreams &middot; Toronto</span>
+                </li>
+                <li class="xp-row">
+                    <span class="xp-dates">May 2021 &ndash; Sep 2024</span>
+                    <span class="xp-role">UI/UX Designer</span>
+                    <span class="xp-company">Carrene &middot; Tehran, Iran</span>
+                </li>
+            </ol>
             <a href="ViolaKazemi.pdf" class="text-link">Download full resume &rarr;</a>
         </div>
     </section>
