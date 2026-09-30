@@ -17,7 +17,7 @@
     --color-bg-card: #FFFFFF;        
     --color-bg-alt: #DCE5DB;         
     --color-text-primary: #1C261F;   
-    --color-text-secondary: #5E6B62; /* 4.8:1 on page, 5.6:1 on white (WCAG AA) */
+    --color-text-secondary: #58645B; /* AA on every site background: 5.3:1 page, 6.2:1 white, 4.8:1 alt */
     --color-bg-band: #F7F7F3;
     --color-bg-well: #EFEEE9;
     --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1); 
@@ -447,4 +447,126 @@ a:hover {
     .work-card:hover .work-card__media--cover img { transform: none; }
     @view-transition { navigation: none; }
     html { scroll-behavior: auto; }
+}
+
+
+/* ==========================================================================
+   8. DISPLAY SETTINGS (text size + increase contrast)
+   Device settings apply first; a choice in the Display menu overrides them.
+   ========================================================================== */
+html[data-text="large"]  { font-size: 112.5%; }
+html[data-text="larger"] { font-size: 125%; }
+
+@media (prefers-contrast: more) {
+    :root:not([data-contrast="standard"]) {
+        --color-text-primary: #0F1712;
+        --color-text-secondary: #34403A;
+        --color-border: rgba(15, 23, 18, 0.55);
+    }
+    :root:not([data-contrast="standard"]) p a, :root:not([data-contrast="standard"]) li a,
+    :root:not([data-contrast="standard"]) .text-link { text-decoration: underline; text-underline-offset: 3px; }
+    :root:not([data-contrast="standard"]) .card { border: 1px solid var(--color-border); }
+}
+:root[data-contrast="more"] {
+    --color-text-primary: #0F1712;
+    --color-text-secondary: #34403A;
+    --color-border: rgba(15, 23, 18, 0.55);
+}
+:root[data-contrast="more"] p a, :root[data-contrast="more"] li a,
+:root[data-contrast="more"] .text-link { text-decoration: underline; text-underline-offset: 3px; }
+:root[data-contrast="more"] .card { border: 1px solid var(--color-border); }
+
+.visually-hidden {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.display-control { position: relative; display: inline-flex; }
+.display-toggle {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px;
+    font: inherit; font-size: var(--fs-small); font-weight: 500; color: var(--color-text-primary);
+    background: transparent; border: 1px solid var(--color-border); border-radius: var(--radius-pill); cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.display-toggle:hover { border-color: var(--color-text-secondary); }
+.display-toggle[aria-expanded="true"] { background: var(--color-bg-card); border-color: var(--color-text-secondary); }
+.display-toggle__glyph { font-weight: 600; letter-spacing: -0.02em; }
+.display-toggle:focus-visible, .display-reset:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+
+.display-panel {
+    position: absolute; top: calc(100% + 10px); right: 0; z-index: 1001;
+    width: min(300px, calc(100vw - 32px)); padding: 20px;
+    background: var(--color-bg-card); color: var(--color-text-primary);
+    border: 1px solid var(--color-border); border-radius: 16px; box-shadow: var(--shadow-md);
+    text-align: left;
+}
+.display-panel[hidden] { display: none; }
+.display-panel__title { font-size: 1rem; font-weight: 600; margin: 0 0 16px; letter-spacing: 0; }
+.display-group { border: 0; margin: 0 0 20px; padding: 0; min-width: 0; }
+.display-group legend, .display-switch__label { font-size: var(--fs-small); font-weight: 600; padding: 0; margin-bottom: 8px; }
+
+.segmented { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; padding: 3px; background: var(--color-bg-well); border-radius: 12px; }
+.segmented input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.segmented label {
+    display: flex; align-items: center; justify-content: center; min-height: 44px;
+    border-radius: 9px; cursor: pointer; font-weight: 600; color: var(--color-text-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.segmented label[for="vk-text-default"] span[aria-hidden] { font-size: 0.8125rem; }
+.segmented label[for="vk-text-large"] span[aria-hidden]   { font-size: 1rem; }
+.segmented label[for="vk-text-larger"] span[aria-hidden]  { font-size: 1.25rem; }
+.segmented input:checked + label { background: var(--color-bg-card); color: var(--color-text-primary); box-shadow: 0 1px 3px rgba(15, 23, 18, 0.16); }
+.segmented input:focus-visible + label { outline: 2px solid var(--color-text-primary); outline-offset: 2px; }
+
+.display-switch { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.display-switch__label { display: block; margin: 0; cursor: pointer; }
+.display-switch__hint { display: block; font-size: var(--fs-small); color: var(--color-text-secondary); font-weight: 400; margin-top: 2px; }
+input.switch {
+    appearance: none; -webkit-appearance: none; flex: none; position: relative; margin: 0;
+    width: 51px; height: 31px; border-radius: var(--radius-pill); background: #6F7A72; cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+input.switch::after {
+    content: ""; position: absolute; top: 3px; left: 3px; width: 25px; height: 25px; border-radius: 50%;
+    background: #FFFFFF; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); transition: transform 0.2s var(--ease-out);
+}
+input.switch:checked { background: var(--color-text-primary); }
+input.switch:checked::after { transform: translateX(20px); }
+input.switch:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+
+.display-reset {
+    font: inherit; font-size: var(--fs-small); color: var(--color-text-secondary); background: none; border: 0;
+    padding: 4px 0; min-height: 32px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+.global-header nav { display: flex; align-items: center; gap: var(--space-3); }
+
+@media screen and (max-width: 520px) {
+    .display-toggle__word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .display-toggle { padding: 6px 10px; }
+    .display-panel { right: -8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .display-toggle, .segmented label, input.switch, input.switch::after { transition: none; }
+}
+
+/* Small phones: keep the header on one line at every text size */
+.global-header .logo { white-space: nowrap; }
+@media screen and (max-width: 520px) {
+    .global-header { padding-left: 16px; padding-right: 16px; }
+    .global-header nav, .site-nav { gap: 14px; }
+    .site-nav a[href="#experience"] { display: none; } /* Experience is one scroll away on the homepage */
+}
+.global-header .logo { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.global-header nav { flex: none; }
+@media screen and (max-width: 600px) {
+    .global-header .logo span { display: none; } /* drop the "/ Project name" breadcrumb on phones */
+}
+@media screen and (max-width: 360px) {
+    .global-header .logo { letter-spacing: 0.04em; font-size: 0.875rem; }
+    .global-header nav, .site-nav { gap: 10px; }
+}
+.display-switch__hint { line-height: 1.4; }
+@media screen and (max-width: 360px) {
+    /* Largest text on the smallest phones: keep the full name visible; Work is the next section down */
+    html[data-text="larger"] .site-nav a[href="#work"] { display: none; }
 }
