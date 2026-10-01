@@ -132,3 +132,47 @@
   window.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(sweep, 120); }, { passive: true });
   window.addEventListener('load', sweep);
 })();
+
+// ---------------------------------------------------------------------------
+// Copy-to-clipboard chips: <button class="copy-chip" data-copy="text">.
+// The label swaps to "Copied", screen readers hear it, and it resets after 2s.
+// ---------------------------------------------------------------------------
+(function () {
+  var chips = document.querySelectorAll('.copy-chip[data-copy]');
+  if (!chips.length) return;
+  var live = document.createElement('span');
+  live.className = 'visually-hidden'; live.setAttribute('aria-live', 'polite');
+  document.body.appendChild(live);
+
+  function copy(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(function () { return legacy(text); });
+    return legacy(text);
+  }
+  function legacy(text) {
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? resolve() : reject(); } catch (e) { reject(e); }
+      document.body.removeChild(ta);
+    });
+  }
+
+  Array.prototype.forEach.call(chips, function (chip) {
+    var label = chip.querySelector('.copy-chip__label');
+    var original = label ? label.textContent : '';
+    var timer;
+    chip.addEventListener('click', function () {
+      copy(chip.getAttribute('data-copy')).then(function () {
+        chip.classList.add('is-copied');
+        if (label) label.textContent = 'Copied';
+        live.textContent = ''; setTimeout(function () { live.textContent = 'Email address copied'; }, 50);
+        if (navigator.vibrate) navigator.vibrate(10); // light haptic tick on Android
+        clearTimeout(timer);
+        timer = setTimeout(function () { chip.classList.remove('is-copied'); if (label) label.textContent = original; }, 2000);
+      }, function () {
+        live.textContent = 'Copy failed. The address is ' + chip.getAttribute('data-copy');
+      });
+    });
+  });
+})();

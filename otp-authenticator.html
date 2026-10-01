@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Case study: a native iOS and Android one-time password app for card transactions, used by 2M+ people. Designed by Viola Kazemi at Carrene." />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
-    <link rel="stylesheet" href="assets/css/main.css?v=6" />
+    <link rel="stylesheet" href="assets/css/main.css?v=7" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     <style>
         /* Accordion Styling for Deep Dives */
@@ -67,6 +67,43 @@
         .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.12); }
         .fail { color: #B3261E; font-weight: 600; }
         .pass { color: #1B5E20; font-weight: 600; }
+
+        /* OTP live demo */
+        .otp-demo { display: grid; grid-template-columns: 1fr minmax(280px, 360px); gap: var(--space-5); align-items: center; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+        @media screen and (max-width: 900px) { .otp-demo { grid-template-columns: 1fr; gap: var(--space-3); } }
+        .otp-demo__text p { color: var(--color-text-secondary); margin: 0; }
+        .otp-card { --otp-accent: var(--color-text-primary); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 20px; box-shadow: var(--shadow-md); }
+        .otp-card.is-urgent { --otp-accent: #B3261E; }
+        .otp-card__head { display: flex; justify-content: space-between; font-size: var(--fs-small); margin-bottom: 14px; }
+        .otp-card__bank { font-weight: 600; }
+        .otp-card__which { color: var(--color-text-secondary); }
+        .otp-card__row { display: flex; align-items: center; gap: 14px; }
+        .otp-ring { position: relative; width: 44px; height: 44px; flex: none; }
+        .otp-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .otp-ring circle { fill: none; stroke-width: 3.5; }
+        .otp-ring__track { stroke: var(--color-bg-well); }
+        .otp-ring__bar { stroke: var(--otp-accent); stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; transition: stroke-dashoffset 1s linear, stroke 0.3s ease; }
+        .otp-ring__sec { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--otp-accent); transition: color 0.3s ease; }
+        .otp-code { flex: 1; font-size: 1.75rem; font-weight: 600; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: var(--otp-accent); transition: color 0.3s ease; }
+        .otp-code.is-rolling { animation: otp-roll 0.42s var(--ease-out); }
+        @keyframes otp-roll { 0% { opacity: 0; transform: translateY(10px); filter: blur(3px); } 100% { opacity: 1; transform: none; filter: none; } }
+        .otp-copy { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-primary); cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, transform 0.12s ease; }
+        .otp-copy:hover { border-color: var(--color-text-secondary); }
+        .otp-copy:active { transform: scale(0.92); }
+        .otp-copy:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+        .otp-copy svg { width: 18px; height: 18px; }
+        .otp-copy .tick { stroke-dasharray: 14; stroke-dashoffset: 14; transition: stroke-dashoffset 0.3s var(--ease-out) 0.05s; }
+        .otp-copy .sheets { transition: opacity 0.15s ease; }
+        .otp-copy.is-copied { background: var(--color-text-primary); color: var(--color-bg-card); }
+        .otp-copy.is-copied .sheets { opacity: 0; }
+        .otp-copy.is-copied .tick { stroke-dashoffset: 0; }
+        .otp-card__status { margin: 12px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
+        @media (prefers-reduced-motion: reduce) {
+            .otp-ring__bar, .otp-ring__sec, .otp-code, .otp-copy, .otp-copy .tick, .otp-copy .sheets { transition: none; }
+            .otp-code.is-rolling { animation: none; }
+            .otp-copy:active { transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -150,6 +187,36 @@
                     <h3>Use a password</h3>
                     <p>Each bank gets one card with its active passwords, a countdown to expiry, and a one-tap copy button.</p>
                 </article>
+            </div>
+
+            <!-- Live demo of the password card's micro-interactions -->
+            <div class="otp-demo" aria-labelledby="otp-demo-title">
+                <div class="otp-demo__text">
+                    <span class="step-num">Try it</span>
+                    <h3 id="otp-demo-title">The password card, live</h3>
+                    <p>The countdown ring shows how long the code stays valid, turns urgent in the last 5 seconds, and the new code rolls in when it expires. Copy confirms with a check, so users never wonder whether it worked. Codes here are random, not real passwords.</p>
+                </div>
+                <div class="otp-card">
+                    <div class="otp-card__head">
+                        <span class="otp-card__bank">Your bank</span>
+                        <span class="otp-card__which">Password 1</span>
+                    </div>
+                    <div class="otp-card__row">
+                        <div class="otp-ring" aria-hidden="true">
+                            <svg viewBox="0 0 44 44"><circle class="otp-ring__track" cx="22" cy="22" r="19"/><circle class="otp-ring__bar" cx="22" cy="22" r="19"/></svg>
+                            <span class="otp-ring__sec">30</span>
+                        </div>
+                        <output class="otp-code" aria-live="off" aria-label="Current password">000 000</output>
+                        <button type="button" class="otp-copy" aria-label="Copy password">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <g class="sheets"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></g>
+                                <path class="tick" d="M3 8.5l3.2 3.2L13 4.8"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="otp-card__status"><span class="otp-status-text">Expires in 30 seconds</span></p>
+                    <span class="visually-hidden otp-live" aria-live="polite"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -278,6 +345,55 @@
         </div>
     </footer>
 
-    <script src="assets/js/site.js" defer></script>
+    <script src="assets/js/site.js?v=2" defer></script>
+    <script>
+    (function () {
+        var card = document.querySelector('.otp-card'); if (!card) return;
+        var PERIOD = 30, URGENT = 5, C = 2 * Math.PI * 19;
+        var codeEl = card.querySelector('.otp-code'), bar = card.querySelector('.otp-ring__bar'),
+            sec = card.querySelector('.otp-ring__sec'), status = card.querySelector('.otp-status-text'),
+            btn = card.querySelector('.otp-copy'), live = card.querySelector('.otp-live');
+        var left = PERIOD, code = '', resetTimer;
+        function newCode() {
+            var n = ''; for (var i = 0; i < 6; i++) n += Math.floor(Math.random() * 10);
+            code = n; codeEl.textContent = n.slice(0, 3) + ' ' + n.slice(3);
+            codeEl.classList.remove('is-rolling'); void codeEl.offsetWidth; codeEl.classList.add('is-rolling');
+        }
+        function render() {
+            bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(2);
+            sec.textContent = left;
+            card.classList.toggle('is-urgent', left <= URGENT);
+            status.textContent = left <= URGENT ? 'Expiring soon \u00b7 new code in ' + left + 's' : 'Expires in ' + left + ' seconds';
+        }
+        function tick() {
+            left -= 1;
+            if (left <= 0) {
+                left = PERIOD;
+                bar.style.transition = 'none'; render(); void bar.offsetWidth; bar.style.transition = '';
+                newCode();
+            } else { render(); }
+        }
+        newCode(); render();
+        var interval = null;
+        function start() { if (!interval) interval = setInterval(tick, 1000); }
+        function stop() { clearInterval(interval); interval = null; }
+        // Only run while the card is on screen and the tab is visible
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(card);
+        } else { start(); }
+        document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+        btn.addEventListener('click', function () {
+            var done = function () {
+                btn.classList.add('is-copied'); btn.setAttribute('aria-label', 'Copied');
+                live.textContent = ''; setTimeout(function () { live.textContent = 'Password copied'; }, 50);
+                if (navigator.vibrate) navigator.vibrate(10);
+                clearTimeout(resetTimer);
+                resetTimer = setTimeout(function () { btn.classList.remove('is-copied'); btn.setAttribute('aria-label', 'Copy password'); }, 1600);
+            };
+            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done();
+        });
+    })();
+    </script>
+
 </body>
 </html>
