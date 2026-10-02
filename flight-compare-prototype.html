@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sojourn: compare flights by time at your destination</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  --page:#E6ECEF; --ink:#14213D; --soft:#4A5672; --line:#C3CDD6; --chip:#fff; --lagoon:#0A7474;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --page:#0F1722; --ink:#EAF0F6; --soft:#A9B6C8; --line:#2C3A4D; --chip:#1A2534; --lagoon:#5FD0CC; } }
+:root[data-theme="dark"]{ --page:#0F1722; --ink:#EAF0F6; --soft:#A9B6C8; --line:#2C3A4D; --chip:#1A2534; --lagoon:#5FD0CC; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--page);color:var(--ink);font-family:Roboto,system-ui,sans-serif;line-height:1.45}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 40px}
+.wrap>h1{font-family:"Bricolage Grotesque",Roboto,system-ui,sans-serif;font-weight:700;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.12;margin:0 0 8px;max-width:20ch}
+.wrap>p{margin:0 0 16px;color:var(--soft);max-width:62ch}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;align-items:center}
+.tools button{font:500 .92rem Roboto,system-ui,sans-serif;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:9px 13px;cursor:pointer}
+.tools button[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.tools .seg{display:none;gap:0}
+.tools .seg button:first-child{border-radius:10px 0 0 10px}.tools .seg button:last-child{border-radius:0 10px 10px 0;border-left:0}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #F4B41A;outline-offset:2px}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:28px;justify-items:center}
+.col{width:100%;max-width:356px}
+.col>h2{font:500 .95rem Roboto,system-ui,sans-serif;margin:0 0 8px;color:var(--soft)}
+@media (max-width:760px){ .stage{grid-template-columns:1fr} .tools .seg{display:inline-flex} .col[data-hide="1"]{display:none} }
+
+/* ---------- phone shell ---------- */
+.phone{width:100%;height:700px;border-radius:44px;border:9px solid #0C0F14;background:#000;overflow:hidden;display:flex;flex-direction:column;position:relative;color:#000}
+.status{height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-weight:600;font-size:.86rem}
+.status i{font-style:normal;display:flex;gap:5px;align-items:center}
+.status i b{display:block;width:17px;height:10px;border-radius:3px;border:1.5px solid currentColor;position:relative}
+.status i b::after{content:"";position:absolute;inset:1.5px 4px 1.5px 1.5px;background:currentColor;border-radius:1px}
+.view{flex:1;min-height:0;display:flex;flex-direction:column}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.home{flex:none;height:22px;display:flex;align-items:center;justify-content:center}
+.home::after{content:"";width:120px;height:5px;border-radius:3px;background:currentColor;opacity:.85}
+.phone button,.phone select,.phone input{font:inherit;color:inherit}
+.phone button{cursor:pointer}
+.big{display:block;font-weight:700;letter-spacing:-.02em;line-height:1.05}
+.in{display:block}
+.track{position:relative;height:10px;border-radius:5px;margin:10px 0 9px;overflow:hidden}
+.track span{position:absolute;top:0;bottom:0}
+.track .fl{background:#14213D}.track .st{background:#F4B41A}
+.was{text-decoration:line-through;opacity:.7;margin-left:4px}
+.up{color:#B3261E;font-weight:600}.down{color:#146C2E;font-weight:600}
+table.cmpt{width:100%;border-collapse:collapse;table-layout:fixed}
+table.cmpt th,table.cmpt td{text-align:left;vertical-align:top;padding:9px 8px;font-size:.84rem}
+table.cmpt th[scope=row]{font-weight:400;width:31%}
+table.cmpt td.win{font-weight:700}
+.key{display:flex;gap:12px;font-size:.74rem;margin:2px 0 0}
+.key span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.key .kf::before{background:#14213D}.key .ks::before{background:#F4B41A}
+
+/* ---------- iOS ---------- */
+.ios{font-family:-apple-system,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;background:#F2F2F7;--tint:#0A7474;--sec:#62626A;--sep:#D1D1D6;font-size:16px}
+.ios .status{background:#F2F2F7}
+.ios .status::before{content:"";position:absolute;left:50%;top:9px;width:96px;height:26px;margin-left:-48px;border-radius:14px;background:#000}
+.ios .home{background:#F2F2F7}
+.ios .bar{flex:none;background:#F2F2F7;padding:2px 16px 8px}
+.ios .bar .lt{font-size:2.05rem;font-weight:700;letter-spacing:-.02em;margin:6px 0 0}
+.ios .bar.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:6px 8px 10px;border-bottom:.5px solid var(--sep)}
+.ios .bar.nav .nt{font-weight:600;font-size:1.02rem;text-align:center}
+.ios .bar.nav button{background:none;border:0;color:var(--tint);font-size:1.02rem;padding:6px 8px;justify-self:start;display:flex;align-items:center;gap:2px}
+.ios .bar.nav .rt{justify-self:end}.ios .bar.nav .rt button{font-weight:600}
+.ios .bar.sheet{border-radius:14px 14px 0 0;background:#fff;margin-top:6px;position:relative;padding-top:16px}
+.ios .bar.sheet::before{content:"";position:absolute;top:6px;left:50%;width:36px;height:5px;margin-left:-18px;border-radius:3px;background:#C7C7CC}
+.ios .pad{padding:0 16px 20px}
+.ios .gh{font-size:.8rem;color:var(--sec);margin:18px 16px 6px}
+.ios .gf{font-size:.8rem;color:var(--sec);margin:6px 16px 0}
+.ios .group{background:#fff;border-radius:12px;overflow:hidden}
+.ios .row{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:8px 16px;position:relative}
+.ios .row+.row::before{content:"";position:absolute;top:0;left:16px;right:0;border-top:.5px solid var(--sep)}
+.ios .row .v{color:var(--sec);text-align:right}
+.ios .row select{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--tint);text-align:right;text-align-last:right;padding:4px 0;max-width:170px}
+.ios .row.col{display:block;padding:12px 16px}
+.ios input[type=range]{width:100%;accent-color:var(--tint);margin:8px 0 0}
+.ios .sw{width:51px;height:31px;border-radius:16px;border:0;background:#E9E9EA;position:relative;flex:none;transition:background .2s}
+.ios .sw::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25);transition:transform .2s}
+.ios .sw[aria-checked="true"]{background:#34C759}.ios .sw[aria-checked="true"]::after{transform:translateX(20px)}
+.ios .cta{display:block;width:100%;border:0;border-radius:14px;background:var(--tint);color:#fff;font-weight:600;font-size:1.05rem;padding:15px;margin-top:22px}
+.ios .cta[disabled]{background:#C7C7CC}
+.ios .foot{flex:none;background:rgba(249,249,249,.94);border-top:.5px solid var(--sep);padding:10px 16px}
+.ios .foot .cta{margin:0}
+.ios .segc{display:grid;grid-template-columns:1fr 1fr;background:#E3E3E8;border-radius:9px;padding:2px;margin:10px 16px 12px}
+.ios .segc button{border:0;background:none;border-radius:7px;padding:6px;font-size:.84rem;font-weight:500}
+.ios .segc button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);font-weight:600}
+.ios .list{padding:0 16px 20px;display:flex;flex-direction:column;gap:12px}
+.ios .card{background:#fff;border-radius:12px;overflow:hidden}
+.ios .cardmain{display:block;width:100%;text-align:left;border:0;background:none;padding:14px 16px 10px}
+.ios .big{font-size:1.72rem}.ios .in{font-size:.84rem;color:var(--sec);margin-top:2px}
+.ios .track{background:#E5E5EA}
+.ios .pr{font-size:.95rem}.ios .meta{font-size:.82rem;color:var(--sec);margin-top:3px}
+.ios .cmp{display:flex;align-items:center;gap:8px;width:100%;border:0;border-top:.5px solid var(--sep);background:none;color:var(--tint);padding:10px 16px;font-size:.95rem;text-align:left}
+.ios .cmp::before{content:"";width:22px;height:22px;border-radius:50%;border:1.5px solid #C7C7CC;flex:none}
+.ios .cmp[aria-pressed="true"]::before{background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.5l3.2 3.2L16 8' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");border-color:var(--tint)}
+.ios .note{background:#FFF6DA;border-radius:12px;padding:12px 14px;font-size:.88rem;display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.ios .note button{border:0;background:none;color:var(--tint);font-weight:600;padding:0;flex:none}
+.ios .empty{background:#fff;border-radius:12px;padding:18px 16px}
+.ios .empty h3{margin:0 0 6px;font-size:1.12rem}.ios .empty p{margin:0;color:var(--sec);font-size:.92rem}
+.ios .hero{padding:16px 16px 4px}.ios .hero .big{font-size:2rem}
+.ios table.cmpt{background:#fff;border-radius:12px;overflow:hidden}
+.ios table.cmpt tr+tr>*{border-top:.5px solid var(--sep)}
+.ios table.cmpt th[scope=row],.ios table.cmpt thead th{color:var(--sec)}
+.ios td.win{color:var(--tint)}
+.ios .mini{border:0;background:#E6F2F2;color:var(--tint);border-radius:9px;padding:8px 6px;width:100%;font-weight:600;font-size:.86rem}
+.ios .done{text-align:center;padding:60px 24px}
+
+/* ---------- Android (Material 3) ---------- */
+.md{font-family:Roboto,"Noto Sans",system-ui,sans-serif;background:#FDF7FF;--pri:#6442D6;--on:#1D1B20;--var:#49454F;--out:#7A757F;--cont:#F2ECF8;--sc:#E5DEFF;color:#1D1B20;font-size:16px}
+.md .status{background:#FDF7FF;padding:0 20px;font-weight:500}
+.md .status::before{content:"";position:absolute;left:50%;top:15px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:#000}
+.md .home{background:#FDF7FF;height:20px}.md .home::after{width:108px;height:4px;opacity:.7}
+.md .bar{flex:none;display:flex;align-items:center;gap:4px;min-height:64px;padding:8px 4px 8px 16px;background:#FDF7FF}
+.md .bar.sub{padding-left:4px}
+.md .bar .nt{font-size:1.38rem;font-weight:400;flex:1}
+.md .bar .ic{width:48px;height:48px;border-radius:50%;border:0;background:none;display:grid;place-items:center}
+.md .bar .ic svg{width:24px;height:24px}
+.md .pad{padding:4px 16px 24px}
+.md .gh{font-size:.88rem;font-weight:500;color:var(--pri);margin:20px 0 10px}
+.md .gf{font-size:.78rem;color:var(--var);margin:6px 0 0}
+.md .field{position:relative;border:1px solid var(--out);border-radius:12px;padding:15px 14px 13px;margin-bottom:14px;background:#FDF7FF}
+.md .field>label,.md .field>.lb{position:absolute;top:-9px;left:10px;background:#FDF7FF;padding:0 4px;font-size:.75rem;color:var(--var)}
+.md .field select{appearance:none;-webkit-appearance:none;border:0;background:none;width:100%;padding:0 22px 0 0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%2349454F'/%3E%3C/svg%3E") no-repeat right center/22px}
+.md .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.md input[type=range]{width:100%;accent-color:var(--pri);margin:6px 0 0}
+.md .rowm{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.md .rowm small{display:block;color:var(--var);font-size:.8rem}
+.md .sw{width:52px;height:32px;border-radius:16px;border:2px solid var(--out);background:var(--cont);position:relative;flex:none;transition:background .2s}
+.md .sw::after{content:"";position:absolute;top:6px;left:6px;width:16px;height:16px;border-radius:50%;background:var(--out);transition:all .2s}
+.md .sw[aria-checked="true"]{background:var(--pri);border-color:var(--pri)}
+.md .sw[aria-checked="true"]::after{background:#fff;width:24px;height:24px;top:2px;left:22px}
+.md .cta{display:block;width:100%;border:0;border-radius:24px;background:var(--pri);color:#fff;font-weight:500;font-size:.95rem;letter-spacing:.01em;padding:14px;margin-top:18px}
+.md .cta[disabled]{background:#E7E0EB;color:#8D8891}
+.md .foot{flex:none;padding:10px 16px 12px;background:var(--cont)}
+.md .foot .cta{margin:0}
+.md .chips{display:flex;gap:8px;padding:0 16px 12px}
+.md .chips button{border:1px solid var(--out);background:none;border-radius:8px;padding:6px 14px;font-size:.88rem;font-weight:500;color:var(--var);display:flex;align-items:center;gap:6px}
+.md .chips button[aria-pressed="true"]{background:var(--sc);border-color:var(--sc);color:#1F0F5C}
+.md .chips button[aria-pressed="true"]::before{content:"";width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%231F0F5C' stroke-width='2.6'/%3E%3C/svg%3E") center/contain}
+.md .list{padding:0 16px 88px;display:flex;flex-direction:column;gap:10px}
+.md .card{background:var(--cont);border-radius:24px;overflow:hidden}
+.md .cardmain{display:block;width:100%;text-align:left;border:0;background:none;padding:16px 16px 6px}
+.md .big{font-size:1.6rem;font-weight:500;letter-spacing:0}.md .in{font-size:.84rem;color:var(--var);margin-top:2px}
+.md .track{background:#DDD6E8;height:12px;border-radius:6px}
+.md .track .fl{background:#6442D6}
+.md .pr{font-size:.95rem}.md .meta{font-size:.82rem;color:var(--var);margin-top:3px}
+.md .cmp{margin:6px 8px 10px;border:0;background:none;color:var(--pri);font-weight:500;font-size:.88rem;border-radius:20px;padding:9px 12px;display:inline-flex;align-items:center;gap:8px}
+.md .cmp::before{content:"";width:18px;height:18px;border-radius:2px;border:2px solid var(--var)}
+.md .cmp[aria-pressed="true"]::before{border-color:var(--pri);background:var(--pri) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E") center/contain}
+.md .fab{position:absolute;right:16px;bottom:34px;border:0;border-radius:20px;background:var(--pri);color:#fff;font-weight:500;padding:16px 20px;box-shadow:0 3px 8px rgba(60,30,140,.3);font-size:.92rem}
+.md .fab[disabled]{background:#E7E0EB;color:#7A757F;box-shadow:none}
+.md .note{background:#FFD8E4;border-radius:20px;padding:14px 16px 6px;font-size:.88rem}
+.md .note button{display:block;margin-left:auto;border:0;background:none;color:#7D2950;font-weight:500;padding:8px 4px}
+.md .empty{border:1px solid #CBC4D2;border-radius:24px;padding:18px 16px}
+.md .empty h3{margin:0 0 6px;font-size:1.25rem;font-weight:400}.md .empty p{margin:0;color:var(--var);font-size:.92rem}
+.md .hero{padding:4px 16px 4px}.md .hero .big{font-size:1.9rem}
+.md .lst{border-top:1px solid #CBC4D2}
+.md .li{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #CBC4D2}
+.md .li span:last-child{color:var(--var);text-align:right}
+.md table.cmpt tr+tr>*{border-top:1px solid #CBC4D2}
+.md table.cmpt th[scope=row],.md table.cmpt thead th{color:var(--var);font-weight:500}
+.md td.win{color:var(--pri)}
+.md .mini{border:1px solid var(--out);background:none;color:var(--pri);border-radius:20px;padding:8px 6px;width:100%;font-weight:500;font-size:.86rem}
+.md .done{padding:56px 24px}
+@media (prefers-reduced-motion:reduce){ .sw,.sw::after{transition:none!important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sojourn: compare flights by time at your destination</h1>
+  <p>One working prototype in two native styles. Tap through either phone and the other follows. Flight data is sample data for Toronto to Cancún over Thanksgiving weekend.</p>
+  <div class="tools">
+    <div class="seg" role="group" aria-label="Platform"><button data-g="ios" aria-pressed="true">iOS</button><button data-g="md" aria-pressed="false">Android</button></div>
+    <button data-g="return" aria-pressed="false">Come back after work</button>
+    <button data-g="reset">Start over</button>
+  </div>
+  <div class="stage">
+    <div class="col" id="c-ios"><h2>iOS, Human Interface Guidelines</h2><div class="phone ios" id="p-ios"></div></div>
+    <div class="col" id="c-md"><h2>Android, Material 3</h2><div class="phone md" id="p-md"></div></div>
+  </div>
+</div>
+<script>
+const T=(d,h,m)=>d*1440+h*60+m, DAYS=["Fri","Sat","Sun","Mon","Tue"];
+const LEAVE={fri18:["Fri Oct 9, 6:00 pm",T(0,18,0)],fri21:["Fri Oct 9, 9:00 pm",T(0,21,0)],sat06:["Sat Oct 10, 6:00 am",T(1,6,0)]};
+const HOME={mon23:["Mon Oct 12, 11:00 pm",T(3,23,0)],tue02:["Tue Oct 13, 2:00 am",T(4,2,0)],tue06:["Tue Oct 13, 6:00 am",T(4,6,0)]};
+/* outDep in Toronto time, retDep in Cancún time (one hour behind Toronto), durations in minutes */
+const F=[
+ {id:"a",air:"Lakeshore Air",outDep:T(0,21,40),outDur:260,retDep:T(3,20,10),retDur:250,fare:428,bag:0,delta:14},
+ {id:"f",air:"Lakeshore Air",outDep:T(0,21,40),outDur:260,retDep:T(3,16,30),retDur:250,fare:394,bag:0},
+ {id:"c",air:"Northline",outDep:T(0,22,15),outDur:455,outStop:"1 h 50 min in Montréal",retDep:T(3,16,30),retDur:250,fare:372,bag:0},
+ {id:"b",air:"Sola Airways",outDep:T(1,6,5),outDur:255,retDep:T(3,20,10),retDur:250,fare:306,bag:50},
+ {id:"d",air:"Sola Airways",outDep:T(1,8,30),outDur:255,retDep:T(3,15,5),retDur:250,fare:304,bag:45,delta:-9},
+ {id:"e",air:"Peachtree",outDep:T(1,7,0),outDur:485,outStop:"2 h 10 min in Atlanta",retDep:T(3,13,20),retDur:450,retStop:"1 h 35 min in Atlanta",fare:278,bag:60,seats:2}
+];
+const DEF={screen:"search",leave:"fri21",home:"tue02",budget:300,carry:true,sort:"time",picked:[],sel:null,returned:false,seen:false,platform:"ios"};
+let S=Object.assign({},DEF);
+try{ const r=localStorage.getItem("sojourn"); if(r) S=Object.assign({},DEF,JSON.parse(r)); }catch(e){}
+const save=()=>{ try{ localStorage.setItem("sojourn",JSON.stringify(S)); }catch(e){} };
+
+const byId=id=>F.find(f=>f.id===id);
+const arrCun=f=>f.outDep+f.outDur-60, retTor=f=>f.retDep+60, homeArr=f=>retTor(f)+f.retDur, stay=f=>f.retDep-arrCun(f);
+const base=f=>f.fare+(S.carry?f.bag:0), price=f=>base(f)+(S.returned?(f.delta||0):0);
+const inWin=f=>f.outDep>=LEAVE[S.leave][1] && homeArr(f)<=HOME[S.home][1];
+const matches=()=>F.filter(f=>inWin(f)&&price(f)<=S.budget).sort((x,y)=>S.sort==="time"?stay(y)-stay(x)||price(x)-price(y):price(x)-price(y)||stay(y)-stay(x));
+const closest=()=>F.filter(inWin).sort((x,y)=>price(x)-price(y))[0];
+const ft=m=>{ const d=Math.floor(m/1440), r=m%1440, h=Math.floor(r/60), mi=r%60; return DAYS[d]+" "+((h%12)||12)+":"+String(mi).padStart(2,"0")+(h<12?" am":" pm"); };
+const pl=(n,w)=>n+" "+w+(n===1?"":"s");
+const fstay=m=>{ const d=Math.floor(m/1440), h=Math.floor((m%1440)/60); return (d?pl(d,"day")+" ":"")+pl(h,"hour"); };
+const fdur=m=>{ const h=Math.floor(m/60), mi=m%60; return (h?h+" h":"")+(h&&mi?" ":"")+(mi?mi+" min":""); };
+const stops=f=>!f.outStop&&!f.retStop?"Direct both ways":f.outStop&&f.retStop?"1 stop each way ("+f.outStop.replace(" in Atlanta","")+" and "+f.retStop+")":f.outStop?"1 stop out ("+f.outStop+"), direct back":"Direct out, 1 stop back ("+f.retStop+")";
+const bagTxt=()=>S.carry?"carry-on included":"personal item only";
+const track=f=>{ const a=LEAVE[S.leave][1], b=HOME[S.home][1], p=x=>Math.max(0,Math.min(100,(x-a)/(b-a)*100));
+  const seg=(c,x,y)=>'<span class="'+c+'" style="left:'+p(x)+'%;width:'+(p(y)-p(x))+'%"></span>';
+  return '<div class="track" aria-hidden="true">'+seg("fl",f.outDep,f.outDep+f.outDur)+seg("st",f.outDep+f.outDur,retTor(f))+seg("fl",retTor(f),homeArr(f))+'</div>'; };
+const deltaTxt=f=>{ if(!S.returned||!f.delta) return ""; return ' <span class="'+(f.delta>0?"up":"down")+'">'+(f.delta>0?"up":"down")+' $'+Math.abs(f.delta)+'</span><span class="was">$'+base(f)+'</span>'; };
+const seatsTxt=f=>S.returned&&f.seats?'<div class="meta up">'+pl(f.seats,"seat")+' left</div>':"";
+const back='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5m6-7l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+const closeI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+const opts=(o,v)=>Object.keys(o).map(k=>'<option value="'+k+'"'+(k===v?" selected":"")+'>'+o[k][0]+'</option>').join("");
+const ctaLabel=()=>{ const n=matches().length; return n?"Show "+pl(n,"flight"):"See the closest match"; };
+const countLabel=()=>{ const n=matches().length; return n?pl(n,"flight")+" fit your times and budget":"No flights fit yet. The closest is shown on the next screen."; };
+
+/* ---------- screens ---------- */
+function search(p){
+  const range='<input type="range" min="250" max="500" step="1" value="'+S.budget+'" data-f="budget" aria-label="Flight budget in dollars">';
+  if(p==="ios") return {bar:'<div class="bar"><h2 class="lt">Flights</h2></div>',body:
+   '<div class="pad"><div class="gh" style="margin-top:6px">Where</div><div class="group"><div class="row"><span>From</span><span class="v">Toronto (YYZ)</span></div><div class="row"><span>To</span><span class="v">Cancún (CUN)</span></div><div class="row"><span>Traveler</span><span class="v">1 adult, round trip</span></div></div>'+
+   '<div class="gh">When</div><div class="group"><div class="row"><label for="il">From</label><select id="il" data-f="leave">'+opts(LEAVE,S.leave)+'</select></div><div class="row"><label for="ih">To</label><select id="ih" data-f="home">'+opts(HOME,S.home)+'</select></div></div>'+
+   '<div class="gh">Flight budget</div><div class="group"><div class="row col"><div style="display:flex;justify-content:space-between"><span>Up to</span><b data-b="budget">$'+S.budget+'</b></div>'+range+'</div><div class="row"><span>Carry-on bag</span><button class="sw" role="switch" aria-checked="'+S.carry+'" aria-label="Carry-on bag" data-a="carry"></button></div></div>'+
+   '<div class="gf" data-b="count">'+countLabel()+'</div><button class="cta" data-a="go" data-b="cta">'+ctaLabel()+'</button></div>'};
+  return {bar:'<div class="bar"><div class="nt">Search flights</div></div>',body:
+   '<div class="pad"><div class="gh" style="margin-top:4px">Where</div><div class="two"><div class="field"><span class="lb">From</span>Toronto (YYZ)</div><div class="field"><span class="lb">To</span>Cancún (CUN)</div></div><div class="field"><span class="lb">Traveler</span>1 adult, round trip</div>'+
+   '<div class="gh">When</div><div class="field"><label for="ml">From</label><select id="ml" data-f="leave">'+opts(LEAVE,S.leave)+'</select></div><div class="field"><label for="mh">To</label><select id="mh" data-f="home">'+opts(HOME,S.home)+'</select></div>'+
+   '<div class="gh">Flight budget</div><div style="display:flex;justify-content:space-between"><span>Up to</span><b data-b="budget">$'+S.budget+'</b></div>'+range+
+   '<div class="rowm"><div>Carry-on bag<small>Prices include it when this is on</small></div><button class="sw" role="switch" aria-checked="'+S.carry+'" aria-label="Carry-on bag" data-a="carry"></button></div>'+
+   '<div class="gf" data-b="count">'+countLabel()+'</div><button class="cta" data-a="go" data-b="cta">'+ctaLabel()+'</button></div>'};
+}
+function card(f){
+  const on=S.picked.includes(f.id);
+  return '<article class="card"><button class="cardmain" data-a="open" data-id="'+f.id+'"><span class="big">'+fstay(stay(f))+'</span><span class="in">in Cancún</span>'+track(f)+
+   '<div class="pr"><b>$'+price(f)+'</b> total, '+bagTxt()+deltaTxt(f)+'</div><div class="meta">Leaves '+ft(f.outDep)+'. Home '+ft(homeArr(f))+'.</div><div class="meta">'+stops(f)+'. '+f.air+'</div>'+seatsTxt(f)+'</button>'+
+   '<button class="cmp" data-a="pick" data-id="'+f.id+'" aria-pressed="'+on+'">Compare</button></article>';
+}
+function results(p){
+  const m=matches(); let list="";
+  if(S.returned&&!S.seen) list+='<div class="note"><span>Since you last looked: one price went up, one went down, and one flight is nearly full.</span><button data-a="seen">'+(p==="ios"?"OK":"Got it")+'</button></div>';
+  if(m.length){ list+='<div class="key" aria-hidden="true"><span class="kf">Flying</span><span class="ks">In Cancún</span></div>'+m.map(card).join(""); }
+  else{ const c=closest();
+    list+='<div class="empty"><h3>No flights match all your filters</h3><p>'+(c?"The closest keeps your times and costs $"+price(c)+". Your filters stay as they are until you change them.":"Nothing fits your times at any price. Widen your dates to see flights.")+'</p>'+
+      (c?'<button class="cta" data-a="raise" data-v="'+price(c)+'">Raise budget to $'+price(c)+'</button>':"")+'</div>'+
+      '<div class="'+(p==="ios"?"group":"lst")+'">'+[["When",LEAVE[S.leave][0]+" to "+HOME[S.home][0]],["Budget","Up to $"+S.budget],["Destination","Cancún"]].map(r=>p==="ios"?'<div class="row"><span>'+r[0]+'</span><span class="v">'+r[1]+'</span></div>':'<div class="li"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>').join("")+'</div>'+
+      '<button class="mini" data-a="back">Change filters</button>'; }
+  const n=S.picked.length, lab=n===2?"Compare 2 flights":"Pick one more to compare";
+  if(p==="ios") return {bar:'<div class="bar nav"><button data-a="back">‹ Search</button><div class="nt">Toronto to Cancún</div><span class="rt"></span></div>',
+    body:'<div class="segc" role="group" aria-label="Sort"><button data-a="sort" data-v="time" aria-pressed="'+(S.sort==="time")+'">Most time there</button><button data-a="sort" data-v="price" aria-pressed="'+(S.sort==="price")+'">Lowest price</button></div><div class="list">'+list+'</div>',
+    foot:n?'<div class="foot"><button class="cta" data-a="compare"'+(n<2?" disabled":"")+'>'+lab+'</button></div>':""};
+  return {bar:'<div class="bar sub"><button class="ic" data-a="back" aria-label="Back to search">'+back+'</button><div class="nt">Toronto to Cancún</div></div>',
+    body:'<div class="chips" role="group" aria-label="Sort"><button data-a="sort" data-v="time" aria-pressed="'+(S.sort==="time")+'">Most time there</button><button data-a="sort" data-v="price" aria-pressed="'+(S.sort==="price")+'">Lowest price</button></div><div class="list">'+list+'</div>',
+    foot:n?'<button class="fab" data-a="compare"'+(n<2?" disabled":"")+'>'+lab+'</button>':""};
+}
+function rows(p,arr){ return p==="ios"?'<div class="group">'+arr.map(r=>'<div class="row"><span>'+r[0]+'</span><span class="v">'+r[1]+'</span></div>').join("")+'</div>':'<div class="lst">'+arr.map(r=>'<div class="li"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>').join("")+'</div>'; }
+function detail(p,review){
+  const f=byId(S.sel)||F[0], pr=price(f);
+  const counted=[["Lands in Cancún",ft(arrCun(f))],["Leaves Cancún",ft(f.retDep)],["Time there",fstay(stay(f))+(stay(f)%60?" "+(stay(f)%60)+" min":"")]];
+  const out=[["Leaves Toronto",ft(f.outDep)],["Lands in Cancún",ft(arrCun(f))+" local"],["In the air",fdur(f.outDur)+(f.outStop?", 1 stop, "+f.outStop:", direct")]];
+  const ret=[["Leaves Cancún",ft(f.retDep)+" local"],["Lands in Toronto",ft(homeArr(f))],["In the air",fdur(f.retDur)+(f.retStop?", 1 stop, "+f.retStop:", direct")]];
+  const cost=[["Fare","$"+(f.fare+(S.returned?(f.delta||0):0))],["Carry-on bag",S.carry?(f.bag?"$"+f.bag:"Included in fare"):"Not added"],["Total","<b>$"+pr+"</b>"]];
+  const chg=S.returned&&f.delta?'<p class="gf '+(f.delta>0?"up":"down")+'">This price was $'+base(f)+' when you last looked. It is now $'+pr+'.</p>':"";
+  const warn='<p class="gf">Prices and seats are not guaranteed until you have a booking confirmation.</p>';
+  const h=n=>'<div class="gh">'+n+'</div>';
+  const body=review
+   ? '<div class="pad">'+h("Your trip")+rows(p,[["Route","Toronto to Cancún, round trip"],["Traveler","1 adult"],["Airline",f.air],["Time in Cancún",fstay(stay(f))]])+h("Out")+rows(p,out)+h("Back")+rows(p,ret)+h("What you pay")+rows(p,cost)+chg+warn+'</div>'
+   : '<div class="hero"><span class="big">'+fstay(stay(f))+'</span><span class="in">in Cancún with '+f.air+'</span>'+track(f)+'</div><div class="pad">'+h("How we counted")+rows(p,counted)+h("Out")+rows(p,out)+h("Back")+rows(p,ret)+h("What you pay")+rows(p,cost)+chg+warn+'</div>';
+  const btn=review?'<button class="cta" data-a="pay">Confirm and pay $'+pr+'</button>':'<button class="cta" data-a="review">Book for $'+pr+'</button>';
+  const title=review?"Review and pay":"Flight details", bl=review?"Details":"Results";
+  if(p==="ios") return {bar:'<div class="bar nav"><button data-a="back">‹ '+bl+'</button><div class="nt">'+title+'</div><span class="rt"></span></div>',body,foot:'<div class="foot">'+btn+'</div>'};
+  return {bar:'<div class="bar sub"><button class="ic" data-a="back" aria-label="Back">'+back+'</button><div class="nt">'+title+'</div></div>',body,foot:'<div class="foot">'+btn+'</div>'};
+}
+function compare(p){
+  const [a,b]=S.picked.map(byId); if(!a||!b){ S.screen="results"; return results(p); }
+  const more=stay(a)>=stay(b)?a:b, less=more===a?b:a, dt=stay(more)-stay(less), dp=price(more)-price(less);
+  const line=dt===0?"Both give you the same time in Cancún. "+(dp?less.air+" at "+ft(less.outDep)+" costs $"+Math.abs(dp)+(dp>0?" less.":" more."):"They cost the same.")
+    :"The "+ft(more.outDep)+" flight gives you "+fdur(dt)+" more in Cancún and costs "+(dp===0?"the same.":"$"+Math.abs(dp)+(dp>0?" more.":" less."));
+  const w=(x,y,hi)=>hi?(x>y?' class="win"':""):(x<y?' class="win"':"");
+  const r=(l,va,vb,ca,cb)=>'<tr><th scope="row">'+l+'</th><td'+(ca||"")+'>'+va+'</td><td'+(cb||"")+'>'+vb+'</td></tr>';
+  const so=f=>f.outStop?"1 stop, "+f.outStop:"Direct", sr=f=>f.retStop?"1 stop, "+f.retStop:"Direct";
+  const tbl='<table class="cmpt"><thead><tr><th scope="col" style="width:31%"><span style="position:absolute;left:-999em">Detail</span></th><th scope="col">'+a.air+'</th><th scope="col">'+b.air+'</th></tr></thead><tbody>'+
+   r("Time in Cancún",fstay(stay(a)),fstay(stay(b)),w(stay(a),stay(b),1),w(stay(b),stay(a),1))+r("Total price","$"+price(a),"$"+price(b),w(price(a),price(b)),w(price(b),price(a)))+
+   r("Leaves Toronto",ft(a.outDep),ft(b.outDep))+r("Lands in Cancún",ft(arrCun(a)),ft(arrCun(b)))+r("Leaves Cancún",ft(a.retDep),ft(b.retDep))+r("Home",ft(homeArr(a)),ft(homeArr(b)))+
+   r("Way out",so(a),so(b))+r("Way back",sr(a),sr(b))+r("Bag",bagTxt(),bagTxt())+
+   '<tr><th scope="row"></th><td><button class="mini" data-a="open" data-id="'+a.id+'">Choose</button></td><td><button class="mini" data-a="open" data-id="'+b.id+'">Choose</button></td></tr></tbody></table>';
+  const body='<div class="pad"><p style="margin:12px 0 14px;font-size:1.02rem"><b>'+line+'</b></p>'+tbl+'</div>';
+  if(p==="ios") return {bar:'<div class="bar nav sheet"><span></span><div class="nt">Compare</div><span class="rt"><button data-a="back">Done</button></span></div>',body:'<div style="background:#F2F2F7;min-height:100%">'+body+'</div>'};
+  return {bar:'<div class="bar sub"><button class="ic" data-a="back" aria-label="Close">'+closeI+'</button><div class="nt">Compare flights</div></div>',body};
+}
+function booked(p){
+  const f=byId(S.sel)||F[0];
+  const body='<div class="done"><span class="big" style="font-size:1.9rem">Booked</span><p style="font-size:1.05rem;margin:12px 0 4px">'+fstay(stay(f))+' in Cancún</p><p class="gf" style="margin:0 0 6px">Leaves '+ft(f.outDep)+'. Home '+ft(homeArr(f))+'.</p><p class="gf" style="margin:0">This is a prototype, so no payment was taken and no ticket exists.</p><button class="cta" data-a="again">Start a new search</button></div>';
+  return {bar:p==="ios"?'<div class="bar"></div>':'<div class="bar"><div class="nt">Sojourn</div></div>',body};
+}
+const SCREENS={search,results,detail:p=>detail(p,false),review:p=>detail(p,true),compare,booked};
+const PARENT={results:"search",detail:"results",compare:"results",review:"detail",booked:"search"};
+let last={};
+function render(){
+  ["ios","md"].forEach(p=>{
+    const el=document.getElementById("p-"+p), sc=el.querySelector(".scroll"), keep=sc&&last[p]===S.screen?sc.scrollTop:0;
+    const v=(SCREENS[S.screen]||search)(p);
+    el.innerHTML='<div class="status"><span>'+(p==="ios"?"12:41":"12:41")+'</span><i><b></b></i></div><div class="view">'+v.bar+'<div class="scroll">'+v.body+'</div>'+(v.foot||"")+'</div><div class="home"></div>';
+    el.querySelector(".scroll").scrollTop=keep; last[p]=S.screen;
+  });
+  document.getElementById("c-ios").dataset.hide=S.platform==="md"?"1":"0";
+  document.getElementById("c-md").dataset.hide=S.platform==="ios"?"1":"0";
+  document.querySelectorAll("[data-g]").forEach(b=>{ const g=b.dataset.g; if(g==="ios"||g==="md") b.setAttribute("aria-pressed",S.platform===g); if(g==="return"){ b.setAttribute("aria-pressed",S.returned); b.textContent=S.returned?"Back to the first visit":"Come back after work"; } });
+  save();
+}
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-g]");
+  if(g){ const k=g.dataset.g; if(k==="ios"||k==="md") S.platform=k; else if(k==="return"){ S.returned=!S.returned; S.seen=false; if(S.screen==="search"||S.screen==="booked") S.screen="results"; } else if(k==="reset"){ S=Object.assign({},DEF,{platform:S.platform,picked:[]}); } render(); return; }
+  const t=e.target.closest("[data-a]"); if(!t||t.disabled) return; const a=t.dataset.a, id=t.dataset.id;
+  if(a==="go") S.screen="results";
+  else if(a==="back") S.screen=PARENT[S.screen]||"search";
+  else if(a==="carry") S.carry=!S.carry;
+  else if(a==="sort") S.sort=t.dataset.v;
+  else if(a==="seen") S.seen=true;
+  else if(a==="raise") S.budget=Math.min(500,+t.dataset.v);
+  else if(a==="pick"){ S.picked=S.picked.includes(id)?S.picked.filter(x=>x!==id):S.picked.concat(id).slice(-2); }
+  else if(a==="compare") S.screen="compare";
+  else if(a==="open"){ S.sel=id; S.screen="detail"; }
+  else if(a==="review") S.screen="review";
+  else if(a==="pay") S.screen="booked";
+  else if(a==="again"){ S.screen="search"; S.picked=[]; S.sel=null; }
+  render();
+});
+document.addEventListener("input",e=>{
+  const f=e.target.dataset&&e.target.dataset.f; if(f!=="budget") return;
+  S.budget=+e.target.value;
+  document.querySelectorAll('[data-f="budget"]').forEach(x=>{ if(x!==e.target) x.value=S.budget; });
+  document.querySelectorAll('[data-b="budget"]').forEach(x=>x.textContent="$"+S.budget);
+  document.querySelectorAll('[data-b="count"]').forEach(x=>x.textContent=countLabel());
+  document.querySelectorAll('[data-b="cta"]').forEach(x=>x.textContent=ctaLabel());
+  save();
+});
+document.addEventListener("change",e=>{
+  const f=e.target.dataset&&e.target.dataset.f; if(!f) return;
+  if(f==="leave"||f==="home"){ S[f]=e.target.value; S.picked=S.picked.filter(id=>inWin(byId(id))); }
+  render();
+});
+render();
+</script>
+</body>
+</html>

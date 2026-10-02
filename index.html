@@ -30,6 +30,10 @@
             .hero-avatar { display: block; }
             .footer-grid.four { grid-template-columns: 1fr; }
         }
+        .wb-row a { font-weight: 600; color: var(--color-text-primary); text-decoration: none; }
+        .wb-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+        .wb-tag { font-size: var(--fs-small); color: var(--color-text-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 4px 12px; white-space: nowrap; justify-self: end; }
+        @media screen and (max-width: 768px) { .wb-tag { justify-self: start; } }
     </style>
 </head>
 <body class="home">
@@ -39,6 +43,7 @@
         <a href="/" class="logo">Viola Kazemi</a>
         <nav class="site-nav" aria-label="Main">
             <a href="#work">Work</a>
+            <a href="whiteboard">Whiteboard</a>
             <a href="#experience">Experience</a>
             <a href="ViolaKazemi.pdf">Resume</a>
         </nav>
@@ -147,10 +152,26 @@
         </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="section">
+    <!-- Whiteboard -->
+    <section id="whiteboard" class="section">
         <div class="container">
-            <h2 class="section-title"><span class="section-num" aria-hidden="true">04</span>Experience</h2>
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">04</span>Whiteboard Challenges</h2>
+            <p class="section-intro">Short design exercises: one prompt, one user, and the reasoning behind each decision.</p>
+            <ol class="xp-list">
+                <li class="xp-row wb-row">
+                    <span class="xp-dates">Oct 2026</span>
+                    <a href="whiteboard-flight-search">Flight Search: comparing by time at the destination</a>
+                    <span class="wb-tag">Mobile &middot; Travel</span>
+                </li>
+            </ol>
+            <a href="whiteboard" class="text-link">All challenges &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">05</span>Experience</h2>
             <ol class="xp-list">
                 <li class="xp-row">
                     <span class="xp-dates">Sep 2024 &ndash; Present</span>

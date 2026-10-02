@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Flight Search: comparing by time at the destination - Viola Kazemi</title>
+    <meta name="description" content="A whiteboard design exercise by Viola Kazemi: a flight comparison app for a traveler with a fixed long weekend, in native iOS and Android." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
+    <link rel="stylesheet" href="assets/css/main.css?v=8" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <style>
+        .wb-row a { font-weight: 600; color: var(--color-text-primary); text-decoration: none; }
+        .wb-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+        .wb-tag { font-size: var(--fs-small); color: var(--color-text-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 4px 12px; white-space: nowrap; justify-self: end; }
+        .wb-meta { display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px; }
+        .wb-text > * { max-width: var(--container-text); }
+        .wb-text p, .wb-text ul, .wb-text ol { margin-top: var(--space-2); }
+        .wb-text li { margin-left: 1.2em; margin-top: 6px; }
+        .wb-quote { border-left: 3px solid var(--color-text-primary); padding-left: var(--space-3); font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.25; margin-top: var(--space-3); max-width: 30ch; }
+        .wb-table { width: 100%; border-collapse: collapse; margin-top: var(--space-3); font-size: var(--fs-small); }
+        .wb-table th, .wb-table td { text-align: left; padding: 12px 12px 12px 0; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+        .wb-table th { color: var(--color-text-secondary); font-weight: 600; }
+        .wb-scroll { overflow-x: auto; }
+        @media screen and (max-width: 768px) { .wb-tag { justify-self: start; } }
+    </style>
+</head>
+<body>
+
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Flight Search</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Home</a>
+        </nav>
+    </header>
+
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <span class="badge">Whiteboard challenge</span>
+            <h1 style="margin-top: var(--space-2);">Flight Search: comparing by time at the destination</h1>
+            <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A flight comparison app for a traveler whose weekend is fixed and whose budget is limited.</h2>
+            <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                <div><span class="wb-meta">Format</span><span style="font-weight: 500; font-size: var(--fs-small);">Whiteboard exercise</span></div>
+                <div><span class="wb-meta">Platform</span><span style="font-weight: 500; font-size: var(--fs-small);">Native iOS and Android</span></div>
+                <div><span class="wb-meta">Date</span><span style="font-weight: 500; font-size: var(--fs-small);">October 2026</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container wb-text">
+            <h2>The prompt</h2>
+            <p>Design an app or website for searching for flights or comparing options, taking into account one-way, round-trip and multi-stop trips, and baggage fees. The hard part named in the prompt is making a lot of data look simple.</p>
+            <h2 style="margin-top: var(--space-5);">Framing</h2>
+            <p>I asked two questions before designing: is this for travelers or for airline staff, and is the traveler bound by time or by budget? With no answers given, I made three assumptions.</p>
+            <ul>
+                <li>It is for travelers, and the business earns a commission on each booking.</li>
+                <li>The traveler is time-bound, because a long weekend cannot be moved.</li>
+                <li>Comparing is the more valuable half of the prompt. For this traveler, finding a flight and judging it are one problem.</li>
+            </ul>
+            <p class="wb-quote">A mobile app that helps leisure travelers with a fixed long weekend compare flights and pick the one that gives them the most time at their destination.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container wb-text">
+            <h2>One user, one situation</h2>
+            <p>A solo traveler in Toronto. On October 2 he realizes Thanksgiving is his last long weekend before Christmas, and he wants a beach trip to Canc&uacute;n. He can be at the airport from 9 pm on Friday and needs to be home by 2 am on Tuesday, so he can rest before work.</p>
+            <ul>
+                <li>First priority: the most time in Mexico.</li>
+                <li>Second priority: the whole trip under $1,000, with about $300 of it for the flight.</li>
+                <li>He travels with a carry-on only.</li>
+                <li>He plans in short gaps, at lunch and on his commute, which is why this is a phone app that saves his progress.</li>
+            </ul>
+            <h2 style="margin-top: var(--space-5);">Pain points and priorities</h2>
+            <p>He worries that something hidden will ruin the plan: a layover that eats half a day, or a bag fee that appears at checkout. Most flight apps also leave him to work out his time away from four clock times.</p>
+            <p>I chose to solve that uncertainty. Results are sorted by time at the destination, with price as the second sort. I deliberately left out a cheapest-first default, and I left out flight delays, because they happen after booking and the app cannot predict them.</p>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <div class="wb-text">
+                <h2>The flow</h2>
+                <p>Toronto, one traveler and round trip are defaults he never has to touch. He sets where, when, his flight budget and his bag. The count of matching flights updates as he moves the budget, then he compares, chooses, reviews and books.</p>
+                <h2 style="margin-top: var(--space-5);">The key screen</h2>
+                <p>Every result shows the same facts in the same order, and the app does the math he would otherwise do himself.</p>
+                <ol>
+                    <li>Time in Canc&uacute;n, written as days and hours. This is the largest element.</li>
+                    <li>Total price, with the carry-on already included.</li>
+                    <li>When he leaves and when he is home, as small supporting text.</li>
+                    <li>Direct, or one stop and how long.</li>
+                    <li>Airline.</li>
+                </ol>
+                <p>A bar on each card shows flying time and time at the destination across his weekend, so options can be compared by eye. Picking two flights opens a side-by-side view that states the trade in one sentence.</p>
+            </div>
+            <div style="margin-top: var(--space-4); background-color: var(--color-bg-alt); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <iframe src="flight-compare-prototype.html" title="Flight comparison prototype in iOS and Android" style="width: 100%; height: 980px; max-height: 90vh; border: none; border-radius: 12px; background: #E6ECEF;"></iframe>
+            </div>
+            <div style="margin-top: var(--space-3); text-align: center;">
+                <a href="flight-compare-prototype.html" target="_blank" rel="noopener noreferrer" class="button">Open the prototype</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="wb-text">
+                <h2>iOS and Android</h2>
+                <p>The flow is the same on both platforms. The components follow each platform's own guidelines.</p>
+            </div>
+            <div class="wb-scroll">
+                <table class="wb-table">
+                    <thead><tr><th scope="col">Element</th><th scope="col">iOS</th><th scope="col">Android</th></tr></thead>
+                    <tbody>
+                        <tr><td>Title</td><td>Large title</td><td>Top app bar</td></tr>
+                        <tr><td>Form</td><td>Grouped rows</td><td>Outlined fields with labels</td></tr>
+                        <tr><td>Sort</td><td>Segmented control</td><td>Filter chips</td></tr>
+                        <tr><td>Compare action</td><td>Bottom toolbar button</td><td>Floating action button</td></tr>
+                        <tr><td>Compare screen</td><td>Sheet with Done</td><td>Full screen with a close icon</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container wb-text">
+            <h2>Edge cases</h2>
+            <ul>
+                <li><strong>Nothing under his budget.</strong> When I checked, the cheapest fare on this route was about $338, above his $300. The app says so, shows the closest flight that keeps his times, and leaves his filters as he set them. I would test this against a plain "adjust your filters" message and let bookings decide.</li>
+                <li><strong>The price changed while he was at work.</strong> When he comes back, the app shows what the price was and what it is now, up or down, and which flights are nearly full. Nothing is guaranteed until he has a confirmation.</li>
+            </ul>
+            <h2 style="margin-top: var(--space-5);">How I would know it works</h2>
+            <p>The share of time-bound travelers who book from the default sort without switching to price. Booking rate alone could rise because fares dropped that week.</p>
+            <h2 style="margin-top: var(--space-5);">What I would do differently</h2>
+            <ul>
+                <li>My first goal was "show the cheapest flight." Choosing one specific traveler changed it to time at the destination.</li>
+                <li>I first listed his constraints as pain points. A constraint is a limit he has. A pain point is what frustrates him while comparing.</li>
+                <li>Next I would test whether people trust the time number, then add hotel estimates so he sees the whole trip against his $1,000.</li>
+            </ul>
+            <p style="color: var(--color-text-secondary); font-size: var(--fs-small); margin-top: var(--space-4);">The prototype was built with Claude from my design decisions. Flights and prices in it are sample data.</p>
+            <p style="margin-top: var(--space-4);"><a href="whiteboard" class="text-link">All whiteboard challenges &rarr;</a></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="otp-authenticator">Offline OTP Authenticator</a></li>
+                        <li><a href="museum">Museum Educator Dashboard</a></li>
+                        <li><a href="golaab">Golaab Jewelry: Keepsake Builder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Whiteboard</h3>
+                    <ul>
+                        <li><a href="whiteboard">All challenges</a></li>
+                        <li><a href="whiteboard-flight-search">Flight Search</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/site.js?v=2" defer></script>
+</body>
+</html>
