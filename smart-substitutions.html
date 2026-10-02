@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
-    <link rel="stylesheet" href="assets/css/main.css?v=7" />
+    <link rel="stylesheet" href="assets/css/main.css?v=8" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     
     <style>
@@ -81,7 +81,7 @@
             </div>
 
             <div>
-                <img src="images/substitution-flow.webp" alt="8-screen functional flow showing working, uncertain, wrong, and empty states" style="width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+                <img class="shot" src="images/substitution-flow.webp" alt="8-screen functional flow showing working, uncertain, wrong, and empty states" style="width: 100%; display: block;" />
             </div>
         </div>
     </section>
@@ -149,23 +149,23 @@
 
             <div class="grid-3" style="margin-top: var(--space-4); margin-bottom: var(--space-4);">
                 <article class="card">
-                    <img src="images/frame-1-thinking.png" alt="Progressive Loading UI" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <img class="shot" src="images/frame-1-thinking.png" alt="Progressive Loading UI" style="width: 100%; margin-bottom: var(--space-3);" />
                     <h3 style="font-size: var(--fs-h3);">Handling Latency</h3>
                     <p style="font-size: var(--fs-small);">Abstracting the wait into visible, conversational steps so users don't abandon the flow.</p>
                 </article>
                 <article class="card">
-                    <img src="images/frame-2-recommendation.png" alt="AI Substitution Options" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <img class="shot" src="images/frame-2-recommendation.png" alt="AI Substitution Options" style="width: 100%; margin-bottom: var(--space-3);" />
                     <h3 style="font-size: var(--fs-h3);">Building Trust</h3>
                     <p style="font-size: var(--fs-small);">Surfacing the reasoning behind each option with a short rationale tag rather than just a name.</p>
                 </article>
                 <article class="card">
-                    <img src="images/frame-3-fallback.png" alt="Low Confidence Fallback UI" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--space-3); border: 1px solid var(--color-border);" />
+                    <img class="shot" src="images/frame-3-fallback.png" alt="Low Confidence Fallback UI" style="width: 100%; margin-bottom: var(--space-3);" />
                     <h3 style="font-size: var(--fs-h3);">Graceful Fallback</h3>
                     <p style="font-size: var(--fs-small);">If confidence is low, the UI degrades to a manual search to avoid compliance and health risks.</p>
                 </article>
             </div>
 
-            <ul style="margin-top: var(--space-3); margin-bottom: var(--space-4); line-height: 1.8;">
+            <ul style="max-width: 100%; margin-top: var(--space-3); margin-bottom: var(--space-4); line-height: 1.8;">
                 <li><strong>Recipe View:</strong> Calm checklist with an entry point to flag missing items.</li>
                 <li><strong>Bottom Sheet Loading:</strong> Dimmed recipe showing step-by-step progress.</li>
                 <li><strong>3 Options:</strong> Choices with dietary tags, ratios, and a chip explaining the logic.</li>

@@ -699,3 +699,18 @@ h1, h2 { text-wrap: balance; } /* no single-word last lines in serif headlines *
     .display-panel:not([hidden]) { animation: none; }
     .copy-chip, .copy-chip__icon .tick, .copy-chip__icon .sheets { transition: none; }
 }
+
+/* ==========================================================================
+   TEXT WRAPPING AND SCREEN IMAGES
+   ========================================================================== */
+/* Avoid a single word alone on the last line of paragraphs and list items */
+p, li { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* Screens and mockups exported with their own rounded corners:
+   no extra CSS corner, border, or box-shadow (those draw a second outline).
+   drop-shadow follows the image's real shape instead of its rectangle. */
+img.shot {
+    border: 0; border-radius: 0; box-shadow: none;
+    filter: drop-shadow(0 1px 2px rgba(28, 38, 31, 0.08)) drop-shadow(0 12px 24px rgba(28, 38, 31, 0.10));
+}
