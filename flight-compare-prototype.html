@@ -169,12 +169,25 @@ table.cmpt td.win{font-weight:700}
 .md .mini{border:1px solid var(--out);background:none;color:var(--pri);border-radius:20px;padding:8px 6px;width:100%;font-weight:500;font-size:.86rem}
 .md .done{padding:56px 24px}
 @media (prefers-reduced-motion:reduce){ .sw,.sw::after{transition:none!important} }
+
+/* ---------- fit without scrolling ---------- */
+.wrap{padding:14px 16px 14px}
+.tools{margin-bottom:12px}
+.phone{height:700px}
+.ios .bar .lt{font-size:1.8rem;margin:2px 0 0}
+.ios .pad{padding:0 16px 8px}
+.ios .gh{margin:12px 16px 5px}
+.ios .row{min-height:40px;padding:5px 16px}
+.ios .row.col{padding:9px 16px}
+.md .bar{min-height:54px}
+.md .pad{padding:2px 16px 8px}
+.md .gh{margin:10px 0 9px}
+.md .field{padding:11px 14px 9px;margin-bottom:10px}
+.md .rowm{padding:8px 0 4px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Sojourn: compare flights by time at your destination</h1>
-  <p>One working prototype in two native styles. Tap through either phone and the other follows. Flight data is sample data for Toronto to Cancún over Thanksgiving weekend.</p>
   <div class="tools">
     <div class="seg" role="group" aria-label="Platform"><button data-g="ios" aria-pressed="true">iOS</button><button data-g="md" aria-pressed="false">Android</button></div>
     <button data-g="return" aria-pressed="false">Come back after work</button>
@@ -233,13 +246,13 @@ function search(p){
    '<div class="pad"><div class="gh" style="margin-top:6px">Where</div><div class="group"><div class="row"><span>From</span><span class="v">Toronto (YYZ)</span></div><div class="row"><span>To</span><span class="v">Cancún (CUN)</span></div><div class="row"><span>Traveler</span><span class="v">1 adult, round trip</span></div></div>'+
    '<div class="gh">When</div><div class="group"><div class="row"><label for="il">From</label><select id="il" data-f="leave">'+opts(LEAVE,S.leave)+'</select></div><div class="row"><label for="ih">To</label><select id="ih" data-f="home">'+opts(HOME,S.home)+'</select></div></div>'+
    '<div class="gh">Flight budget</div><div class="group"><div class="row col"><div style="display:flex;justify-content:space-between"><span>Up to</span><b data-b="budget">$'+S.budget+'</b></div>'+range+'</div><div class="row"><span>Carry-on bag</span><button class="sw" role="switch" aria-checked="'+S.carry+'" aria-label="Carry-on bag" data-a="carry"></button></div></div>'+
-   '<div class="gf" data-b="count">'+countLabel()+'</div><button class="cta" data-a="go" data-b="cta">'+ctaLabel()+'</button></div>'};
+   '<div class="gf" data-b="count">'+countLabel()+'</div></div>',foot:'<div class="foot"><button class="cta" data-a="go" data-b="cta">'+ctaLabel()+'</button></div>'};
   return {bar:'<div class="bar"><div class="nt">Search flights</div></div>',body:
    '<div class="pad"><div class="gh" style="margin-top:4px">Where</div><div class="two"><div class="field"><span class="lb">From</span>Toronto (YYZ)</div><div class="field"><span class="lb">To</span>Cancún (CUN)</div></div><div class="field"><span class="lb">Traveler</span>1 adult, round trip</div>'+
    '<div class="gh">When</div><div class="field"><label for="ml">From</label><select id="ml" data-f="leave">'+opts(LEAVE,S.leave)+'</select></div><div class="field"><label for="mh">To</label><select id="mh" data-f="home">'+opts(HOME,S.home)+'</select></div>'+
    '<div class="gh">Flight budget</div><div style="display:flex;justify-content:space-between"><span>Up to</span><b data-b="budget">$'+S.budget+'</b></div>'+range+
    '<div class="rowm"><div>Carry-on bag<small>Prices include it when this is on</small></div><button class="sw" role="switch" aria-checked="'+S.carry+'" aria-label="Carry-on bag" data-a="carry"></button></div>'+
-   '<div class="gf" data-b="count">'+countLabel()+'</div><button class="cta" data-a="go" data-b="cta">'+ctaLabel()+'</button></div>'};
+   '<div class="gf" data-b="count">'+countLabel()+'</div></div>',foot:'<div class="foot"><button class="cta" data-a="go" data-b="cta">'+ctaLabel()+'</button></div>'};
 }
 function card(f){
   const on=S.picked.includes(f.id);
