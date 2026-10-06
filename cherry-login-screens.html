@@ -13,25 +13,25 @@ main{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;padding:24px 16
 figure{margin:0}
 figcaption{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
 .wrap{width:312px;height:675px;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(36,22,26,.14)}
-.phone{width:390px;height:844px;transform:scale(.8);transform-origin:top left;background:var(--page);display:flex;flex-direction:column}
-.status{height:48px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:600}
+.phone{width:390px;height:844px;transform:scale(.8);transform-origin:top left;background:var(--cherry);display:flex;flex-direction:column}
+.status{height:48px;padding:6px 30px 0;display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:600;color:#fff}
 .status svg{display:block}
-.body{flex:1;padding:8px 24px 28px;display:flex;flex-direction:column}
-.top{height:44px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:22px;color:var(--cherry);letter-spacing:-.01em}
+.body{flex:1;background:var(--page);border-top-right-radius:30px;padding:8px 30px 28px;display:flex;flex-direction:column}
+.top{height:60px;padding:0 30px 8px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.brand{display:flex;align-items:center;gap:7px;font-weight:600;font-size:25px;color:#fff;letter-spacing:-.02em}
 .help{font-size:14px;font-weight:500;color:var(--cherry)}
-h1{margin:28px 0 0;font-weight:600;font-size:28px;line-height:1.2;letter-spacing:-.01em}
+h1{margin:26px 0 0;font-weight:600;font-size:26px;line-height:1.2;letter-spacing:-.01em}
 .sub{margin:8px 0 0;font-size:15px;line-height:1.45;color:var(--muted)}
 label{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:6px}
-.field{height:56px;border:1.5px solid var(--line);border-radius:14px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-size:17px;font-weight:500}
-.field.focus{border-color:var(--cherry)}
+.field{height:58px;border:1.5px solid #8C8083;border-radius:6px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-size:17px;font-weight:500}
+.field.focus{border:2px solid var(--ink)}
 .hint{font-size:13px;color:var(--muted);margin-top:6px}
 .stack{display:flex;flex-direction:column;gap:18px;margin-top:28px}
 .toggle-row{display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:500;min-height:44px}
 .toggle{width:50px;height:30px;border-radius:15px;background:var(--cherry);position:relative}
 .toggle::after{content:"";position:absolute;right:3px;top:3px;width:24px;height:24px;border-radius:12px;background:#fff}
 .foot{margin-top:auto;display:flex;flex-direction:column;gap:6px}
-.btn{height:56px;border-radius:16px;background:var(--cherry);color:#fff;font-weight:600;font-size:17px;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn{height:50px;border-radius:25px;background:var(--cherry);color:#fff;font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center;gap:10px}
 .btn.off{background:var(--off);color:var(--muted)}
 .link{min-height:44px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;color:var(--cherry)}
 .links{display:flex;justify-content:space-between}
@@ -45,9 +45,9 @@ label{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bot
 .bar{height:6px;border-radius:3px;background:#F1CBD4;margin-top:8px;overflow:hidden}
 .bar i{display:block;height:100%;width:20%;background:var(--cherry);border-radius:3px}
 .code{display:flex;gap:8px;margin-top:8px}
-.code div{flex:1;height:58px;border:1.5px solid var(--line);border-radius:12px}
-.code div.on{border-color:var(--cherry);position:relative}
-.code div.on::after{content:"";position:absolute;left:50%;top:17px;width:2px;height:24px;background:var(--cherry)}
+.code div{flex:1;height:58px;border:1.5px solid #8C8083;border-radius:6px}
+.code div.on{border:2px solid var(--ink);position:relative}
+.code div.on::after{content:"";position:absolute;left:50%;top:16px;width:2px;height:24px;background:var(--cherry)}
 .code-row{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
 .code-row label{margin:0}
 .paste{font-size:14px;font-weight:500;color:var(--cherry)}
@@ -65,9 +65,9 @@ body.hero figure:nth-child(2){margin-top:-48px}
 <main>
 
 <figure><figcaption>1 &middot; Log in</figcaption><div class="wrap"><div class="phone">
-<div class="status"><span>11:50</span><svg width="66" height="14" viewBox="0 0 66 14" fill="#24161A"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/><path d="M33 3.2c2.6 0 4.9 1 6.6 2.7l-1.3 1.4A7.5 7.5 0 0 0 33 5.1c-2 0-3.9.8-5.3 2.2l-1.3-1.4A9.4 9.4 0 0 1 33 3.2Zm0 3.9c1.5 0 2.9.6 3.9 1.600l-1.4 1.400a3.6 3.6 0 0 0-5 0l-1.4-1.400a5.5 5.5 0 0 1 3.9-1.600Zm0 3.7 1.6 1.7-1.6 1.5-1.6-1.500Z"/><rect x="45" y="1.5" width="19" height="11" rx="3" fill="none" stroke="#24161A"/><rect x="47" y="3.5" width="13" height="7" rx="1.5"/></svg></div>
+<div class="status"><span>11:50</span><svg width="66" height="14" viewBox="0 0 66 14" fill="#fff"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/><path d="M33 3.2c2.6 0 4.9 1 6.6 2.7l-1.3 1.4A7.5 7.5 0 0 0 33 5.1c-2 0-3.9.8-5.3 2.2l-1.3-1.4A9.4 9.4 0 0 1 33 3.2Zm0 3.9c1.5 0 2.9.6 3.9 1.600l-1.4 1.400a3.6 3.6 0 0 0-5 0l-1.4-1.400a5.5 5.5 0 0 1 3.9-1.600Zm0 3.7 1.6 1.7-1.6 1.5-1.6-1.500Z"/><rect x="45" y="1.5" width="19" height="11" rx="3" fill="none" stroke="#fff"/><rect x="47" y="3.5" width="13" height="7" rx="1.5"/></svg></div>
+<div class="top"><svg width="26" height="20" viewBox="0 0 26 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Back"><path d="M24 10H2M9 2 2 10l7 8"/></svg><div class="brand"><svg width="22" height="25" viewBox="0 0 26 28"><path d="M8 17C9 10 13 5 20 3M18 17c0-6 0-10 2-14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="20" r="6" fill="#fff"/><circle cx="18.5" cy="21" r="6" fill="#fff" fill-opacity=".72"/></svg>Cherry</div><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" role="img" aria-label="Help"><circle cx="13" cy="13" r="11.5"/><path d="M9.8 10.2a3.2 3.2 0 1 1 4.7 2.800c-.900.500-1.5 1.100-1.5 2.100"/><circle cx="13" cy="18.6" r=".6" fill="#fff"/></svg></div>
 <div class="body">
-<div class="top"><div class="brand"><svg width="26" height="28" viewBox="0 0 26 28"><path d="M8 17C9 10 13 5 20 3M18 17c0-6 0-10 2-14" fill="none" stroke="#3C6E47" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="20" r="6" fill="#B1123B"/><circle cx="18.5" cy="21" r="6" fill="#7C0A28"/></svg>Cherry</div><div class="help">Help</div></div>
 <h1>Log in</h1>
 <div class="stack">
 <div><label>Login ID</label><div class="field"><span>ali.rahimi</span><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#3C6E47"/><path d="m6 10.3 2.7 2.700L14 7.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="hint">Saved on this phone</div></div>
@@ -81,9 +81,9 @@ body.hero figure:nth-child(2){margin-top:-48px}
 </div></div></div></figure>
 
 <figure><figcaption>2 &middot; Waiting: the code is on its way</figcaption><div class="wrap"><div class="phone">
-<div class="status"><span>11:50</span><svg width="66" height="14" viewBox="0 0 66 14" fill="#24161A"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/><path d="M33 3.2c2.6 0 4.9 1 6.6 2.7l-1.3 1.4A7.5 7.5 0 0 0 33 5.1c-2 0-3.9.8-5.3 2.2l-1.3-1.4A9.4 9.4 0 0 1 33 3.2Zm0 3.9c1.5 0 2.9.6 3.9 1.600l-1.4 1.400a3.6 3.6 0 0 0-5 0l-1.4-1.400a5.5 5.5 0 0 1 3.9-1.600Zm0 3.7 1.6 1.7-1.6 1.5-1.6-1.500Z"/><rect x="45" y="1.5" width="19" height="11" rx="3" fill="none" stroke="#24161A"/><rect x="47" y="3.5" width="13" height="7" rx="1.5"/></svg></div>
+<div class="status"><span>11:50</span><svg width="66" height="14" viewBox="0 0 66 14" fill="#fff"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/><path d="M33 3.2c2.6 0 4.9 1 6.6 2.7l-1.3 1.4A7.5 7.5 0 0 0 33 5.1c-2 0-3.9.8-5.3 2.2l-1.3-1.4A9.4 9.4 0 0 1 33 3.2Zm0 3.9c1.5 0 2.9.6 3.9 1.600l-1.4 1.400a3.6 3.6 0 0 0-5 0l-1.4-1.400a5.5 5.5 0 0 1 3.9-1.600Zm0 3.7 1.6 1.7-1.6 1.5-1.6-1.500Z"/><rect x="45" y="1.5" width="19" height="11" rx="3" fill="none" stroke="#fff"/><rect x="47" y="3.5" width="13" height="7" rx="1.5"/></svg></div>
+<div class="top"><svg width="26" height="20" viewBox="0 0 26 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Back"><path d="M24 10H2M9 2 2 10l7 8"/></svg><div class="brand"><svg width="22" height="25" viewBox="0 0 26 28"><path d="M8 17C9 10 13 5 20 3M18 17c0-6 0-10 2-14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="20" r="6" fill="#fff"/><circle cx="18.5" cy="21" r="6" fill="#fff" fill-opacity=".72"/></svg>Cherry</div><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" role="img" aria-label="Help"><circle cx="13" cy="13" r="11.5"/><path d="M9.8 10.2a3.2 3.2 0 1 1 4.7 2.800c-.900.500-1.5 1.100-1.5 2.100"/><circle cx="13" cy="18.6" r=".6" fill="#fff"/></svg></div>
 <div class="body">
-<div class="top"><div class="help" style="font-size:15px">&larr; Back</div><div class="help">Help</div></div>
 <h1>Enter your security code</h1>
 <div class="card">
 <div class="card-head"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#B1123B"/><path d="m7 12.4 3.3 3.300L17 9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Code sent to (&bull;&bull;&bull;) &bull;&bull;&bull;-4182</div>
@@ -100,9 +100,9 @@ body.hero figure:nth-child(2){margin-top:-48px}
 </div></div></div></figure>
 
 <figure><figcaption>3 &middot; Timeout: resend unlocks</figcaption><div class="wrap"><div class="phone">
-<div class="status"><span>11:51</span><svg width="66" height="14" viewBox="0 0 66 14" fill="#24161A"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/><path d="M33 3.2c2.6 0 4.9 1 6.6 2.7l-1.3 1.4A7.5 7.5 0 0 0 33 5.1c-2 0-3.9.8-5.3 2.2l-1.3-1.4A9.4 9.4 0 0 1 33 3.2Zm0 3.9c1.5 0 2.9.6 3.9 1.600l-1.4 1.400a3.6 3.6 0 0 0-5 0l-1.4-1.400a5.5 5.5 0 0 1 3.9-1.600Zm0 3.7 1.6 1.7-1.6 1.5-1.6-1.500Z"/><rect x="45" y="1.5" width="19" height="11" rx="3" fill="none" stroke="#24161A"/><rect x="47" y="3.5" width="13" height="7" rx="1.5"/></svg></div>
+<div class="status"><span>11:51</span><svg width="66" height="14" viewBox="0 0 66 14" fill="#fff"><rect x="0" y="9" width="3" height="5" rx="1"/><rect x="5" y="6" width="3" height="8" rx="1"/><rect x="10" y="3" width="3" height="11" rx="1"/><rect x="15" y="0" width="3" height="14" rx="1"/><path d="M33 3.2c2.6 0 4.9 1 6.6 2.7l-1.3 1.4A7.5 7.5 0 0 0 33 5.1c-2 0-3.9.8-5.3 2.2l-1.3-1.4A9.4 9.4 0 0 1 33 3.2Zm0 3.9c1.5 0 2.9.6 3.9 1.600l-1.4 1.400a3.6 3.6 0 0 0-5 0l-1.4-1.400a5.5 5.5 0 0 1 3.9-1.600Zm0 3.7 1.6 1.7-1.6 1.5-1.6-1.500Z"/><rect x="45" y="1.5" width="19" height="11" rx="3" fill="none" stroke="#fff"/><rect x="47" y="3.5" width="13" height="7" rx="1.5"/></svg></div>
+<div class="top"><svg width="26" height="20" viewBox="0 0 26 20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Back"><path d="M24 10H2M9 2 2 10l7 8"/></svg><div class="brand"><svg width="22" height="25" viewBox="0 0 26 28"><path d="M8 17C9 10 13 5 20 3M18 17c0-6 0-10 2-14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="20" r="6" fill="#fff"/><circle cx="18.5" cy="21" r="6" fill="#fff" fill-opacity=".72"/></svg>Cherry</div><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" role="img" aria-label="Help"><circle cx="13" cy="13" r="11.5"/><path d="M9.8 10.2a3.2 3.2 0 1 1 4.7 2.800c-.900.500-1.5 1.100-1.5 2.100"/><circle cx="13" cy="18.6" r=".6" fill="#fff"/></svg></div>
 <div class="body">
-<div class="top"><div class="help" style="font-size:15px">&larr; Back</div><div class="help">Help</div></div>
 <h1>Enter your security code</h1>
 <div class="card warn">
 <div class="card-head"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#24161A" stroke-width="2"/><path d="M12 6.500v6l3.5 2.2" fill="none" stroke="#24161A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>The code didn't arrive</div>
