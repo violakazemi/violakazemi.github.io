@@ -741,6 +741,5 @@ img.shot {
 
 /* Nav: the name must never truncate on phones */
 @media screen and (max-width: 520px) {
-    .home .site-nav a[href="#work"] { display: none; } /* Work is the first section below the hero */
     .global-header .logo { overflow: visible; text-overflow: clip; flex: none; }
 }

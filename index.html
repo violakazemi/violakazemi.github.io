@@ -8,13 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
-    <link rel="stylesheet" href="assets/css/main.css?v=9" />
+    <link rel="stylesheet" href="assets/css/main.css?v=11" />
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
         html { scroll-padding-top: 80px; }
         .hero { padding: 120px 0 96px; }
         .hero-grid { grid-template-columns: 1fr 240px; gap: 72px; }
-        .hero-avatar { display: none; width: 88px; height: 110px; border-radius: 12px; object-fit: cover; object-position: 50% 20%; margin-bottom: var(--space-3); }
+        .hero-avatar { display: none; width: 88px; height: 110px; border-radius: 12px; object-fit: cover; object-position: 50% 30%; margin-bottom: var(--space-3); }
         .hero-eyebrow { font-size: var(--fs-small); color: var(--color-text-secondary); font-weight: 500; margin-bottom: var(--space-2); }
         .hero h1 { font-size: clamp(2.6rem, 4.6vw + 1rem, 4.4rem); line-height: 1.04; letter-spacing: -0.015em; max-width: 17ch; margin-bottom: var(--space-3); }
         .hero-lede { color: var(--color-text-primary); max-width: 54ch; }
@@ -43,7 +43,6 @@
         <a href="/" class="logo">Viola Kazemi</a>
         <nav class="site-nav" aria-label="Main">
             <a href="#work">Work</a>
-            <a href="whiteboard">Whiteboard</a>
             <a href="#experience">Experience</a>
             <a href="ViolaKazemi.pdf">Resume</a>
         </nav>
@@ -54,7 +53,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text reveal">
-                    <img class="hero-avatar" src="images/avatar.webp" alt="" aria-hidden="true" width="88" height="110" />
+                    <img class="hero-avatar" src="images/avatar-sm.webp" alt="" aria-hidden="true" width="88" height="110" />
                     <p class="hero-eyebrow">Viola Kazemi &middot; Mobile Product Designer &middot; Toronto</p>
                     <h1>I design native iOS and Android apps, and the <em>design systems</em> behind them.</h1>
                     <p class="hero-lede">For 5+ years I&rsquo;ve shipped mobile products, including offline security apps used by 2M+ people. I studied computer engineering, so I design with the build in mind.</p>
@@ -152,31 +151,11 @@
         </div>
     </section>
 
-    <!-- Whiteboard -->
-    <section id="whiteboard" class="section">
-        <div class="container">
-            <h2 class="section-title"><span class="section-num" aria-hidden="true">04</span>Whiteboard Challenges</h2>
-            <p class="section-intro">Short design exercises: one prompt, one user, and the reasoning behind each decision.</p>
-            <ol class="xp-list">
-                <li class="xp-row wb-row">
-                    <span class="xp-dates">Oct 2026</span>
-                    <a href="whiteboard-404-page">404 Page: turning a dead promo link into an order</a>
-                    <span class="wb-tag">Mobile web &middot; Food</span>
-                </li>
-                <li class="xp-row wb-row">
-                    <span class="xp-dates">Oct 2026</span>
-                    <a href="whiteboard-flight-search">Flight Search: comparing by time at the destination</a>
-                    <span class="wb-tag">Mobile &middot; Travel</span>
-                </li>
-            </ol>
-            <a href="whiteboard" class="text-link">All challenges &rarr;</a>
-        </div>
-    </section>
 
     <!-- Experience -->
-    <section id="experience" class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title"><span class="section-num" aria-hidden="true">05</span>Experience</h2>
+            <h2 class="section-title"><span class="section-num" aria-hidden="true">04</span>Experience</h2>
             <ol class="xp-list">
                 <li class="xp-row">
                     <span class="xp-dates">Sep 2024 &ndash; Present</span>
