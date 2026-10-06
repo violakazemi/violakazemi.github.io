@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Login Code: ending the resend loop - Viola Kazemi</title>
-    <meta name="description" content="A whiteboard design exercise by Viola Kazemi: a waiting state for the security code step of a banking app, based on a real app store review." />
+    <meta name="description" content="A whiteboard design exercise by Viola Kazemi: a waiting state for the security code step of a banking app login." />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
@@ -37,7 +37,7 @@
         <div class="container">
             <span class="badge">Whiteboard challenge</span>
             <h1 style="margin-top: var(--space-2);">Login Code: ending the resend loop</h1>
-            <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A waiting state for the security code step of a banking app, based on a real app store review.</h2>
+            <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A waiting state for the security code step of a banking app login.</h2>
             <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                 <div><span class="wb-meta">Format</span><span style="font-weight: 500; font-size: var(--fs-small);">Whiteboard exercise</span></div>
                 <div><span class="wb-meta">Platform</span><span style="font-weight: 500; font-size: var(--fs-small);">Native mobile</span></div>
@@ -49,16 +49,17 @@
 
     <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container wb-text">
-            <h2>The prompt</h2>
-            <p>A real app store review of a Canadian banking app. The reviewer says the app asks for a text code at every login, the &ldquo;Remember me&rdquo; box seems to do nothing, and he has to tap resend four or five times before a code arrives. He is shopping for another bank. I renamed the bank Cherry and changed its colours.</p>
+            <h2>The challenge</h2>
+            <p>Redesign the security code step of a banking app login. Users say they tap resend several times before a code arrives. Cherry is a made-up bank that I used for this exercise.</p>
             <h2 style="margin-top: var(--space-5);">Diagnosis before design</h2>
-            <p>The reviewer wrote that the code &ldquo;never sends the first time.&rdquo; I separated what he saw from what he concluded. He saw that he tapped, no code came, he tapped again several times, and then a code came. He concluded that the first one was never sent. From his side of the screen he has no way to know which tap produced the code that arrived.</p>
+            <p>The complaint is that the code does not arrive on the first try. I separated what the user sees from what he concludes. He sees that he tapped, no code came, he tapped again several times, and then a code came. He concludes that the first one was never sent. From his side of the screen he has no way to know which tap produced the code that arrived.</p>
             <p>That left two places where the problem could be.</p>
             <ul>
-                <li><strong>Between his tap and our handoff to the SMS provider.</strong> Nothing on screen tells him a request is in progress, so he taps again. If each tap sends a new code and cancels the previous one, his own tapping is part of the failure.</li>
+                <li><strong>Between his tap and our handoff to the SMS provider.</strong> Nothing on screen tells him a request is in progress, so he taps again.</li>
                 <li><strong>Between the handoff and his phone.</strong> The carrier is slow or drops the message. No screen change fixes that.</li>
             </ul>
-            <p>I would check the send logs before designing: one message per tap, and whether each was delivered or failed. I would look at the carrier side first, because that fix sits outside the app team and it is the most expensive answer to find out late.</p>
+            <p>On a real team I would check the send logs first: one message per tap, and whether each was delivered or failed. In this exercise I had no logs, so I stated my assumption and designed for it.</p>
+            <p><strong>My assumption:</strong> the text is delivered, but each extra tap sends a new code and cancels the previous one. His own tapping is part of the failure, and he taps because the screen gives him no feedback.</p>
             <p class="wb-quote">A waiting state for Cherry clients who can't log in, to end the repeated tapping caused by no feedback between the tap and the handoff.</p>
             <p>I deliberately left the carrier delivery problem to the SMS provider team.</p>
         </div>
@@ -132,7 +133,7 @@
             <ul>
                 <li>My first attempt opened with the solution, a disabled state for the button, before I had asked whether the code was being delivered at all. I redid the exercise starting from the cause.</li>
                 <li>My first metric was taps per login. A locked button forces that number down even if nobody logs in faster, so I replaced it with a number my own design cannot fake.</li>
-                <li>I left out &ldquo;a code at every login&rdquo; as a security rule. The bank's help centre describes a trusted device setting that skips the code. If the reviewer never found it, that is a discoverability problem, and it is the next thing I would take on.</li>
+                <li>The whole design rests on one assumption. Before building it, I would confirm in the send logs that extra taps cancel earlier codes.</li>
                 <li>Next I would tune the 30 seconds against real delivery times.</li>
             </ul>
             <p style="color: var(--color-text-secondary); font-size: var(--fs-small); margin-top: var(--space-4);">The screens were drawn with Claude from my design decisions. Cherry is a made-up bank, and the Login ID and phone number are sample data.</p>
