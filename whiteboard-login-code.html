@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Login Code: ending the resend loop - Viola Kazemi</title>
+    <meta name="description" content="A whiteboard design exercise by Viola Kazemi: a waiting state for the security code step of a banking app, based on a real app store review." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
+    <link rel="stylesheet" href="assets/css/main.css?v=9" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <style>
+        .wb-row a { font-weight: 600; color: var(--color-text-primary); text-decoration: none; }
+        .wb-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+        .wb-tag { font-size: var(--fs-small); color: var(--color-text-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 4px 12px; white-space: nowrap; justify-self: end; }
+        .wb-meta { display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px; }
+        .wb-text > * { max-width: 100%; }
+        .wb-text p, .wb-text ul, .wb-text ol { margin-top: var(--space-2); }
+        .wb-text li { margin-left: 1.2em; margin-top: 6px; }
+        .wb-quote { border-left: 3px solid var(--color-text-primary); padding-left: var(--space-3); font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.25; margin-top: var(--space-3); max-width: 30ch; }
+        .wb-table { width: 100%; border-collapse: collapse; margin-top: var(--space-3); font-size: var(--fs-small); }
+        .wb-table th, .wb-table td { text-align: left; padding: 12px 12px 12px 0; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+        .wb-table th { color: var(--color-text-secondary); font-weight: 600; }
+        .wb-scroll { overflow-x: auto; }
+        @media screen and (max-width: 768px) { .wb-tag { justify-self: start; } }
+    </style>
+</head>
+<body>
+
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ Login Code</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Home</a>
+        </nav>
+    </header>
+
+        <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <span class="badge">Whiteboard challenge</span>
+            <h1 style="margin-top: var(--space-2);">Login Code: ending the resend loop</h1>
+            <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A waiting state for the security code step of a banking app, based on a real app store review.</h2>
+            <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                <div><span class="wb-meta">Format</span><span style="font-weight: 500; font-size: var(--fs-small);">Whiteboard exercise</span></div>
+                <div><span class="wb-meta">Platform</span><span style="font-weight: 500; font-size: var(--fs-small);">Native mobile</span></div>
+                <div><span class="wb-meta">Date</span><span style="font-weight: 500; font-size: var(--fs-small);">October 2026</span></div>
+            </div>
+            <img src="images/whiteboard-login-hero.webp" alt="Three screens of the Cherry banking app: the log in screen, the security code screen with a countdown and a locked resend button, and the timeout screen where resend is active again" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block; margin-top: var(--space-5);" />
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container wb-text">
+            <h2>The prompt</h2>
+            <p>A real app store review of a Canadian banking app. The reviewer says the app asks for a text code at every login, the &ldquo;Remember me&rdquo; box seems to do nothing, and he has to tap resend four or five times before a code arrives. He is shopping for another bank. I renamed the bank Cherry and changed its colours.</p>
+            <h2 style="margin-top: var(--space-5);">Diagnosis before design</h2>
+            <p>The reviewer wrote that the code &ldquo;never sends the first time.&rdquo; I separated what he saw from what he concluded. He saw that he tapped, no code came, he tapped again several times, and then a code came. He concluded that the first one was never sent. From his side of the screen he has no way to know which tap produced the code that arrived.</p>
+            <p>That left two places where the problem could be.</p>
+            <ul>
+                <li><strong>Between his tap and our handoff to the SMS provider.</strong> Nothing on screen tells him a request is in progress, so he taps again. If each tap sends a new code and cancels the previous one, his own tapping is part of the failure.</li>
+                <li><strong>Between the handoff and his phone.</strong> The carrier is slow or drops the message. No screen change fixes that.</li>
+            </ul>
+            <p>I would check the send logs before designing: one message per tap, and whether each was delivered or failed. I would look at the carrier side first, because that fix sits outside the app team and it is the most expensive answer to find out late.</p>
+            <p class="wb-quote">A waiting state for Cherry clients who can't log in, to end the repeated tapping caused by no feedback between the tap and the handoff.</p>
+            <p>I deliberately left the carrier delivery problem to the SMS provider team.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container wb-text">
+            <h2>One user, one situation</h2>
+            <ul>
+                <li>Ali is at home at 11:50pm. He just remembered his electricity bill.</li>
+                <li>He has ten minutes before a late fee.</li>
+                <li>He is on good wifi with a full signal. I chose that on purpose: if the code still takes four taps, the cause is on the app side, which is the problem I committed to.</li>
+            </ul>
+            <h2 style="margin-top: var(--space-5);">Pain points and priorities</h2>
+        </div>
+        <div class="container">
+            <div class="wb-scroll">
+                <table class="wb-table">
+                    <thead><tr><th scope="col">Frustration</th><th scope="col">Decision</th><th scope="col">Why</th></tr></thead>
+                    <tbody>
+                        <tr><td>No sign that his request is in progress, so he keeps tapping</td><td>Solving</td><td>It is what stops him logging in tonight, and the app team owns it.</td></tr>
+                        <tr><td>A code is required at every login</td><td>Left out</td><td>It is a security requirement and it works as intended.</td></tr>
+                        <tr><td>&ldquo;Remember me&rdquo; does not save the password</td><td>Left out</td><td>It saves the Login ID by design. It annoys him, but it does not block the login.</td></tr>
+                        <tr><td>The text message is slow or never delivered</td><td>Left out</td><td>It belongs to the SMS provider team.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <div class="wb-text">
+                <h2>The flow</h2>
+                <ol>
+                    <li>He opens the app. His Login ID is already filled in, because &ldquo;Remember me&rdquo; is on by default.</li>
+                    <li>He enters his password and taps &ldquo;Send security code.&rdquo;</li>
+                    <li>The waiting state starts: the screen says where the code was sent, a 30 second countdown runs, and resend is locked.</li>
+                    <li>If the code arrives, the app fills it in. He is logged in and pays the bill.</li>
+                    <li>If 30 seconds pass with no code, the screen says so and resend unlocks. He taps it and the waiting state starts again.</li>
+                    <li>After a second timeout, the screen offers a phone call or an email, so he is never stuck.</li>
+                </ol>
+                <h2 style="margin-top: var(--space-5);">The key screens</h2>
+                <ol>
+                    <li><strong>Log in.</strong> One primary action. The button names what happens next: &ldquo;Send security code.&rdquo;</li>
+                    <li><strong>Waiting.</strong> The largest element is the &ldquo;Code sent&rdquo; card with the live countdown, because that reassurance is what stops him tapping. The locked button shows three signals and never colour alone: a muted fill, new text (&ldquo;Resend in 0:24&rdquo;), and a spinner.</li>
+                    <li><strong>Timeout.</strong> The card changes to &ldquo;The code didn't arrive&rdquo; and the button returns to full colour with &ldquo;Resend security code.&rdquo; It also tells him the first code will stop working.</li>
+                </ol>
+            </div>
+            <img src="images/whiteboard-login-screens.webp" alt="The three Cherry screens side by side: log in with a saved Login ID, the waiting state with a Code sent card, a 0:24 countdown and a locked Resend button, and the timeout state with an active Resend security code button" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--color-border); display: block; margin-top: var(--space-4);" />
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container wb-text">
+            <h2>Three questions I had to answer</h2>
+            <ul>
+                <li><strong>Why lock the button when he is in a hurry?</strong> Every extra tap may send a new code and cancel the previous one, so the tapping is part of what breaks the login. The lock protects his request, and the countdown tells him it is working.</li>
+                <li><strong>Why 30 seconds?</strong> It is a starting assumption, because most carriers deliver a text within that window. I would set the real number from our delivery data. If 95% of codes arrive within 20 seconds, the countdown becomes 20.</li>
+                <li><strong>Is the call or email option out of scope?</strong> Delivering the text is the carrier's job. Not leaving Ali stuck when it fails is a design job, so it stays in.</li>
+            </ul>
+            <h2 style="margin-top: var(--space-5);">Edge cases</h2>
+            <ul>
+                <li><strong>His phone storage is full and the text cannot arrive.</strong> After the second timeout he can get the code by phone call or email.</li>
+                <li><strong>The text is never delivered.</strong> The same second route gets him in tonight. The delivery failure goes to the SMS provider team.</li>
+                <li><strong>He cannot type or copy the code.</strong> The app reads the incoming text and fills the code in, and &ldquo;Paste code&rdquo; sits beside the field.</li>
+            </ul>
+            <h2 style="margin-top: var(--space-5);">How I would know it works</h2>
+            <p>The share of login attempts that end in a successful login within two minutes of the first code request.</p>
+            <h2 style="margin-top: var(--space-5);">What I would do differently</h2>
+            <ul>
+                <li>My first attempt opened with the solution, a disabled state for the button, before I had asked whether the code was being delivered at all. I redid the exercise starting from the cause.</li>
+                <li>My first metric was taps per login. A locked button forces that number down even if nobody logs in faster, so I replaced it with a number my own design cannot fake.</li>
+                <li>I left out &ldquo;a code at every login&rdquo; as a security rule. The bank's help centre describes a trusted device setting that skips the code. If the reviewer never found it, that is a discoverability problem, and it is the next thing I would take on.</li>
+                <li>Next I would tune the 30 seconds against real delivery times.</li>
+            </ul>
+            <p style="color: var(--color-text-secondary); font-size: var(--fs-small); margin-top: var(--space-4);">The screens were drawn with Claude from my design decisions. Cherry is a made-up bank, and the Login ID and phone number are sample data.</p>
+            <p style="margin-top: var(--space-4);"><a href="whiteboard" class="text-link">All whiteboard challenges &rarr;</a></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Case Studies</h3>
+                    <ul>
+                        <li><a href="otp-authenticator">Offline OTP Authenticator</a></li>
+                        <li><a href="museum">Museum Educator Dashboard</a></li>
+                        <li><a href="golaab">Golaab Jewelry: Keepsake Builder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Whiteboard</h3>
+                    <ul>
+                        <li><a href="whiteboard">All challenges</a></li>
+                        <li><a href="whiteboard-flight-search">Flight Search</a></li>
+                        <li><a href="whiteboard-404-page">404 Page</a></li>
+                        <li><a href="whiteboard-login-code">Login Code</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                        <li><a href="sudoku.html">Play a game</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/site.js?v=2" defer></script>
+</body>
+</html>
