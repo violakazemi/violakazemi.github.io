@@ -1,0 +1,10 @@
+{
+  "name": "Museum Companion",
+  "short_name": "Museum",
+  "start_url": "museum-app.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#064B46",
+  "theme_color": "#064B46",
+  "icons": [{"src": "museum-app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]
+}
