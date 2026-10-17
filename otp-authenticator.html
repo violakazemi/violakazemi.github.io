@@ -115,10 +115,10 @@
         .ds-tree__items { display: block; font-size: var(--fs-small); color: var(--color-text-secondary); margin-top: 4px; }
         .ds-tree__lines { position: relative; height: 32px; max-width: 760px; margin: 0 auto; }
         .ds-tree__lines::before { content: ""; position: absolute; left: 50%; top: 0; height: 16px; border-left: 2px solid var(--color-border); }
-        .ds-tree__lines::after { content: ""; position: absolute; left: 16.66%; right: 16.66%; top: 16px; border-top: 2px solid var(--color-border); }
+        .ds-tree__lines::after { content: ""; position: absolute; left: 25%; right: 25%; top: 16px; border-top: 2px solid var(--color-border); }
         .ds-tree__lines span { position: absolute; top: 16px; height: 16px; border-left: 2px solid var(--color-border); }
-        .ds-tree__lines span:nth-child(1) { left: 16.66%; } .ds-tree__lines span:nth-child(2) { left: 50%; } .ds-tree__lines span:nth-child(3) { left: 83.33%; }
-        .ds-tree__leaves { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); max-width: 900px; margin: 0 auto; }
+        .ds-tree__lines span:nth-child(1) { left: 25%; } .ds-tree__lines span:nth-child(2) { left: 75%; }
+        .ds-tree__leaves { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); max-width: 760px; margin: 0 auto; }
         .ds-tree__leaf { display: flex; align-items: center; gap: 12px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-top: 4px solid var(--leaf); border-radius: var(--radius-sm); padding: 14px; }
         .ds-tree__leaf strong { display: block; font-size: var(--fs-small); }
         .ds-tree__leaf small { display: block; font-size: 0.75rem; color: var(--color-text-secondary); }
@@ -148,10 +148,9 @@
         /* Theme tokens: same names, different values */
         .ds-t--teal   { --t-primary: #00796B; --t-pressed: #005B50; --t-container: #D6EFEB; --t-on-container: #00433B; --t-font: "Nunito", sans-serif; --t-radius: 14px; }
         .ds-t--navy   { --t-primary: #1D3461; --t-pressed: #122247; --t-container: #DDE4F2; --t-on-container: #132342; --t-font: "IBM Plex Sans", sans-serif; --t-radius: 4px; }
-        .ds-t--violet { --t-primary: #4D29A3; --t-pressed: #3A1E80; --t-container: #E8E1F8; --t-on-container: #2E1866; --t-font: "Manrope", sans-serif; --t-radius: 24px; }
         .ds-phone, .ds-states { --t-on-primary: #FFFFFF; --t-surface: #FFFFFF; --t-bg: #F5F6F8; --t-on-surface: #1B1F24; --t-muted: #5B6168; --t-outline: #8A9099; --t-error: #B3261E; }
 
-        .ds-phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-4); }
+        .ds-phones { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: var(--space-5); margin-top: var(--space-4); }
         @media screen and (max-width: 900px) { .ds-phones { grid-template-columns: 1fr; } }
         .ds-phone { margin: 0; }
         .ds-phone figcaption { text-align: center; font-size: var(--fs-small); font-weight: 600; margin-top: 12px; }
@@ -222,14 +221,13 @@
             <div style="width: 100%; margin-bottom: var(--space-5);">
                 <span class="badge">Shipped Work &middot; Native iOS &amp; Android</span>
                 <h1 style="margin-top: var(--space-2);">Offline OTP Authenticator</h1>
-                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native app that makes one-time passwords for card payments. More than 2 million people used it.</h2>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native app that makes one-time passwords for card payments, for iOS and Android. One design system across two bank apps.</h2>
 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                     <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
                     <div><span class="meta-label">Company</span><span class="meta-value">Carrene Corp</span></div>
                     <div><span class="meta-label">Timeline</span><span class="meta-value">2021 &ndash; 2024</span></div>
                     <div><span class="meta-label">Platforms</span><span class="meta-value">iOS &amp; Android</span></div>
-                    <div><span class="meta-label">Scale</span><span class="meta-value">2M+ users</span></div>
                 </div>
             </div>
 
@@ -241,12 +239,12 @@
 
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
-                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built a design system for all our OTP apps. More than 2 million people used the app.</p>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built a design system for both of our bank apps. Color bugs dropped to zero.</p>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">2M+</p><p class="num-strip__l">people used the app</p></div>
-                <div><p class="num-strip__n">3</p><p class="num-strip__l">apps on one system</p></div>
-                <div><p class="num-strip__n">20</p><p class="num-strip__l">components</p></div>
+                <div><p class="num-strip__n">2</p><p class="num-strip__l">apps on one system</p></div>
+                <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
                 <div><p class="num-strip__n">4 &rarr; 15</p><p class="num-strip__l">people on the team</p></div>
             </div>
         </div>
@@ -259,12 +257,12 @@
             <p style="max-width: 100%;">People needed a one-time password to approve card payments. The app made these passwords on the phone itself. It didn&rsquo;t need internet. Each code worked for 60 seconds. Each bank could give two kinds of password:</p>
             <div class="grid-2" style="margin-top: var(--space-3);">
                 <article class="card">
-                    <span class="badge">Password 1</span>
+                    <span class="badge">Password 1 &middot; 4 digits</span>
                     <h3>ATMs and card readers</h3>
                     <p>Like taking out cash, or paying in a store.</p>
                 </article>
                 <article class="card">
-                    <span class="badge">Password 2</span>
+                    <span class="badge">Password 2 &middot; 6 digits</span>
                     <h3>Online shopping and transactions</h3>
                     <p>For paying or moving money online.</p>
                 </article>
@@ -293,7 +291,7 @@
 
             <span class="step-num" style="margin-top: var(--space-4);">Chapter 4</span>
             <h3>So I built a design system</h3>
-            <p style="max-width: 100%;">20 components, used across all our OTP apps. One place for colors and styles, not one per screen. After that, QA found far fewer color and style issues. And handoff to developers got faster. <a class="text-link" href="#design-system">Here&rsquo;s how it worked &darr;</a></p>
+            <p style="max-width: 100%;">20 components, used across both apps. One place for colors and styles, not one per screen. After that, color bugs QA found went from 4&ndash;5 per release to zero. And handoff to developers got faster. <a class="text-link" href="#design-system">Here&rsquo;s how it worked &darr;</a></p>
         </div>
     </section>
 
@@ -301,20 +299,18 @@
     <section class="section" id="design-system">
         <div class="container">
             <span class="step-num">The design system</span>
-            <h2 style="margin-top: 0;">One system, three banks</h2>
-            <p style="max-width: 100%;">Every app looked like its own bank. Underneath, all of them used the same names, the same components and the same flows. Only the values changed.</p>
-            <p style="max-width: 100%; margin-top: var(--space-2);">The multi-bank app above kept its own indigo look. Each bank with its own app got its own theme.</p>
+            <h2 style="margin-top: 0;">One system, two banks</h2>
+            <p style="max-width: 100%;">Each app looked like its own bank. Underneath, both used the same names, the same components and the same flows. Only the values changed.</p>
 
-            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds three bank themes, Maple Trust, Harbour Bank and Summit Bank">
+            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds two bank themes, Maple Trust and Harbour Bank">
                 <div class="ds-tree__root">
                     <span class="ds-tree__title">One system</span>
                     <span class="ds-tree__items">Semantic names &middot; Components &middot; Flows &middot; States &middot; Accessibility rules</span>
                 </div>
-                <div class="ds-tree__lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="ds-tree__lines" aria-hidden="true"><span></span><span></span></div>
                 <div class="ds-tree__leaves">
                     <div class="ds-tree__leaf" style="--leaf: #00796B;"><span class="ds-mono" style="background:#00796B;border-radius:10px;font-family:'Nunito',sans-serif;">M</span><span><strong>Maple Trust</strong><small>Teal &middot; Nunito &middot; soft corners</small></span></div>
                     <div class="ds-tree__leaf" style="--leaf: #1D3461;"><span class="ds-mono" style="background:#1D3461;border-radius:3px;font-family:'IBM Plex Sans',sans-serif;">H</span><span><strong>Harbour Bank</strong><small>Navy &middot; IBM Plex Sans &middot; sharp corners</small></span></div>
-                    <div class="ds-tree__leaf" style="--leaf: #4D29A3;"><span class="ds-mono" style="background:#4D29A3;border-radius:999px;font-family:'Manrope',sans-serif;">S</span><span><strong>Summit Bank</strong><small>Violet &middot; Manrope &middot; round corners</small></span></div>
                 </div>
             </div>
 
@@ -354,10 +350,10 @@
             <!-- Decision 2 -->
             <div class="ds-decision">
                 <span class="step-num">Decision 2</span>
-                <h3>One system, three banks that don&rsquo;t look like copies</h3>
+                <h3>One system, two banks that don&rsquo;t look like copies</h3>
                 <p>Each bank wanted its own app. The stakeholders insisted they shouldn&rsquo;t look like the same app with a new color.</p>
                 <p>So each bank got its own brand color, logo, and the font from its own mobile banking app. Button corners matched their banking app, so it felt familiar. Each bank also had its own voice: its motto and its way of talking to customers.</p>
-                <p>But the core task stayed the same: read the code, copy it, pay. All three apps did the same job, and users already trusted their bank. The app only needed to look like their bank, not work differently.</p>
+                <p>But the core task stayed the same: read the code, copy it, pay. Both apps did the same job, and users already trusted their bank. The app only needed to look like their bank, not work differently.</p>
                 <p>If each bank had its own flow, every request and every piece of code would need its own decision.</p>
                 <p>Setup adapted to each model. A multi-bank app needs a bank picker and QR. A single-bank app already knows the bank, so it registers by phone.</p>
                 <p>Because of Decision 1, a new bank look only meant changing the values. The core components stayed the same.</p>
@@ -396,48 +392,32 @@
                     </div>
                     <figcaption>Harbour Bank</figcaption>
                 </figure>
-                <figure class="ds-phone ds-t--violet">
-                    <div class="ds-screen">
-                        <div class="ds-bar"><span class="ds-logo">S</span><span class="ds-bar__title">Summit Bank</span></div>
-                        <div class="ds-body">
-                            <p class="ds-voice">Ready when you are.</p>
-                            <div class="ds-card">
-                                <span class="ds-card__label">Password 1</span>
-                                <span class="ds-card__code">5831</span>
-                            </div>
-                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
-                            <div class="ds-spacer"></div>
-                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
-                        </div>
-                    </div>
-                    <figcaption>Summit Bank</figcaption>
-                </figure>
             </div>
-            <p class="ds-caption">The same screen in three themes. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code. Banks are fictional.</p>
+            <p class="ds-caption">The same screen in two themes. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code. Banks are fictional.</p>
 
-            <span class="meta-label" style="margin-top: var(--space-5);">Same names, three values</span>
+            <span class="meta-label" style="margin-top: var(--space-5);">Same names, two values</span>
             <div class="table-wrap" style="margin-top: 8px;">
                 <table class="audit ds-tokens">
                     <thead>
-                        <tr><th>Name</th><th>Maple Trust</th><th>Harbour Bank</th><th>Summit Bank</th></tr>
+                        <tr><th>Name</th><th>Maple Trust</th><th>Harbour Bank</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#1D3461"></span>#1D3461</td><td><span class="sw" style="background:#4D29A3"></span>#4D29A3</td></tr>
-                        <tr><td><code>on-primary</code></td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td></tr>
-                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#DDE4F2"></span>#DDE4F2</td><td><span class="sw" style="background:#E8E1F8"></span>#E8E1F8</td></tr>
-                        <tr><td><code>error</code></td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td></tr>
-                        <tr><td><code>font</code></td><td>Nunito</td><td>IBM Plex Sans</td><td>Manrope</td></tr>
-                        <tr><td><code>corner-radius</code></td><td>14px</td><td>4px</td><td>24px</td></tr>
+                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#1D3461"></span>#1D3461</td></tr>
+                        <tr><td><code>on-primary</code></td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td></tr>
+                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#DDE4F2"></span>#DDE4F2</td></tr>
+                        <tr><td><code>error</code></td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td></tr>
+                        <tr><td><code>font</code></td><td>Nunito</td><td>IBM Plex Sans</td></tr>
+                        <tr><td><code>corner-radius</code></td><td>14px</td><td>4px</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p class="ds-caption">White text on every primary passes WCAG AA: 5.3:1 on teal, 12.2:1 on navy, 9.7:1 on violet.</p>
+            <p class="ds-caption">White text on both primaries passes WCAG AA: 5.3:1 on teal, 12.2:1 on navy.</p>
 
             <!-- Component states -->
             <div class="ds-decision">
                 <span class="step-num">Components</span>
                 <h3>States are defined once, for every bank</h3>
-                <p>The button is one of the 20 components. It has the same 40 variants in every app: 3 intents, 4 types, 5 states. A theme changes how a state looks, never which states exist.</p>
+                <p>The button is one of the 20 components. It has the same intents, types and states in both apps. A theme changes how a state looks, never which states exist.</p>
                 <p>There&rsquo;s no hover state. It&rsquo;s a phone app, so there&rsquo;s no cursor. Pressed gives that feedback.</p>
                 <p>A button never asks for a color. It asks for a job. Each bank only changes what that job points to.</p>
             </div>
@@ -445,7 +425,6 @@
             <div class="ds-switch" role="radiogroup" aria-label="Theme">
                 <button type="button" role="radio" aria-checked="true" data-theme-pick="teal"><span class="sw" style="background:#00796B"></span>Maple Trust</button>
                 <button type="button" role="radio" aria-checked="false" data-theme-pick="navy"><span class="sw" style="background:#1D3461"></span>Harbour Bank</button>
-                <button type="button" role="radio" aria-checked="false" data-theme-pick="violet"><span class="sw" style="background:#4D29A3"></span>Summit Bank</button>
             </div>
 
             <div class="ds-chain" aria-live="polite">
@@ -496,7 +475,7 @@
                     <p>They pick Password 1, Password 2, or both. They enter the activation code from the SMS. Then they set a 6-digit backup PIN.</p>
                 </article>
                 <article class="card">
-                    <div class="phone"><img src="images/otp-bank-list.webp" alt="Bank List screen showing three bank cards, each with a password code, a copy button and a countdown ring" loading="lazy" width="390" height="844" /></div>
+                    <div class="phone"><img src="images/otp-bank-list.webp" alt="Bank List screen showing bank cards, each with a password code, a copy button and a countdown ring" loading="lazy" width="390" height="844" /></div>
                     <span class="step-num">Step 3</span>
                     <h3>Use a password</h3>
                     <p>Each bank has one card. It shows the active passwords, the time left and a copy button.</p>
@@ -513,7 +492,7 @@
                 <div class="otp-card">
                     <div class="otp-card__head">
                         <span class="otp-card__bank">Your bank</span>
-                        <span class="otp-card__which">Password 1</span>
+                        <span class="otp-card__which">Password 2</span>
                     </div>
                     <div class="otp-card__row">
                         <div class="otp-ring" aria-hidden="true">
@@ -587,7 +566,7 @@
             <article class="card" style="margin-top: var(--space-3);">
                 <span class="badge">The real test</span>
                 <h3>Another designer built a new theme with it</h3>
-                <p style="max-width: 100%;">Later, the other designer used the system to make the violet theme for their app&rsquo;s redesign. Same names, same components, a new look.</p>
+                <p style="max-width: 100%;">Later, another designer used my system for their app&rsquo;s redesign. Same names, same components, a new look.</p>
             </article>
         </div>
     </section>
@@ -596,18 +575,18 @@
     <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>What I&rsquo;d improve today</h2>
-            <p style="max-width: 100%;">Looking back, I checked our colors against WCAG 2.1 AA. Most pairs pass. White on the primary blue is 6.87:1. But three pairs fail if you use them for text:</p>
+            <p style="max-width: 100%;">Looking back, I checked our original colors (before the bank themes) against WCAG 2.1 AA. Most pairs pass. White on the original indigo primary is 6.87:1. But three pairs fail if you use them for text:</p>
             <div class="table-wrap">
                 <table class="audit">
                     <thead><tr><th>Pair</th><th>Contrast</th><th>Fix</th><th>New contrast</th></tr></thead>
                     <tbody>
                         <tr><td><span class="sw" style="background:#757575"></span>Text Secondary on Light Background</td><td class="fail">4.22:1</td><td><span class="sw" style="background:#6B6B6B"></span>#6B6B6B</td><td class="pass">4.89:1</td></tr>
                         <tr><td><span class="sw" style="background:#4CAF50"></span>White on Success Green</td><td class="fail">2.78:1</td><td><span class="sw" style="background:#2E7D32"></span>#2E7D32</td><td class="pass">5.13:1</td></tr>
-                        <tr><td><span class="sw" style="background:#F44336"></span>White on Error Red</td><td class="fail">3.68:1</td><td><span class="sw" style="background:#D32F2F"></span>#D32F2F</td><td class="pass">4.98:1</td></tr>
+                        <tr><td><span class="sw" style="background:#F44336"></span>White on Error Red</td><td class="fail">3.68:1</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td class="pass">6.54:1</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p style="max-width: 100%; margin-top: var(--space-3);">AA needs 4.5:1 for body text. The red for the countdown warning, #D32F2F, comes from this fixed set.</p>
+            <p style="max-width: 100%; margin-top: var(--space-3);">AA needs 4.5:1 for body text. The fixed red, #B3261E, is now the <code>error</code> color in both themes, and the countdown warning uses it too.</p>
         </div>
     </section>
 
@@ -703,8 +682,8 @@
     (function () {
         var box = document.getElementById('ds-states'); if (!box) return;
         var picks = document.querySelectorAll('[data-theme-pick]');
-        var THEMES = { teal: { name: 'Maple Trust', hex: '#00796B' }, navy: { name: 'Harbour Bank', hex: '#1D3461' }, violet: { name: 'Summit Bank', hex: '#4D29A3' } };
-        ['navy','violet'].forEach(function (k) { var i = new Image(); i.src = 'images/otp-ds-buttons-' + k + '.webp'; });
+        var THEMES = { teal: { name: 'Maple Trust', hex: '#00796B' }, navy: { name: 'Harbour Bank', hex: '#1D3461' } };
+        ['navy'].forEach(function (k) { var i = new Image(); i.src = 'images/otp-ds-buttons-' + k + '.webp'; });
         function choose(btn) {
             picks.forEach(function (b) { b.setAttribute('aria-checked', b === btn ? 'true' : 'false'); b.tabIndex = b === btn ? 0 : -1; });
             var k = btn.getAttribute('data-theme-pick'), T = THEMES[k];
