@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Manrope:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
     <style>
         /* Accordion Styling for Deep Dives */
         details {
@@ -147,7 +147,7 @@
 
         /* Theme tokens: same names, different values */
         .ds-t--teal   { --t-primary: #00796B; --t-pressed: #005B50; --t-container: #D6EFEB; --t-on-container: #00433B; --t-font: "Nunito", sans-serif; --t-radius: 14px; }
-        .ds-t--navy   { --t-primary: #1D3461; --t-pressed: #122247; --t-container: #DDE4F2; --t-on-container: #132342; --t-font: "IBM Plex Sans", sans-serif; --t-radius: 4px; }
+        .ds-t--indigo { --t-primary: #3F51B5; --t-pressed: #303F9F; --t-container: #E8EAF6; --t-on-container: #1A237E; --t-font: "Inter", sans-serif; --t-radius: 12px; }
         .ds-phone, .ds-states { --t-on-primary: #FFFFFF; --t-surface: #FFFFFF; --t-bg: #F5F6F8; --t-on-surface: #1B1F24; --t-muted: #5B6168; --t-outline: #8A9099; --t-error: #B3261E; }
 
         .ds-phones { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: var(--space-5); margin-top: var(--space-4); }
@@ -221,7 +221,7 @@
             <div style="width: 100%; margin-bottom: var(--space-5);">
                 <span class="badge">Shipped Work &middot; Native iOS &amp; Android</span>
                 <h1 style="margin-top: var(--space-2);">Offline OTP Authenticator</h1>
-                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native app that makes one-time passwords for card payments, for iOS and Android. One design system across two bank apps.</h2>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native app that makes one-time passwords for card payments. One design system across two apps: one for a single bank, one for many banks.</h2>
 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                     <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
@@ -239,7 +239,7 @@
 
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
-                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built a design system for both of our bank apps. Color bugs dropped to zero.</p>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built a design system for both of our apps. Color bugs dropped to zero.</p>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">2M+</p><p class="num-strip__l">people used the app</p></div>
@@ -283,7 +283,7 @@
 
             <span class="step-num" style="margin-top: var(--space-4);">Chapter 2</span>
             <h3>Then the biggest bank wanted its own app</h3>
-            <p style="max-width: 100%;">The plan was to add other banks to this app. But the biggest bank wanted the app just for itself. We tried to negotiate. We only wanted to add a section for the other banks. They didn&rsquo;t accept it, so we had to rethink and build a separate app for the other banks.</p>
+            <p style="max-width: 100%;">The plan was to add other banks to this app. But the biggest bank, Maple Trust, wanted the app just for itself. We tried to negotiate. We only wanted to add a section for the other banks. They didn&rsquo;t accept it, so we had to rethink and build a separate app for the other banks.</p>
 
             <span class="step-num" style="margin-top: var(--space-4);">Chapter 3</span>
             <h3>Then things started to break</h3>
@@ -299,18 +299,18 @@
     <section class="section" id="design-system">
         <div class="container">
             <span class="step-num">The design system</span>
-            <h2 style="margin-top: 0;">One system, two banks</h2>
-            <p style="max-width: 100%;">Each app looked like its own bank. Underneath, both used the same names, the same components and the same flows. Only the values changed.</p>
+            <h2 style="margin-top: 0;">One system, two apps</h2>
+            <p style="max-width: 100%;">One app was only for the biggest bank, Maple Trust. The other held the other banks, like Harbour Bank and Summit Bank. Underneath, both used the same names, the same components and the same flows. Only the values changed.</p>
 
-            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds two bank themes, Maple Trust and Harbour Bank">
+            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds two app themes: the Maple Trust app and the multi-bank app">
                 <div class="ds-tree__root">
                     <span class="ds-tree__title">One system</span>
                     <span class="ds-tree__items">Semantic names &middot; Components &middot; Flows &middot; States &middot; Accessibility rules</span>
                 </div>
                 <div class="ds-tree__lines" aria-hidden="true"><span></span><span></span></div>
                 <div class="ds-tree__leaves">
-                    <div class="ds-tree__leaf" style="--leaf: #00796B;"><span class="ds-mono" style="background:#00796B;border-radius:10px;font-family:'Nunito',sans-serif;">M</span><span><strong>Maple Trust</strong><small>Teal &middot; Nunito &middot; soft corners</small></span></div>
-                    <div class="ds-tree__leaf" style="--leaf: #1D3461;"><span class="ds-mono" style="background:#1D3461;border-radius:3px;font-family:'IBM Plex Sans',sans-serif;">H</span><span><strong>Harbour Bank</strong><small>Navy &middot; IBM Plex Sans &middot; sharp corners</small></span></div>
+                    <div class="ds-tree__leaf" style="--leaf: #00796B;"><span class="ds-mono" style="background:#00796B;border-radius:10px;font-family:'Nunito',sans-serif;">M</span><span><strong>Maple Trust app</strong><small>Teal &middot; Nunito &middot; one bank only</small></span></div>
+                    <div class="ds-tree__leaf" style="--leaf: #3F51B5;"><span class="ds-mono" style="background:#3F51B5;border-radius:8px;font-family:'Inter',sans-serif;">B</span><span><strong>Multi-bank app</strong><small>Indigo &middot; Inter &middot; Harbour Bank, Summit Bank</small></span></div>
                 </div>
             </div>
 
@@ -350,13 +350,14 @@
             <!-- Decision 2 -->
             <div class="ds-decision">
                 <span class="step-num">Decision 2</span>
-                <h3>One system, two banks that don&rsquo;t look like copies</h3>
-                <p>Each bank wanted its own app. The stakeholders insisted they shouldn&rsquo;t look like the same app with a new color.</p>
-                <p>So each bank got its own brand color, logo, and the font from its own mobile banking app. Button corners matched their banking app, so it felt familiar. Each bank also had its own voice: its motto and its way of talking to customers.</p>
-                <p>But the core task stayed the same: read the code, copy it, pay. Both apps did the same job, and users already trusted their bank. The app only needed to look like their bank, not work differently.</p>
-                <p>If each bank had its own flow, every request and every piece of code would need its own decision.</p>
+                <h3>One system, two apps that don&rsquo;t look like copies</h3>
+                <p>The biggest bank wanted its own app. The stakeholders insisted it shouldn&rsquo;t look like the multi-bank app with a new color.</p>
+                <p>So the bank&rsquo;s app got its brand color, its logo, and the font from its mobile banking app. Button corners matched its banking app too, so it felt familiar. It also got the bank&rsquo;s voice: its motto and its way of talking to customers.</p>
+                <p>The multi-bank app kept a neutral indigo look. It had to fit every bank inside it, so it couldn&rsquo;t take one bank&rsquo;s brand.</p>
+                <p>But the core task stayed the same: read the code, copy it, pay. Both apps did the same job. They only needed to look different, not work differently.</p>
+                <p>If each app had its own flow, every request and every piece of code would need its own decision.</p>
                 <p>Setup adapted to each model. A multi-bank app needs a bank picker and QR. A single-bank app already knows the bank, so it registers by phone.</p>
-                <p>Because of Decision 1, a new bank look only meant changing the values. The core components stayed the same.</p>
+                <p>Because of Decision 1, a new look only meant changing the values. The core components stayed the same.</p>
             </div>
 
             <div class="ds-phones">
@@ -374,13 +375,13 @@
                             <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
                         </div>
                     </div>
-                    <figcaption>Maple Trust</figcaption>
+                    <figcaption>Maple Trust app</figcaption>
                 </figure>
-                <figure class="ds-phone ds-t--navy">
+                <figure class="ds-phone ds-t--indigo">
                     <div class="ds-screen">
-                        <div class="ds-bar"><span class="ds-logo">H</span><span class="ds-bar__title">Harbour Bank</span></div>
+                        <div class="ds-bar"><span class="ds-bar__title">Bank List</span></div>
                         <div class="ds-body">
-                            <p class="ds-voice">Password ready for use.</p>
+                            <p class="ds-voice">Harbour Bank</p>
                             <div class="ds-card">
                                 <span class="ds-card__label">Password 1</span>
                                 <span class="ds-card__code">5831</span>
@@ -390,41 +391,49 @@
                             <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
                         </div>
                     </div>
-                    <figcaption>Harbour Bank</figcaption>
+                    <figcaption>Multi-bank app</figcaption>
                 </figure>
             </div>
-            <p class="ds-caption">The same screen in two themes. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code. Banks are fictional.</p>
+            <p class="ds-caption">The same screen in both apps. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code. Banks are fictional.</p>
 
-            <span class="meta-label" style="margin-top: var(--space-5);">Same names, two values</span>
+            <span class="meta-label" style="margin-top: var(--space-5);">Same names, two apps</span>
             <div class="table-wrap" style="margin-top: 8px;">
                 <table class="audit ds-tokens">
                     <thead>
-                        <tr><th>Name</th><th>Maple Trust</th><th>Harbour Bank</th></tr>
+                        <tr><th>Name</th><th>Maple Trust app</th><th>Multi-bank app</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#1D3461"></span>#1D3461</td></tr>
+                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#3F51B5"></span>#3F51B5</td></tr>
                         <tr><td><code>on-primary</code></td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td></tr>
-                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#DDE4F2"></span>#DDE4F2</td></tr>
+                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#E8EAF6"></span>#E8EAF6</td></tr>
                         <tr><td><code>error</code></td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td></tr>
-                        <tr><td><code>font</code></td><td>Nunito</td><td>IBM Plex Sans</td></tr>
-                        <tr><td><code>corner-radius</code></td><td>14px</td><td>4px</td></tr>
+                        <tr><td><code>font</code></td><td>Nunito</td><td>Inter</td></tr>
+                        <tr><td><code>corner-radius</code></td><td>14px</td><td>12px</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p class="ds-caption">White text on both primaries passes WCAG AA: 5.3:1 on teal, 12.2:1 on navy.</p>
+            <p class="ds-caption">White text on both primaries passes WCAG AA: 5.3:1 on teal, 6.87:1 on indigo.</p>
 
             <!-- Component states -->
             <div class="ds-decision">
                 <span class="step-num">Components</span>
-                <h3>States are defined once, for every bank</h3>
+                <h3>States are defined once, for both apps</h3>
                 <p>The button is one of the 20 components. It has the same intents, types and states in both apps. A theme changes how a state looks, never which states exist.</p>
                 <p>There&rsquo;s no hover state. It&rsquo;s a phone app, so there&rsquo;s no cursor. Pressed gives that feedback.</p>
-                <p>A button never asks for a color. It asks for a job. Each bank only changes what that job points to.</p>
+                <p>A button never asks for a color. It asks for a job. Each app only changes what that job points to.</p>
             </div>
+
+
+            <figure class="ds-matrix">
+                <div class="ds-matrix__scroll" tabindex="0" role="region" aria-label="Button matrix, scroll sideways">
+                <img id="ds-matrix-img" src="images/otp-ds-buttons-teal.webp" alt="Maple Trust button matrix: constructive, neutral and destructive buttons in primary, secondary, tertiary and link types, each in default, pressed, focus, disabled and loading states" width="1360" height="1012" loading="lazy" />
+                </div>
+                <figcaption>Shown in the Maple Trust theme. Recreated in Figma for this case study. Every fill, text color, corner and font is bound to a variable.</figcaption>
+            </figure>
 
             <div class="ds-switch" role="radiogroup" aria-label="Theme">
                 <button type="button" role="radio" aria-checked="true" data-theme-pick="teal"><span class="sw" style="background:#00796B"></span>Maple Trust</button>
-                <button type="button" role="radio" aria-checked="false" data-theme-pick="navy"><span class="sw" style="background:#1D3461"></span>Harbour Bank</button>
+                <button type="button" role="radio" aria-checked="false" data-theme-pick="indigo"><span class="sw" style="background:#3F51B5"></span>Multi-bank app</button>
             </div>
 
             <div class="ds-chain" aria-live="polite">
@@ -434,13 +443,6 @@
                 <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
                 <div class="ds-chain__step"><span class="meta-label">1 &middot; Primitive</span><code><span class="sw" id="ds-chain-sw" style="background:#00796B"></span><span id="ds-chain-prim">teal/600</span></code></div>
             </div>
-
-            <figure class="ds-matrix">
-                <div class="ds-matrix__scroll" tabindex="0" role="region" aria-label="Button matrix, scroll sideways">
-                <img id="ds-matrix-img" src="images/otp-ds-buttons-teal.webp" alt="Maple Trust button matrix: constructive, neutral and destructive buttons in primary, secondary, tertiary and link types, each in default, pressed, focus, disabled and loading states" width="1360" height="1012" loading="lazy" />
-                </div>
-                <figcaption>Recreated in Figma for this case study. Every fill, text color, corner and font is bound to a variable.</figcaption>
-            </figure>
 
             <div class="ds-states ds-t--teal" id="ds-states">
                 <div class="ds-states__group">
@@ -460,7 +462,7 @@
     <section class="section">
         <div class="container">
             <h2>The core flow</h2>
-            <p style="max-width: 100%;">Three steps, from installing the app to paying.</p>
+            <p style="max-width: 100%;">Three steps in the multi-bank app, from installing it to paying. The Maple Trust app skips Step 1: it already knows the bank, so it registers by phone.</p>
             <div class="grid-3" style="margin-top: var(--space-4);">
                 <article class="card">
                     <div class="phone"><img src="images/otp-add-new-bank.webp" alt="Add New Bank screen with four bank tiles and a Scan Code button" loading="lazy" width="390" height="844" /></div>
@@ -472,7 +474,7 @@
                     <div class="phone"><img src="images/otp-enter-bank-passwords.webp" alt="Enter Bank Passwords screen with Password 1 selected, an activation code field and a backup PIN field" loading="lazy" width="390" height="844" /></div>
                     <span class="step-num">Step 2</span>
                     <h3>Activate passwords</h3>
-                    <p>They pick Password 1, Password 2, or both. They enter the activation code from the SMS. Then they set a 6-digit backup PIN.</p>
+                    <p>They pick Password 1, Password 2, or both. Then they enter the activation code from the SMS.</p>
                 </article>
                 <article class="card">
                     <div class="phone"><img src="images/otp-bank-list.webp" alt="Bank List screen showing bank cards, each with a password code, a copy button and a countdown ring" loading="lazy" width="390" height="844" /></div>
@@ -487,7 +489,7 @@
                 <div class="otp-demo__text">
                     <span class="step-num">Try it</span>
                     <h3 id="otp-demo-title">The password card, live</h3>
-                    <p>The ring shows how long the code works. In the last 5 seconds it turns red. When time is up, a new code comes in. Tap copy and you see a check, so you know it worked. These codes are random, not real passwords.</p>
+                    <p>The ring shows how long the code works. In the last 5 seconds it turns red, so you know to use it now. Tap copy and you see a check, so you know it worked. These codes are random, not real passwords.</p>
                 </div>
                 <div class="otp-card">
                     <div class="otp-card__head">
@@ -575,7 +577,7 @@
     <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>What I&rsquo;d improve today</h2>
-            <p style="max-width: 100%;">Looking back, I checked our original colors (before the bank themes) against WCAG 2.1 AA. Most pairs pass. White on the original indigo primary is 6.87:1. But three pairs fail if you use them for text:</p>
+            <p style="max-width: 100%;">Looking back, I checked our original colors against WCAG 2.1 AA. Most pairs pass. White on the indigo primary is 6.87:1. But three pairs fail if you use them for text:</p>
             <div class="table-wrap">
                 <table class="audit">
                     <thead><tr><th>Pair</th><th>Contrast</th><th>Fix</th><th>New contrast</th></tr></thead>
@@ -682,15 +684,12 @@
     (function () {
         var box = document.getElementById('ds-states'); if (!box) return;
         var picks = document.querySelectorAll('[data-theme-pick]');
-        var THEMES = { teal: { name: 'Maple Trust', hex: '#00796B' }, navy: { name: 'Harbour Bank', hex: '#1D3461' } };
-        ['navy'].forEach(function (k) { var i = new Image(); i.src = 'images/otp-ds-buttons-' + k + '.webp'; });
+        var THEMES = { teal: { name: 'Maple Trust', hex: '#00796B', prim: 'teal/600' }, indigo: { name: 'Multi-bank app', hex: '#3F51B5', prim: 'indigo/500' } };
         function choose(btn) {
             picks.forEach(function (b) { b.setAttribute('aria-checked', b === btn ? 'true' : 'false'); b.tabIndex = b === btn ? 0 : -1; });
             var k = btn.getAttribute('data-theme-pick'), T = THEMES[k];
             box.className = 'ds-states ds-t--' + k;
-            var img = document.getElementById('ds-matrix-img');
-            if (img) { img.src = 'images/otp-ds-buttons-' + k + '.webp'; img.alt = img.alt.replace(/^\w+ \w+/, T.name); }
-            document.getElementById('ds-chain-prim').textContent = k + '/600';
+            document.getElementById('ds-chain-prim').textContent = T.prim;
             document.getElementById('ds-chain-sw').style.background = T.hex;
         }
         picks.forEach(function (b, i) {
