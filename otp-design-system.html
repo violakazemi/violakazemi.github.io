@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>OTP Design System - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Case study: the design system Viola Kazemi built for a native iOS and Android one-time password app at Carrene. Color bugs per release went from 4–5 to zero." />
+    <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
+    <link rel="stylesheet" href="assets/css/main.css?v=9" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
+    <style>
+        /* Accordion Styling for Deep Dives */
+        details {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: var(--space-2) var(--space-3);
+            margin-bottom: var(--space-3);
+            transition: box-shadow 0.2s ease;
+        }
+        details:hover { box-shadow: var(--shadow-sm); }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
+        details[open] summary::after { content: '−'; }
+        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        
+        /* Strict 2-Column Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        @media screen and (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+        
+        /* Trade-off styling */
+        .decision-block {
+            font-size: var(--fs-small);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+    
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+        @media screen and (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+        .phone { max-width: 240px; margin: 0 auto var(--space-3) auto; }
+        .phone img { width: 100%; height: auto; border-radius: 22px; box-shadow: var(--shadow-sm); display: block; border: 1px solid var(--color-border); }
+        .step-num { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 4px; }
+        .meta-label { display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px; }
+        .meta-value { font-weight: 500; font-size: var(--fs-small); }
+        .stat { font-size: clamp(2rem, 4vw + 1rem, 3rem); font-weight: 700; line-height: 1; margin: 0 0 var(--space-1) 0; }
+        .note { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt); }
+        .note p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        .table-wrap { overflow-x: auto; margin-top: var(--space-3); }
+        table.audit { width: 100%; border-collapse: collapse; font-size: var(--fs-small); min-width: 560px; }
+        table.audit th, table.audit td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+        table.audit th { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); }
+        .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.12); }
+        .fail { color: #B3261E; font-weight: 600; }
+        .pass { color: #1B5E20; font-weight: 600; }
+
+        /* OTP live demo */
+        .otp-demo { display: grid; grid-template-columns: 1fr minmax(280px, 360px); gap: var(--space-5); align-items: center; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+        @media screen and (max-width: 900px) { .otp-demo { grid-template-columns: 1fr; gap: var(--space-3); } }
+        .otp-demo__text p { color: var(--color-text-secondary); margin: 0; }
+        .otp-card { --otp-accent: var(--color-text-primary); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 20px; box-shadow: var(--shadow-md); }
+        .otp-card.is-urgent { --otp-accent: #B3261E; }
+        .otp-card__head { display: flex; justify-content: space-between; font-size: var(--fs-small); margin-bottom: 14px; }
+        .otp-card__bank { font-weight: 600; }
+        .otp-card__which { color: var(--color-text-secondary); }
+        .otp-card__row { display: flex; align-items: center; gap: 14px; }
+        .otp-ring { position: relative; width: 44px; height: 44px; flex: none; }
+        .otp-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .otp-ring circle { fill: none; stroke-width: 3.5; }
+        .otp-ring__track { stroke: var(--color-bg-well); }
+        .otp-ring__bar { stroke: var(--otp-accent); stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; transition: stroke-dashoffset 1s linear, stroke 0.3s ease; }
+        .otp-ring__sec { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--otp-accent); transition: color 0.3s ease; }
+        .otp-code { flex: 1; font-size: 1.75rem; font-weight: 600; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: var(--otp-accent); transition: color 0.3s ease; }
+        .otp-code.is-rolling { animation: otp-roll 0.42s var(--ease-out); }
+        @keyframes otp-roll { 0% { opacity: 0; transform: translateY(10px); filter: blur(3px); } 100% { opacity: 1; transform: none; filter: none; } }
+        .otp-copy { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-primary); cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, transform 0.12s ease; }
+        .otp-copy:hover { border-color: var(--color-text-secondary); }
+        .otp-copy:active { transform: scale(0.92); }
+        .otp-copy:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+        .otp-copy svg { width: 18px; height: 18px; }
+        .otp-copy .tick { stroke-dasharray: 14; stroke-dashoffset: 14; transition: stroke-dashoffset 0.3s var(--ease-out) 0.05s; }
+        .otp-copy .sheets { transition: opacity 0.15s ease; }
+        .otp-copy.is-copied { background: var(--color-text-primary); color: var(--color-bg-card); }
+        .otp-copy.is-copied .sheets { opacity: 0; }
+        .otp-copy.is-copied .tick { stroke-dashoffset: 0; }
+        .otp-card__status { margin: 12px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
+        .num-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+        .num-strip > div { padding: 20px 16px; text-align: center; }
+        .num-strip > div + div { border-left: 1px solid var(--color-border); }
+        .num-strip__n { margin: 0; font-size: clamp(1.5rem, 2vw + 1rem, 2rem); font-weight: 700; line-height: 1.1; }
+        .num-strip__l { margin: 6px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        @media screen and (max-width: 720px) { .num-strip { grid-template-columns: repeat(2, 1fr); } .num-strip > div:nth-child(3) { border-left: 0; } .num-strip > div:nth-child(n+3) { border-top: 1px solid var(--color-border); } }
+        /* Design system section */
+        .ds-tree { margin: var(--space-4) 0 var(--space-6); }
+        .ds-tree__root { max-width: 560px; margin: 0 auto; text-align: center; background: var(--color-bg-card); color: var(--color-text-primary); border: 2px solid var(--color-text-primary); border-radius: var(--radius-md); padding: 18px 24px; }
+        .ds-tree__title { display: block; font-weight: 700; font-size: 1.05rem; }
+        .ds-tree__items { display: block; font-size: var(--fs-small); color: var(--color-text-secondary); margin-top: 4px; }
+        .ds-tree__lines { position: relative; height: 32px; max-width: 760px; margin: 0 auto; }
+        .ds-tree__lines::before { content: ""; position: absolute; left: 50%; top: 0; height: 16px; border-left: 2px solid var(--color-border); }
+        .ds-tree__lines::after { content: ""; position: absolute; left: 25%; right: 25%; top: 16px; border-top: 2px solid var(--color-border); }
+        .ds-tree__lines span { position: absolute; top: 16px; height: 16px; border-left: 2px solid var(--color-border); }
+        .ds-tree__lines span:nth-child(1) { left: 25%; } .ds-tree__lines span:nth-child(2) { left: 75%; }
+        .ds-tree__leaves { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); max-width: 760px; margin: 0 auto; }
+        .ds-tree__leaf { display: flex; align-items: center; gap: 12px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-top: 4px solid var(--leaf); border-radius: var(--radius-sm); padding: 14px; }
+        .ds-tree__leaf strong { display: block; font-size: var(--fs-small); }
+        .ds-tree__leaf small { display: block; font-size: 0.75rem; color: var(--color-text-secondary); }
+        .ds-mono { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.05rem; }
+        @media screen and (max-width: 720px) {
+            .ds-tree__lines { display: none; }
+            .ds-tree__leaves { grid-template-columns: 1fr; margin-top: var(--space-2); }
+        }
+        .ds-decision { margin-top: var(--space-6); }
+        .ds-decision p { max-width: 100%; margin-top: var(--space-2); }
+        .ds-decision h3 { margin-top: 0; }
+        .ds-names { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--space-3); align-items: start; margin-top: var(--space-4); }
+        .ds-names__col { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3); }
+        .ds-names__arrow { align-self: center; font-size: 1.5rem; color: var(--color-text-secondary); }
+        .ds-names__list { list-style: none; margin: var(--space-2) 0 0; padding: 0; }
+        .ds-names__list li { padding: 8px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); }
+        .ds-names__list li:last-child { border-bottom: 0; }
+        .ds-names__list span { color: var(--color-text-secondary); text-align: right; }
+        .ds-names__list code { font-size: 0.875rem; }
+        .ds-names__list.is-before code { color: #B3261E; }
+        .ds-names__cap { margin: var(--space-2) 0 0 !important; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        @media screen and (max-width: 720px) {
+            .ds-names { grid-template-columns: 1fr; }
+            .ds-names__arrow { transform: rotate(90deg); justify-self: center; }
+        }
+
+        /* Theme tokens: same names, different values */
+        .ds-t--teal   { --t-primary: #00796B; --t-pressed: #005B50; --t-container: #D6EFEB; --t-on-container: #00433B; --t-font: "Nunito", sans-serif; --t-radius: 14px; }
+        .ds-t--indigo { --t-primary: #3F51B5; --t-pressed: #303F9F; --t-container: #E8EAF6; --t-on-container: #1A237E; --t-font: "Inter", sans-serif; --t-radius: 12px; }
+        .ds-phone, .ds-states { --t-on-primary: #FFFFFF; --t-surface: #FFFFFF; --t-bg: #F5F6F8; --t-on-surface: #1B1F24; --t-muted: #5B6168; --t-outline: #8A9099; --t-error: #B3261E; }
+
+        .ds-phones { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: var(--space-5); margin-top: var(--space-4); }
+        @media screen and (max-width: 900px) { .ds-phones { grid-template-columns: 1fr; } }
+        .ds-phone { margin: 0; }
+        .ds-phone figcaption { text-align: center; font-size: var(--fs-small); font-weight: 600; margin-top: 12px; }
+        .ds-screen { max-width: 260px; margin: 0 auto; aspect-ratio: 9 / 16; display: flex; flex-direction: column; background: var(--t-bg); border: 8px solid #1B1F24; border-radius: 34px; overflow: hidden; box-shadow: var(--shadow-md); font-family: var(--t-font); color: var(--t-on-surface); }
+        .ds-bar { background: var(--t-primary); color: var(--t-on-primary); display: flex; align-items: center; gap: 10px; padding: 26px 16px 14px; }
+        .ds-bar__title { font-weight: 700; font-size: 0.95rem; }
+        .ds-logo { width: 28px; height: 28px; display: grid; place-items: center; background: var(--t-on-primary); color: var(--t-primary); font-weight: 800; font-size: 0.9rem; border-radius: min(var(--t-radius), 14px); }
+        .ds-body { flex: 1; display: flex; flex-direction: column; padding: 16px; gap: 12px; }
+        .ds-voice { margin: 0; font-size: 0.85rem; color: var(--t-muted); }
+        .ds-card { background: var(--t-surface); border-radius: var(--t-radius); padding: 14px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; justify-content: space-between; align-items: center; }
+        .ds-card__label { font-size: 0.8rem; color: var(--t-muted); }
+        .ds-card__code { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.08em; color: var(--t-primary); font-variant-numeric: tabular-nums; }
+        .ds-dashed { font: inherit; font-size: 0.85rem; font-weight: 600; color: var(--t-primary); background: transparent; border: 1.5px dashed var(--t-primary); border-radius: var(--t-radius); padding: 10px; cursor: default; }
+        .ds-spacer { flex: 1; }
+        .ds-btn { display: inline-flex; align-items: center; justify-content: center; font: inherit; font-family: var(--t-font); font-size: 0.9rem; font-weight: 700; color: var(--t-on-primary); background: var(--t-primary); border: 0; border-radius: var(--t-radius); padding: 12px 18px; min-height: 44px; cursor: default; }
+        .ds-btn.is-pressed { background: var(--t-pressed); }
+        .ds-btn.is-focus { box-shadow: 0 0 0 2px var(--t-surface), 0 0 0 4px var(--t-primary); }
+        .ds-btn.is-disabled { background: #E3E5E8; color: #6B7178; }
+        .ds-caption { max-width: 100%; margin-top: var(--space-3); font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .ds-tokens code { font-size: 0.85rem; }
+
+        .ds-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: var(--space-3); }
+        .ds-chain__step { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 10px 14px; }
+        .ds-chain__step code { font-size: 0.875rem; display: inline-flex; align-items: center; }
+        .ds-chain__arrow { color: var(--color-text-secondary); font-size: 1.25rem; }
+        @media screen and (max-width: 720px) { .ds-chain { flex-direction: column; align-items: stretch; } .ds-chain__arrow { transform: rotate(90deg); align-self: center; } }
+        .ds-matrix { margin: var(--space-3) 0 0; }
+        .ds-matrix img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+        @media screen and (max-width: 720px) { .ds-matrix__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; } .ds-matrix__scroll img { width: 820px; max-width: none; } }
+        .ds-matrix figcaption { margin-top: 10px; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .ds-switch { display: inline-flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-3); }
+        .ds-switch button { font: inherit; font-size: var(--fs-small); display: inline-flex; align-items: center; gap: 4px; padding: 8px 14px; min-height: 44px; border-radius: var(--radius-pill); border: 1px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); cursor: pointer; }
+        .ds-switch button[aria-checked="true"] { background: var(--color-bg-alt); color: var(--color-text-primary); border: 1.5px solid var(--color-text-primary); font-weight: 600; }
+        .ds-switch button:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+        .ds-states { margin-top: var(--space-3); background: var(--t-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); font-family: var(--t-font); color: var(--t-on-surface); }
+        .ds-states__group + .ds-states__group { margin-top: var(--space-4); }
+        .ds-states__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: 12px; }
+        @media screen and (max-width: 720px) { .ds-states__row { grid-template-columns: repeat(2, 1fr); } }
+        .ds-state { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+        .ds-state > small { font-family: var(--font-primary); font-size: 0.75rem; color: var(--t-muted); }
+        .ds-input { display: flex; align-items: center; width: 100%; max-width: 180px; min-height: 44px; padding: 0 12px; background: var(--t-surface); border: 1px solid var(--t-outline); border-radius: var(--t-radius); font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; box-sizing: border-box; }
+        .ds-input__ph { font-weight: 400; letter-spacing: 0; color: var(--t-muted); font-size: 0.875rem; }
+        .ds-input.is-focus { border: 2px solid var(--t-primary); }
+        .ds-input__caret { width: 2px; height: 20px; background: var(--t-primary); }
+        .ds-input.is-error { border: 2px solid var(--t-error); color: var(--t-error); }
+        .ds-input__msg { font-size: 0.75rem; color: var(--t-error); max-width: 180px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .otp-ring__bar, .otp-ring__sec, .otp-code, .otp-copy, .otp-copy .tick, .otp-copy .sheets { transition: none; }
+            .otp-code.is-rolling { animation: none; }
+            .otp-copy:active { transform: none; }
+        }
+    </style>
+<!-- Analytics (Umami). Visit violakazemi.com/?me=1 once on each of your browsers to stop counting your own visits. -->
+<script>try{if(/[?&]me=1(&|$)/.test(location.search))localStorage.setItem('umami.disabled','1')}catch(e){}</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="016024e0-972f-45a8-8ea2-6c7e9502e546" data-domains="violakazemi.com,www.violakazemi.com"></script>
+<script defer src="/assets/js/track.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ OTP Design System</span></a>
+        <nav>
+            <a href="/" class="button button-secondary">Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">Shipped Work &middot; Part 2 of 2 &middot; The design system</span>
+                <h1 style="margin-top: var(--space-2);">One Design System, Three Bank Apps</h1>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">The system behind the <a href="otp-authenticator" style="color: inherit; font-size: inherit; text-decoration: underline; text-underline-offset: 3px;">Offline OTP Authenticator</a>. One set of names and components, so each bank could look like itself without breaking anything.</h2>
+
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
+                    <div><span class="meta-label">Company</span><span class="meta-value">Carrene Corp</span></div>
+                    <div><span class="meta-label">Timeline</span><span class="meta-value">2021 &ndash; 2024</span></div>
+                    <div><span class="meta-label">Platforms</span><span class="meta-value">iOS &amp; Android</span></div>
+                </div>
+            </div>
+
+            <img src="images/otp-ds-hero.webp" alt="The same button component in three bank themes: Maple Trust in teal, Harbour Bank in navy, Summit Bank in violet, each with default, pressed, focus, disabled and loading states" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+
+            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I built this design system on my own.</p>
+
+            <div class="note">
+                <p><strong>Note:</strong> I recreated these screens. The banks are fictional and the data is placeholder. The flows and decisions are real.</p>
+            </div>
+
+            <div style="margin-top: var(--space-5);">
+                <span class="step-num">The short version</span>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built one design system for all three of our apps. Color bugs dropped to zero.</p>
+            </div>
+            <div class="num-strip">
+                <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
+                <div><p class="num-strip__n">20</p><p class="num-strip__l">components</p></div>
+                <div><p class="num-strip__n">3</p><p class="num-strip__l">apps on one system</p></div>
+                <div><p class="num-strip__n">4 &rarr; 15</p><p class="num-strip__l">people on the team</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The story -->
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>How it grew</h2>
+
+            <span class="step-num" style="margin-top: var(--space-3);">Chapter 1</span>
+            <h3>It started small</h3>
+            <p style="max-width: 100%;">At the start we were four people. Me as the only designer, one iOS developer, one Android developer and one backend developer. The app had three screens. We had no design system. Everyone set their own colors on each screen.</p>
+
+            <span class="step-num" style="margin-top: var(--space-4);">Chapter 2</span>
+            <h3>Then the biggest bank wanted its own app</h3>
+            <p style="max-width: 100%;">The plan was to add other banks to this app. But the biggest bank, Maple Trust, wanted the app just for itself. We tried to negotiate. We only wanted to add a section for the other banks. They didn&rsquo;t accept it, so we had to rethink and build a separate app for the other banks.</p>
+
+            <span class="step-num" style="margin-top: var(--space-4);">Chapter 3</span>
+            <h3>Then things started to break</h3>
+            <p style="max-width: 100%;">More screens, more people, more apps. And the colors were still set screen by screen. So when something changed, we couldn&rsquo;t track it. We had to search every page, one by one.</p>
+
+            <span class="step-num" style="margin-top: var(--space-4);">Chapter 4</span>
+            <h3>So I built a design system</h3>
+            <p style="max-width: 100%;">20 components, used across all three of our apps. One place for colors and styles, not one per screen. After that, color bugs QA found went from 4&ndash;5 per release to zero. And handoff to developers got faster. <a class="text-link" href="#design-system">Here&rsquo;s how it worked &darr;</a></p>
+        </div>
+    </section>
+
+    <!-- Design system -->
+    <section class="section" id="design-system">
+        <div class="container">
+            <span class="step-num">The design system</span>
+            <h2 style="margin-top: 0;">One system, two apps</h2>
+            <p style="max-width: 100%;">The system was used across all three of our apps. Here I show the two I designed. One app was only for the biggest bank, Maple Trust. The other held the other banks, like Harbour Bank and Summit Bank. Underneath, both used the same names, the same components and the same flows. Only the values changed.</p>
+
+            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds two app themes: the Maple Trust app and the multi-bank app">
+                <div class="ds-tree__root">
+                    <span class="ds-tree__title">One system</span>
+                    <span class="ds-tree__items">Semantic names &middot; Components &middot; Flows &middot; States &middot; Accessibility rules</span>
+                </div>
+                <div class="ds-tree__lines" aria-hidden="true"><span></span><span></span></div>
+                <div class="ds-tree__leaves">
+                    <div class="ds-tree__leaf" style="--leaf: #00796B;"><span class="ds-mono" style="background:#00796B;border-radius:10px;font-family:'Nunito',sans-serif;">M</span><span><strong>Maple Trust app</strong><small>Teal &middot; Nunito &middot; one bank only</small></span></div>
+                    <div class="ds-tree__leaf" style="--leaf: #3F51B5;"><span class="ds-mono" style="background:#3F51B5;border-radius:8px;font-family:'Inter',sans-serif;">B</span><span><strong>Multi-bank app</strong><small>Indigo &middot; Inter &middot; Harbour Bank, Summit Bank</small></span></div>
+                </div>
+            </div>
+
+            <!-- Decision 1 -->
+            <div class="ds-decision">
+                <span class="step-num">Decision 1</span>
+                <h3>Name colors by their job, not their value</h3>
+                <p>Every screen had its own colors. One change meant checking every page.</p>
+                <p>We could have made up our own names. But people already wrote them differently: primary_first, primaryFirst, all mixed. That leads to confusion.</p>
+                <p>So I named colors by role, following Material&rsquo;s semantic names: primary, on-primary, surface, error. It was a standard we could point to. iOS used the same names as Android.</p>
+                <p>We had one handoff session to walk through it. After that, when anyone had a question in the group, they pointed to the same shared reference. The whole team spoke one language.</p>
+
+                <div class="ds-names">
+                    <div class="ds-names__col">
+                        <span class="meta-label">Before: everyone&rsquo;s own names</span>
+                        <ul class="ds-names__list is-before">
+                            <li><code>primary_first</code></li>
+                            <li><code>primaryFirst</code></li>
+                            <li><code>#3F51B5</code></li>
+                        </ul>
+                        <p class="ds-names__cap">Different names for the same color. Nobody knew which one was right.</p>
+                    </div>
+                    <div class="ds-names__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="ds-names__col">
+                        <span class="meta-label">After: one name per job</span>
+                        <ul class="ds-names__list is-after">
+                            <li><code>primary</code><span>Buttons, headers, active tabs</span></li>
+                            <li><code>on-primary</code><span>Text and icons on primary</span></li>
+                            <li><code>surface</code><span>Cards and sheets</span></li>
+                            <li><code>error</code><span>Wrong code, failed activation</span></li>
+                        </ul>
+                        <p class="ds-names__cap">Same names on iOS and Android.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision 2 -->
+            <div class="ds-decision">
+                <span class="step-num">Decision 2</span>
+                <h3>One system, two apps that don&rsquo;t look like copies</h3>
+                <p>The biggest bank wanted its own app. The stakeholders insisted it shouldn&rsquo;t look like the multi-bank app with a new color.</p>
+                <p>So the bank&rsquo;s app got its brand color, its logo, and the font from its mobile banking app. Button corners matched its banking app too, so it felt familiar. It also got the bank&rsquo;s voice: its motto and its way of talking to customers.</p>
+                <p>The multi-bank app kept a neutral indigo look. It had to fit every bank inside it, so it couldn&rsquo;t take one bank&rsquo;s brand.</p>
+                <p>But the core task stayed the same: read the code, copy it, pay. Both apps did the same job. They only needed to look different, not work differently.</p>
+                <p>If each app had its own flow, every request and every piece of code would need its own decision.</p>
+                <p>Setup adapted to each model. A multi-bank app needs a bank picker and QR. A single-bank app already knows the bank, so it registers by phone.</p>
+                <p>Because of Decision 1, a new look only meant changing the values. The core components stayed the same.</p>
+            </div>
+
+            <div class="ds-phones">
+                <figure class="ds-phone ds-t--teal">
+                    <div class="ds-screen">
+                        <div class="ds-bar"><span class="ds-logo">M</span><span class="ds-bar__title">Maple Trust</span></div>
+                        <div class="ds-body">
+                            <p class="ds-voice">Your code is ready.</p>
+                            <div class="ds-card">
+                                <span class="ds-card__label">Password 1</span>
+                                <span class="ds-card__code">5831</span>
+                            </div>
+                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
+                            <div class="ds-spacer"></div>
+                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
+                        </div>
+                    </div>
+                    <figcaption>Maple Trust app</figcaption>
+                </figure>
+                <figure class="ds-phone ds-t--indigo">
+                    <div class="ds-screen">
+                        <div class="ds-bar"><span class="ds-bar__title">Bank List</span></div>
+                        <div class="ds-body">
+                            <p class="ds-voice">Harbour Bank</p>
+                            <div class="ds-card">
+                                <span class="ds-card__label">Password 1</span>
+                                <span class="ds-card__code">5831</span>
+                            </div>
+                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
+                            <div class="ds-spacer"></div>
+                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
+                        </div>
+                    </div>
+                    <figcaption>Multi-bank app</figcaption>
+                </figure>
+            </div>
+            <p class="ds-caption">The same screen in both apps. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code. Banks are fictional.</p>
+
+            <span class="meta-label" style="margin-top: var(--space-5);">Same names, two apps</span>
+            <div class="table-wrap" style="margin-top: 8px;">
+                <table class="audit ds-tokens">
+                    <thead>
+                        <tr><th>Name</th><th>Maple Trust app</th><th>Multi-bank app</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#3F51B5"></span>#3F51B5</td></tr>
+                        <tr><td><code>on-primary</code></td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td></tr>
+                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#E8EAF6"></span>#E8EAF6</td></tr>
+                        <tr><td><code>error</code></td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td></tr>
+                        <tr><td><code>font</code></td><td>Nunito</td><td>Inter</td></tr>
+                        <tr><td><code>corner-radius</code></td><td>14px</td><td>12px</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="ds-caption">White text on both primaries passes WCAG AA: 5.3:1 on teal, 6.87:1 on indigo.</p>
+
+            <!-- Component states -->
+            <div class="ds-decision">
+                <span class="step-num">Components</span>
+                <h3>States are defined once, for both apps</h3>
+                <p>The button is one of the 20 components. It has the same intents, types and states in both apps. A theme changes how a state looks, never which states exist.</p>
+                <p>There&rsquo;s no hover state. It&rsquo;s a phone app, so there&rsquo;s no cursor. Pressed gives that feedback.</p>
+                <p>A button never asks for a color. It asks for a job. Each app only changes what that job points to.</p>
+            </div>
+
+
+            <figure class="ds-matrix">
+                <div class="ds-matrix__scroll" tabindex="0" role="region" aria-label="Button matrix, scroll sideways">
+                <img id="ds-matrix-img" src="images/otp-ds-buttons-teal.webp" alt="Maple Trust button matrix: constructive, neutral and destructive buttons in primary, secondary, tertiary and link types, each in default, pressed, focus, disabled and loading states" width="1360" height="1012" loading="lazy" />
+                </div>
+                <figcaption>Shown in the Maple Trust theme. Recreated in Figma for this case study. Every fill, text color, corner and font is bound to a variable.</figcaption>
+            </figure>
+
+            <div class="ds-switch" role="radiogroup" aria-label="Theme">
+                <button type="button" role="radio" aria-checked="true" data-theme-pick="teal"><span class="sw" style="background:#00796B"></span>Maple Trust</button>
+                <button type="button" role="radio" aria-checked="false" data-theme-pick="indigo"><span class="sw" style="background:#3F51B5"></span>Multi-bank app</button>
+            </div>
+
+            <div class="ds-chain" aria-live="polite">
+                <div class="ds-chain__step"><span class="meta-label">3 &middot; Component</span><code>button/primary/background/default</code></div>
+                <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
+                <div class="ds-chain__step"><span class="meta-label">2 &middot; Semantic</span><code>primary</code></div>
+                <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
+                <div class="ds-chain__step"><span class="meta-label">1 &middot; Primitive</span><code><span class="sw" id="ds-chain-sw" style="background:#00796B"></span><span id="ds-chain-prim">teal/600</span></code></div>
+            </div>
+
+            <div class="ds-states ds-t--teal" id="ds-states">
+                <div class="ds-states__group">
+                    <span class="meta-label">Activation code input</span>
+                    <div class="ds-states__row">
+                        <div class="ds-state"><span class="ds-input"><span class="ds-input__ph">4-digit code</span></span><small>Empty</small></div>
+                        <div class="ds-state"><span class="ds-input is-focus"><span class="ds-input__caret"></span></span><small>Focused</small></div>
+                        <div class="ds-state"><span class="ds-input is-filled">4643</span><small>Filled</small></div>
+                        <div class="ds-state"><span class="ds-input is-error">4634</span><span class="ds-input__msg">That code doesn&rsquo;t match. Check the SMS.</span><small>Error</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container">
+            <h2>Results</h2>
+            <article class="card" style="margin-top: var(--space-3);">
+                <span class="badge">The real test</span>
+                <h3>Another designer built a new theme with it</h3>
+                <p style="max-width: 100%;">Later, another designer used my system for their app&rsquo;s redesign. Same names, same components, a new look.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- What I'd improve -->
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>What I&rsquo;d improve today</h2>
+            <p style="max-width: 100%;">Looking back, I checked our original colors against WCAG 2.1 AA. Most pairs pass. White on the indigo primary is 6.87:1. But three pairs fail if you use them for text:</p>
+            <div class="table-wrap">
+                <table class="audit">
+                    <thead><tr><th>Pair</th><th>Contrast</th><th>Fix</th><th>New contrast</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="sw" style="background:#757575"></span>Text Secondary on Light Background</td><td class="fail">4.22:1</td><td><span class="sw" style="background:#6B6B6B"></span>#6B6B6B</td><td class="pass">4.89:1</td></tr>
+                        <tr><td><span class="sw" style="background:#4CAF50"></span>White on Success Green</td><td class="fail">2.78:1</td><td><span class="sw" style="background:#2E7D32"></span>#2E7D32</td><td class="pass">5.13:1</td></tr>
+                        <tr><td><span class="sw" style="background:#F44336"></span>White on Error Red</td><td class="fail">3.68:1</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td class="pass">6.54:1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="max-width: 100%; margin-top: var(--space-3);">AA needs 4.5:1 for body text. The fixed red, #B3261E, is now the <code>error</code> color in both themes, and the countdown warning uses it too.</p>
+        </div>
+    </section>
+
+    <!-- Next part -->
+    <section class="section">
+        <div class="container">
+            <a class="work-card work-card--feature" href="otp-authenticator">
+                <div>
+                    <p class="work-card__meta">Part 1 of 2 &middot; Same project</p>
+                    <h3 class="work-card__title">Offline OTP Authenticator: the app&nbsp;<span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                    <p>The flows and product decisions: one card per bank, a countdown you can read at a glance, and activation without a SIM card.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5); gap: var(--space-2); flex-wrap: wrap;">
+                <a href="otp-authenticator" class="button button-secondary">&larr; Part 1: The app</a>
+                <a href="tomaan" class="button button-secondary">Next: Tomaan &rarr;</a>
+            </div>
+            <div class="footer-grid">
+                <div>
+                    <h3>Concepts</h3>
+                    <ul>
+                        <li><a href="tomaan">Tomaan: Fraud Verification</a></li>
+                        <li><a href="transparent-jar">The Transparent Jar</a></li>
+                        <li><a href="promptlab-carbon">IBM watsonx: Prompt Compare</a></li>
+                        <li><a href="smart-substitutions">Agentic Grocery Substitutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>More Work</h3>
+                    <ul>
+                        <li><a href="museum">Museum Educator Dashboard</a></li>
+                        <li><a href="golaab">Golaab Jewelry: Keepsake Builder</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
+                        <li><a href="sudoku.html">Play a game</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
+                <a href="whiteboard" class="text-link footer-wb-link">Whiteboard challenges &rarr;</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/site.js?v=2" defer></script>
+    <script>
+    (function () {
+        var card = document.querySelector('.otp-card'); if (!card) return;
+        var PERIOD = 60, URGENT = 5, C = 2 * Math.PI * 19;
+        var codeEl = card.querySelector('.otp-code'), bar = card.querySelector('.otp-ring__bar'),
+            sec = card.querySelector('.otp-ring__sec'), status = card.querySelector('.otp-status-text'),
+            btn = card.querySelector('.otp-copy'), live = card.querySelector('.otp-live');
+        var left = PERIOD, code = '', resetTimer;
+        function newCode() {
+            var n = ''; for (var i = 0; i < 6; i++) n += Math.floor(Math.random() * 10);
+            code = n; codeEl.textContent = n.slice(0, 3) + ' ' + n.slice(3);
+            codeEl.classList.remove('is-rolling'); void codeEl.offsetWidth; codeEl.classList.add('is-rolling');
+        }
+        function render() {
+            bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(2);
+            sec.textContent = left;
+            card.classList.toggle('is-urgent', left <= URGENT);
+            status.textContent = left <= URGENT ? 'Expiring soon \u00b7 new code in ' + left + 's' : 'Expires in ' + left + ' seconds';
+        }
+        function tick() {
+            left -= 1;
+            if (left <= 0) {
+                left = PERIOD;
+                bar.style.transition = 'none'; render(); void bar.offsetWidth; bar.style.transition = '';
+                newCode();
+            } else { render(); }
+        }
+        newCode(); render();
+        var interval = null;
+        function start() { if (!interval) interval = setInterval(tick, 1000); }
+        function stop() { clearInterval(interval); interval = null; }
+        // Only run while the card is on screen and the tab is visible
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(card);
+        } else { start(); }
+        document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+        btn.addEventListener('click', function () {
+            var done = function () {
+                btn.classList.add('is-copied'); btn.setAttribute('aria-label', 'Copied');
+                live.textContent = ''; setTimeout(function () { live.textContent = 'Password copied'; }, 50);
+                if (navigator.vibrate) navigator.vibrate(10);
+                clearTimeout(resetTimer);
+                resetTimer = setTimeout(function () { btn.classList.remove('is-copied'); btn.setAttribute('aria-label', 'Copy password'); }, 1600);
+            };
+            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done();
+        });
+    })();
+    (function () {
+        var box = document.getElementById('ds-states'); if (!box) return;
+        var picks = document.querySelectorAll('[data-theme-pick]');
+        var THEMES = { teal: { name: 'Maple Trust', hex: '#00796B', prim: 'teal/600' }, indigo: { name: 'Multi-bank app', hex: '#3F51B5', prim: 'indigo/500' } };
+        function choose(btn) {
+            picks.forEach(function (b) { b.setAttribute('aria-checked', b === btn ? 'true' : 'false'); b.tabIndex = b === btn ? 0 : -1; });
+            var k = btn.getAttribute('data-theme-pick'), T = THEMES[k];
+            box.className = 'ds-states ds-t--' + k;
+            document.getElementById('ds-chain-prim').textContent = T.prim;
+            document.getElementById('ds-chain-sw').style.background = T.hex;
+        }
+        picks.forEach(function (b, i) {
+            b.tabIndex = i === 0 ? 0 : -1;
+            b.addEventListener('click', function () { choose(b); });
+            b.addEventListener('keydown', function (e) {
+                if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+                e.preventDefault();
+                var n = picks[(i + (e.key === 'ArrowRight' ? 1 : picks.length - 1)) % picks.length];
+                choose(n); n.focus();
+            });
+        });
+    })();
+    </script>
+
+</body>
+</html>

@@ -223,9 +223,9 @@
     <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
         <div class="container">
             <div style="width: 100%; margin-bottom: var(--space-5);">
-                <span class="badge">Shipped Work &middot; Native iOS &amp; Android</span>
+                <span class="badge">Shipped Work &middot; Part 1 of 2 &middot; The app</span>
                 <h1 style="margin-top: var(--space-2);">Offline OTP Authenticator</h1>
-                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native app that makes one-time passwords for card payments. One design system across two apps: one for a single bank, one for many banks.</h2>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">A native app that makes one-time passwords for card payments. Each code works for 60 seconds, so every screen is built for someone in a hurry.</h2>
 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                     <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
@@ -237,19 +237,21 @@
 
             <img src="images/otp-hero.webp" alt="Three screens of the OTP app: adding a bank, the list of banks with password codes and countdown timers, and activating passwords" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
 
+            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I designed the flows and screens of both apps, for iOS and Android.</p>
+
             <div class="note">
                 <p><strong>Note:</strong> I recreated these screens. The banks are fictional and the data is placeholder. The flows and decisions are real.</p>
             </div>
 
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
-                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built a design system for both of our apps. Color bugs dropped to zero.</p>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">People needed a code to approve a card payment. Often at a card reader or at checkout, in a hurry. The code lived on the phone, worked offline and expired in 60 seconds. My job was to make it fast to find, easy to read and hard to miss when time ran out.</p>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">2M+</p><p class="num-strip__l">people used the app</p></div>
-                <div><p class="num-strip__n">2</p><p class="num-strip__l">apps on one system</p></div>
-                <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
-                <div><p class="num-strip__n">4 &rarr; 15</p><p class="num-strip__l">people on the team</p></div>
+                <div><p class="num-strip__n">60s</p><p class="num-strip__l">to use each code</p></div>
+                <div><p class="num-strip__n">2</p><p class="num-strip__l">apps I designed</p></div>
+                <div><p class="num-strip__n">Offline</p><p class="num-strip__l">no internet needed</p></div>
             </div>
         </div>
     </section>
@@ -273,192 +275,6 @@
             </div>
             <h3 style="margin-top: var(--space-4);">My role</h3>
             <p style="max-width: 100%;">I designed the flows and screens for iOS and Android. I followed Apple&rsquo;s guidelines and Material Design.</p>
-        </div>
-    </section>
-
-    <!-- The story -->
-    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-        <div class="container">
-            <h2>How it grew</h2>
-
-            <span class="step-num" style="margin-top: var(--space-3);">Chapter 1</span>
-            <h3>It started small</h3>
-            <p style="max-width: 100%;">At the start we were four people. Me as the only designer, one iOS developer, one Android developer and one backend developer. The app had three screens. We had no design system. Everyone set their own colors on each screen.</p>
-
-            <span class="step-num" style="margin-top: var(--space-4);">Chapter 2</span>
-            <h3>Then the biggest bank wanted its own app</h3>
-            <p style="max-width: 100%;">The plan was to add other banks to this app. But the biggest bank, Maple Trust, wanted the app just for itself. We tried to negotiate. We only wanted to add a section for the other banks. They didn&rsquo;t accept it, so we had to rethink and build a separate app for the other banks.</p>
-
-            <span class="step-num" style="margin-top: var(--space-4);">Chapter 3</span>
-            <h3>Then things started to break</h3>
-            <p style="max-width: 100%;">More screens, more people, more apps. And the colors were still set screen by screen. So when something changed, we couldn&rsquo;t track it. We had to search every page, one by one.</p>
-
-            <span class="step-num" style="margin-top: var(--space-4);">Chapter 4</span>
-            <h3>So I built a design system</h3>
-            <p style="max-width: 100%;">20 components, used across both apps. One place for colors and styles, not one per screen. After that, color bugs QA found went from 4&ndash;5 per release to zero. And handoff to developers got faster. <a class="text-link" href="#design-system">Here&rsquo;s how it worked &darr;</a></p>
-        </div>
-    </section>
-
-    <!-- Design system -->
-    <section class="section" id="design-system">
-        <div class="container">
-            <span class="step-num">The design system</span>
-            <h2 style="margin-top: 0;">One system, two apps</h2>
-            <p style="max-width: 100%;">One app was only for the biggest bank, Maple Trust. The other held the other banks, like Harbour Bank and Summit Bank. Underneath, both used the same names, the same components and the same flows. Only the values changed.</p>
-
-            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds two app themes: the Maple Trust app and the multi-bank app">
-                <div class="ds-tree__root">
-                    <span class="ds-tree__title">One system</span>
-                    <span class="ds-tree__items">Semantic names &middot; Components &middot; Flows &middot; States &middot; Accessibility rules</span>
-                </div>
-                <div class="ds-tree__lines" aria-hidden="true"><span></span><span></span></div>
-                <div class="ds-tree__leaves">
-                    <div class="ds-tree__leaf" style="--leaf: #00796B;"><span class="ds-mono" style="background:#00796B;border-radius:10px;font-family:'Nunito',sans-serif;">M</span><span><strong>Maple Trust app</strong><small>Teal &middot; Nunito &middot; one bank only</small></span></div>
-                    <div class="ds-tree__leaf" style="--leaf: #3F51B5;"><span class="ds-mono" style="background:#3F51B5;border-radius:8px;font-family:'Inter',sans-serif;">B</span><span><strong>Multi-bank app</strong><small>Indigo &middot; Inter &middot; Harbour Bank, Summit Bank</small></span></div>
-                </div>
-            </div>
-
-            <!-- Decision 1 -->
-            <div class="ds-decision">
-                <span class="step-num">Decision 1</span>
-                <h3>Name colors by their job, not their value</h3>
-                <p>Every screen had its own colors. One change meant checking every page.</p>
-                <p>We could have made up our own names. But people already wrote them differently: primary_first, primaryFirst, all mixed. That leads to confusion.</p>
-                <p>So I named colors by role, following Material&rsquo;s semantic names: primary, on-primary, surface, error. It was a standard we could point to. iOS used the same names as Android.</p>
-                <p>We had one handoff session to walk through it. After that, when anyone had a question in the group, they pointed to the same shared reference. The whole team spoke one language.</p>
-
-                <div class="ds-names">
-                    <div class="ds-names__col">
-                        <span class="meta-label">Before: everyone&rsquo;s own names</span>
-                        <ul class="ds-names__list is-before">
-                            <li><code>primary_first</code></li>
-                            <li><code>primaryFirst</code></li>
-                            <li><code>#3F51B5</code></li>
-                        </ul>
-                        <p class="ds-names__cap">Different names for the same color. Nobody knew which one was right.</p>
-                    </div>
-                    <div class="ds-names__arrow" aria-hidden="true">&rarr;</div>
-                    <div class="ds-names__col">
-                        <span class="meta-label">After: one name per job</span>
-                        <ul class="ds-names__list is-after">
-                            <li><code>primary</code><span>Buttons, headers, active tabs</span></li>
-                            <li><code>on-primary</code><span>Text and icons on primary</span></li>
-                            <li><code>surface</code><span>Cards and sheets</span></li>
-                            <li><code>error</code><span>Wrong code, failed activation</span></li>
-                        </ul>
-                        <p class="ds-names__cap">Same names on iOS and Android.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Decision 2 -->
-            <div class="ds-decision">
-                <span class="step-num">Decision 2</span>
-                <h3>One system, two apps that don&rsquo;t look like copies</h3>
-                <p>The biggest bank wanted its own app. The stakeholders insisted it shouldn&rsquo;t look like the multi-bank app with a new color.</p>
-                <p>So the bank&rsquo;s app got its brand color, its logo, and the font from its mobile banking app. Button corners matched its banking app too, so it felt familiar. It also got the bank&rsquo;s voice: its motto and its way of talking to customers.</p>
-                <p>The multi-bank app kept a neutral indigo look. It had to fit every bank inside it, so it couldn&rsquo;t take one bank&rsquo;s brand.</p>
-                <p>But the core task stayed the same: read the code, copy it, pay. Both apps did the same job. They only needed to look different, not work differently.</p>
-                <p>If each app had its own flow, every request and every piece of code would need its own decision.</p>
-                <p>Setup adapted to each model. A multi-bank app needs a bank picker and QR. A single-bank app already knows the bank, so it registers by phone.</p>
-                <p>Because of Decision 1, a new look only meant changing the values. The core components stayed the same.</p>
-            </div>
-
-            <div class="ds-phones">
-                <figure class="ds-phone ds-t--teal">
-                    <div class="ds-screen">
-                        <div class="ds-bar"><span class="ds-logo">M</span><span class="ds-bar__title">Maple Trust</span></div>
-                        <div class="ds-body">
-                            <p class="ds-voice">Your code is ready.</p>
-                            <div class="ds-card">
-                                <span class="ds-card__label">Password 1</span>
-                                <span class="ds-card__code">5831</span>
-                            </div>
-                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
-                            <div class="ds-spacer"></div>
-                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
-                        </div>
-                    </div>
-                    <figcaption>Maple Trust app</figcaption>
-                </figure>
-                <figure class="ds-phone ds-t--indigo">
-                    <div class="ds-screen">
-                        <div class="ds-bar"><span class="ds-bar__title">Bank List</span></div>
-                        <div class="ds-body">
-                            <p class="ds-voice">Harbour Bank</p>
-                            <div class="ds-card">
-                                <span class="ds-card__label">Password 1</span>
-                                <span class="ds-card__code">5831</span>
-                            </div>
-                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
-                            <div class="ds-spacer"></div>
-                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
-                        </div>
-                    </div>
-                    <figcaption>Multi-bank app</figcaption>
-                </figure>
-            </div>
-            <p class="ds-caption">The same screen in both apps. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code. Banks are fictional.</p>
-
-            <span class="meta-label" style="margin-top: var(--space-5);">Same names, two apps</span>
-            <div class="table-wrap" style="margin-top: 8px;">
-                <table class="audit ds-tokens">
-                    <thead>
-                        <tr><th>Name</th><th>Maple Trust app</th><th>Multi-bank app</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#3F51B5"></span>#3F51B5</td></tr>
-                        <tr><td><code>on-primary</code></td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td></tr>
-                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#E8EAF6"></span>#E8EAF6</td></tr>
-                        <tr><td><code>error</code></td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td></tr>
-                        <tr><td><code>font</code></td><td>Nunito</td><td>Inter</td></tr>
-                        <tr><td><code>corner-radius</code></td><td>14px</td><td>12px</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="ds-caption">White text on both primaries passes WCAG AA: 5.3:1 on teal, 6.87:1 on indigo.</p>
-
-            <!-- Component states -->
-            <div class="ds-decision">
-                <span class="step-num">Components</span>
-                <h3>States are defined once, for both apps</h3>
-                <p>The button is one of the 20 components. It has the same intents, types and states in both apps. A theme changes how a state looks, never which states exist.</p>
-                <p>There&rsquo;s no hover state. It&rsquo;s a phone app, so there&rsquo;s no cursor. Pressed gives that feedback.</p>
-                <p>A button never asks for a color. It asks for a job. Each app only changes what that job points to.</p>
-            </div>
-
-
-            <figure class="ds-matrix">
-                <div class="ds-matrix__scroll" tabindex="0" role="region" aria-label="Button matrix, scroll sideways">
-                <img id="ds-matrix-img" src="images/otp-ds-buttons-teal.webp" alt="Maple Trust button matrix: constructive, neutral and destructive buttons in primary, secondary, tertiary and link types, each in default, pressed, focus, disabled and loading states" width="1360" height="1012" loading="lazy" />
-                </div>
-                <figcaption>Shown in the Maple Trust theme. Recreated in Figma for this case study. Every fill, text color, corner and font is bound to a variable.</figcaption>
-            </figure>
-
-            <div class="ds-switch" role="radiogroup" aria-label="Theme">
-                <button type="button" role="radio" aria-checked="true" data-theme-pick="teal"><span class="sw" style="background:#00796B"></span>Maple Trust</button>
-                <button type="button" role="radio" aria-checked="false" data-theme-pick="indigo"><span class="sw" style="background:#3F51B5"></span>Multi-bank app</button>
-            </div>
-
-            <div class="ds-chain" aria-live="polite">
-                <div class="ds-chain__step"><span class="meta-label">3 &middot; Component</span><code>button/primary/background/default</code></div>
-                <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
-                <div class="ds-chain__step"><span class="meta-label">2 &middot; Semantic</span><code>primary</code></div>
-                <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
-                <div class="ds-chain__step"><span class="meta-label">1 &middot; Primitive</span><code><span class="sw" id="ds-chain-sw" style="background:#00796B"></span><span id="ds-chain-prim">teal/600</span></code></div>
-            </div>
-
-            <div class="ds-states ds-t--teal" id="ds-states">
-                <div class="ds-states__group">
-                    <span class="meta-label">Activation code input</span>
-                    <div class="ds-states__row">
-                        <div class="ds-state"><span class="ds-input"><span class="ds-input__ph">4-digit code</span></span><small>Empty</small></div>
-                        <div class="ds-state"><span class="ds-input is-focus"><span class="ds-input__caret"></span></span><small>Focused</small></div>
-                        <div class="ds-state"><span class="ds-input is-filled">4643</span><small>Filled</small></div>
-                        <div class="ds-state"><span class="ds-input is-error">4634</span><span class="ds-input__msg">That code doesn&rsquo;t match. Check the SMS.</span><small>Error</small></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -565,34 +381,16 @@
         </div>
     </section>
 
-    <!-- Results -->
+    <!-- Next part -->
     <section class="section">
         <div class="container">
-            <h2>Results</h2>
-            <article class="card" style="margin-top: var(--space-3);">
-                <span class="badge">The real test</span>
-                <h3>Another designer built a new theme with it</h3>
-                <p style="max-width: 100%;">Later, another designer used my system for their app&rsquo;s redesign. Same names, same components, a new look.</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- What I'd improve -->
-    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-        <div class="container">
-            <h2>What I&rsquo;d improve today</h2>
-            <p style="max-width: 100%;">Looking back, I checked our original colors against WCAG 2.1 AA. Most pairs pass. White on the indigo primary is 6.87:1. But three pairs fail if you use them for text:</p>
-            <div class="table-wrap">
-                <table class="audit">
-                    <thead><tr><th>Pair</th><th>Contrast</th><th>Fix</th><th>New contrast</th></tr></thead>
-                    <tbody>
-                        <tr><td><span class="sw" style="background:#757575"></span>Text Secondary on Light Background</td><td class="fail">4.22:1</td><td><span class="sw" style="background:#6B6B6B"></span>#6B6B6B</td><td class="pass">4.89:1</td></tr>
-                        <tr><td><span class="sw" style="background:#4CAF50"></span>White on Success Green</td><td class="fail">2.78:1</td><td><span class="sw" style="background:#2E7D32"></span>#2E7D32</td><td class="pass">5.13:1</td></tr>
-                        <tr><td><span class="sw" style="background:#F44336"></span>White on Error Red</td><td class="fail">3.68:1</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td class="pass">6.54:1</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p style="max-width: 100%; margin-top: var(--space-3);">AA needs 4.5:1 for body text. The fixed red, #B3261E, is now the <code>error</code> color in both themes, and the countdown warning uses it too.</p>
+            <a class="work-card work-card--feature" href="otp-design-system">
+                <div>
+                    <p class="work-card__meta">Part 2 of 2 &middot; Same project</p>
+                    <h3 class="work-card__title">One design system, three bank apps&nbsp;<span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                    <p>How I took 4&ndash;5 color bugs per release down to zero, with a system the whole team could share.</p>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -601,7 +399,7 @@
         <div class="container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5); gap: var(--space-2); flex-wrap: wrap;">
                 <a href="/" class="button button-secondary">&larr; All work</a>
-                <a href="tomaan" class="button button-secondary">Next: Tomaan &rarr;</a>
+                <a href="otp-design-system" class="button button-secondary">Part 2: The design system &rarr;</a>
             </div>
             <div class="footer-grid">
                 <div>
