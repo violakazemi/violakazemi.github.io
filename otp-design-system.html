@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Case study: the design system Viola Kazemi built for a native iOS and Android one-time password app at Carrene. Color bugs per release went from 4–5 to zero." />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
-    <link rel="stylesheet" href="assets/css/main.css?v=9" />
+    <link rel="stylesheet" href="assets/css/main.css?v=12" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -493,21 +493,15 @@
                 <a href="otp-authenticator" class="button button-secondary">&larr; Part 1: The app</a>
                 <a href="tomaan" class="button button-secondary">Next: Tomaan &rarr;</a>
             </div>
-            <div class="footer-grid">
+            <div class="footer-grid" style="grid-template-columns: 2fr 1fr;">
                 <div>
-                    <h3>Concepts</h3>
-                    <ul>
-                        <li><a href="tomaan">Tomaan: Fraud Verification</a></li>
-                        <li><a href="transparent-jar">The Transparent Jar</a></li>
-                        <li><a href="promptlab-carbon">IBM watsonx: Prompt Compare</a></li>
-                        <li><a href="smart-substitutions">Agentic Grocery Substitutions</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>More Work</h3>
-                    <ul>
+                    <h3>Work</h3>
+                    <ul class="footer-work">
+                        <li><a href="otp-authenticator">Offline OTP Authenticator</a></li>
+                        <li><a href="otp-design-system">OTP Design System</a></li>
                         <li><a href="museum">Museum Educator Dashboard</a></li>
-                        <li><a href="golaab">Golaab Jewelry: Keepsake Builder</a></li>
+                        <li><a href="golaab">Golaab Jewelry</a></li>
+                        <li><a href="more">More work &rarr;</a></li>
                     </ul>
                 </div>
                 <div>
@@ -515,14 +509,13 @@
                     <ul>
                         <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
                         <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank" rel="noopener">LinkedIn</a></li>
-                        <li><a href="ViolaKazemi.pdf">Download Resume</a></li>
-                        <li><a href="sudoku.html">Play a game</a></li>
+                        <li><a href="ViolaKazemi.pdf">Resume</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <p style="margin: 0;">&copy; 2026 Viola Kazemi. All rights reserved.</p>
-                <a href="whiteboard" class="text-link footer-wb-link">Whiteboard challenges &rarr;</a>
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi</p>
+                <p style="margin: 0;"><a href="whiteboard" class="text-link footer-wb-link">Whiteboard challenges</a> &middot; <a href="sudoku.html" class="text-link footer-wb-link">Play a game</a></p>
             </div>
         </div>
     </footer>

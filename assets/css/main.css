@@ -743,3 +743,7 @@ img.shot {
 @media screen and (max-width: 520px) {
     .global-header .logo { overflow: visible; text-overflow: clip; flex: none; }
 }
+
+/* Footer work list: two short columns instead of one long one */
+.footer-work { columns: 2; column-gap: var(--space-4); }
+.footer-work li { break-inside: avoid; }
