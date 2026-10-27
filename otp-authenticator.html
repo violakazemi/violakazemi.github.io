@@ -390,18 +390,21 @@
                     <span class="badge">Clarity</span>
                     <h3>One card per bank</h3>
                     <p>Each card only shows the passwords the user turned on. If Password 2 is off, you see a dashed &ldquo;Add&rdquo; button, not an empty field. So the screen never shows a code that doesn&rsquo;t exist.</p>
+                    <p class="decision-block"><strong>What I tried:</strong> a separate screen for each bank. I dropped it. Many people have cards from more than one bank, and switching screens while a code runs out only adds stress.</p>
                 </article>
                 <article class="card">
                     <div class="dvis"><img src="images/otp-decision-expiry.webp" alt="The Maple Trust ring and the multi-bank text timer, both red at 4 seconds" loading="lazy" width="660" height="380" /></div>
                     <span class="badge">Time pressure</span>
                     <h3>Expiry you can read at a glance</h3>
                     <p>In the Maple Trust app, a ring shows the seconds left, as a number. In the multi-bank app, each bank card shows the seconds as text. In both, the last 5 seconds turn red. The number is always there, so the warning doesn&rsquo;t depend on color only.</p>
+                    <p class="decision-block"><strong>Why two styles:</strong> the ring came first, in the Maple Trust app. The bank approved it, and it became one of the things people knew their app for. Later we found the ring&rsquo;s library had limits: changing its size caused bugs. So for the multi-bank app, we proposed a text timer instead.</p>
                 </article>
                 <article class="card">
                     <div class="dvis"><img src="images/otp-decision-digits.webp" alt="A large 4-digit code with the copy button next to it, showing a check after copying" loading="lazy" width="580" height="340" /></div>
                     <span class="badge">Speed</span>
                     <h3>Big digits, one-tap copy</h3>
                     <p>People read the code at a card reader, or paste it at checkout. Usually in a hurry. So the digits are big, and the copy button is right next to the code.</p>
+                    <p class="decision-block"><strong>What I tried:</strong> copying the code automatically when the app opens. It doesn&rsquo;t work. Some people need both Password 1 and Password 2, so the app can&rsquo;t know which one to copy.</p>
                 </article>
             </div>
             <div class="grid-2" style="margin-top: var(--space-4);">
