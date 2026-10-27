@@ -55,6 +55,8 @@
     
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
         @media screen and (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+        .dvis { margin: 0 0 var(--space-3); }
+        .dvis img { width: 100%; max-width: 420px; height: auto; display: block; border-radius: 14px; border: 1px solid var(--color-border); }
         .phone { max-width: 240px; margin: 0 auto var(--space-3) auto; }
         .phone img { width: 100%; height: auto; border-radius: 22px; box-shadow: var(--shadow-sm); display: block; border: 1px solid var(--color-border); }
         .step-num { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 4px; }
@@ -375,6 +377,7 @@
                 <p class="decision-block"><strong>Trade-off:</strong> reach vs. security. Email reaches more people. But the banks&rsquo; security teams didn&rsquo;t accept email as a safe way to verify someone. So we kept SMS only.</p>
             </article>
             <article class="card" style="margin-top: var(--space-4);">
+                <div class="dvis"><img src="images/otp-decision-time.webp" alt="30 seconds in the pilot crossed out, then 60 seconds at public launch" loading="lazy" width="720" height="300" /></div>
                 <span class="badge">Shipped &middot; Changed after testing</span>
                 <h3>30 seconds &rarr; 60 seconds</h3>
                 <p>We first launched the app to about 100 bank employees, to get feedback before real customers. In that version, each code worked for 30 seconds. Their feedback: at ATMs and card readers, they often ran out of time before they finished typing.</p>
@@ -383,16 +386,19 @@
             </article>
             <div class="grid-3" style="margin-top: var(--space-4);">
                 <article class="card">
+                    <div class="dvis"><img src="images/otp-decision-card.webp" alt="A Summit Bank card showing Password 1 with a copy button and a dashed Add Password 2 button" loading="lazy" width="580" height="340" /></div>
                     <span class="badge">Clarity</span>
                     <h3>One card per bank</h3>
                     <p>Each card only shows the passwords the user turned on. If Password 2 is off, you see a dashed &ldquo;Add&rdquo; button, not an empty field. So the screen never shows a code that doesn&rsquo;t exist.</p>
                 </article>
                 <article class="card">
+                    <div class="dvis"><img src="images/otp-decision-expiry.webp" alt="The Maple Trust ring and the multi-bank text timer, both red at 4 seconds" loading="lazy" width="660" height="380" /></div>
                     <span class="badge">Time pressure</span>
                     <h3>Expiry you can read at a glance</h3>
                     <p>In the Maple Trust app, a ring shows the seconds left, as a number. In the multi-bank app, each bank card shows the seconds as text. In both, the last 5 seconds turn red. The number is always there, so the warning doesn&rsquo;t depend on color only.</p>
                 </article>
                 <article class="card">
+                    <div class="dvis"><img src="images/otp-decision-digits.webp" alt="A large 4-digit code with the copy button next to it, showing a check after copying" loading="lazy" width="580" height="340" /></div>
                     <span class="badge">Speed</span>
                     <h3>Big digits, one-tap copy</h3>
                     <p>People read the code at a card reader, or paste it at checkout. Usually in a hurry. So the digits are big, and the copy button is right next to the code.</p>
