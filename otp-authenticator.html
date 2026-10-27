@@ -75,7 +75,7 @@
         .otp-demo { display: grid; grid-template-columns: 1fr minmax(280px, 360px); gap: var(--space-5); align-items: center; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
         @media screen and (max-width: 900px) { .otp-demo { grid-template-columns: 1fr; gap: var(--space-3); } }
         .otp-demo__text p { color: var(--color-text-secondary); margin: 0; }
-        .otp-card { --otp-accent: var(--color-text-primary); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 20px; box-shadow: var(--shadow-md); }
+        .otp-card { --otp-accent: #00796B; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 20px; box-shadow: var(--shadow-md); }
         .otp-card.is-urgent { --otp-accent: #B3261E; }
         .otp-card__head { display: flex; justify-content: space-between; font-size: var(--fs-small); margin-bottom: 14px; }
         .otp-card__bank { font-weight: 600; }
@@ -235,7 +235,7 @@
                 </div>
             </div>
 
-            <img src="images/otp-hero.webp" alt="Three screens of the OTP app: adding a bank, the list of banks with password codes and countdown timers, and activating passwords" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            <img src="images/otp-hero.webp" alt="Three screens of the multi-bank app: adding a bank, the list of banks with password codes and seconds left, and activating passwords" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
 
             <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I designed the flows and screens of both apps, for iOS and Android.</p>
 
@@ -285,19 +285,19 @@
             <p style="max-width: 100%;">Three steps in the multi-bank app, from installing it to paying. The Maple Trust app skips Step 1: it already knows the bank, so it registers by phone.</p>
             <div class="grid-3" style="margin-top: var(--space-4);">
                 <article class="card">
-                    <div class="phone"><img src="images/otp-add-new-bank.webp" alt="Add New Bank screen with four bank tiles and a Scan Code button" loading="lazy" width="390" height="844" /></div>
+                    <div class="phone"><img src="images/otp-add-new-bank.webp" alt="Add New Bank screen with four bank tiles, Harbour Bank selected, and a Scan Code button" loading="lazy" width="390" height="844" /></div>
                     <span class="step-num">Step 1</span>
                     <h3>Add a bank</h3>
                     <p>The user picks their bank. Then they scan the code they got from their branch or internet banking.</p>
                 </article>
                 <article class="card">
-                    <div class="phone"><img src="images/otp-enter-bank-passwords.webp" alt="Enter Bank Passwords screen with Password 1 selected, an activation code field and a backup PIN field" loading="lazy" width="390" height="844" /></div>
+                    <div class="phone"><img src="images/otp-enter-bank-passwords.webp" alt="Enter Bank Passwords screen for Harbour Bank with Password 1 selected and an activation code field" loading="lazy" width="390" height="844" /></div>
                     <span class="step-num">Step 2</span>
                     <h3>Activate passwords</h3>
                     <p>They pick Password 1, Password 2, or both. Then they enter the activation code from the SMS.</p>
                 </article>
                 <article class="card">
-                    <div class="phone"><img src="images/otp-bank-list.webp" alt="Bank List screen showing bank cards, each with a password code, a copy button and a countdown ring" loading="lazy" width="390" height="844" /></div>
+                    <div class="phone"><img src="images/otp-bank-list.webp" alt="Bank List screen showing bank cards, each with a password code, a copy button and the seconds left; one turns red in its last 5 seconds" loading="lazy" width="390" height="844" /></div>
                     <span class="step-num">Step 3</span>
                     <h3>Use a password</h3>
                     <p>Each bank has one card. It shows the active passwords, the time left and a copy button.</p>
@@ -309,11 +309,11 @@
                 <div class="otp-demo__text">
                     <span class="step-num">Try it</span>
                     <h3 id="otp-demo-title">The password card, live</h3>
-                    <p>The ring shows how long the code works. In the last 5 seconds it turns red, so you know to use it now. Tap copy and you see a check, so you know it worked. The codes here are random numbers, made for this demo.</p>
+                    <p>This is the Maple Trust app&rsquo;s card. The ring shows how long the code works. In the last 5 seconds it turns red, so you know to use it now. Tap copy and you see a check, so you know it worked. The codes here are random numbers, made for this demo.</p>
                 </div>
                 <div class="otp-card">
                     <div class="otp-card__head">
-                        <span class="otp-card__bank">Your bank</span>
+                        <span class="otp-card__bank">Maple Trust</span>
                         <span class="otp-card__which">Password 2</span>
                     </div>
                     <div class="otp-card__row">
@@ -357,7 +357,7 @@
                 <article class="card">
                     <span class="badge">Time pressure</span>
                     <h3>Expiry you can read at a glance</h3>
-                    <p>A ring shows the seconds left, as a number. In the last 5 seconds it turns red. The number is always there, so the warning doesn&rsquo;t depend on color only.</p>
+                    <p>In the Maple Trust app, a ring shows the seconds left, as a number. In the multi-bank app, each bank card shows the seconds as text. In both, the last 5 seconds turn red. The number is always there, so the warning doesn&rsquo;t depend on color only.</p>
                 </article>
                 <article class="card">
                     <span class="badge">Speed</span>
@@ -373,7 +373,7 @@
                     <p>The app has its own lock, a pattern or a password. Users can also set when it locks. So even if the phone is unlocked, the card passwords stay safe.</p>
                 </article>
                 <article class="card">
-                    <div class="phone"><img src="images/otp-bank-support.webp" alt="Bank Support screen listing six banks with a call button for each" loading="lazy" width="390" height="844" /></div>
+                    <div class="phone"><img src="images/otp-bank-support.webp" alt="Bank Support screen listing five banks with a call button for each" loading="lazy" width="390" height="844" /></div>
                     <h3>Help one tap away</h3>
                     <p>Lost a card? Password not working? Each bank&rsquo;s support number is there with a call button. Users can also report a problem with the app.</p>
                 </article>
