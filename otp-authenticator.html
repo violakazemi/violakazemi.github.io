@@ -256,6 +256,32 @@
         </div>
     </section>
 
+    <!-- The problem -->
+    <section class="section" style="padding-top: var(--space-4);">
+        <div class="container">
+            <h2>The problem</h2>
+            <p style="max-width: 100%;">The banks were replacing a fixed card password with codes that change. A fixed password can be stolen once and used again and again. A code that changes every 60 seconds can&rsquo;t. But a new code every time asks more of people, so the app had to make it easy.</p>
+            <div class="grid-3" style="margin-top: var(--space-3);">
+                <article class="card">
+                    <span class="badge">Pain point 1</span>
+                    <h3>No internet all the time</h3>
+                    <p>Many of our users didn&rsquo;t have internet all the time. So the app had to make codes with no connection at all.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Pain point 2</span>
+                    <h3>Codes used on the spot</h3>
+                    <p>Most codes were used at ATMs and card readers in stores. People were standing up, often with a line behind them.</p>
+                </article>
+                <article class="card">
+                    <span class="badge">Pain point 3</span>
+                    <h3>Time ran out</h3>
+                    <p>In the first version, each code worked for 30 seconds. When about 100 bank employees tested it, they often ran out of time before they finished typing.</p>
+                </article>
+            </div>
+            <p style="max-width: 100%; margin-top: var(--space-3);"><strong>A typical moment:</strong> someone is at a store card reader with a line behind them. They open the app, find their bank and type a 4-digit code before it runs out.</p>
+        </div>
+    </section>
+
     <!-- Overview -->
     <section class="section" style="padding-top: var(--space-4);">
         <div class="container">
@@ -347,6 +373,13 @@
                 <p class="decision-block"><strong>Options:</strong> SMS only, which was the default. Or SMS plus email. Email was my idea.</p>
                 <p class="decision-block"><strong>Why email:</strong> people with no signal or no SIM could still activate their passwords.</p>
                 <p class="decision-block"><strong>Trade-off:</strong> reach vs. security. Email reaches more people. But the banks&rsquo; security teams didn&rsquo;t accept email as a safe way to verify someone. So we kept SMS only.</p>
+            </article>
+            <article class="card" style="margin-top: var(--space-4);">
+                <span class="badge">Shipped &middot; Changed after testing</span>
+                <h3>30 seconds &rarr; 60 seconds</h3>
+                <p>We first launched the app to about 100 bank employees, to get feedback before real customers. In that version, each code worked for 30 seconds. Their feedback: at ATMs and card readers, they often ran out of time before they finished typing.</p>
+                <p class="decision-block"><strong>What we changed:</strong> we extended each code to 60 seconds before the public launch.</p>
+                <p class="decision-block"><strong>Trade-off:</strong> a longer code is open a little longer. But a code that expires mid-typing fails the person and the payment. 60 seconds was the most the banks&rsquo; security team allowed, so we used all of it.</p>
             </article>
             <div class="grid-3" style="margin-top: var(--space-4);">
                 <article class="card">
