@@ -74,7 +74,7 @@
         .pass { color: #1B5E20; font-weight: 600; }
 
         /* OTP live demo */
-        .otp-demo { display: grid; grid-template-columns: 1fr minmax(280px, 360px); gap: var(--space-5); align-items: center; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+        .otp-demo { display: grid; grid-template-columns: 1fr minmax(280px, 360px); gap: var(--space-5); align-items: center; }
         @media screen and (max-width: 900px) { .otp-demo { grid-template-columns: 1fr; gap: var(--space-3); } }
         .otp-demo__text p { color: var(--color-text-secondary); margin: 0; }
         .otp-card { --otp-accent: #00796B; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 20px; box-shadow: var(--shadow-md); }
@@ -320,7 +320,7 @@
     </section>
 
     <!-- The problem -->
-    <section class="section" style="padding-top: var(--space-4);">
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>The problem</h2>
             <p style="max-width: 100%;">The bank was replacing a fixed card password with codes that change. A fixed password can be stolen once and used again and again. A code that changes every 60 seconds can&rsquo;t. A new rule made these codes required for online card payments. And a new code every time asks more of people, so the app had to make it easy.</p>
@@ -346,7 +346,7 @@
     </section>
 
     <!-- Two kinds of password -->
-    <section class="section" style="padding-top: var(--space-4);">
+    <section class="section">
         <div class="container">
             <h2>Two kinds of password</h2>
             <p style="max-width: 100%;">Each card could have two passwords, for two kinds of payment:</p>
@@ -366,7 +366,7 @@
     </section>
 
     <!-- Constraints -->
-    <section class="section" style="padding-top: var(--space-4);">
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>Constraints</h2>
             <p style="max-width: 100%;">Every design choice had to fit inside these.</p>
@@ -425,11 +425,17 @@
                 </article>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Try it -->
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
             <!-- Try it: color only vs color + motion, side by side -->
             <div class="otp-demo" id="mt-demo" aria-labelledby="otp-demo-title">
                 <div class="otp-demo__text">
                     <span class="step-num">Try it</span>
-                    <h3 id="otp-demo-title">Red alone wasn&rsquo;t enough</h3>
+                    <h2 id="otp-demo-title">Red alone wasn&rsquo;t enough</h2>
                     <p>In the first version, the ring only turned red in the last 5 seconds. Then we thought about people who are color-blind. For them, the change to red was easy to miss. So we added motion: in the last 5 seconds, the ring pulses. Now the warning works even without color.</p>
                     <label class="mt-gray"><input type="checkbox" id="mt-gray" /> See both without color</label>
                     <p class="mt-small">Each code here starts at 12 seconds, so you don&rsquo;t wait a full minute.</p>
@@ -486,7 +492,7 @@
     </section>
 
     <!-- Design decisions -->
-    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <section class="section">
         <div class="container">
             <h2>Product decisions</h2>
             <article class="card" style="margin-top: var(--space-4);">
@@ -545,7 +551,7 @@
     </section>
 
     <!-- More work -->
-    <section class="section">
+    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <a class="work-card work-card--feature" href="otp-design-system">
                 <div>
