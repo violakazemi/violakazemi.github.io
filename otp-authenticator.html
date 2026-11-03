@@ -237,7 +237,24 @@
                 </div>
             </div>
 
-            <img src="images/otp-hero.webp" alt="Three Maple Trust app screens, each with the card on top, a Password 1 and 2 switch, the code in digit boxes, a copy button and a big countdown ring: 42 seconds left, the last 4 seconds with the ring turned red, and a code just copied" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            <div class="hero-video" style="position: relative;">
+                <video id="flow-video" src="images/otp-flow.mp4" poster="images/otp-hero.webp" muted loop playsinline preload="metadata" width="1600" height="900" aria-label="The full Maple Trust flow: activating at the bank's ATM, signing up in the app with the same phone number, entering the SMS code, then copying a code while the ring counts down and turns red in the last 5 seconds" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block; background: #fff;"></video>
+                <button type="button" id="flow-toggle" aria-label="Pause video" style="position: absolute; right: 14px; bottom: 14px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border); background: rgba(255,255,255,.92); color: var(--color-text-primary); display: grid; place-items: center; cursor: pointer;">
+                    <svg id="flow-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+                </button>
+            </div>
+            <script>
+            (function () {
+                var v = document.getElementById('flow-video'), b = document.getElementById('flow-toggle'), i = document.getElementById('flow-icon');
+                var PAUSE = '<rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/>', PLAY = '<path d="M4 2.5v11l9-5.5z"/>';
+                function sync() { var p = v.paused; i.innerHTML = p ? PLAY : PAUSE; b.setAttribute('aria-label', p ? 'Play video' : 'Pause video'); }
+                b.addEventListener('click', function () { if (v.paused) { v.play(); } else { v.pause(); } });
+                v.addEventListener('play', sync); v.addEventListener('pause', sync);
+                var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!reduce) { var pr = v.play(); if (pr && pr.catch) pr.catch(sync); }
+                sync();
+            })();
+            </script>
 
             <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I was the only designer when the app started. I designed its screens and flows for iOS and Android.</p>
 
