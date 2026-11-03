@@ -117,11 +117,11 @@
   function show(el) { el.classList.add('is-visible'); }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
-  }, { threshold: 0 });
+  }, { threshold: 0, rootMargin: '0px 0px 200px 0px' });
   targets.forEach(function (el) {
     el.classList.add('reveal');
     var i = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
-    el.style.transitionDelay = Math.min(i, 3) * 70 + 'ms';
+    el.style.transitionDelay = Math.min(i, 3) * 40 + 'ms';
     io.observe(el);
   });
   var t;
