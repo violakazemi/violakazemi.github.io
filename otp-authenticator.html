@@ -105,6 +105,14 @@
         .otp-card__status { margin: 12px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
         .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
         /* Try it: Maple Trust ring, color only vs color + motion */
+        #mt-demo { display: block; }
+        .mt-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: var(--space-4); justify-content: center; margin-top: var(--space-4); }
+        @media screen and (max-width: 680px) { .mt-pair { grid-template-columns: minmax(0, 340px); } }
+        .mt-col { margin: 0; }
+        .mt-cap { display: flex; align-items: center; gap: 10px; justify-content: center; font-weight: 700; margin-bottom: 12px; }
+        .mt-tag { font-size: 0.75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--color-bg-well); color: var(--color-text-primary); }
+        .mt-col + .mt-col .mt-tag { background: #00796B; color: #fff; }
+        #mt-demo .mt-a11y { max-width: 720px; margin: var(--space-4) auto 0; }
         .mt-modes { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--space-3) 0 12px; }
         .mt-modes button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); font: inherit; font-size: var(--fs-small); font-weight: 600; cursor: pointer; }
         .mt-modes button[aria-pressed="true"] { background: #00796B; border-color: #00796B; color: #fff; }
@@ -117,7 +125,7 @@
         .mt-a11y ul { margin: 0; padding-left: 1.1em; color: var(--color-text-secondary); font-size: var(--fs-small); }
         .mt-a11y li + li { margin-top: 4px; }
         .mt-phone { background: #F4F7F6; border: 1px solid var(--color-border); border-radius: 28px; padding: 22px 20px 26px; box-shadow: var(--shadow-md); color: #1D2523; transition: filter 0.3s ease; }
-        .mt-phone.is-gray { filter: grayscale(1); }
+        #mt-demo.is-gray .mt-phone { filter: grayscale(1); }
         .mt-seg { display: flex; background: #E3ECEA; border-radius: 14px; padding: 4px; margin-bottom: 16px; }
         .mt-seg button { flex: 1; min-height: 40px; border: 0; border-radius: 11px; background: transparent; font: inherit; font-size: 0.875rem; font-weight: 700; color: #4A5553; cursor: pointer; }
         .mt-seg button[aria-pressed="true"] { background: #fff; color: #00796B; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
@@ -139,7 +147,8 @@
         .mt-ring.is-urgent .mt-ring__n b { color: #B3261E; }
         .mt-ring.is-urgent.is-motion { animation: mt-pulse 1s ease-in-out infinite; }
         @keyframes mt-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-        @media (prefers-reduced-motion: reduce) { .mt-ring.is-urgent.is-motion { animation: none; } .mt-ring__bar, .mt-phone { transition: none; } }
+        @keyframes mt-beat { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+        @media (prefers-reduced-motion: reduce) { .mt-ring.is-urgent.is-motion { animation: mt-beat 1s ease-in-out infinite; } .mt-ring__bar, .mt-phone { transition: none; } }
         .num-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
         .num-strip > div { padding: 20px 16px; text-align: center; }
         .num-strip > div + div { border-left: 1px solid var(--color-border); }
@@ -416,42 +425,61 @@
                 </article>
             </div>
 
-            <!-- Try it: color only vs color + motion -->
-            <div class="otp-demo" aria-labelledby="otp-demo-title">
+            <!-- Try it: color only vs color + motion, side by side -->
+            <div class="otp-demo" id="mt-demo" aria-labelledby="otp-demo-title">
                 <div class="otp-demo__text">
                     <span class="step-num">Try it</span>
                     <h3 id="otp-demo-title">Red alone wasn&rsquo;t enough</h3>
                     <p>In the first version, the ring only turned red in the last 5 seconds. Then we thought about people who are color-blind. For them, the change to red was easy to miss. So we added motion: in the last 5 seconds, the ring pulses. Now the warning works even without color.</p>
-                    <div class="mt-modes" role="group" aria-label="Ring version">
-                        <button type="button" data-mode="color" aria-pressed="false">First version: color only</button>
-                        <button type="button" data-mode="motion" aria-pressed="true">After: color + motion</button>
-                    </div>
-                    <label class="mt-gray"><input type="checkbox" id="mt-gray" /> See it without color</label>
+                    <label class="mt-gray"><input type="checkbox" id="mt-gray" /> See both without color</label>
                     <p class="mt-small">Each code here starts at 12 seconds, so you don&rsquo;t wait a full minute.</p>
-                    <div class="mt-a11y">
-                        <h4>How I made this demo accessible</h4>
-                        <ul>
-                            <li>The switches and the copy button work with a keyboard, and each has a clear label.</li>
-                            <li>Screen readers hear &ldquo;5 seconds left&rdquo; once, not a number every second.</li>
-                            <li>If your device is set to reduce motion, the ring doesn&rsquo;t pulse.</li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="mt-phone" id="mt-demo">
-                    <div class="mt-seg" role="group" aria-label="Password type">
-                        <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
-                        <button type="button" data-pw="2" aria-pressed="false">Password 2</button>
-                    </div>
-                    <p class="mt-digits" id="mt-code" aria-label="Current password"></p>
-                    <button type="button" class="mt-copy" id="mt-copy">
-                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
-                        <span>Copy password</span>
-                    </button>
-                    <div class="mt-ring" id="mt-ring" aria-hidden="true">
-                        <svg viewBox="0 0 132 132"><circle class="mt-ring__track" cx="66" cy="66" r="58"/><circle class="mt-ring__bar" cx="66" cy="66" r="58"/></svg>
-                        <div class="mt-ring__n"><b id="mt-sec">12</b><small>seconds left</small></div>
-                    </div>
-                    <span class="visually-hidden" aria-live="polite" id="mt-live"></span>
+                <div class="mt-pair">
+                    <figure class="mt-col">
+                        <figcaption class="mt-cap"><span class="mt-tag">Before</span>First version: color only</figcaption>
+                        <div class="mt-phone" data-ring-mode="color">
+                            <div class="mt-seg" role="group" aria-label="Password type, First version: color only">
+                                <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
+                                <button type="button" data-pw="2" aria-pressed="false">Password 2</button>
+                            </div>
+                            <p class="mt-digits" aria-label="Current password"></p>
+                            <button type="button" class="mt-copy">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+                                <span>Copy password</span>
+                            </button>
+                            <div class="mt-ring" aria-hidden="true">
+                                <svg viewBox="0 0 132 132"><circle class="mt-ring__track" cx="66" cy="66" r="58"/><circle class="mt-ring__bar" cx="66" cy="66" r="58"/></svg>
+                                <div class="mt-ring__n"><b>12</b><small>seconds left</small></div>
+                            </div>
+                        </div>
+                    </figure>
+                    <figure class="mt-col">
+                        <figcaption class="mt-cap"><span class="mt-tag">After</span>Color + motion</figcaption>
+                        <div class="mt-phone" data-ring-mode="motion">
+                            <div class="mt-seg" role="group" aria-label="Password type, Color + motion">
+                                <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
+                                <button type="button" data-pw="2" aria-pressed="false">Password 2</button>
+                            </div>
+                            <p class="mt-digits" aria-label="Current password"></p>
+                            <button type="button" class="mt-copy">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+                                <span>Copy password</span>
+                            </button>
+                            <div class="mt-ring is-motion" aria-hidden="true">
+                                <svg viewBox="0 0 132 132"><circle class="mt-ring__track" cx="66" cy="66" r="58"/><circle class="mt-ring__bar" cx="66" cy="66" r="58"/></svg>
+                                <div class="mt-ring__n"><b>12</b><small>seconds left</small></div>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+                <span class="visually-hidden" aria-live="polite" id="mt-live"></span>
+                <div class="mt-a11y">
+                    <h4>How I made this demo accessible</h4>
+                    <ul>
+                        <li>The switches and the copy buttons work with a keyboard, and each has a clear label.</li>
+                        <li>Screen readers hear &ldquo;5 seconds left&rdquo; once, not a number every second.</li>
+                        <li>If your device is set to reduce motion, the ring still beats, but it fades in and out instead of growing.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -569,55 +597,55 @@
     (function () {
         var demo = document.getElementById('mt-demo'); if (!demo) return;
         var START = 12, PERIOD = 60, URGENT = 5, C = 364.4;
-        var codeEl = document.getElementById('mt-code'), ring = document.getElementById('mt-ring'),
-            bar = ring.querySelector('.mt-ring__bar'), secEl = document.getElementById('mt-sec'),
-            copy = document.getElementById('mt-copy'), live = document.getElementById('mt-live');
-        var left = START, pw = 1, code = '', timer = null, reset;
-        var SHEETS = copy.querySelector('svg').innerHTML, TICK = '<path d="M3 8.5l3.2 3.2L13 4.8"/>';
+        var phones = Array.prototype.slice.call(demo.querySelectorAll('.mt-phone')), live = document.getElementById('mt-live');
+        var left = START, pw = 1, code = '', timer = null;
+        var TICK = '<path d="M3 8.5l3.2 3.2L13 4.8"/>';
         function say(t) { live.textContent = ''; setTimeout(function () { live.textContent = t; }, 50); }
         function newCode() {
             var n = pw === 1 ? 4 : 6, c = '';
             for (var i = 0; i < n; i++) c += Math.floor(Math.random() * 10);
             code = c;
-            codeEl.innerHTML = c.split('').map(function (d) { return '<span aria-hidden="true">' + d + '</span>'; }).join('');
-            codeEl.setAttribute('aria-label', 'Password ' + pw + ': ' + c.split('').join(' '));
+            phones.forEach(function (ph) {
+                var el = ph.querySelector('.mt-digits');
+                el.innerHTML = c.split('').map(function (d) { return '<span aria-hidden="true">' + d + '</span>'; }).join('');
+                el.setAttribute('aria-label', 'Password ' + pw + ': ' + c.split('').join(' '));
+                ph.querySelectorAll('[data-pw]').forEach(function (o) { o.setAttribute('aria-pressed', +o.getAttribute('data-pw') === pw ? 'true' : 'false'); });
+            });
         }
-        function draw() {
-            bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(1);
-            secEl.textContent = left;
-            ring.classList.toggle('is-urgent', left <= URGENT);
+        function draw(noAnim) {
+            phones.forEach(function (ph) {
+                var ring = ph.querySelector('.mt-ring'), bar = ring.querySelector('.mt-ring__bar');
+                if (noAnim) bar.style.transition = 'none';
+                bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(1);
+                if (noAnim) { void bar.offsetWidth; bar.style.transition = ''; }
+                ring.querySelector('b').textContent = left;
+                ring.classList.toggle('is-urgent', left <= URGENT);
+            });
         }
-        function restart() { left = START; bar.style.transition = 'none'; draw(); void bar.offsetWidth; bar.style.transition = ''; newCode(); }
         function tick() {
             left -= 1;
-            if (left <= 0) { restart(); return; }
+            if (left <= 0) { left = START; draw(true); newCode(); return; }
             draw(); if (left === URGENT) say('5 seconds left');
         }
         function start() { if (!timer) timer = setInterval(tick, 1000); }
         function stop() { clearInterval(timer); timer = null; }
-        document.querySelectorAll('[data-mode]').forEach(function (b) {
-            b.addEventListener('click', function () {
-                document.querySelectorAll('[data-mode]').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
-                ring.classList.toggle('is-motion', b.getAttribute('data-mode') === 'motion');
+        phones.forEach(function (ph) {
+            ph.querySelectorAll('[data-pw]').forEach(function (b) {
+                b.addEventListener('click', function () { pw = +b.getAttribute('data-pw'); newCode(); });
             });
-        });
-        demo.querySelectorAll('[data-pw]').forEach(function (b) {
-            b.addEventListener('click', function () {
-                demo.querySelectorAll('[data-pw]').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
-                pw = +b.getAttribute('data-pw'); newCode();
+            var copy = ph.querySelector('.mt-copy'), svg = copy.querySelector('svg'), SHEETS = svg.innerHTML, reset;
+            copy.addEventListener('click', function () {
+                var done = function () {
+                    copy.classList.add('is-copied'); copy.querySelector('span').textContent = 'Copied'; svg.innerHTML = TICK; say('Password copied');
+                    clearTimeout(reset); reset = setTimeout(function () { copy.classList.remove('is-copied'); copy.querySelector('span').textContent = 'Copy password'; svg.innerHTML = SHEETS; }, 1600);
+                };
+                try { if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done(); } catch (e) { done(); }
             });
         });
         document.getElementById('mt-gray').addEventListener('change', function (e) { demo.classList.toggle('is-gray', e.target.checked); });
-        copy.addEventListener('click', function () {
-            var done = function () {
-                copy.classList.add('is-copied'); copy.querySelector('span').textContent = 'Copied'; copy.querySelector('svg').innerHTML = TICK; say('Password copied');
-                clearTimeout(reset); reset = setTimeout(function () { copy.classList.remove('is-copied'); copy.querySelector('span').textContent = 'Copy password'; copy.querySelector('svg').innerHTML = SHEETS; }, 1600);
-            };
-            try { if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done(); } catch (e) { done(); }
-        });
-        ring.classList.add('is-motion'); newCode(); draw();
+        newCode(); draw(true);
         if ('IntersectionObserver' in window) {
-            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(demo);
+            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(demo.querySelector('.mt-pair'));
         } else { start(); }
         document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
     })();
