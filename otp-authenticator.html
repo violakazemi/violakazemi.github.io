@@ -523,20 +523,20 @@
         <div class="container">
             <h2>Product decisions</h2>
             <article class="card" style="margin-top: var(--space-4);">
-                <span class="badge">Proposed &middot; Not shipped</span>
+                <span class="badge">My edge case &middot; Led to a fix</span>
                 <h3>Activation without a SIM card</h3>
                 <p>The activation code only came by SMS. So I asked: what if someone has internet but no signal? Or no SIM card, like on an iPad?</p>
-                <p class="decision-block"><strong>Options:</strong> SMS only, which was the default. Or SMS plus email. Email was my idea.</p>
-                <p class="decision-block"><strong>Why email:</strong> people with no signal or no SIM could still activate their passwords.</p>
-                <p class="decision-block"><strong>Trade-off:</strong> reach vs. security. Email reaches more people. But the banks&rsquo; security teams didn&rsquo;t accept email as a safe way to verify someone. So we kept SMS only.</p>
+                <p class="decision-block"><strong>My idea:</strong> send the code by email too, so these people could still activate.</p>
+                <p class="decision-block"><strong>Trade-off:</strong> reach vs. security. Email reaches more people, but the bank&rsquo;s security team didn&rsquo;t accept email as a safe way to check who someone is.</p>
+                <p class="decision-block"><strong>What happened:</strong> email was rejected, but the problem was real. My team lead then proposed showing the code inside the app instead.</p>
             </article>
             <article class="card" style="margin-top: var(--space-4);">
-                <div class="dvis"><img src="images/otp-decision-time.webp" alt="30 seconds in the pilot crossed out, then 60 seconds at public launch" loading="lazy" width="720" height="300" /></div>
+                <div class="dvis"><img src="images/otp-decision-time.webp" alt="30 seconds in the pilot crossed out in gray, then 60 seconds at public launch in green" loading="lazy" width="720" height="300" /></div>
                 <span class="badge">Shipped &middot; Changed after testing</span>
                 <h3>30 seconds &rarr; 60 seconds</h3>
                 <p>We first launched the app to about 100 bank employees, to get feedback before real customers. In that version, each code worked for 30 seconds. Their feedback: at ATMs and card readers, they often ran out of time before they finished typing.</p>
                 <p class="decision-block"><strong>What we changed:</strong> we extended each code to 60 seconds before the public launch.</p>
-                <p class="decision-block"><strong>Trade-off:</strong> a longer code is open a little longer. But a code that expires mid-typing fails the person and the payment. 60 seconds was the most the banks&rsquo; security team allowed, so we used all of it.</p>
+                <p class="decision-block"><strong>Trade-off:</strong> a longer code is open a little longer. But a code that expires mid-typing fails the person and the payment. 60 seconds was the most the bank&rsquo;s security team allowed, so we used all of it.</p>
             </article>
             <div class="grid-3" style="margin-top: var(--space-4);">
                 <article class="card">
