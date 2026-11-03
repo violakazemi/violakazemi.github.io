@@ -173,7 +173,7 @@
         .pt-box { height: 56px; border-radius: 14px; background: #fff; border: 1.5px solid #8A9492; display: flex; align-items: center; padding: 0 16px; font: inherit; font-size: 18px; font-weight: 700; color: #1D2523; }
         .pt-cc { width: 72px; justify-content: center; }
         .pt-num { flex: 1; min-width: 0; letter-spacing: .04em; }
-        .pt-num:focus { outline: none; border-color: #00796B; box-shadow: 0 0 0 3px rgba(0,121,107,.2); }
+        .pt-num:focus, .pt-num:focus-visible { outline: none; border: 2px solid #00796B; box-shadow: 0 0 0 3px rgba(0,121,107,.22); }
         .pt-hint { font-size: 13px; color: #5F6967; margin: 0; }
         .pt-btn { margin-top: auto; margin-bottom: 24px; height: 54px; border: 0; border-radius: 14px; background: #00796B; color: #fff; font: inherit; font-size: 16px; font-weight: 800; cursor: pointer; }
         .pt-btn:active { background: #005A50; }
@@ -185,12 +185,20 @@
         .pt-err { min-height: 20px; font-size: 13px; font-weight: 700; color: #B3261E; margin: 0 0 4px; }
         .pt-timer { font-size: 14px; color: #4A5553; font-weight: 600; margin: 0; }
         .pt-timer b { color: #00796B; }
-        .pt-keys { margin: auto -18px -24px; background: #D1D5DB; padding: 8px 6px 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+        .pt-kbd { margin: auto -24px -24px; background: #D1D5DB; }
+        .pt-suggest-bar { height: 52px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #BFC4CB; }
+        .pt-suggest { visibility: hidden; display: flex; flex-direction: column; align-items: center; border: 0; background: transparent; font: inherit; color: #1D2523; cursor: pointer; padding: 4px 24px; border-radius: 8px; line-height: 1.15; }
+        .pt-suggest small { font-size: 11px; color: #4A5553; } .pt-suggest b { font-size: 17px; letter-spacing: .04em; }
+        .pt-suggest.is-in { visibility: visible; }
+        .pt-suggest:active { background: #B9BEC6; }
+        .pt-keys { background: #D1D5DB; padding: 8px 6px 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
         .pt-keys button { height: 48px; border: 0; border-radius: 7px; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.25); font: inherit; font-size: 24px; color: #1D2523; cursor: pointer; }
         .pt-keys button:active { background: #B9BEC6; }
         .pt-keys .pt-k0 { grid-column: 2; }
         .pt-keys .pt-del { background: transparent; box-shadow: none; font-size: 20px; }
-        .pt-sms { position: absolute; left: 10px; right: 10px; top: 52px; z-index: 5; text-align: left; border: 0; border-radius: 20px; padding: 14px 16px; background: rgba(250,250,250,.98); box-shadow: 0 10px 30px rgba(0,0,0,.2); font: inherit; font-size: 15px; color: #1D2523; cursor: pointer; transform: translateY(-160px); transition: transform .35s ease; }
+        .pt-sms { position: absolute; left: 10px; right: 10px; top: 52px; z-index: 5; display: flex; gap: 12px; align-items: flex-start; border-radius: 22px; padding: 12px 14px; background: rgba(245,245,247,.97); box-shadow: 0 10px 30px rgba(0,0,0,.18); font-size: 15px; line-height: 1.3; color: #1D2523; transform: translateY(-170px); transition: transform .35s ease; }
+        .pt-sms__ic { width: 38px; height: 38px; flex: none; border-radius: 9px; background: #34C759; display: grid; place-items: center; }
+        .pt-sms em { font-style: normal; font-size: 13px; color: #5F6967; float: right; }
         .pt-sms.is-in { transform: none; }
         .pt-home { align-items: center; padding-top: 18px; }
         .pt-card { width: 300px; height: 170px; border-radius: 18px; padding: 18px 20px; color: #fff; background: linear-gradient(135deg,#0B8E7E,#00796B 45%,#00594F); display: flex; flex-direction: column; box-shadow: 0 10px 22px rgba(0,89,79,.28); }
@@ -214,7 +222,7 @@
         .pt-ring.is-urgent .pt-arc { stroke: #B3261E; } .pt-ring.is-urgent .pt-track { stroke: #F6DEDC; } .pt-ring.is-urgent .pt-n b, .pt-ring.is-urgent .pt-n small { color: #B3261E; }
         .pt-ring.is-urgent.is-motion { animation: mt-pulse 1s ease-in-out infinite; }
         @media (prefers-reduced-motion: reduce) { .pt-ring.is-urgent.is-motion { animation: mt-beat 1s ease-in-out infinite; } .pt-sms, .pt-arc { transition: none; } }
-        #pt button:focus-visible, #pt input:focus-visible, .pt-restart:focus-visible { outline: 3px solid #1D2523; outline-offset: 2px; }
+        #pt button:focus-visible, .pt-restart:focus-visible { outline: 3px solid #1D2523; outline-offset: 2px; }
         .pt-tabs { display: flex; background: #fff; border-top: 1px solid #E3E9E8; padding: 14px 8px 30px; }
         .pt-tabs span { flex: 1; text-align: center; font-size: 12px; font-weight: 700; color: #5F6967; }
         .pt-tabs span.is-on { color: #00796B; }
@@ -486,7 +494,7 @@
                     <p>People enter their phone number. The app sends an activation code to it by SMS.</p>
                 </article>
                 <article class="card">
-                    <div class="phone"><img src="images/otp-mt-activation.webp" alt="Activation screen with five code boxes, two filled, and a timer showing 1:57 left" loading="lazy" width="390" height="844" /></div>
+                    <div class="phone"><img src="images/otp-mt-activation.webp" alt="Activation screen with five empty code boxes, a timer showing 1:57 left, and the code 38274 from Messages above the keyboard" loading="lazy" width="390" height="844" /></div>
                     <span class="step-num">Step 2</span>
                     <h3>Activate</h3>
                     <p>They type the code from the SMS before the timer runs out.</p>
@@ -692,7 +700,7 @@
                         </div>
                         <!-- 2 Activation -->
                         <div class="pt-scr" data-scr="2">
-                            <button type="button" class="pt-sms" id="pt-sms" aria-label="New SMS from Maple Trust: your activation code is 38274. Tap to fill it in."><b>Messages</b> &middot; now<br /><strong>Maple Trust:</strong> your activation code is 38274</button>
+                            <div class="pt-sms" id="pt-sms" aria-hidden="true"><span class="pt-sms__ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 21l3.6-2c1.1.3 2.2.5 3.4.5 5.5 0 10-3.8 10-8.5S17.5 3 12 3z"/></svg></span><span><b>Messages</b> <em>now</em><br /><strong>Maple Trust:</strong> your activation code is 38274</span></div>
                             <div class="pt-bar"><div class="pt-status"><span>9:41</span></div><div class="pt-title"><button type="button" class="pt-back" data-go="1" aria-label="Back">&lsaquo;</button>Activation</div></div>
                             <div class="pt-body">
                                 <h3 class="pt-h">Enter your code</h3>
@@ -701,7 +709,10 @@
                                 <div class="pt-digits" id="pt-digits" role="group" aria-labelledby="pt-code-label"></div>
                                 <p class="pt-err" id="pt-err" role="alert"></p>
                                 <p class="pt-timer">Time left: <b id="pt-timer">1:57</b></p>
-                                <div class="pt-keys" id="pt-keys"></div>
+                                <div class="pt-kbd">
+                                    <div class="pt-suggest-bar"><button type="button" class="pt-suggest" id="pt-suggest" aria-label="Fill in code 38274 from Messages"><small>From Messages</small><b>38274</b></button></div>
+                                    <div class="pt-keys" id="pt-keys"></div>
+                                </div>
                             </div>
                         </div>
                         <!-- 3 Home -->
@@ -727,7 +738,7 @@
                 <div class="pt-side">
                     <ol class="pt-steps">
                         <li data-step="1" class="is-on">Tap <b>Confirm</b> to get your SMS.</li>
-                        <li data-step="2">Tap the <b>SMS</b> to fill the code, or type 38274.</li>
+                        <li data-step="2">Tap the code <b>above the keyboard</b> to fill it in, or type 38274.</li>
                         <li data-step="3">Switch passwords, copy a code, and watch the ring turn red and pulse at 5 seconds.</li>
                     </ol>
                     <p class="pt-note">Codes here start at 20 seconds, so you don&rsquo;t wait a full minute.</p>
@@ -846,17 +857,17 @@
         var pt = document.getElementById('pt'); if (!pt) return;
         var CODE = '38274', START = 20, PERIOD = 60, C = 364.4;
         var live = document.getElementById('pt-live'), steps = document.querySelectorAll('.pt-steps li');
-        var digits = document.getElementById('pt-digits'), err = document.getElementById('pt-err'), sms = document.getElementById('pt-sms');
+        var digits = document.getElementById('pt-digits'), err = document.getElementById('pt-err'), sms = document.getElementById('pt-sms'), sug = document.getElementById('pt-suggest');
         var typed = '', tLeft = 117, tTimer = null, left = START, pw = 1, code = '', ring = null, rTimer = null;
         function say(t) { live.textContent = ''; setTimeout(function () { live.textContent = t; }, 50); }
         function step(n) { steps.forEach(function (li) { li.classList.toggle('is-on', +li.getAttribute('data-step') === n); }); }
         function show(n) {
             pt.querySelectorAll('.pt-scr').forEach(function (s) { s.classList.toggle('is-on', +s.getAttribute('data-scr') === n); });
-            step(n); clearInterval(tTimer); clearInterval(rTimer); sms.classList.remove('is-in');
+            step(n); clearInterval(tTimer); clearInterval(rTimer); sms.classList.remove('is-in'); sug.classList.remove('is-in'); clearTimeout(window.__ptHide);
             if (n === 2) {
                 typed = ''; drawDigits(); err.textContent = ''; tLeft = 117; drawTimer();
                 tTimer = setInterval(function () { if (tLeft > 0) { tLeft--; drawTimer(); } }, 1000);
-                setTimeout(function () { sms.classList.add('is-in'); say('New SMS: your activation code is 38274'); }, 700);
+                setTimeout(function () { sms.classList.add('is-in'); sug.classList.add('is-in'); say('Code 38274 from Messages is ready above the keyboard'); window.__ptHide = setTimeout(function () { sms.classList.remove('is-in'); }, 3200); }, 700);
                 say('Enter your code');
             }
             if (n === 3) { left = START; newCode(); drawRing(true); rTimer = setInterval(tick, 1000); say('Activated. Your Password 1 is ready.'); }
@@ -888,7 +899,7 @@
             if (/^[0-9]$/.test(e.key)) { press(e.key); e.preventDefault(); }
             if (e.key === 'Backspace') { press('del'); e.preventDefault(); }
         });
-        sms.addEventListener('click', function () { typed = ''; err.textContent = ''; digits.classList.remove('is-error'); CODE.split('').forEach(function (d, i) { setTimeout(function () { press(d); }, 120 * i); }); });
+        sug.addEventListener('click', function () { err.textContent = ''; digits.classList.remove('is-error'); typed = CODE.slice(0, 4); press(CODE[4]); sug.classList.remove('is-in'); });
         pt.querySelectorAll('[data-go]').forEach(function (b) { b.addEventListener('click', function () { show(+b.getAttribute('data-go')); }); });
         // home
         ring = document.getElementById('pt-ring');
