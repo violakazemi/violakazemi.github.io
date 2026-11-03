@@ -553,19 +553,16 @@
                     <p class="decision-block"><strong>What I tried:</strong> copying the code automatically when the app opens. It doesn&rsquo;t work. Some people need both Password 1 and Password 2, so the app can&rsquo;t know which one to copy.</p>
                 </article>
             </div>
-            <div class="grid-2" style="margin-top: var(--space-4);">
-                <article class="card">
-                    <div class="phone"><img src="images/otp-authentication-method.webp" alt="Authentication Method screen with a Password and Pattern toggle and a nine-dot pattern grid" loading="lazy" width="390" height="844" /></div>
+            <article class="card" style="margin-top: var(--space-4); display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: var(--space-4); align-items: center;">
+                <div class="phone" style="margin: 0;"><img src="images/otp-mt-unlock.webp" alt="Maple Trust unlock screen: a pattern being drawn on a nine-dot grid, and a Use fingerprint button" loading="lazy" width="390" height="844" /></div>
+                <div>
                     <span class="badge">Security</span>
                     <h3>Lock the app, not just the phone</h3>
-                    <p>The app has its own lock, a pattern or a password. Users can also set when it locks. So even if the phone is unlocked, the card passwords stay safe.</p>
-                </article>
-                <article class="card">
-                    <div class="phone"><img src="images/otp-bank-support.webp" alt="Bank Support screen listing five banks with a call button for each" loading="lazy" width="390" height="844" /></div>
-                    <h3>Help one tap away</h3>
-                    <p>Lost a card? Password not working? Each bank&rsquo;s support number is there with a call button. Users can also report a problem with the app.</p>
-                </article>
-            </div>
+                    <p>An unlocked phone shouldn&rsquo;t mean open codes. So the app has its own lock: pattern, password, fingerprint or face.</p>
+                    <p class="decision-block"><strong>Trade-off:</strong> safety vs. speed. People unlock at a card reader, in a hurry. Fingerprint and face make it one touch, and people choose how soon the app locks itself.</p>
+                </div>
+            </article>
+            <style>@media screen and (max-width: 640px) { article.card[style*="minmax(0, 220px)"] { grid-template-columns: 1fr !important; } }</style>
         </div>
     </section>
 
