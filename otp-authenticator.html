@@ -106,12 +106,16 @@
         .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
         /* Try it: Maple Trust ring, color only vs color + motion */
         #mt-demo { display: block; }
-        .mt-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: var(--space-4); justify-content: center; margin-top: var(--space-4); }
-        @media screen and (max-width: 680px) { .mt-pair { grid-template-columns: minmax(0, 340px); } }
-        .mt-col { margin: 0; }
+        .mt-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); margin-top: var(--space-4); }
+        @media screen and (max-width: 900px) { .mt-pair { grid-template-columns: minmax(0, 340px); justify-content: center; } }
+        .mt-for { text-align: center; font-size: var(--fs-small); color: var(--color-text-secondary); margin: -4px auto 14px; max-width: 30ch; min-height: 4.6em; }
+        .otp-demo__text p + p { margin-top: 12px; }
+        .mt-tag--idea { background: transparent !important; color: #00796B !important; border: 1.5px dashed #00796B; }
+        .mt-col { margin: 0; display: flex; flex-direction: column; }
+        .mt-col .mt-phone { margin-top: auto; }
         .mt-cap { display: flex; align-items: center; gap: 10px; justify-content: center; font-weight: 700; margin-bottom: 12px; }
         .mt-tag { font-size: 0.75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--color-bg-well); color: var(--color-text-primary); }
-        .mt-col + .mt-col .mt-tag { background: #00796B; color: #fff; }
+        .mt-col:nth-child(2) .mt-tag { background: #00796B; color: #fff; }
         #mt-demo .mt-a11y { max-width: 720px; margin: var(--space-4) auto 0; }
         .mt-modes { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--space-3) 0 12px; }
         .mt-modes button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); font: inherit; font-size: var(--fs-small); font-weight: 600; cursor: pointer; }
@@ -146,6 +150,7 @@
         .mt-ring.is-urgent .mt-ring__track { stroke: #F6DEDC; }
         .mt-ring.is-urgent .mt-ring__n b { color: #B3261E; }
         .mt-ring.is-urgent.is-motion { animation: mt-pulse 1s ease-in-out infinite; }
+        .mt-ring.is-urgent.is-fade { animation: mt-beat 1s ease-in-out infinite; }
         @keyframes mt-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
         @keyframes mt-beat { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
         @media (prefers-reduced-motion: reduce) { .mt-ring.is-urgent.is-motion { animation: mt-beat 1s ease-in-out infinite; } .mt-ring__bar, .mt-phone { transition: none; } }
@@ -437,12 +442,14 @@
                     <span class="step-num">Try it</span>
                     <h2 id="otp-demo-title">Red alone wasn&rsquo;t enough</h2>
                     <p>In the first version, the ring only turned red in the last 5 seconds. Then we thought about people who are color-blind. For them, the change to red was easy to miss. So we added motion: in the last 5 seconds, the ring pulses. Now the warning works even without color.</p>
-                    <label class="mt-gray"><input type="checkbox" id="mt-gray" /> See both without color</label>
+                    <p>But some people turn motion off, because movement on screen can make them dizzy. For them, today I&rsquo;d use a fade instead of a pulse.</p>
+                    <label class="mt-gray"><input type="checkbox" id="mt-gray" /> See all three without color</label>
                     <p class="mt-small">Each code here starts at 12 seconds, so you don&rsquo;t wait a full minute.</p>
                 </div>
                 <div class="mt-pair">
                     <figure class="mt-col">
-                        <figcaption class="mt-cap"><span class="mt-tag">Before</span>First version: color only</figcaption>
+                        <figcaption class="mt-cap"><span class="mt-tag">Before</span>Color only</figcaption>
+                        <p class="mt-for">The first version. Easy to miss if you can&rsquo;t tell red from teal.</p>
                         <div class="mt-phone" data-ring-mode="color">
                             <div class="mt-seg" role="group" aria-label="Password type, First version: color only">
                                 <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
@@ -460,7 +467,8 @@
                         </div>
                     </figure>
                     <figure class="mt-col">
-                        <figcaption class="mt-cap"><span class="mt-tag">After</span>Color + motion</figcaption>
+                        <figcaption class="mt-cap"><span class="mt-tag">Shipped</span>Color + pulse</figcaption>
+                        <p class="mt-for">For people who are color-blind. The ring pulses, so the warning doesn&rsquo;t need color.</p>
                         <div class="mt-phone" data-ring-mode="motion">
                             <div class="mt-seg" role="group" aria-label="Password type, Color + motion">
                                 <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
@@ -477,6 +485,25 @@
                             </div>
                         </div>
                     </figure>
+                    <figure class="mt-col">
+                        <figcaption class="mt-cap"><span class="mt-tag mt-tag--idea">Today I&rsquo;d add</span>Color + fade</figcaption>
+                        <p class="mt-for">For people who turn motion off. The ring still beats, but nothing moves.</p>
+                        <div class="mt-phone" data-ring-mode="fade">
+                            <div class="mt-seg" role="group" aria-label="Password type, Color + motion">
+                                <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
+                                <button type="button" data-pw="2" aria-pressed="false">Password 2</button>
+                            </div>
+                            <p class="mt-digits" aria-label="Current password"></p>
+                            <button type="button" class="mt-copy">
+                                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+                                <span>Copy password</span>
+                            </button>
+                            <div class="mt-ring is-fade" aria-hidden="true">
+                                <svg viewBox="0 0 132 132"><circle class="mt-ring__track" cx="66" cy="66" r="58"/><circle class="mt-ring__bar" cx="66" cy="66" r="58"/></svg>
+                                <div class="mt-ring__n"><b>12</b><small>seconds left</small></div>
+                            </div>
+                        </div>
+                    </figure>
                 </div>
                 <span class="visually-hidden" aria-live="polite" id="mt-live"></span>
                 <div class="mt-a11y">
@@ -484,7 +511,7 @@
                     <ul>
                         <li>The switches and the copy buttons work with a keyboard, and each has a clear label.</li>
                         <li>Screen readers hear &ldquo;5 seconds left&rdquo; once, not a number every second.</li>
-                        <li>If your device is set to reduce motion, the ring still beats, but it fades in and out instead of growing.</li>
+                        <li>If your device is set to reduce motion, the pulse on this page turns into a fade too.</li>
                     </ul>
                 </div>
             </div>
