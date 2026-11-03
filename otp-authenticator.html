@@ -104,6 +104,42 @@
         .otp-copy.is-copied .tick { stroke-dashoffset: 0; }
         .otp-card__status { margin: 12px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
         .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
+        /* Try it: Maple Trust ring, color only vs color + motion */
+        .mt-modes { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--space-3) 0 12px; }
+        .mt-modes button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); font: inherit; font-size: var(--fs-small); font-weight: 600; cursor: pointer; }
+        .mt-modes button[aria-pressed="true"] { background: #00796B; border-color: #00796B; color: #fff; }
+        .mt-modes button:focus-visible, .mt-seg button:focus-visible, .mt-copy:focus-visible, .mt-gray input:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+        .mt-gray { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: var(--fs-small); font-weight: 600; cursor: pointer; }
+        .mt-gray input { width: 20px; height: 20px; accent-color: #00796B; }
+        .otp-demo__text .mt-small { font-size: var(--fs-small); margin-top: 4px; }
+        .mt-a11y { margin-top: var(--space-3); padding: 16px 18px; border-radius: var(--radius-md); background: var(--color-bg-card); border: 1px solid var(--color-border); }
+        .mt-a11y h4 { margin: 0 0 8px; font-size: 1rem; }
+        .mt-a11y ul { margin: 0; padding-left: 1.1em; color: var(--color-text-secondary); font-size: var(--fs-small); }
+        .mt-a11y li + li { margin-top: 4px; }
+        .mt-phone { background: #F4F7F6; border: 1px solid var(--color-border); border-radius: 28px; padding: 22px 20px 26px; box-shadow: var(--shadow-md); color: #1D2523; transition: filter 0.3s ease; }
+        .mt-phone.is-gray { filter: grayscale(1); }
+        .mt-seg { display: flex; background: #E3ECEA; border-radius: 14px; padding: 4px; margin-bottom: 16px; }
+        .mt-seg button { flex: 1; min-height: 40px; border: 0; border-radius: 11px; background: transparent; font: inherit; font-size: 0.875rem; font-weight: 700; color: #4A5553; cursor: pointer; }
+        .mt-seg button[aria-pressed="true"] { background: #fff; color: #00796B; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+        .mt-digits { display: flex; gap: 6px; justify-content: center; margin: 0 0 16px; }
+        .mt-digits span { width: 40px; height: 50px; border-radius: 12px; background: #fff; border: 1.5px solid #8A9492; display: grid; place-items: center; font-size: 1.5rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        .mt-copy { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; margin: 0 auto 18px; border: 0; border-radius: 14px; background: #00796B; color: #fff; font: inherit; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+        .mt-copy.is-copied { background: #1D2523; }
+        .mt-copy svg { width: 16px; height: 16px; }
+        .mt-ring { position: relative; width: 170px; height: 170px; margin: 0 auto; }
+        .mt-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .mt-ring circle { fill: none; stroke-width: 12; }
+        .mt-ring__track { stroke: #DCEFEC; }
+        .mt-ring__bar { stroke: #00796B; stroke-linecap: round; stroke-dasharray: 364.4; transition: stroke-dashoffset 1s linear; }
+        .mt-ring__n { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .mt-ring__n b { font-size: 3rem; font-weight: 800; line-height: 1; color: #00796B; font-variant-numeric: tabular-nums; }
+        .mt-ring__n small { font-size: 0.8rem; font-weight: 700; margin-top: 4px; color: #5F6967; }
+        .mt-ring.is-urgent .mt-ring__bar { stroke: #B3261E; }
+        .mt-ring.is-urgent .mt-ring__track { stroke: #F6DEDC; }
+        .mt-ring.is-urgent .mt-ring__n b { color: #B3261E; }
+        .mt-ring.is-urgent.is-motion { animation: mt-pulse 1s ease-in-out infinite; }
+        @keyframes mt-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        @media (prefers-reduced-motion: reduce) { .mt-ring.is-urgent.is-motion { animation: none; } .mt-ring__bar, .mt-phone { transition: none; } }
         .num-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
         .num-strip > div { padding: 20px 16px; text-align: center; }
         .num-strip > div + div { border-left: 1px solid var(--color-border); }
@@ -380,33 +416,42 @@
                 </article>
             </div>
 
-            <!-- Live demo of the password card's micro-interactions -->
+            <!-- Try it: color only vs color + motion -->
             <div class="otp-demo" aria-labelledby="otp-demo-title">
                 <div class="otp-demo__text">
                     <span class="step-num">Try it</span>
-                    <h3 id="otp-demo-title">The password card, live</h3>
-                    <p>This is the Maple Trust app&rsquo;s card. The ring shows how long the code works. In the last 5 seconds it turns red, so you know to use it now. Tap copy and you see a check, so you know it worked. The codes here are random numbers, made for this demo.</p>
+                    <h3 id="otp-demo-title">Red alone wasn&rsquo;t enough</h3>
+                    <p>In the first version, the ring only turned red in the last 5 seconds. Then we thought about people who are color-blind. For them, the change to red was easy to miss. So we added motion: in the last 5 seconds, the ring pulses. Now the warning works even without color.</p>
+                    <div class="mt-modes" role="group" aria-label="Ring version">
+                        <button type="button" data-mode="color" aria-pressed="false">First version: color only</button>
+                        <button type="button" data-mode="motion" aria-pressed="true">After: color + motion</button>
+                    </div>
+                    <label class="mt-gray"><input type="checkbox" id="mt-gray" /> See it without color</label>
+                    <p class="mt-small">Each code here starts at 12 seconds, so you don&rsquo;t wait a full minute.</p>
+                    <div class="mt-a11y">
+                        <h4>How I made this demo accessible</h4>
+                        <ul>
+                            <li>The switches and the copy button work with a keyboard, and each has a clear label.</li>
+                            <li>Screen readers hear &ldquo;5 seconds left&rdquo; once, not a number every second.</li>
+                            <li>If your device is set to reduce motion, the ring doesn&rsquo;t pulse.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="otp-card">
-                    <div class="otp-card__head">
-                        <span class="otp-card__bank">Maple Trust</span>
-                        <span class="otp-card__which">Password 2</span>
+                <div class="mt-phone" id="mt-demo">
+                    <div class="mt-seg" role="group" aria-label="Password type">
+                        <button type="button" data-pw="1" aria-pressed="true">Password 1</button>
+                        <button type="button" data-pw="2" aria-pressed="false">Password 2</button>
                     </div>
-                    <div class="otp-card__row">
-                        <div class="otp-ring" aria-hidden="true">
-                            <svg viewBox="0 0 44 44"><circle class="otp-ring__track" cx="22" cy="22" r="19"/><circle class="otp-ring__bar" cx="22" cy="22" r="19"/></svg>
-                            <span class="otp-ring__sec">60</span>
-                        </div>
-                        <output class="otp-code" aria-live="off" aria-label="Current password">000 000</output>
-                        <button type="button" class="otp-copy" aria-label="Copy password">
-                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <g class="sheets"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></g>
-                                <path class="tick" d="M3 8.5l3.2 3.2L13 4.8"/>
-                            </svg>
-                        </button>
+                    <p class="mt-digits" id="mt-code" aria-label="Current password"></p>
+                    <button type="button" class="mt-copy" id="mt-copy">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+                        <span>Copy password</span>
+                    </button>
+                    <div class="mt-ring" id="mt-ring" aria-hidden="true">
+                        <svg viewBox="0 0 132 132"><circle class="mt-ring__track" cx="66" cy="66" r="58"/><circle class="mt-ring__bar" cx="66" cy="66" r="58"/></svg>
+                        <div class="mt-ring__n"><b id="mt-sec">12</b><small>seconds left</small></div>
                     </div>
-                    <p class="otp-card__status"><span class="otp-status-text">Expires in 60 seconds</span></p>
-                    <span class="visually-hidden otp-live" aria-live="polite"></span>
+                    <span class="visually-hidden" aria-live="polite" id="mt-live"></span>
                 </div>
             </div>
         </div>
@@ -522,50 +567,59 @@
     <script src="assets/js/site.js?v=2" defer></script>
     <script>
     (function () {
-        var card = document.querySelector('.otp-card'); if (!card) return;
-        var PERIOD = 60, URGENT = 5, C = 2 * Math.PI * 19;
-        var codeEl = card.querySelector('.otp-code'), bar = card.querySelector('.otp-ring__bar'),
-            sec = card.querySelector('.otp-ring__sec'), status = card.querySelector('.otp-status-text'),
-            btn = card.querySelector('.otp-copy'), live = card.querySelector('.otp-live');
-        var left = PERIOD, code = '', resetTimer;
+        var demo = document.getElementById('mt-demo'); if (!demo) return;
+        var START = 12, PERIOD = 60, URGENT = 5, C = 364.4;
+        var codeEl = document.getElementById('mt-code'), ring = document.getElementById('mt-ring'),
+            bar = ring.querySelector('.mt-ring__bar'), secEl = document.getElementById('mt-sec'),
+            copy = document.getElementById('mt-copy'), live = document.getElementById('mt-live');
+        var left = START, pw = 1, code = '', timer = null, reset;
+        var SHEETS = copy.querySelector('svg').innerHTML, TICK = '<path d="M3 8.5l3.2 3.2L13 4.8"/>';
+        function say(t) { live.textContent = ''; setTimeout(function () { live.textContent = t; }, 50); }
         function newCode() {
-            var n = ''; for (var i = 0; i < 6; i++) n += Math.floor(Math.random() * 10);
-            code = n; codeEl.textContent = n.slice(0, 3) + ' ' + n.slice(3);
-            codeEl.classList.remove('is-rolling'); void codeEl.offsetWidth; codeEl.classList.add('is-rolling');
+            var n = pw === 1 ? 4 : 6, c = '';
+            for (var i = 0; i < n; i++) c += Math.floor(Math.random() * 10);
+            code = c;
+            codeEl.innerHTML = c.split('').map(function (d) { return '<span aria-hidden="true">' + d + '</span>'; }).join('');
+            codeEl.setAttribute('aria-label', 'Password ' + pw + ': ' + c.split('').join(' '));
         }
-        function render() {
-            bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(2);
-            sec.textContent = left;
-            card.classList.toggle('is-urgent', left <= URGENT);
-            status.textContent = left <= URGENT ? 'Expiring soon \u00b7 new code in ' + left + 's' : 'Expires in ' + left + ' seconds';
+        function draw() {
+            bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(1);
+            secEl.textContent = left;
+            ring.classList.toggle('is-urgent', left <= URGENT);
         }
+        function restart() { left = START; bar.style.transition = 'none'; draw(); void bar.offsetWidth; bar.style.transition = ''; newCode(); }
         function tick() {
             left -= 1;
-            if (left <= 0) {
-                left = PERIOD;
-                bar.style.transition = 'none'; render(); void bar.offsetWidth; bar.style.transition = '';
-                newCode();
-            } else { render(); }
+            if (left <= 0) { restart(); return; }
+            draw(); if (left === URGENT) say('5 seconds left');
         }
-        newCode(); render();
-        var interval = null;
-        function start() { if (!interval) interval = setInterval(tick, 1000); }
-        function stop() { clearInterval(interval); interval = null; }
-        // Only run while the card is on screen and the tab is visible
+        function start() { if (!timer) timer = setInterval(tick, 1000); }
+        function stop() { clearInterval(timer); timer = null; }
+        document.querySelectorAll('[data-mode]').forEach(function (b) {
+            b.addEventListener('click', function () {
+                document.querySelectorAll('[data-mode]').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+                ring.classList.toggle('is-motion', b.getAttribute('data-mode') === 'motion');
+            });
+        });
+        demo.querySelectorAll('[data-pw]').forEach(function (b) {
+            b.addEventListener('click', function () {
+                demo.querySelectorAll('[data-pw]').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+                pw = +b.getAttribute('data-pw'); newCode();
+            });
+        });
+        document.getElementById('mt-gray').addEventListener('change', function (e) { demo.classList.toggle('is-gray', e.target.checked); });
+        copy.addEventListener('click', function () {
+            var done = function () {
+                copy.classList.add('is-copied'); copy.querySelector('span').textContent = 'Copied'; copy.querySelector('svg').innerHTML = TICK; say('Password copied');
+                clearTimeout(reset); reset = setTimeout(function () { copy.classList.remove('is-copied'); copy.querySelector('span').textContent = 'Copy password'; copy.querySelector('svg').innerHTML = SHEETS; }, 1600);
+            };
+            try { if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done(); } catch (e) { done(); }
+        });
+        ring.classList.add('is-motion'); newCode(); draw();
         if ('IntersectionObserver' in window) {
-            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(card);
+            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(demo);
         } else { start(); }
         document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-        btn.addEventListener('click', function () {
-            var done = function () {
-                btn.classList.add('is-copied'); btn.setAttribute('aria-label', 'Copied');
-                live.textContent = ''; setTimeout(function () { live.textContent = 'Password copied'; }, 50);
-                if (navigator.vibrate) navigator.vibrate(10);
-                clearTimeout(resetTimer);
-                resetTimer = setTimeout(function () { btn.classList.remove('is-copied'); btn.setAttribute('aria-label', 'Copy password'); }, 1600);
-            };
-            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done();
-        });
     })();
     (function () {
         var box = document.getElementById('ds-states'); if (!box) return;
