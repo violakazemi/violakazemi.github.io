@@ -104,12 +104,12 @@
         .otp-copy.is-copied .tick { stroke-dashoffset: 0; }
         .otp-card__status { margin: 12px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
         .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
-        .num-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+        .num-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
         .num-strip > div { padding: 20px 16px; text-align: center; }
         .num-strip > div + div { border-left: 1px solid var(--color-border); }
         .num-strip__n { margin: 0; font-size: clamp(1.5rem, 2vw + 1rem, 2rem); font-weight: 700; line-height: 1.1; }
         .num-strip__l { margin: 6px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
-        @media screen and (max-width: 720px) { .num-strip { grid-template-columns: repeat(2, 1fr); } .num-strip > div:nth-child(3) { border-left: 0; } .num-strip > div:nth-child(n+3) { border-top: 1px solid var(--color-border); } }
+        @media screen and (max-width: 720px) { .num-strip > div { padding: 16px 8px; } }
         /* Design system section */
         .ds-tree { margin: var(--space-4) 0 var(--space-6); }
         .ds-tree__root { max-width: 560px; margin: 0 auto; text-align: center; background: var(--color-bg-card); color: var(--color-text-primary); border: 2px solid var(--color-text-primary); border-radius: var(--radius-md); padding: 18px 24px; }
@@ -252,7 +252,6 @@
             <div class="num-strip">
                 <div><p class="num-strip__n">2M</p><p class="num-strip__l">active users</p></div>
                 <div><p class="num-strip__n">60s</p><p class="num-strip__l">to use each code</p></div>
-                <div><p class="num-strip__n">2</p><p class="num-strip__l">apps I designed</p></div>
                 <div><p class="num-strip__n">Offline</p><p class="num-strip__l">after a one-time sign-up</p></div>
             </div>
         </div>
@@ -262,12 +261,12 @@
     <section class="section" style="padding-top: var(--space-4);">
         <div class="container">
             <h2>The problem</h2>
-            <p style="max-width: 100%;">The banks were replacing a fixed card password with codes that change. A fixed password can be stolen once and used again and again. A code that changes every 60 seconds can&rsquo;t. But a new code every time asks more of people, so the app had to make it easy.</p>
+            <p style="max-width: 100%;">The bank was replacing a fixed card password with codes that change. A fixed password can be stolen once and used again and again. A code that changes every 60 seconds can&rsquo;t. A new rule made these codes required for online card payments. And a new code every time asks more of people, so the app had to make it easy.</p>
             <div class="grid-3" style="margin-top: var(--space-3);">
                 <article class="card">
                     <span class="badge">Pain point 1</span>
                     <h3>No internet all the time</h3>
-                    <p>Many of our users didn&rsquo;t have internet all the time. So people needed internet only once, to register. After that, it made codes with no connection at all.</p>
+                    <p>Many of our users didn&rsquo;t have internet all the time. But they still needed a code to pay.</p>
                 </article>
                 <article class="card">
                     <span class="badge">Pain point 2</span>
@@ -276,19 +275,19 @@
                 </article>
                 <article class="card">
                     <span class="badge">Pain point 3</span>
-                    <h3>Time ran out</h3>
-                    <p>In the first version, each code worked for 30 seconds. When about 100 bank employees tested it, they often ran out of time before they finished typing.</p>
+                    <h3>A new habit</h3>
+                    <p>People knew their fixed password by heart. Now they needed a new code every time they paid.</p>
                 </article>
             </div>
-            <p style="max-width: 100%; margin-top: var(--space-3);"><strong>A typical moment:</strong> someone is at a store card reader with a line behind them. They open the app, find their bank and type a 4-digit code before it runs out.</p>
+            <p style="max-width: 100%; margin-top: var(--space-3);"><strong>A typical moment:</strong> someone is at a store card reader with a line behind them. They open the app, pick Password 1 and type 4 digits. If the code runs out halfway, the payment fails and they start again.</p>
         </div>
     </section>
 
-    <!-- Overview -->
+    <!-- Two kinds of password -->
     <section class="section" style="padding-top: var(--space-4);">
         <div class="container">
-            <h2>Overview</h2>
-            <p style="max-width: 100%;">People needed a one-time password to approve card payments. The app made these passwords on the phone itself. People needed internet only once, to register. After that, it worked offline. Each code worked for 60 seconds. Each bank could give two kinds of password:</p>
+            <h2>Two kinds of password</h2>
+            <p style="max-width: 100%;">Each card could have two passwords, for two kinds of payment:</p>
             <div class="grid-2" style="margin-top: var(--space-3);">
                 <article class="card">
                     <span class="badge">Password 1 &middot; 4 digits</span>
@@ -301,8 +300,6 @@
                     <p>For paying or moving money online.</p>
                 </article>
             </div>
-            <h3 style="margin-top: var(--space-4);">My role</h3>
-            <p style="max-width: 100%;">I designed the flows and screens for iOS and Android. I followed Apple&rsquo;s guidelines and Material Design.</p>
         </div>
     </section>
 
