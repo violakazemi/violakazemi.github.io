@@ -231,6 +231,13 @@
         .pt-steps li.is-on { color: var(--color-text-primary); font-weight: 600; }
         .pt-note { font-size: var(--fs-small); color: var(--color-text-secondary); }
         .pt-restart { min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); font: inherit; font-weight: 600; cursor: pointer; }
+        .kpi-cap { margin: 0; font-size: var(--fs-small); font-weight: 700; }
+        .kpi-pair { display: flex; align-items: center; gap: 16px; margin: 4px 0 12px; }
+        .kpi-pair div { display: flex; flex-direction: column; }
+        .kpi-pair b { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+        .kpi-pair small { font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .kpi-pair span { font-size: 1.5rem; color: var(--color-text-secondary); }
+        .kpi-old { color: #B3261E; } .kpi-new { color: #00796B; }
         .num-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
         .num-strip > div { padding: 20px 16px; text-align: center; }
         .num-strip > div + div { border-left: 1px solid var(--color-border); }
@@ -652,7 +659,13 @@
                 <article class="card">
                     <span class="badge">Before launch</span>
                     <h3>The pilot changed the product</h3>
-                    <p>About 100 bank employees tried it first. Codes ran out too fast, so we moved from 30 to 60 seconds before real customers ever saw it.</p>
+                    <p class="kpi-cap" aria-hidden="true">Testers who said the code ran out</p>
+                    <div class="kpi-pair" aria-label="Testers who said there wasn't enough time: more than half with 30 seconds, 1 in 10 with 60 seconds">
+                        <div><b class="kpi-old">50%+</b><small>with 30 seconds</small></div>
+                        <span aria-hidden="true">&rarr;</span>
+                        <div><b class="kpi-new">10%</b><small>with 60 seconds</small></div>
+                    </div>
+                    <p>About 100 bank employees tested 30-second codes. More than half said the code expired before they finished paying. We moved to 60 seconds, and the same group tested again: only 1 in 10 still said it wasn&rsquo;t enough. QA talked to each tester, before real customers ever saw the app.</p>
                 </article>
                 <article class="card">
                     <span class="badge">After launch</span>
@@ -661,7 +674,12 @@
                 </article>
             </div>
             <h3 style="margin-top: var(--space-5);">How I&rsquo;d measure it today</h3>
-            <div class="grid-3" style="margin-top: var(--space-3);">
+            <p style="max-width: 100%;">Everyone had to use the app, so the number of users can&rsquo;t show if the design worked. These can.</p>
+            <div class="grid-2" style="margin-top: var(--space-3);">
+                <article class="card">
+                    <h3>People who finish activation</h3>
+                    <p>Everyone had to download it. Not everyone got through sign-up. This shows if setup was easy.</p>
+                </article>
                 <article class="card">
                     <h3>Codes used before they expire</h3>
                     <p>Shows if 60 seconds and the red warning are enough.</p>
