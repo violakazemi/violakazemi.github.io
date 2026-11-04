@@ -154,6 +154,102 @@
         @keyframes mt-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
         @keyframes mt-beat { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
         @media (prefers-reduced-motion: reduce) { .mt-ring.is-urgent.is-motion { animation: mt-beat 1s ease-in-out infinite; } .mt-ring__bar, .mt-phone { transition: none; } }
+
+        /* ===== Handoff + platforms (real Maple Trust home) ===== */
+        .hs-frame { position: relative; width: 289px; height: 607px; padding: 8px; border-radius: 40px; background: #1D2523; box-shadow: var(--shadow-md); margin: 0 auto; flex: none; }
+        .hs-frame--android { border-radius: 30px; }
+        .hs { width: 390px; height: 844px; transform: scale(.7); transform-origin: 0 0; border-radius: 46px; overflow: hidden; position: relative; display: flex; flex-direction: column; background: #F4F7F6; color: #1D2523; font-family: "Nunito", sans-serif; font-size: 16px; }
+        .hs-frame--android .hs { border-radius: 32px; }
+        .hs-bar { position: relative; background: #00796B; color: #fff; padding: 18px 24px; }
+        .hs-status { display: flex; justify-content: space-between; align-items: center; font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 14px; padding: 0 10px; }
+        .hs-status--android { font-family: Roboto, Arial, sans-serif; font-weight: 500; font-size: 14px; padding: 0 4px; }
+        .hs-status i { display: inline-block; background: #fff; border-radius: 2px; margin-left: 4px; vertical-align: middle; }
+        .hs-title { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 21px; }
+        .hs-logo { width: 32px; height: 32px; border-radius: 9px; background: #fff; color: #00796B; display: grid; place-items: center; font-size: 17px; }
+        .hs-body { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; padding: 18px 24px 0; }
+        .hs-card { position: relative; width: 300px; height: 170px; flex: none; border-radius: 18px; padding: 18px 20px; color: #fff; background: linear-gradient(135deg,#0B8E7E,#00796B 45%,#00594F); display: flex; flex-direction: column; box-shadow: 0 10px 22px rgba(0,89,79,.28); }
+        .hs-card b { font-size: 14px; letter-spacing: .12em; }
+        .hs-card i { width: 38px; height: 28px; border-radius: 6px; background: linear-gradient(135deg,#E9D9A6,#C9AE6A); margin: 20px 0 14px; }
+        .hs-card span { font-size: 17px; font-weight: 700; letter-spacing: .14em; }
+        .hs-dots { display: flex; gap: 6px; margin-top: 12px; }
+        .hs-dots i { width: 7px; height: 7px; border-radius: 4px; background: #C7CFCD; }
+        .hs-dots i:first-child { width: 22px; background: #00796B; }
+        .hs-seg { position: relative; display: flex; width: 100%; background: #E3ECEA; border-radius: 14px; padding: 4px; margin: 14px 0 16px; }
+        .hs-seg span { flex: 1; min-height: 40px; display: grid; place-items: center; border-radius: 11px; font-size: 14px; font-weight: 700; color: #4A5553; }
+        .hs-seg span.is-on { background: #fff; color: #00796B; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+        .hs-code { position: relative; display: flex; gap: 8px; justify-content: center; margin: 0 0 16px; }
+        .hs-code span { width: 44px; height: 56px; border-radius: 12px; background: #fff; border: 1.5px solid #8A9492; display: grid; place-items: center; font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; }
+        .hs-copy { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; margin-bottom: 14px; border-radius: 14px; background: #00796B; color: #fff; font-size: 15px; font-weight: 700; }
+        .hs-copy.is-copied { background: #005A50; }
+        .hs-copy svg { width: 16px; height: 16px; }
+        .hs-ring { position: relative; width: 160px; height: 160px; flex: none; }
+        .hs-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .hs-ring circle { fill: none; stroke-width: 12; }
+        .hs-ring .trk { stroke: #DCEFEC; }
+        .hs-ring .arc { stroke: #00796B; stroke-linecap: round; stroke-dasharray: 364.4; }
+        .hs-ring__n { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .hs-ring__n b { font-size: 46px; font-weight: 800; line-height: 1; color: #00796B; font-variant-numeric: tabular-nums; }
+        .hs-ring__n small { font-size: 13px; font-weight: 700; color: #5F6967; margin-top: 4px; }
+        .hs-ring.is-urgent .arc { stroke: #B3261E; } .hs-ring.is-urgent .trk { stroke: #F6DEDC; }
+        .hs-ring.is-urgent .hs-ring__n b, .hs-ring.is-urgent .hs-ring__n small { color: #B3261E; }
+        .hs-ring.is-pulse { animation: mt-pulse 1s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) { .hs-ring.is-pulse { animation: mt-beat 1s ease-in-out infinite; } }
+        .hs-tabs { position: relative; display: flex; background: #fff; border-top: 1px solid #E3E9E8; padding: 12px 8px 30px; }
+        .hs-tabs span { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: #5F6967; }
+        .hs-tabs span.is-on { color: #00796B; }
+        .hs-tabs svg { width: 24px; height: 24px; }
+        .hs-tabs--android { padding: 12px 8px 26px; background: #EEF3F2; border-top: 0; }
+        .hs-tabs--android span { font-family: Roboto, Arial, sans-serif; font-weight: 500; }
+        .hs-tabs--android em { display: grid; place-items: center; width: 64px; height: 32px; border-radius: 16px; }
+        .hs-tabs--android span.is-on em { background: #CDE8E3; }
+        .hs-tabs--android span.is-on { color: #00433B; }
+        .hs-home { position: absolute; left: 50%; bottom: 9px; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: #1D2523; }
+        .hs-home--android { width: 108px; height: 4px; background: #5F6967; }
+        .hs-snack { position: absolute; left: 16px; right: 16px; bottom: 100px; padding: 10px 16px; border-radius: 4px; background: #2F3033; color: #F2F2F2; font-family: Roboto, Arial, sans-serif; font-size: 14px; box-shadow: 0 3px 8px rgba(0,0,0,.3); }
+        /* Pins live inside the scaled screen, so they are drawn at 1/0.7 size */
+        .hs .pin { position: absolute; z-index: 3; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: #E8590C; color: #fff; font-family: var(--font-primary); font-size: 15px; font-weight: 700; line-height: 1; box-shadow: 0 0 0 3px #fff; left: -12px; top: -12px; }
+        .hs .pin--sq { border-radius: 8px; background: #1D2523; }
+        .pin-key { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #E8590C; color: #fff; font-family: var(--font-primary); font-size: 0.7rem; font-weight: 700; line-height: 1; flex: none; }
+        .pin-key--sq { border-radius: 6px; background: #1D2523; }
+        .ho-layout { display: grid; grid-template-columns: 300px 1fr; gap: var(--space-6); align-items: start; margin-top: var(--space-4); }
+        .ho-stage { position: sticky; top: 96px; }
+        @media screen and (max-width: 900px) { .ho-layout { grid-template-columns: 1fr; gap: var(--space-4); } .ho-stage { position: static; } }
+        .ho-spec { list-style: none; margin: 0; padding: 0; }
+        .ho-spec li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
+        .ho-spec li:first-child { padding-top: 0; }
+        .ho-spec li:last-child { border-bottom: 0; }
+        .ho-spec h3 { margin: 0 0 4px; font-size: 1rem; }
+        .ho-spec p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        .ho-spec code, .ho-states code { font-size: 0.8rem; background: var(--color-bg-alt); padding: 1px 6px; border-radius: 5px; color: var(--color-text-primary); white-space: nowrap; }
+        /* States */
+        .ho-states { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); margin-top: var(--space-4); padding: var(--space-4); background: #F4F7F6; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+        @media screen and (max-width: 1100px) { .ho-states { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media screen and (max-width: 720px) { .ho-states { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media screen and (max-width: 460px) { .ho-states { grid-template-columns: 1fr; } }
+        .ho-state { margin: 0; display: flex; flex-direction: column; }
+        .ho-state__box { height: 150px; display: grid; place-items: center; padding: 14px 8px; border-radius: 14px; background: #fff; border: 1px solid #E3E9E8; font-family: "Nunito", sans-serif; color: #1D2523; }
+        .ho-state .hs-ring { width: 110px; height: 110px; }
+        .ho-state .hs-ring__n b { font-size: 32px; }
+        .ho-state .hs-ring__n small { font-size: 11px; }
+        .ho-state .hs-copy { margin: 0; font-size: 14px; padding: 0 18px; }
+        .ho-state .hs-code { margin: 0; gap: 4px; }
+        .ho-state .hs-code span { width: 21px; height: 30px; font-size: 15px; border-radius: 6px; border-width: 1px; }
+        .ho-state .hs-code { gap: 3px; }
+        .ho-empty { padding: 0 6px; text-align: center; font-size: 13px; line-height: 1.35; color: #4A5553; }
+        .ho-empty b { display: block; font-size: 14px; color: #1D2523; margin: 6px 0 4px; }
+        .ho-empty svg { width: 30px; height: 30px; color: #00796B; }
+        .ho-state figcaption { margin-top: 10px; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .ho-state figcaption strong { display: block; color: var(--color-text-primary); }
+        /* Platforms */
+        .pf-phones { display: grid; grid-template-columns: repeat(2, 289px); justify-content: center; gap: var(--space-6); margin-top: var(--space-4); }
+        @media screen and (max-width: 760px) { .pf-phones { grid-template-columns: 289px; gap: var(--space-5); } }
+        .pf-phone { margin: 0; }
+        .pf-phone figcaption { margin-top: 14px; text-align: center; font-size: var(--fs-small); font-weight: 600; }
+        .pf-table td { vertical-align: top !important; }
+        .pf-table td:nth-child(2) { font-weight: 600; white-space: nowrap; }
+        .jump-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-3); }
+        .jump-links a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); font-size: var(--fs-small); font-weight: 600; text-decoration: none; }
+        .jump-links a:hover { border-color: var(--color-text-primary); }
         /* Interactive prototype */
         .pt-wrap { display: grid; grid-template-columns: 330px 1fr; gap: var(--space-5); align-items: center; margin-top: var(--space-4); }
         @media screen and (max-width: 820px) { .pt-wrap { grid-template-columns: 1fr; justify-items: center; } }
@@ -399,6 +495,10 @@
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
                 <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">People needed a code to approve a card payment. Often at a card reader or at checkout, in a hurry. The code lived on the phone, worked offline and expired in 60 seconds. My job was to make it fast to find, easy to read and hard to miss when time ran out.</p>
+            </div>
+            <div class="jump-links" aria-label="Jump to">
+                <a href="#handoff">Annotated handoff &darr;</a>
+                <a href="#platforms">iOS vs Android &darr;</a>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">2M</p><p class="num-strip__l">active users</p></div>
@@ -647,6 +747,121 @@
                 </div>
             </article>
             <style>@media screen and (max-width: 640px) { article.card[style*="minmax(0, 220px)"] { grid-template-columns: 1fr !important; } }</style>
+        </div>
+    </section>
+
+    <!-- Annotated handoff -->
+    <section class="section" id="handoff" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <span class="step-num">Handoff</span>
+            <h2>How I handed it off</h2>
+            <p style="max-width: 100%;">I was an iOS developer before I moved into design. So I know what a developer needs to build a screen without guessing. I handed off every screen with notes like these, right on the design. This is the home screen, where people spend most of their time in the app.</p>
+            <div class="ho-layout">
+                <div class="ho-stage">
+                    <div class="hs-frame" role="img" aria-label="The Maple Trust home screen with eight numbered handoff notes">
+                        <div class="hs">
+                            <div class="hs-bar"><div class="hs-status"><span>9:41</span><span><i style="width:18px;height:11px"></i><i style="width:26px;height:12px;border-radius:4px"></i></span></div><div class="hs-title"><span class="hs-logo">M</span>Maple Trust</div><span class="pin" style="left:auto;right:20px;top:auto;bottom:16px">1</span></div>
+                            <div class="hs-body">
+                                <div class="hs-card"><span class="pin">2</span><b>MAPLE TRUST</b><i></i><span>5241 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4444</span></div>
+                                <div class="hs-dots"><i></i><i></i></div>
+                                <div class="hs-seg"><span class="pin">3</span><span class="is-on">Password 1</span><span>Password 2</span></div>
+                                <div style="position:relative"><span class="pin" style="left:-38px;top:12px">4</span><div class="hs-code"><span>5</span><span>8</span><span>3</span><span>1</span></div></div>
+                                <div class="hs-copy"><span class="pin">5</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>Copy password</div>
+                                <div style="position:relative"><span class="pin" style="left:-26px;top:6px">6</span><span class="pin" style="left:auto;right:-26px;top:auto;bottom:6px">7</span><div class="hs-ring" aria-hidden="true"><svg viewBox="0 0 132 132"><circle class="trk" cx="66" cy="66" r="58"/><circle class="arc" cx="66" cy="66" r="58" style="stroke-dashoffset:109.3"/></svg><div class="hs-ring__n"><b>42</b><small>seconds left</small></div></div></div>
+                            </div>
+                            <div class="hs-tabs"><span class="pin" style="left:14px;top:-16px">8</span><span class="is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10.5L12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg>Home</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg>Add card</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M3.5 10h17"/></svg>Card list</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg>Settings</span></div>
+                            <span class="hs-home"></span>
+                        </div>
+                    </div>
+                </div>
+                <ol class="ho-spec" aria-label="Handoff notes">
+                    <li><span class="pin-key">1</span><div><h3>App bar</h3><p>Background <code>primary</code>, logo and bank name <code>on-primary</code>. White on teal is 5.3:1, so it passes WCAG AA.</p></div></li>
+                    <li><span class="pin-key">2</span><div><h3>Card picture</h3><p>One picture for each card someone activated, 300&times;170. Swipe left or right to switch. The dots show how many cards there are, and which one is open.</p></div></li>
+                    <li><span class="pin-key">3</span><div><h3>Password switch</h3><p>Two options. Password 1 is picked when the app opens. Picked: white with <code>primary</code> text. Only one code is on screen at a time.</p></div></li>
+                    <li><span class="pin-key">4</span><div><h3>Digit boxes</h3><p>One box for each digit: 4 for Password 1, 6 for Password 2. Each box 44&times;56, 8 apart. Numbers are tabular, so nothing jumps when the code changes.</p></div></li>
+                    <li><span class="pin-key">5</span><div><h3>Copy password</h3><p><code>primary</code> button, 48 high. Copies only the code on screen. Then it says &ldquo;Copied&rdquo; for 1.6 seconds and goes back.</p></div></li>
+                    <li><span class="pin-key">6</span><div><h3>Countdown ring</h3><p>160&times;160, stroke 12. Counts 60 &rarr; 0 and updates every second. One fixed size on every screen, because the ring library broke when resized.</p></div></li>
+                    <li><span class="pin-key">7</span><div><h3>Last 5 seconds</h3><p>Arc, number and label turn <code>error</code> (#B3261E), and the ring pulses once a second. The number never goes away, so the warning doesn&rsquo;t depend on color.</p></div></li>
+                    <li><span class="pin-key">8</span><div><h3>Tab bar</h3><p>Home, Add card, Card list, Settings. The open tab uses <code>primary</code>. &ldquo;Add card&rdquo; adds a new card picture to the swipe.</p></div></li>
+                </ol>
+            </div>
+            <h3 style="margin-top: var(--space-6);">Every state, not just the happy one</h3>
+            <p style="max-width: 100%;">A developer shouldn&rsquo;t have to guess what happens when time runs out, or when there&rsquo;s no card yet. So the home screen came with all of its states.</p>
+            <div class="ho-states">
+                <figure class="ho-state"><div class="ho-state__box"><div class="hs-ring" aria-hidden="true"><svg viewBox="0 0 132 132"><circle class="trk" cx="66" cy="66" r="58"/><circle class="arc" cx="66" cy="66" r="58" style="stroke-dashoffset:109.3"/></svg><div class="hs-ring__n"><b>42</b><small>seconds left</small></div></div></div><figcaption><strong>Default</strong>6 to 60 seconds left.</figcaption></figure>
+                <figure class="ho-state"><div class="ho-state__box"><div class="hs-ring is-urgent is-pulse" aria-hidden="true"><svg viewBox="0 0 132 132"><circle class="trk" cx="66" cy="66" r="58"/><circle class="arc" cx="66" cy="66" r="58" style="stroke-dashoffset:340.1"/></svg><div class="hs-ring__n"><b>4</b><small>seconds left</small></div></div></div><figcaption><strong>Last 5 seconds</strong>Red, and the ring pulses.</figcaption></figure>
+                <figure class="ho-state"><div class="ho-state__box"><div class="hs-copy is-copied"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Copied</div></div><figcaption><strong>Copied</strong>Shows for 1.6 seconds, then goes back.</figcaption></figure>
+                <figure class="ho-state"><div class="ho-state__box"><div class="hs-code"><span>3</span><span>0</span><span>5</span><span>9</span><span>1</span><span>7</span></div></div><figcaption><strong>Password 2</strong>6 boxes instead of 4. Same spacing.</figcaption></figure>
+                <figure class="ho-state"><div class="ho-state__box"><div class="ho-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M3.5 10h17"/></svg><b>No card yet</b>Activate your card at a Maple Trust ATM first.</div></div><figcaption><strong>No card yet</strong>The home screen points people to the ATM.</figcaption></figure>
+            </div>
+            <p class="ds-caption">Colors come from the <a class="text-link" href="otp-design-system">design system</a> by role name, like <code>primary</code> and <code>error</code>. So developers never had to type a hex code.</p>
+        </div>
+    </section>
+
+    <!-- iOS and Android -->
+    <section class="section" id="platforms">
+        <div class="container">
+            <span class="step-num">Platforms</span>
+            <h2>One screen, iOS and Android</h2>
+            <p style="max-width: 100%;">Same app, same flow, same brand. But an iPhone user and an Android user expect different things from their phone. So the parts that belong to Maple Trust stayed the same, and the parts that belong to the phone followed Apple&rsquo;s guidelines on iOS and Material Design on Android. I marked every difference for the developers.</p>
+            <div class="pf-phones">
+                <figure class="pf-phone">
+                    <div class="hs-frame" role="img" aria-label="The Maple Trust home screen on iOS, just after copying Password 1">
+                        <div class="hs">
+                            <div class="hs-bar"><span class="pin pin--sq" style="left:180px;top:10px">A</span><div class="hs-status"><span>9:41</span><span><i style="width:18px;height:11px"></i><i style="width:26px;height:12px;border-radius:4px"></i></span></div><div class="hs-title"><span class="hs-logo">M</span>Maple Trust</div></div>
+                            <div class="hs-body">
+                                <div class="hs-card"><b>MAPLE TRUST</b><i></i><span>5241 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4444</span></div>
+                                <div class="hs-dots"><i></i><i></i></div>
+                                <div class="hs-seg"><span class="is-on">Password 1</span><span>Password 2</span></div>
+                                <div class="hs-code"><span>5</span><span>8</span><span>3</span><span>1</span></div>
+                                <div class="hs-copy is-copied"><span class="pin pin--sq">B</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Copied</div>
+                                <div class="hs-ring" aria-hidden="true"><svg viewBox="0 0 132 132"><circle class="trk" cx="66" cy="66" r="58"/><circle class="arc" cx="66" cy="66" r="58" style="stroke-dashoffset:121.5"/></svg><div class="hs-ring__n"><b>40</b><small>seconds left</small></div></div>
+                            </div>
+                            
+                            <div class="hs-tabs"><span class="pin pin--sq" style="left:14px;top:-16px">C</span><span class="is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10.5L12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg>Home</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg>Add card</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M3.5 10h17"/></svg>Card list</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg>Settings</span></div>
+                            <span class="hs-home"></span>
+                            <span class="pin pin--sq" style="left:auto;right:96px;top:auto;bottom:-2px">D</span>
+                        </div>
+                    </div>
+                    <figcaption>iOS &middot; Apple&rsquo;s guidelines</figcaption>
+                </figure>
+                <figure class="pf-phone">
+                    <div class="hs-frame hs-frame--android" role="img" aria-label="The Maple Trust home screen on Android, just after copying Password 1">
+                        <div class="hs">
+                            <div class="hs-bar"><span class="pin pin--sq" style="left:180px;top:10px">A</span><div class="hs-status hs-status--android"><span>12:30</span><span><i style="width:13px;height:12px;border-radius:2px 2px 0 0"></i><i style="width:12px;height:12px"></i><i style="width:9px;height:15px"></i></span></div><div class="hs-title"><span class="hs-logo">M</span>Maple Trust</div></div>
+                            <div class="hs-body">
+                                <div class="hs-card"><b>MAPLE TRUST</b><i></i><span>5241 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4444</span></div>
+                                <div class="hs-dots"><i></i><i></i></div>
+                                <div class="hs-seg"><span class="is-on">Password 1</span><span>Password 2</span></div>
+                                <div class="hs-code"><span>5</span><span>8</span><span>3</span><span>1</span></div>
+                                <div class="hs-copy is-copied"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Copied</div>
+                                <div class="hs-ring" aria-hidden="true"><svg viewBox="0 0 132 132"><circle class="trk" cx="66" cy="66" r="58"/><circle class="arc" cx="66" cy="66" r="58" style="stroke-dashoffset:121.5"/></svg><div class="hs-ring__n"><b>40</b><small>seconds left</small></div></div>
+                            </div>
+                            <div class="hs-snack"><span class="pin pin--sq">B</span>Password copied</div>
+                            <div class="hs-tabs hs-tabs--android"><span class="pin pin--sq" style="left:14px;top:-16px">C</span><span class="is-on"><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10.5L12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg></em>Home</span><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg></em>Add card</span><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M3.5 10h17"/></svg></em>Card list</span><span><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg></em>Settings</span></div>
+                            <span class="hs-home hs-home--android"></span>
+                            <span class="pin pin--sq" style="left:auto;right:96px;top:auto;bottom:-2px">D</span>
+                        </div>
+                    </div>
+                    <figcaption>Android &middot; Material Design</figcaption>
+                </figure>
+            </div>
+            <div class="table-wrap" style="margin-top: var(--space-5);">
+                <table class="audit pf-table">
+                    <thead><tr><th></th><th>What</th><th>iOS</th><th>Android</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="pin-key pin-key--sq">A</span></td><td>Status bar</td><td>Time on the left, iOS icons on the right.</td><td>Android icons. The app bar color runs behind it, edge to edge.</td></tr>
+                        <tr><td><span class="pin-key pin-key--sq">B</span></td><td>After copying</td><td>The button says &ldquo;Copied&rdquo;, with a light haptic tap.</td><td>The button says &ldquo;Copied&rdquo;, plus a snackbar on Android 12 and older. Android 13 and newer shows its own copied message, so no snackbar there.</td></tr>
+                        <tr><td><span class="pin-key pin-key--sq">C</span></td><td>Tab bar</td><td>iOS tab bar. The open tab is colored.</td><td>Material navigation bar. The open tab gets a pill behind its icon.</td></tr>
+                        <tr><td><span class="pin-key pin-key--sq">D</span></td><td>Bottom edge</td><td>Home indicator. Nothing to tap in its space.</td><td>Gesture bar. The snackbar sits above the tabs, never under them.</td></tr>
+                        <tr><td></td><td>Touch size</td><td>44&times;44 pt at least, Apple&rsquo;s minimum.</td><td>48&times;48 dp at least, Material&rsquo;s minimum.</td></tr>
+                        <tr><td></td><td>App lock</td><td>Face ID or Touch ID, in Apple&rsquo;s own prompt.</td><td>Fingerprint or face unlock, in Android&rsquo;s own prompt.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note">
+                <p><strong>What stays the same on both:</strong> the card picture, the password switch, the digit boxes, the copy button, the ring and its red, pulsing last 5 seconds. People switch phones. Their bank should still feel like their bank.</p>
+            </div>
         </div>
     </section>
 
