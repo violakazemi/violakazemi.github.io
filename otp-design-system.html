@@ -359,7 +359,7 @@
                             <tr><td><code>border/<wbr>strong</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Input edges, so they pass 3:1</td></tr>
                             <tr><td><code>brand/<wbr>primary</code></td><td><span class="sw" style="background:#1E5E3E"></span>green/700 &middot; <span class="sw" style="background:#3F51B5"></span>indigo/500</td><td>Main buttons, top bar, active tab</td></tr>
                             <tr><td><code>feedback/<wbr>warning</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>The last 5 seconds of a code</td></tr>
-                            <tr><td><code>feedback/<wbr>error</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>Error states</td></tr>
+                            <tr><td><code>feedback/<wbr>error</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>A wrong activation code, a failed sign-in, passwords that don&rsquo;t match</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -385,7 +385,8 @@
             <div class="cs-step">
                 <div class="cs-anchor" id="step-5"></div><span class="step-num">Step 5</span>
                 <h3>Component tokens: only where needed</h3>
-                <p>Most parts use semantic tokens directly. Only three parts get their own tokens, because they change per bank or per platform: Button, Code card and Timer. A button never asks for a color. It asks for a job.</p>
+                <p>Most parts use semantic tokens directly. Three get their own: Button, Code card and Timer. The test is not whether a part changes per bank or per platform &mdash; nearly all of them do, and a semantic token already carries that. A part earns its own tokens when the <em>token it points to</em> changes. The Code card&rsquo;s digit points to <code>text/<wbr>primary</code> in Bow Bank and <code>brand/<wbr>primary</code> in Elbow Trust. One semantic name cannot hold two different pointers, so the Code card gets its own.</p>
+                <p>The other ten parts never do this. The Segmented control&rsquo;s label is 13 on iOS and 14 on Android, but it always points at <code>type/<wbr>segment-label</code>. Same pointer, different value &mdash; so it needs nothing of its own. A button never asks for a color. It asks for a job.</p>
                 <div class="cs-chain">
                     <div class="cs-chain__step"><small>3 &middot; Component</small><code>button/<wbr>primary/<wbr>bg</code></div>
                     <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
@@ -393,6 +394,14 @@
                     <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
                     <div class="cs-chain__step"><small>1 &middot; Primitive</small><span class="sw" style="background:#1E5E3E"></span><code>green/<wbr>700</code> in Bow Bank &middot; <span class="sw" style="background:#3F51B5"></span><code>indigo/<wbr>500</code> in Elbow Trust</div>
                 </div>
+                <div class="cs-chain">
+                    <div class="cs-chain__step"><small>3 &middot; Component</small><code>button/<wbr>height</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>2 &middot; Semantic</small><code>ios/<wbr>control-height</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>1 &middot; Primitive</small><code>height/<wbr>50</code></div>
+                </div>
+                <p class="cs-cap">Not every token is a color. On Android the same <code>button/height</code> points at <code>android/control-height</code> and lands on 40, where Material puts it.</p>
                 <p style="margin-top: var(--space-3);"><strong>The names follow one pattern:</strong> part, then property, then state. <code>button/<wbr>primary/<wbr>bg-pressed</code> is the button, its primary background, when pressed. If you can guess a token&rsquo;s name before you search for it, the system teaches itself.</p>
                 <div class="cs-shots">
                     <figure><img src="images/otp-ds-vars-primitives.webp" alt="The Primitives collection in Figma: 63 variables in groups for neutral, green, indigo, red, gold, bank, space, radius, font, size, height and weight" width="724" height="832" loading="lazy" decoding="async" /><figcaption>1 &middot; Primitives: 63 raw values.</figcaption></figure>
@@ -400,8 +409,7 @@
                     <figure><img src="images/otp-ds-vars-component.webp" alt="The Component collection for Bow Bank in Figma: button tokens for primary, secondary, tertiary and disabled, each pointing to a semantic token such as brand/primary" width="724" height="832" loading="lazy" decoding="async" /><figcaption>3 &middot; Component: 38 tokens per bank, each pointing to a semantic token.</figcaption></figure>
                 </div>
                 <p class="cs-cap">The three layers as they are in the Figma file. No component token points to a primitive.</p>
-                <p class="cs-cap">The Code card shows the same idea. Bow Bank gives it a border, Elbow Trust gives it a shadow. It&rsquo;s part of each bank&rsquo;s look, like the brand color.</p>
-                <p style="margin-top: var(--space-3);">In total, 13 variables became 287, in five collections.</p>
+                <p style="margin-top: var(--space-3);">In total, 13 variables became 287, in five collections: one Primitives shared by both banks, then Semantic and Component for each bank. 63 + (74 &times; 2) + (38 &times; 2) = 287.</p>
             </div>
 
             <div class="cs-step">
@@ -434,7 +442,7 @@
             <div class="cs-step">
                 <div class="cs-anchor" id="step-7"></div><span class="step-num">Step 7</span>
                 <h3>Theming: one system, two banks</h3>
-                <p>A bank is a theme: a short list of token values. Everything else is shared. Switch the bank below. The components don&rsquo;t change. Only the values do.</p>
+                <p>A bank is a theme: a short list of token values. The Code card is the clearest case &mdash; Bow Bank gives it a border, Elbow Trust gives it a shadow, and that is part of each bank&rsquo;s look, like the brand color. Everything else is shared. Switch the bank below. The components don&rsquo;t change. Only the values do.</p>
                 <div class="tk-switch" role="radiogroup" aria-label="Bank theme">
                     <button type="button" role="radio" aria-checked="true" data-bank-pick="bow"><i style="background:#1E5E3E"></i>Bow Bank</button>
                     <button type="button" role="radio" aria-checked="false" data-bank-pick="elbow"><i style="background:#3F51B5"></i>Elbow Trust</button>
