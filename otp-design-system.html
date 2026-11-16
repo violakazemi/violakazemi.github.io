@@ -134,6 +134,36 @@
         .tk-values td:nth-child(2) { white-space: nowrap; }
         .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
         @media (prefers-reduced-motion: reduce) { .tk * { transition: none; } }
+
+        /* Step progress: lives in the header, adds no height */
+        .cs-anchor { scroll-margin-top: 92px; }
+        .cs-prog { position: fixed; top: 61px; left: 0; width: 100%; height: 3px; z-index: 10000; pointer-events: none; }
+        .cs-prog__bar { height: 100%; width: 100%; transform: scaleX(0); transform-origin: 0 50%;
+            background: var(--color-text-primary); opacity: .85; transition: transform .15s linear; }
+        .cs-jump { position: fixed; top: 0; height: 64px; z-index: 10000; display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+            font-size: var(--fs-small); font-weight: 400; text-transform: uppercase; letter-spacing: .05em;
+            color: var(--color-text-secondary); }
+        .cs-jump:hover { color: var(--color-text-primary); }
+        .cs-jump__caret { transition: transform .2s ease; font-size: .7em; }
+        .cs-jump[aria-expanded="true"] .cs-jump__caret { transform: rotate(180deg); }
+        .cs-jump__short { display: none; }
+        .cs-menu { position: fixed; top: 70px; z-index: 10000; min-width: 232px; max-height: 70vh; overflow-y: auto;
+            background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+            box-shadow: 0 12px 32px rgba(28,38,31,.14); padding: 6px; margin: 0; list-style: none; }
+        .cs-menu[hidden] { display: none; }
+        .cs-menu a { display: flex; gap: 10px; padding: 7px 10px; border-radius: 6px;
+            font-size: var(--fs-small); color: var(--color-text-secondary); text-decoration: none; }
+        .cs-menu a:hover { background: var(--color-bg-well); color: var(--color-text-primary); text-decoration: none; }
+        .cs-menu a span { width: 1.3em; flex: none; color: var(--color-text-secondary); opacity:.7; }
+        .cs-menu a[aria-current="true"] { color: var(--color-text-primary); font-weight: 600; }
+        @media (max-width: 768px) {
+            .cs-jump__full { display: none; }
+            .cs-jump__short { display: inline; }
+            .cs-menu { left: 16px; right: 16px; min-width: 0; }
+        }
+        @media (max-width: 400px) { .global-header .logo, .cs-jump { font-size: 11px; } }
+        @media (prefers-reduced-motion: reduce) { .cs-prog__bar { transition: none; } }
     </style>
 <!-- Analytics (Umami). Visit violakazemi.com/?me=1 once on each of your browsers to stop counting your own visits. -->
 <script>try{if(/[?&]me=1(&|$)/.test(location.search))localStorage.setItem('umami.disabled','1')}catch(e){}</script>
@@ -144,11 +174,14 @@
 
     <!-- Header -->
     <header class="global-header">
-        <a href="/" class="logo">Viola Kazemi <span style="color: var(--color-text-secondary); font-weight: 400;">/ OTP Design System</span></a>
+        <a href="/" class="logo">Viola Kazemi</a>
+        <button type="button" class="cs-jump" id="csJump" aria-expanded="false" aria-controls="csMenu"><span class="cs-jump__full">/ OTP Design System</span><span class="cs-jump__short">Steps</span><span class="cs-jump__caret" aria-hidden="true">&#9662;</span></button>
+        <ul class="cs-menu" id="csMenu" hidden><li><a href="#step-1"><span>1</span>Audit</a></li><li><a href="#step-2"><span>2</span>Group</a></li><li><a href="#step-3"><span>3</span>Primitives</a></li><li><a href="#step-4"><span>4</span>Semantic tokens</a></li><li><a href="#step-5"><span>5</span>Component tokens</a></li><li><a href="#step-6"><span>6</span>Components</a></li><li><a href="#step-7"><span>7</span>Theming</a></li><li><a href="#step-8"><span>8</span>Handoff</a></li><li><a href="#step-9"><span>9</span>Governance</a></li><li><a href="#step-10"><span>10</span>Results</a></li><li><a href="#reflection"><span></span>Reflection</a></li></ul>
         <nav>
             <a href="/" class="button button-secondary">Home</a>
         </nav>
     </header>
+    <div class="cs-prog" aria-hidden="true"><div class="cs-prog__bar" id="csProgBar"></div></div>
 
 
     <!-- Hero -->
@@ -169,7 +202,7 @@
 
             <img src="images/otp-ds-hero.webp" alt="Three token layers, primitive to semantic to component, feeding the same buttons, segmented control, code and timer in two themes: Bow Bank in green and Elbow Trust in indigo" width="2400" height="1350" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md); border: 1px solid var(--color-border);" />
 
-            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I proposed this design system and built it, from the first audit to handoff. The developers and the team lead reviewed it as it grew.</p>
+            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I proposed this design system and built it, from the first audit to handoff.</p>
 
             <div class="note">
                 <p><strong>Note:</strong> I rebuilt these screens to share them here. The flows and decisions are real.</p>
@@ -177,7 +210,7 @@
 
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
-                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then one app became two, and the front-end and mobile work went from 2 developers to 5. Every screen had its own colors, and changes got lost. So I built one design system for both apps. Color bugs dropped to zero.</p>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then one app became two, every screen had its own colors, and changes got lost. So I built one design system for both apps.</p>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
@@ -192,11 +225,10 @@
     <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>Context and my role</h2>
-            <p>The product was a one-time password app for banks, on iOS and Android. I was the only designer when it started, so I proposed the design system and built it. Later a second designer joined and worked with the same system. The team lead approved every new component and token.</p>
-            <p>The system ran in two apps: one for a single bank, and one that holds many banks.</p>
+            <p>The product was a one-time password app for banks, on iOS and Android. I proposed the design system and built it. Later a second designer joined and worked with the same system. The team lead approved every new component and token.</p>
             <h2 style="margin-top: var(--space-5);">Why it was needed</h2>
             <div class="cs-two">
-                <div class="cs-card"><h4>It started small</h4><p>Four people: me as the only designer, one iOS developer, one Android developer and one backend developer. Three screens. No design system. Everyone set their own colors on each screen.</p></div>
+                <div class="cs-card"><h4>It started small</h4><p>Three screens, no design system. Everyone set their own colors, on every screen.</p></div>
                 <div class="cs-card"><h4>Then one app became two</h4><p>The biggest bank wanted the app just for itself, so the other banks moved into a second app. Front-end and mobile work went from 2 developers to 5. With more hands on more screens, the inconsistencies grew.</p></div>
                 <div class="cs-card"><h4>Then things started to break</h4><p>The same color had different names: <code>primary_<wbr>first</code>, <code>primaryFirst</code>, or just a hex code. Developers set colors by hand. QA found 4&ndash;5 color bugs in every release.</p></div>
                 <div class="cs-card"><h4>So I asked for one week</h4><p>I showed how one system would cut the gaps between the teams. I got one week to prove it. I built the color system first. The team accepted it, and the rest followed.</p></div>
@@ -208,10 +240,10 @@
     <section class="section cs" id="design-system">
         <div class="container">
             <h2>How I built it, step by step</h2>
-            <p>The original files stayed with the company. So I rebuilt the system from zero in Figma, with two sample apps. Bow Bank is the single-bank app, in green. Elbow Trust holds many banks, in indigo. Every step, token and component below comes from that file.</p>
+            <p>I rebuilt the system in Figma. Bow Bank is the single-bank app, in green. Elbow Trust holds many banks, in indigo. Every step, token and component below comes from that file.</p>
 
             <div class="cs-step">
-                <span class="step-num">Step 1</span>
+                <div class="cs-anchor" id="step-1"></div><span class="step-num">Step 1</span>
                 <h3>Audit: see everything first</h3>
                 <p>I put every screen from both apps side by side, on iOS and Android. Then I cut out every piece: buttons, inputs, cards, text, colors, icons. I sorted them by type and counted how many versions of each one existed.</p>
                 <figure class="cs-fig">
@@ -226,7 +258,7 @@
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 2</span>
+                <div class="cs-anchor" id="step-2"></div><span class="step-num">Step 2</span>
                 <h3>Group: one component or a variant?</h3>
                 <p>I checked in two directions. Inside one app: does the app match itself? Between the two apps: is this the same part in a different color?</p>
                 <div class="table-wrap">
@@ -246,7 +278,7 @@
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 3</span>
+                <div class="cs-anchor" id="step-3"></div><span class="step-num">Step 3</span>
                 <h3>Primitives: the raw values</h3>
                 <p>I collected every color from both apps and checked what each one did on screen. Then I merged the near-duplicates. A primitive has a name and a value, but no job yet. Screens never use them directly.</p>
                 <div class="cs-swatches"><div class="cs-swatch"><i style="background:#FFFFFF"></i><span>neutral/0</span><small>#FFFFFF</small></div><div class="cs-swatch"><i style="background:#F2F2F2"></i><span>neutral/100</span><small>#F2F2F2</small></div><div class="cs-swatch"><i style="background:#E0E0E0"></i><span>neutral/200</span><small>#E0E0E0</small></div><div class="cs-swatch"><i style="background:#757575"></i><span>neutral/600</span><small>#757575</small></div><div class="cs-swatch"><i style="background:#4D4D4D"></i><span>neutral/700</span><small>#4D4D4D</small></div><div class="cs-swatch"><i style="background:#111111"></i><span>neutral/900</span><small>#111111</small></div><div class="cs-swatch"><i style="background:#E3EDE4"></i><span>green/50</span><small>#E3EDE4</small></div><div class="cs-swatch"><i style="background:#C8DBCB"></i><span>green/100</span><small>#C8DBCB</small></div><div class="cs-swatch"><i style="background:#1E5E3E"></i><span>green/700</span><small>#1E5E3E</small></div><div class="cs-swatch"><i style="background:#0F2E1F"></i><span>green/900</span><small>#0F2E1F</small></div><div class="cs-swatch"><i style="background:#E8EAF6"></i><span>indigo/50</span><small>#E8EAF6</small></div><div class="cs-swatch"><i style="background:#C5CAE9"></i><span>indigo/100</span><small>#C5CAE9</small></div><div class="cs-swatch"><i style="background:#3F51B5"></i><span>indigo/500</span><small>#3F51B5</small></div><div class="cs-swatch"><i style="background:#303F9F"></i><span>indigo/700</span><small>#303F9F</small></div><div class="cs-swatch"><i style="background:#FDECEA"></i><span>red/50</span><small>#FDECEA</small></div><div class="cs-swatch"><i style="background:#C62828"></i><span>red/800</span><small>#C62828</small></div><div class="cs-swatch"><i style="background:#E2C068"></i><span>gold/300</span><small>#E2C068</small></div></div>
@@ -260,7 +292,7 @@
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 4</span>
+                <div class="cs-anchor" id="step-4"></div><span class="step-num">Step 4</span>
                 <h3>Semantic tokens: names by job</h3>
                 <p>Every primitive gets a job. Components only use these names, never a primitive.</p>
                 <p>The first version followed Material&rsquo;s role names, like <code>primary</code> and <code>on-surface</code>. That gave the team one language, and iOS used the same names as Android. But the audit showed two problems. The hex codes were typed straight into those names, with no primitives under them. And two names did the same job: <code>background</code> and <code>surface</code> were both white.</p>
@@ -288,7 +320,7 @@
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 5</span>
+                <div class="cs-anchor" id="step-5"></div><span class="step-num">Step 5</span>
                 <h3>Component tokens: only where needed</h3>
                 <p>Most parts use semantic tokens directly. Only three parts get their own tokens, because they change per bank or per platform: Button, Code card and Timer. A button never asks for a color. It asks for a job.</p>
                 <div class="cs-chain">
@@ -306,17 +338,13 @@
                 </div>
                 <p class="cs-cap">The three layers as they are in the Figma file. No component token points to a primitive.</p>
                 <p class="cs-cap">The Code card shows the same idea. Bow Bank gives it a border, Elbow Trust gives it a shadow. It&rsquo;s part of each bank&rsquo;s look, like the brand color.</p>
-                <p style="margin-top: var(--space-3);">In total the file went from 13 variables to 287, in five collections: 63 primitives, 74 semantic tokens per bank and 38 component tokens per bank.</p>
+                <p style="margin-top: var(--space-3);">In total, 13 variables became 287, in five collections.</p>
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 6</span>
+                <div class="cs-anchor" id="step-6"></div><span class="step-num">Step 6</span>
                 <h3>Components: 38 become 13</h3>
                 <p>I listed every component on both app pages and matched each one to a part from the audit. Platform and bank differences became variants or tokens, not new components.</p>
-                <figure class="cs-fig">
-                    <img src="images/otp-ds-before-components.webp" alt="The old Bow Bank component board: separate components for iOS and Android headers, tab bars, buttons, segmented controls, text fields and settings rows" width="1109" height="850" loading="lazy" decoding="async" />
-                    <figcaption>Before: one of the two old component boards. Buttons, top bars and text fields were built once per platform and once per bank.</figcaption>
-                </figure>
                 <div class="table-wrap">
                     <table class="cs-table">
                         <thead><tr><th>Component</th><th>Variants</th></tr></thead>
@@ -335,14 +363,13 @@
                     </table>
                 </div>
                 <ul>
-                    <li><strong>Every tappable part has a tap area of 44 on iOS and 48 on Android.</strong> The visible part can be smaller. An Android button is 40 tall, centered in a 48 tap area that is built into the component.</li>
-                    <li><strong>No state relies on color alone.</strong> The selected bank gets a check mark. The ring pulses in its last 5 seconds.</li>
+                    <li><strong>The tap area is built into the component:</strong> 44 on iOS, 48 on Android. The visible part can be smaller &mdash; an Android button is 40 tall, centered in a 48 tap area.</li>
                     <li><strong>Platform parts stay native.</strong> iOS follows Apple&rsquo;s guidelines, Android follows Material 3.</li>
                 </ul>
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 7</span>
+                <div class="cs-anchor" id="step-7"></div><span class="step-num">Step 7</span>
                 <h3>Theming: one system, two banks</h3>
                 <p>A bank is a theme: a short list of token values. Everything else is shared. Switch the bank below. The components don&rsquo;t change. Only the values do.</p>
                 <div class="tk-switch" role="radiogroup" aria-label="Bank theme">
@@ -407,7 +434,7 @@
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 8</span>
+                <div class="cs-anchor" id="step-8"></div><span class="step-num">Step 8</span>
                 <h3>Handoff: iOS and Android</h3>
                 <p>Engineers get three things: the token name in their own language, the platform differences, and the tap areas.</p>
                 <figure class="cs-fig">
@@ -420,7 +447,7 @@
                         <tbody>
                             <tr><td>1</td><td>Top bar</td><td>iOS: 44 bar, centered title at 17. Android: 64 bar, left title at 22.</td></tr>
                             <tr><td>2</td><td>Code digits</td><td>System font, tabular digits. iOS 34, Android 32. The boxes hug the digit, so they grow with larger text settings.</td></tr>
-                            <tr><td>3</td><td>Copy button</td><td>The chip is 24 tall. The tap area is 44 on iOS and 48 on Android.</td></tr>
+                            <tr><td>3</td><td>Copy button</td><td>The chip is 24 tall, inside the standard tap area.</td></tr>
                             <tr><td>4</td><td>Timer</td><td>Counts down from 60. In the last 5 seconds it turns to <code>feedback/<wbr>warning</code> and the ring pulses.</td></tr>
                             <tr><td>5</td><td>Tab bar</td><td>iOS: the active label is bold. Android: the active tab gets the indicator pill.</td></tr>
                         </tbody>
@@ -483,7 +510,7 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
             </div>
 
             <div class="cs-step">
-                <span class="step-num">Step 9</span>
+                <div class="cs-anchor" id="step-9"></div><span class="step-num">Step 9</span>
                 <h3>Governance: how it stays alive</h3>
                 <div class="cs-two">
                     <div class="cs-card"><h4>The rules</h4><p>Three layers, one direction: component, semantic, primitive. Name by job, not by look. A new value rounds to the nearest step on the scale first. A token is added to both banks or to neither.</p></div>
@@ -501,9 +528,9 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
             <p>Every rule here lives inside a token or a component, so a screen gets it without anyone remembering to add it.</p>
             <div class="cs-two">
                 <div class="cs-card"><h4>Contrast is checked per pair</h4><p>Every text and edge color was checked against the surface it sits on before it became a token. A gray that failed was merged into one that passed.</p></div>
-                <div class="cs-card"><h4>Tap areas are part of the component</h4><p>44 on iOS and 48 on Android. Small parts, like the Copy chip and the Android button, carry a larger invisible tap area around them.</p></div>
+                <div class="cs-card"><h4>Small parts still get big targets</h4><p>The Copy chip is 24 tall and the Android button is 40. Each one carries an invisible tap area around it, so the size that matters lives in the component and not in a reviewer&rsquo;s checklist.</p></div>
                 <div class="cs-card"><h4>No state relies on color alone</h4><p>The selected bank gets a check mark. The active tab gets a bold label or a pill. A focused field gets a thicker border and a caret. The timer ring pulses in its last 5 seconds.</p></div>
-                <div class="cs-card"><h4>Text can grow</h4><p>Codes and the countdown use the system font with tabular digits, so they follow the phone&rsquo;s text size and don&rsquo;t jump as the numbers change. The digit boxes grow with them.</p></div>
+                <div class="cs-card"><h4>Text can grow</h4><p>Nothing is locked to a fixed box. The codes and the countdown follow the phone&rsquo;s text size, and the digit boxes grow with them.</p></div>
             </div>
             <div class="table-wrap">
                 <table class="cs-table">
@@ -525,7 +552,7 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
     <!-- Results -->
     <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <span class="step-num">Step 10</span>
+            <div class="cs-anchor" id="step-10"></div><span class="step-num">Step 10</span>
             <h2 style="margin-top: 0;">Results</h2>
             <div class="cs-two">
                 <div class="cs-card"><h4>Color bugs went from 4&ndash;5 per release to zero</h4><p>One place for colors, not one per screen. When a color changed, it changed everywhere.</p></div>
@@ -539,11 +566,11 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
     <!-- Reflection -->
     <section class="section cs">
         <div class="container">
-            <h2>Reflection</h2>
+            <div class="cs-anchor" id="reflection"></div><h2>Reflection</h2>
             <div class="cs-two">
                 <div class="cs-card"><h4>Prove it small first</h4><p>I didn&rsquo;t ask for a design system. I asked for one week, and I built only the color system. A small thing that works is easier to say yes to than a big plan.</p></div>
                 <div class="cs-card"><h4>Audit every layer</h4><p>Never write &ldquo;nothing&rdquo; in an audit until you&rsquo;ve checked every layer. Look at the middle of the screen, not only the frame around it.</p></div>
-                <div class="cs-card"><h4>One rule is easier to keep than ten</h4><p>Components only use semantic tokens. No exceptions, even for a gold chip that never changes. A rule with no exceptions is one engineers can check on their own.</p></div>
+                <div class="cs-card"><h4>One rule is easier to keep than ten</h4><p>Components only use semantic tokens, with no exceptions. A rule with no exceptions is one engineers can check on their own, without asking me.</p></div>
                 <div class="cs-card"><h4>Start accessibility in the audit</h4><p>The first timer showed the last 5 seconds in red only. The pulse came later, for people who can&rsquo;t tell red apart. Today I&rsquo;d look for color-only states and small tap areas during the audit, not after.</p></div>
             </div>
             <h3 style="margin-top: var(--space-5);">What I&rsquo;d improve today</h3>
@@ -643,5 +670,48 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
     })();
     </script>
 
+
+    <script>
+    (function(){
+        var jump=document.getElementById('csJump'), menu=document.getElementById('csMenu'),
+            bar=document.getElementById('csProgBar'), logo=document.querySelector('.global-header .logo');
+        if(!jump||!menu||!bar) return;
+        var steps=[].map.call(document.querySelectorAll('.cs-anchor'),function(el){
+            return {el:el, id:el.id, link:menu.querySelector('a[href="#'+el.id+'"]')};
+        });
+        var labels={}; [].forEach.call(menu.querySelectorAll('a'),function(a){
+            labels[a.getAttribute('href').slice(1)]=[a.querySelector('span').textContent, a.textContent.replace(/^\s*\d*\s*/,'')];
+        });
+        var full=jump.querySelector('.cs-jump__full'), short=jump.querySelector('.cs-jump__short'), total=steps.length-1;
+        function place(){ var r=logo.getBoundingClientRect();
+            jump.style.left=(r.right+8)+'px'; if(window.innerWidth>768) menu.style.left=(r.right+8)+'px'; }
+        function open(v){ jump.setAttribute('aria-expanded',v?'true':'false'); menu.hidden=!v; if(v) place(); }
+        jump.addEventListener('click',function(e){ e.stopPropagation(); open(menu.hidden); });
+        document.addEventListener('click',function(e){ if(!menu.hidden && !menu.contains(e.target)) open(false); });
+        document.addEventListener('keydown',function(e){ if(e.key==='Escape') open(false); });
+        menu.addEventListener('click',function(){ open(false); });
+        var last=null;
+        function update(){
+            var first=steps[0].el.getBoundingClientRect().top+window.pageYOffset-92,
+                end=steps[steps.length-1].el.getBoundingClientRect().top+window.pageYOffset,
+                y=window.pageYOffset, pct=end>first?(y-first)/(end-first):0;
+            bar.style.transform='scaleX('+Math.min(1,Math.max(0,pct))+')';
+            var cur=null;
+            steps.forEach(function(s){ if(s.el.getBoundingClientRect().top<=100) cur=s; });
+            if(cur===last) return;
+            if(last&&last.link) last.link.removeAttribute('aria-current');
+            last=cur;
+            if(!cur){ full.textContent='/ OTP Design System'; short.textContent='Steps'; place(); return; }
+            if(cur.link) cur.link.setAttribute('aria-current','true');
+            var l=labels[cur.id];
+            full.textContent = l[0] ? '/ Step '+l[0]+' \u00b7 '+l[1] : '/ '+l[1];
+            short.textContent = l[0] ? l[0]+'/'+total : l[1];
+            place();
+        }
+        window.addEventListener('scroll',update,{passive:true});
+        window.addEventListener('resize',function(){ place(); update(); });
+        place(); update();
+    })();
+    </script>
 </body>
 </html>
