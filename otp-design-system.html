@@ -4,7 +4,7 @@
     <title>OTP Design System - Viola Kazemi</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Case study: the design system Viola Kazemi built for three native iOS and Android bank apps at Carrene, rebuilt step by step. Color bugs per release went from 4–5 to zero." />
+    <meta name="description" content="Case study: the design system Viola Kazemi built for two native iOS and Android bank apps at Carrene, rebuilt step by step. Color bugs per release went from 4–5 to zero." />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
     <link rel="stylesheet" href="assets/css/main.css?v=12" />
     <link rel="icon" type="image/png" href="images/logo.png" />
@@ -156,7 +156,7 @@
         <div class="container">
             <div style="width: 100%; margin-bottom: var(--space-5);">
                 <span class="badge">Shipped Work &middot; Carrene &middot; Design system</span>
-                <h1 style="margin-top: var(--space-2);">One Design System, Three Bank Apps</h1>
+                <h1 style="margin-top: var(--space-2);">One Design System, Two Bank Apps</h1>
                 <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">One set of tokens and 13 components, so each bank could look like itself without breaking anything.</h2>
 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
@@ -169,7 +169,7 @@
 
             <img src="images/otp-ds-hero.webp" alt="Three token layers, primitive to semantic to component, feeding the same buttons, segmented control, code and timer in two themes: Bow Bank in green and Elbow Trust in indigo" width="2400" height="1350" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md); border: 1px solid var(--color-border);" />
 
-            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I built this design system on my own.</p>
+            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I proposed this design system and built it, from the first audit to handoff. The developers and the team lead reviewed it as it grew.</p>
 
             <div class="note">
                 <p><strong>Note:</strong> I rebuilt these screens to share them here. The flows and decisions are real.</p>
@@ -177,12 +177,12 @@
 
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
-                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew to three apps and a team of 15. Every screen had its own colors, and changes got lost. So I built one design system for all three apps. Color bugs dropped to zero.</p>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then one app became two, and the front-end and mobile work went from 2 developers to 5. Every screen had its own colors, and changes got lost. So I built one design system for both apps. Color bugs dropped to zero.</p>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
                 <div><p class="num-strip__n">38 &rarr; 13</p><p class="num-strip__l">components, after merging</p></div>
-                <div><p class="num-strip__n">3</p><p class="num-strip__l">apps on one system</p></div>
+                <div><p class="num-strip__n">2</p><p class="num-strip__l">apps on one system</p></div>
                 <div><p class="num-strip__n">13 &rarr; 287</p><p class="num-strip__l">variables, in three layers</p></div>
             </div>
         </div>
@@ -192,12 +192,12 @@
     <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>Context and my role</h2>
-            <p>The product was a one-time password app for banks, on iOS and Android. I was the only designer at the start, and I built the design system on my own. Later a second designer joined and used the system for their app. The team lead approved every new component and token.</p>
-            <p>The system ran in three apps. On this page I show the two I designed: one app for a single bank, and one app that holds many banks.</p>
+            <p>The product was a one-time password app for banks, on iOS and Android. I was the only designer when it started, so I proposed the design system and built it. Later a second designer joined and worked with the same system. The team lead approved every new component and token.</p>
+            <p>The system ran in two apps: one for a single bank, and one that holds many banks.</p>
             <h2 style="margin-top: var(--space-5);">Why it was needed</h2>
             <div class="cs-two">
                 <div class="cs-card"><h4>It started small</h4><p>Four people: me as the only designer, one iOS developer, one Android developer and one backend developer. Three screens. No design system. Everyone set their own colors on each screen.</p></div>
-                <div class="cs-card"><h4>Then one app became three</h4><p>The biggest bank wanted the app just for itself. So the other banks moved into separate apps. More screens, more apps, and a team that grew from 4 people to 15.</p></div>
+                <div class="cs-card"><h4>Then one app became two</h4><p>The biggest bank wanted the app just for itself, so the other banks moved into a second app. Front-end and mobile work went from 2 developers to 5. With more hands on more screens, the inconsistencies grew.</p></div>
                 <div class="cs-card"><h4>Then things started to break</h4><p>The same color had different names: <code>primary_<wbr>first</code>, <code>primaryFirst</code>, or just a hex code. Developers set colors by hand. QA found 4&ndash;5 color bugs in every release.</p></div>
                 <div class="cs-card"><h4>So I asked for one week</h4><p>I showed how one system would cut the gaps between the teams. I got one week to prove it. I built the color system first. The team accepted it, and the rest followed.</p></div>
             </div>
@@ -529,8 +529,8 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
             <h2 style="margin-top: 0;">Results</h2>
             <div class="cs-two">
                 <div class="cs-card"><h4>Color bugs went from 4&ndash;5 per release to zero</h4><p>One place for colors, not one per screen. When a color changed, it changed everywhere.</p></div>
-                <div class="cs-card"><h4>One system ran across all three apps</h4><p>Same names, same components, same flows. Only the values changed per bank.</p></div>
-                <div class="cs-card"><h4>Another designer built a new theme with it</h4><p>Later, another designer used my system for their app&rsquo;s redesign. Same names, same components, a new look. That was the real test.</p></div>
+                <div class="cs-card"><h4>One system ran across both apps</h4><p>Same names, same components, same flows. Only the values changed per bank.</p></div>
+                <div class="cs-card"><h4>Another designer built a new theme with it</h4><p>Later, another designer used the system to make a new purple theme for a redesign. Same names, same components, a new look. That was the real test.</p></div>
                 <div class="cs-card"><h4>Developers got names, not hex codes</h4><p>Every screen I handed off pointed to tokens. The whole team spoke one language.</p></div>
             </div>
         </div>
