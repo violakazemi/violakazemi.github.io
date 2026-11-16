@@ -225,7 +225,7 @@
     <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
             <h2>Context and my role</h2>
-            <p>The product was a one-time password app for banks, on iOS and Android. I proposed the design system and built it. Later a second designer joined and worked with the same system. The team lead approved every new component and token.</p>
+            <p>The product was a one-time password app for banks, on iOS and Android. It was B2B2C: the banks bought it, and their customers used it. Every decision had to clear the bank&rsquo;s security team and still work for someone standing at an ATM. I proposed the design system and built it. Later a second designer joined and worked with the same system.</p>
             <h2 style="margin-top: var(--space-5);">Why it was needed</h2>
             <div class="cs-two">
                 <div class="cs-card"><h4>It started small</h4><p>Three screens, no design system. Everyone set their own colors, on every screen.</p></div>
@@ -252,7 +252,7 @@
                 </figure>
                 <ul>
                     <li>The same color had different names, or no name at all.</li>
-                    <li>One app had no system. The other apps each had their own.</li>
+                    <li>One app had no system at all. The other had one of its own.</li>
                     <li>The two apps had 38 components between them, and many were the same part built twice.</li>
                 </ul>
             </div>
@@ -265,16 +265,26 @@
                     <table class="cs-table">
                         <thead><tr><th>What I saw</th><th>What it becomes</th><th>Example</th></tr></thead>
                         <tbody>
-                            <tr><td>Repeats in both apps</td><td>A core component. Build it first.</td><td>Button, Top bar, Tab bar</td></tr>
-                            <tr><td>Same job and structure, different color</td><td>One component with a theme</td><td>Copy button</td></tr>
+                            <tr><td>Same job and structure, in both apps</td><td>One component. Build it first.</td><td>Button, Top bar, Tab bar</td></tr>
+                            <tr><td>Same job and structure, different color</td><td>One component. The color comes from the theme.</td><td>Copy button</td></tr>
                             <tr><td>Same job, different emphasis</td><td>Variants of one component</td><td>Button: Primary, Secondary, Tertiary</td></tr>
-                            <tr><td>Repeats in one app only</td><td>A component for that app</td><td>Bank badge in Elbow Trust</td></tr>
-                            <tr><td>Shows up once</td><td>It stays on the screen</td><td>The success icon</td></tr>
+                            <tr><td>Looks alike, different job</td><td>Separate components</td><td>Bank badge and Copy chip</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p style="margin-top: var(--space-3);">The audit also showed drift. On Android, Bow Bank used a drawer and Elbow Trust a bottom bar. Material says a drawer is for five or more destinations, and Bow Bank had four. So both apps use the bottom bar now.</p>
-                <div class="cs-lesson"><strong>Lesson</strong>Group by job and structure, not by how it looks.</div>
+                <p style="margin-top: var(--space-3);">Where a part is used is a second question, and I answered it after the first one. It decides where a component lives, never whether it is one.</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Where it is used</th><th>Where it lives</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td>Both apps</td><td>The shared library</td><td>Button, Input, Code card</td></tr>
+                            <tr><td>One app only</td><td>The same library. Only that app&rsquo;s screens use it.</td><td>Bank badge, in Elbow Trust</td></tr>
+                            <tr><td>Once, and nowhere else</td><td>It stays on the screen</td><td>The success icon</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cs-lesson"><strong>Decision</strong>The audit caught navigation drift. On Android, Bow Bank used a drawer for four destinations and Elbow Trust used a bottom bar. Material reserves the drawer for five or more, so I proposed the bottom bar for both apps. It shipped in both. A grouping exercise ended up changing navigation in a live app.</div>
+                <div class="cs-lesson"><strong>Lesson</strong>Group by job and structure, not by how it looks. Decide where it lives after that, not instead of it.</div>
             </div>
 
             <div class="cs-step">
