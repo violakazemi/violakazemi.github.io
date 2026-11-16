@@ -397,7 +397,7 @@
                         <div class="tk-panel">
                             <span class="tk-label">Code card</span>
                             <div class="tk-card">
-                                <div class="tk-card__head"><span class="tk-badge">CB</span><span class="tk-card__name">Calgary Bank</span><span class="tk-chip">52s</span></div>
+                                <div class="tk-card__head"><span class="tk-badge" data-tk-badge>CB</span><span class="tk-card__name" data-tk="cardname">Calgary Bank</span><span class="tk-chip">52s</span></div>
                                 <div class="tk-row"><span class="tk-row__label">Password 1</span><span class="tk-row__code">5630</span><span class="tk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>
                                 <div class="tk-row"><span class="tk-row__label">Password 2</span><span class="tk-row__code">204 817</span><span class="tk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>
                             </div>
@@ -408,7 +408,7 @@
                         </div>
                         <div class="tk-panel">
                             <span class="tk-label">List row</span>
-                            <div class="tk-call"><span class="tk-badge">CB</span><span class="tk-call__text"><b>Calgary Bank</b><small>1-800-555-0110</small></span><span class="tk-call__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
+                            <div class="tk-call"><span class="tk-badge" data-tk-badge>CB</span><span class="tk-call__text"><b data-tk="listname">Calgary Bank</b><small>1-800-555-0110</small></span><span class="tk-call__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
                         </div>
                     </div>
                 </div>
@@ -640,8 +640,8 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
         var box = document.getElementById('tk'); if (!box) return;
         var picks = document.querySelectorAll('[data-bank-pick]'), live = document.getElementById('tk-live');
         var BANKS = {
-            bow:   { name: 'Bow Bank', primary: ['#1E5E3E', 'green/700'], pressed: ['#0F2E1F', 'green/900'], subtle: ['#E3EDE4', 'green/50'], onsubtle: ['#0F2E1F', 'green/900'], font: 'Nunito', digit: 'text/primary (dark digits)', edge: 'A border' },
-            elbow: { name: 'Elbow Trust', primary: ['#3F51B5', 'indigo/500'], pressed: ['#303F9F', 'indigo/700'], subtle: ['#E8EAF6', 'indigo/50'], onsubtle: ['#303F9F', 'indigo/700'], font: 'Inter', digit: 'brand/primary (indigo digits)', edge: 'A shadow' }
+            bow:   { name: 'Bow Bank', primary: ['#1E5E3E', 'green/700'], pressed: ['#0F2E1F', 'green/900'], subtle: ['#E3EDE4', 'green/50'], onsubtle: ['#0F2E1F', 'green/900'], font: 'Nunito', digit: 'text/primary (dark digits)', edge: 'A border', badge: 'BB', cardname: 'Visa \u00b7\u00b7\u00b7\u00b7 4417', listname: 'Bow Bank' },
+            elbow: { name: 'Elbow Trust', primary: ['#3F51B5', 'indigo/500'], pressed: ['#303F9F', 'indigo/700'], subtle: ['#E8EAF6', 'indigo/50'], onsubtle: ['#303F9F', 'indigo/700'], font: 'Inter', digit: 'brand/primary (indigo digits)', edge: 'A shadow', badge: 'CB', cardname: 'Calgary Bank', listname: 'Calgary Bank' }
         };
         function paint(k, announce) {
             var B = BANKS[k]; box.setAttribute('data-bank', k);
@@ -649,7 +649,8 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
                 document.querySelector('[data-tk="' + t + '"]').textContent = B[t][1];
                 document.querySelector('[data-tk-sw="' + t + '"]').style.background = B[t][0];
             });
-            ['font', 'digit', 'edge'].forEach(function (t) { document.querySelector('[data-tk="' + t + '"]').textContent = B[t]; });
+            ['font', 'digit', 'edge', 'cardname', 'listname'].forEach(function (t) { document.querySelector('[data-tk="' + t + '"]').textContent = B[t]; });
+            [].forEach.call(document.querySelectorAll('[data-tk-badge]'), function (el) { el.textContent = B.badge; });
             if (announce) live.textContent = 'Showing the ' + B.name + ' theme.';
         }
         function choose(btn) {
