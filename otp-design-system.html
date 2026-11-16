@@ -4,7 +4,7 @@
     <title>OTP Design System - Viola Kazemi</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Case study: the design system Viola Kazemi built for a native iOS and Android one-time password app at Carrene. Color bugs per release went from 4–5 to zero." />
+    <meta name="description" content="Case study: the design system Viola Kazemi built for three native iOS and Android bank apps at Carrene, rebuilt step by step. Color bugs per release went from 4–5 to zero." />
     <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
     <link rel="stylesheet" href="assets/css/main.css?v=12" />
     <link rel="icon" type="image/png" href="images/logo.png" />
@@ -12,197 +12,107 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
     <style>
-        /* Accordion Styling for Deep Dives */
-        details {
-            background-color: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-sm);
-            padding: var(--space-2) var(--space-3);
-            margin-bottom: var(--space-3);
-            transition: box-shadow 0.2s ease;
-        }
-        details:hover { box-shadow: var(--shadow-sm); }
-        summary {
-            font-weight: 600;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '+'; font-size: 1.2rem; color: var(--color-text-secondary); }
-        details[open] summary::after { content: '−'; }
-        details p { margin-top: var(--space-2); margin-bottom: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
-        
-        /* Strict 2-Column Grid */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-4);
-            margin-bottom: var(--space-3);
-        }
-        @media screen and (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-        }
-        
-        /* Trade-off styling */
-        .decision-block {
-            font-size: var(--fs-small);
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-    
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
-        @media screen and (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
-        .phone { max-width: 240px; margin: 0 auto var(--space-3) auto; }
-        .phone img { width: 100%; height: auto; border-radius: 22px; box-shadow: var(--shadow-sm); display: block; border: 1px solid var(--color-border); }
         .step-num { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 4px; }
         .meta-label { display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px; }
         .meta-value { font-weight: 500; font-size: var(--fs-small); }
-        .stat { font-size: clamp(2rem, 4vw + 1rem, 3rem); font-weight: 700; line-height: 1; margin: 0 0 var(--space-1) 0; }
         .note { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt); }
         .note p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
-        .table-wrap { overflow-x: auto; margin-top: var(--space-3); }
-        table.audit { width: 100%; border-collapse: collapse; font-size: var(--fs-small); min-width: 560px; }
-        table.audit th, table.audit td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
-        table.audit th { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); }
-        .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.12); }
-        .fail { color: #B3261E; font-weight: 600; }
-        .pass { color: #1B5E20; font-weight: 600; }
-
-        /* OTP live demo */
-        .otp-demo { display: grid; grid-template-columns: 1fr minmax(280px, 360px); gap: var(--space-5); align-items: center; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
-        @media screen and (max-width: 900px) { .otp-demo { grid-template-columns: 1fr; gap: var(--space-3); } }
-        .otp-demo__text p { color: var(--color-text-secondary); margin: 0; }
-        .otp-card { --otp-accent: var(--color-text-primary); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 20px; padding: 20px; box-shadow: var(--shadow-md); }
-        .otp-card.is-urgent { --otp-accent: #B3261E; }
-        .otp-card__head { display: flex; justify-content: space-between; font-size: var(--fs-small); margin-bottom: 14px; }
-        .otp-card__bank { font-weight: 600; }
-        .otp-card__which { color: var(--color-text-secondary); }
-        .otp-card__row { display: flex; align-items: center; gap: 14px; }
-        .otp-ring { position: relative; width: 44px; height: 44px; flex: none; }
-        .otp-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-        .otp-ring circle { fill: none; stroke-width: 3.5; }
-        .otp-ring__track { stroke: var(--color-bg-well); }
-        .otp-ring__bar { stroke: var(--otp-accent); stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 0; transition: stroke-dashoffset 1s linear, stroke 0.3s ease; }
-        .otp-ring__sec { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--otp-accent); transition: color 0.3s ease; }
-        .otp-code { flex: 1; font-size: 1.75rem; font-weight: 600; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; color: var(--otp-accent); transition: color 0.3s ease; }
-        .otp-code.is-rolling { animation: otp-roll 0.42s var(--ease-out); }
-        @keyframes otp-roll { 0% { opacity: 0; transform: translateY(10px); filter: blur(3px); } 100% { opacity: 1; transform: none; filter: none; } }
-        .otp-copy { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-primary); cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, transform 0.12s ease; }
-        .otp-copy:hover { border-color: var(--color-text-secondary); }
-        .otp-copy:active { transform: scale(0.92); }
-        .otp-copy:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
-        .otp-copy svg { width: 18px; height: 18px; }
-        .otp-copy .tick { stroke-dasharray: 14; stroke-dashoffset: 14; transition: stroke-dashoffset 0.3s var(--ease-out) 0.05s; }
-        .otp-copy .sheets { transition: opacity 0.15s ease; }
-        .otp-copy.is-copied { background: var(--color-text-primary); color: var(--color-bg-card); }
-        .otp-copy.is-copied .sheets { opacity: 0; }
-        .otp-copy.is-copied .tick { stroke-dashoffset: 0; }
-        .otp-card__status { margin: 12px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
-        .otp-card.is-urgent .otp-card__status { color: var(--otp-accent); font-weight: 600; }
         .num-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
         .num-strip > div { padding: 20px 16px; text-align: center; }
         .num-strip > div + div { border-left: 1px solid var(--color-border); }
         .num-strip__n { margin: 0; font-size: clamp(1.5rem, 2vw + 1rem, 2rem); font-weight: 700; line-height: 1.1; }
         .num-strip__l { margin: 6px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
         @media screen and (max-width: 720px) { .num-strip { grid-template-columns: repeat(2, 1fr); } .num-strip > div:nth-child(3) { border-left: 0; } .num-strip > div:nth-child(n+3) { border-top: 1px solid var(--color-border); } }
-        /* Design system section */
-        .ds-tree { margin: var(--space-4) 0 var(--space-6); }
-        .ds-tree__root { max-width: 560px; margin: 0 auto; text-align: center; background: var(--color-bg-card); color: var(--color-text-primary); border: 2px solid var(--color-text-primary); border-radius: var(--radius-md); padding: 18px 24px; }
-        .ds-tree__title { display: block; font-weight: 700; font-size: 1.05rem; }
-        .ds-tree__items { display: block; font-size: var(--fs-small); color: var(--color-text-secondary); margin-top: 4px; }
-        .ds-tree__lines { position: relative; height: 32px; max-width: 760px; margin: 0 auto; }
-        .ds-tree__lines::before { content: ""; position: absolute; left: 50%; top: 0; height: 16px; border-left: 2px solid var(--color-border); }
-        .ds-tree__lines::after { content: ""; position: absolute; left: 25%; right: 25%; top: 16px; border-top: 2px solid var(--color-border); }
-        .ds-tree__lines span { position: absolute; top: 16px; height: 16px; border-left: 2px solid var(--color-border); }
-        .ds-tree__lines span:nth-child(1) { left: 25%; } .ds-tree__lines span:nth-child(2) { left: 75%; }
-        .ds-tree__leaves { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2); max-width: 760px; margin: 0 auto; }
-        .ds-tree__leaf { display: flex; align-items: center; gap: 12px; background: var(--color-bg-card); border: 1px solid var(--color-border); border-top: 4px solid var(--leaf); border-radius: var(--radius-sm); padding: 14px; }
-        .ds-tree__leaf strong { display: block; font-size: var(--fs-small); }
-        .ds-tree__leaf small { display: block; font-size: 0.75rem; color: var(--color-text-secondary); }
-        .ds-mono { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.05rem; }
-        @media screen and (max-width: 720px) {
-            .ds-tree__lines { display: none; }
-            .ds-tree__leaves { grid-template-columns: 1fr; margin-top: var(--space-2); }
-        }
-        .ds-decision { margin-top: var(--space-6); }
-        .ds-decision p { max-width: 100%; margin-top: var(--space-2); }
-        .ds-decision h3 { margin-top: 0; }
-        .ds-names { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--space-3); align-items: start; margin-top: var(--space-4); }
-        .ds-names__col { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3); }
-        .ds-names__arrow { align-self: center; font-size: 1.5rem; color: var(--color-text-secondary); }
-        .ds-names__list { list-style: none; margin: var(--space-2) 0 0; padding: 0; }
-        .ds-names__list li { padding: 8px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); }
-        .ds-names__list li:last-child { border-bottom: 0; }
-        .ds-names__list span { color: var(--color-text-secondary); text-align: right; }
-        .ds-names__list code { font-size: 0.875rem; }
-        .ds-names__list.is-before code { color: #B3261E; }
-        .ds-names__cap { margin: var(--space-2) 0 0 !important; font-size: var(--fs-small); color: var(--color-text-secondary); }
-        @media screen and (max-width: 720px) {
-            .ds-names { grid-template-columns: 1fr; }
-            .ds-names__arrow { transform: rotate(90deg); justify-self: center; }
-        }
 
-        /* Theme tokens: same names, different values */
-        .ds-t--teal   { --t-primary: #00796B; --t-pressed: #005B50; --t-container: #D6EFEB; --t-on-container: #00433B; --t-font: "Nunito", sans-serif; --t-radius: 14px; }
-        .ds-t--indigo { --t-primary: #3F51B5; --t-pressed: #303F9F; --t-container: #E8EAF6; --t-on-container: #1A237E; --t-font: "Inter", sans-serif; --t-radius: 12px; }
-        .ds-phone, .ds-states { --t-on-primary: #FFFFFF; --t-surface: #FFFFFF; --t-bg: #F5F6F8; --t-on-surface: #1B1F24; --t-muted: #5B6168; --t-outline: #8A9099; --t-error: #B3261E; }
+        .cs p, .cs li, .cs ul { max-width: 100%; }
+        .cs-step { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+        .cs-step h3 { margin-top: 0; }
+        .cs-step ul, .cs-list { margin: var(--space-3) 0 0; padding-left: 1.2em; }
+        .cs-step li, .cs-list li { margin-bottom: 6px; }
+        .cs-fig { margin: var(--space-4) 0 0; }
+        .cs-fig img { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: #fff; }
+        .cs-fig figcaption, .cs-cap { margin-top: 10px; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        .cs-lesson { margin-top: var(--space-3); padding: var(--space-2) var(--space-3); border-left: 3px solid var(--color-text-primary); background: var(--color-bg-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: var(--fs-small); }
+        .cs-lesson strong { display: block; font-size: 0.6875rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 2px; }
+        .table-wrap { overflow-x: auto; margin-top: var(--space-3); }
+        table.cs-table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); min-width: 560px; background: var(--color-bg-card); }
+        table.cs-table th, table.cs-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+        table.cs-table th { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); }
+        .cs code { font-size: 0.85em; }
+        .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.12); }
+        .cs-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: var(--space-3); }
+        .cs-swatch { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; font-size: 0.8125rem; }
+        .cs-swatch i { display: block; height: 44px; border-bottom: 1px solid var(--color-border); }
+        .cs-swatch span { display: block; padding: 8px 10px 0; font-weight: 600; }
+        .cs-swatch small { display: block; padding: 0 10px 8px; color: var(--color-text-secondary); }
+        .cs-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: var(--space-3); }
+        .cs-chain__step { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 10px 14px; font-size: var(--fs-small); }
+        .cs-chain__step small { display: block; color: var(--color-text-secondary); font-size: 0.75rem; }
+        .cs-chain__arrow { color: var(--color-text-secondary); font-size: 1.25rem; }
+        @media screen and (max-width: 720px) { .cs-chain { flex-direction: column; align-items: stretch; } .cs-chain__arrow { transform: rotate(90deg); align-self: center; } }
+        .cs-screens { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: var(--space-4); }
+        @media screen and (max-width: 900px) { .cs-screens { grid-template-columns: repeat(2, 1fr); } }
+        .cs-screens figure { margin: 0; }
+        .cs-screens img { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: 14px; }
+        .cs-screens figcaption { text-align: center; font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 8px; }
+        .cs-two { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); margin-top: var(--space-3); }
+        @media screen and (max-width: 768px) { .cs-two { grid-template-columns: 1fr; } }
+        .cs-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3); }
+        .cs-card h4 { margin: 0 0 6px; font-size: 1rem; }
+        .cs-card p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
 
-        .ds-phones { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: var(--space-5); margin-top: var(--space-4); }
-        @media screen and (max-width: 900px) { .ds-phones { grid-template-columns: 1fr; } }
-        .ds-phone { margin: 0; }
-        .ds-phone figcaption { text-align: center; font-size: var(--fs-small); font-weight: 600; margin-top: 12px; }
-        .ds-screen { max-width: 260px; margin: 0 auto; aspect-ratio: 9 / 16; display: flex; flex-direction: column; background: var(--t-bg); border: 8px solid #1B1F24; border-radius: 34px; overflow: hidden; box-shadow: var(--shadow-md); font-family: var(--t-font); color: var(--t-on-surface); }
-        .ds-bar { background: var(--t-primary); color: var(--t-on-primary); display: flex; align-items: center; gap: 10px; padding: 26px 16px 14px; }
-        .ds-bar__title { font-weight: 700; font-size: 0.95rem; }
-        .ds-logo { width: 28px; height: 28px; display: grid; place-items: center; background: var(--t-on-primary); color: var(--t-primary); font-weight: 800; font-size: 0.9rem; border-radius: min(var(--t-radius), 14px); }
-        .ds-body { flex: 1; display: flex; flex-direction: column; padding: 16px; gap: 12px; }
-        .ds-voice { margin: 0; font-size: 0.85rem; color: var(--t-muted); }
-        .ds-card { background: var(--t-surface); border-radius: var(--t-radius); padding: 14px 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; justify-content: space-between; align-items: center; }
-        .ds-card__label { font-size: 0.8rem; color: var(--t-muted); }
-        .ds-card__code { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.08em; color: var(--t-primary); font-variant-numeric: tabular-nums; }
-        .ds-dashed { font: inherit; font-size: 0.85rem; font-weight: 600; color: var(--t-primary); background: transparent; border: 1.5px dashed var(--t-primary); border-radius: var(--t-radius); padding: 10px; cursor: default; }
-        .ds-spacer { flex: 1; }
-        .ds-btn { display: inline-flex; align-items: center; justify-content: center; font: inherit; font-family: var(--t-font); font-size: 0.9rem; font-weight: 700; color: var(--t-on-primary); background: var(--t-primary); border: 0; border-radius: var(--t-radius); padding: 12px 18px; min-height: 44px; cursor: default; }
-        .ds-btn.is-pressed { background: var(--t-pressed); }
-        .ds-btn.is-focus { box-shadow: 0 0 0 2px var(--t-surface), 0 0 0 4px var(--t-primary); }
-        .ds-btn.is-disabled { background: #E3E5E8; color: #6B7178; }
-        .ds-caption { max-width: 100%; margin-top: var(--space-3); font-size: var(--fs-small); color: var(--color-text-secondary); }
-        .ds-tokens code { font-size: 0.85rem; }
-
-        .ds-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: var(--space-3); }
-        .ds-chain__step { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 10px 14px; }
-        .ds-chain__step code { font-size: 0.875rem; display: inline-flex; align-items: center; }
-        .ds-chain__arrow { color: var(--color-text-secondary); font-size: 1.25rem; }
-        @media screen and (max-width: 720px) { .ds-chain { flex-direction: column; align-items: stretch; } .ds-chain__arrow { transform: rotate(90deg); align-self: center; } }
-        .ds-matrix { margin: var(--space-3) 0 0; }
-        .ds-matrix img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
-        @media screen and (max-width: 720px) { .ds-matrix__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; } .ds-matrix__scroll img { width: 820px; max-width: none; } }
-        .ds-matrix figcaption { margin-top: 10px; font-size: var(--fs-small); color: var(--color-text-secondary); }
-        .ds-switch { display: inline-flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-3); }
-        .ds-switch button { font: inherit; font-size: var(--fs-small); display: inline-flex; align-items: center; gap: 4px; padding: 8px 14px; min-height: 44px; border-radius: var(--radius-pill); border: 1px solid var(--color-border); background: var(--color-bg-card); color: var(--color-text-primary); cursor: pointer; }
-        .ds-switch button[aria-checked="true"] { background: var(--color-bg-alt); color: var(--color-text-primary); border: 1.5px solid var(--color-text-primary); font-weight: 600; }
-        .ds-switch button:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
-        .ds-states { margin-top: var(--space-3); background: var(--t-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); font-family: var(--t-font); color: var(--t-on-surface); }
-        .ds-states__group + .ds-states__group { margin-top: var(--space-4); }
-        .ds-states__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: 12px; }
-        @media screen and (max-width: 720px) { .ds-states__row { grid-template-columns: repeat(2, 1fr); } }
-        .ds-state { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-        .ds-state > small { font-family: var(--font-primary); font-size: 0.75rem; color: var(--t-muted); }
-        .ds-input { display: flex; align-items: center; width: 100%; max-width: 180px; min-height: 44px; padding: 0 12px; background: var(--t-surface); border: 1px solid var(--t-outline); border-radius: var(--t-radius); font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; box-sizing: border-box; }
-        .ds-input__ph { font-weight: 400; letter-spacing: 0; color: var(--t-muted); font-size: 0.875rem; }
-        .ds-input.is-focus { border: 2px solid var(--t-primary); }
-        .ds-input__caret { width: 2px; height: 20px; background: var(--t-primary); }
-        .ds-input.is-error { border: 2px solid var(--t-error); color: var(--t-error); }
-        .ds-input__msg { font-size: 0.75rem; color: var(--t-error); max-width: 180px; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .otp-ring__bar, .otp-ring__sec, .otp-code, .otp-copy, .otp-copy .tick, .otp-copy .sheets { transition: none; }
-            .otp-code.is-rolling { animation: none; }
-            .otp-copy:active { transform: none; }
-        }
+        /* Live theme demo. Token names match the Figma variables. */
+        .tk { --text-primary: #111111; --text-secondary: #4D4D4D; --text-tertiary: #757575; --text-inverse: #FFFFFF; --surface-default: #FFFFFF; --surface-subtle: #F2F2F2; --border-default: #E0E0E0; --border-strong: #757575; --bank-calgary: #1F2A5C; --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Roboto", sans-serif; }
+        .tk[data-bank="bow"]   { --brand-primary: #1E5E3E; --brand-pressed: #0F2E1F; --brand-subtle: #E3EDE4; --brand-subtle-pressed: #C8DBCB; --brand-on-subtle: #0F2E1F; --font-brand: "Nunito", sans-serif; --code-digit: var(--text-primary); --card-edge: var(--border-default); --card-shadow: none; }
+        .tk[data-bank="elbow"] { --brand-primary: #3F51B5; --brand-pressed: #303F9F; --brand-subtle: #E8EAF6; --brand-subtle-pressed: #C5CAE9; --brand-on-subtle: #303F9F; --font-brand: "Inter", sans-serif; --code-digit: var(--brand-primary); --card-edge: transparent; --card-shadow: 0 1px 4px rgba(0,0,0,0.14); }
+        .tk-switch { display: inline-flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-3); }
+        .tk-switch button { font: inherit; font-size: var(--fs-small); padding: 8px 16px; min-height: 44px; border-radius: var(--radius-pill); background: transparent; color: var(--color-text-secondary); border: 1px solid var(--color-border); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .tk-switch button i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .tk-switch button[aria-checked="true"] { background: var(--color-bg-alt); color: var(--color-text-primary); border: 1.5px solid var(--color-text-primary); font-weight: 600; }
+        .tk-switch button:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+        .tk { margin-top: var(--space-3); background: var(--surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3); color: var(--text-primary); font-family: var(--font-system); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: start; }
+        @media screen and (max-width: 820px) { .tk { grid-template-columns: 1fr; padding: var(--space-2); } }
+        .tk * { transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+        .tk-col { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+        .tk-panel { background: var(--surface-default); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+        .tk-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); }
+        .tk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .tk-grid > small { font-size: 0.75rem; color: var(--text-secondary); }
+        .tk-btn { height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; padding: 0 8px; border: 1px solid transparent; box-sizing: border-box; white-space: nowrap; }
+        .tk-btn--p { background: var(--brand-primary); color: var(--text-inverse); }
+        .tk-btn--p.is-pressed { background: var(--brand-pressed); }
+        .tk-btn--s { background: var(--brand-subtle); color: var(--brand-on-subtle); }
+        .tk-btn--s.is-pressed { background: var(--brand-subtle-pressed); }
+        .tk-btn--t { border-color: var(--brand-primary); color: var(--brand-primary); }
+        .tk-btn--t.is-pressed { background: var(--brand-subtle); }
+        .tk-btn.is-disabled { background: var(--surface-subtle); color: var(--text-tertiary); border-color: transparent; }
+        .tk-btn--t.is-disabled { background: transparent; border-color: var(--border-default); }
+        .tk-seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface-subtle); border-radius: 8px; padding: 4px; min-height: 44px; box-sizing: border-box; }
+        .tk-seg span { display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+        .tk-seg span.is-on { background: var(--surface-default); color: var(--text-primary); }
+        .tk-field__label { display: block; font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
+        .tk-input { display: flex; align-items: center; gap: 2px; height: 50px; padding: 0 16px; border: 2px solid var(--brand-primary); border-radius: 8px; font-size: 17px; box-sizing: border-box; background: var(--surface-default); }
+        .tk-input i { width: 2px; height: 20px; background: var(--brand-primary); }
+        .tk-hint { font-size: 13px; color: var(--text-tertiary); margin-top: 8px; }
+        .tk-card { background: var(--surface-default); border: 1px solid var(--card-edge); box-shadow: var(--card-shadow); border-radius: 12px; padding: 12px 8px 12px 16px; display: flex; flex-direction: column; gap: 6px; }
+        .tk-card__head { display: flex; align-items: center; gap: 8px; padding-right: 8px; }
+        .tk-badge { width: 32px; height: 32px; flex: none; border-radius: 8px; background: var(--bank-calgary); color: var(--text-inverse); display: grid; place-items: center; font-family: var(--font-brand); font-size: 11px; font-weight: 600; }
+        .tk-card__name { flex: 1; font-family: var(--font-brand); font-size: 17px; font-weight: 600; min-width: 0; }
+        .tk-chip { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: var(--brand-subtle); color: var(--brand-on-subtle); font-variant-numeric: tabular-nums; }
+        .tk-row { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+        .tk-row__label { flex: 1; font-size: 13px; color: var(--text-secondary); }
+        .tk-row__code { font-size: 20px; font-weight: 600; color: var(--code-digit); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+        .tk-icon { width: 44px; height: 44px; flex: none; display: grid; place-items: center; color: var(--brand-primary); }
+        .tk-icon svg { width: 20px; height: 20px; }
+        .tk-call { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-default); }
+        .tk-call__text { flex: 1; min-width: 0; }
+        .tk-call__text b { display: block; font-weight: 400; font-size: 17px; }
+        .tk-call__text small { font-size: 13px; color: var(--text-secondary); }
+        .tk-call__btn { width: 36px; height: 36px; border-radius: 50%; background: var(--brand-subtle); color: var(--brand-on-subtle); display: grid; place-items: center; flex: none; }
+        .tk-call__btn svg { width: 18px; height: 18px; }
+        .tk-values td:nth-child(2) { white-space: nowrap; }
+        .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        @media (prefers-reduced-motion: reduce) { .tk * { transition: none; } }
     </style>
 <!-- Analytics (Umami). Visit violakazemi.com/?me=1 once on each of your browsers to stop counting your own visits. -->
 <script>try{if(/[?&]me=1(&|$)/.test(location.search))localStorage.setItem('umami.disabled','1')}catch(e){}</script>
@@ -219,13 +129,14 @@
         </nav>
     </header>
 
+
     <!-- Hero -->
     <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
         <div class="container">
             <div style="width: 100%; margin-bottom: var(--space-5);">
                 <span class="badge">Shipped Work &middot; Carrene &middot; Design system</span>
                 <h1 style="margin-top: var(--space-2);">One Design System, Three Bank Apps</h1>
-                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">One set of names and components for three bank apps, so each bank could look like itself without breaking anything.</h2>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">One set of tokens and components, so each bank could look like itself without breaking anything.</h2>
 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                     <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
@@ -235,7 +146,7 @@
                 </div>
             </div>
 
-            <img src="images/otp-ds-hero.webp" alt="The same button component in two themes: the Maple Trust app in teal with Nunito, and the multi-bank app in indigo with Inter, each with default, pressed, focus, disabled and loading states" width="1600" height="900" style="width: 100%; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); display: block;" />
+            <img src="images/otp-ds-hero.webp" alt="The component library in Figma: buttons in three types and three states, segmented controls, copy buttons, countdown timers, top bars, tab bars and code cards, on iOS and Android" width="1339" height="846" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md); border: 1px solid var(--color-border);" />
 
             <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I built this design system on my own.</p>
 
@@ -245,240 +156,295 @@
 
             <div style="margin-top: var(--space-5);">
                 <span class="step-num">The short version</span>
-                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew, and the team grew to 15. Every screen had its own colors, and changes got lost. So I built one design system for all three of our apps. Color bugs dropped to zero.</p>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then the project grew to three apps and a team of 15. Every screen had its own colors, and changes got lost. So I built one design system for all three apps. Color bugs dropped to zero.</p>
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
-                <div><p class="num-strip__n">20</p><p class="num-strip__l">components</p></div>
+                <div><p class="num-strip__n">38 &rarr; 13</p><p class="num-strip__l">components in the rebuild</p></div>
                 <div><p class="num-strip__n">3</p><p class="num-strip__l">apps on one system</p></div>
                 <div><p class="num-strip__n">4 &rarr; 15</p><p class="num-strip__l">people on the team</p></div>
             </div>
         </div>
     </section>
 
-    <!-- The story -->
-    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <!-- Why -->
+    <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <h2>How it grew</h2>
-
-            <span class="step-num" style="margin-top: var(--space-3);">Chapter 1</span>
-            <h3>It started small</h3>
-            <p style="max-width: 100%;">At the start we were four people. Me as the only designer, one iOS developer, one Android developer and one backend developer. The app had three screens. We had no design system. Everyone set their own colors on each screen.</p>
-
-            <span class="step-num" style="margin-top: var(--space-4);">Chapter 2</span>
-            <h3>Then the biggest bank wanted its own app</h3>
-            <p style="max-width: 100%;">The plan was to add other banks to this app. But the biggest bank, Maple Trust, wanted the app just for itself. We tried to negotiate. We only wanted to add a section for the other banks. They didn&rsquo;t accept it, so we had to rethink and build a separate app for the other banks.</p>
-
-            <span class="step-num" style="margin-top: var(--space-4);">Chapter 3</span>
-            <h3>Then things started to break</h3>
-            <p style="max-width: 100%;">More screens, more people, more apps. And the colors were still set screen by screen. So when something changed, we couldn&rsquo;t track it. We had to search every page, one by one.</p>
-
-            <span class="step-num" style="margin-top: var(--space-4);">Chapter 4</span>
-            <h3>So I built a design system</h3>
-            <p style="max-width: 100%;">20 components, used across all three of our apps. One place for colors and styles, not one per screen. After that, color bugs QA found went from 4&ndash;5 per release to zero. And handoff to developers got faster. <a class="text-link" href="#design-system">Here&rsquo;s how it worked &darr;</a></p>
+            <h2>Why it was needed</h2>
+            <div class="cs-two">
+                <div class="cs-card"><h4>It started small</h4><p>Four people: me as the only designer, one iOS developer, one Android developer and one backend developer. Three screens. No design system. Everyone set their own colors on each screen.</p></div>
+                <div class="cs-card"><h4>Then one app became three</h4><p>The biggest bank wanted the app just for itself. So we built a separate app for the other banks. More screens, more people, more apps.</p></div>
+                <div class="cs-card"><h4>Then things started to break</h4><p>The same color had different names: <code>primary_first</code>, <code>primaryFirst</code>, or just a hex code. Developers set colors by hand. QA found 4&ndash;5 color bugs in every release.</p></div>
+                <div class="cs-card"><h4>So I asked for one week</h4><p>I showed how one system would cut the gaps between the teams. I got one week to prove it. I built the color system first. The team accepted it, and the rest followed.</p></div>
+            </div>
         </div>
     </section>
 
-    <!-- Design system -->
-    <section class="section" id="design-system">
+    <!-- The steps -->
+    <section class="section cs" id="design-system">
         <div class="container">
-            <span class="step-num">The design system</span>
-            <h2 style="margin-top: 0;">One system, two apps</h2>
-            <p style="max-width: 100%;">The system was used across all three of our apps. Here I show the two I designed. One app was only for the biggest bank, Maple Trust. The other held the other banks, like Harbour Bank and Summit Bank. Underneath, both used the same names, the same components and the same flows. Only the values changed.</p>
+            <h2>How I built it, step by step</h2>
+            <p>The original files stayed with the company. So I rebuilt the system from zero in Figma, with two sample apps. Bow Bank is the single-bank app, in green. Elbow Trust holds many banks, in indigo. It&rsquo;s the same method I used then. Where I&rsquo;d decide differently today, I say so.</p>
 
-            <div class="ds-tree" role="img" aria-label="Diagram: one shared system feeds two app themes: the Maple Trust app and the multi-bank app">
-                <div class="ds-tree__root">
-                    <span class="ds-tree__title">One system</span>
-                    <span class="ds-tree__items">Semantic names &middot; Components &middot; Flows &middot; States &middot; Accessibility rules</span>
-                </div>
-                <div class="ds-tree__lines" aria-hidden="true"><span></span><span></span></div>
-                <div class="ds-tree__leaves">
-                    <div class="ds-tree__leaf" style="--leaf: #00796B;"><span class="ds-mono" style="background:#00796B;border-radius:10px;font-family:'Nunito',sans-serif;">M</span><span><strong>Maple Trust app</strong><small>Teal &middot; Nunito &middot; one bank only</small></span></div>
-                    <div class="ds-tree__leaf" style="--leaf: #3F51B5;"><span class="ds-mono" style="background:#3F51B5;border-radius:8px;font-family:'Inter',sans-serif;">B</span><span><strong>Multi-bank app</strong><small>Indigo &middot; Inter &middot; Harbour Bank, Summit Bank</small></span></div>
-                </div>
+            <div class="cs-step">
+                <span class="step-num">Step 1</span>
+                <h3>Audit: see everything first</h3>
+                <p>I put every screen from both apps side by side, on iOS and Android. Then I cut out every piece: buttons, inputs, cards, text, colors, icons. I sorted them by type and counted how many versions of each one existed.</p>
+                <figure class="cs-fig">
+                    <img src="images/otp-ds-audit.webp" alt="The audit board: Bow Bank and Elbow Trust screens laid out in rows by flow: setup, app lock, home, cards, settings and support" width="1383" height="821" loading="lazy" />
+                    <figcaption>The audit board. Each row is one app, each column is one flow.</figcaption>
+                </figure>
+                <ul>
+                    <li>The same color had different names, or no name at all.</li>
+                    <li>One app had no system. The other apps each had their own.</li>
+                    <li>The two apps had 38 components between them, and many were the same part built twice.</li>
+                </ul>
             </div>
 
-            <!-- Decision 1 -->
-            <div class="ds-decision">
-                <span class="step-num">Decision 1</span>
-                <h3>Name colors by their job, not their value</h3>
-                <p>Every screen had its own colors. One change meant checking every page.</p>
-                <p>We could have made up our own names. But people already wrote them differently: primary_first, primaryFirst, all mixed. That leads to confusion.</p>
-                <p>So I named colors by role, following Material&rsquo;s semantic names: primary, on-primary, surface, error. It was a standard we could point to. iOS used the same names as Android.</p>
-                <p>We had one handoff session to walk through it. After that, when anyone had a question in the group, they pointed to the same shared reference. The whole team spoke one language.</p>
-
-                <div class="ds-names">
-                    <div class="ds-names__col">
-                        <span class="meta-label">Before: everyone&rsquo;s own names</span>
-                        <ul class="ds-names__list is-before">
-                            <li><code>primary_first</code></li>
-                            <li><code>primaryFirst</code></li>
-                            <li><code>#3F51B5</code></li>
-                        </ul>
-                        <p class="ds-names__cap">Different names for the same color. Nobody knew which one was right.</p>
-                    </div>
-                    <div class="ds-names__arrow" aria-hidden="true">&rarr;</div>
-                    <div class="ds-names__col">
-                        <span class="meta-label">After: one name per job</span>
-                        <ul class="ds-names__list is-after">
-                            <li><code>primary</code><span>Buttons, headers, active tabs</span></li>
-                            <li><code>on-primary</code><span>Text and icons on primary</span></li>
-                            <li><code>surface</code><span>Cards and sheets</span></li>
-                            <li><code>error</code><span>Wrong code, failed activation</span></li>
-                        </ul>
-                        <p class="ds-names__cap">Same names on iOS and Android.</p>
-                    </div>
+            <div class="cs-step">
+                <span class="step-num">Step 2</span>
+                <h3>Group: one component or a variant?</h3>
+                <p>I checked in two directions. Inside one app: does the app match itself? Between the two apps: is this the same part in a different color?</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>What I saw</th><th>What it becomes</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td>Repeats in both apps</td><td>A core component. Build it first.</td><td>Button, Top bar, Tab bar</td></tr>
+                            <tr><td>Same job and structure, different color</td><td>One component with a theme</td><td>Copy button</td></tr>
+                            <tr><td>Same job, different emphasis</td><td>Variants of one component</td><td>Button: Primary, Secondary, Tertiary</td></tr>
+                            <tr><td>Repeats in one app only</td><td>A component for that app</td><td>Bank badge in Elbow Trust</td></tr>
+                            <tr><td>Shows up once</td><td>It stays on the screen</td><td>The success icon</td></tr>
+                        </tbody>
+                    </table>
                 </div>
+                <p style="margin-top: var(--space-3);">The audit also showed drift. On Android, Bow Bank used a drawer and Elbow Trust a bottom bar. Material says a drawer is for five or more destinations, and Bow Bank had four. So both apps use the bottom bar now.</p>
+                <div class="cs-lesson"><strong>Lesson</strong>Group by job and structure, not by how it looks.</div>
             </div>
 
-            <!-- Decision 2 -->
-            <div class="ds-decision">
-                <span class="step-num">Decision 2</span>
-                <h3>One system, two apps that don&rsquo;t look like copies</h3>
-                <p>The biggest bank wanted its own app. The stakeholders insisted it shouldn&rsquo;t look like the multi-bank app with a new color.</p>
-                <p>So the bank&rsquo;s app got its brand color, its logo, and the font from its mobile banking app. Button corners matched its banking app too, so it felt familiar. It also got the bank&rsquo;s voice: its motto and its way of talking to customers.</p>
-                <p>The multi-bank app kept a neutral indigo look. It had to fit every bank inside it, so it couldn&rsquo;t take one bank&rsquo;s brand.</p>
-                <p>But the core task stayed the same: read the code, copy it, pay. Both apps did the same job. They only needed to look different, not work differently.</p>
-                <p>If each app had its own flow, every request and every piece of code would need its own decision.</p>
-                <p>Setup adapted to each model. A multi-bank app needs a bank picker and QR. A single-bank app already knows the bank, so it registers by phone.</p>
-                <p>Because of Decision 1, a new look only meant changing the values. The core components stayed the same.</p>
+            <div class="cs-step">
+                <span class="step-num">Step 3</span>
+                <h3>Primitives: the raw values</h3>
+                <p>I collected every color from both apps and checked what each one did on screen. Then I merged the near-duplicates. A primitive has a name and a value, but no job yet. Screens never use them directly.</p>
+                <div class="cs-swatches"><div class="cs-swatch"><i style="background:#FFFFFF"></i><span>neutral/0</span><small>#FFFFFF</small></div><div class="cs-swatch"><i style="background:#F2F2F2"></i><span>neutral/100</span><small>#F2F2F2</small></div><div class="cs-swatch"><i style="background:#E0E0E0"></i><span>neutral/200</span><small>#E0E0E0</small></div><div class="cs-swatch"><i style="background:#757575"></i><span>neutral/600</span><small>#757575</small></div><div class="cs-swatch"><i style="background:#4D4D4D"></i><span>neutral/700</span><small>#4D4D4D</small></div><div class="cs-swatch"><i style="background:#111111"></i><span>neutral/900</span><small>#111111</small></div><div class="cs-swatch"><i style="background:#E3EDE4"></i><span>green/50</span><small>#E3EDE4</small></div><div class="cs-swatch"><i style="background:#C8DBCB"></i><span>green/100</span><small>#C8DBCB</small></div><div class="cs-swatch"><i style="background:#1E5E3E"></i><span>green/700</span><small>#1E5E3E</small></div><div class="cs-swatch"><i style="background:#0F2E1F"></i><span>green/900</span><small>#0F2E1F</small></div><div class="cs-swatch"><i style="background:#E8EAF6"></i><span>indigo/50</span><small>#E8EAF6</small></div><div class="cs-swatch"><i style="background:#C5CAE9"></i><span>indigo/100</span><small>#C5CAE9</small></div><div class="cs-swatch"><i style="background:#3F51B5"></i><span>indigo/500</span><small>#3F51B5</small></div><div class="cs-swatch"><i style="background:#303F9F"></i><span>indigo/700</span><small>#303F9F</small></div><div class="cs-swatch"><i style="background:#FDECEA"></i><span>red/50</span><small>#FDECEA</small></div><div class="cs-swatch"><i style="background:#C62828"></i><span>red/800</span><small>#C62828</small></div><div class="cs-swatch"><i style="background:#E2C068"></i><span>gold/300</span><small>#E2C068</small></div></div>
+                <ul>
+                    <li><strong>Grays went from 7 to 6.</strong> I merged <code>9E9E9E</code> into <code>757575</code>, because <code>757575</code> passes text contrast at 4.6:1 and <code>9E9E9E</code> fails at 2.7:1.</li>
+                    <li><strong>Spacing is a 4 px grid:</strong> 4, 8, 12, 16, 20, 24, 32, 48. Odd values round up to the next step.</li>
+                    <li><strong>Radius is picked by job.</strong> The digit box looked like an input, but it only shows the code. So it follows the card radius.</li>
+                    <li><strong>Code digits use the system font</strong> with tabular digits. They&rsquo;re read under time pressure, and the countdown changes every second.</li>
+                </ul>
+                <div class="cs-lesson"><strong>Lesson</strong>Never merge colors by look alone. Check contrast first.</div>
             </div>
 
-            <div class="ds-phones">
-                <figure class="ds-phone ds-t--teal">
-                    <div class="ds-screen">
-                        <div class="ds-bar"><span class="ds-logo">M</span><span class="ds-bar__title">Maple Trust</span></div>
-                        <div class="ds-body">
-                            <p class="ds-voice">Your code is ready.</p>
-                            <div class="ds-card">
-                                <span class="ds-card__label">Password 1</span>
-                                <span class="ds-card__code">5831</span>
+            <div class="cs-step">
+                <span class="step-num">Step 4</span>
+                <h3>Semantic tokens: names by job</h3>
+                <p>Every primitive gets a job. Components only use these names, never a primitive. At Carrene I followed Material&rsquo;s role names, like <code>primary</code> and <code>on-primary</code>. It gave the whole team one language, and iOS used the same names as Android.</p>
+                <p>In the rebuild I group the names by job: text, surface, border, brand, feedback. It reads faster, and it tells you where a token is allowed to go.</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Token</th><th>Points to</th><th>Job</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>text/primary</code></td><td><span class="sw" style="background:#111111"></span>neutral/900</td><td>Main text</td></tr>
+                            <tr><td><code>text/secondary</code></td><td><span class="sw" style="background:#4D4D4D"></span>neutral/700</td><td>Labels people need to read</td></tr>
+                            <tr><td><code>text/tertiary</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Hints and captions, on white only</td></tr>
+                            <tr><td><code>surface/subtle</code></td><td><span class="sw" style="background:#F2F2F2"></span>neutral/100</td><td>Fills behind controls</td></tr>
+                            <tr><td><code>border/default</code></td><td><span class="sw" style="background:#E0E0E0"></span>neutral/200</td><td>Dividers and card edges</td></tr>
+                            <tr><td><code>border/strong</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Input edges, so they pass 3:1</td></tr>
+                            <tr><td><code>brand/primary</code></td><td><span class="sw" style="background:#1E5E3E"></span>green/700 &middot; <span class="sw" style="background:#3F51B5"></span>indigo/500</td><td>Main buttons, top bar, active tab</td></tr>
+                            <tr><td><code>feedback/warning</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>The last 5 seconds of a code</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li><strong>The last 5 seconds is a warning, not an error.</strong> Both point to the same red today. If warnings change color later, errors stay the same.</li>
+                    <li><strong>One rule, no exceptions.</strong> The gold card chip never changes per bank, but it still gets a token. One rule is easy for engineers to check.</li>
+                    <li><strong>Type and size change per platform.</strong> Body text is 17 on iOS and 16 on Android, so each platform has its own token group.</li>
+                </ul>
+            </div>
+
+            <div class="cs-step">
+                <span class="step-num">Step 5</span>
+                <h3>Component tokens: only where needed</h3>
+                <p>Most parts use semantic tokens directly. Only three parts get their own tokens, because they change per bank or per platform: Button, Code card and Timer. A button never asks for a color. It asks for a job.</p>
+                <div class="cs-chain">
+                    <div class="cs-chain__step"><small>3 &middot; Component</small><code>button/primary/bg</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>2 &middot; Semantic</small><code>brand/primary</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>1 &middot; Primitive</small><span class="sw" style="background:#1E5E3E"></span><code>green/700</code> in Bow Bank &middot; <span class="sw" style="background:#3F51B5"></span><code>indigo/500</code> in Elbow Trust</div>
+                </div>
+                <p class="cs-cap">The Code card shows the same idea. Bow Bank gives it a border, Elbow Trust gives it a shadow. It&rsquo;s part of each bank&rsquo;s look, like the brand color.</p>
+            </div>
+
+            <div class="cs-step">
+                <span class="step-num">Step 6</span>
+                <h3>Components: 38 become 13</h3>
+                <p>I listed every component on both app pages and matched each one to a part from the audit. Platform and bank differences became variants or tokens, not new components.</p>
+                <figure class="cs-fig">
+                    <img src="images/otp-ds-before-components.webp" alt="The old Bow Bank component board: separate components for iOS and Android headers, tab bars, buttons, segmented controls, text fields and settings rows" width="1109" height="850" loading="lazy" />
+                    <figcaption>Before: one of the two old component boards. Buttons, top bars and text fields were built once per platform and once per bank.</figcaption>
+                </figure>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Component</th><th>Variants</th></tr></thead>
+                        <tbody>
+                            <tr><td>Button</td><td>Primary, Secondary, Tertiary &times; iOS, Android &times; Default, Pressed, Disabled</td></tr>
+                            <tr><td>Copy button</td><td>Chip, Icon &times; platform</td></tr>
+                            <tr><td>Top bar</td><td>Platform &times; back &times; action</td></tr>
+                            <tr><td>Tab bar</td><td>Platform &times; 3 or 4 tabs &times; active tab</td></tr>
+                            <tr><td>Code card</td><td>Large (Bow Bank), Compact (Elbow Trust) &times; platform</td></tr>
+                            <tr><td>Timer</td><td>Ring, Chip &times; Default, Last 5 s &times; platform</td></tr>
+                            <tr><td>Segmented control</td><td>Selected side &times; platform</td></tr>
+                            <tr><td>Input</td><td>Code boxes, Text field &times; platform &times; Default, Focused</td></tr>
+                            <tr><td>List row</td><td>Value, Chevron, Call &times; platform</td></tr>
+                            <tr><td>Card row, Pattern grid, Bank badge, Bank tile</td><td>One job each</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li><strong>Every tappable part has a tap area of 44 on iOS and 48 on Android.</strong> The visible part can be smaller. An Android button is 40 tall, centered in a 48 tap area that is built into the component.</li>
+                    <li><strong>No state relies on color alone.</strong> The selected bank gets a check mark. The ring pulses in its last 5 seconds.</li>
+                    <li><strong>Platform parts stay native.</strong> iOS follows Apple&rsquo;s guidelines, Android follows Material 3.</li>
+                </ul>
+            </div>
+
+            <div class="cs-step">
+                <span class="step-num">Step 7</span>
+                <h3>Theming: one system, two banks</h3>
+                <p>A bank is a theme: a short list of token values. Everything else is shared. Switch the bank below. The components don&rsquo;t change. Only the values do.</p>
+                <div class="tk-switch" role="radiogroup" aria-label="Bank theme">
+                    <button type="button" role="radio" aria-checked="true" data-bank-pick="bow"><i style="background:#1E5E3E"></i>Bow Bank</button>
+                    <button type="button" role="radio" aria-checked="false" data-bank-pick="elbow"><i style="background:#3F51B5"></i>Elbow Trust</button>
+                </div>
+                <p class="vh" aria-live="polite" id="tk-live">Showing the Bow Bank theme.</p>
+                <div class="tk" id="tk" data-bank="bow" aria-hidden="true">
+                    <div class="tk-col">
+                        <div class="tk-panel">
+                            <span class="tk-label">Button</span>
+                            <div class="tk-grid">
+                                <small>Default</small><small>Pressed</small><small>Disabled</small>
+                                <div class="tk-btn tk-btn--p">Continue</div><div class="tk-btn tk-btn--p is-pressed">Continue</div><div class="tk-btn tk-btn--p is-disabled">Continue</div>
+                                <div class="tk-btn tk-btn--s">Continue</div><div class="tk-btn tk-btn--s is-pressed">Continue</div><div class="tk-btn tk-btn--s is-disabled">Continue</div>
+                                <div class="tk-btn tk-btn--t">Continue</div><div class="tk-btn tk-btn--t is-pressed">Continue</div><div class="tk-btn tk-btn--t is-disabled">Continue</div>
                             </div>
-                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
-                            <div class="ds-spacer"></div>
-                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
+                        </div>
+                        <div class="tk-panel">
+                            <span class="tk-label">Segmented control</span>
+                            <div class="tk-seg"><span class="is-on">Password 1</span><span>Password 2</span></div>
                         </div>
                     </div>
-                    <figcaption>Maple Trust app</figcaption>
-                </figure>
-                <figure class="ds-phone ds-t--indigo">
-                    <div class="ds-screen">
-                        <div class="ds-bar"><span class="ds-bar__title">Bank List</span></div>
-                        <div class="ds-body">
-                            <p class="ds-voice">Harbour Bank</p>
-                            <div class="ds-card">
-                                <span class="ds-card__label">Password 1</span>
-                                <span class="ds-card__code">5831</span>
+                    <div class="tk-col">
+                        <div class="tk-panel">
+                            <span class="tk-label">Code card</span>
+                            <div class="tk-card">
+                                <div class="tk-card__head"><span class="tk-badge">CB</span><span class="tk-card__name">Calgary Bank</span><span class="tk-chip">52s</span></div>
+                                <div class="tk-row"><span class="tk-row__label">Password 1</span><span class="tk-row__code">5630</span><span class="tk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>
+                                <div class="tk-row"><span class="tk-row__label">Password 2</span><span class="tk-row__code">204 817</span><span class="tk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>
                             </div>
-                            <button class="ds-dashed" type="button" tabindex="-1">+ Add Password 2</button>
-                            <div class="ds-spacer"></div>
-                            <button class="ds-btn" type="button" tabindex="-1">Copy code</button>
+                        </div>
+                        <div class="tk-panel">
+                            <span class="tk-label">Input, focused</span>
+                            <div><span class="tk-field__label">Activation code</span><div class="tk-input">38274<i></i></div><div class="tk-hint">Enter the 5-digit code you got by SMS.</div></div>
+                        </div>
+                        <div class="tk-panel">
+                            <span class="tk-label">List row</span>
+                            <div class="tk-call"><span class="tk-badge">CB</span><span class="tk-call__text"><b>Calgary Bank</b><small>1-800-555-0110</small></span><span class="tk-call__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
                         </div>
                     </div>
-                    <figcaption>Multi-bank app</figcaption>
+                </div>
+                <div class="table-wrap">
+                    <table class="cs-table tk-values">
+                        <thead><tr><th>What changes</th><th>Value now</th><th>Used for</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>brand/primary</code></td><td><span class="sw" data-tk-sw="primary"></span><span data-tk="primary"></span></td><td>Primary button, input focus, icons</td></tr>
+                            <tr><td><code>brand/pressed</code></td><td><span class="sw" data-tk-sw="pressed"></span><span data-tk="pressed"></span></td><td>Primary button, pressed</td></tr>
+                            <tr><td><code>brand/subtle</code></td><td><span class="sw" data-tk-sw="subtle"></span><span data-tk="subtle"></span></td><td>Secondary button, timer chip, call button</td></tr>
+                            <tr><td><code>brand/on-subtle</code></td><td><span class="sw" data-tk-sw="onsubtle"></span><span data-tk="onsubtle"></span></td><td>Text and icons on the light brand fill</td></tr>
+                            <tr><td><code>font/brand</code></td><td><span data-tk="font"></span></td><td>Bank names and headings</td></tr>
+                            <tr><td><code>code-card/digit</code></td><td><span data-tk="digit"></span></td><td>The code itself</td></tr>
+                            <tr><td>Code card edge</td><td><span data-tk="edge"></span></td><td>How the card sits on the page</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: var(--space-3);">Text, surface, border and feedback colors stay the same. So do spacing, radius, tap areas and all 13 components. The token names are identical in both banks. That is what makes the swap safe.</p>
+                <p>These are the screens from the Figma file, built from the 13 components.</p>
+                <div class="cs-screens"><figure><img src="images/otp-ds-bow-home.webp" alt="Bow Bank Home screen: green top bar, bank card, Password 1 and 2 tabs, the code in four digit boxes, a Copy chip, a countdown ring at 42 seconds and a four-tab bar" width="340" height="736" loading="lazy" /><figcaption>Home</figcaption></figure><figure><img src="images/otp-ds-bow-add-card.webp" alt="Bow Bank Add card screen: five code boxes with the third focused, a paste field and an Add card button" width="340" height="736" loading="lazy" /><figcaption>Add card</figcaption></figure><figure><img src="images/otp-ds-bow-settings.webp" alt="Bow Bank Settings screen: list rows for lock timeout, unlock method, help, sync time and version" width="340" height="736" loading="lazy" /><figcaption>Settings</figcaption></figure><figure><img src="images/otp-ds-bow-activation.webp" alt="Bow Bank Activation screen: a check mark, Card activated, two summary rows and a See my codes button" width="340" height="736" loading="lazy" /><figcaption>Activation</figcaption></figure></div>
+                <div class="cs-screens"><figure><img src="images/otp-ds-elbow-bank-list.webp" alt="Elbow Trust Bank list screen in indigo: three bank cards with a bank badge, a timer chip, codes and Add password buttons" width="375" height="811" loading="lazy" /><figcaption>Bank list</figcaption></figure><figure><img src="images/otp-ds-elbow-add-bank.webp" alt="Elbow Trust Add new bank screen: five bank tiles with Calgary selected and checked, and a Scan code button" width="375" height="811" loading="lazy" /><figcaption>Add new bank</figcaption></figure><figure><img src="images/otp-ds-elbow-enter-passwords.webp" alt="Elbow Trust Enter passwords screen: Calgary Bank, a Password 1 and 2 switch and a focused text field" width="375" height="811" loading="lazy" /><figcaption>Enter passwords</figcaption></figure><figure><img src="images/otp-ds-elbow-bank-support.webp" alt="Elbow Trust Bank support screen: five banks, each with a phone number and a call button" width="375" height="811" loading="lazy" /><figcaption>Bank support</figcaption></figure></div>
+                <p class="cs-cap">Top: Bow Bank. Bottom: Elbow Trust. Same components, same tokens, two themes.</p>
+            </div>
+
+            <div class="cs-step">
+                <span class="step-num">Step 8</span>
+                <h3>Handoff: iOS and Android</h3>
+                <p>Engineers get three things: the token name in their own language, the platform differences, and the tap areas.</p>
+                <figure class="cs-fig">
+                    <img src="images/otp-ds-handoff.webp" alt="The Bow Bank Home screen on iOS and Android, with five numbered markers: top bar, code digits, copy button, timer and tab bar" width="941" height="842" loading="lazy" style="max-width: 760px; margin: 0 auto;" />
+                    <figcaption>One screen, annotated for both platforms. iOS on the left, Android on the right.</figcaption>
                 </figure>
-            </div>
-            <p class="ds-caption">The same screen in both apps. Same components, same layout, same names. Only the color, font, corners, logo and voice change. Password 2 isn&rsquo;t turned on, so the card shows a dashed &ldquo;Add&rdquo; button, never an empty code.</p>
-
-            <span class="meta-label" style="margin-top: var(--space-5);">Same names, two apps</span>
-            <div class="table-wrap" style="margin-top: 8px;">
-                <table class="audit ds-tokens">
-                    <thead>
-                        <tr><th>Name</th><th>Maple Trust app</th><th>Multi-bank app</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><code>primary</code></td><td><span class="sw" style="background:#00796B"></span>#00796B</td><td><span class="sw" style="background:#3F51B5"></span>#3F51B5</td></tr>
-                        <tr><td><code>on-primary</code></td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td></tr>
-                        <tr><td><code>primary-container</code></td><td><span class="sw" style="background:#D6EFEB"></span>#D6EFEB</td><td><span class="sw" style="background:#E8EAF6"></span>#E8EAF6</td></tr>
-                        <tr><td><code>error</code></td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td></tr>
-                        <tr><td><code>font</code></td><td>Nunito</td><td>Inter</td></tr>
-                        <tr><td><code>corner-radius</code></td><td>14px</td><td>12px</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="ds-caption">White text on both primaries passes WCAG AA: 5.3:1 on teal, 6.87:1 on indigo.</p>
-
-            <!-- Component states -->
-            <div class="ds-decision">
-                <span class="step-num">Components</span>
-                <h3>States are defined once, for both apps</h3>
-                <p>The button is one of the 20 components. It has the same intents, types and states in both apps. A theme changes how a state looks, never which states exist.</p>
-                <p>There&rsquo;s no hover state. It&rsquo;s a phone app, so there&rsquo;s no cursor. Pressed gives that feedback.</p>
-                <p>A button never asks for a color. It asks for a job. Each app only changes what that job points to.</p>
-            </div>
-
-
-            <figure class="ds-matrix">
-                <div class="ds-matrix__scroll" tabindex="0" role="region" aria-label="Button matrix, scroll sideways">
-                <img id="ds-matrix-img" src="images/otp-ds-buttons-teal.webp" alt="Maple Trust button matrix: constructive, neutral and destructive buttons in primary, secondary, tertiary and link types, each in default, pressed, focus, disabled and loading states" width="1360" height="1012" loading="lazy" />
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>#</th><th>Part</th><th>Note for engineers</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Top bar</td><td>iOS: 44 bar, centered title at 17. Android: 64 bar, left title at 22.</td></tr>
+                            <tr><td>2</td><td>Code digits</td><td>System font, tabular digits. iOS 34, Android 32. The boxes hug the digit, so they grow with larger text settings.</td></tr>
+                            <tr><td>3</td><td>Copy button</td><td>The chip is 24 tall. The tap area is 44 on iOS and 48 on Android.</td></tr>
+                            <tr><td>4</td><td>Timer</td><td>Counts down from 60. In the last 5 seconds it turns to <code>feedback/warning</code> and the ring pulses.</td></tr>
+                            <tr><td>5</td><td>Tab bar</td><td>iOS: the active label is bold. Android: the active tab gets the indicator pill.</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-                <figcaption>Shown in the Maple Trust theme. Rebuilt in Figma for this case study. Every fill, text color, corner and font is bound to a variable.</figcaption>
-            </figure>
-
-            <div class="ds-switch" role="radiogroup" aria-label="Theme">
-                <button type="button" role="radio" aria-checked="true" data-theme-pick="teal"><span class="sw" style="background:#00796B"></span>Maple Trust</button>
-                <button type="button" role="radio" aria-checked="false" data-theme-pick="indigo"><span class="sw" style="background:#3F51B5"></span>Multi-bank app</button>
-            </div>
-
-            <div class="ds-chain" aria-live="polite">
-                <div class="ds-chain__step"><span class="meta-label">3 &middot; Component</span><code>button/primary/background/default</code></div>
-                <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
-                <div class="ds-chain__step"><span class="meta-label">2 &middot; Semantic</span><code>primary</code></div>
-                <span class="ds-chain__arrow" aria-hidden="true">&rarr;</span>
-                <div class="ds-chain__step"><span class="meta-label">1 &middot; Primitive</span><code><span class="sw" id="ds-chain-sw" style="background:#00796B"></span><span id="ds-chain-prim">teal/600</span></code></div>
-            </div>
-
-            <div class="ds-states ds-t--teal" id="ds-states">
-                <div class="ds-states__group">
-                    <span class="meta-label">Activation code input</span>
-                    <div class="ds-states__row">
-                        <div class="ds-state"><span class="ds-input"><span class="ds-input__ph">4-digit code</span></span><small>Empty</small></div>
-                        <div class="ds-state"><span class="ds-input is-focus"><span class="ds-input__caret"></span></span><small>Focused</small></div>
-                        <div class="ds-state"><span class="ds-input is-filled">4643</span><small>Filled</small></div>
-                        <div class="ds-state"><span class="ds-input is-error">4634</span><span class="ds-input__msg">That code doesn&rsquo;t match. Check the SMS.</span><small>Error</small></div>
-                    </div>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Figma variable</th><th>iOS</th><th>Android</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>brand/primary</code></td><td><code>brandPrimary</code></td><td><code>brand_primary</code></td></tr>
+                            <tr><td><code>button/primary/bg</code></td><td><code>buttonPrimaryBg</code></td><td><code>button_primary_bg</code></td></tr>
+                            <tr><td><code>type/body</code></td><td><code>typeBody</code> (17)</td><td><code>type_body</code> (16)</td></tr>
+                            <tr><td><code>touch-target</code></td><td><code>touchTarget</code> (44)</td><td><code>touch_target</code> (48)</td></tr>
+                        </tbody>
+                    </table>
                 </div>
+                <p class="cs-cap">Every variable carries its code name, so engineers see the name they type, not a hex code.</p>
+            </div>
+
+            <div class="cs-step">
+                <span class="step-num">Step 9</span>
+                <h3>Governance: how it stays alive</h3>
+                <div class="cs-two">
+                    <div class="cs-card"><h4>The rules</h4><p>Three layers, one direction: component, semantic, primitive. Name by job, not by look. A new value rounds to the nearest step on the scale first. A token is added to both banks or to neither.</p></div>
+                    <div class="cs-card"><h4>How a change shipped</h4><p>The team lead approved a new component or token before it went in. Each sprint had a planning and tasking day. On that day, a handoff meeting walked the developers through what was new and why.</p></div>
+                </div>
+                <p style="margin-top: var(--space-3);">Before a new component goes in, I ask one question first: can an existing component do this job with a new variant?</p>
             </div>
         </div>
     </section>
 
     <!-- Results -->
-    <section class="section">
+    <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
         <div class="container">
-            <h2>Results</h2>
-            <article class="card" style="margin-top: var(--space-3);">
-                <span class="badge">The real test</span>
-                <h3>Another designer built a new theme with it</h3>
-                <p style="max-width: 100%;">Later, another designer used my system for their app&rsquo;s redesign. Same names, same components, a new look.</p>
-            </article>
-            <article class="card" style="margin-top: var(--space-3);">
-                <span class="badge">In a real handoff</span>
-                <h3>Developers got role names, not hex codes</h3>
-                <p style="max-width: 100%;">Every screen I handed off pointed to these tokens, like <code>primary</code> and <code>error</code>. See an annotated screen, with all its states and the iOS and Android differences, in the <a class="text-link" href="otp-authenticator#handoff">Maple Trust case study &rarr;</a></p>
-            </article>
+            <span class="step-num">Step 10</span>
+            <h2 style="margin-top: 0;">Results</h2>
+            <div class="cs-two">
+                <div class="cs-card"><h4>Color bugs went from 4&ndash;5 per release to zero</h4><p>One place for colors, not one per screen. When a color changed, it changed everywhere.</p></div>
+                <div class="cs-card"><h4>One system ran across all three apps</h4><p>Same names, same components, same flows. Only the values changed per bank.</p></div>
+                <div class="cs-card"><h4>Another designer built a new theme with it</h4><p>Later, another designer used my system for their app&rsquo;s redesign. Same names, same components, a new look. That was the real test.</p></div>
+                <div class="cs-card"><h4>Developers got names, not hex codes</h4><p>Every screen I handed off pointed to tokens. The whole team spoke one language.</p></div>
+            </div>
         </div>
     </section>
 
-    <!-- What I'd improve -->
-    <section class="section" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <!-- Improve -->
+    <section class="section cs">
         <div class="container">
             <h2>What I&rsquo;d improve today</h2>
-            <p style="max-width: 100%;">Looking back, I checked our original colors against WCAG 2.1 AA. Most pairs pass. White on the indigo primary is 6.87:1. But three pairs fail if you use them for text:</p>
-            <div class="table-wrap">
-                <table class="audit">
-                    <thead><tr><th>Pair</th><th>Contrast</th><th>Fix</th><th>New contrast</th></tr></thead>
-                    <tbody>
-                        <tr><td><span class="sw" style="background:#757575"></span>Text Secondary on Light Background</td><td class="fail">4.22:1</td><td><span class="sw" style="background:#6B6B6B"></span>#6B6B6B</td><td class="pass">4.89:1</td></tr>
-                        <tr><td><span class="sw" style="background:#4CAF50"></span>White on Success Green</td><td class="fail">2.78:1</td><td><span class="sw" style="background:#2E7D32"></span>#2E7D32</td><td class="pass">5.13:1</td></tr>
-                        <tr><td><span class="sw" style="background:#F44336"></span>White on Error Red</td><td class="fail">3.68:1</td><td><span class="sw" style="background:#B3261E"></span>#B3261E</td><td class="pass">6.54:1</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p style="max-width: 100%; margin-top: var(--space-3);">AA needs 4.5:1 for body text. The fixed red, #B3261E, is now the <code>error</code> color in both themes, and the countdown warning uses it too.</p>
+            <ul class="cs-list">
+                <li><strong>Themes as modes.</strong> My Figma plan allows one mode per collection, so each bank has its own collection with the same token names. With modes, switching a bank is one click on the frame.</li>
+                <li><strong>Test large text on real phones.</strong> The digit boxes now grow with the text. I&rsquo;d check the Home screen at the largest text size on both platforms.</li>
+                <li><strong>Dark mode.</strong> Every color already goes through a semantic token, so a dark theme is a new list of values, not new components.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- More work -->
     <section class="section">
         <div class="container">
             <a class="work-card work-card--feature" href="otp-authenticator">
@@ -526,64 +492,28 @@
         </div>
     </footer>
 
+
     <script src="assets/js/site.js?v=2" defer></script>
     <script>
     (function () {
-        var card = document.querySelector('.otp-card'); if (!card) return;
-        var PERIOD = 60, URGENT = 5, C = 2 * Math.PI * 19;
-        var codeEl = card.querySelector('.otp-code'), bar = card.querySelector('.otp-ring__bar'),
-            sec = card.querySelector('.otp-ring__sec'), status = card.querySelector('.otp-status-text'),
-            btn = card.querySelector('.otp-copy'), live = card.querySelector('.otp-live');
-        var left = PERIOD, code = '', resetTimer;
-        function newCode() {
-            var n = ''; for (var i = 0; i < 6; i++) n += Math.floor(Math.random() * 10);
-            code = n; codeEl.textContent = n.slice(0, 3) + ' ' + n.slice(3);
-            codeEl.classList.remove('is-rolling'); void codeEl.offsetWidth; codeEl.classList.add('is-rolling');
+        var box = document.getElementById('tk'); if (!box) return;
+        var picks = document.querySelectorAll('[data-bank-pick]'), live = document.getElementById('tk-live');
+        var BANKS = {
+            bow:   { name: 'Bow Bank', primary: ['#1E5E3E', 'green/700'], pressed: ['#0F2E1F', 'green/900'], subtle: ['#E3EDE4', 'green/50'], onsubtle: ['#0F2E1F', 'green/900'], font: 'Nunito', digit: 'text/primary (dark digits)', edge: 'A border' },
+            elbow: { name: 'Elbow Trust', primary: ['#3F51B5', 'indigo/500'], pressed: ['#303F9F', 'indigo/700'], subtle: ['#E8EAF6', 'indigo/50'], onsubtle: ['#303F9F', 'indigo/700'], font: 'Inter', digit: 'brand/primary (indigo digits)', edge: 'A shadow' }
+        };
+        function paint(k, announce) {
+            var B = BANKS[k]; box.setAttribute('data-bank', k);
+            ['primary', 'pressed', 'subtle', 'onsubtle'].forEach(function (t) {
+                document.querySelector('[data-tk="' + t + '"]').textContent = B[t][1];
+                document.querySelector('[data-tk-sw="' + t + '"]').style.background = B[t][0];
+            });
+            ['font', 'digit', 'edge'].forEach(function (t) { document.querySelector('[data-tk="' + t + '"]').textContent = B[t]; });
+            if (announce) live.textContent = 'Showing the ' + B.name + ' theme.';
         }
-        function render() {
-            bar.style.strokeDashoffset = (C * (1 - left / PERIOD)).toFixed(2);
-            sec.textContent = left;
-            card.classList.toggle('is-urgent', left <= URGENT);
-            status.textContent = left <= URGENT ? 'Expiring soon \u00b7 new code in ' + left + 's' : 'Expires in ' + left + ' seconds';
-        }
-        function tick() {
-            left -= 1;
-            if (left <= 0) {
-                left = PERIOD;
-                bar.style.transition = 'none'; render(); void bar.offsetWidth; bar.style.transition = '';
-                newCode();
-            } else { render(); }
-        }
-        newCode(); render();
-        var interval = null;
-        function start() { if (!interval) interval = setInterval(tick, 1000); }
-        function stop() { clearInterval(interval); interval = null; }
-        // Only run while the card is on screen and the tab is visible
-        if ('IntersectionObserver' in window) {
-            new IntersectionObserver(function (e) { e[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(card);
-        } else { start(); }
-        document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-        btn.addEventListener('click', function () {
-            var done = function () {
-                btn.classList.add('is-copied'); btn.setAttribute('aria-label', 'Copied');
-                live.textContent = ''; setTimeout(function () { live.textContent = 'Password copied'; }, 50);
-                if (navigator.vibrate) navigator.vibrate(10);
-                clearTimeout(resetTimer);
-                resetTimer = setTimeout(function () { btn.classList.remove('is-copied'); btn.setAttribute('aria-label', 'Copy password'); }, 1600);
-            };
-            if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(code).then(done, done); else done();
-        });
-    })();
-    (function () {
-        var box = document.getElementById('ds-states'); if (!box) return;
-        var picks = document.querySelectorAll('[data-theme-pick]');
-        var THEMES = { teal: { name: 'Maple Trust', hex: '#00796B', prim: 'teal/600' }, indigo: { name: 'Multi-bank app', hex: '#3F51B5', prim: 'indigo/500' } };
         function choose(btn) {
             picks.forEach(function (b) { b.setAttribute('aria-checked', b === btn ? 'true' : 'false'); b.tabIndex = b === btn ? 0 : -1; });
-            var k = btn.getAttribute('data-theme-pick'), T = THEMES[k];
-            box.className = 'ds-states ds-t--' + k;
-            document.getElementById('ds-chain-prim').textContent = T.prim;
-            document.getElementById('ds-chain-sw').style.background = T.hex;
+            paint(btn.getAttribute('data-bank-pick'), true);
         }
         picks.forEach(function (b, i) {
             b.tabIndex = i === 0 ? 0 : -1;
@@ -595,6 +525,7 @@
                 choose(n); n.focus();
             });
         });
+        paint('bow', false);
     })();
     </script>
 
