@@ -429,7 +429,10 @@
                             <tr><td>Segmented control</td><td>Selected side &times; platform</td></tr>
                             <tr><td>Input</td><td>Code boxes, Text field &times; platform &times; Default, Focused</td></tr>
                             <tr><td>List row</td><td>Value, Chevron, Call &times; platform</td></tr>
-                            <tr><td>Card row, Pattern grid, Bank badge, Bank tile</td><td>One job each</td></tr>
+                            <tr><td>Bank tile</td><td>Default, Selected</td></tr>
+                            <tr><td>Card row</td><td>One job</td></tr>
+                            <tr><td>Bank badge</td><td>One job</td></tr>
+                            <tr><td>Pattern grid</td><td>One job</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -649,6 +652,7 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
                 <li><strong>Themes as modes.</strong> My Figma plan allows one mode per collection, so each bank has its own collection with the same token names. With modes, switching a bank is one click on the frame.</li>
                 <li><strong>Test large text on real phones.</strong> The digit boxes now grow with the text. I&rsquo;d check the Home screen at the largest text size on both platforms.</li>
                 <li><strong>Dark mode.</strong> Every color already goes through a semantic token, so a dark theme is a new list of values, not new components.</li>
+                <li><strong>An error state on the Input.</strong> <code>feedback/<wbr>error</code> exists as a token, but no component uses it. A wrong activation code has a color and nowhere to show it, and a system should not carry a token with no home.</li>
                 <li><strong>Screen reader names.</strong> I&rsquo;d write the spoken label for each component into its spec, next to the tokens.</li>
             </ul>
             <div class="note" style="margin-top: var(--space-5);">
