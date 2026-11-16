@@ -135,6 +135,31 @@
         .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
         @media (prefers-reduced-motion: reduce) { .tk * { transition: none; } }
 
+        /* Contrast ruler */
+        .cr { margin-top: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-card); padding: 20px 24px 14px; max-width: 460px; }
+        .cr__plot { position: relative; }
+        .cr__bar { position: relative; display: flex; align-items: center; gap: 12px; padding: 7px 0; }
+        .cr__aa-line { position: absolute; left: calc(84px + 58.3% - 49px); top: 0; bottom: 20px; border-left: 2px solid #C62828; z-index: 1; }
+        .cr__sw { width: 72px; flex: none; font-size: 21px; font-weight: 700; }
+        .cr__sw small { display: block; font-family: var(--font-mono, monospace); font-size: 11px; font-weight: 400; color: var(--color-text-secondary); }
+        .cr__len { flex: 1; height: 26px; background: var(--color-bg-well); border-radius: 4px; position: relative; }
+        .cr__len i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+        .cr__len b { position: absolute; top: 50%; transform: translateY(-50%); margin-left: 10px; font-size: var(--fs-small); font-weight: 600; }
+        .cr__axis { display: flex; justify-content: space-between; margin-left: 84px; padding-top: 6px; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .cr__axis .is-aa { color: #C62828; font-weight: 600; }
+        /* Tabular vs proportional digits */
+        .td { position: relative; margin-top: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-card); padding: 18px 20px; max-width: 460px; }
+        .td__row { display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+        .td__row + .td__row { border-top: 1px dashed var(--color-border); }
+        .td__lab { width: 112px; flex: none; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .td__digits { font-size: 30px; font-weight: 600; letter-spacing: .02em; }
+        .td::after { content: ""; position: absolute; left: var(--guide, 50%); top: 14px; bottom: 14px; border-left: 1px dashed #C62828; opacity: 0; transition: opacity .2s; }
+        .td.is-set::after { opacity: 1; }
+        .td--tab .td__digits { font-variant-numeric: tabular-nums; }
+        .td--prop .td__digits { font-variant-numeric: normal; }
+        .td__secs { margin-left: auto; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .td__secs b { font-size: 17px; color: var(--color-text-primary); font-weight: 600; }
+        .td--tab .td__secs b { font-variant-numeric: tabular-nums; }
         /* Step progress: lives in the header, adds no height */
         .cs-anchor { scroll-margin-top: 92px; }
         .cs-prog { position: fixed; top: 61px; left: 0; width: 100%; height: 3px; z-index: 10000; pointer-events: none; }
@@ -298,6 +323,20 @@
                     <li><strong>Radius is picked by job.</strong> The digit box looked like an input, but it only shows the code. So it follows the card radius.</li>
                     <li><strong>Code digits use the system font</strong> with tabular digits. They&rsquo;re read under time pressure, and the countdown changes every second.</li>
                 </ul>
+                <div class="cr">
+                    <div class="cr__plot">
+                        <div class="cr__aa-line" aria-hidden="true"></div>
+                        <div class="cr__bar"><span class="cr__sw" style="color:#9E9E9E">Aa<small>9E9E9E</small></span><span class="cr__len"><i style="width:28.3%;background:#F6D2CD"></i><b style="left:28.3%;color:#C62828">2.7:1</b></span></div>
+                        <div class="cr__bar"><span class="cr__sw" style="color:#757575">Aa<small>757575</small></span><span class="cr__len"><i style="width:60%;background:#C8DBCB"></i><b style="left:60%">4.6:1</b></span></div>
+                    </div>
+                    <div class="cr__axis"><span>1:1</span><span class="is-aa">4.5 &middot; AA</span><span>7:1</span></div>
+                </div>
+                <p class="cs-cap">Both grays on white. <code>9E9E9E</code> sits in the red zone, under the 4.5 line that normal text has to clear. <code>757575</code> clears it, with little room to spare. That is why the merge went one way and not the other.</p>
+                <div class="td" id="td">
+                    <div class="td__row td--tab"><span class="td__lab">Tabular digits</span><span class="td__digits">5630</span><span class="td__secs">expires in <b>52</b>s</span></div>
+                    <div class="td__row td--prop"><span class="td__lab">Proportional</span><span class="td__digits">5630</span><span class="td__secs">expires in <b>52</b>s</span></div>
+                </div>
+                <p class="cs-cap">The same code and countdown, at the size they appear on the phone. With tabular digits every number is the same width, so the dashed edge holds still. With proportional digits a 1 is narrower than an 8, so the row twitches on every tick &mdash; while someone is copying it.</p>
                 <div class="cs-lesson"><strong>Lesson</strong>Never merge colors by look alone. Check contrast first.</div>
             </div>
 
@@ -722,6 +761,25 @@ static let buttonPrimaryBg = brandPrimary</code></pre></figure>
         window.addEventListener('scroll',update,{passive:true});
         window.addEventListener('resize',function(){ place(); update(); });
         place(); update();
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var box=document.getElementById('td'); if(!box) return;
+        var codes=['5630','1118','8041','1111','9888','4107'], secs=[52,44,38,11,8,5], i=0;
+        var d=box.querySelectorAll('.td__digits'), sv=box.querySelectorAll('.td__secs b');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            [].forEach.call(d,function(el){ el.textContent='1111  8888'; });
+            return;
+        }
+        function guide(){ var r=d[0].getBoundingClientRect(), b=box.getBoundingClientRect(); box.style.setProperty('--guide',(r.right-b.left)+'px'); box.classList.add('is-set'); }
+        guide(); window.addEventListener('resize',guide);
+        setInterval(function(){
+            i=(i+1)%codes.length;
+            [].forEach.call(d,function(el){ el.textContent=codes[i]; });
+            [].forEach.call(sv,function(el){ el.textContent=secs[i]; });
+        },1100);
     })();
     </script>
 </body>
