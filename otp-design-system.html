@@ -345,7 +345,7 @@
                 <h3>Semantic tokens: names by job</h3>
                 <p>Every primitive gets a job. Components only use these names, never a primitive.</p>
                 <p>The first version followed Material&rsquo;s role names, like <code>primary</code> and <code>on-surface</code>. That gave the team one language, and iOS used the same names as Android. But the audit showed two problems. The hex codes were typed straight into those names, with no primitives under them. And two names did the same job: <code>background</code> and <code>surface</code> were both white.</p>
-                <p>So I put the primitives underneath and grouped the names by job: text, surface, border, brand, feedback. It reads faster, and it tells you where a token is allowed to go.</p>
+                <p>So I put the primitives underneath and grouped the names by job: text, surface, border, brand, feedback. <code>background</code> and <code>surface</code> became one name, <code>surface/default</code>, and the light grey behind controls kept a name of its own, <code>surface/subtle</code>. Two names doing one job became one name with one job.</p>
                 <div class="table-wrap">
                     <table class="cs-table">
                         <thead><tr><th>Token</th><th>Points to</th><th>Job</th></tr></thead>
@@ -353,18 +353,32 @@
                             <tr><td><code>text/<wbr>primary</code></td><td><span class="sw" style="background:#111111"></span>neutral/900</td><td>Main text</td></tr>
                             <tr><td><code>text/<wbr>secondary</code></td><td><span class="sw" style="background:#4D4D4D"></span>neutral/700</td><td>Labels people need to read</td></tr>
                             <tr><td><code>text/<wbr>tertiary</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Hints and captions, on white only</td></tr>
+                            <tr><td><code>surface/<wbr>default</code></td><td><span class="sw" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #E0E0E0"></span>neutral/0</td><td>Page and card background</td></tr>
                             <tr><td><code>surface/<wbr>subtle</code></td><td><span class="sw" style="background:#F2F2F2"></span>neutral/100</td><td>Fills behind controls</td></tr>
                             <tr><td><code>border/<wbr>default</code></td><td><span class="sw" style="background:#E0E0E0"></span>neutral/200</td><td>Dividers and card edges</td></tr>
                             <tr><td><code>border/<wbr>strong</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Input edges, so they pass 3:1</td></tr>
                             <tr><td><code>brand/<wbr>primary</code></td><td><span class="sw" style="background:#1E5E3E"></span>green/700 &middot; <span class="sw" style="background:#3F51B5"></span>indigo/500</td><td>Main buttons, top bar, active tab</td></tr>
                             <tr><td><code>feedback/<wbr>warning</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>The last 5 seconds of a code</td></tr>
+                            <tr><td><code>feedback/<wbr>error</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>Error states</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="cs-cap">10 of the 74 semantic tokens per bank.</p>
+                <p style="margin-top: var(--space-3);">Color is not the only layer with jobs. Type sizes change per platform, so each one carries both values.</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Token</th><th>iOS</th><th>Android</th><th>Job</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>type/<wbr>body</code></td><td>size/17</td><td>size/16</td><td>Body text</td></tr>
+                            <tr><td><code>type/<wbr>label</code></td><td>size/17</td><td>size/14</td><td>Button labels</td></tr>
+                            <tr><td><code>type/<wbr>segment-label</code></td><td>size/13</td><td>size/14</td><td>Segmented control</td></tr>
                         </tbody>
                     </table>
                 </div>
                 <ul>
-                    <li><strong>The last 5 seconds is a warning, not an error.</strong> Both point to the same red today. If warnings change color later, errors stay the same.</li>
+                    <li><strong>Warning and error point to the same primitive, not to each other.</strong> <code>feedback/<wbr>warning</code> and <code>feedback/<wbr>error</code> both sit on <code>red/<wbr>800</code> today. The last 5 seconds of a code is a warning, so when warnings change color later, errors stay where they are.</li>
                     <li><strong>One rule, no exceptions.</strong> The gold card chip never changes per bank, but it still gets a token. One rule is easy for engineers to check.</li>
-                    <li><strong>Type and size change per platform.</strong> Body text is 17 on iOS and 16 on Android, so each platform has its own token group.</li>
+                    <li><strong>Spacing gets tokens only where layout needs them:</strong> screen margin 20, section gap 32, list gap 12. Everything else uses the grid directly.</li>
                 </ul>
             </div>
 
