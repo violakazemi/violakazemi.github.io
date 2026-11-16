@@ -136,7 +136,7 @@
             <div style="width: 100%; margin-bottom: var(--space-5);">
                 <span class="badge">Shipped Work &middot; Carrene &middot; Design system</span>
                 <h1 style="margin-top: var(--space-2);">One Design System, Three Bank Apps</h1>
-                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">One set of tokens and components, so each bank could look like itself without breaking anything.</h2>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">One set of tokens and 13 components, so each bank could look like itself without breaking anything.</h2>
 
                 <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
                     <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
@@ -160,7 +160,7 @@
             </div>
             <div class="num-strip">
                 <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
-                <div><p class="num-strip__n">38 &rarr; 13</p><p class="num-strip__l">components in the rebuild</p></div>
+                <div><p class="num-strip__n">38 &rarr; 13</p><p class="num-strip__l">components, after merging</p></div>
                 <div><p class="num-strip__n">3</p><p class="num-strip__l">apps on one system</p></div>
                 <div><p class="num-strip__n">4 &rarr; 15</p><p class="num-strip__l">people on the team</p></div>
             </div>
@@ -184,7 +184,7 @@
     <section class="section cs" id="design-system">
         <div class="container">
             <h2>How I built it, step by step</h2>
-            <p>The original files stayed with the company. So I rebuilt the system from zero in Figma, with two sample apps. Bow Bank is the single-bank app, in green. Elbow Trust holds many banks, in indigo. It&rsquo;s the same method I used then. Where I&rsquo;d decide differently today, I say so.</p>
+            <p>The original files stayed with the company. So I rebuilt the system from zero in Figma, with two sample apps. Bow Bank is the single-bank app, in green. Elbow Trust holds many banks, in indigo. Every step, token and component below comes from that file.</p>
 
             <div class="cs-step">
                 <span class="step-num">Step 1</span>
@@ -238,8 +238,9 @@
             <div class="cs-step">
                 <span class="step-num">Step 4</span>
                 <h3>Semantic tokens: names by job</h3>
-                <p>Every primitive gets a job. Components only use these names, never a primitive. At Carrene I followed Material&rsquo;s role names, like <code>primary</code> and <code>on-primary</code>. It gave the whole team one language, and iOS used the same names as Android.</p>
-                <p>In the rebuild I group the names by job: text, surface, border, brand, feedback. It reads faster, and it tells you where a token is allowed to go.</p>
+                <p>Every primitive gets a job. Components only use these names, never a primitive.</p>
+                <p>The first version followed Material&rsquo;s role names, like <code>primary</code> and <code>on-surface</code>. That gave the team one language, and iOS used the same names as Android. But the audit showed two problems. The hex codes were typed straight into those names, with no primitives under them. And two names did the same job: <code>background</code> and <code>surface</code> were both white.</p>
+                <p>So I put the primitives underneath and grouped the names by job: text, surface, border, brand, feedback. It reads faster, and it tells you where a token is allowed to go.</p>
                 <div class="table-wrap">
                     <table class="cs-table">
                         <thead><tr><th>Token</th><th>Points to</th><th>Job</th></tr></thead>
