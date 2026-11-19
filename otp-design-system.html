@@ -1,0 +1,841 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>OTP Design System - Viola Kazemi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Case study: the design system Viola Kazemi built for two native iOS and Android bank apps at Carrene, rebuilt step by step. Color bugs per release went from 4–5 to zero." />
+    <script>try{var d=document.documentElement,t=localStorage.getItem("vk-text"),c=localStorage.getItem("vk-contrast");if(t&&t!=="default")d.setAttribute("data-text",t);if(c==="more"||c==="standard")d.setAttribute("data-contrast",c);}catch(e){}</script>
+    <link rel="stylesheet" href="assets/css/main.css?v=12" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
+    <style>
+        .step-num { display: inline-block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 4px; }
+        .meta-label { display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); font-weight: 700; margin-bottom: 4px; }
+        .meta-value { font-weight: 500; font-size: var(--fs-small); }
+        .note { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background-color: var(--color-bg-alt); }
+        .note p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        .num-strip { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+        .num-strip > div { padding: 20px 16px; text-align: center; }
+        .num-strip > div + div { border-left: 1px solid var(--color-border); }
+        .num-strip__n { margin: 0; font-size: clamp(1.5rem, 2vw + 1rem, 2rem); font-weight: 700; line-height: 1.1; }
+        .num-strip__l { margin: 6px 0 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        @media screen and (max-width: 720px) { .num-strip { grid-template-columns: repeat(2, 1fr); } .num-strip > div:nth-child(3) { border-left: 0; } .num-strip > div:nth-child(n+3) { border-top: 1px solid var(--color-border); } }
+
+        .cs p, .cs li, .cs ul { max-width: 100%; }
+        .cs-step { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+        .cs-step h3 { margin-top: 0; }
+        .cs-step ul, .cs-list { margin: var(--space-3) 0 0; padding-left: 1.2em; }
+        .cs-step li, .cs-list li { margin-bottom: 6px; }
+        .cs-fig { margin: var(--space-4) 0 0; }
+        .cs-fig img { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: #fff; }
+        .cs-fig svg { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: #fff; }
+        .cs-fig .table-wrap { margin-top: 0; }
+        @media screen and (max-width: 700px) { .cs-fig svg { min-width: 620px; } }
+        .cs-fig figcaption, .cs-cap { margin-top: 10px; font-size: var(--fs-small); color: var(--color-text-secondary); max-width: 100%; }
+        .cs-lesson { margin-top: var(--space-3); padding: var(--space-2) var(--space-3); border-left: 3px solid var(--color-text-primary); background: var(--color-bg-alt); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: var(--fs-small); }
+        .cs-lesson strong { display: block; font-size: 0.6875rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 2px; }
+        .table-wrap { overflow-x: auto; margin-top: var(--space-3); }
+        table.cs-table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); min-width: 560px; background: var(--color-bg-card); }
+        table.cs-table th, table.cs-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+        table.cs-table th { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-secondary); }
+        .cs code { font-size: 0.85em; }
+        @media screen and (max-width: 720px) { table.cs-table { min-width: 0; } table.cs-table th, table.cs-table td { padding: 8px; } table.cs-table code { overflow-wrap: break-word; } .tk-values td:nth-child(2) { white-space: normal; } }
+        .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.12); }
+        .cs-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: var(--space-3); }
+        .cs-swatch { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; font-size: 0.8125rem; }
+        .cs-swatch i { display: block; height: 44px; border-bottom: 1px solid var(--color-border); }
+        .cs-swatch span { display: block; padding: 8px 10px 0; font-weight: 600; }
+        .cs-swatch small { display: block; padding: 0 10px 8px; color: var(--color-text-secondary); }
+        .cs-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: var(--space-3); }
+        .cs-chain__step { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 10px 14px; font-size: var(--fs-small); }
+        .cs-chain__step small { display: block; color: var(--color-text-secondary); font-size: 0.75rem; }
+        .cs-chain__arrow { color: var(--color-text-secondary); font-size: 1.25rem; }
+        @media screen and (max-width: 720px) { .cs-chain { flex-direction: column; align-items: stretch; } .cs-chain__arrow { transform: rotate(90deg); align-self: center; } }
+        .cs-screens { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); margin-top: var(--space-4); }
+        @media screen and (max-width: 900px) { .cs-screens { grid-template-columns: repeat(2, 1fr); } }
+        .cs-screens figure { margin: 0; }
+        .cs-screens img { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: 14px; }
+        .cs-screens figcaption { text-align: center; font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 8px; }
+        .cs-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin-top: var(--space-4); }
+        @media screen and (max-width: 900px) { .cs-shots { grid-template-columns: 1fr; max-width: 480px; } }
+        .cs-shots figure { margin: 0; }
+        .cs-shots img { width: 100%; height: auto; display: block; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: #fff; }
+        .cs-shots figcaption { margin-top: 8px; font-size: 0.8125rem; color: var(--color-text-secondary); }
+        .cs h4 { font-size: 1.0625rem; }
+        .spec { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-3); background: #F2F2F2; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-4); color: #111; font-family: -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif; }
+        @media screen and (max-width: 720px) { .spec { grid-template-columns: 1fr; padding: var(--space-3); } }
+        .spec__item { display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 0; }
+        .spec__tag { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #4D4D4D; }
+        .spec__btn { display: flex; align-items: center; justify-content: center; background: #1E5E3E; color: #fff; padding: 0 16px; }
+        .spec__btn--ios { height: 50px; border-radius: 12px; font-size: 17px; font-weight: 600; }
+        .spec__btn--and { height: 40px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+        .spec__tap { height: 48px; display: flex; flex-direction: column; justify-content: center; outline: 1.5px dashed #C62828; outline-offset: 0; border-radius: 4px; }
+        .spec__item small { font-size: 0.8125rem; color: #4D4D4D; }
+        .cs-code { display: grid; grid-template-columns: 1fr; gap: var(--space-2); margin-top: var(--space-3); }
+        .cs-code figure { margin: 0; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; min-width: 0; }
+        .cs-code figcaption { padding: 8px 12px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border); }
+        .cs-code pre { margin: 0; padding: 12px; font-size: 0.8125rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+        .cs-code code { font-size: inherit; background: none; padding: 0; }
+        .cs-two { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); margin-top: var(--space-3); }
+        @media screen and (max-width: 768px) { .cs-two { grid-template-columns: 1fr; } }
+        .cs-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3); }
+        .cs-card h4 { margin: 0 0 6px; font-size: 1rem; }
+        .cs-card p { margin: 0; font-size: var(--fs-small); color: var(--color-text-secondary); }
+
+        /* Live theme demo. Token names match the Figma variables. */
+        .tk { --text-primary: #111111; --text-secondary: #4D4D4D; --text-tertiary: #757575; --text-inverse: #FFFFFF; --surface-default: #FFFFFF; --surface-subtle: #F2F2F2; --border-default: #E0E0E0; --border-strong: #757575; --bank-calgary: #1F2A5C; --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Roboto", sans-serif; }
+        .tk[data-bank="bow"]   { --brand-primary: #1E5E3E; --brand-pressed: #0F2E1F; --brand-subtle: #E3EDE4; --brand-subtle-pressed: #C8DBCB; --brand-on-subtle: #0F2E1F; --font-brand: "Nunito", sans-serif; --code-digit: var(--text-primary); --card-edge: var(--border-default); --card-shadow: none; }
+        .tk[data-bank="elbow"] { --brand-primary: #3F51B5; --brand-pressed: #303F9F; --brand-subtle: #E8EAF6; --brand-subtle-pressed: #C5CAE9; --brand-on-subtle: #303F9F; --font-brand: "Inter", sans-serif; --code-digit: var(--brand-primary); --card-edge: transparent; --card-shadow: 0 1px 4px rgba(0,0,0,0.14); }
+        .tk-switch { display: inline-flex; flex-wrap: wrap; gap: 8px; margin-top: var(--space-3); }
+        .tk-switch button { font: inherit; font-size: var(--fs-small); padding: 8px 16px; min-height: 44px; border-radius: var(--radius-pill); background: transparent; color: var(--color-text-secondary); border: 1px solid var(--color-border); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .tk-switch button i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .tk-switch button[aria-checked="true"] { background: var(--color-bg-alt); color: var(--color-text-primary); border: 1.5px solid var(--color-text-primary); font-weight: 600; }
+        .tk-switch button:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 3px; }
+        .tk { margin-top: var(--space-3); background: var(--surface-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3); color: var(--text-primary); font-family: var(--font-system); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: start; }
+        @media screen and (max-width: 820px) { .tk { grid-template-columns: 1fr; padding: var(--space-2); } }
+        .tk * { transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+        .tk-col { display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; }
+        .tk-panel { background: var(--surface-default); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+        .tk-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); }
+        .tk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .tk-grid > small { font-size: 0.75rem; color: var(--text-secondary); }
+        .tk-btn { height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; padding: 0 8px; border: 1px solid transparent; box-sizing: border-box; white-space: nowrap; }
+        .tk-btn--p { background: var(--brand-primary); color: var(--text-inverse); }
+        .tk-btn--p.is-pressed { background: var(--brand-pressed); }
+        .tk-btn--s { background: var(--brand-subtle); color: var(--brand-on-subtle); }
+        .tk-btn--s.is-pressed { background: var(--brand-subtle-pressed); }
+        .tk-btn--t { border-color: var(--brand-primary); color: var(--brand-primary); }
+        .tk-btn--t.is-pressed { background: var(--brand-subtle); }
+        .tk-btn.is-disabled { background: var(--surface-subtle); color: var(--text-tertiary); border-color: transparent; }
+        .tk-btn--t.is-disabled { background: transparent; border-color: var(--border-default); }
+        .tk-seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface-subtle); border-radius: 8px; padding: 4px; min-height: 44px; box-sizing: border-box; }
+        .tk-seg span { display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+        .tk-seg span.is-on { background: var(--surface-default); color: var(--text-primary); }
+        .tk-field__label { display: block; font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
+        .tk-input { display: flex; align-items: center; gap: 2px; height: 50px; padding: 0 16px; border: 2px solid var(--brand-primary); border-radius: 8px; font-size: 17px; box-sizing: border-box; background: var(--surface-default); }
+        .tk-input i { width: 2px; height: 20px; background: var(--brand-primary); }
+        .tk-hint { font-size: 13px; color: var(--text-tertiary); margin-top: 8px; }
+        .tk-card { background: var(--surface-default); border: 1px solid var(--card-edge); box-shadow: var(--card-shadow); border-radius: 12px; padding: 12px 8px 12px 16px; display: flex; flex-direction: column; gap: 6px; }
+        .tk-card__head { display: flex; align-items: center; gap: 8px; padding-right: 8px; }
+        .tk-badge { width: 32px; height: 32px; flex: none; border-radius: 8px; background: var(--bank-calgary); color: var(--text-inverse); display: grid; place-items: center; font-family: var(--font-brand); font-size: 11px; font-weight: 600; }
+        .tk-card__name { flex: 1; font-family: var(--font-brand); font-size: 17px; font-weight: 600; min-width: 0; }
+        .tk-chip { font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 999px; background: var(--brand-subtle); color: var(--brand-on-subtle); font-variant-numeric: tabular-nums; }
+        .tk-row { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+        .tk-row__label { flex: 1; font-size: 13px; color: var(--text-secondary); }
+        .tk-row__code { font-size: 20px; font-weight: 600; color: var(--code-digit); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+        .tk-icon { width: 44px; height: 44px; flex: none; display: grid; place-items: center; color: var(--brand-primary); }
+        .tk-icon svg { width: 20px; height: 20px; }
+        .tk-call { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-default); }
+        .tk-call__text { flex: 1; min-width: 0; }
+        .tk-call__text b { display: block; font-weight: 400; font-size: 17px; }
+        .tk-call__text small { font-size: 13px; color: var(--text-secondary); }
+        .tk-call__btn { position: relative; width: 36px; height: 36px; border-radius: 50%; background: var(--brand-subtle); color: var(--brand-on-subtle); display: grid; place-items: center; flex: none; }
+        .tk-call__btn::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; }
+        .tk-call__btn svg { width: 18px; height: 18px; }
+        .tk-values td:nth-child(2) { white-space: nowrap; }
+        .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        @media (prefers-reduced-motion: reduce) { .tk * { transition: none; } }
+
+        /* Contrast ruler */
+        .cr { margin-top: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-card); padding: 20px 24px 14px; max-width: 460px; }
+        .cr__plot { position: relative; }
+        .cr__bar { position: relative; display: flex; align-items: center; gap: 12px; padding: 7px 0; }
+        .cr__aa-line { position: absolute; left: calc(84px + 58.3% - 49px); top: 0; bottom: 20px; border-left: 2px solid #C62828; z-index: 1; }
+        .cr__sw { width: 72px; flex: none; font-size: 21px; font-weight: 700; }
+        .cr__sw small { display: block; font-family: var(--font-mono, monospace); font-size: 11px; font-weight: 400; color: var(--color-text-secondary); }
+        .cr__len { flex: 1; height: 26px; background: var(--color-bg-well); border-radius: 4px; position: relative; }
+        .cr__len i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+        .cr__len b { position: absolute; top: 50%; transform: translateY(-50%); margin-left: 10px; font-size: var(--fs-small); font-weight: 600; }
+        .cr__axis { display: flex; justify-content: space-between; margin-left: 84px; padding-top: 6px; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .cr__axis .is-aa { color: #C62828; font-weight: 600; }
+        /* Tabular vs proportional digits */
+        .td { position: relative; margin-top: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-card); padding: 18px 20px; max-width: 460px; }
+        .td__row { display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+        .td__row + .td__row { border-top: 1px dashed var(--color-border); }
+        .td__lab { width: 112px; flex: none; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .td__digits { font-size: 30px; font-weight: 600; letter-spacing: .02em; }
+        .td::after { content: ""; position: absolute; left: var(--guide, 50%); top: 14px; bottom: 14px; border-left: 1px dashed #C62828; opacity: 0; transition: opacity .2s; }
+        .td.is-set::after { opacity: 1; }
+        .td--tab .td__digits { font-variant-numeric: tabular-nums; }
+        .td--prop .td__digits { font-variant-numeric: normal; }
+        .td__secs { margin-left: auto; font-size: var(--fs-small); color: var(--color-text-secondary); }
+        .td__secs b { font-size: 17px; color: var(--color-text-primary); font-weight: 600; }
+        .td--tab .td__secs b { font-variant-numeric: tabular-nums; }
+        /* Step progress: lives in the header, adds no height */
+        .cs-anchor { scroll-margin-top: 92px; }
+        .cs-prog { position: fixed; top: 61px; left: 0; width: 100%; height: 3px; z-index: 10000; pointer-events: none; }
+        .cs-prog__bar { height: 100%; width: 100%; transform: scaleX(0); transform-origin: 0 50%;
+            background: var(--color-text-primary); opacity: .85; transition: transform .15s linear; }
+        .cs-jump { position: fixed; top: 0; height: 64px; z-index: 10000; display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+            font-size: var(--fs-small); font-weight: 400; text-transform: uppercase; letter-spacing: .05em;
+            color: var(--color-text-secondary); }
+        .cs-jump:hover { color: var(--color-text-primary); }
+        .cs-jump__caret { transition: transform .2s ease; font-size: .7em; }
+        .cs-jump[aria-expanded="true"] .cs-jump__caret { transform: rotate(180deg); }
+        .cs-jump__short { display: none; }
+        .cs-menu { position: fixed; top: 70px; z-index: 10000; min-width: 232px; max-height: 70vh; overflow-y: auto;
+            background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+            box-shadow: 0 12px 32px rgba(28,38,31,.14); padding: 6px; margin: 0; list-style: none; }
+        .cs-menu[hidden] { display: none; }
+        .cs-menu a { display: flex; gap: 10px; padding: 7px 10px; border-radius: 6px;
+            font-size: var(--fs-small); color: var(--color-text-secondary); text-decoration: none; }
+        .cs-menu a:hover { background: var(--color-bg-well); color: var(--color-text-primary); text-decoration: none; }
+        .cs-menu a span { width: 1.3em; flex: none; color: var(--color-text-secondary); opacity:.7; }
+        .cs-menu a[aria-current="true"] { color: var(--color-text-primary); font-weight: 600; }
+        @media (max-width: 768px) {
+            .cs-jump__full { display: none; }
+            .cs-jump__short { display: inline; }
+            .cs-menu { left: 16px; right: 16px; min-width: 0; }
+        }
+        @media (max-width: 400px) { .global-header .logo, .cs-jump { font-size: 11px; } }
+        @media (prefers-reduced-motion: reduce) { .cs-prog__bar { transition: none; } }
+    </style>
+<!-- Analytics (Umami). Visit violakazemi.com/?me=1 once on each of your browsers to stop counting your own visits. -->
+<script>try{if(/[?&]me=1(&|$)/.test(location.search))localStorage.setItem('umami.disabled','1')}catch(e){}</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="016024e0-972f-45a8-8ea2-6c7e9502e546" data-domains="violakazemi.com,www.violakazemi.com"></script>
+<script defer src="/assets/js/track.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="global-header">
+        <a href="/" class="logo">Viola Kazemi</a>
+        <button type="button" class="cs-jump" id="csJump" aria-expanded="false" aria-controls="csMenu"><span class="cs-jump__full">/ OTP Design System</span><span class="cs-jump__short">Steps</span><span class="cs-jump__caret" aria-hidden="true">&#9662;</span></button>
+        <ul class="cs-menu" id="csMenu" hidden><li><a href="#step-1"><span>1</span>Audit</a></li><li><a href="#step-2"><span>2</span>Group</a></li><li><a href="#step-3"><span>3</span>Primitives</a></li><li><a href="#step-4"><span>4</span>Semantic tokens</a></li><li><a href="#step-5"><span>5</span>Component tokens</a></li><li><a href="#step-6"><span>6</span>Components</a></li><li><a href="#step-7"><span>7</span>Theming</a></li><li><a href="#step-8"><span>8</span>Handoff</a></li><li><a href="#step-9"><span>9</span>Governance</a></li><li><a href="#step-10"><span>10</span>Results</a></li><li><a href="#reflection"><span></span>Reflection</a></li></ul>
+        <nav>
+            <a href="/" class="button button-secondary">Home</a>
+        </nav>
+    </header>
+    <div class="cs-prog" aria-hidden="true"><div class="cs-prog__bar" id="csProgBar"></div></div>
+
+
+    <!-- Hero -->
+    <section class="section" style="padding-top: 120px; padding-bottom: var(--space-5);">
+        <div class="container">
+            <div style="width: 100%; margin-bottom: var(--space-5);">
+                <span class="badge">Shipped Work &middot; Carrene &middot; Design system</span>
+                <h1 style="margin-top: var(--space-2);">One Design System, Two Bank Apps</h1>
+                <h2 class="deck" style="color: var(--color-text-secondary); font-weight: 400; margin-top: var(--space-1);">One set of tokens and 14 components, so each bank could look like itself without breaking anything.</h2>
+
+                <div style="margin-top: var(--space-4); display: flex; gap: var(--space-5); flex-wrap: wrap;">
+                    <div><span class="meta-label">Role</span><span class="meta-value">UI/UX Designer</span></div>
+                    <div><span class="meta-label">Company</span><span class="meta-value">Carrene Corp</span></div>
+                    <div><span class="meta-label">Timeline</span><span class="meta-value">2023 &ndash; 2024</span></div>
+                    <div><span class="meta-label">Platforms</span><span class="meta-value">iOS &amp; Android</span></div>
+                </div>
+            </div>
+
+            <img src="images/otp-ds-hero.webp" alt="Three token layers, primitive to semantic to component, feeding the same buttons, segmented control, code and timer in two themes: Bow Bank in green and Elbow Trust in indigo" width="2400" height="1350" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md); border: 1px solid var(--color-border);" />
+
+            <p class="ownership" style="margin-top: var(--space-3); max-width: 100%;"><strong>My part:</strong> I proposed this design system and built it, from the first audit to handoff.</p>
+
+            <div class="note">
+                <p><strong>Note:</strong> I rebuilt these screens to share them here. The flows and decisions are real.</p>
+            </div>
+
+            <div style="margin-top: var(--space-5);">
+                <span class="step-num">The short version</span>
+                <p style="max-width: 100%; font-size: 1.2rem; line-height: 1.5; margin-top: var(--space-1);">I started as the only designer on a team of four. The app had three screens. Then one app became two, every screen had its own colors, and changes got lost. So I built one design system for both apps.</p>
+            </div>
+            <div class="num-strip">
+                <div><p class="num-strip__n">4&ndash;5 &rarr; 0</p><p class="num-strip__l">color bugs per release</p></div>
+                <div><p class="num-strip__n">38 &rarr; 14</p><p class="num-strip__l">components, after merging</p></div>
+                <div><p class="num-strip__n">2</p><p class="num-strip__l">apps on one system</p></div>
+                <div><p class="num-strip__n">13 &rarr; 287</p><p class="num-strip__l">variables, in three layers</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why -->
+    <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>Context and my role</h2>
+            <p>The product was a one-time password app for banks, on iOS and Android. It was B2B2C: the banks bought it, and their customers used it. Every decision had to clear the bank&rsquo;s security team and still work for someone standing at an ATM. I proposed the design system and built it. Later a second designer joined and worked with the same system.</p>
+            <h2 style="margin-top: var(--space-5);">Why it was needed</h2>
+            <div class="cs-two">
+                <div class="cs-card"><h4>It started small</h4><p>Three screens, no design system. Everyone set their own colors, on every screen.</p></div>
+                <div class="cs-card"><h4>Then one app became two</h4><p>The biggest bank wanted the app just for itself, so the other banks moved into a second app. Front-end and mobile work went from 2 developers to 5. With more hands on more screens, the inconsistencies grew.</p></div>
+                <div class="cs-card"><h4>Then things started to break</h4><p>The same color had different names: <code>primary_<wbr>first</code>, <code>primaryFirst</code>, or just a hex code. Developers set colors by hand. QA found 4&ndash;5 color bugs in every release.</p></div>
+                <div class="cs-card"><h4>So I asked for one week</h4><p>I showed how one system would cut the gaps between the teams. I got one week to prove it. I built the color system first. The team accepted it, and the rest followed.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The steps -->
+    <section class="section cs" id="design-system">
+        <div class="container">
+            <h2>How I built it, step by step</h2>
+            <p>I rebuilt the system in Figma. Bow Bank is the single-bank app, in green. Elbow Trust holds many banks, in indigo. Every step, token and component below comes from that file.</p>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-1"></div><span class="step-num">Step 1</span>
+                <h3>Audit: see everything first</h3>
+                <p>I put every screen from both apps side by side, on iOS and Android. Then I cut out every piece: buttons, inputs, cards, text, colors, icons. I sorted them by type and counted how many versions of each one existed.</p>
+                <figure class="cs-fig">
+                    <img src="images/otp-ds-audit.webp" alt="The audit board: Bow Bank and Elbow Trust screens laid out in rows by flow: setup, app lock, home, cards, settings and support" width="1383" height="821" loading="lazy" decoding="async" />
+                    <figcaption>The audit board. Each row is one app, each column is one flow.</figcaption>
+                </figure>
+                <ul>
+                    <li>The same color had different names, or no name at all.</li>
+                    <li>One app had no system at all. The other had one of its own.</li>
+                    <li>The two apps had 38 components between them, and many were the same part built twice. System parts like the Android gesture bar are not counted.</li>
+                </ul>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-2"></div><span class="step-num">Step 2</span>
+                <h3>Group: one component or a variant?</h3>
+                <p>I checked in two directions. Inside one app: does the app match itself? Between the two apps: is this the same part in a different color?</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>What I saw</th><th>What it becomes</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td>Same job and structure, in both apps</td><td>One component. Build it first.</td><td>Button, Top bar, Tab bar</td></tr>
+                            <tr><td>Same job and structure, different color</td><td>One component. The color comes from the theme.</td><td>Copy button</td></tr>
+                            <tr><td>Same job, different emphasis</td><td>Variants of one component</td><td>Button: Primary, Secondary, Tertiary</td></tr>
+                            <tr><td>Looks alike, different job</td><td>Separate components</td><td>Bank badge and Copy chip</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: var(--space-3);">Where a part is used is a second question, and I answered it after the first one. It decides where a component lives, never whether it is one.</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Where it is used</th><th>Where it lives</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td>Both apps</td><td>The shared library</td><td>Button, Input, Code card</td></tr>
+                            <tr><td>One app only</td><td>The same library. Only that app&rsquo;s screens use it.</td><td>Bank badge, in Elbow Trust</td></tr>
+                            <tr><td>Once, and nowhere else</td><td>It stays on the screen</td><td>The success icon</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cs-lesson"><strong>Decision</strong>The audit caught navigation drift. On Android, Bow Bank used a drawer for four destinations and Elbow Trust used a bottom bar. Material reserves the drawer for five or more, so I proposed the bottom bar for both apps. It shipped in both. A grouping exercise ended up changing navigation in a live app.</div>
+                <div class="cs-lesson"><strong>Lesson</strong>Group by job and structure, not by how it looks. Decide where it lives after that, not instead of it.</div>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-3"></div><span class="step-num">Step 3</span>
+                <h3>Primitives: the raw values</h3>
+                <p>I collected every color from both apps and checked what each one did on screen. Then I merged the near-duplicates. A primitive has a name and a value, but no job yet. Screens never use them directly.</p>
+                <div class="cs-swatches"><div class="cs-swatch"><i style="background:#FFFFFF"></i><span>neutral/0</span><small>#FFFFFF</small></div><div class="cs-swatch"><i style="background:#F2F2F2"></i><span>neutral/100</span><small>#F2F2F2</small></div><div class="cs-swatch"><i style="background:#E0E0E0"></i><span>neutral/200</span><small>#E0E0E0</small></div><div class="cs-swatch"><i style="background:#757575"></i><span>neutral/600</span><small>#757575</small></div><div class="cs-swatch"><i style="background:#4D4D4D"></i><span>neutral/700</span><small>#4D4D4D</small></div><div class="cs-swatch"><i style="background:#111111"></i><span>neutral/900</span><small>#111111</small></div><div class="cs-swatch"><i style="background:#E3EDE4"></i><span>green/50</span><small>#E3EDE4</small></div><div class="cs-swatch"><i style="background:#C8DBCB"></i><span>green/100</span><small>#C8DBCB</small></div><div class="cs-swatch"><i style="background:#1E5E3E"></i><span>green/700</span><small>#1E5E3E</small></div><div class="cs-swatch"><i style="background:#0F2E1F"></i><span>green/900</span><small>#0F2E1F</small></div><div class="cs-swatch"><i style="background:#E8EAF6"></i><span>indigo/50</span><small>#E8EAF6</small></div><div class="cs-swatch"><i style="background:#C5CAE9"></i><span>indigo/100</span><small>#C5CAE9</small></div><div class="cs-swatch"><i style="background:#3F51B5"></i><span>indigo/500</span><small>#3F51B5</small></div><div class="cs-swatch"><i style="background:#303F9F"></i><span>indigo/700</span><small>#303F9F</small></div><div class="cs-swatch"><i style="background:#FDECEA"></i><span>red/50</span><small>#FDECEA</small></div><div class="cs-swatch"><i style="background:#C62828"></i><span>red/800</span><small>#C62828</small></div><div class="cs-swatch"><i style="background:#E2C068"></i><span>gold/300</span><small>#E2C068</small></div></div>
+                <ul>
+                    <li><strong>Grays went from 7 to 6.</strong> I merged <code>9E9E9E</code> into <code>757575</code>, because <code>757575</code> passes text contrast at 4.6:1 and <code>9E9E9E</code> fails at 2.7:1.</li>
+                    <li><strong>Spacing is a 4 px grid:</strong> 4, 8, 12, 16, 20, 24, 32, 48. Odd values round up to the next step.</li>
+                    <li><strong>Radius is picked by job.</strong> The digit box looked like an input, but it only shows the code. So it follows the card radius.</li>
+                    <li><strong>Code digits use the system font</strong> with tabular digits. They&rsquo;re read under time pressure, and the countdown changes every second.</li>
+                    <li><strong>Icons are drawn at 24</strong> with a 2 px stroke. Where a platform spec asks for a smaller icon (18 in the Android segmented control, 16 in the Copy button), the instance is resized and the stroke set to 1.5, so the weight still reads the same.</li>
+                </ul>
+                <div class="cr">
+                    <div class="cr__plot">
+                        <div class="cr__aa-line" aria-hidden="true"></div>
+                        <div class="cr__bar"><span class="cr__sw" style="color:#9E9E9E">Aa<small>9E9E9E</small></span><span class="cr__len"><i style="width:28.3%;background:#F6D2CD"></i><b style="left:28.3%;color:#C62828">2.7:1</b></span></div>
+                        <div class="cr__bar"><span class="cr__sw" style="color:#757575">Aa<small>757575</small></span><span class="cr__len"><i style="width:60%;background:#C8DBCB"></i><b style="left:60%">4.6:1</b></span></div>
+                    </div>
+                    <div class="cr__axis"><span>1:1</span><span class="is-aa">4.5 &middot; AA</span><span>7:1</span></div>
+                </div>
+                <p class="cs-cap">Both grays on white. <code>9E9E9E</code> sits in the red zone, under the 4.5 line that normal text has to clear. <code>757575</code> clears it, with little room to spare. That is why the merge went one way and not the other.</p>
+                <div class="td" id="td">
+                    <div class="td__row td--tab"><span class="td__lab">Tabular digits</span><span class="td__digits">5630</span><span class="td__secs">expires in <b>52</b>s</span></div>
+                    <div class="td__row td--prop"><span class="td__lab">Proportional</span><span class="td__digits">5630</span><span class="td__secs">expires in <b>52</b>s</span></div>
+                </div>
+                <p class="cs-cap">The same code and countdown, at the size they appear on the phone. With tabular digits every number is the same width, so the dashed edge holds still. With proportional digits a 1 is narrower than an 8, so the row twitches on every tick &mdash; while someone is copying it.</p>
+                <div class="cs-lesson"><strong>Lesson</strong>Never merge colors by look alone. Check contrast first.</div>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-4"></div><span class="step-num">Step 4</span>
+                <h3>Semantic tokens: names by job</h3>
+                <p>Every primitive gets a job. Components only use these names, never a primitive.</p>
+                <p>The first version followed Material&rsquo;s role names, like <code>primary</code> and <code>on-surface</code>. That gave the team one language, and iOS used the same names as Android. But the audit showed two problems. The hex codes were typed straight into those names, with no primitives under them. And two names did the same job: <code>background</code> and <code>surface</code> were both white.</p>
+                <p>So I put the primitives underneath and grouped the names by job: text, surface, border, brand, feedback. <code>background</code> and <code>surface</code> became one name, <code>surface/default</code>, and the light grey behind controls kept a name of its own, <code>surface/subtle</code>. Two names doing one job became one name with one job.</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Token</th><th>Points to</th><th>Job</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>text/<wbr>primary</code></td><td><span class="sw" style="background:#111111"></span>neutral/900</td><td>Main text</td></tr>
+                            <tr><td><code>text/<wbr>secondary</code></td><td><span class="sw" style="background:#4D4D4D"></span>neutral/700</td><td>Labels people need to read</td></tr>
+                            <tr><td><code>text/<wbr>tertiary</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Hints and captions, on white only</td></tr>
+                            <tr><td><code>surface/<wbr>default</code></td><td><span class="sw" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #E0E0E0"></span>neutral/0</td><td>Page and card background</td></tr>
+                            <tr><td><code>surface/<wbr>subtle</code></td><td><span class="sw" style="background:#F2F2F2"></span>neutral/100</td><td>Fills behind controls</td></tr>
+                            <tr><td><code>border/<wbr>default</code></td><td><span class="sw" style="background:#E0E0E0"></span>neutral/200</td><td>Dividers and card edges</td></tr>
+                            <tr><td><code>border/<wbr>strong</code></td><td><span class="sw" style="background:#757575"></span>neutral/600</td><td>Input edges, so they pass 3:1</td></tr>
+                            <tr><td><code>brand/<wbr>primary</code></td><td><span class="sw" style="background:#1E5E3E"></span>green/700 &middot; <span class="sw" style="background:#3F51B5"></span>indigo/500</td><td>Main buttons, top bar, active tab</td></tr>
+                            <tr><td><code>feedback/<wbr>warning</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>The last 5 seconds of a code</td></tr>
+                            <tr><td><code>feedback/<wbr>error</code></td><td><span class="sw" style="background:#C62828"></span>red/800</td><td>A wrong activation code, a failed sign-in, passwords that don&rsquo;t match</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="cs-cap">10 of the 74 semantic tokens per bank.</p>
+                <p style="margin-top: var(--space-3);">Color is not the only layer with jobs. Type sizes change per platform, so each name exists twice, once under <code>ios/</code> and once under <code>android/</code>.</p>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Token</th><th>iOS</th><th>Android</th><th>Job</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>ios/<wbr>type/<wbr>body</code> &middot; <code>android/<wbr>type/<wbr>body</code></td><td>size/17</td><td>size/16</td><td>Body text</td></tr>
+                            <tr><td><code>ios/<wbr>type/<wbr>label</code> &middot; <code>android/<wbr>type/<wbr>label</code></td><td>size/17</td><td>size/14</td><td>Button labels</td></tr>
+                            <tr><td><code>ios/<wbr>type/<wbr>segment-label</code> &middot; <code>android/<wbr>type/<wbr>segment-label</code></td><td>size/13</td><td>size/14</td><td>Segmented control</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li><strong>Warning and error point to the same primitive, not to each other.</strong> <code>feedback/<wbr>warning</code> and <code>feedback/<wbr>error</code> both sit on <code>red/<wbr>800</code> today. The last 5 seconds of a code is a warning, so when warnings change color later, errors stay where they are.</li>
+                    <li><strong>One rule, no exceptions.</strong> The gold card chip never changes per bank, but it still gets a token. One rule is easy for engineers to check.</li>
+                    <li><strong>Spacing gets tokens only where layout needs them:</strong> screen margin 20, section gap 32, list gap 12. Everything else uses the grid directly.</li>
+                </ul>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-5"></div><span class="step-num">Step 5</span>
+                <h3>Component tokens: only where needed</h3>
+                <p>Most parts use semantic tokens directly. Three get their own: Button, Code card and Timer. The test is not whether a part changes per bank or per platform &mdash; nearly all of them do, and a semantic token already carries that. A part earns its own tokens when the <em>token it points to</em> changes. The Code card&rsquo;s digit points to <code>text/<wbr>primary</code> in Bow Bank and <code>brand/<wbr>primary</code> in Elbow Trust. One semantic name cannot hold two different pointers, so the Code card gets its own.</p>
+                <p>The other eleven parts never do this. The Segmented control&rsquo;s label is 13 on iOS and 14 on Android, but that difference is already carried one layer down, by <code>ios/<wbr>type/<wbr>segment-label</code> and <code>android/<wbr>type/<wbr>segment-label</code>, and both banks use those same two names. A platform difference never needs a component token. A bank difference does, once it changes which token a part points at. A button never asks for a color. It asks for a job.</p>
+                <div class="cs-chain">
+                    <div class="cs-chain__step"><small>3 &middot; Component</small><code>button/<wbr>primary/<wbr>bg</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>2 &middot; Semantic</small><code>brand/<wbr>primary</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>1 &middot; Primitive</small><span class="sw" style="background:#1E5E3E"></span><code>green/<wbr>700</code> in Bow Bank &middot; <span class="sw" style="background:#3F51B5"></span><code>indigo/<wbr>500</code> in Elbow Trust</div>
+                </div>
+                <div class="cs-chain">
+                    <div class="cs-chain__step"><small>3 &middot; Component</small><code>ios/<wbr>button/<wbr>height</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>2 &middot; Semantic</small><code>ios/<wbr>control-height</code></div>
+                    <div class="cs-chain__arrow" aria-hidden="true">&rarr;</div>
+                    <div class="cs-chain__step"><small>1 &middot; Primitive</small><code>height/<wbr>50</code></div>
+                </div>
+                <p class="cs-cap">Not every token is a color. Android has a chain of its own: <code>android/<wbr>button/<wbr>height</code> points at <code>android/<wbr>control-height</code> and lands on 40, where Material puts it.</p>
+                <p style="margin-top: var(--space-3);"><strong>The names follow one pattern:</strong> part, then property, then state. <code>button/<wbr>primary/<wbr>bg-pressed</code> is the button, its primary background, when pressed. If you can guess a token&rsquo;s name before you search for it, the system teaches itself.</p>
+                <div class="cs-shots">
+                    <figure><img src="images/otp-ds-vars-primitives.webp" alt="The Primitives collection in Figma: 63 variables in groups for neutral, green, indigo, red, gold, bank, space, radius, font, size, height and weight" width="724" height="832" loading="lazy" decoding="async" /><figcaption>1 &middot; Primitives: 63 raw values.</figcaption></figure>
+                    <figure><img src="images/otp-ds-vars-semantic.webp" alt="The Semantic collection for Bow Bank in Figma: brand, text, surface and border tokens, each pointing to a primitive such as green/700 or neutral/900" width="724" height="832" loading="lazy" decoding="async" /><figcaption>2 &middot; Semantic: 74 tokens per bank, each pointing to a primitive.</figcaption></figure>
+                    <figure><img src="images/otp-ds-vars-component.webp" alt="The Component collection for Bow Bank in Figma: button tokens for primary, secondary, tertiary and disabled, each pointing to a semantic token such as brand/primary" width="724" height="832" loading="lazy" decoding="async" /><figcaption>3 &middot; Component: 38 tokens per bank, each pointing to a semantic token.</figcaption></figure>
+                </div>
+                <p class="cs-cap">The three layers as they are in the Figma file. No component token points to a primitive.</p>
+                <p style="margin-top: var(--space-3);">In total, 13 variables became 287, in five collections: one Primitives shared by both banks, then Semantic and Component for each bank. 63 + (74 &times; 2) + (38 &times; 2) = 287.</p>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-6"></div><span class="step-num">Step 6</span>
+                <h3>Components: 38 become 14</h3>
+                <p>I listed every component on both app pages and matched each one to a part from the audit. Platform and bank differences became variants or tokens, not new components.</p>
+                <figure class="cs-fig">
+                    <img src="images/otp-ds-components.webp" alt="The component library in Figma: Button in three types and three states for both platforms, Top bar, Code card in large and compact, Card row, Bank badge, Pattern grid, Segmented control, Copy button, Timer as ring and chip, Tab bar, Input as text field and code boxes, List row, Bank tile, and the Code switcher with Password 1 at four digits and Password 2 at six" width="1400" height="2049" loading="lazy" decoding="async" />
+                    <figcaption>The library, built on the tokens. Every variant in the table below is in this one place.</figcaption>
+                </figure>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Component</th><th>Variants</th></tr></thead>
+                        <tbody>
+                            <tr><td>Button</td><td>Primary, Secondary, Tertiary &times; iOS, Android &times; Default, Pressed, Disabled</td></tr>
+                            <tr><td>Copy button</td><td>Chip, Icon &times; platform</td></tr>
+                            <tr><td>Top bar</td><td>Platform &times; back &times; action</td></tr>
+                            <tr><td>Tab bar</td><td>Platform &times; 3 or 4 tabs &times; active tab</td></tr>
+                            <tr><td>Code card</td><td>Large, Compact &times; platform</td></tr>
+                            <tr><td>Timer</td><td>Ring, Chip &times; Default, Last 5 s &times; platform</td></tr>
+                            <tr><td>Segmented control</td><td>Selected side &times; platform</td></tr>
+                            <tr><td>Code switcher</td><td>Password 1, 2 &times; platform</td></tr>
+                            <tr><td>Input</td><td>Code boxes, Text field &times; platform &times; Default, Focused</td></tr>
+                            <tr><td>List row</td><td>Value, Chevron, Call &times; platform</td></tr>
+                            <tr><td>Bank tile</td><td>Default, Selected</td></tr>
+                            <tr><td>Card row</td><td>One job</td></tr>
+                            <tr><td>Bank badge</td><td>One job</td></tr>
+                            <tr><td>Pattern grid</td><td>One job</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="cs-cap">Large and Compact are picked by the screen, not by the bank. A Home screen holds one bank, so one code can take the space and a toggle chooses between them. A bank list cannot give every row a toggle, so both codes show at once.</p>
+                <ul>
+                    <li><strong>The tap area is built into the component:</strong> 44 on iOS, 48 on Android. The visible part can be smaller &mdash; an Android button is 40 tall, centered in a 48 tap area.</li>
+                    <li><strong>Platform parts stay native.</strong> iOS follows Apple&rsquo;s guidelines, Android follows Material 3.</li>
+                    <li><strong>No component comes from an outside kit.</strong> The platform kits stay attached to the file as reference only.</li>
+                </ul>
+                <div class="cs-lesson"><strong>Decision</strong>A borrowed component is easy to miss, because on the canvas it looks like any other instance. I swept the whole file and found one left: a <code>check</code> icon from the Material 3 Design Kit, 18&times;18, inside the Segmented control&rsquo;s two Android variants. The Code card and the Code switcher nest that control, so they had inherited it too &mdash; one borrowed icon in 11 places. I swapped both Android variants to this file&rsquo;s own <code>icon/<wbr>check</code>: an 18 instance with the stroke set to 1.5 and the color on <code>brand/<wbr>on-subtle</code>. All 11 uses resolve to it now. The iOS variants have no check, so they were not touched. Then I removed the Simple Design System library. iOS and iPadOS 27 and Material 3 stay attached as reference, and no component in the file depends on an outside kit.</div>
+                <div class="cs-lesson"><strong>Decision</strong>Only the Android segmented control shows a check on the selected segment. That is Material 3, and on Android it is also the second cue, because the selection is otherwise a green tint. iOS keeps the sliding white pill, which is already a shape cue, so it gets no check. A second cue is only needed where the first one is color alone.</div>
+                <div class="cs-lesson"><strong>Decision</strong>The Code card carried a Password 1 / Password 2 tab above the digit boxes, but the tab and the boxes were separate parts with nothing holding them together. The tab could read Password 2 while the row below it still showed the four-digit code. Two independent parts can always disagree, so I merged them into one Code switcher: the tab and the row it controls are the same component, and the digit count follows from which password is selected &mdash; four for Password 1, six for Password 2. The Segmented control stays a component of its own, because Elbow Trust uses it on screens that have no code on them.</div>
+                <div class="cs-lesson"><strong>Decision</strong>Then six digits did not fit. The card was 343 wide &mdash; a number traced off a screenshot, not chosen &mdash; and six boxes at 56 with a 12 gap come to 396. I set the card to 350, which is what <code>screen-<wbr>margin</code> 20 leaves on a 390 screen, and let the box width follow the longest code: 56 for four digits, 44 for six, gap fixed at 12 in both. The gap is the token. The box is whatever makes the longest code fit the card, so a seventh digit would not break it.</div>
+                <div class="cs-lesson"><strong>Lesson</strong>Measuring that row found a bug I had not been looking for. The iOS digit boxes were set to hug their contents, so the box holding a 1 was narrower than the box holding an 8 and the whole row changed width with the code. Fixed widths fixed it. A number you can defend is worth more than a number that happens to look right.</div>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-7"></div><span class="step-num">Step 7</span>
+                <h3>Theming: one system, two banks</h3>
+                <p>A bank is a theme: a short list of token values. The Code card is the clearest case. It carries a border token and a shadow token, and each bank sets one of them to none &mdash; Bow Bank the shadow, Elbow Trust the border. Same component, same properties, different values. Switch the bank below. The components don&rsquo;t change. Only the values do.</p>
+                <div class="tk-switch" role="radiogroup" aria-label="Bank theme">
+                    <button type="button" role="radio" aria-checked="true" data-bank-pick="bow"><i style="background:#1E5E3E"></i>Bow Bank</button>
+                    <button type="button" role="radio" aria-checked="false" data-bank-pick="elbow"><i style="background:#3F51B5"></i>Elbow Trust</button>
+                </div>
+                <p class="vh" aria-live="polite" id="tk-live">Showing the Bow Bank theme.</p>
+                <div class="tk" id="tk" data-bank="bow" aria-hidden="true">
+                    <div class="tk-col">
+                        <div class="tk-panel">
+                            <span class="tk-label">Button</span>
+                            <div class="tk-grid">
+                                <small>Default</small><small>Pressed</small><small>Disabled</small>
+                                <div class="tk-btn tk-btn--p">Continue</div><div class="tk-btn tk-btn--p is-pressed">Continue</div><div class="tk-btn tk-btn--p is-disabled">Continue</div>
+                                <div class="tk-btn tk-btn--s">Continue</div><div class="tk-btn tk-btn--s is-pressed">Continue</div><div class="tk-btn tk-btn--s is-disabled">Continue</div>
+                                <div class="tk-btn tk-btn--t">Continue</div><div class="tk-btn tk-btn--t is-pressed">Continue</div><div class="tk-btn tk-btn--t is-disabled">Continue</div>
+                            </div>
+                        </div>
+                        <div class="tk-panel">
+                            <span class="tk-label">Segmented control</span>
+                            <div class="tk-seg"><span class="is-on">Password 1</span><span>Password 2</span></div>
+                        </div>
+                    </div>
+                    <div class="tk-col">
+                        <div class="tk-panel">
+                            <span class="tk-label">Code card</span>
+                            <div class="tk-card">
+                                <div class="tk-card__head"><span class="tk-badge" data-tk-badge>CB</span><span class="tk-card__name" data-tk="cardname">Calgary Bank</span><span class="tk-chip">52s</span></div>
+                                <div class="tk-row"><span class="tk-row__label">Password 1</span><span class="tk-row__code">5630</span><span class="tk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>
+                                <div class="tk-row"><span class="tk-row__label">Password 2</span><span class="tk-row__code">204 817</span><span class="tk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span></div>
+                            </div>
+                        </div>
+                        <div class="tk-panel">
+                            <span class="tk-label">Input, focused</span>
+                            <div><span class="tk-field__label">Activation code</span><div class="tk-input">38274<i></i></div><div class="tk-hint">Enter the 5-digit code you got by SMS.</div></div>
+                        </div>
+                        <div class="tk-panel">
+                            <span class="tk-label">List row</span>
+                            <div class="tk-call"><span class="tk-badge" data-tk-badge>CB</span><span class="tk-call__text"><b data-tk="listname">Calgary Bank</b><small>1-800-555-0110</small></span><span class="tk-call__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table class="cs-table tk-values">
+                        <thead><tr><th>What changes</th><th>Value now</th><th>Used for</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>brand/<wbr>primary</code></td><td><span class="sw" data-tk-sw="primary"></span><span data-tk="primary"></span></td><td>Primary button, input focus, icons</td></tr>
+                            <tr><td><code>brand/<wbr>pressed</code></td><td><span class="sw" data-tk-sw="pressed"></span><span data-tk="pressed"></span></td><td>Primary button, pressed</td></tr>
+                            <tr><td><code>brand/<wbr>subtle</code></td><td><span class="sw" data-tk-sw="subtle"></span><span data-tk="subtle"></span></td><td>Secondary button, timer chip, call button</td></tr>
+                            <tr><td><code>brand/<wbr>on-subtle</code></td><td><span class="sw" data-tk-sw="onsubtle"></span><span data-tk="onsubtle"></span></td><td>Text and icons on the light brand fill</td></tr>
+                            <tr><td><code>font/<wbr>brand</code></td><td><span data-tk="font"></span></td><td>Bank names and headings</td></tr>
+                            <tr><td><code>code-card/<wbr>digit</code></td><td><span data-tk="digit"></span></td><td>The code itself</td></tr>
+                            <tr><td>Code card edge</td><td><span data-tk="edge"></span></td><td>How the card sits on the page</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: var(--space-3);"><code>font/<wbr>brand</code> is the only value in that list that is not a color, and the one with the most risk in it: Nunito and Inter are different typefaces with different metrics. It is safe here because brand type runs on bank names and headings only &mdash; short strings in containers that can give. The code itself stays on the system font in both banks, so the digits someone reads against a countdown never change shape.</p>
+                <p>Text, surface, border and feedback colors stay the same. So do spacing, radius, tap areas and all 14 components. The token names are identical in both banks. That is what makes the swap safe.</p>
+                <p>These are the screens from the Figma file, built from the 14 components.</p>
+                <div class="cs-screens"><figure><img src="images/otp-ds-bow-home.webp" alt="Bow Bank Home screen: green top bar, bank card, Password 1 and 2 tabs, the code in four digit boxes, a Copy chip, a countdown ring at 42 seconds and a four-tab bar" width="340" height="736" loading="lazy" decoding="async" /><figcaption>Home</figcaption></figure><figure><img src="images/otp-ds-bow-add-card.webp" alt="Bow Bank Add card screen: five code boxes with the third focused, a paste field and an Add card button" width="340" height="736" loading="lazy" decoding="async" /><figcaption>Add card</figcaption></figure><figure><img src="images/otp-ds-bow-settings.webp" alt="Bow Bank Settings screen: list rows for lock timeout, unlock method, help, sync time and version" width="340" height="736" loading="lazy" decoding="async" /><figcaption>Settings</figcaption></figure><figure><img src="images/otp-ds-bow-activation.webp" alt="Bow Bank Activation screen: a check mark, Card activated, two summary rows and a See my codes button" width="340" height="736" loading="lazy" decoding="async" /><figcaption>Activation</figcaption></figure></div>
+                <div class="cs-screens"><figure><img src="images/otp-ds-elbow-bank-list.webp" alt="Elbow Trust Bank list screen in indigo: three bank cards with a bank badge, a timer chip, codes and Add password buttons" width="375" height="811" loading="lazy" decoding="async" /><figcaption>Bank list</figcaption></figure><figure><img src="images/otp-ds-elbow-add-bank.webp" alt="Elbow Trust Add new bank screen: five bank tiles with Calgary selected and checked, and a Scan code button" width="375" height="811" loading="lazy" decoding="async" /><figcaption>Add new bank</figcaption></figure><figure><img src="images/otp-ds-elbow-enter-passwords.webp" alt="Elbow Trust Enter passwords screen: Calgary Bank, a Password 1 and 2 switch and a focused text field" width="375" height="811" loading="lazy" decoding="async" /><figcaption>Enter passwords</figcaption></figure><figure><img src="images/otp-ds-elbow-bank-support.webp" alt="Elbow Trust Bank support screen: five banks, each with a phone number and a call button" width="375" height="811" loading="lazy" decoding="async" /><figcaption>Bank support</figcaption></figure></div>
+                <p class="cs-cap">Top: Bow Bank. Bottom: Elbow Trust. Same components, same tokens, two themes.</p>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-8"></div><span class="step-num">Step 8</span>
+                <h3>Handoff: iOS and Android</h3>
+                <p>Engineers get three things: the token name in their own language, the platform differences, and the tap areas.</p>
+                <figure class="cs-fig">
+                    <img src="images/otp-ds-handoff.webp" alt="The Bow Bank Home screen on iOS and Android, with five numbered markers: top bar, code digits, copy button, timer and tab bar" width="941" height="847" loading="lazy" style="max-width: 760px; margin: 0 auto;" />
+                    <figcaption>One screen, annotated for both platforms. iOS on the left, Android on the right.</figcaption>
+                </figure>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>#</th><th>Part</th><th>Note for engineers</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Top bar</td><td>iOS: 44 bar, centered title at 17. Android: 64 bar, left title at 22.</td></tr>
+                            <tr><td>2</td><td>Code digits</td><td>System font, tabular digits. iOS 34, Android 32. The box width is fixed, and the height grows with larger text settings.</td></tr>
+                            <tr><td>3</td><td>Copy button</td><td>The chip is 24 tall, inside the standard tap area.</td></tr>
+                            <tr><td>4</td><td>Timer</td><td>Counts down from 60. In the last 5 seconds it turns to <code>feedback/<wbr>warning</code> and the ring pulses.</td></tr>
+                            <tr><td>5</td><td>Tab bar</td><td>iOS: the active label is bold. Android: the active tab gets the indicator pill.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Figma variable</th><th>iOS</th><th>Android</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>brand/<wbr>primary</code></td><td><code>brandPrimary</code></td><td><code>brand_<wbr>primary</code></td></tr>
+                            <tr><td><code>button/<wbr>primary/<wbr>bg</code></td><td><code>buttonPrimaryBg</code></td><td><code>button_<wbr>primary_<wbr>bg</code></td></tr>
+                            <tr><td><code>ios/<wbr>type/<wbr>body</code></td><td><code>typeBody</code> (17)</td><td>&mdash;</td></tr>
+                            <tr><td><code>android/<wbr>type/<wbr>body</code></td><td>&mdash;</td><td><code>type_<wbr>body</code> (16)</td></tr>
+                            <tr><td><code>ios/<wbr>touch-target</code></td><td><code>touchTarget</code> (44)</td><td>&mdash;</td></tr>
+                            <tr><td><code>android/<wbr>touch-target</code></td><td>&mdash;</td><td><code>touch_<wbr>target</code> (48)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="cs-cap">Every variable carries its code name, so engineers see the name they type, not a hex code. Where a value differs by platform, the token is split into an <code>ios/</code> and an <code>android/</code> one, so each engineer only sees their own numbers.</p>
+
+                <h4 style="margin-top: var(--space-5);">A spec for every component</h4>
+                <p>Each component has a spec: its variants, its sizes, and which token goes on which property. Engineers build from the spec, not from a screenshot. This is the Button.</p>
+                <div class="spec" aria-hidden="true">
+                    <div class="spec__item"><span class="spec__tag">iOS</span><div class="spec__btn spec__btn--ios">Continue</div><small>50 tall &middot; radius 12</small></div>
+                    <div class="spec__item"><span class="spec__tag">Android</span><div class="spec__tap"><div class="spec__btn spec__btn--and">Continue</div></div><small>40 tall, pill &middot; dashed line: 48 tap area</small></div>
+                </div>
+                <div class="table-wrap">
+                    <table class="cs-table">
+                        <thead><tr><th>Property</th><th>Token</th><th>iOS</th><th>Android</th></tr></thead>
+                        <tbody>
+                            <tr><td>Fill</td><td><code>button/<wbr>primary/<wbr>bg</code></td><td>brand/primary</td><td>brand/primary</td></tr>
+                            <tr><td>Fill, pressed</td><td><code>button/<wbr>primary/<wbr>bg-pressed</code></td><td>brand/pressed</td><td>brand/pressed</td></tr>
+                            <tr><td>Fill, disabled</td><td><code>button/<wbr>disabled/<wbr>bg</code></td><td>surface/subtle</td><td>surface/subtle</td></tr>
+                            <tr><td>Label color</td><td><code>button/<wbr>primary/<wbr>label</code></td><td>text/inverse</td><td>text/inverse</td></tr>
+                            <tr><td>Height</td><td><code>ios/<wbr>button/<wbr>height</code> &middot; <code>android/<wbr>button/<wbr>height</code></td><td>50</td><td>40</td></tr>
+                            <tr><td>Corner radius</td><td><code>ios/<wbr>button/<wbr>radius</code> &middot; <code>android/<wbr>button/<wbr>radius</code></td><td>12</td><td>Full (pill)</td></tr>
+                            <tr><td>Side padding</td><td><code>button/<wbr>padding-x</code></td><td>16</td><td>16</td></tr>
+                            <tr><td>Label size</td><td><code>ios/<wbr>type/<wbr>label</code> &middot; <code>android/<wbr>type/<wbr>label</code></td><td>17</td><td>14</td></tr>
+                            <tr><td>Label weight</td><td><code>ios/<wbr>type/<wbr>label-weight</code> &middot; <code>android/<wbr>type/<wbr>label-weight</code></td><td>Semibold</td><td>Medium</td></tr>
+                            <tr><td>Tap area</td><td><code>ios/<wbr>touch-target</code> &middot; <code>android/<wbr>touch-target</code></td><td>44, covered by the 50 height</td><td>48, around the 40 button</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="margin-top: var(--space-5);">Tokens go straight to code</h4>
+                <p>The tokens leave Figma as one file. The iOS and Android values are generated from it, so nobody retypes a hex code. When a token changes, the change reaches both apps the same way.</p>
+                <div class="cs-code">
+                    <figure><figcaption>tokens.json</figcaption><pre><code>"brand": {
+  "primary": { "value": "{green.700}" }
+},
+"button": {
+  "primary": {
+    "bg": { "value": "{brand.primary}" }
+  }
+}</code></pre></figure>
+                    <figure><figcaption>iOS</figcaption><pre><code>static let green700 = Color(hex: 0x1E5E3E)
+static let brandPrimary = green700
+static let buttonPrimaryBg = brandPrimary</code></pre></figure>
+                    <figure><figcaption>Android</figcaption><pre><code>&lt;color name="green_700"&gt;#1E5E3E&lt;/color&gt;
+&lt;color name="brand_primary"&gt;@color/green_700&lt;/color&gt;
+&lt;color name="button_primary_bg"&gt;@color/brand_primary&lt;/color&gt;</code></pre></figure>
+                </div>
+            </div>
+
+            <div class="cs-step">
+                <div class="cs-anchor" id="step-9"></div><span class="step-num">Step 9</span>
+                <h3>Governance: how it stays alive</h3>
+                <div class="cs-two">
+                    <div class="cs-card"><h4>The rules</h4><p>Three layers, one direction: component, semantic, primitive. Name by job, not by look. A new value rounds to the nearest step on the scale first. A token is added to both banks or to neither.</p></div>
+                    <div class="cs-card"><h4>How a change shipped</h4><p>The team lead approved a new component or token before it went in. Each sprint had a planning and tasking day. On that day, a handoff meeting walked the developers through what was new and why.</p></div>
+                </div>
+                <p style="margin-top: var(--space-3);">Before a new component goes in, I ask one question first: can an existing component do this job with a new variant?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="section cs">
+        <div class="container">
+            <h2>Accessibility is built in, not checked at the end</h2>
+            <p>Every rule here lives inside a token or a component, so a screen gets it without anyone remembering to add it.</p>
+            <div class="cs-two">
+                <div class="cs-card"><h4>Contrast is checked per pair</h4><p>Every text and edge color was checked against the surface it sits on before it became a token. A gray that failed was merged into one that passed.</p></div>
+                <div class="cs-card"><h4>Small parts still get big targets</h4><p>The Copy chip is 24 tall and the Android button is 40. Each one carries an invisible tap area around it, so the size that matters lives in the component and not in a reviewer&rsquo;s checklist.</p></div>
+                <div class="cs-card"><h4>No state relies on color alone</h4><p>The selected bank gets a check mark. The active tab gets a bold label or a pill. On Android the selected segment gets a check, because the tint behind it is the only other sign. On iOS the pill does that job. A focused field gets a thicker border and a caret. The timer ring pulses in its last 5 seconds.</p></div>
+                <div class="cs-card"><h4>Text can grow</h4><p>The codes and the countdown follow the phone&rsquo;s text size, and the digit box grows taller with them. Its width is fixed: six digits have to fit a 350 card, so the row is sized for the longest code rather than the largest text.</p></div>
+            </div>
+            <figure class="cs-fig">
+                <div class="table-wrap"><svg viewBox="0 0 870 166" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four controls drawn at real size, each inside a dashed outline marking its tap area: the Copy icon is a 16 point glyph in a 44 point target, the Copy chip is 24 tall in a 44 point target, the Call button is a 36 circle in a 44 point target, and the Android button is 40 tall in a 48 density-independent-pixel target."><rect x="68" y="30" width="44" height="44" rx="10" fill="#F4F4F4" stroke="#B5B5B5" stroke-width="1" stroke-dasharray="4 3"/><g transform="translate(82.00 44.00) scale(0.6667)" fill="none" stroke="#1E5E3E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></g><text x="90" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="var(--color-text-primary)">Copy icon</text><text x="90" y="131" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">16 icon &middot; 44 tap</text><rect x="253" y="30" width="95" height="44" rx="10" fill="#F4F4F4" stroke="#B5B5B5" stroke-width="1" stroke-dasharray="4 3"/><rect x="253" y="40" width="95" height="24" rx="8" fill="#E3EDE4"/><g transform="translate(265.00 44.00) scale(0.6667)" fill="none" stroke="#0F2E1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></g><text x="285" y="56" font-size="12" font-weight="600" fill="#0F2E1F">Copy</text><text x="300" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="var(--color-text-primary)">Copy chip</text><text x="300" y="131" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">24 tall &middot; 44 tap</text><rect x="458" y="30" width="44" height="44" rx="22" fill="#F4F4F4" stroke="#B5B5B5" stroke-width="1" stroke-dasharray="4 3"/><circle cx="480" cy="52" r="18" fill="#E3EDE4"/><g transform="translate(471.00 43.00) scale(0.7500)" fill="none" stroke="#0F2E1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></g><text x="480" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="var(--color-text-primary)">Call button</text><text x="480" y="131" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">36 circle &middot; 44 tap</text><rect x="640" y="28" width="160" height="48" rx="24" fill="#F4F4F4" stroke="#B5B5B5" stroke-width="1" stroke-dasharray="4 3"/><rect x="640" y="32" width="160" height="40" rx="20" fill="#1E5E3E"/><text x="720" y="57" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Continue</text><text x="720" y="112" text-anchor="middle" font-size="13" font-weight="600" fill="var(--color-text-primary)">Button, Android</text><text x="720" y="131" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">40 tall &middot; 48 tap</text><text x="20" y="158" font-size="11" fill="var(--color-text-secondary)">Dashed outline = tap area</text></svg></div>
+                <figcaption>Drawn to scale. The visible control and the area a thumb can hit are two different numbers, and the second one lives in the component &mdash; <code>ios/<wbr>touch-target</code> at 44 and <code>android/<wbr>touch-target</code> at 48. A designer placing a Copy icon gets the target without measuring anything.</figcaption>
+            </figure>
+            <figure class="cs-fig">
+                <img src="images/otp-ds-timer-states.webp" alt="The Timer component in all eight variants: the ring at 42 seconds in green and at 4 seconds with a short red arc, on iOS and Android, then the chip at 52 seconds and at 4 seconds for both platforms" width="1170" height="192" loading="lazy" decoding="async" />
+                <figcaption>The Timer, default and last 5 seconds. The colour changes, and so does the arc &mdash; the ring shrinks and pulses, so the state does not depend on telling red from green.</figcaption>
+            </figure>
+            <div class="table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Pair</th><th>Contrast</th><th>Needs</th></tr></thead>
+                    <tbody>
+                        <tr><td>White label on <code>brand/<wbr>primary</code>, Bow Bank</td><td>7.7:1</td><td>4.5:1</td></tr>
+                        <tr><td>White label on <code>brand/<wbr>primary</code>, Elbow Trust</td><td>6.87:1</td><td>4.5:1</td></tr>
+                        <tr><td><code>text/<wbr>secondary</code> on white</td><td>8.45:1</td><td>4.5:1</td></tr>
+                        <tr><td><code>text/<wbr>tertiary</code> on white</td><td>4.61:1</td><td>4.5:1</td></tr>
+                        <tr><td><code>feedback/<wbr>warning</code> on white</td><td>5.62:1</td><td>4.5:1</td></tr>
+                        <tr><td><code>border/<wbr>strong</code> on white, input edge</td><td>4.61:1</td><td>3:1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="cs-cap"><code>text/<wbr>tertiary</code> is only allowed on white. On the light gray surface it drops to 4.12:1, so <code>text/<wbr>secondary</code> is used there.</p>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section cs" style="background-color: var(--color-bg-band); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <div class="cs-anchor" id="step-10"></div><span class="step-num">Step 10</span>
+            <h2 style="margin-top: 0;">Results</h2>
+            <div class="cs-two">
+                <div class="cs-card"><h4>Color bugs went from 4&ndash;5 per release to zero</h4><p>One place for colors, not one per screen. When a color changed, it changed everywhere.</p></div>
+                <div class="cs-card"><h4>One system ran across both apps</h4><p>Same names, same components, same flows. Only the values changed per bank.</p></div>
+                <div class="cs-card"><h4>Another designer built a new theme with it</h4><p>Later, another designer used the system to make a new purple theme for a redesign. Same names, same components, a new look. That was the real test.</p></div>
+                <div class="cs-card"><h4>Developers got names, not hex codes</h4><p>Every screen I handed off pointed to tokens. The whole team spoke one language.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="section cs">
+        <div class="container">
+            <div class="cs-anchor" id="reflection"></div><h2>Reflection</h2>
+            <div class="cs-two">
+                <div class="cs-card"><h4>Prove it small first</h4><p>I didn&rsquo;t ask for a design system. I asked for one week, and I built only the color system. A small thing that works is easier to say yes to than a big plan.</p></div>
+                <div class="cs-card"><h4>Audit every layer</h4><p>Never write &ldquo;nothing&rdquo; in an audit until you&rsquo;ve checked every layer. Look at the middle of the screen, not only the frame around it.</p></div>
+                <div class="cs-card"><h4>One rule is easier to keep than ten</h4><p>Components only use semantic tokens, with no exceptions. A rule with no exceptions is one engineers can check on their own, without asking me.</p></div>
+                <div class="cs-card"><h4>Start accessibility in the audit</h4><p>Contrast got checked pair by pair while I was making the primitives, but color-only states and small tap areas only came up once I was building components. Today I&rsquo;d look for both in the audit, not after.</p></div>
+            </div>
+            <h3 style="margin-top: var(--space-5);">What I&rsquo;d improve today</h3>
+            <ul class="cs-list">
+                <li><strong>Themes as modes.</strong> My Figma plan allows one mode per collection, so each bank has its own collection with the same token names. With modes, switching a bank is one click on the frame.</li>
+                <li><strong>Test large text on real phones.</strong> The digit boxes now grow with the text. I&rsquo;d check the Home screen at the largest text size on both platforms.</li>
+                <li><strong>Dark mode.</strong> Every color already goes through a semantic token, so a dark theme is a new list of values, not new components.</li>
+                <li><strong>An error state on the Input.</strong> <code>feedback/<wbr>error</code> exists as a token, but no component uses it. A wrong activation code has a color and nowhere to show it, and a system should not carry a token with no home.</li>
+                <li><strong>Screen reader names.</strong> I&rsquo;d write the spoken label for each component into its spec, next to the tokens.</li>
+            </ul>
+            <div class="note" style="margin-top: var(--space-5);">
+                <p><strong>Want to talk about design systems?</strong> I&rsquo;m happy to walk through the tokens, the theming or the handoff. <a class="text-link" href="mailto:viola.kazemi@gmail.com">Email me</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <a class="work-card work-card--feature" href="otp-authenticator">
+                <div>
+                    <p class="work-card__meta">More shipped work</p>
+                    <h3 class="work-card__title">Maple Trust Mobile Token&nbsp;<span class="arrow" aria-hidden="true">&rarr;</span></h3>
+                    <p>The flows and product decisions: a big countdown ring that turns red, one card at a time, and activation without a SIM card.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5); gap: var(--space-2); flex-wrap: wrap;">
+                <a href="otp-authenticator" class="button button-secondary">&larr; All work</a>
+                <a href="tomaan" class="button button-secondary">Next: Tomaan &rarr;</a>
+            </div>
+            <div class="footer-grid" style="grid-template-columns: 2fr 1fr;">
+                <div>
+                    <h3>Work</h3>
+                    <ul class="footer-work">
+                        <li><a href="otp-authenticator">Maple Trust Mobile Token</a></li>
+                        <li><a href="otp-design-system">OTP Design System</a></li>
+                        <li><a href="capzy">Capzy</a></li>
+                        <li><a href="museum">Museum Educator Dashboard</a></li>
+                        <li><a href="golaab">Golaab Jewelry</a></li>
+                        <li><a href="more">More work &rarr;</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="mailto:viola.kazemi@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/viola-kazemi/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="ViolaKazemi.pdf">Resume</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <p style="margin: 0;">&copy; 2026 Viola Kazemi</p>
+                <p style="margin: 0;"><a href="sudoku.html" class="text-link footer-wb-link">Play a game</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/site.js?v=2" defer></script>
+    <script>
+    (function () {
+        var box = document.getElementById('tk'); if (!box) return;
+        var picks = document.querySelectorAll('[data-bank-pick]'), live = document.getElementById('tk-live');
+        var BANKS = {
+            bow:   { name: 'Bow Bank', primary: ['#1E5E3E', 'green/700'], pressed: ['#0F2E1F', 'green/900'], subtle: ['#E3EDE4', 'green/50'], onsubtle: ['#0F2E1F', 'green/900'], font: 'Nunito', digit: 'text/primary (dark digits)', edge: 'A border', badge: 'BB', cardname: 'Visa \u00b7\u00b7\u00b7\u00b7 4417', listname: 'Bow Bank' },
+            elbow: { name: 'Elbow Trust', primary: ['#3F51B5', 'indigo/500'], pressed: ['#303F9F', 'indigo/700'], subtle: ['#E8EAF6', 'indigo/50'], onsubtle: ['#303F9F', 'indigo/700'], font: 'Inter', digit: 'brand/primary (indigo digits)', edge: 'A shadow', badge: 'CB', cardname: 'Calgary Bank', listname: 'Calgary Bank' }
+        };
+        function paint(k, announce) {
+            var B = BANKS[k]; box.setAttribute('data-bank', k);
+            ['primary', 'pressed', 'subtle', 'onsubtle'].forEach(function (t) {
+                document.querySelector('[data-tk="' + t + '"]').textContent = B[t][1];
+                document.querySelector('[data-tk-sw="' + t + '"]').style.background = B[t][0];
+            });
+            ['font', 'digit', 'edge', 'cardname', 'listname'].forEach(function (t) { document.querySelector('[data-tk="' + t + '"]').textContent = B[t]; });
+            [].forEach.call(document.querySelectorAll('[data-tk-badge]'), function (el) { el.textContent = B.badge; });
+            if (announce) live.textContent = 'Showing the ' + B.name + ' theme.';
+        }
+        function choose(btn) {
+            picks.forEach(function (b) { b.setAttribute('aria-checked', b === btn ? 'true' : 'false'); b.tabIndex = b === btn ? 0 : -1; });
+            paint(btn.getAttribute('data-bank-pick'), true);
+        }
+        picks.forEach(function (b, i) {
+            b.tabIndex = i === 0 ? 0 : -1;
+            b.addEventListener('click', function () { choose(b); });
+            b.addEventListener('keydown', function (e) {
+                if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+                e.preventDefault();
+                var n = picks[(i + (e.key === 'ArrowRight' ? 1 : picks.length - 1)) % picks.length];
+                choose(n); n.focus();
+            });
+        });
+        paint('bow', false);
+    })();
+    </script>
+
+
+    <script>
+    (function(){
+        var jump=document.getElementById('csJump'), menu=document.getElementById('csMenu'),
+            bar=document.getElementById('csProgBar'), logo=document.querySelector('.global-header .logo');
+        if(!jump||!menu||!bar) return;
+        var steps=[].map.call(document.querySelectorAll('.cs-anchor'),function(el){
+            return {el:el, id:el.id, link:menu.querySelector('a[href="#'+el.id+'"]')};
+        });
+        var labels={}; [].forEach.call(menu.querySelectorAll('a'),function(a){
+            labels[a.getAttribute('href').slice(1)]=[a.querySelector('span').textContent, a.textContent.replace(/^\s*\d*\s*/,'')];
+        });
+        var full=jump.querySelector('.cs-jump__full'), short=jump.querySelector('.cs-jump__short'), total=steps.length-1;
+        function place(){ var r=logo.getBoundingClientRect();
+            jump.style.left=(r.right+8)+'px'; if(window.innerWidth>768) menu.style.left=(r.right+8)+'px'; }
+        function open(v){ jump.setAttribute('aria-expanded',v?'true':'false'); menu.hidden=!v; if(v) place(); }
+        jump.addEventListener('click',function(e){ e.stopPropagation(); open(menu.hidden); });
+        document.addEventListener('click',function(e){ if(!menu.hidden && !menu.contains(e.target)) open(false); });
+        document.addEventListener('keydown',function(e){ if(e.key==='Escape') open(false); });
+        menu.addEventListener('click',function(){ open(false); });
+        var last=null;
+        function update(){
+            var first=steps[0].el.getBoundingClientRect().top+window.pageYOffset-92,
+                end=steps[steps.length-1].el.getBoundingClientRect().top+window.pageYOffset,
+                y=window.pageYOffset, pct=end>first?(y-first)/(end-first):0;
+            bar.style.transform='scaleX('+Math.min(1,Math.max(0,pct))+')';
+            var cur=null;
+            steps.forEach(function(s){ if(s.el.getBoundingClientRect().top<=100) cur=s; });
+            if(cur===last) return;
+            if(last&&last.link) last.link.removeAttribute('aria-current');
+            last=cur;
+            if(!cur){ full.textContent='/ OTP Design System'; short.textContent='Steps'; place(); return; }
+            if(cur.link) cur.link.setAttribute('aria-current','true');
+            var l=labels[cur.id];
+            full.textContent = l[0] ? '/ Step '+l[0]+' \u00b7 '+l[1] : '/ '+l[1];
+            short.textContent = l[0] ? l[0]+'/'+total : l[1];
+            place();
+        }
+        window.addEventListener('scroll',update,{passive:true});
+        window.addEventListener('resize',function(){ place(); update(); });
+        place(); update();
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var box=document.getElementById('td'); if(!box) return;
+        var codes=['5630','1118','8041','1111','9888','4107'], secs=[52,44,38,11,8,5], i=0;
+        var d=box.querySelectorAll('.td__digits'), sv=box.querySelectorAll('.td__secs b');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            [].forEach.call(d,function(el){ el.textContent='1111  8888'; });
+            return;
+        }
+        function guide(){ var r=d[0].getBoundingClientRect(), b=box.getBoundingClientRect(); box.style.setProperty('--guide',(r.right-b.left)+'px'); box.classList.add('is-set'); }
+        guide(); window.addEventListener('resize',guide);
+        setInterval(function(){
+            i=(i+1)%codes.length;
+            [].forEach.call(d,function(el){ el.textContent=codes[i]; });
+            [].forEach.call(sv,function(el){ el.textContent=secs[i]; });
+        },1100);
+    })();
+    </script>
+</body>
+</html>
